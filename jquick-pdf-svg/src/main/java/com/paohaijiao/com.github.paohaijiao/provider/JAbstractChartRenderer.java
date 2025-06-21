@@ -13,9 +13,10 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.paohaijiao.echart.provider;
+package com.paohaijiao.com.github.paohaijiao.provider;
 
-import com.paohaijiao.data.JOption;
+import com.github.paohaijiao.JOption;
+import com.paohaijiao.com.github.paohaijiao.provider.JChartRenderer;
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.w3c.dom.DOMImplementation;

@@ -13,9 +13,11 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.paohaijiao.echart.provider;
+package com.paohaijiao.com.github.paohaijiao.provider;
 
-import com.paohaijiao.data.JOption;
+
+
+import com.github.paohaijiao.JOption;
 
 import java.io.IOException;
 

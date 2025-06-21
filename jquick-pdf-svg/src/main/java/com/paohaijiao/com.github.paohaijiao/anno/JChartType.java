@@ -13,10 +13,11 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.paohaijiao.echart.anno;
+package com.paohaijiao.com.github.paohaijiao.anno;
 
-import com.paohaijiao.data.data.JKData;
-import com.paohaijiao.data.data.JPieData;
+
+import com.github.paohaijiao.data.JKData;
+import com.github.paohaijiao.data.JPieData;
 
 public enum JChartType {
     PIE("PIE", JPieData.class),

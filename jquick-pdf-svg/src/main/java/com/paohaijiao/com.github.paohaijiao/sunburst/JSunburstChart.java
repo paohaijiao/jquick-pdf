@@ -13,10 +13,10 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.paohaijiao.echart.sunburst;
+package com.paohaijiao.com.github.paohaijiao.sunburst;
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.echart.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.JOption;
+import com.paohaijiao.com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.anim.dom.SVGDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.w3c.dom.Document;

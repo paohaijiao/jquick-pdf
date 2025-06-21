@@ -20,7 +20,6 @@ import com.github.paohaijiao.JAbstractData;
 import com.github.paohaijiao.JChart;
 import com.github.paohaijiao.JTooltip;
 import com.github.paohaijiao.code.*;
-import com.paohaijiao.data.code.*;
 import com.github.paohaijiao.style.JItemStyle;
 import lombok.Getter;
 import lombok.Setter;

@@ -14,14 +14,14 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.JRadar;
-import com.paohaijiao.data.code.JSeriesType;
-import com.paohaijiao.data.code.JTrigger;
-import com.paohaijiao.data.series.JRadarSeries;
-import com.paohaijiao.data.style.JTextStyle;
-import com.paohaijiao.echart.pie.JPieChartsRenderer;
-import com.paohaijiao.echart.radar.JRadarChartsRenderer;
+
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.JRadar;
+import com.github.paohaijiao.code.JSeriesType;
+import com.github.paohaijiao.code.JTrigger;
+import com.github.paohaijiao.series.JRadarSeries;
+import com.github.paohaijiao.style.JTextStyle;
+import com.paohaijiao.com.github.paohaijiao.radar.JRadarChartsRenderer;
 import org.junit.Test;
 
 import javax.xml.parsers.ParserConfigurationException;

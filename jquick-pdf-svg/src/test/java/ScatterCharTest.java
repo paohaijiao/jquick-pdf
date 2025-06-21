@@ -14,12 +14,12 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.axis.JValueAxis;
-import com.paohaijiao.data.code.JTrigger;
-import com.paohaijiao.data.data.JData;
-import com.paohaijiao.data.series.JScatter;
-import com.paohaijiao.echart.scatter.JScatterChartsRenderer;
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.axis.JValueAxis;
+import com.github.paohaijiao.code.JTrigger;
+import com.github.paohaijiao.data.JData;
+import com.github.paohaijiao.series.JScatter;
+import com.paohaijiao.com.github.paohaijiao.scatter.JScatterChartsRenderer;
 import org.junit.Test;
 
 import java.io.IOException;

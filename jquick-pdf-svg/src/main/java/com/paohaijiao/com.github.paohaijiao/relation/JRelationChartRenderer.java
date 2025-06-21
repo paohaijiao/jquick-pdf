@@ -13,16 +13,16 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.paohaijiao.echart.relation;
+package com.paohaijiao.com.github.paohaijiao.relation;
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.json.JGsonOption;
-import com.paohaijiao.data.series.JGraph;
-import com.paohaijiao.data.series.JSeries;
-import com.paohaijiao.data.series.force.JCategory;
-import com.paohaijiao.data.series.force.JLink;
-import com.paohaijiao.data.series.force.JNode;
-import com.paohaijiao.echart.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.json.JGsonOption;
+import com.github.paohaijiao.series.JGraph;
+import com.github.paohaijiao.series.JSeries;
+import com.github.paohaijiao.series.force.JCategory;
+import com.github.paohaijiao.series.force.JLink;
+import com.github.paohaijiao.series.force.JNode;
+import com.paohaijiao.com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;

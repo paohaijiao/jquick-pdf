@@ -14,9 +14,9 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.axis.JCategoryAxis;
-import com.paohaijiao.data.series.JHeatmap;
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.axis.JCategoryAxis;
+import com.github.paohaijiao.series.JHeatmap;
 import com.paohaijiao.echart.heatMap.JHeatMapChartRenderer;
 import org.junit.Test;
 

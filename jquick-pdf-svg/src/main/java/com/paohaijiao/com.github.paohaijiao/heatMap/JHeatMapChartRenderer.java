@@ -15,9 +15,9 @@
  */
 package com.paohaijiao.echart.heatMap;
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.series.JHeatmap;
-import com.paohaijiao.echart.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.series.JHeatmap;
+import com.paohaijiao.com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -31,8 +31,6 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.echart.provider.JAbstractChartRenderer;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;

@@ -1,7 +1,6 @@
 package com.github.paohaijiao;
 
 import com.github.paohaijiao.code.*;
-import com.paohaijiao.data.code.*;
 import com.github.paohaijiao.style.JTextStyle;
 import lombok.Getter;
 import lombok.Setter;

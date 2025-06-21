@@ -14,15 +14,13 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.code.JLayout;
-import com.paohaijiao.data.json.JGsonOption;
-import com.paohaijiao.data.series.JGraph;
-import com.paohaijiao.data.series.force.JCategory;
-import com.paohaijiao.data.series.force.JLink;
-import com.paohaijiao.data.series.force.JNode;
-import com.paohaijiao.echart.radar.JRadarChartsRenderer;
-import com.paohaijiao.echart.relation.JRelationChartRenderer;
+import com.github.paohaijiao.code.JLayout;
+import com.github.paohaijiao.json.JGsonOption;
+import com.github.paohaijiao.series.JGraph;
+import com.github.paohaijiao.series.force.JCategory;
+import com.github.paohaijiao.series.force.JLink;
+import com.github.paohaijiao.series.force.JNode;
+import com.paohaijiao.com.github.paohaijiao.relation.JRelationChartRenderer;
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.junit.Test;

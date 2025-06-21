@@ -13,12 +13,12 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.paohaijiao.echart.pie;
+package com.paohaijiao.com.github.paohaijiao.pie;
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.data.JData;
-import com.paohaijiao.data.series.JPie;
-import com.paohaijiao.echart.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.data.JData;
+import com.github.paohaijiao.series.JPie;
+import com.paohaijiao.com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.w3c.dom.DOMImplementation;

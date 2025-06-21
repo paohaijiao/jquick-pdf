@@ -14,11 +14,11 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.code.JTrigger;
-import com.paohaijiao.data.data.JData;
-import com.paohaijiao.data.series.JPie;
-import com.paohaijiao.echart.pie.JPieChartsRenderer;
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.code.JTrigger;
+import com.github.paohaijiao.data.JData;
+import com.github.paohaijiao.series.JPie;
+import com.paohaijiao.com.github.paohaijiao.pie.JPieChartsRenderer;
 import org.junit.Test;
 
 import java.io.IOException;

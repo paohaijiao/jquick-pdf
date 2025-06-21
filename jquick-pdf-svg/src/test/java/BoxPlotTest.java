@@ -14,11 +14,11 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.axis.JCategoryAxis;
-import com.paohaijiao.data.series.JBoxplot;
-import com.paohaijiao.echart.bar.JBarChartsRenderer;
-import com.paohaijiao.echart.boxPlot.JBoxPlotChartRenderer;
+
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.axis.JCategoryAxis;
+import com.github.paohaijiao.series.JBoxplot;
+import com.paohaijiao.com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
 import org.junit.Test;
 
 import javax.xml.parsers.ParserConfigurationException;

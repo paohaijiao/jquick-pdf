@@ -13,12 +13,13 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.paohaijiao.echart.radar;
+package com.paohaijiao.com.github.paohaijiao.radar;
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.JRadar;
-import com.paohaijiao.data.series.JRadarSeries;
-import com.paohaijiao.echart.provider.JAbstractChartRenderer;
+
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.JRadar;
+import com.github.paohaijiao.series.JRadarSeries;
+import com.paohaijiao.com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.w3c.dom.Document;

@@ -15,13 +15,8 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.paohaijiao.data.JOption;
-import com.paohaijiao.data.axis.JValueAxis;
-import com.paohaijiao.data.code.JTrigger;
-import com.paohaijiao.data.data.JData;
-import com.paohaijiao.data.series.JScatter;
-import com.paohaijiao.echart.scatter.JScatterChartsRenderer;
-import com.paohaijiao.echart.sunburst.JSunburstChart;
+import com.github.paohaijiao.JOption;
+import com.paohaijiao.com.github.paohaijiao.sunburst.JSunburstChart;
 import org.junit.Test;
 
 import java.io.IOException;

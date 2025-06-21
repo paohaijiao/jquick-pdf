@@ -20,7 +20,7 @@ import com.github.paohaijiao.JLabel;
 import com.github.paohaijiao.JLabelLine;
 import com.github.paohaijiao.code.JPosition;
 import com.github.paohaijiao.style.*;
-import com.paohaijiao.data.style.*;
+
 
 import java.io.Serializable;
 
