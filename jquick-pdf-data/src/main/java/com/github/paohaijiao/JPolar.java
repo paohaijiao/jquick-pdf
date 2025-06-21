@@ -148,6 +148,7 @@ public class JPolar extends JAbstractData<JPolar> implements JComponent {
     public Integer z() {
         return this.z;
     }
+
     /**
      * 获取center值
      */

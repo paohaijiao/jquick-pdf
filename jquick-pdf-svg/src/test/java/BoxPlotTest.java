@@ -13,6 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
+
 import com.paohaijiao.data.JOption;
 import com.paohaijiao.data.axis.JCategoryAxis;
 import com.paohaijiao.data.series.JBoxplot;
@@ -36,6 +37,6 @@ public class BoxPlotTest {
                 new Object[]{11, 16, 21, 27, 33}
         ));
         JBoxPlotChartRenderer jBarChartsRenderer = new JBoxPlotChartRenderer();
-        jBarChartsRenderer.render(option,"D://test//boxchart-output.svg");
+        jBarChartsRenderer.render(option, "D://test//boxchart-output.svg");
     }
 }

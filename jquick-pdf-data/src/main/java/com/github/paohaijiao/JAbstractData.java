@@ -170,6 +170,7 @@ public abstract class JAbstractData<T> implements JData<T>, java.io.Serializable
         this.clickable = clickable;
         return (T) this;
     }
+
     /**
      * 获取hoverable值
      */

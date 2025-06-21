@@ -61,8 +61,8 @@ public class KCharTest {
                         new Object[]{110.4, 112.1, 109.5, 112.8}
                 );
         option.series(candlestick);
-        JKChartsRenderer renderer=new JKChartsRenderer();
-        renderer.render(option,"d://test//kline_chart.svg");
+        JKChartsRenderer renderer = new JKChartsRenderer();
+        renderer.render(option, "d://test//kline_chart.svg");
 
     }
 

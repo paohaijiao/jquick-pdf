@@ -26,39 +26,41 @@ import com.paohaijiao.javelin.parser.JQuickPDFParser;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXDivVisitor extends JPdfXSvgVisitor{
+public class JPdfXDivVisitor extends JPdfXSvgVisitor {
     @Override
     public Void visitDiv(JQuickPDFParser.DivContext ctx) {
-        if(ctx.divStyle()!=null){
-            visitDivStyle( ctx.divStyle());
+        if (ctx.divStyle() != null) {
+            visitDivStyle(ctx.divStyle());
         }
-        for(JQuickPDFParser.ElementContext elementContext:ctx.element()){
+        for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
             visitElement(elementContext);
         }
         return null;
     }
+
     @Override
     public Void visitDivStyle(JQuickPDFParser.DivStyleContext ctx) {
-        for (JQuickPDFParser.DivStyleItemContext item:ctx.divStyleItem()){
+        for (JQuickPDFParser.DivStyleItemContext item : ctx.divStyleItem()) {
             visitDivStyleItem(item);
         }
         return null;
     }
+
     @Override
     public Void visitDivStyleItem(JQuickPDFParser.DivStyleItemContext ctx) {
-        if(null!=ctx.dimension()){
-             visit(ctx.dimension());
+        if (null != ctx.dimension()) {
+            visit(ctx.dimension());
         }
-        if(null!=ctx.background()){
+        if (null != ctx.background()) {
             visit(ctx.background());
         }
-        if(null!=ctx.border()){
+        if (null != ctx.border()) {
             visit(ctx.border());
         }
-        if(null!=ctx.spacing()){
+        if (null != ctx.spacing()) {
             visit(ctx.spacing());
         }
-        if(null!=ctx.float_()){
+        if (null != ctx.float_()) {
             visit(ctx.float_());
         }
         return null;

@@ -222,6 +222,7 @@ public class JTreemap extends JSeries<JTreemap> {
         this.zoomToNodeRatio = zoomToNodeRatio;
         return this;
     }
+
     public Object nodeClick() {
         return this.nodeClick;
     }
@@ -259,6 +260,7 @@ public class JTreemap extends JSeries<JTreemap> {
         this.roam = roam;
         return this;
     }
+
     public Double squareRatio() {
         return this.squareRatio;
     }
@@ -267,6 +269,7 @@ public class JTreemap extends JSeries<JTreemap> {
         this.squareRatio = squareRatio;
         return this;
     }
+
     /**
      * 设置val1,val2值
      *

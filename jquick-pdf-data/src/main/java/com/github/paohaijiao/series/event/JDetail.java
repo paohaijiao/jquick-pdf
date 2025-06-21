@@ -23,7 +23,6 @@ import java.io.Serializable;
 
 /**
  * 事件的详细信息
- *
  */
 @Getter
 @Setter

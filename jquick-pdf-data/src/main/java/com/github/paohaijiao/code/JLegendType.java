@@ -17,8 +17,7 @@ package com.github.paohaijiao.code;
 
 /**
  * 图例类型
- *
  */
 public enum JLegendType {
-    plain,scroll
+    plain, scroll
 }

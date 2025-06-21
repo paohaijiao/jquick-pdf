@@ -30,7 +30,7 @@ import java.util.stream.Collectors;
  * @UpdateRemark:
  * @Version: 1.0
  */
-public class BarChartConfigBuilder extends EChartConfigBuilder{
+public class BarChartConfigBuilder extends EChartConfigBuilder {
     public static Map<String, Object> buildBarChart(
             String title,
             List<String> xAxisData,
@@ -44,20 +44,20 @@ public class BarChartConfigBuilder extends EChartConfigBuilder{
                                 .map(SeriesData::getName)
                                 .collect(Collectors.toList())
                 ))
-              .add("xAxis", mapOf(
-                                "type", "category",
-                                "data", xAxisData
+                .add("xAxis", mapOf(
+                        "type", "category",
+                        "data", xAxisData
+                ))
+                .add("yAxis", mapOf("type", "value"))
+                .add("series", seriesList.stream()
+                        .map(series -> mapOf(
+                                "name", series.getName(),
+                                "type", "bar",
+                                "data", series.getData()
                         ))
-                        .add("yAxis", mapOf("type", "value"))
-                        .add("series", seriesList.stream()
-                                .map(series -> mapOf(
-                                        "name", series.getName(),
-                                        "type", "bar",
-                                        "data", series.getData()
-                                ))
-                                .collect(Collectors.toList())
-                        )
-                        .build();
+                        .collect(Collectors.toList())
+                )
+                .build();
     }
 
     public static class SeriesData {
@@ -70,9 +70,15 @@ public class BarChartConfigBuilder extends EChartConfigBuilder{
         }
 
         // getters
-        public String getName() { return name; }
-        public List<Number> getData() { return data; }
+        public String getName() {
+            return name;
+        }
+
+        public List<Number> getData() {
+            return data;
+        }
     }
+
     public static void main(String[] args) {
         List<String> categories = Arrays.asList("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
         List<SeriesData> series = Arrays.asList(

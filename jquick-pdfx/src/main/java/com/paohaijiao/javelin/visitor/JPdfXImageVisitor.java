@@ -43,10 +43,11 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
     public Image visitImage(JQuickPDFParser.ImageContext ctx) {
         String path = ctx.PATH().getText();
         if (ctx.imageStyle() != null) {
-          visitImageStyle(ctx.imageStyle());
+            visitImageStyle(ctx.imageStyle());
         }
         return null;
     }
+
     @Override
     public Void visitImageStyle(JQuickPDFParser.ImageStyleContext ctx) {
         for (JQuickPDFParser.ImageStyleItemContext item : ctx.imageStyleItem()) {
@@ -54,23 +55,23 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
         }
         return null;
     }
+
     @Override
     public Void visitImageStyleItem(JQuickPDFParser.ImageStyleItemContext ctx) {
-        if(ctx.dimension()!=null) {
+        if (ctx.dimension() != null) {
             visit(ctx.dimension());
         }
-        if(ctx.border()!=null) {
+        if (ctx.border() != null) {
             visit(ctx.border());
         }
-        if(ctx.opacity()!=null) {
+        if (ctx.opacity() != null) {
             visit(ctx.opacity());
         }
         return null;
     }
 
 
-
-    public static Image buildImage(){
+    public static Image buildImage() {
         Image image = null;
         try {
             image = new Image(ImageDataFactory.create("path/to/image.jpg"));
@@ -82,7 +83,7 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
         image.setAutoScale(true); // 自动缩放
         image.setRotationAngle(Math.PI / 4); // 旋转45度
         image.setOpacity(0.8f); // 透明度
-       // image.setBorder(new SolidBorder(Color.BLUE, 2)); // 边框
+        // image.setBorder(new SolidBorder(Color.BLUE, 2)); // 边框
         image.setHorizontalAlignment(HorizontalAlignment.CENTER); // 对齐方式
         image.setMargins(10, 0, 10, 0); // 边距
         return image;

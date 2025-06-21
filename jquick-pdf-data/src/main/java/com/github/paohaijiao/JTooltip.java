@@ -103,6 +103,7 @@ public class JTooltip extends JBasic<JTooltip> implements JComponent {
         this.alwaysShowContent = alwaysShowContent;
         return this;
     }
+
     public JTriggerOn triggerOn() {
         return this.triggerOn;
     }
@@ -111,6 +112,7 @@ public class JTooltip extends JBasic<JTooltip> implements JComponent {
         this.triggerOn = triggerOn;
         return this;
     }
+
     /**
      * 设置axisPointer值
      *

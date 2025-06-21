@@ -43,7 +43,7 @@ public class JLegend extends JBasic<JLegend> implements JData<JLegend>, JCompone
     /**
      * 设置分页方式
      */
-    private JLegendType type ;
+    private JLegendType type;
 
     /**
      * 图例图形宽度
@@ -94,7 +94,7 @@ public class JLegend extends JBasic<JLegend> implements JData<JLegend>, JCompone
         this.data(values);
     }
 
-    public JLegendType type(){
+    public JLegendType type() {
         return this.type;
     }
 
@@ -120,6 +120,7 @@ public class JLegend extends JBasic<JLegend> implements JData<JLegend>, JCompone
         this.formatter = formatter;
         return this;
     }
+
     /**
      * 设置textStyle值
      *

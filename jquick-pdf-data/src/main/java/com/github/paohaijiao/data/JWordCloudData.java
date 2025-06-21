@@ -83,7 +83,7 @@ public class JWordCloudData implements Serializable {
     /**
      * 获取value值
      */
-	public Integer value() {
+    public Integer value() {
         return this.value;
     }
 
@@ -100,7 +100,7 @@ public class JWordCloudData implements Serializable {
     /**
      * 获取itemStyle值
      */
-	public JItemStyle itemStyle() {
+    public JItemStyle itemStyle() {
         if (this.itemStyle == null) {
             this.itemStyle = new JItemStyle();
         }

@@ -54,7 +54,8 @@ public class JNode extends HashMap<String, Object> implements Serializable {
         put("name", name);
         put("value", value);
     }
-    public JNode( String id, String name) {
+
+    public JNode(String id, String name) {
         super();
         put("id", id);
         put("name", name);

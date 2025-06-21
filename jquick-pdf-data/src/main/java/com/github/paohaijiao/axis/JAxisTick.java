@@ -64,16 +64,17 @@ public class JAxisTick implements Serializable {
      * 分割段数，默认为5，为0时为线性渐变，calculable为true是默认均分100份
      */
     private Integer splitNumber;
-    
+
     /**
-     * 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。 
-     *  defalut:false
-     *  @see http://echarts.baidu.com/option.html#xAxis
-     *  @author w
-     *  @date 2018年6月27日 16:31:27
+     * 类目轴中在 boundaryGap 为 true 的时候有效，可以保证刻度线和标签对齐。
+     * defalut:false
+     *
+     * @author w
+     * @date 2018年6月27日 16:31:27
+     * @see http://echarts.baidu.com/option.html#xAxis
      */
     private Boolean alignWithLabel = false;
-    
+
     /**
      * 获取show值
      */
@@ -197,34 +198,32 @@ public class JAxisTick implements Serializable {
         this.splitNumber = splitNumber;
         return this;
     }
-    
+
     /**
      * description: 设置 alignWithLabel 的值。
+     *
      * @param alignWithLabel
+     * @return AxisTick
      * @return
-     * AxisTick
      * @version v1.0
      * @author w
-     * @return 
      * @date 2018年6月27日 下午4:33:23
-     *
      */
-    public JAxisTick alignWithLabel(Boolean alignWithLabel){
-    	this.alignWithLabel=alignWithLabel;
-    	return this;
+    public JAxisTick alignWithLabel(Boolean alignWithLabel) {
+        this.alignWithLabel = alignWithLabel;
+        return this;
     }
-    
+
     /**
      * description: 获取 alignWithLabel 的值。
-     * @return
-     * Boolean
+     *
+     * @return Boolean
      * @version v1.0
      * @author w
      * @date 2018年6月27日 下午4:34:19
-     *
      */
-    public Boolean alignWithLabel(){
-    	return this.alignWithLabel;
+    public Boolean alignWithLabel() {
+        return this.alignWithLabel;
     }
-    
+
 }

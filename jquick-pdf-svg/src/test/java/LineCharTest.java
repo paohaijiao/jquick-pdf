@@ -48,7 +48,7 @@ public class LineCharTest {
         JLine line = new JLine();
         line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
         option.series(line);
-        JLineChartsRenderer renderer=new JLineChartsRenderer();
+        JLineChartsRenderer renderer = new JLineChartsRenderer();
         renderer.render(option, "D://test//line_chart.svg");
     }
 

@@ -13,6 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
+
 import com.paohaijiao.data.JOption;
 import com.paohaijiao.data.code.JLayout;
 import com.paohaijiao.data.json.JGsonOption;
@@ -90,7 +91,7 @@ public class RelationTest {
         option.series(graph);
         option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
 
-        JRelationChartRenderer renderer=new JRelationChartRenderer();
+        JRelationChartRenderer renderer = new JRelationChartRenderer();
         renderer.render(option, "d://test//relation_chart.svg");
         System.out.println("雷达图SVG已生成: radar_chart.svg");
 

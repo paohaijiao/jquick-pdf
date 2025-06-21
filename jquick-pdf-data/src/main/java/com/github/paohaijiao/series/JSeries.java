@@ -278,6 +278,7 @@ public abstract class JSeries<T> extends JAbstractData<T> implements JChart {
         this.symbolOffset = new Object[]{o1, o2};
         return (T) this;
     }
+
     public Object coordinateSystem() {
         return this.coordinateSystem;
     }

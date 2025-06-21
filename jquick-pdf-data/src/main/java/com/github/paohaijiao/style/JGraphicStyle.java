@@ -40,7 +40,7 @@ public class JGraphicStyle {
     private JX textAlign;
 
     /**
-     *文本填充颜色
+     * 文本填充颜色
      */
     private String fill;
 
@@ -54,34 +54,34 @@ public class JGraphicStyle {
      */
     private Object height;
 
-    
+
     public JGraphicStyle text(String text) {
         this.text = text;
         return this;
     }
 
-    
+
     public JGraphicStyle textAlign(JX textAlign) {
         this.textAlign = textAlign;
         return this;
     }
 
-    
+
     public JGraphicStyle fill(String fill) {
         this.fill = fill;
         return this;
     }
 
-    
+
     public JGraphicStyle width(Object width) {
         this.width = width;
         return this;
     }
 
-    
+
     public JGraphicStyle height(Object height) {
         this.height = height;
         return this;
     }
-    
+
 }

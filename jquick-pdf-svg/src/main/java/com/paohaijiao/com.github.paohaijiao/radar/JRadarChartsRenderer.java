@@ -35,6 +35,7 @@ public class JRadarChartsRenderer extends JAbstractChartRenderer {
     private static final BasicStroke RADAR_BACKGROUND_STROKE = new BasicStroke(1);
     private static final BasicStroke RADAR_DATA_STROKE = new BasicStroke(2);
     private static final int RADAR_LEVELS = 5;
+
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
         svgGenerator.setPaint(BACKGROUND_COLOR);// 设置背景
@@ -87,7 +88,7 @@ public class JRadarChartsRenderer extends JAbstractChartRenderer {
         for (int i = 0; i < indicators.size(); i++) {
             double angle = 2 * Math.PI * i / indicators.size();
             double value = dataPoints.get(i).doubleValue();
-            double maxValue = (int)indicators.get(i).getMax();
+            double maxValue = (int) indicators.get(i).getMax();
             int radius = (int) (maxRadius * (value / maxValue));
             xPoints[i] = centerX + (int) (radius * Math.sin(angle));
             yPoints[i] = centerY - (int) (radius * Math.cos(angle));

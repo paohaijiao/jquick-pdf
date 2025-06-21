@@ -42,13 +42,14 @@ import java.util.Map;
 public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected PdfDocument pdfDoc;
     protected Document document;
-    protected JStyleModel style=new JStyleModel();
-    protected JStyleAlignModel align=new JStyleAlignModel();
-    protected JStyleSpacingModel spacingModel=new JStyleSpacingModel();
-    protected JStyleDimensionModel dimension=new JStyleDimensionModel();
+    protected JStyleModel style = new JStyleModel();
+    protected JStyleAlignModel align = new JStyleAlignModel();
+    protected JStyleSpacingModel spacingModel = new JStyleSpacingModel();
+    protected JStyleDimensionModel dimension = new JStyleDimensionModel();
     protected Map<String, Template> templates = new HashMap<>();
     protected PageSize currentPageSize = PageSize.A4;
     protected float[] currentMargins = new float[]{72, 72, 72, 72}; // default 1 inch margins // top, right, bottom, left
+
     protected float convertToPoints(float value, String unit) {
         switch (unit) {
             case "px":
@@ -67,6 +68,7 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
                 return value;
         }
     }
+
     protected Color parseColor(String colorStr) {
         if (colorStr.startsWith("#")) {
             return new DeviceRgb(
@@ -86,10 +88,11 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
             return new DeviceRgb(0, 0, 0); // default black
         }
     }
-    protected void cleanTemp(){
-        this.style=new JStyleModel();
-        this.align=new JStyleAlignModel();
-        this.spacingModel=new JStyleSpacingModel();
-        this.dimension=new JStyleDimensionModel();
+
+    protected void cleanTemp() {
+        this.style = new JStyleModel();
+        this.align = new JStyleAlignModel();
+        this.spacingModel = new JStyleSpacingModel();
+        this.dimension = new JStyleDimensionModel();
     }
 }

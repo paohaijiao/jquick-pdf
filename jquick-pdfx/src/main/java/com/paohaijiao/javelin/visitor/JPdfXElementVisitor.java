@@ -33,9 +33,8 @@ import com.paohaijiao.javelin.parser.JQuickPDFParser;
 public class JPdfXElementVisitor extends JPdfXImageVisitor {
 
 
-
     @Override
-    public IElement  visitElement(JQuickPDFParser.ElementContext ctx) {
+    public IElement visitElement(JQuickPDFParser.ElementContext ctx) {
         if (ctx.paragraph() != null) {
             return visitParagraph(ctx.paragraph());
         } else if (ctx.heading() != null) {
@@ -55,11 +54,6 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
         }
         return null;
     }
-
-
-
-
-
 
 
     @Override

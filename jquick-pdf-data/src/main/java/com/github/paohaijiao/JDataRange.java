@@ -150,7 +150,7 @@ public class JDataRange extends JBasic<JDataRange> implements JComponent {
     /**
      * 获取range值
      */
-	public JRangeData range() {
+    public JRangeData range() {
         return this.range;
     }
 
@@ -170,7 +170,7 @@ public class JDataRange extends JBasic<JDataRange> implements JComponent {
     /**
      * 获取splitList值
      */
-	public List<JRangeData> splitList() {
+    public List<JRangeData> splitList() {
         if (this.splitList == null) {
             this.splitList = new ArrayList<JRangeData>();
         }

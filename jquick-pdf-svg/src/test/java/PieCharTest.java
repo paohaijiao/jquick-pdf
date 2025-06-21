@@ -49,7 +49,7 @@ public class PieCharTest {
                 new JData().name("袜子").value(4)
         );
         option.series(pie);
-        JPieChartsRenderer  renderer=new JPieChartsRenderer();
+        JPieChartsRenderer renderer = new JPieChartsRenderer();
         renderer.render(option, "d://test//accurate-pie-chart.svg");
     }
 

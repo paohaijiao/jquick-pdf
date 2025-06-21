@@ -38,59 +38,60 @@ public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
         this.cleanTemp();
         String text = ctx.string().getText().replaceAll("^\"|\"$", "");
-        if(null!=ctx.paragraphStyle()){
+        if (null != ctx.paragraphStyle()) {
             visitParagraphStyle(ctx.paragraphStyle());
         }
-        JParagraphModel model=new JParagraphModel();
+        JParagraphModel model = new JParagraphModel();
         model.setText(text);
         model.setStyle(style);
         model.setStyle(style);
 //        model.setAlign(align);
 //        model.setSpacing(spacingModel);
-        Paragraph paragraph=this.buildParagraph(model);
+        Paragraph paragraph = this.buildParagraph(model);
         return paragraph;
     }
+
     @Override
     public JStyleDataModel visitParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx) {
-        for(JQuickPDFParser.ParagraphStyleTypeContext context:ctx.paragraphStyleType()){
-            if(null!=context.textStyle() ){
+        for (JQuickPDFParser.ParagraphStyleTypeContext context : ctx.paragraphStyleType()) {
+            if (null != context.textStyle()) {
                 visit(context.textStyle());
             }
-            if(null!=context.alignment() ){
+            if (null != context.alignment()) {
                 visit(context.alignment());
             }
-            if(null!=context.spacing() ){
+            if (null != context.spacing()) {
                 visit(context.spacing());
             }
         }
-        return  null;
+        return null;
     }
 
 
-    private Paragraph buildParagraph(JParagraphModel data)  {
-        try{
+    private Paragraph buildParagraph(JParagraphModel data) {
+        try {
             Paragraph paragraph = new Paragraph(data.getText());
-            JStyleModel model=data.getStyle();
-            if(null!=model){
-                if(null!=model.getFont()){
+            JStyleModel model = data.getStyle();
+            if (null != model) {
+                if (null != model.getFont()) {
                     paragraph.setFont(PdfFontFactory.createFont(model.getFont())); // 字体
                 }
-                if(null!=model.getSize()){
+                if (null != model.getSize()) {
                     paragraph.setFontSize(model.getSize()); // 字号
                 }
-                if(null!=model.getColor()){
+                if (null != model.getColor()) {
                     //paragraph.setFontColor(Color.); // 颜色
                 }
-                if(null!=model.getBold()&&model.getBold()){
+                if (null != model.getBold() && model.getBold()) {
                     paragraph.setBold(); // 加粗
                 }
-                if(null!=model.getItalic()&&model.getItalic()){
+                if (null != model.getItalic() && model.getItalic()) {
                     paragraph.setItalic(); // 加粗
                 }
-                if(null!=model.getUnderline()&&model.getUnderline()){
+                if (null != model.getUnderline() && model.getUnderline()) {
                     paragraph.setUnderline(); // 加粗
                 }
-                if(null!=model.getUnderline()&&model.getUnderline()){
+                if (null != model.getUnderline() && model.getUnderline()) {
                     paragraph.setUnderline();
                 }
             }
@@ -107,8 +108,6 @@ public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
         return null;
 
     }
-
-
 
 
 }

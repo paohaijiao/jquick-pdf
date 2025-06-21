@@ -33,5 +33,5 @@ public class JHeadingModel {
     private String text;
     private String level;
     private JStyleModel style;
-    
+
 }

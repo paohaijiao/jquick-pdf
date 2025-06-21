@@ -94,8 +94,8 @@ public class JRootLocation implements Serializable {
 
     /**
      * 获取x值
-	 */
-	public Object x() {
+     */
+    public Object x() {
         return this.x;
     }
 
@@ -104,7 +104,7 @@ public class JRootLocation implements Serializable {
      *
      * @param y
      */
-	public JRootLocation y(JY y) {
+    public JRootLocation y(JY y) {
         this.y = y;
         return this;
     }
@@ -141,15 +141,15 @@ public class JRootLocation implements Serializable {
 
     /**
      * 获取y值
-	 */
-	public Object y() {
+     */
+    public Object y() {
         return this.y;
     }
 
     /**
      * 获取x值
      */
-	public Object getX() {
+    public Object getX() {
         return x;
     }
 
@@ -158,14 +158,14 @@ public class JRootLocation implements Serializable {
      *
      * @param x
      */
-	public void setX(Object x) {
+    public void setX(Object x) {
         this.x = x;
     }
 
     /**
      * 获取y值
      */
-	public Object getY() {
+    public Object getY() {
         return y;
     }
 
@@ -174,7 +174,7 @@ public class JRootLocation implements Serializable {
      *
      * @param y
      */
-	public void setY(Object y) {
+    public void setY(Object y) {
         this.y = y;
     }
 }

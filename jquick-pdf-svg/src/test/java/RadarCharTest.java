@@ -13,6 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
+
 import com.paohaijiao.data.JOption;
 import com.paohaijiao.data.JRadar;
 import com.paohaijiao.data.code.JSeriesType;
@@ -65,7 +66,7 @@ public class RadarCharTest {
         option.series(budgetSeries, actualSeries);
         System.out.println(option);
 
-        JRadarChartsRenderer renderer=new JRadarChartsRenderer();
+        JRadarChartsRenderer renderer = new JRadarChartsRenderer();
         renderer.render(option, "d://test//radar_chart.svg");
         System.out.println("雷达图SVG已生成: radar_chart.svg");
     }

@@ -36,52 +36,65 @@ import com.paohaijiao.javelin.parser.JQuickPDFParser;
 public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
 
     @Override
-    public Paragraph  visitHeading(JQuickPDFParser.HeadingContext ctx) {
+    public Paragraph visitHeading(JQuickPDFParser.HeadingContext ctx) {
         this.cleanTemp();
-        JHeadingModel headingModel=new JHeadingModel();
+        JHeadingModel headingModel = new JHeadingModel();
         String level = ctx.getChild(1).getText();
         headingModel.setLevel(level);
         String text = ctx.string().getText().replaceAll("\"", "");
         headingModel.setLevel(text);
-        for(JQuickPDFParser.TextStyleContext context:ctx.textStyle()){
+        for (JQuickPDFParser.TextStyleContext context : ctx.textStyle()) {
             visit(context);
         }
         headingModel.setStyle(style);
-        Paragraph paragraph=this.buildHeading(headingModel);
+        Paragraph paragraph = this.buildHeading(headingModel);
         return paragraph;
     }
-    private Paragraph buildHeading(JHeadingModel data)  {
-        try{
+
+    private Paragraph buildHeading(JHeadingModel data) {
+        try {
             Paragraph heading = new Paragraph(data.getText());
             switch (data.getLevel()) {
-                case "h1": heading.setFontSize(24); break;
-                case "h2": heading.setFontSize(22); break;
-                case "h3": heading.setFontSize(20); break;
-                case "h4": heading.setFontSize(18); break;
-                case "h5": heading.setFontSize(16); break;
-                case "h6": heading.setFontSize(14); break;
+                case "h1":
+                    heading.setFontSize(24);
+                    break;
+                case "h2":
+                    heading.setFontSize(22);
+                    break;
+                case "h3":
+                    heading.setFontSize(20);
+                    break;
+                case "h4":
+                    heading.setFontSize(18);
+                    break;
+                case "h5":
+                    heading.setFontSize(16);
+                    break;
+                case "h6":
+                    heading.setFontSize(14);
+                    break;
             }
-            JStyleModel model=data.getStyle();
-            if(null!=model){
-                if(null!=model.getFont()){
+            JStyleModel model = data.getStyle();
+            if (null != model) {
+                if (null != model.getFont()) {
                     heading.setFont(PdfFontFactory.createFont(model.getFont())); // 字体
                 }
-                if(null!=model.getSize()){
+                if (null != model.getSize()) {
                     heading.setFontSize(model.getSize()); // 字号
                 }
-                if(null!=model.getColor()){
+                if (null != model.getColor()) {
                     //paragraph.setFontColor(Color.); // 颜色
                 }
-                if(null!=model.getBold()&&model.getBold()){
+                if (null != model.getBold() && model.getBold()) {
                     heading.setBold(); // 加粗
                 }
-                if(null!=model.getItalic()&&model.getItalic()){
+                if (null != model.getItalic() && model.getItalic()) {
                     heading.setItalic(); // 加粗
                 }
-                if(null!=model.getUnderline()&&model.getUnderline()){
+                if (null != model.getUnderline() && model.getUnderline()) {
                     heading.setUnderline(); // 加粗
                 }
-                if(null!=model.getUnderline()&&model.getUnderline()){
+                if (null != model.getUnderline() && model.getUnderline()) {
                     heading.setUnderline();
                 }
             }
@@ -94,7 +107,7 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
             Style h1Style = new Style()
                     //.setFont(PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD))
                     .setFontSize(24);
-                  //  .setFontColor(Color.RED);
+            //  .setFontColor(Color.RED);
 
             heading.addStyle(h1Style);
             return heading;
@@ -104,8 +117,6 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         return null;
 
     }
-
-
 
 
 }

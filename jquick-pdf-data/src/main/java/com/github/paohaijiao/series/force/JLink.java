@@ -74,6 +74,7 @@ public class JLink implements Serializable {
         this.target = target;
         this.weight = weight;
     }
+
     public JLink(Object source, Object target) {
         this.source = source;
         this.target = target;
@@ -140,6 +141,7 @@ public class JLink implements Serializable {
         }
         return this.itemStyle;
     }
+
     /**
      * 设置lineStyle，返回object
      *

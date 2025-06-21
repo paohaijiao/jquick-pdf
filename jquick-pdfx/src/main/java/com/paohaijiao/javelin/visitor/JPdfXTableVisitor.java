@@ -37,18 +37,19 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
     @Override
     public Table visitTable(JQuickPDFParser.TableContext ctx) {
         int colNum = 1;
-        if(ctx.number() != null) {
-            colNum=visitNumber(ctx.number()).intValue();
+        if (ctx.number() != null) {
+            colNum = visitNumber(ctx.number()).intValue();
         }
         Table table = new Table(colNum);
         for (JQuickPDFParser.TableRowContext rowCtx : ctx.tableRow()) {
-           visitTableRow(rowCtx);
+            visitTableRow(rowCtx);
         }
         return table;
     }
+
     @Override
     public Void visitTableRow(JQuickPDFParser.TableRowContext ctx) {
-        for (JQuickPDFParser.TableCellContext cel:ctx.tableCell()){
+        for (JQuickPDFParser.TableCellContext cel : ctx.tableCell()) {
             visitTableCell(cel);
         }
         return null;
@@ -62,22 +63,22 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         if (ctx.rowspan() != null) {
             visitRowspan(ctx.rowspan());
         }
-        for (JQuickPDFParser.ElementContext i:ctx.element()){
+        for (JQuickPDFParser.ElementContext i : ctx.element()) {
             visitElement(i);
         }
         return null;
     }
 
-    private Paragraph buildParagraph(JParagraphModel data)  {
-        try{
+    private Paragraph buildParagraph(JParagraphModel data) {
+        try {
             Table table = new Table(new float[]{1, 2, 1}); // 列宽比例
-           // table.setWidthPercent(100); // 宽度百分比
-          //  table.setHorizontalAlignment(HorizontalAlignment.CENTER);
+            // table.setWidthPercent(100); // 宽度百分比
+            //  table.setHorizontalAlignment(HorizontalAlignment.CENTER);
             table.setMarginTop(10);
             table.setMarginBottom(10);
             Cell cell = new Cell().add(new Paragraph("Header"))
-                   // .setBackgroundColor(Color.LIGHT_GRAY)
-                   // .setFontColor(Color.WHITE)
+                    // .setBackgroundColor(Color.LIGHT_GRAY)
+                    // .setFontColor(Color.WHITE)
                     .setTextAlignment(TextAlignment.CENTER)
                     .setBold();
 
@@ -95,7 +96,6 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         return null;
 
     }
-
 
 
 }

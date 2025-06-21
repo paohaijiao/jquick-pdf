@@ -24,11 +24,12 @@ import org.apache.batik.svggen.SVGGraphics2D;
 import java.awt.*;
 import java.util.List;
 
-public class JKChartsRenderer extends JAbstractChartRenderer{
+public class JKChartsRenderer extends JAbstractChartRenderer {
     private static final Color RISING_COLOR = Color.RED;
     private static final Color FALLING_COLOR = Color.GREEN;
     private static final Color CANDLE_BORDER_COLOR = Color.BLACK;
     private static final Font AXIS_LABEL_FONT = new Font("Arial", Font.PLAIN, 12);
+
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
         svgGenerator.setPaint(BACKGROUND_COLOR);// 设置背景
@@ -63,7 +64,7 @@ public class JKChartsRenderer extends JAbstractChartRenderer{
                         String label = xData.get(i);
                         int labelWidth = svgGenerator.getFontMetrics().stringWidth(label);
                         svgGenerator.drawString(label,
-                                marginLeft + i * xStep - labelWidth/2,
+                                marginLeft + i * xStep - labelWidth / 2,
                                 height - marginBottom + 20);
                     }
                 }
@@ -73,6 +74,7 @@ public class JKChartsRenderer extends JAbstractChartRenderer{
         // 绘制Y轴标签
         svgGenerator.drawString("价格", marginLeft - 40, marginTop + 20);
     }
+
     private void drawCandlestickData(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
         if (option.getSeries() == null || option.getSeries().isEmpty()) {
             return;
@@ -104,19 +106,19 @@ public class JKChartsRenderer extends JAbstractChartRenderer{
                                 double low = ((Number) values[2]).doubleValue();
                                 double high = ((Number) values[3]).doubleValue();
                                 int x = marginLeft + i * xStep;
-                                int yOpen = height - marginBottom - (int)((open - minPrice) / priceDiff * chartHeight);
-                                int yClose = height - marginBottom - (int)((close - minPrice) / priceDiff * chartHeight);
-                                int yLow = height - marginBottom - (int)((low - minPrice) / priceDiff * chartHeight);
-                                int yHigh = height - marginBottom - (int)((high - minPrice) / priceDiff * chartHeight);
+                                int yOpen = height - marginBottom - (int) ((open - minPrice) / priceDiff * chartHeight);
+                                int yClose = height - marginBottom - (int) ((close - minPrice) / priceDiff * chartHeight);
+                                int yLow = height - marginBottom - (int) ((low - minPrice) / priceDiff * chartHeight);
+                                int yHigh = height - marginBottom - (int) ((high - minPrice) / priceDiff * chartHeight);
                                 boolean isRising = close >= open;
                                 svgGenerator.setColor(isRising ? RISING_COLOR : FALLING_COLOR);
                                 svgGenerator.drawLine(x, yHigh, x, yLow);// 绘制上下影线
                                 int candleTop = Math.min(yOpen, yClose);// 绘制蜡烛实体
                                 int candleHeight = Math.abs(yOpen - yClose);
                                 candleHeight = Math.max(candleHeight, 1); // 确保最小高度
-                                svgGenerator.fillRect(x - candleWidth/2, candleTop, candleWidth, candleHeight);
+                                svgGenerator.fillRect(x - candleWidth / 2, candleTop, candleWidth, candleHeight);
                                 svgGenerator.setColor(CANDLE_BORDER_COLOR);// 绘制蜡烛边框
-                                svgGenerator.drawRect(x - candleWidth/2, candleTop, candleWidth, candleHeight);
+                                svgGenerator.drawRect(x - candleWidth / 2, candleTop, candleWidth, candleHeight);
                             }
                         }
                     }

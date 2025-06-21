@@ -14,6 +14,7 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.paohaijiao.echart.boxPlot;
+
 import com.paohaijiao.data.JOption;
 import com.paohaijiao.data.series.JBoxplot;
 import com.paohaijiao.echart.provider.JAbstractChartRenderer;
@@ -83,7 +84,7 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
             int x = margin + (i + 1) * spacing - boxWidth / 2;
             // 绘制须线
             svg.setColor(AXIS_COLOR);
-            svg.drawLine(x + boxWidth/2, yMin, x + boxWidth/2, yMax);
+            svg.drawLine(x + boxWidth / 2, yMin, x + boxWidth / 2, yMax);
             svg.drawLine(x, yMin, x + boxWidth, yMin);
             svg.drawLine(x, yMax, x + boxWidth, yMax);
             // 绘制箱体
@@ -100,7 +101,7 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
                 svg.setColor(OUTLIER_COLOR);
                 for (int j = 5; j < box.length; j++) {
                     int yOutlier = scaleToPlot(box[j], height, margin, plotHeight, extractor.getValueRange());
-                    svg.fillOval(x + boxWidth/2 - 3, yOutlier - 3, 6, 6);
+                    svg.fillOval(x + boxWidth / 2 - 3, yOutlier - 3, 6, 6);
                 }
             }
         }
@@ -110,7 +111,7 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
 
     private int scaleToPlot(double value, int height, int margin,
                             int plotHeight, ValueRange valueRange) {
-        return (int)(height - margin - (value - valueRange.min) / valueRange.range * plotHeight);
+        return (int) (height - margin - (value - valueRange.min) / valueRange.range * plotHeight);
     }
 
     private void drawYAxisTicks(SVGGraphics2D svg, int margin,
@@ -133,6 +134,7 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
         final double min;
         final double max;
         final double range;
+
         ValueRange(double min, double max) {
             this.min = min;
             this.max = max;

@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.List;
 
-public class JScatterChartsRenderer  extends JAbstractChartRenderer {
+public class JScatterChartsRenderer extends JAbstractChartRenderer {
     private static final Color SCATTER_COLOR = new Color(65, 105, 225); // 钢蓝色
     private static final Color AXIS_COLOR = Color.BLACK;
     private static final Font AXIS_LABEL_FONT = new Font("Microsoft YaHei", Font.PLAIN, 10);
@@ -61,7 +61,7 @@ public class JScatterChartsRenderer  extends JAbstractChartRenderer {
         double minY = ranges[2];
         double maxY = ranges[3];
         drawAxes(svgGenerator, minX, maxX, minY, maxY, width, height); // 绘制坐标轴
-        drawScatters(svgGenerator, dataList, minX, maxX, minY, maxY, width, height, (int)scatter.symbolSize()); // 绘制散点
+        drawScatters(svgGenerator, dataList, minX, maxX, minY, maxY, width, height, (int) scatter.symbolSize()); // 绘制散点
     }
 
     private double[] calculateDataRanges(List<JData> dataList) {

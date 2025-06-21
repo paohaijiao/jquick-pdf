@@ -62,6 +62,7 @@ public class ScatterCharTest {
                 new JData().value(new Double[]{5.02, 5.68})
         };
     }
+
     @Test
     public void testBarChar1() throws IOException {
         JOption option = new JOption();
@@ -75,7 +76,7 @@ public class ScatterCharTest {
         option.series(scatter);
 
 
-        JScatterChartsRenderer renderer=new JScatterChartsRenderer();
+        JScatterChartsRenderer renderer = new JScatterChartsRenderer();
         renderer.render(option, "d://test//final-scatter.svg");
         System.out.println("雷达图SVG已生成: radar_chart.svg");
         System.out.println("散点图SVG已生成: final-scatter.svg");

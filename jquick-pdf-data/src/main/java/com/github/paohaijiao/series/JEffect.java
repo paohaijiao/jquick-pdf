@@ -277,6 +277,7 @@ public class JEffect implements Serializable {
         this.trailLength = trailLength;
         return this;
     }
+
     public static enum Type {
         scale, bounce
     }

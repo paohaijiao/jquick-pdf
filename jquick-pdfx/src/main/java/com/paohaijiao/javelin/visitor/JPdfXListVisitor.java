@@ -42,33 +42,35 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 
     @Override
     public List visitList(JQuickPDFParser.ListContext ctx) {
-        if(ctx.orderType() != null) {
+        if (ctx.orderType() != null) {
             visitOrderType(ctx.orderType());
         }
-        java.util.List<String> list=new ArrayList<>();
-        for (JQuickPDFParser.ListItemContext item:ctx.listItem()){
-            String items=visitListItem(item);
+        java.util.List<String> list = new ArrayList<>();
+        for (JQuickPDFParser.ListItemContext item : ctx.listItem()) {
+            String items = visitListItem(item);
             list.add(items);
         }
-        JListModel jListModel=new JListModel();
+        JListModel jListModel = new JListModel();
         jListModel.setList(list);
-        List jList=buildHeading(jListModel);
+        List jList = buildHeading(jListModel);
         return jList;
     }
+
     @Override
     public String visitListItem(JQuickPDFParser.ListItemContext ctx) {
         return visitString(ctx.string());
     }
-    private List buildHeading(JListModel data)  {
-        try{
+
+    private List buildHeading(JListModel data) {
+        try {
             List list = new List()
-            .setSymbolIndent(data.getSymbolIndent()) // 列表符号缩进
-            .setListSymbol(data.getSymbol()) // 无序列表符号
+                    .setSymbolIndent(data.getSymbolIndent()) // 列表符号缩进
+                    .setListSymbol(data.getSymbol()) // 无序列表符号
                     //.setListSymbol(ListNumberingType.DECIMAL) // 有序列表
                     //.setFont(PdfFontFactory.createFont(FontConstants.HELVETICA))
-            .setFontSize(data.getFontSize());
-            if(null!=data.getList()&&data.getList().size()>0){
-                data.getList().forEach(item->{
+                    .setFontSize(data.getFontSize());
+            if (null != data.getList() && data.getList().size() > 0) {
+                data.getList().forEach(item -> {
                     list.add(new ListItem(item));
                 });
 
@@ -85,7 +87,6 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         return null;
 
     }
-
 
 
 }

@@ -38,6 +38,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         PdfWriter writer = new PdfWriter(outputPath);
         this.pdfDoc = new PdfDocument(writer);
     }
+
     @Override
     public Void visitDocument(JQuickPDFParser.DocumentContext ctx) {
         for (JQuickPDFParser.PageContext pageCtx : ctx.page()) {
@@ -48,6 +49,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         }
         return null;
     }
+
     @Override
     public Void visitPage(JQuickPDFParser.PageContext ctx) {
         PageSize pageSize = PageSize.A4;
@@ -92,12 +94,12 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     @Override
     public Void visitPageLayout(JQuickPDFParser.PageLayoutContext ctx) {
-        if (null!=ctx.layoutOption()) {
-            currentPageSize =visitLayoutOption(ctx.layoutOption());
-        }else if(null!=ctx.customOption()){
-            currentPageSize =visitCustomOption(ctx.customOption());
-        }else{
-            currentPageSize=PageSize.A4;
+        if (null != ctx.layoutOption()) {
+            currentPageSize = visitLayoutOption(ctx.layoutOption());
+        } else if (null != ctx.customOption()) {
+            currentPageSize = visitCustomOption(ctx.customOption());
+        } else {
+            currentPageSize = PageSize.A4;
         }
         return null;
     }

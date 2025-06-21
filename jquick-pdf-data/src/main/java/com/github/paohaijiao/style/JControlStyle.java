@@ -174,7 +174,7 @@ public class JControlStyle implements Serializable {
     /**
      * 获取itemGap值
      */
-	public Integer getItemGap() {
+    public Integer getItemGap() {
         return itemGap;
     }
 

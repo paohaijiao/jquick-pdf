@@ -110,6 +110,7 @@ public class JValueAxis extends JAxis<JValueAxis> {
         this.splitNumber = splitNumber;
         return this;
     }
+
     /**
      * 设置nameLocation值
      *

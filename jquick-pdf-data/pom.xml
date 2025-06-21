@@ -9,10 +9,10 @@
     <artifactId>jquick-pdf-data</artifactId>
     <name>pdf-data</name>
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>com.fasterxml.jackson.core</groupId>-->
-<!--            <artifactId>jackson-databind</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.fasterxml.jackson.core</groupId>-->
+        <!--            <artifactId>jackson-databind</artifactId>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -22,10 +22,10 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.github.abelsu7</groupId>-->
-<!--            <artifactId>echarts-for-java</artifactId>-->
-<!--            <version>3.1.0</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.github.abelsu7</groupId>-->
+        <!--            <artifactId>echarts-for-java</artifactId>-->
+        <!--            <version>3.1.0</version>-->
+        <!--        </dependency>-->
     </dependencies>
 </project>

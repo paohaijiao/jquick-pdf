@@ -30,11 +30,13 @@ import java.io.StringWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.paohaijiao.data.JOption;
 import com.paohaijiao.echart.provider.JAbstractChartRenderer;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
+
 /**
  * packageName com.paohaijiao.echart.generate
  *
@@ -127,12 +129,12 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
 
     private Color calculateCellColor(double value, double minValue, double maxValue) {
         // Simple color gradient from blue (low) to red (high)
-        float ratio = (float)((value - minValue) / (maxValue - minValue));
+        float ratio = (float) ((value - minValue) / (maxValue - minValue));
         ratio = Math.max(0, Math.min(1, ratio)); // Clamp between 0 and 1
 
-        int red = (int)(255 * ratio);
+        int red = (int) (255 * ratio);
         int green = 0;
-        int blue = (int)(255 * (1 - ratio));
+        int blue = (int) (255 * (1 - ratio));
 
         return new Color(red, green, blue, 128); // Semi-transparent
     }
@@ -141,10 +143,10 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
                             double minValue, double maxValue) {
         // Draw gradient legend
         for (int i = 0; i < height; i++) {
-            float ratio = 1 - (float)i / height;
-            int red = (int)(255 * ratio);
+            float ratio = 1 - (float) i / height;
+            int red = (int) (255 * ratio);
             int green = 0;
-            int blue = (int)(255 * (1 - ratio));
+            int blue = (int) (255 * (1 - ratio));
             g2d.setColor(new Color(red, green, blue));
             g2d.drawLine(x, y + i, x + width, y + i);
         }
@@ -156,9 +158,10 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
         // Draw legend labels
         g2d.setFont(VALUE_FONT);
         g2d.drawString(String.format("%.1f", maxValue), x + width + 5, y + 10);
-        g2d.drawString(String.format("%.1f", (maxValue + minValue) / 2), x + width + 5, y + height/2 + 5);
+        g2d.drawString(String.format("%.1f", (maxValue + minValue) / 2), x + width + 5, y + height / 2 + 5);
         g2d.drawString(String.format("%.1f", minValue), x + width + 5, y + height - 5);
     }
+
     private static class HeatmapDataExtractor {
         private final List<String> xLabels;
         private final List<String> yLabels;

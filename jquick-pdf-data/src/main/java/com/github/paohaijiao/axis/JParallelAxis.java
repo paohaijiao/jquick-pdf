@@ -82,6 +82,7 @@ public class JParallelAxis extends JAxis<JParallelAxis> {
         this.nameLocation = nameLocation;
         return this;
     }
+
     public JAreaSelectStyle areaSelectStyle() {
         if (this.areaSelectStyle == null) {
             this.areaSelectStyle = new JAreaSelectStyle();

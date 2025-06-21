@@ -76,7 +76,7 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
                     String label = xData.get(i);
                     int labelWidth = svgGenerator.getFontMetrics().stringWidth(label);
                     svgGenerator.drawString(label,
-                            marginLeft + i * xStep - labelWidth/2,
+                            marginLeft + i * xStep - labelWidth / 2,
                             height - marginBottom + 20);
                 }
             }
@@ -86,7 +86,7 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
         if (option.getyAxis() != null && !option.getyAxis().isEmpty()
                 && option.getyAxis().get(0) instanceof JValueAxis) {
             JValueAxis yAxis = (JValueAxis) option.getyAxis().get(0);
-            double maxValue = yAxis.getMax() != null ?(double) yAxis.getMax() : 250;
+            double maxValue = yAxis.getMax() != null ? (double) yAxis.getMax() : 250;
             int yStepCount = 5;
             double yStepValue = maxValue / yStepCount;
 
@@ -96,7 +96,7 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
                 int labelWidth = svgGenerator.getFontMetrics().stringWidth(valueStr);
                 svgGenerator.drawString(valueStr,
                         marginLeft - labelWidth - 5,
-                        height - marginBottom - (int)(i * (chartHeight / (double)yStepCount) + 5));
+                        height - marginBottom - (int) (i * (chartHeight / (double) yStepCount) + 5));
             }
         }
     }
@@ -119,7 +119,7 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
                 List<?> data = line.getData();
                 if (data != null && !data.isEmpty()) {
                     // 获取系列颜色，如果没有则使用默认颜色
-                    Color lineColor =  DEFAULT_LINE_COLOR;
+                    Color lineColor = DEFAULT_LINE_COLOR;
                     //line.getColor() != null ?
                     //   new Color(line.getColor().getRGB()) :
                     svgGenerator.setColor(lineColor);
@@ -135,9 +135,9 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
                         Number nextYValue = (Number) data.get(i + 1);
 
                         int x1 = marginLeft + i * xStep;
-                        int y1 = height - marginBottom - (int)((yValue.doubleValue() - minValue) / valueRange * chartHeight);
+                        int y1 = height - marginBottom - (int) ((yValue.doubleValue() - minValue) / valueRange * chartHeight);
                         int x2 = marginLeft + (i + 1) * xStep;
-                        int y2 = height - marginBottom - (int)((nextYValue.doubleValue() - minValue) / valueRange * chartHeight);
+                        int y2 = height - marginBottom - (int) ((nextYValue.doubleValue() - minValue) / valueRange * chartHeight);
 
                         svgGenerator.drawLine(x1, y1, x2, y2);
                     }
@@ -147,7 +147,7 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
                     for (int i = 0; i < data.size(); i++) {
                         Number yValue = (Number) data.get(i);
                         int x = marginLeft + i * xStep;
-                        int y = height - marginBottom - (int)((yValue.doubleValue() - minValue) / valueRange * chartHeight);
+                        int y = height - marginBottom - (int) ((yValue.doubleValue() - minValue) / valueRange * chartHeight);
                         svgGenerator.fillOval(x - DATA_POINT_RADIUS, y - DATA_POINT_RADIUS,
                                 DATA_POINT_RADIUS * 2, DATA_POINT_RADIUS * 2);
                     }
@@ -164,7 +164,7 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
         if (option.getyAxis() != null && !option.getyAxis().isEmpty()
                 && option.getyAxis().get(0) instanceof JValueAxis) {
             JValueAxis yAxis = (JValueAxis) option.getyAxis().get(0);
-            if (yAxis.getMin() != null) min =(double) yAxis.getMin();
+            if (yAxis.getMin() != null) min = (double) yAxis.getMin();
             if (yAxis.getMax() != null) max = (double) yAxis.getMax();
         }
 

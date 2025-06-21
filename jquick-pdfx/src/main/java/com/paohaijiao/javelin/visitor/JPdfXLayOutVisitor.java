@@ -14,6 +14,7 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.paohaijiao.javelin.visitor;
+
 import com.itextpdf.kernel.geom.PageSize;
 import com.paohaijiao.javelin.enums.JUnit;
 import com.paohaijiao.javelin.model.JBorderRoundedModel;
@@ -65,10 +66,11 @@ public class JPdfXLayOutVisitor extends JPdfXValueVisitor {
         if (ctx.TABLOID() != null) return PageSize.TABLOID;
         return PageSize.A4;
     }
+
     @Override
     public PageSize visitCustomOption(JQuickPDFParser.CustomOptionContext ctx) {
-        BigDecimal numberLeft=visitNumber(ctx.number(0));
-        BigDecimal numberRight=visitNumber(ctx.number(1));
+        BigDecimal numberLeft = visitNumber(ctx.number(0));
+        BigDecimal numberRight = visitNumber(ctx.number(1));
         float width = Float.parseFloat(numberLeft.toPlainString());
         float height = Float.parseFloat(numberRight.toPlainString());
         String widthUnit = ctx.unit(0).getText();
@@ -77,10 +79,6 @@ public class JPdfXLayOutVisitor extends JPdfXValueVisitor {
         height = convertToPoints(height, heightUnit);
         return new PageSize(width, height);
     }
-
-
-
-
 
 
 }

@@ -31,9 +31,9 @@ import lombok.Data;
 public class JListModel {
 
     private float symbolIndent;
-    private String  symbol="\u2022";
-    private float fontSize=12f;
+    private String symbol = "\u2022";
+    private float fontSize = 12f;
     private JStyleModel style;
     java.util.List<String> list;
-    
+
 }

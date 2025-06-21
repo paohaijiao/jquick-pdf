@@ -151,7 +151,7 @@ public class JTreeData implements Serializable {
     /**
      * 获取children值
      */
-	public List<JTreeData> children() {
+    public List<JTreeData> children() {
         if (this.children == null) {
             this.children = new LinkedList<JTreeData>();
         }
@@ -170,8 +170,8 @@ public class JTreeData implements Serializable {
 
     /**
      * 获取itemStyle值
-	 */
-	public JItemStyle itemStyle() {
+     */
+    public JItemStyle itemStyle() {
         if (this.itemStyle == null) {
             this.itemStyle = new JItemStyle();
         }

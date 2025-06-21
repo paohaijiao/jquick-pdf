@@ -26,7 +26,6 @@ import java.util.List;
 
 /**
  * 事件列表，每一个数组项为Object {}，内容如下
- *
  */
 @Getter
 @Setter

@@ -84,7 +84,7 @@ public class JRangeData implements Serializable {
     /**
      * 获取end值
      */
-	public Integer end() {
+    public Integer end() {
         return this.end;
     }
 
@@ -110,7 +110,7 @@ public class JRangeData implements Serializable {
      *
      * @param color
      */
-	public JRangeData color(Object color) {
+    public JRangeData color(Object color) {
         this.color = color;
         return this;
     }

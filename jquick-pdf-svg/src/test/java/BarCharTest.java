@@ -48,6 +48,6 @@ public class BarCharTest {
         bar.name("销量").data(5, 20, 36, 10, 10, 20);
         option.series(bar);
         JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
-        jBarChartsRenderer.render(option,"D://test//echart-output.svg");
+        jBarChartsRenderer.render(option, "D://test//echart-output.svg");
     }
 }

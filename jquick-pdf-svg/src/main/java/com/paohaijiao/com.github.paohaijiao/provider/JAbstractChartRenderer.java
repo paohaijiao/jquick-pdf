@@ -14,6 +14,7 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.paohaijiao.echart.provider;
+
 import com.paohaijiao.data.JOption;
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
@@ -25,11 +26,12 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
 
-public abstract class JAbstractChartRenderer implements JChartRenderer{
+public abstract class JAbstractChartRenderer implements JChartRenderer {
     protected static final Color BACKGROUND_COLOR = Color.WHITE;
     protected static final Color AXIS_COLOR = Color.BLACK;
     protected static final Font TITLE_FONT = new Font("Microsoft YaHei", Font.BOLD, 18);
     protected static final Font LABEL_FONT = new Font("Microsoft YaHei", Font.PLAIN, 12);
+
     @Override
     public void render(JOption option, String outputPath) throws IOException {
         String svgContent = renderToString(option);
@@ -57,6 +59,7 @@ public abstract class JAbstractChartRenderer implements JChartRenderer{
 
     /**
      * 获取默认画布宽度
+     *
      * @return 默认宽度
      */
     protected int getDefaultWidth() {
@@ -65,6 +68,7 @@ public abstract class JAbstractChartRenderer implements JChartRenderer{
 
     /**
      * 获取默认画布高度
+     *
      * @return 默认高度
      */
     protected int getDefaultHeight() {
@@ -73,30 +77,32 @@ public abstract class JAbstractChartRenderer implements JChartRenderer{
 
     /**
      * 绘制图表内容
+     *
      * @param svgGenerator SVG图形生成器
-     * @param option 图表配置选项
-     * @param width 画布宽度
-     * @param height 画布高度
+     * @param option       图表配置选项
+     * @param width        画布宽度
+     * @param height       画布高度
      */
     protected abstract void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height);
 
     /**
      * 绘制图表标题
+     *
      * @param svgGenerator SVG图形生成器
-     * @param option 图表配置选项
-     * @param width 画布宽度
+     * @param option       图表配置选项
+     * @param width        画布宽度
      */
     protected void drawTitle(SVGGraphics2D svgGenerator, JOption option, int width) {
         if (option.title() != null && option.title().text() != null) {
             svgGenerator.setFont(TITLE_FONT);
             svgGenerator.setPaint(Color.BLACK);
             String title = option.title().text();
-            svgGenerator.drawString(title, width/2 - svgGenerator.getFontMetrics().stringWidth(title)/2, 40);
+            svgGenerator.drawString(title, width / 2 - svgGenerator.getFontMetrics().stringWidth(title) / 2, 40);
 
             if (option.title().subtext() != null) {
                 svgGenerator.setFont(LABEL_FONT);
                 String subTitle = option.title().subtext();
-                svgGenerator.drawString(subTitle, width/2 - svgGenerator.getFontMetrics().stringWidth(subTitle)/2, 60);
+                svgGenerator.drawString(subTitle, width / 2 - svgGenerator.getFontMetrics().stringWidth(subTitle) / 2, 60);
             }
         }
     }

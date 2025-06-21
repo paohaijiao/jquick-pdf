@@ -22,5 +22,5 @@ package com.github.paohaijiao.code;
  * @author martin
  */
 public enum JPosition {
-    outside, outer, inside, left, right, top, bottom,center
+    outside, outer, inside, left, right, top, bottom, center
 }

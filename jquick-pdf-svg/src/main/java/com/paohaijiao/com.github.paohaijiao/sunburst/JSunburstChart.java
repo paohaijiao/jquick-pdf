@@ -14,6 +14,7 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.paohaijiao.echart.sunburst;
+
 import com.paohaijiao.data.JOption;
 import com.paohaijiao.echart.provider.JAbstractChartRenderer;
 import org.apache.batik.anim.dom.SVGDOMImplementation;
@@ -92,7 +93,7 @@ public class JSunburstChart extends JAbstractChartRenderer {
             int subCount = 3;
             for (int j = 0; j < subCount; j++) {
                 SunburstNode subcategory = new SunburstNode();
-                subcategory.name = "Sub-" + categories[i].charAt(0) + (j+1);
+                subcategory.name = "Sub-" + categories[i].charAt(0) + (j + 1);
                 subcategory.color = interpolateColor(colors[i], Color.WHITE, 0.3f);
                 subcategory.borderColor = colors[i].darker();
                 subcategory.depth = 1;
@@ -109,7 +110,7 @@ public class JSunburstChart extends JAbstractChartRenderer {
 
     private int[] calculateRadii(int centerX, int centerY) {
         int maxRadius = Math.min(centerX, centerY) - 20;
-        return new int[]{maxRadius/4, maxRadius/2, maxRadius*3/4, maxRadius};
+        return new int[]{maxRadius / 4, maxRadius / 2, maxRadius * 3 / 4, maxRadius};
     }
 
     private double calculateTreeAngles(SunburstNode node, double startAngle, double endAngle) {
@@ -150,15 +151,15 @@ public class JSunburstChart extends JAbstractChartRenderer {
             g.setPaint(node.color);
             g.fillArc(centerX - outerRadius, centerY - outerRadius,
                     outerRadius * 2, outerRadius * 2,
-                    (int)Math.toDegrees(node.startAngle),
-                    (int)Math.toDegrees(node.endAngle - node.startAngle));
+                    (int) Math.toDegrees(node.startAngle),
+                    (int) Math.toDegrees(node.endAngle - node.startAngle));
 
             // 绘制边框
             g.setPaint(node.borderColor);
             g.drawArc(centerX - outerRadius, centerY - outerRadius,
                     outerRadius * 2, outerRadius * 2,
-                    (int)Math.toDegrees(node.startAngle),
-                    (int)Math.toDegrees(node.endAngle - node.startAngle));
+                    (int) Math.toDegrees(node.startAngle),
+                    (int) Math.toDegrees(node.endAngle - node.startAngle));
         }
 
         for (SunburstNode child : node.children) {
@@ -175,9 +176,9 @@ public class JSunburstChart extends JAbstractChartRenderer {
     }
 
     private static Color interpolateColor(Color c1, Color c2, float ratio) {
-        int r = (int)(c1.getRed() * ratio + c2.getRed() * (1 - ratio));
-        int g = (int)(c1.getGreen() * ratio + c2.getGreen() * (1 - ratio));
-        int b = (int)(c1.getBlue() * ratio + c2.getBlue() * (1 - ratio));
+        int r = (int) (c1.getRed() * ratio + c2.getRed() * (1 - ratio));
+        int g = (int) (c1.getGreen() * ratio + c2.getGreen() * (1 - ratio));
+        int b = (int) (c1.getBlue() * ratio + c2.getBlue() * (1 - ratio));
         return new Color(r, g, b);
     }
 }

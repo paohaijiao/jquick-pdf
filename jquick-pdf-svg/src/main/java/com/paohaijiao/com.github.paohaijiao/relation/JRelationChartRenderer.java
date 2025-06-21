@@ -14,6 +14,7 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.paohaijiao.echart.relation;
+
 import com.paohaijiao.data.JOption;
 import com.paohaijiao.data.json.JGsonOption;
 import com.paohaijiao.data.series.JGraph;
@@ -58,17 +59,17 @@ public class JRelationChartRenderer extends JAbstractChartRenderer {
 
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption opt, int width, int height) {
-        JGsonOption jGsonOption=(JGsonOption)opt;
+        JGsonOption jGsonOption = (JGsonOption) opt;
         svgGenerator.setPaint(BACKGROUND_COLOR); // 设置背景
         svgGenerator.fillRect(0, 0, width, height);
         drawTitle(svgGenerator, opt, width);// 绘制标题
         List<JSeries> series = jGsonOption.getSeries(); // 获取图形数据
-        if (series == null||series.isEmpty()) {
+        if (series == null || series.isEmpty()) {
             return;
         }
-        JGraph graph=(JGraph)series.get(0);
+        JGraph graph = (JGraph) series.get(0);
 
-        List<JNode> nodes =  graph.getData();
+        List<JNode> nodes = graph.getData();
         List<JLink> links = graph.getLinks();
         List<JCategory> categories = graph.getCategories();
         if (nodes == null || nodes.isEmpty()) {
@@ -95,7 +96,7 @@ public class JRelationChartRenderer extends JAbstractChartRenderer {
             // 缩放坐标以适应画布
             x = width * 0.1 + x * width * 0.8 / 1000;
             y = height * 0.1 + y * height * 0.8 / 1000;
-            positions.put(id, new Point((int)x, (int)y));
+            positions.put(id, new Point((int) x, (int) y));
         }
         return positions;
     }
@@ -133,6 +134,7 @@ public class JRelationChartRenderer extends JAbstractChartRenderer {
         // 绘制曲线
         svgGenerator.draw(path);
     }
+
     private void drawNodes(SVGGraphics2D svgGenerator, List<JNode> nodes,
                            List<JCategory> categories, Map<String, Point> nodePositions) {
         svgGenerator.setFont(LABEL_FONT);
@@ -150,18 +152,18 @@ public class JRelationChartRenderer extends JAbstractChartRenderer {
 
                 // 绘制节点
                 svgGenerator.setPaint(nodeColor);
-                svgGenerator.fillOval(position.x - symbolSize/2, position.y - symbolSize/2,
+                svgGenerator.fillOval(position.x - symbolSize / 2, position.y - symbolSize / 2,
                         symbolSize, symbolSize);
 
                 // 绘制节点边框
                 svgGenerator.setPaint(Color.BLACK);
-                svgGenerator.drawOval(position.x - symbolSize/2, position.y - symbolSize/2,
+                svgGenerator.drawOval(position.x - symbolSize / 2, position.y - symbolSize / 2,
                         symbolSize, symbolSize);
 
                 // 绘制节点标签
                 if (name != null && !name.isEmpty()) {
                     svgGenerator.setPaint(Color.BLACK);
-                    int labelX = position.x + symbolSize/2 + 5;
+                    int labelX = position.x + symbolSize / 2 + 5;
                     int labelY = position.y + 5;
                     svgGenerator.drawString(name, labelX, labelY);
                 }

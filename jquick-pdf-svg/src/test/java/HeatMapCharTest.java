@@ -13,6 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
+
 import com.paohaijiao.data.JOption;
 import com.paohaijiao.data.axis.JCategoryAxis;
 import com.paohaijiao.data.series.JHeatmap;
@@ -63,7 +64,7 @@ public class HeatMapCharTest {
 
 
         option.series(heatmap);
-        JHeatMapChartRenderer renderer=new JHeatMapChartRenderer();
-        renderer.render(option,"d://test//heatmap.svg");
+        JHeatMapChartRenderer renderer = new JHeatMapChartRenderer();
+        renderer.render(option, "d://test//heatmap.svg");
     }
 }

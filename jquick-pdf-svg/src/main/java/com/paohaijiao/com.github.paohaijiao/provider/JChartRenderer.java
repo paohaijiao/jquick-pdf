@@ -22,7 +22,8 @@ import java.io.IOException;
 public interface JChartRenderer {
     /**
      * 渲染图表到文件
-     * @param option 图表配置选项
+     *
+     * @param option     图表配置选项
      * @param outputPath 输出文件路径
      * @throws IOException 如果文件操作出错
      */
@@ -30,6 +31,7 @@ public interface JChartRenderer {
 
     /**
      * 渲染图表到字符串
+     *
      * @param option 图表配置选项
      * @return SVG字符串
      * @throws IOException 如果操作出错

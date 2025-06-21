@@ -137,14 +137,14 @@ public class JAxisPointer implements Serializable {
     /**
      * 是否显示
      */
-    public Boolean show(){
+    public Boolean show() {
         return this.show;
     }
 
     /**
      * 设置是否显示
      */
-    public JAxisPointer show(Boolean show){
+    public JAxisPointer show(Boolean show) {
         this.show = show;
         return this;
     }

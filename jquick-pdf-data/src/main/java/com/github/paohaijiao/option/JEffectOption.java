@@ -32,56 +32,56 @@ public class JEffectOption {
     private Integer progress;
     private JTextStyle textStyle;
 
-	/**
-	 * 获取effect值 
-	 */
-	public Object effect() {
+    /**
+     * 获取effect值
+     */
+    public Object effect() {
         return this.effect;
     }
 
-	/**
-	 * 设置effect值 
-	 * 
-	 * @param effect
-	 */
-	public JEffectOption effect(Object effect) {
+    /**
+     * 设置effect值
+     *
+     * @param effect
+     */
+    public JEffectOption effect(Object effect) {
         this.effect = effect;
         return this;
     }
 
-	/**
-	 * 获取progress值 
-	 */
-	public Integer progress() {
+    /**
+     * 获取progress值
+     */
+    public Integer progress() {
         return this.progress;
     }
 
-	/**
-	 * 设置progress值 
-	 * 
-	 * @param progress
-	 */
-	public JEffectOption progress(Integer progress) {
+    /**
+     * 设置progress值
+     *
+     * @param progress
+     */
+    public JEffectOption progress(Integer progress) {
         this.progress = progress;
         return this;
     }
 
-	/**
-	 * 获取textStyle值 
-	 */
-	public JTextStyle textStyle() {
+    /**
+     * 获取textStyle值
+     */
+    public JTextStyle textStyle() {
         if (this.textStyle == null) {
             this.textStyle = new JTextStyle();
         }
         return this.textStyle;
     }
 
-	/**
-	 * 设置textStyle值 
-	 * 
-	 * @param textStyle
-	 */
-	public JEffectOption textStyle(JTextStyle textStyle) {
+    /**
+     * 设置textStyle值
+     *
+     * @param textStyle
+     */
+    public JEffectOption textStyle(JTextStyle textStyle) {
         this.textStyle = textStyle;
         return this;
     }
