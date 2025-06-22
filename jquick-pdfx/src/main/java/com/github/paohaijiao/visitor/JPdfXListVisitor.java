@@ -17,8 +17,10 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.list.JListModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.ListItem;
+import com.itextpdf.layout.element.Paragraph;
 
 
 /**
@@ -52,6 +54,14 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 //        jListModel.setList(list);
 //        List jList = buildHeading(jListModel);
 //        return jList;
+        Document document = new Document(pdf);
+        List list = new List();
+        list.add(new ListItem("First item"));
+        list.add(new ListItem("Second item"));
+        list.add(new ListItem("Third item"));
+        document.add(new Paragraph("Unordered List Example:"));
+        document.add(list);
+        document.close();
         return null;
     }
 

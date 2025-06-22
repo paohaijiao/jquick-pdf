@@ -24,7 +24,7 @@ package com.github.paohaijiao.visitor;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXSvgVisitor extends JPdfXListVisitor {
+public class JPdfXSvgVisitor extends JPdfXImageVisitor {
 
 
 //    @Override
