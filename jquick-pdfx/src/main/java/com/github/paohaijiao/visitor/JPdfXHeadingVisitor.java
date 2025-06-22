@@ -40,22 +40,22 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
 
     @Override
     public Void visitHeading(JQuickPDFParser.HeadingContext ctx) {
-//        Document document = new Document(pdf);
-//        JHeadingModel headingModel = new JHeadingModel();
-//        String level = ctx.getChild(1).getText();
-//        headingModel.setLevel(level);
-//        if(null!=ctx.string()){
-//            String text = JStringUtils.trim(ctx.string().getText());
-//            headingModel.setText(text);
-//        }
-//        if(null!=ctx.style()){
-//            JStyleAttributes style = visitStyle(ctx.style());
-//            headingModel.setStyle(style);
-//        }
+
+        JHeadingModel headingModel = new JHeadingModel();
+        String level = ctx.getChild(1).getText();
+        headingModel.setLevel(level);
+        if(null!=ctx.string()){
+            String text = JStringUtils.trim(ctx.string().getText());
+            headingModel.setText(text);
+        }
+        if(null!=ctx.style()){
+            JStyleAttributes style = visitStyle(ctx.style());
+            headingModel.setStyle(style);
+        }
 //        Paragraph paragraph = this.buildHeading(headingModel);
 //        document.add(paragraph);
         Document document = new Document(this.pdf);
-        document.add(new Paragraph("Main content goes here after the styled header."));
+        document.add(new Paragraph(headingModel.getText()));
         document.close();
         return null;
     }

@@ -33,24 +33,24 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
 
     @Override
     public Void visitElement(JQuickPDFParser.ElementContext ctx) {
-//        if (ctx.paragraph() != null) {
-//             visitParagraph(ctx.paragraph());
-//        } else if (ctx.heading() != null) {
-//
-//        } else if (ctx.list() != null) {
-//             visitList(ctx.list());
-//        } else if (ctx.table() != null) {
-//             visitTable(ctx.table());
-//        } else if (ctx.image() != null) {
-//             visitImage(ctx.image());
-//        } else if (ctx.svg() != null) {
-//             visitSvg(ctx.svg());
-//        } else if (ctx.div() != null) {
-//             visitDiv(ctx.div());
-//        } else if (ctx.template() != null) {
-//             visitTemplate(ctx.template());
-//        }
-        visitHeading(ctx.heading());
+        if (ctx.paragraph() != null) {
+             visitParagraph(ctx.paragraph());
+        } else if (ctx.heading() != null) {
+            visitHeading(ctx.heading());
+        } else if (ctx.list() != null) {
+             visitList(ctx.list());
+        } else if (ctx.table() != null) {
+             visitTable(ctx.table());
+        } else if (ctx.image() != null) {
+             visitImage(ctx.image());
+        } else if (ctx.svg() != null) {
+             visitSvg(ctx.svg());
+        } else if (ctx.div() != null) {
+             visitDiv(ctx.div());
+        } else if (ctx.template() != null) {
+             visitTemplate(ctx.template());
+        }
+
 
         return null;
     }
