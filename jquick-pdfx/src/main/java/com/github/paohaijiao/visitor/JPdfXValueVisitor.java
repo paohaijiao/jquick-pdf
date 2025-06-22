@@ -72,14 +72,23 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
             return visitString(ctx.string());
         }else if (null!=ctx.variable()){
             return visitVariable(ctx.variable());
+        }else if (null!=ctx.number()){
+            return visitNumber(ctx.number());
+        }else{
+            return ctx.getText();
         }
-        JAssert.throwNewException("invalid value");
-        return null;
     }
 
     @Override
     public String visitKey(JQuickPDFParser.KeyContext ctx) {
-        return ctx.IDENTIFIER().getText();
+        if(null!=ctx.IDENTIFIER()){
+            return ctx.IDENTIFIER().getText();
+        }else if(null!=ctx.string()){
+            return JStringUtils.trim(visitString(ctx.string()));
+        }
+        JAssert.throwNewException("invalid key");
+        return null;
+
     }
 
 

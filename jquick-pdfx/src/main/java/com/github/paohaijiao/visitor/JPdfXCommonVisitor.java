@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -53,78 +54,76 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     @Override
     public Void visitDocument(JQuickPDFParser.DocumentContext ctx) {
-        for (JQuickPDFParser.PageContext pageCtx : ctx.page()) {
-            visitPage(pageCtx);
+        if(null!=ctx.doc()){
+            visitDoc(ctx.doc());
         }
-//        if (document != null) {
-//            document.close();
-//        }
         return null;
     }
-
     @Override
-    public Void visitPage(JQuickPDFParser.PageContext ctx) {
-//        PageSize pageSize = PageSize.A4;
-//        if (ctx.pageLayout() != null) {
-//            visitPageLayout(ctx.pageLayout());
-//        }
-//        if (ctx.pageLayout() != null) {
-//            pageSize = visitLayoutOption(ctx.pageLayout().layoutOption());
-//        }
-//        PdfPage currentPage = pdf.addNewPage(pageSize);
-//        if (ctx.landscape() != null) {
-//            currentPage.setRotation(90);
-//            pageSize = pageSize.rotate();
-//        }
-//        float marginLeft = 72;
-//        float marginRight = 72;
-//        float marginTop = 72;
-//        float marginBottom = 72;
-//        if (ctx.margins() != null) {
-//            marginLeft = convertToPoints(Float.parseFloat(ctx.margins().number(0).getText()),
-//                    ctx.margins().unit(0).getText());
-//            marginTop = convertToPoints(Float.parseFloat(ctx.margins().number(1).getText()),
-//                    ctx.margins().unit(1).getText());
-//            marginRight = convertToPoints(Float.parseFloat(ctx.margins().number(2).getText()),
-//                    ctx.margins().unit(2).getText());
-//            marginBottom = convertToPoints(Float.parseFloat(ctx.margins().number(3).getText()),
-//                    ctx.margins().unit(3).getText());
-//        }
-//        if (document == null) {
-//            document = new Document(pdfDoc, pageSize);
-//        }
-//        document.setMargins(marginTop, marginRight, marginBottom, marginLeft);
-//        pdfDoc.addNewPage(currentPageSize);
-        for (JQuickPDFParser.ElementContext elemCtx : ctx.element()) {
-            visitElement(elemCtx);
+    public Void visitDoc(JQuickPDFParser.DocContext ctx) {
+        if(null!=ctx.html()){
+            visitHtml(ctx.html());
         }
-//        if (document != null) {
-//            document.close();
-//        }
-
         return null;
     }
-
     @Override
-    public Void visitPageLayout(JQuickPDFParser.PageLayoutContext ctx) {
-        if (null != ctx.layoutOption()) {
-            currentPageSize = visitLayoutOption(ctx.layoutOption());
-        } else if (null != ctx.customOption()) {
-            currentPageSize = visitCustomOption(ctx.customOption());
-        } else {
-            currentPageSize = PageSize.A4;
+    public Void visitHtml(JQuickPDFParser.HtmlContext ctx) {
+        if(null!=ctx.head()){
+            visitHead(ctx.head());
+        }
+        if(null!=ctx.body()){
+            visitBody(ctx.body());
+        }
+        return null;
+    }
+    @Override
+    public Void visitHead(JQuickPDFParser.HeadContext ctx) {
+        if(null!=ctx.headStyle()){
+            visitHeadStyle(ctx.headStyle());
+        }
+        return null;
+    }
+    @Override
+    public Void visitHeadStyle(JQuickPDFParser.HeadStyleContext ctx) {
+        if(null!=ctx.headStyleOption()){
+            visitHeadStyleOption(ctx.headStyleOption());
+        }
+        if(null!=ctx.bodyStyleOption()){
+            visitBodyStyleOption(ctx.bodyStyleOption());
+        }
+        return null;
+    }
+    @Override
+    public Void visitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx) {
+        if(ctx.style()!=null&&!ctx.style().isEmpty()){
+            for (JQuickPDFParser.StyleContext styleContext :ctx.style()) {
+                JStyleAttributes style= visitStyle(styleContext);
+            }
+        }
+        return null;
+    }
+    @Override
+    public Void visitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx) {
+        if(ctx.style()!=null&&!ctx.style().isEmpty()){
+            for (JQuickPDFParser.StyleContext styleContext :ctx.style()) {
+                JStyleAttributes style= visitStyle(styleContext);
+            }
         }
         return null;
     }
 
     @Override
-    public Void visitMargins(JQuickPDFParser.MarginsContext ctx) {
-        currentMargins[0] = convertToPoints(Float.parseFloat(ctx.number(0).getText()), ctx.unit(0).getText());
-        currentMargins[1] = convertToPoints(Float.parseFloat(ctx.number(1).getText()), ctx.unit(1).getText());
-        currentMargins[2] = convertToPoints(Float.parseFloat(ctx.number(2).getText()), ctx.unit(2).getText());
-        currentMargins[3] = convertToPoints(Float.parseFloat(ctx.number(3).getText()), ctx.unit(3).getText());
+    public Void visitBody(JQuickPDFParser.BodyContext ctx) {
+        if(ctx.element()!=null&&!ctx.element().isEmpty()){
+            for (JQuickPDFParser.ElementContext styleContext :ctx.element()) {
+                 visitElement(styleContext);
+            }
+        }
         return null;
     }
+
+
+
 
 
 }

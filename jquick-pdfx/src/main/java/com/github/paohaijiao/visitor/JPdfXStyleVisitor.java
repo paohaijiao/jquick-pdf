@@ -40,6 +40,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         }
         JAssert.notNull(key,"key is null");
         if(ctx.value()!=null){
+            String str=ctx.getText();
             value=visitValue(ctx.value());
         }
         JAssert.notNull(value,"value is null");
