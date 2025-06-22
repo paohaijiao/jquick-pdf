@@ -21,6 +21,7 @@ import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.paohaijiao.javelin.param.JContext;
 
 import java.io.IOException;
 
@@ -34,6 +35,12 @@ import java.io.IOException;
  * @description
  */
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
+    public JPdfXCommonVisitor(){
+        this.context=new JContext();
+    }
+    public JPdfXCommonVisitor(JContext context){
+        this.context=context;
+    }
     public JPdfXCommonVisitor(String outputPath) throws IOException {
         PdfWriter writer = new PdfWriter(outputPath);
         this.pdfDoc = new PdfDocument(writer);

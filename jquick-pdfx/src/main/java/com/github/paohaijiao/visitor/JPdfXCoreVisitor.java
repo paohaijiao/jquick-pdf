@@ -25,7 +25,7 @@ import com.github.paohaijiao.model.style.JStyleDimensionModel;
 import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.model.style.JStyleSpacingModel;
 import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
-import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
+import com.paohaijiao.javelin.param.JContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,10 +46,10 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected JStyleAlignModel align = new JStyleAlignModel();
     protected JStyleSpacingModel spacingModel = new JStyleSpacingModel();
     protected JStyleDimensionModel dimension = new JStyleDimensionModel();
-    protected Map<String, Template> templates = new HashMap<>();
+    //protected Map<String, Template> templates = new HashMap<>();
     protected PageSize currentPageSize = PageSize.A4;
     protected float[] currentMargins = new float[]{72, 72, 72, 72}; // default 1 inch margins // top, right, bottom, left
-
+    protected JContext context = new JContext();
     protected float convertToPoints(float value, String unit) {
         switch (unit) {
             case "px":

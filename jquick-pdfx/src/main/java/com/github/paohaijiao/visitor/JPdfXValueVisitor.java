@@ -20,6 +20,8 @@ import com.github.paohaijiao.enums.JUnit;
 import com.github.paohaijiao.model.*;
 import com.github.paohaijiao.model.style.JStyleDimensionModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.paohaijiao.javelin.exception.JAssert;
+import com.paohaijiao.javelin.util.JStringUtils;
 
 import java.math.BigDecimal;
 
@@ -34,6 +36,17 @@ import java.math.BigDecimal;
  * @description
  */
 public class JPdfXValueVisitor extends JPdfXCoreVisitor {
+
+    @Override
+    public Object visitVariable(JQuickPDFParser.VariableContext ctx) {
+        String key=null;
+        if(ctx.IDENTIFIER() != null){
+            key= JStringUtils.trim(ctx.IDENTIFIER().getText());
+        }
+        JAssert.notNull(key,"variable text must not be null");
+        return this.context.get(key);
+    }
+
 
     @Override
     public String visitString(JQuickPDFParser.StringContext ctx) {

@@ -87,7 +87,7 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
                 templateContent.add((BlockElement) element);
             }
         }
-        if (ctx.ID(1) != null) {
+        if (ctx.IDENTIFIER(1) != null) {
         }
 
         return templateContent;
