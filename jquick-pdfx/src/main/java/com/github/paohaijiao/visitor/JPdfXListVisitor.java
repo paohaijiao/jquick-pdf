@@ -15,12 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.itextpdf.layout.element.List;
-import com.itextpdf.layout.element.ListItem;
 import com.github.paohaijiao.model.list.JListModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-
-import java.util.ArrayList;
+import com.itextpdf.layout.element.List;
+import com.itextpdf.layout.element.ListItem;
 
 
 /**

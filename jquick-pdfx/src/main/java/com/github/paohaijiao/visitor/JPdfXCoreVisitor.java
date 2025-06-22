@@ -15,20 +15,14 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.style.JStyleAlignModel;
+import com.github.paohaijiao.model.style.JStyleSpacingModel;
+import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.layout.Document;
-import com.github.paohaijiao.model.style.JStyleAlignModel;
-import com.github.paohaijiao.model.style.JStyleDimensionModel;
-import com.github.paohaijiao.model.style.JStyleModel;
-import com.github.paohaijiao.model.style.JStyleSpacingModel;
-import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
 import com.paohaijiao.javelin.param.JContext;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * packageName com.paohaijiao.javelin.visitor

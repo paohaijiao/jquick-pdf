@@ -39,7 +39,7 @@ import java.io.IOException;
  * @date 2025/6/22
  * @description
  */
-public class JHeadingTest {
+public class JDivTest {
 
     @Test
     public void file() throws IOException {
@@ -47,15 +47,18 @@ public class JHeadingTest {
                 "    page A4\n" +
                 "        margins 20 px 20 mm 20 mm 20 mm\n" +
                 "        {\n" +
-                "        heading h1 \"Annual Report\" {\n" +
+                "        div(width:'12px',height:'14px'){\n" +
+                "        \n" +
+                "            heading h1 \"Annual Report\" {\n" +
                 "            font : \"Helvetica\",\n" +
                 "            size : '24 pt',\n" +
                 "            color : '#003366',\n" +
                 "            align : center\n" +
                 "        }\n" +
+                "    \n" +
                 "        }\n" +
                 "    }\n" +
-                "}";
+                "}\n";
         System.out.println(input);
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);

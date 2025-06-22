@@ -15,15 +15,11 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.model.style.JStyleAttributes;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.layout.Style;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.properties.TextAlignment;
 import com.github.paohaijiao.model.heading.JHeadingModel;
-import com.github.paohaijiao.model.style.JStyleModel;
+import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
 import com.paohaijiao.javelin.util.JStringUtils;
 
 

@@ -15,12 +15,12 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.paragraph.JParagraphModel;
+import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.TextAlignment;
-import com.github.paohaijiao.model.paragraph.JParagraphModel;
-import com.github.paohaijiao.parser.JQuickPDFParser;
 
 
 /**

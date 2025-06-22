@@ -15,8 +15,8 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.itextpdf.kernel.geom.PageSize;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.kernel.geom.PageSize;
 
 import java.math.BigDecimal;
 

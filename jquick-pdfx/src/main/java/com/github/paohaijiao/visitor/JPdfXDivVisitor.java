@@ -15,17 +15,11 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.enums.JDirect;
-import com.github.paohaijiao.model.JBackGroundModel;
-import com.github.paohaijiao.model.JBorderModel;
-import com.github.paohaijiao.model.style.JStyleDimensionModel;
-import com.github.paohaijiao.model.style.JDivStyleItemModel;
-import com.github.paohaijiao.model.style.JStyleSpacingModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Div;
+import com.itextpdf.layout.borders.SolidBorder;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -39,6 +33,18 @@ import java.util.List;
 public class JPdfXDivVisitor extends JPdfXSvgVisitor {
     @Override
     public Void visitDiv(JQuickPDFParser.DivContext ctx) {
+        Paragraph divHeading = new Paragraph("Section Title in Div")
+                .setFontSize(18)
+                .setBold()
+                .setMarginBottom(5);
+        Div headerDiv = new Div()
+                .setBorder(new SolidBorder(1))
+                .setPadding(10)
+                .setMarginBottom(20);
+        headerDiv.add(divHeading);
+        Document document = new Document(this.pdf);
+        document.add(headerDiv);
+        document.close();
         return null;
     }
 

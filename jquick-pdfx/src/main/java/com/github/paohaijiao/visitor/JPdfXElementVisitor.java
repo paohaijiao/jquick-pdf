@@ -15,9 +15,9 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.*;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.element.Image;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -28,7 +28,7 @@ import com.github.paohaijiao.parser.JQuickPDFParser;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXElementVisitor extends JPdfXImageVisitor {
+public class JPdfXElementVisitor extends JPdfXDivVisitor {
 
 
     @Override
@@ -60,17 +60,6 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
     public Image visitSvg(JQuickPDFParser.SvgContext ctx) {
         return null;
 
-    }
-
-    @Override
-    public IElement visitDiv(JQuickPDFParser.DivContext ctx) {
-//        Div div = new Div();
-//
-//        for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
-//        }
-//
-//        return div;
-        return null;
     }
 
     @Override

@@ -15,10 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.github.paohaijiao.parser.JQuickPDFParser;
 
 import java.net.MalformedURLException;
 

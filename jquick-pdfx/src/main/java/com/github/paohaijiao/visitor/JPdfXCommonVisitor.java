@@ -15,13 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.element.Paragraph;
 import com.paohaijiao.javelin.param.JContext;
 
 import java.io.FileNotFoundException;
