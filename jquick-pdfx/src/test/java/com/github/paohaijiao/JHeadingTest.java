@@ -43,19 +43,16 @@ public class JHeadingTest {
 
     @Test
     public void file() throws IOException {
-        String input = "pdf Report {\n" +
+        String input = "\n" +
+                "pdf Report {\n" +
                 "    page A4\n" +
                 "        margins 20 px 20 mm 20 mm 20 mm\n" +
                 "        {\n" +
-                "        heading h1 \"Annual Report\" {\n" +
-                "            font : \"Helvetica\",\n" +
-                "            size : '24 pt',\n" +
-                "            color : '#003366',\n" +
-                "            align : center\n" +
-                "        }\n" +
+                "        <h1 style=width:'12px';height:'14px'></h1>\n" +
+                "    \n" +
                 "        }\n" +
                 "    }\n" +
-                "}";
+                "}\n";
         System.out.println(input);
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);

@@ -19,8 +19,12 @@ import com.github.paohaijiao.model.heading.JHeadingModel;
 import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.borders.SolidBorder;
+import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.Paragraph;
 import com.paohaijiao.javelin.util.JStringUtils;
+
+import java.awt.*;
 
 
 /**
@@ -36,22 +40,14 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
 
     @Override
     public Void visitHeading(JQuickPDFParser.HeadingContext ctx) {
-
-        JHeadingModel headingModel = new JHeadingModel();
-        String level = ctx.getChild(1).getText();
-        headingModel.setLevel(level);
-        if(null!=ctx.string()){
-            String text = JStringUtils.trim(ctx.string().getText());
-            headingModel.setText(text);
-        }
-        if(null!=ctx.style()){
-            JStyleAttributes style = visitStyle(ctx.style());
-            headingModel.setStyle(style);
-        }
-//        Paragraph paragraph = this.buildHeading(headingModel);
-//        document.add(paragraph);
         Document document = new Document(this.pdf);
-        document.add(new Paragraph(headingModel.getText()));
+        Paragraph h1 = new Paragraph("Section Title in head")
+                .setFontSize(18)
+                .setBold()
+                .setMarginBottom(5);
+
+        document.add(h1);
+        document.add(new Paragraph("这是正文内容..."));
         document.close();
         return null;
     }
