@@ -43,7 +43,7 @@ import java.io.IOException;
 public class JHeadingTest {
 
     @Test
-    public void variable() throws IOException {
+    public void file() throws IOException {
         String input = "pdf Report {\n" +
                 "    page A4\n" +
                 "        margins 20 px 20 mm 20 mm 20 mm\n" +

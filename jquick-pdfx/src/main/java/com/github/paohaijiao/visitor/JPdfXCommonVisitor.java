@@ -21,6 +21,7 @@ import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.layout.element.Paragraph;
 import com.paohaijiao.javelin.param.JContext;
 
 import java.io.FileNotFoundException;
@@ -36,20 +37,21 @@ import java.io.IOException;
  * @description
  */
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
-    private String fileName="d://test/a.pdf";
+    private String fileName="d://test//DivBasedHeadings.pdf";
     public JPdfXCommonVisitor() throws FileNotFoundException {
         this.context=new JContext();
-        PdfWriter writer = new PdfWriter(fileName);
-        this.pdf = new PdfDocument(writer);
+        PdfDocument pdf = new PdfDocument(new PdfWriter(fileName));
+        this.pdf=pdf;
     }
     public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
         this.context=context;
-        PdfWriter writer = new PdfWriter(fileName);
-        this.pdf = new PdfDocument(writer);
+        PdfDocument pdf = new PdfDocument(new PdfWriter(fileName));
+        this.pdf=pdf;
+
     }
     public JPdfXCommonVisitor(String outputPath) throws IOException {
-        PdfWriter writer = new PdfWriter(outputPath);
-        this.pdf = new PdfDocument(writer);
+        PdfDocument pdf = new PdfDocument(new PdfWriter(fileName));
+        this.pdf=pdf;
     }
 
     @Override
@@ -57,22 +59,22 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         for (JQuickPDFParser.PageContext pageCtx : ctx.page()) {
             visitPage(pageCtx);
         }
-        if (document != null) {
-            document.close();
-        }
+//        if (document != null) {
+//            document.close();
+//        }
         return null;
     }
 
     @Override
     public Void visitPage(JQuickPDFParser.PageContext ctx) {
-        PageSize pageSize = PageSize.A4;
-        if (ctx.pageLayout() != null) {
-            visitPageLayout(ctx.pageLayout());
-        }
-        if (ctx.pageLayout() != null) {
-            pageSize = visitLayoutOption(ctx.pageLayout().layoutOption());
-        }
-        PdfPage currentPage = pdf.addNewPage(pageSize);
+//        PageSize pageSize = PageSize.A4;
+//        if (ctx.pageLayout() != null) {
+//            visitPageLayout(ctx.pageLayout());
+//        }
+//        if (ctx.pageLayout() != null) {
+//            pageSize = visitLayoutOption(ctx.pageLayout().layoutOption());
+//        }
+//        PdfPage currentPage = pdf.addNewPage(pageSize);
 //        if (ctx.landscape() != null) {
 //            currentPage.setRotation(90);
 //            pageSize = pageSize.rotate();
@@ -99,9 +101,10 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         for (JQuickPDFParser.ElementContext elemCtx : ctx.element()) {
             visitElement(elemCtx);
         }
-        if (document != null) {
-            document.close();
-        }
+//        if (document != null) {
+//            document.close();
+//        }
+
         return null;
     }
 

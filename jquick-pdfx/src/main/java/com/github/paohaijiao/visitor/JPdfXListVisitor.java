@@ -42,18 +42,19 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 
     @Override
     public List visitList(JQuickPDFParser.ListContext ctx) {
-        if (ctx.orderType() != null) {
-            visitOrderType(ctx.orderType());
-        }
-        java.util.List<String> list = new ArrayList<>();
-        for (JQuickPDFParser.ListItemContext item : ctx.listItem()) {
-            String items = visitListItem(item);
-            list.add(items);
-        }
-        JListModel jListModel = new JListModel();
-        jListModel.setList(list);
-        List jList = buildHeading(jListModel);
-        return jList;
+//        if (ctx.orderType() != null) {
+//            visitOrderType(ctx.orderType());
+//        }
+//        java.util.List<String> list = new ArrayList<>();
+//        for (JQuickPDFParser.ListItemContext item : ctx.listItem()) {
+//            String items = visitListItem(item);
+//            list.add(items);
+//        }
+//        JListModel jListModel = new JListModel();
+//        jListModel.setList(list);
+//        List jList = buildHeading(jListModel);
+//        return jList;
+        return null;
     }
 
     @Override

@@ -39,66 +39,69 @@ import com.paohaijiao.javelin.util.JStringUtils;
 public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
 
     @Override
-    public Paragraph visitHeading(JQuickPDFParser.HeadingContext ctx) {
-        Document document = new Document(pdf);
-        JHeadingModel headingModel = new JHeadingModel();
-        String level = ctx.getChild(1).getText();
-        headingModel.setLevel(level);
-        if(null!=ctx.string()){
-            String text = JStringUtils.trim(ctx.string().getText());
-            headingModel.setText(text);
-        }
-        if(null!=ctx.style()){
-            JStyleAttributes style = visitStyle(ctx.style());
-            headingModel.setStyle(style);
-        }
-        Paragraph paragraph = this.buildHeading(headingModel);
-        document.add(paragraph);
-        return paragraph;
+    public Void visitHeading(JQuickPDFParser.HeadingContext ctx) {
+//        Document document = new Document(pdf);
+//        JHeadingModel headingModel = new JHeadingModel();
+//        String level = ctx.getChild(1).getText();
+//        headingModel.setLevel(level);
+//        if(null!=ctx.string()){
+//            String text = JStringUtils.trim(ctx.string().getText());
+//            headingModel.setText(text);
+//        }
+//        if(null!=ctx.style()){
+//            JStyleAttributes style = visitStyle(ctx.style());
+//            headingModel.setStyle(style);
+//        }
+//        Paragraph paragraph = this.buildHeading(headingModel);
+//        document.add(paragraph);
+        Document document = new Document(this.pdf);
+        document.add(new Paragraph("Main content goes here after the styled header."));
+        document.close();
+        return null;
     }
 
     private Paragraph buildHeading(JHeadingModel data) {
         try {
             Paragraph heading = new Paragraph(data.getText());
-            switch (data.getLevel()) {
-                case "h1":
-                    heading.setFontSize(24);
-                    break;
-                case "h2":
-                    heading.setFontSize(22);
-                    break;
-                case "h3":
-                    heading.setFontSize(20);
-                    break;
-                case "h4":
-                    heading.setFontSize(18);
-                    break;
-                case "h5":
-                    heading.setFontSize(16);
-                    break;
-                case "h6":
-                    heading.setFontSize(14);
-                    break;
-            }
-            JStyleAttributes model = data.getStyle();
-            if (null != model) {
-                if (null != model.getFont()) {
-                    heading.setFont(PdfFontFactory.createFont(model.getFont())); // 字体
-                }
-                if (null != model.getFontSize()) {
-                    heading.setFontSize(model.getFontSize()); // 字号
-                }
-            }
+//            switch (data.getLevel()) {
+//                case "h1":
+//                    heading.setFontSize(24);
+//                    break;
+//                case "h2":
+//                    heading.setFontSize(22);
+//                    break;
+//                case "h3":
+//                    heading.setFontSize(20);
+//                    break;
+//                case "h4":
+//                    heading.setFontSize(18);
+//                    break;
+//                case "h5":
+//                    heading.setFontSize(16);
+//                    break;
+//                case "h6":
+//                    heading.setFontSize(14);
+//                    break;
+//            }
+//            JStyleAttributes model = data.getStyle();
+//            if (null != model) {
+//                if (null != model.getFont()) {
+//                    heading.setFont(PdfFontFactory.createFont(model.getFont())); // 字体
+//                }
+//                if (null != model.getFontSize()) {
+//                    heading.setFontSize(model.getFontSize()); // 字号
+//                }
+//            }
 
-            heading.setFixedLeading(20); // 行高
-            heading.setFirstLineIndent(20); // 首行缩进
-            heading.setMarginLeft(10); // 左边距
-            heading.setMarginRight(10); // 右边距
-            heading.setTextAlignment(TextAlignment.CENTER); // 对齐方式
-            Style h1Style = new Style();
-            h1Style.setFontSize(24);
-            //  .setFontColor(Color.RED);
-            heading.addStyle(h1Style);
+//            heading.setFixedLeading(20); // 行高
+//            heading.setFirstLineIndent(20); // 首行缩进
+//            heading.setMarginLeft(10); // 左边距
+//            heading.setMarginRight(10); // 右边距
+//            heading.setTextAlignment(TextAlignment.CENTER); // 对齐方式
+//            Style h1Style = new Style();
+//            h1Style.setFontSize(24);
+//            //  .setFontColor(Color.RED);
+//            heading.addStyle(h1Style);
             return heading;
         } catch (Exception e) {
             e.printStackTrace();

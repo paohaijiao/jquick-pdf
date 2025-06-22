@@ -41,7 +41,6 @@ import java.util.Map;
  */
 public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected PdfDocument pdf;
-    protected Document document;
     protected JStyleAlignModel align = new JStyleAlignModel();
     protected JStyleSpacingModel spacingModel = new JStyleSpacingModel();
     //protected Map<String, Template> templates = new HashMap<>();

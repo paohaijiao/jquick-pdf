@@ -36,15 +36,15 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
 
     @Override
     public Table visitTable(JQuickPDFParser.TableContext ctx) {
-        int colNum = 1;
-        if (ctx.number() != null) {
-            colNum = visitNumber(ctx.number()).intValue();
-        }
-        Table table = new Table(colNum);
-        for (JQuickPDFParser.TableRowContext rowCtx : ctx.tableRow()) {
-            visitTableRow(rowCtx);
-        }
-        return table;
+//        int colNum = 1;
+//        if (ctx.number() != null) {
+//            colNum = visitNumber(ctx.number()).intValue();
+//        }
+//        Table table = new Table(colNum);
+//        for (JQuickPDFParser.TableRowContext rowCtx : ctx.tableRow()) {
+//            visitTableRow(rowCtx);
+//        }
+        return null;
     }
 
     @Override

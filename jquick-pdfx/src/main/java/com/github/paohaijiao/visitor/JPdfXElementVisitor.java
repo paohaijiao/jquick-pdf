@@ -15,10 +15,8 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.itextpdf.layout.element.BlockElement;
-import com.itextpdf.layout.element.Div;
-import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.*;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 
 /**
@@ -35,23 +33,25 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
 
     @Override
     public Void visitElement(JQuickPDFParser.ElementContext ctx) {
-        if (ctx.paragraph() != null) {
-             visitParagraph(ctx.paragraph());
-        } else if (ctx.heading() != null) {
-             visitHeading(ctx.heading());
-        } else if (ctx.list() != null) {
-             visitList(ctx.list());
-        } else if (ctx.table() != null) {
-             visitTable(ctx.table());
-        } else if (ctx.image() != null) {
-             visitImage(ctx.image());
-        } else if (ctx.svg() != null) {
-             visitSvg(ctx.svg());
-        } else if (ctx.div() != null) {
-             visitDiv(ctx.div());
-        } else if (ctx.template() != null) {
-             visitTemplate(ctx.template());
-        }
+//        if (ctx.paragraph() != null) {
+//             visitParagraph(ctx.paragraph());
+//        } else if (ctx.heading() != null) {
+//
+//        } else if (ctx.list() != null) {
+//             visitList(ctx.list());
+//        } else if (ctx.table() != null) {
+//             visitTable(ctx.table());
+//        } else if (ctx.image() != null) {
+//             visitImage(ctx.image());
+//        } else if (ctx.svg() != null) {
+//             visitSvg(ctx.svg());
+//        } else if (ctx.div() != null) {
+//             visitDiv(ctx.div());
+//        } else if (ctx.template() != null) {
+//             visitTemplate(ctx.template());
+//        }
+        visitHeading(ctx.heading());
+
         return null;
     }
 
@@ -64,23 +64,25 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
 
     @Override
     public IElement visitDiv(JQuickPDFParser.DivContext ctx) {
-        Div div = new Div();
-
-        for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
-        }
-
-        return div;
+//        Div div = new Div();
+//
+//        for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
+//        }
+//
+//        return div;
+        return null;
     }
 
     @Override
     public IElement visitTemplate(JQuickPDFParser.TemplateContext ctx) {
-        Div templateContent = new Div();
-        for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
-
-        }
-        if (ctx.IDENTIFIER(1) != null) {
-        }
-
-        return templateContent;
+//        Div templateContent = new Div();
+//        for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
+//
+//        }
+//        if (ctx.IDENTIFIER(1) != null) {
+//        }
+//
+//        return templateContent;
+        return null;
     }
 }
