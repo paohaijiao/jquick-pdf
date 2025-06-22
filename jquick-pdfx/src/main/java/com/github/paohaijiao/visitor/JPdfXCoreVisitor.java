@@ -45,7 +45,6 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected JStyleModel style = new JStyleModel();
     protected JStyleAlignModel align = new JStyleAlignModel();
     protected JStyleSpacingModel spacingModel = new JStyleSpacingModel();
-    protected JStyleDimensionModel dimension = new JStyleDimensionModel();
     //protected Map<String, Template> templates = new HashMap<>();
     protected PageSize currentPageSize = PageSize.A4;
     protected float[] currentMargins = new float[]{72, 72, 72, 72}; // default 1 inch margins // top, right, bottom, left
@@ -93,6 +92,5 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         this.style = new JStyleModel();
         this.align = new JStyleAlignModel();
         this.spacingModel = new JStyleSpacingModel();
-        this.dimension = new JStyleDimensionModel();
     }
 }

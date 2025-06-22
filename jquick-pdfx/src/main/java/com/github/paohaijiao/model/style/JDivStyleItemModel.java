@@ -15,7 +15,9 @@
  */
 package com.github.paohaijiao.model.style;
 
-import com.github.paohaijiao.model.JNumberUnitModel;
+import com.github.paohaijiao.enums.JDirect;
+import com.github.paohaijiao.model.JBackGroundModel;
+import com.github.paohaijiao.model.JBorderModel;
 import lombok.Data;
 
 /**
@@ -23,26 +25,17 @@ import lombok.Data;
  *
  * @author Martin
  * @version 1.0.0
- * @className JStyleItem
+ * @className JStyleItemModel
  * @date 2025/6/22
  * @description
  */
 @Data
-public class JStyleDimensionModel {
+public class JDivStyleItemModel {
 
-    private JNumberUnitModel dimensionWidth;
+    private JStyleDimensionModel dimension;
+    private JBackGroundModel background;
+    private JBorderModel border;
+    private JStyleSpacingModel spacing;
 
-    private JNumberUnitModel dimensionHeight;
-
-    private JStyleDimensionSizeModel dimensionSize;
-
-
-
-    public JStyleDimensionModel getData(){
-        if(this.dimensionWidth==null&&this.dimensionHeight==null&&this.dimensionSize==null){
-            return null;
-        }else{
-            return this;
-        }
-    }
+    private JDirect direct;
 }

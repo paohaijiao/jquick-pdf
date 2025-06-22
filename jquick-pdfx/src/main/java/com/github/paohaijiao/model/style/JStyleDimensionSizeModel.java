@@ -28,21 +28,11 @@ import lombok.Data;
  * @description
  */
 @Data
-public class JStyleDimensionModel {
+public class JStyleDimensionSizeModel {
 
-    private JNumberUnitModel dimensionWidth;
+    private JNumberUnitModel left;
 
-    private JNumberUnitModel dimensionHeight;
-
-    private JStyleDimensionSizeModel dimensionSize;
+    private JNumberUnitModel right;
 
 
-
-    public JStyleDimensionModel getData(){
-        if(this.dimensionWidth==null&&this.dimensionHeight==null&&this.dimensionSize==null){
-            return null;
-        }else{
-            return this;
-        }
-    }
 }

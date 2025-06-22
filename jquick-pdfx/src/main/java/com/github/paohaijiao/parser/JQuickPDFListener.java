@@ -412,16 +412,6 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitDivStyle(JQuickPDFParser.DivStyleContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#divStyleItem}.
-	 * @param ctx the parse tree
-	 */
-	void enterDivStyleItem(JQuickPDFParser.DivStyleItemContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#divStyleItem}.
-	 * @param ctx the parse tree
-	 */
-	void exitDivStyleItem(JQuickPDFParser.DivStyleItemContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code dimensionWidth}
 	 * labeled alternative in {@link JQuickPDFParser#dimension}.
 	 * @param ctx the parse tree

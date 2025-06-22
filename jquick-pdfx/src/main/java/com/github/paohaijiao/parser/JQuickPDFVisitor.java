@@ -252,12 +252,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDivStyle(JQuickPDFParser.DivStyleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#divStyleItem}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDivStyleItem(JQuickPDFParser.DivStyleItemContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code dimensionWidth}
 	 * labeled alternative in {@link JQuickPDFParser#dimension}.
 	 * @param ctx the parse tree

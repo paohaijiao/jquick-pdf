@@ -15,7 +15,14 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.enums.JDirect;
+import com.github.paohaijiao.model.JBackGroundModel;
+import com.github.paohaijiao.model.JBorderModel;
+import com.github.paohaijiao.model.style.JStyleDimensionModel;
+import com.github.paohaijiao.model.style.JDivStyleItemModel;
+import com.github.paohaijiao.model.style.JStyleSpacingModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -30,7 +37,7 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
     @Override
     public Void visitDiv(JQuickPDFParser.DivContext ctx) {
         if (ctx.divStyle() != null) {
-            visitDivStyle(ctx.divStyle());
+            JDivStyleItemModel style= visitDivStyle(ctx.divStyle());
         }
         for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
             visitElement(elementContext);
@@ -39,32 +46,47 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
     }
 
     @Override
-    public Void visitDivStyle(JQuickPDFParser.DivStyleContext ctx) {
-        for (JQuickPDFParser.DivStyleItemContext item : ctx.divStyleItem()) {
-            visitDivStyleItem(item);
-        }
-        return null;
-    }
-
-    @Override
-    public Void visitDivStyleItem(JQuickPDFParser.DivStyleItemContext ctx) {
-        if (null != ctx.dimension()) {
-            visit(ctx.dimension());
+    public JDivStyleItemModel visitDivStyle(JQuickPDFParser.DivStyleContext ctx) {
+        JDivStyleItemModel jStyleItemModel=new JDivStyleItemModel();
+        if (null != ctx.dimension()&&!ctx.dimension().isEmpty()) {
+            JStyleDimensionModel dimensionModel=new JStyleDimensionModel();
+            for(JQuickPDFParser.DimensionContext dimensionContext:ctx.dimension()) {
+                JStyleDimensionModel dimension=(JStyleDimensionModel) visit(dimensionContext);
+                if(null!=dimension) {
+                    if(null!=dimension.getDimensionWidth()){
+                        dimensionModel.setDimensionWidth(dimension.getDimensionWidth());
+                    }
+                    if(null!=dimension.getDimensionHeight()){
+                        dimensionModel.setDimensionHeight(dimension.getDimensionHeight());
+                    }
+                    if(null!=dimension.getDimensionSize()){
+                        dimensionModel.setDimensionSize(dimension.getDimensionSize());
+                    }
+                }
+            }
+            jStyleItemModel.setDimension(dimensionModel.getData());
         }
         if (null != ctx.background()) {
-            visit(ctx.background());
+            JBackGroundModel backGround=visitBackground(ctx.background());
+            jStyleItemModel.setBackground(backGround);
         }
         if (null != ctx.border()) {
-            visit(ctx.border());
+            JBorderModel border= visitBorder(ctx.border());
+            jStyleItemModel.setBorder(border);
         }
         if (null != ctx.spacing()) {
-            visit(ctx.spacing());
+            JStyleSpacingModel spacing=visitSpacing(ctx.spacing());
+            jStyleItemModel.setSpacing(spacing);
         }
         if (null != ctx.float_()) {
-            visit(ctx.float_());
+            JDirect direct=visitFloat(ctx.float_());
+            jStyleItemModel.setDirect(direct);
         }
-        return null;
+        return jStyleItemModel;
     }
+
+
+
 
 
 }

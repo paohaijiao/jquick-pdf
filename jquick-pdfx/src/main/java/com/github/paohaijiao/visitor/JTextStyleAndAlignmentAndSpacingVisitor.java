@@ -34,7 +34,7 @@ import java.math.BigDecimal;
  * @date 2025/6/14
  * @description
  */
-public class JTextStyleAndAlignmentAndSpacingVisitor extends JPdfXLayOutVisitor {
+public class JTextStyleAndAlignmentAndSpacingVisitor extends JPdfXValueVisitor {
     @Override
     public JStyleModel visitTextStylefont(JQuickPDFParser.TextStylefontContext ctx) {
         String font = visitString(ctx.string());

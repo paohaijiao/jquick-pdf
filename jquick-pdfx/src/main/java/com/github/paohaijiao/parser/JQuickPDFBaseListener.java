@@ -485,18 +485,6 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDivStyleItem(JQuickPDFParser.DivStyleItemContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDivStyleItem(JQuickPDFParser.DivStyleItemContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDimensionWidth(JQuickPDFParser.DimensionWidthContext ctx) { }
 	/**
 	 * {@inheritDoc}
