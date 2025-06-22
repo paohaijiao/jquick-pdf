@@ -533,18 +533,6 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBackground(JQuickPDFParser.BackgroundContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBackground(JQuickPDFParser.BackgroundContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterBorder(JQuickPDFParser.BorderContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -564,6 +552,18 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitBorderRounded(JQuickPDFParser.BorderRoundedContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBackground(JQuickPDFParser.BackgroundContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBackground(JQuickPDFParser.BackgroundContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

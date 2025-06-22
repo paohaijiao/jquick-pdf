@@ -458,16 +458,6 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitDimensionSize(JQuickPDFParser.DimensionSizeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#background}.
-	 * @param ctx the parse tree
-	 */
-	void enterBackground(JQuickPDFParser.BackgroundContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#background}.
-	 * @param ctx the parse tree
-	 */
-	void exitBackground(JQuickPDFParser.BackgroundContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#border}.
 	 * @param ctx the parse tree
 	 */
@@ -487,6 +477,16 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitBorderRounded(JQuickPDFParser.BorderRoundedContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#background}.
+	 * @param ctx the parse tree
+	 */
+	void enterBackground(JQuickPDFParser.BackgroundContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#background}.
+	 * @param ctx the parse tree
+	 */
+	void exitBackground(JQuickPDFParser.BackgroundContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#opacity}.
 	 * @param ctx the parse tree

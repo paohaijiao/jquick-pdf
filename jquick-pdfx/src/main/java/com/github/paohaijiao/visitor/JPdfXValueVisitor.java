@@ -50,7 +50,7 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
 
     @Override
     public String visitString(JQuickPDFParser.StringContext ctx) {
-        return ctx.getText();
+        return JStringUtils.trim(ctx.getText());
     }
 
     @Override

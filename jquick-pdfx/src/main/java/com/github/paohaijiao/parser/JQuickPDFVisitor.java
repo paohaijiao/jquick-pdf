@@ -279,12 +279,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDimensionSize(JQuickPDFParser.DimensionSizeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#background}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBackground(JQuickPDFParser.BackgroundContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#border}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -296,6 +290,12 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitBorderRounded(JQuickPDFParser.BorderRoundedContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#background}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBackground(JQuickPDFParser.BackgroundContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#opacity}.
 	 * @param ctx the parse tree
