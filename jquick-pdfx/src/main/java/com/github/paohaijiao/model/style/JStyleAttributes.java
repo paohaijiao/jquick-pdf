@@ -25,7 +25,7 @@ import java.util.HashMap;
  * @date 2025/6/22
  * @description
  */
-public class JHtmlAttributes extends HashMap<String, String>{
+public class JStyleAttributes extends HashMap<String, String>{
     public static final String ID = "id";
     public static final String CLASS = "class";
     public static final String STYLE = "style";
@@ -34,6 +34,7 @@ public class JHtmlAttributes extends HashMap<String, String>{
     public static final String COLOR = "color";
     public static final String BACKGROUND_COLOR = "background-color";
     public static final String FONT_SIZE = "font-size";
+    public static final String FONT = "font";
     public static final String MARGIN = "margin";
     public static final String PADDING = "padding";
     public static final String BORDER = "border";
@@ -116,8 +117,21 @@ public class JHtmlAttributes extends HashMap<String, String>{
         put(FONT_SIZE, fontSize);
     }
 
-    public String getFontSize() {
-        return get(FONT_SIZE);
+    public Float getFontSize() {
+        String fontSize= get(FONT_SIZE);
+        if(null==fontSize){
+            return 12f;
+        }else{
+            return Float.valueOf(fontSize);
+        }
+
+    }
+    public void setFont(String font) {
+        put(FONT, font);
+    }
+
+    public String getFont() {
+        return get(FONT);
     }
 
 

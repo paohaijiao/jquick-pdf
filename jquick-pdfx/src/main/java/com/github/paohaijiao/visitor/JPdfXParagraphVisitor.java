@@ -36,25 +36,9 @@ import com.github.paohaijiao.parser.JQuickPDFParser;
 public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
     @Override
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
-        String text = ctx.string().getText().replaceAll("^\"|\"$", "");
-        if (null != ctx.paragraphStyle()) {
-            visitParagraphStyle(ctx.paragraphStyle());
-        }
-        JParagraphModel model = new JParagraphModel();
-        model.setText(text);
-        model.setStyle(style);
-        model.setStyle(style);
-//        model.setAlign(align);
-//        model.setSpacing(spacingModel);
-        Paragraph paragraph = this.buildParagraph(model);
-        return paragraph;
-    }
-
-    @Override
-    public JStyleDataModel visitParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx) {
-
         return null;
     }
+
 
 
     private Paragraph buildParagraph(JParagraphModel data) {

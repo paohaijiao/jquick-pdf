@@ -15,13 +15,9 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.enums.JUnit;
-import com.github.paohaijiao.model.style.JHtmlAttributes;
+import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.paohaijiao.javelin.exception.JAssert;
-import com.paohaijiao.javelin.util.JStringUtils;
-
-import java.math.BigDecimal;
 
 
 /**
@@ -36,7 +32,7 @@ import java.math.BigDecimal;
 public class JPdfXStyleVisitor extends JPdfXValueVisitor {
 
     @Override
-    public JHtmlAttributes visitAttr(JQuickPDFParser.AttrContext ctx) {
+    public JStyleAttributes visitAttr(JQuickPDFParser.AttrContext ctx) {
         String key=null;
         Object value=null;
         if(ctx.key()!=null){
@@ -47,15 +43,15 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             value=visitValue(ctx.value());
         }
         JAssert.notNull(value,"value is null");
-        JHtmlAttributes attr=new JHtmlAttributes();
-        attr.put(key,key);
+        JStyleAttributes attr=new JStyleAttributes();
+        attr.put(key,value.toString());
         return attr;
     }
     @Override
-    public JHtmlAttributes visitStyle(JQuickPDFParser.StyleContext ctx) {
-        JHtmlAttributes data=new JHtmlAttributes();
+    public JStyleAttributes visitStyle(JQuickPDFParser.StyleContext ctx) {
+        JStyleAttributes data=new JStyleAttributes();
         for(JQuickPDFParser.AttrContext attrContext:ctx.attr()){
-            JHtmlAttributes attr= visitAttr(attrContext);
+            JStyleAttributes attr= visitAttr(attrContext);
             for (String key:attr.keySet()){
                 data.put(key,attr.get(key));
             }

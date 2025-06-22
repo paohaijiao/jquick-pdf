@@ -40,9 +40,8 @@ import java.util.Map;
  * @description
  */
 public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
-    protected PdfDocument pdfDoc;
+    protected PdfDocument pdf;
     protected Document document;
-    protected JStyleModel style = new JStyleModel();
     protected JStyleAlignModel align = new JStyleAlignModel();
     protected JStyleSpacingModel spacingModel = new JStyleSpacingModel();
     //protected Map<String, Template> templates = new HashMap<>();
@@ -88,9 +87,4 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         }
     }
 
-    protected void cleanTemp() {
-        this.style = new JStyleModel();
-        this.align = new JStyleAlignModel();
-        this.spacingModel = new JStyleSpacingModel();
-    }
 }

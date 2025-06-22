@@ -34,23 +34,23 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
 
 
     @Override
-    public IElement visitElement(JQuickPDFParser.ElementContext ctx) {
+    public Void visitElement(JQuickPDFParser.ElementContext ctx) {
         if (ctx.paragraph() != null) {
-            return visitParagraph(ctx.paragraph());
+             visitParagraph(ctx.paragraph());
         } else if (ctx.heading() != null) {
-            return visitHeading(ctx.heading());
+             visitHeading(ctx.heading());
         } else if (ctx.list() != null) {
-            return visitList(ctx.list());
+             visitList(ctx.list());
         } else if (ctx.table() != null) {
-            return visitTable(ctx.table());
+             visitTable(ctx.table());
         } else if (ctx.image() != null) {
-            return visitImage(ctx.image());
+             visitImage(ctx.image());
         } else if (ctx.svg() != null) {
-            return visitSvg(ctx.svg());
+             visitSvg(ctx.svg());
         } else if (ctx.div() != null) {
-            return visitDiv(ctx.div());
+             visitDiv(ctx.div());
         } else if (ctx.template() != null) {
-            return visitTemplate(ctx.template());
+             visitTemplate(ctx.template());
         }
         return null;
     }
@@ -67,10 +67,6 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
         Div div = new Div();
 
         for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
-            IElement element = visitElement(elementCtx);
-            if (element instanceof BlockElement) {
-                div.add((BlockElement) element);
-            }
         }
 
         return div;
@@ -80,10 +76,7 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
     public IElement visitTemplate(JQuickPDFParser.TemplateContext ctx) {
         Div templateContent = new Div();
         for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
-            IElement element = visitElement(elementCtx);
-            if (element instanceof BlockElement) {
-                templateContent.add((BlockElement) element);
-            }
+
         }
         if (ctx.IDENTIFIER(1) != null) {
         }

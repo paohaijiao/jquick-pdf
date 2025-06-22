@@ -23,6 +23,7 @@ import com.itextpdf.layout.Document;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.paohaijiao.javelin.param.JContext;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -35,15 +36,20 @@ import java.io.IOException;
  * @description
  */
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
-    public JPdfXCommonVisitor(){
+    private String fileName="d://test/a.pdf";
+    public JPdfXCommonVisitor() throws FileNotFoundException {
         this.context=new JContext();
+        PdfWriter writer = new PdfWriter(fileName);
+        this.pdf = new PdfDocument(writer);
     }
-    public JPdfXCommonVisitor(JContext context){
+    public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
         this.context=context;
+        PdfWriter writer = new PdfWriter(fileName);
+        this.pdf = new PdfDocument(writer);
     }
     public JPdfXCommonVisitor(String outputPath) throws IOException {
         PdfWriter writer = new PdfWriter(outputPath);
-        this.pdfDoc = new PdfDocument(writer);
+        this.pdf = new PdfDocument(writer);
     }
 
     @Override
@@ -66,30 +72,30 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         if (ctx.pageLayout() != null) {
             pageSize = visitLayoutOption(ctx.pageLayout().layoutOption());
         }
-        PdfPage currentPage = pdfDoc.addNewPage(pageSize);
+        PdfPage currentPage = pdf.addNewPage(pageSize);
 //        if (ctx.landscape() != null) {
 //            currentPage.setRotation(90);
 //            pageSize = pageSize.rotate();
 //        }
-        float marginLeft = 72;
-        float marginRight = 72;
-        float marginTop = 72;
-        float marginBottom = 72;
-        if (ctx.margins() != null) {
-            marginLeft = convertToPoints(Float.parseFloat(ctx.margins().number(0).getText()),
-                    ctx.margins().unit(0).getText());
-            marginTop = convertToPoints(Float.parseFloat(ctx.margins().number(1).getText()),
-                    ctx.margins().unit(1).getText());
-            marginRight = convertToPoints(Float.parseFloat(ctx.margins().number(2).getText()),
-                    ctx.margins().unit(2).getText());
-            marginBottom = convertToPoints(Float.parseFloat(ctx.margins().number(3).getText()),
-                    ctx.margins().unit(3).getText());
-        }
-        if (document == null) {
-            document = new Document(pdfDoc, pageSize);
-        }
-        document.setMargins(marginTop, marginRight, marginBottom, marginLeft);
-        pdfDoc.addNewPage(currentPageSize);
+//        float marginLeft = 72;
+//        float marginRight = 72;
+//        float marginTop = 72;
+//        float marginBottom = 72;
+//        if (ctx.margins() != null) {
+//            marginLeft = convertToPoints(Float.parseFloat(ctx.margins().number(0).getText()),
+//                    ctx.margins().unit(0).getText());
+//            marginTop = convertToPoints(Float.parseFloat(ctx.margins().number(1).getText()),
+//                    ctx.margins().unit(1).getText());
+//            marginRight = convertToPoints(Float.parseFloat(ctx.margins().number(2).getText()),
+//                    ctx.margins().unit(2).getText());
+//            marginBottom = convertToPoints(Float.parseFloat(ctx.margins().number(3).getText()),
+//                    ctx.margins().unit(3).getText());
+//        }
+//        if (document == null) {
+//            document = new Document(pdfDoc, pageSize);
+//        }
+//        document.setMargins(marginTop, marginRight, marginBottom, marginLeft);
+//        pdfDoc.addNewPage(currentPageSize);
         for (JQuickPDFParser.ElementContext elemCtx : ctx.element()) {
             visitElement(elemCtx);
         }

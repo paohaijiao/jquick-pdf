@@ -218,16 +218,6 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitTemplate(JQuickPDFParser.TemplateContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#paragraphStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#paragraphStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#style}.
 	 * @param ctx the parse tree
 	 */

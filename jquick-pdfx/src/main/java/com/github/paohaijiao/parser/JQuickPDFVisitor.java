@@ -137,12 +137,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTemplate(JQuickPDFParser.TemplateContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#paragraphStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#style}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

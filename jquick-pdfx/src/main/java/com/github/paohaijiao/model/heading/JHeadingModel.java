@@ -15,7 +15,7 @@
  */
 package com.github.paohaijiao.model.heading;
 
-import com.github.paohaijiao.model.style.JStyleModel;
+import com.github.paohaijiao.model.style.JStyleAttributes;
 import lombok.Data;
 
 /**
@@ -31,7 +31,9 @@ import lombok.Data;
 public class JHeadingModel {
 
     private String text;
+
     private String level;
-    private JStyleModel style;
+
+    private JStyleAttributes style;
 
 }

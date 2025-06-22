@@ -18,7 +18,6 @@ package com.github.paohaijiao;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
-import com.paohaijiao.javelin.param.JContext;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -35,99 +34,70 @@ import java.io.IOException;
  * @date 2025/6/22
  * @description
  */
-public class JValueTest {
+public class JStyleTest {
 
     @Test
-    public void variable() throws IOException {
-        String input = "${key}";
-        System.out.println(input);
+    public void value() throws IOException {
+        String input = "aq123" ;
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.variable();
-        JContext params = new JContext();
-        params.put("key", "value");
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        String key=(String) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void unit() throws IOException {
-        String input = "px";
-        System.out.println(input);
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.unit();
-        JContext params = new JContext();
-        params.put("key", "value");
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void number() throws IOException {
-        String input = "1";
-        System.out.println(input);
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.number();
-        JContext params = new JContext();
-        params.put("key", "value");
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void color() throws IOException {
-        String input = "#1234";
-        System.out.println(input);
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.color();
-        JContext params = new JContext();
-        params.put("key", "value");
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-
-    @Test
-    public void color2() throws IOException {
-        String input = "red";
-        System.out.println(input);
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.color();
-        JContext params = new JContext();
-        params.put("key", "value");
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void color3() throws IOException {
-        String input = "rgb(255,244,255)\n" +
-                "\n";
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.color();
+        ParseTree tree = parser.value();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
         System.out.println("pdf generate");
     }
     @Test
-    public void string() throws IOException {
-        String input = "'xsaxsaxsa'" +
-                "\n";
+    public void value1() throws IOException {
+        String input = "'aq123'" ;
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.document();
+        ParseTree tree = parser.value();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key=(Object) visitor.visit(tree);
+        System.out.println("pdf generate");
+    }
+    @Test
+    public void key() throws IOException {
+        String input = "dwdwedwe" ;
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.value();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key=(Object) visitor.visit(tree);
+        System.out.println("pdf generate");
+    }
+    @Test
+    public void attr() throws IOException {
+        String input = "key:value" ;
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.attr();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key=(Object) visitor.visit(tree);
+        System.out.println("pdf generate");
+    }
+    @Test
+    public void attr1() throws IOException {
+        String input = "key:'value1'" ;
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.attr();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key=(Object) visitor.visit(tree);
+        System.out.println("pdf generate");
+    }
+    @Test
+    public void attr2() throws IOException {
+        String input = "height:'1px',width:'2px'" ;
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.style();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
         System.out.println("pdf generate");

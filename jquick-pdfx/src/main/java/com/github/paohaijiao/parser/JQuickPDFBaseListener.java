@@ -269,18 +269,6 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterStyle(JQuickPDFParser.StyleContext ctx) { }
 	/**
 	 * {@inheritDoc}

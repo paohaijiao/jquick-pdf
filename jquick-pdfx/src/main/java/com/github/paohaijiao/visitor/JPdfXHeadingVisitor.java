@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.element.Paragraph;
@@ -22,6 +23,8 @@ import com.itextpdf.layout.properties.TextAlignment;
 import com.github.paohaijiao.model.heading.JHeadingModel;
 import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.layout.Document;
+import com.paohaijiao.javelin.util.JStringUtils;
 
 
 /**
@@ -37,15 +40,20 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
 
     @Override
     public Paragraph visitHeading(JQuickPDFParser.HeadingContext ctx) {
-        this.cleanTemp();
+        Document document = new Document(pdf);
         JHeadingModel headingModel = new JHeadingModel();
         String level = ctx.getChild(1).getText();
         headingModel.setLevel(level);
-        String text = ctx.string().getText().replaceAll("\"", "");
-        headingModel.setLevel(text);
-
-        headingModel.setStyle(style);
+        if(null!=ctx.string()){
+            String text = JStringUtils.trim(ctx.string().getText());
+            headingModel.setText(text);
+        }
+        if(null!=ctx.style()){
+            JStyleAttributes style = visitStyle(ctx.style());
+            headingModel.setStyle(style);
+        }
         Paragraph paragraph = this.buildHeading(headingModel);
+        document.add(paragraph);
         return paragraph;
     }
 
@@ -72,28 +80,13 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
                     heading.setFontSize(14);
                     break;
             }
-            JStyleModel model = data.getStyle();
+            JStyleAttributes model = data.getStyle();
             if (null != model) {
                 if (null != model.getFont()) {
                     heading.setFont(PdfFontFactory.createFont(model.getFont())); // 字体
                 }
-                if (null != model.getSize()) {
-                    heading.setFontSize(model.getSize()); // 字号
-                }
-                if (null != model.getColor()) {
-                    //paragraph.setFontColor(Color.); // 颜色
-                }
-                if (null != model.getBold() && model.getBold()) {
-                    heading.setBold(); // 加粗
-                }
-                if (null != model.getItalic() && model.getItalic()) {
-                    heading.setItalic(); // 加粗
-                }
-                if (null != model.getUnderline() && model.getUnderline()) {
-                    heading.setUnderline(); // 加粗
-                }
-                if (null != model.getUnderline() && model.getUnderline()) {
-                    heading.setUnderline();
+                if (null != model.getFontSize()) {
+                    heading.setFontSize(model.getFontSize()); // 字号
                 }
             }
 
@@ -102,11 +95,9 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
             heading.setMarginLeft(10); // 左边距
             heading.setMarginRight(10); // 右边距
             heading.setTextAlignment(TextAlignment.CENTER); // 对齐方式
-            Style h1Style = new Style()
-                    //.setFont(PdfFontFactory.createFont(FontConstants.HELVETICA_BOLD))
-                    .setFontSize(24);
+            Style h1Style = new Style();
+            h1Style.setFontSize(24);
             //  .setFontColor(Color.RED);
-
             heading.addStyle(h1Style);
             return heading;
         } catch (Exception e) {
