@@ -56,11 +56,6 @@ public class JPdfXElementVisitor extends JPdfXDivVisitor {
     }
 
 
-    @Override
-    public Image visitSvg(JQuickPDFParser.SvgContext ctx) {
-        return null;
-
-    }
 
     @Override
     public IElement visitTemplate(JQuickPDFParser.TemplateContext ctx) {

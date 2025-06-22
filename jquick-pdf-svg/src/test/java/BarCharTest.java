@@ -49,5 +49,7 @@ public class BarCharTest {
         option.series(bar);
         JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
         jBarChartsRenderer.render(option, "D://test//echart-output.svg");
+        String str=jBarChartsRenderer.renderToString(option);
+        System.out.println(str);
     }
 }

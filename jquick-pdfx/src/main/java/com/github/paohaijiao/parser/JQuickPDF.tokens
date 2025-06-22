@@ -115,7 +115,7 @@ AT=84
 'src'=31
 '='=32
 'alt'=33
-'svg'=34
+'<svg'=34
 'div'=35
 'template'=36
 'use'=37
