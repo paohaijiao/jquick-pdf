@@ -16,8 +16,13 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.List;
+import com.itextpdf.layout.element.ListItem;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 
 import java.net.MalformedURLException;
@@ -36,6 +41,16 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
 
     @Override
     public Image visitImage(JQuickPDFParser.ImageContext ctx) {
+        try{
+            Document document = new Document(pdf);
+            ImageData imageData = ImageDataFactory.create("d://sample///sample.jpg");
+            Image image = new Image(imageData);
+           // document.add(new Paragraph("Below is an image:"));
+            document.add(image);
+            document.close();
+        }catch (Exception e){
+         e.printStackTrace();
+        }
 
         return null;
     }

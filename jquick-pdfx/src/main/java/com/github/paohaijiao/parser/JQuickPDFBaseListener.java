@@ -137,18 +137,6 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterOrderType(JQuickPDFParser.OrderTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOrderType(JQuickPDFParser.OrderTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterListItem(JQuickPDFParser.ListItemContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -221,42 +209,6 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTableCell(JQuickPDFParser.TableCellContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTableCell(JQuickPDFParser.TableCellContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterColspan(JQuickPDFParser.ColspanContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitColspan(JQuickPDFParser.ColspanContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterRowspan(JQuickPDFParser.RowspanContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRowspan(JQuickPDFParser.RowspanContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterImage(JQuickPDFParser.ImageContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -264,6 +216,30 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitImage(JQuickPDFParser.ImageContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSrc(JQuickPDFParser.SrcContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSrc(JQuickPDFParser.SrcContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAlt(JQuickPDFParser.AltContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAlt(JQuickPDFParser.AltContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

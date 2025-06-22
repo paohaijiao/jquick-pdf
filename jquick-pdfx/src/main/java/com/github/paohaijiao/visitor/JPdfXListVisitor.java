@@ -34,10 +34,7 @@ import com.itextpdf.layout.element.Paragraph;
  */
 public class JPdfXListVisitor extends JPdfXTableVisitor {
 
-    @Override
-    public String visitOrderType(JQuickPDFParser.OrderTypeContext ctx) {
-        return ctx.getText();
-    }
+
 
 
     @Override

@@ -55,19 +55,6 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
 
 
 
-    @Override
-    public Void visitTableCell(JQuickPDFParser.TableCellContext ctx) {
-        if (ctx.colspan() != null) {
-            visitColspan(ctx.colspan());
-        }
-        if (ctx.rowspan() != null) {
-            visitRowspan(ctx.rowspan());
-        }
-        for (JQuickPDFParser.ElementContext i : ctx.element()) {
-            visitElement(i);
-        }
-        return null;
-    }
 
     private Paragraph buildParagraph(JParagraphModel data) {
         try {

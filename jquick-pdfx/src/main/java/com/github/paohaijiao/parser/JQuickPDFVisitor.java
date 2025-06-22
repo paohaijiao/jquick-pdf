@@ -71,12 +71,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitList(JQuickPDFParser.ListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#orderType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOrderType(JQuickPDFParser.OrderTypeContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#listItem}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -113,29 +107,23 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTd(JQuickPDFParser.TdContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#tableCell}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTableCell(JQuickPDFParser.TableCellContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#colspan}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitColspan(JQuickPDFParser.ColspanContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#rowspan}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRowspan(JQuickPDFParser.RowspanContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#image}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitImage(JQuickPDFParser.ImageContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#src}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSrc(JQuickPDFParser.SrcContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#alt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAlt(JQuickPDFParser.AltContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#svg}.
 	 * @param ctx the parse tree

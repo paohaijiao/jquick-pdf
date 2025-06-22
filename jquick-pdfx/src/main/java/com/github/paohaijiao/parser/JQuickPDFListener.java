@@ -108,16 +108,6 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitList(JQuickPDFParser.ListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#orderType}.
-	 * @param ctx the parse tree
-	 */
-	void enterOrderType(JQuickPDFParser.OrderTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#orderType}.
-	 * @param ctx the parse tree
-	 */
-	void exitOrderType(JQuickPDFParser.OrderTypeContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#listItem}.
 	 * @param ctx the parse tree
 	 */
@@ -178,36 +168,6 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitTd(JQuickPDFParser.TdContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#tableCell}.
-	 * @param ctx the parse tree
-	 */
-	void enterTableCell(JQuickPDFParser.TableCellContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#tableCell}.
-	 * @param ctx the parse tree
-	 */
-	void exitTableCell(JQuickPDFParser.TableCellContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#colspan}.
-	 * @param ctx the parse tree
-	 */
-	void enterColspan(JQuickPDFParser.ColspanContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#colspan}.
-	 * @param ctx the parse tree
-	 */
-	void exitColspan(JQuickPDFParser.ColspanContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#rowspan}.
-	 * @param ctx the parse tree
-	 */
-	void enterRowspan(JQuickPDFParser.RowspanContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#rowspan}.
-	 * @param ctx the parse tree
-	 */
-	void exitRowspan(JQuickPDFParser.RowspanContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#image}.
 	 * @param ctx the parse tree
 	 */
@@ -217,6 +177,26 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitImage(JQuickPDFParser.ImageContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#src}.
+	 * @param ctx the parse tree
+	 */
+	void enterSrc(JQuickPDFParser.SrcContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#src}.
+	 * @param ctx the parse tree
+	 */
+	void exitSrc(JQuickPDFParser.SrcContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#alt}.
+	 * @param ctx the parse tree
+	 */
+	void enterAlt(JQuickPDFParser.AltContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#alt}.
+	 * @param ctx the parse tree
+	 */
+	void exitAlt(JQuickPDFParser.AltContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#svg}.
 	 * @param ctx the parse tree
