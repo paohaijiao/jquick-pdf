@@ -38,80 +38,14 @@ public class JLayOutStyleTest {
 
     @Test
     public void dimensionWidth() throws IOException {
-        String input = "width 1 px" ;
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.divStyle();
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void dimensionHeight1() throws IOException {
-        String input = "height 1 px" ;
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.divStyle();
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void dimensionSize1() throws IOException {
-        String input = "size 1 px 2px" ;
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.divStyle();
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void mutiple() throws IOException {
-        String input = "size 1 px 2px" ;
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.divStyle();
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void border() throws IOException {
-        String input = "border 1 px red rounded 2 px" ;
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.divStyle();
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
-    @Test
-    public void spacing() throws IOException {
-        String input = "margin 1 px 4px" ;
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.divStyle();
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+//        String input = "width:" + "1 px" ;
+//        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+//        CommonTokenStream tokens = new CommonTokenStream(lexer);
+//        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+//        ParseTree tree = parser.divStyle();
+//        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+//        Object key=(Object) visitor.visit(tree);
+//        System.out.println("pdf generate");
     }
 
-    @Test
-    public void floatDirection() throws IOException {
-        String input = "float right" ;
-        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
-        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.divStyle();
-        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
-    }
 }

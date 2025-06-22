@@ -26,37 +26,27 @@ public class JQuickPDFParser extends Parser {
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
 		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, 
 		T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, T__36=37, T__37=38, 
-		T__38=39, T__39=40, T__40=41, T__41=42, T__42=43, T__43=44, T__44=45, 
-		T__45=46, T__46=47, T__47=48, T__48=49, T__49=50, T__50=51, T__51=52, 
-		T__52=53, T__53=54, T__54=55, T__55=56, T__56=57, T__57=58, T__58=59, 
-		T__59=60, A0=61, A1=62, A2=63, A3=64, A4=65, A5=66, A6=67, A7=68, A8=69, 
-		A9=70, A10=71, B0=72, B1=73, B2=74, B3=75, B4=76, B5=77, B6=78, B7=79, 
-		B8=80, B9=81, B10=82, DEFAULT=83, EXECUTIVE=84, LEDGER=85, LEGAL=86, LETTER=87, 
-		TABLOID=88, AUTO=89, COLOR=90, NUMBER=91, IDENTIFIER=92, STRING=93, PATH=94, 
-		WS=95, COMMENT=96, AT=97, ID=98;
+		T__38=39, T__39=40, COLON=41, SEMICOLON=42, A0=43, A1=44, A2=45, A3=46, 
+		A4=47, A5=48, A6=49, A7=50, A8=51, A9=52, A10=53, B0=54, B1=55, B2=56, 
+		B3=57, B4=58, B5=59, B6=60, B7=61, B8=62, B9=63, B10=64, DEFAULT=65, EXECUTIVE=66, 
+		LEDGER=67, LEGAL=68, LETTER=69, TABLOID=70, AUTO=71, NUMBER=72, IDENTIFIER=73, 
+		COLOR=74, STRING=75, PATH=76, WS=77, COMMENT=78, AT=79;
 	public static final int
 		RULE_document = 0, RULE_page = 1, RULE_pageLayout = 2, RULE_margins = 3, 
 		RULE_layoutOption = 4, RULE_customOption = 5, RULE_element = 6, RULE_paragraph = 7, 
 		RULE_heading = 8, RULE_list = 9, RULE_orderType = 10, RULE_listItem = 11, 
 		RULE_table = 12, RULE_tableRow = 13, RULE_tableCell = 14, RULE_colspan = 15, 
 		RULE_rowspan = 16, RULE_image = 17, RULE_svg = 18, RULE_div = 19, RULE_template = 20, 
-		RULE_paragraphStyle = 21, RULE_paragraphStyleType = 22, RULE_textStyle = 23, 
-		RULE_alignment = 24, RULE_alignmentLocation = 25, RULE_spacing = 26, RULE_marginOrPadding = 27, 
-		RULE_imageStyle = 28, RULE_imageStyleItem = 29, RULE_svgStyle = 30, RULE_svgStyleItem = 31, 
-		RULE_divStyle = 32, RULE_dimension = 33, RULE_border = 34, RULE_borderRounded = 35, 
-		RULE_background = 36, RULE_opacity = 37, RULE_scale = 38, RULE_float = 39, 
-		RULE_floatDirect = 40, RULE_string = 41, RULE_color = 42, RULE_number = 43, 
-		RULE_unit = 44, RULE_variable = 45;
+		RULE_paragraphStyle = 21, RULE_style = 22, RULE_attr = 23, RULE_key = 24, 
+		RULE_value = 25, RULE_string = 26, RULE_color = 27, RULE_number = 28, 
+		RULE_unit = 29, RULE_variable = 30;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"document", "page", "pageLayout", "margins", "layoutOption", "customOption", 
 			"element", "paragraph", "heading", "list", "orderType", "listItem", "table", 
 			"tableRow", "tableCell", "colspan", "rowspan", "image", "svg", "div", 
-			"template", "paragraphStyle", "paragraphStyleType", "textStyle", "alignment", 
-			"alignmentLocation", "spacing", "marginOrPadding", "imageStyle", "imageStyleItem", 
-			"svgStyle", "svgStyleItem", "divStyle", "dimension", "border", "borderRounded", 
-			"background", "opacity", "scale", "float", "floatDirect", "string", "color", 
-			"number", "unit", "variable"
+			"template", "paragraphStyle", "style", "attr", "key", "value", "string", 
+			"color", "number", "unit", "variable"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -67,15 +57,12 @@ public class JQuickPDFParser extends Parser {
 			"'paragraph'", "'heading'", "'h1'", "'h2'", "'h3'", "'h4'", "'h5'", "'h6'", 
 			"'list'", "'ordered'", "'unordered'", "'item'", "'table'", "'cols'", 
 			"'row'", "'cell'", "'colspan'", "'rowspan'", "'image'", "'svg'", "'div'", 
-			"'('", "')'", "'template'", "'use'", "'font'", "'size'", "'color'", "'bold'", 
-			"'italic'", "'underline'", "'align'", "'left'", "'right'", "'center'", 
-			"'justify'", "'margin'", "'padding'", "'width'", "'height'", "'border'", 
-			"'rounded'", "'background'", "'opacity'", "'scale'", "'float'", "'px'", 
-			"'pt'", "'mm'", "'cm'", "'in'", "'%'", "'${'", "'A0'", "'A1'", "'A2'", 
-			"'A3'", "'A4'", "'A5'", "'A6'", "'A7'", "'A8'", "'A9'", "'A10'", "'B0'", 
-			"'B1'", "'B2'", "'B3'", "'B4'", "'B5'", "'B6'", "'B7'", "'B8'", "'B9'", 
-			"'B10'", "'DEFAULT'", "'EXECUTIVE'", "'LEDGER'", "'LEGAL'", "'LETTER'", 
-			"'TABLOID'", "'auto'"
+			"'('", "')'", "'template'", "'use'", "','", "'px'", "'pt'", "'mm'", "'cm'", 
+			"'in'", "'%'", "'${'", "':'", "';'", "'A0'", "'A1'", "'A2'", "'A3'", 
+			"'A4'", "'A5'", "'A6'", "'A7'", "'A8'", "'A9'", "'A10'", "'B0'", "'B1'", 
+			"'B2'", "'B3'", "'B4'", "'B5'", "'B6'", "'B7'", "'B8'", "'B9'", "'B10'", 
+			"'DEFAULT'", "'EXECUTIVE'", "'LEDGER'", "'LEGAL'", "'LETTER'", "'TABLOID'", 
+			"'auto'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
@@ -84,12 +71,11 @@ public class JQuickPDFParser extends Parser {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, null, null, null, null, null, null, null, null, null, null, null, 
-			null, "A0", "A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", 
-			"B0", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B10", "DEFAULT", 
-			"EXECUTIVE", "LEDGER", "LEGAL", "LETTER", "TABLOID", "AUTO", "COLOR", 
-			"NUMBER", "IDENTIFIER", "STRING", "PATH", "WS", "COMMENT", "AT", "ID"
+			null, null, null, null, null, "COLON", "SEMICOLON", "A0", "A1", "A2", 
+			"A3", "A4", "A5", "A6", "A7", "A8", "A9", "A10", "B0", "B1", "B2", "B3", 
+			"B4", "B5", "B6", "B7", "B8", "B9", "B10", "DEFAULT", "EXECUTIVE", "LEDGER", 
+			"LEGAL", "LETTER", "TABLOID", "AUTO", "NUMBER", "IDENTIFIER", "COLOR", 
+			"STRING", "PATH", "WS", "COMMENT", "AT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -178,27 +164,27 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(92);
+			setState(62);
 			match(T__0);
-			setState(93);
+			setState(63);
 			match(IDENTIFIER);
-			setState(94);
+			setState(64);
 			match(T__1);
-			setState(98);
+			setState(68);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==T__3) {
 				{
 				{
-				setState(95);
+				setState(65);
 				page();
 				}
 				}
-				setState(100);
+				setState(70);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(101);
+			setState(71);
 			match(T__2);
 			}
 		}
@@ -253,49 +239,49 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(103);
+			setState(73);
 			match(T__3);
 			{
-			setState(104);
+			setState(74);
 			pageLayout();
 			}
-			setState(106);
+			setState(76);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__4) {
 				{
-				setState(105);
+				setState(75);
 				match(T__4);
 				}
 			}
 
-			setState(109);
+			setState(79);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__5) {
 				{
-				setState(108);
+				setState(78);
 				margins();
 				}
 			}
 
-			setState(111);
+			setState(81);
 			match(T__1);
-			setState(115);
+			setState(85);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 2618360576L) != 0)) {
 				{
 				{
-				setState(112);
+				setState(82);
 				element();
 				}
 				}
-				setState(117);
+				setState(87);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(118);
+			setState(88);
 			match(T__2);
 			}
 		}
@@ -341,7 +327,7 @@ public class JQuickPDFParser extends Parser {
 		PageLayoutContext _localctx = new PageLayoutContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_pageLayout);
 		try {
-			setState(122);
+			setState(92);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case A0:
@@ -374,14 +360,14 @@ public class JQuickPDFParser extends Parser {
 			case TABLOID:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(120);
+				setState(90);
 				layoutOption();
 				}
 				break;
 			case T__6:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(121);
+				setState(91);
 				customOption();
 				}
 				break;
@@ -439,23 +425,23 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(124);
+			setState(94);
 			match(T__5);
-			setState(125);
+			setState(95);
 			number();
-			setState(126);
+			setState(96);
 			unit();
-			setState(127);
+			setState(97);
 			number();
-			setState(128);
+			setState(98);
 			unit();
-			setState(129);
+			setState(99);
 			number();
-			setState(130);
+			setState(100);
 			unit();
-			setState(131);
+			setState(101);
 			number();
-			setState(132);
+			setState(102);
 			unit();
 			}
 		}
@@ -526,9 +512,9 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(134);
+			setState(104);
 			_la = _input.LA(1);
-			if ( !(((((_la - 61)) & ~0x3f) == 0 && ((1L << (_la - 61)) & 268435455L) != 0)) ) {
+			if ( !(((((_la - 43)) & ~0x3f) == 0 && ((1L << (_la - 43)) & 268435455L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -588,15 +574,15 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(136);
+			setState(106);
 			match(T__6);
-			setState(137);
+			setState(107);
 			number();
-			setState(138);
+			setState(108);
 			unit();
-			setState(139);
+			setState(109);
 			number();
-			setState(140);
+			setState(110);
 			unit();
 			}
 		}
@@ -660,62 +646,62 @@ public class JQuickPDFParser extends Parser {
 		ElementContext _localctx = new ElementContext(_ctx, getState());
 		enterRule(_localctx, 12, RULE_element);
 		try {
-			setState(150);
+			setState(120);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case T__7:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(142);
+				setState(112);
 				paragraph();
 				}
 				break;
 			case T__8:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(143);
+				setState(113);
 				heading();
 				}
 				break;
 			case T__15:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(144);
+				setState(114);
 				list();
 				}
 				break;
 			case T__19:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(145);
+				setState(115);
 				table();
 				}
 				break;
 			case T__25:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(146);
+				setState(116);
 				image();
 				}
 				break;
 			case T__26:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(147);
+				setState(117);
 				svg();
 				}
 				break;
 			case T__27:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(148);
+				setState(118);
 				div();
 				}
 				break;
 			case T__30:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(149);
+				setState(119);
 				template();
 				}
 				break;
@@ -768,20 +754,20 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(152);
+			setState(122);
 			match(T__7);
-			setState(153);
+			setState(123);
 			string();
-			setState(158);
+			setState(128);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__1) {
 				{
-				setState(154);
+				setState(124);
 				match(T__1);
-				setState(155);
+				setState(125);
 				paragraphStyle();
-				setState(156);
+				setState(126);
 				match(T__2);
 				}
 			}
@@ -804,11 +790,8 @@ public class JQuickPDFParser extends Parser {
 		public StringContext string() {
 			return getRuleContext(StringContext.class,0);
 		}
-		public List<TextStyleContext> textStyle() {
-			return getRuleContexts(TextStyleContext.class);
-		}
-		public TextStyleContext textStyle(int i) {
-			return getRuleContext(TextStyleContext.class,i);
+		public StyleContext style() {
+			return getRuleContext(StyleContext.class,0);
 		}
 		public HeadingContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -836,9 +819,9 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(160);
+			setState(130);
 			match(T__8);
-			setState(161);
+			setState(131);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 64512L) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -848,30 +831,18 @@ public class JQuickPDFParser extends Parser {
 				_errHandler.reportMatch(this);
 				consume();
 			}
-			setState(162);
+			setState(132);
 			string();
-			setState(171);
+			setState(137);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__1) {
 				{
-				setState(163);
+				setState(133);
 				match(T__1);
-				setState(165); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				do {
-					{
-					{
-					setState(164);
-					textStyle();
-					}
-					}
-					setState(167); 
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 1090921693184L) != 0) );
-				setState(169);
+				setState(134);
+				style();
+				setState(135);
 				match(T__2);
 				}
 			}
@@ -926,29 +897,29 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(173);
+			setState(139);
 			match(T__15);
 			{
-			setState(174);
+			setState(140);
 			orderType();
 			}
-			setState(175);
+			setState(141);
 			match(T__1);
-			setState(177); 
+			setState(143); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(176);
+				setState(142);
 				listItem();
 				}
 				}
-				setState(179); 
+				setState(145); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__18 );
-			setState(181);
+			setState(147);
 			match(T__2);
 			}
 		}
@@ -991,7 +962,7 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(183);
+			setState(149);
 			_la = _input.LA(1);
 			if ( !(_la==T__16 || _la==T__17) ) {
 			_errHandler.recoverInline(this);
@@ -1044,9 +1015,9 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(185);
+			setState(151);
 			match(T__18);
-			setState(186);
+			setState(152);
 			string();
 			}
 		}
@@ -1098,37 +1069,37 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(188);
+			setState(154);
 			match(T__19);
-			setState(191);
+			setState(157);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__20) {
 				{
-				setState(189);
+				setState(155);
 				match(T__20);
-				setState(190);
+				setState(156);
 				number();
 				}
 			}
 
-			setState(193);
+			setState(159);
 			match(T__1);
-			setState(195); 
+			setState(161); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(194);
+				setState(160);
 				tableRow();
 				}
 				}
-				setState(197); 
+				setState(163); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__21 );
-			setState(199);
+			setState(165);
 			match(T__2);
 			}
 		}
@@ -1177,25 +1148,25 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(201);
+			setState(167);
 			match(T__21);
-			setState(202);
+			setState(168);
 			match(T__1);
-			setState(204); 
+			setState(170); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(203);
+				setState(169);
 				tableCell();
 				}
 				}
-				setState(206); 
+				setState(172); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==T__22 );
-			setState(208);
+			setState(174);
 			match(T__2);
 			}
 		}
@@ -1250,45 +1221,45 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(210);
+			setState(176);
 			match(T__22);
-			setState(212);
+			setState(178);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,13,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
 			case 1:
 				{
-				setState(211);
+				setState(177);
 				colspan();
 				}
 				break;
 			}
-			setState(215);
+			setState(181);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==NUMBER) {
 				{
-				setState(214);
+				setState(180);
 				rowspan();
 				}
 			}
 
-			setState(217);
+			setState(183);
 			match(T__1);
-			setState(221);
+			setState(187);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 2618360576L) != 0)) {
 				{
 				{
-				setState(218);
+				setState(184);
 				element();
 				}
 				}
-				setState(223);
+				setState(189);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(224);
+			setState(190);
 			match(T__2);
 			}
 		}
@@ -1333,9 +1304,9 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(226);
+			setState(192);
 			number();
-			setState(227);
+			setState(193);
 			match(T__23);
 			}
 		}
@@ -1380,9 +1351,9 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(229);
+			setState(195);
 			number();
-			setState(230);
+			setState(196);
 			match(T__24);
 			}
 		}
@@ -1400,8 +1371,8 @@ public class JQuickPDFParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class ImageContext extends ParserRuleContext {
 		public TerminalNode PATH() { return getToken(JQuickPDFParser.PATH, 0); }
-		public ImageStyleContext imageStyle() {
-			return getRuleContext(ImageStyleContext.class,0);
+		public StyleContext style() {
+			return getRuleContext(StyleContext.class,0);
 		}
 		public ImageContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1429,20 +1400,20 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(232);
+			setState(198);
 			match(T__25);
-			setState(233);
+			setState(199);
 			match(PATH);
-			setState(238);
+			setState(204);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__1) {
 				{
-				setState(234);
+				setState(200);
 				match(T__1);
-				setState(235);
-				imageStyle();
-				setState(236);
+				setState(201);
+				style();
+				setState(202);
 				match(T__2);
 				}
 			}
@@ -1463,8 +1434,8 @@ public class JQuickPDFParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class SvgContext extends ParserRuleContext {
 		public TerminalNode PATH() { return getToken(JQuickPDFParser.PATH, 0); }
-		public SvgStyleContext svgStyle() {
-			return getRuleContext(SvgStyleContext.class,0);
+		public StyleContext style() {
+			return getRuleContext(StyleContext.class,0);
 		}
 		public SvgContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1492,20 +1463,20 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(240);
+			setState(206);
 			match(T__26);
-			setState(241);
+			setState(207);
 			match(PATH);
-			setState(246);
+			setState(212);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__1) {
 				{
-				setState(242);
+				setState(208);
 				match(T__1);
-				setState(243);
-				svgStyle();
-				setState(244);
+				setState(209);
+				style();
+				setState(210);
 				match(T__2);
 				}
 			}
@@ -1525,8 +1496,8 @@ public class JQuickPDFParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class DivContext extends ParserRuleContext {
-		public DivStyleContext divStyle() {
-			return getRuleContext(DivStyleContext.class,0);
+		public StyleContext style() {
+			return getRuleContext(StyleContext.class,0);
 		}
 		public List<ElementContext> element() {
 			return getRuleContexts(ElementContext.class);
@@ -1560,39 +1531,39 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(248);
+			setState(214);
 			match(T__27);
-			setState(253);
+			setState(219);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==T__28) {
 				{
-				setState(249);
+				setState(215);
 				match(T__28);
-				setState(250);
-				divStyle();
-				setState(251);
+				setState(216);
+				style();
+				setState(217);
 				match(T__29);
 				}
 			}
 
-			setState(255);
+			setState(221);
 			match(T__1);
-			setState(259);
+			setState(225);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 2618360576L) != 0)) {
 				{
 				{
-				setState(256);
+				setState(222);
 				element();
 				}
 				}
-				setState(261);
+				setState(227);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(262);
+			setState(228);
 			match(T__2);
 			}
 		}
@@ -1658,46 +1629,46 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(264);
+			setState(230);
 			match(T__30);
-			setState(265);
+			setState(231);
 			match(IDENTIFIER);
-			setState(266);
+			setState(232);
 			match(T__1);
-			setState(270);
+			setState(236);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & 2618360576L) != 0)) {
 				{
 				{
-				setState(267);
+				setState(233);
 				element();
 				}
 				}
-				setState(272);
+				setState(238);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(273);
+			setState(239);
 			match(T__2);
-			setState(274);
+			setState(240);
 			match(T__31);
-			setState(275);
+			setState(241);
 			match(IDENTIFIER);
-			setState(282);
+			setState(248);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==AT) {
 				{
-				setState(276);
+				setState(242);
 				match(AT);
-				setState(277);
+				setState(243);
 				number();
-				setState(278);
+				setState(244);
 				unit();
-				setState(279);
+				setState(245);
 				number();
-				setState(280);
+				setState(246);
 				unit();
 				}
 			}
@@ -1717,11 +1688,8 @@ public class JQuickPDFParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class ParagraphStyleContext extends ParserRuleContext {
-		public List<ParagraphStyleTypeContext> paragraphStyleType() {
-			return getRuleContexts(ParagraphStyleTypeContext.class);
-		}
-		public ParagraphStyleTypeContext paragraphStyleType(int i) {
-			return getRuleContext(ParagraphStyleTypeContext.class,i);
+		public StyleContext style() {
+			return getRuleContext(StyleContext.class,0);
 		}
 		public ParagraphStyleContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1745,95 +1713,87 @@ public class JQuickPDFParser extends Parser {
 	public final ParagraphStyleContext paragraphStyle() throws RecognitionException {
 		ParagraphStyleContext _localctx = new ParagraphStyleContext(_ctx, getState());
 		enterRule(_localctx, 42, RULE_paragraphStyle);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(250);
+			style();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class StyleContext extends ParserRuleContext {
+		public List<AttrContext> attr() {
+			return getRuleContexts(AttrContext.class);
+		}
+		public AttrContext attr(int i) {
+			return getRuleContext(AttrContext.class,i);
+		}
+		public TerminalNode SEMICOLON() { return getToken(JQuickPDFParser.SEMICOLON, 0); }
+		public StyleContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_style; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterStyle(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitStyle(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitStyle(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final StyleContext style() throws RecognitionException {
+		StyleContext _localctx = new StyleContext(_ctx, getState());
+		enterRule(_localctx, 44, RULE_style);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(285); 
+			setState(252);
+			attr();
+			setState(257);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			do {
+			while (_la==T__32) {
 				{
 				{
-				setState(284);
-				paragraphStyleType();
+				setState(253);
+				match(T__32);
+				setState(254);
+				attr();
 				}
 				}
-				setState(287); 
+				setState(259);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 53867479826432L) != 0) );
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class ParagraphStyleTypeContext extends ParserRuleContext {
-		public TextStyleContext textStyle() {
-			return getRuleContext(TextStyleContext.class,0);
-		}
-		public AlignmentContext alignment() {
-			return getRuleContext(AlignmentContext.class,0);
-		}
-		public SpacingContext spacing() {
-			return getRuleContext(SpacingContext.class,0);
-		}
-		public ParagraphStyleTypeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_paragraphStyleType; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterParagraphStyleType(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitParagraphStyleType(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitParagraphStyleType(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ParagraphStyleTypeContext paragraphStyleType() throws RecognitionException {
-		ParagraphStyleTypeContext _localctx = new ParagraphStyleTypeContext(_ctx, getState());
-		enterRule(_localctx, 44, RULE_paragraphStyleType);
-		try {
-			setState(292);
+			setState(261);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,23,_ctx) ) {
-			case 1:
-				enterOuterAlt(_localctx, 1);
+			_la = _input.LA(1);
+			if (_la==SEMICOLON) {
 				{
-				setState(289);
-				textStyle();
+				setState(260);
+				match(SEMICOLON);
 				}
-				break;
-			case 2:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(290);
-				alignment();
-				}
-				break;
-			case 3:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(291);
-				spacing();
-				}
-				break;
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -1848,1340 +1808,159 @@ public class JQuickPDFParser extends Parser {
 	}
 
 	@SuppressWarnings("CheckReturnValue")
-	public static class TextStyleContext extends ParserRuleContext {
-		public TextStyleContext(ParserRuleContext parent, int invokingState) {
+	public static class AttrContext extends ParserRuleContext {
+		public KeyContext key() {
+			return getRuleContext(KeyContext.class,0);
+		}
+		public TerminalNode COLON() { return getToken(JQuickPDFParser.COLON, 0); }
+		public ValueContext value() {
+			return getRuleContext(ValueContext.class,0);
+		}
+		public AttrContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_textStyle; }
-	 
-		public TextStyleContext() { }
-		public void copyFrom(TextStyleContext ctx) {
-			super.copyFrom(ctx);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class TextStyleUnderlineContext extends TextStyleContext {
-		public TextStyleUnderlineContext(TextStyleContext ctx) { copyFrom(ctx); }
+		@Override public int getRuleIndex() { return RULE_attr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterTextStyleUnderline(this);
+			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterAttr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitTextStyleUnderline(this);
+			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitAttr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitTextStyleUnderline(this);
+			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitAttr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
+
+	public final AttrContext attr() throws RecognitionException {
+		AttrContext _localctx = new AttrContext(_ctx, getState());
+		enterRule(_localctx, 46, RULE_attr);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(263);
+			key();
+			setState(264);
+			match(COLON);
+			setState(265);
+			value();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	@SuppressWarnings("CheckReturnValue")
-	public static class TextStylefontContext extends TextStyleContext {
+	public static class KeyContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(JQuickPDFParser.IDENTIFIER, 0); }
+		public KeyContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_key; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterKey(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitKey(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitKey(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final KeyContext key() throws RecognitionException {
+		KeyContext _localctx = new KeyContext(_ctx, getState());
+		enterRule(_localctx, 48, RULE_key);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(267);
+			match(IDENTIFIER);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	@SuppressWarnings("CheckReturnValue")
+	public static class ValueContext extends ParserRuleContext {
+		public TerminalNode IDENTIFIER() { return getToken(JQuickPDFParser.IDENTIFIER, 0); }
 		public StringContext string() {
 			return getRuleContext(StringContext.class,0);
 		}
-		public TextStylefontContext(TextStyleContext ctx) { copyFrom(ctx); }
+		public VariableContext variable() {
+			return getRuleContext(VariableContext.class,0);
+		}
+		public ValueContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_value; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterTextStylefont(this);
+			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterValue(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitTextStylefont(this);
+			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitValue(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitTextStylefont(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class TextStyleItalicContext extends TextStyleContext {
-		public TextStyleItalicContext(TextStyleContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterTextStyleItalic(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitTextStyleItalic(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitTextStyleItalic(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class TextStyleSizeContext extends TextStyleContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public UnitContext unit() {
-			return getRuleContext(UnitContext.class,0);
-		}
-		public TextStyleSizeContext(TextStyleContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterTextStyleSize(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitTextStyleSize(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitTextStyleSize(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class TextStyleColorContext extends TextStyleContext {
-		public ColorContext color() {
-			return getRuleContext(ColorContext.class,0);
-		}
-		public TextStyleColorContext(TextStyleContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterTextStyleColor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitTextStyleColor(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitTextStyleColor(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class TextStyleAlignContext extends TextStyleContext {
-		public TerminalNode ID() { return getToken(JQuickPDFParser.ID, 0); }
-		public TextStyleAlignContext(TextStyleContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterTextStyleAlign(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitTextStyleAlign(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitTextStyleAlign(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class TextStyleBoldContext extends TextStyleContext {
-		public TextStyleBoldContext(TextStyleContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterTextStyleBold(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitTextStyleBold(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitTextStyleBold(this);
+			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitValue(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final TextStyleContext textStyle() throws RecognitionException {
-		TextStyleContext _localctx = new TextStyleContext(_ctx, getState());
-		enterRule(_localctx, 46, RULE_textStyle);
+	public final ValueContext value() throws RecognitionException {
+		ValueContext _localctx = new ValueContext(_ctx, getState());
+		enterRule(_localctx, 50, RULE_value);
 		try {
-			setState(307);
+			setState(272);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__32:
-				_localctx = new TextStylefontContext(_localctx);
+			case IDENTIFIER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(294);
-				match(T__32);
-				setState(295);
+				setState(269);
+				match(IDENTIFIER);
+				}
+				break;
+			case STRING:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(270);
 				string();
 				}
 				break;
-			case T__33:
-				_localctx = new TextStyleSizeContext(_localctx);
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(296);
-				match(T__33);
-				setState(297);
-				number();
-				setState(298);
-				unit();
-				}
-				break;
-			case T__34:
-				_localctx = new TextStyleColorContext(_localctx);
+			case T__39:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(300);
-				match(T__34);
-				setState(301);
-				color();
-				}
-				break;
-			case T__35:
-				_localctx = new TextStyleBoldContext(_localctx);
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(302);
-				match(T__35);
-				}
-				break;
-			case T__36:
-				_localctx = new TextStyleItalicContext(_localctx);
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(303);
-				match(T__36);
-				}
-				break;
-			case T__37:
-				_localctx = new TextStyleUnderlineContext(_localctx);
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(304);
-				match(T__37);
-				}
-				break;
-			case T__38:
-				_localctx = new TextStyleAlignContext(_localctx);
-				enterOuterAlt(_localctx, 7);
-				{
-				setState(305);
-				match(T__38);
-				setState(306);
-				match(ID);
+				setState(271);
+				variable();
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class AlignmentContext extends ParserRuleContext {
-		public AlignmentLocationContext alignmentLocation() {
-			return getRuleContext(AlignmentLocationContext.class,0);
-		}
-		public AlignmentContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_alignment; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterAlignment(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitAlignment(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitAlignment(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final AlignmentContext alignment() throws RecognitionException {
-		AlignmentContext _localctx = new AlignmentContext(_ctx, getState());
-		enterRule(_localctx, 48, RULE_alignment);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(309);
-			match(T__38);
-			{
-			setState(310);
-			alignmentLocation();
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class AlignmentLocationContext extends ParserRuleContext {
-		public AlignmentLocationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_alignmentLocation; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterAlignmentLocation(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitAlignmentLocation(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitAlignmentLocation(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final AlignmentLocationContext alignmentLocation() throws RecognitionException {
-		AlignmentLocationContext _localctx = new AlignmentLocationContext(_ctx, getState());
-		enterRule(_localctx, 50, RULE_alignmentLocation);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(312);
-			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 16492674416640L) != 0)) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class SpacingContext extends ParserRuleContext {
-		public MarginOrPaddingContext marginOrPadding() {
-			return getRuleContext(MarginOrPaddingContext.class,0);
-		}
-		public List<NumberContext> number() {
-			return getRuleContexts(NumberContext.class);
-		}
-		public NumberContext number(int i) {
-			return getRuleContext(NumberContext.class,i);
-		}
-		public List<UnitContext> unit() {
-			return getRuleContexts(UnitContext.class);
-		}
-		public UnitContext unit(int i) {
-			return getRuleContext(UnitContext.class,i);
-		}
-		public SpacingContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_spacing; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterSpacing(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitSpacing(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitSpacing(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final SpacingContext spacing() throws RecognitionException {
-		SpacingContext _localctx = new SpacingContext(_ctx, getState());
-		enterRule(_localctx, 52, RULE_spacing);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			{
-			setState(314);
-			marginOrPadding();
-			}
-			setState(318); 
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			do {
-				{
-				{
-				setState(315);
-				number();
-				setState(316);
-				unit();
-				}
-				}
-				setState(320); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( _la==NUMBER );
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class MarginOrPaddingContext extends ParserRuleContext {
-		public MarginOrPaddingContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_marginOrPadding; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterMarginOrPadding(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitMarginOrPadding(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitMarginOrPadding(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final MarginOrPaddingContext marginOrPadding() throws RecognitionException {
-		MarginOrPaddingContext _localctx = new MarginOrPaddingContext(_ctx, getState());
-		enterRule(_localctx, 54, RULE_marginOrPadding);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(322);
-			_la = _input.LA(1);
-			if ( !(_la==T__43 || _la==T__44) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class ImageStyleContext extends ParserRuleContext {
-		public List<ImageStyleItemContext> imageStyleItem() {
-			return getRuleContexts(ImageStyleItemContext.class);
-		}
-		public ImageStyleItemContext imageStyleItem(int i) {
-			return getRuleContext(ImageStyleItemContext.class,i);
-		}
-		public ImageStyleContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_imageStyle; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterImageStyle(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitImageStyle(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitImageStyle(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ImageStyleContext imageStyle() throws RecognitionException {
-		ImageStyleContext _localctx = new ImageStyleContext(_ctx, getState());
-		enterRule(_localctx, 56, RULE_imageStyle);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(325); 
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			do {
-				{
-				{
-				setState(324);
-				imageStyleItem();
-				}
-				}
-				setState(327); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 2744398202798080L) != 0) );
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class ImageStyleItemContext extends ParserRuleContext {
-		public DimensionContext dimension() {
-			return getRuleContext(DimensionContext.class,0);
-		}
-		public BorderContext border() {
-			return getRuleContext(BorderContext.class,0);
-		}
-		public OpacityContext opacity() {
-			return getRuleContext(OpacityContext.class,0);
-		}
-		public ImageStyleItemContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_imageStyleItem; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterImageStyleItem(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitImageStyleItem(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitImageStyleItem(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ImageStyleItemContext imageStyleItem() throws RecognitionException {
-		ImageStyleItemContext _localctx = new ImageStyleItemContext(_ctx, getState());
-		enterRule(_localctx, 58, RULE_imageStyleItem);
-		try {
-			setState(332);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case T__33:
-			case T__45:
-			case T__46:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(329);
-				dimension();
-				}
-				break;
-			case T__47:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(330);
-				border();
-				}
-				break;
-			case T__50:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(331);
-				opacity();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class SvgStyleContext extends ParserRuleContext {
-		public List<SvgStyleItemContext> svgStyleItem() {
-			return getRuleContexts(SvgStyleItemContext.class);
-		}
-		public SvgStyleItemContext svgStyleItem(int i) {
-			return getRuleContext(SvgStyleItemContext.class,i);
-		}
-		public SvgStyleContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_svgStyle; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterSvgStyle(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitSvgStyle(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitSvgStyle(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final SvgStyleContext svgStyle() throws RecognitionException {
-		SvgStyleContext _localctx = new SvgStyleContext(_ctx, getState());
-		enterRule(_localctx, 60, RULE_svgStyle);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(335); 
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			do {
-				{
-				{
-				setState(334);
-				svgStyleItem();
-				}
-				}
-				setState(337); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 4714723039772672L) != 0) );
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class SvgStyleItemContext extends ParserRuleContext {
-		public DimensionContext dimension() {
-			return getRuleContext(DimensionContext.class,0);
-		}
-		public ScaleContext scale() {
-			return getRuleContext(ScaleContext.class,0);
-		}
-		public SvgStyleItemContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_svgStyleItem; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterSvgStyleItem(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitSvgStyleItem(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitSvgStyleItem(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final SvgStyleItemContext svgStyleItem() throws RecognitionException {
-		SvgStyleItemContext _localctx = new SvgStyleItemContext(_ctx, getState());
-		enterRule(_localctx, 62, RULE_svgStyleItem);
-		try {
-			setState(341);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case T__33:
-			case T__45:
-			case T__46:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(339);
-				dimension();
-				}
-				break;
-			case T__51:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(340);
-				scale();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class DivStyleContext extends ParserRuleContext {
-		public List<DimensionContext> dimension() {
-			return getRuleContexts(DimensionContext.class);
-		}
-		public DimensionContext dimension(int i) {
-			return getRuleContext(DimensionContext.class,i);
-		}
-		public BackgroundContext background() {
-			return getRuleContext(BackgroundContext.class,0);
-		}
-		public BorderContext border() {
-			return getRuleContext(BorderContext.class,0);
-		}
-		public SpacingContext spacing() {
-			return getRuleContext(SpacingContext.class,0);
-		}
-		public FloatContext float_() {
-			return getRuleContext(FloatContext.class,0);
-		}
-		public DivStyleContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_divStyle; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterDivStyle(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitDivStyle(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitDivStyle(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final DivStyleContext divStyle() throws RecognitionException {
-		DivStyleContext _localctx = new DivStyleContext(_ctx, getState());
-		enterRule(_localctx, 64, RULE_divStyle);
-		int _la;
-		try {
-			setState(352);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case T__33:
-			case T__45:
-			case T__46:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(344); 
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				do {
-					{
-					{
-					setState(343);
-					dimension();
-					}
-					}
-					setState(346); 
-					_errHandler.sync(this);
-					_la = _input.LA(1);
-				} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & 211123412402176L) != 0) );
-				}
-				break;
-			case T__49:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(348);
-				background();
-				}
-				break;
-			case T__47:
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(349);
-				border();
-				}
-				break;
-			case T__43:
-			case T__44:
-				enterOuterAlt(_localctx, 4);
-				{
-				setState(350);
-				spacing();
-				}
-				break;
-			case T__52:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(351);
-				float_();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class DimensionContext extends ParserRuleContext {
-		public DimensionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_dimension; }
-	 
-		public DimensionContext() { }
-		public void copyFrom(DimensionContext ctx) {
-			super.copyFrom(ctx);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class DimensionHeightContext extends DimensionContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public UnitContext unit() {
-			return getRuleContext(UnitContext.class,0);
-		}
-		public DimensionHeightContext(DimensionContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterDimensionHeight(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitDimensionHeight(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitDimensionHeight(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class DimensionSizeContext extends DimensionContext {
-		public List<NumberContext> number() {
-			return getRuleContexts(NumberContext.class);
-		}
-		public NumberContext number(int i) {
-			return getRuleContext(NumberContext.class,i);
-		}
-		public List<UnitContext> unit() {
-			return getRuleContexts(UnitContext.class);
-		}
-		public UnitContext unit(int i) {
-			return getRuleContext(UnitContext.class,i);
-		}
-		public DimensionSizeContext(DimensionContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterDimensionSize(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitDimensionSize(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitDimensionSize(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	@SuppressWarnings("CheckReturnValue")
-	public static class DimensionWidthContext extends DimensionContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public UnitContext unit() {
-			return getRuleContext(UnitContext.class,0);
-		}
-		public DimensionWidthContext(DimensionContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterDimensionWidth(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitDimensionWidth(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitDimensionWidth(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final DimensionContext dimension() throws RecognitionException {
-		DimensionContext _localctx = new DimensionContext(_ctx, getState());
-		enterRule(_localctx, 66, RULE_dimension);
-		try {
-			setState(368);
-			_errHandler.sync(this);
-			switch (_input.LA(1)) {
-			case T__45:
-				_localctx = new DimensionWidthContext(_localctx);
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(354);
-				match(T__45);
-				setState(355);
-				number();
-				setState(356);
-				unit();
-				}
-				break;
-			case T__46:
-				_localctx = new DimensionHeightContext(_localctx);
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(358);
-				match(T__46);
-				setState(359);
-				number();
-				setState(360);
-				unit();
-				}
-				break;
-			case T__33:
-				_localctx = new DimensionSizeContext(_localctx);
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(362);
-				match(T__33);
-				setState(363);
-				number();
-				setState(364);
-				unit();
-				setState(365);
-				number();
-				setState(366);
-				unit();
-				}
-				break;
-			default:
-				throw new NoViableAltException(this);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class BorderContext extends ParserRuleContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public UnitContext unit() {
-			return getRuleContext(UnitContext.class,0);
-		}
-		public ColorContext color() {
-			return getRuleContext(ColorContext.class,0);
-		}
-		public BorderRoundedContext borderRounded() {
-			return getRuleContext(BorderRoundedContext.class,0);
-		}
-		public BorderContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_border; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterBorder(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitBorder(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitBorder(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final BorderContext border() throws RecognitionException {
-		BorderContext _localctx = new BorderContext(_ctx, getState());
-		enterRule(_localctx, 68, RULE_border);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(370);
-			match(T__47);
-			setState(371);
-			number();
-			setState(372);
-			unit();
-			setState(373);
-			color();
-			setState(375);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==T__48) {
-				{
-				setState(374);
-				borderRounded();
-				}
-			}
-
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class BorderRoundedContext extends ParserRuleContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public UnitContext unit() {
-			return getRuleContext(UnitContext.class,0);
-		}
-		public BorderRoundedContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_borderRounded; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterBorderRounded(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitBorderRounded(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitBorderRounded(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final BorderRoundedContext borderRounded() throws RecognitionException {
-		BorderRoundedContext _localctx = new BorderRoundedContext(_ctx, getState());
-		enterRule(_localctx, 70, RULE_borderRounded);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(377);
-			match(T__48);
-			setState(378);
-			number();
-			setState(379);
-			unit();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class BackgroundContext extends ParserRuleContext {
-		public ColorContext color() {
-			return getRuleContext(ColorContext.class,0);
-		}
-		public BackgroundContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_background; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterBackground(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitBackground(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitBackground(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final BackgroundContext background() throws RecognitionException {
-		BackgroundContext _localctx = new BackgroundContext(_ctx, getState());
-		enterRule(_localctx, 72, RULE_background);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(381);
-			match(T__49);
-			setState(382);
-			color();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class OpacityContext extends ParserRuleContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public OpacityContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_opacity; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterOpacity(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitOpacity(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitOpacity(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final OpacityContext opacity() throws RecognitionException {
-		OpacityContext _localctx = new OpacityContext(_ctx, getState());
-		enterRule(_localctx, 74, RULE_opacity);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(384);
-			match(T__50);
-			setState(385);
-			number();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class ScaleContext extends ParserRuleContext {
-		public NumberContext number() {
-			return getRuleContext(NumberContext.class,0);
-		}
-		public ScaleContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_scale; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterScale(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitScale(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitScale(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final ScaleContext scale() throws RecognitionException {
-		ScaleContext _localctx = new ScaleContext(_ctx, getState());
-		enterRule(_localctx, 76, RULE_scale);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(387);
-			match(T__51);
-			setState(388);
-			number();
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class FloatContext extends ParserRuleContext {
-		public FloatDirectContext floatDirect() {
-			return getRuleContext(FloatDirectContext.class,0);
-		}
-		public FloatContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_float; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterFloat(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitFloat(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitFloat(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final FloatContext float_() throws RecognitionException {
-		FloatContext _localctx = new FloatContext(_ctx, getState());
-		enterRule(_localctx, 78, RULE_float);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(390);
-			match(T__52);
-			{
-			setState(391);
-			floatDirect();
-			}
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	@SuppressWarnings("CheckReturnValue")
-	public static class FloatDirectContext extends ParserRuleContext {
-		public FloatDirectContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_floatDirect; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).enterFloatDirect(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof JQuickPDFListener ) ((JQuickPDFListener)listener).exitFloatDirect(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof JQuickPDFVisitor ) return ((JQuickPDFVisitor<? extends T>)visitor).visitFloatDirect(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final FloatDirectContext floatDirect() throws RecognitionException {
-		FloatDirectContext _localctx = new FloatDirectContext(_ctx, getState());
-		enterRule(_localctx, 80, RULE_floatDirect);
-		int _la;
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(393);
-			_la = _input.LA(1);
-			if ( !(_la==T__39 || _la==T__40) ) {
-			_errHandler.recoverInline(this);
-			}
-			else {
-				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-				_errHandler.reportMatch(this);
-				consume();
-			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -3219,11 +1998,11 @@ public class JQuickPDFParser extends Parser {
 
 	public final StringContext string() throws RecognitionException {
 		StringContext _localctx = new StringContext(_ctx, getState());
-		enterRule(_localctx, 82, RULE_string);
+		enterRule(_localctx, 52, RULE_string);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(395);
+			setState(274);
 			match(STRING);
 			}
 		}
@@ -3262,11 +2041,11 @@ public class JQuickPDFParser extends Parser {
 
 	public final ColorContext color() throws RecognitionException {
 		ColorContext _localctx = new ColorContext(_ctx, getState());
-		enterRule(_localctx, 84, RULE_color);
+		enterRule(_localctx, 54, RULE_color);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(397);
+			setState(276);
 			match(COLOR);
 			}
 		}
@@ -3305,11 +2084,11 @@ public class JQuickPDFParser extends Parser {
 
 	public final NumberContext number() throws RecognitionException {
 		NumberContext _localctx = new NumberContext(_ctx, getState());
-		enterRule(_localctx, 86, RULE_number);
+		enterRule(_localctx, 56, RULE_number);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(399);
+			setState(278);
 			match(NUMBER);
 			}
 		}
@@ -3347,14 +2126,14 @@ public class JQuickPDFParser extends Parser {
 
 	public final UnitContext unit() throws RecognitionException {
 		UnitContext _localctx = new UnitContext(_ctx, getState());
-		enterRule(_localctx, 88, RULE_unit);
+		enterRule(_localctx, 58, RULE_unit);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(401);
+			setState(280);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1134907106097364992L) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 1082331758592L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -3399,15 +2178,15 @@ public class JQuickPDFParser extends Parser {
 
 	public final VariableContext variable() throws RecognitionException {
 		VariableContext _localctx = new VariableContext(_ctx, getState());
-		enterRule(_localctx, 90, RULE_variable);
+		enterRule(_localctx, 60, RULE_variable);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(403);
-			match(T__59);
-			setState(404);
+			setState(282);
+			match(T__39);
+			setState(283);
 			match(IDENTIFIER);
-			setState(405);
+			setState(284);
 			match(T__2);
 			}
 		}
@@ -3423,7 +2202,7 @@ public class JQuickPDFParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001b\u0198\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001O\u011f\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
@@ -3433,246 +2212,171 @@ public class JQuickPDFParser extends Parser {
 		"\u0002\u0016\u0007\u0016\u0002\u0017\u0007\u0017\u0002\u0018\u0007\u0018"+
 		"\u0002\u0019\u0007\u0019\u0002\u001a\u0007\u001a\u0002\u001b\u0007\u001b"+
 		"\u0002\u001c\u0007\u001c\u0002\u001d\u0007\u001d\u0002\u001e\u0007\u001e"+
-		"\u0002\u001f\u0007\u001f\u0002 \u0007 \u0002!\u0007!\u0002\"\u0007\"\u0002"+
-		"#\u0007#\u0002$\u0007$\u0002%\u0007%\u0002&\u0007&\u0002\'\u0007\'\u0002"+
-		"(\u0007(\u0002)\u0007)\u0002*\u0007*\u0002+\u0007+\u0002,\u0007,\u0002"+
-		"-\u0007-\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0005\u0000a"+
-		"\b\u0000\n\u0000\f\u0000d\t\u0000\u0001\u0000\u0001\u0000\u0001\u0001"+
-		"\u0001\u0001\u0001\u0001\u0003\u0001k\b\u0001\u0001\u0001\u0003\u0001"+
-		"n\b\u0001\u0001\u0001\u0001\u0001\u0005\u0001r\b\u0001\n\u0001\f\u0001"+
-		"u\t\u0001\u0001\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0003\u0002"+
-		"{\b\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
-		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0004"+
-		"\u0001\u0004\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005"+
-		"\u0001\u0005\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006"+
-		"\u0001\u0006\u0001\u0006\u0001\u0006\u0003\u0006\u0097\b\u0006\u0001\u0007"+
-		"\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0003\u0007"+
-		"\u009f\b\u0007\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0004\b\u00a6\b"+
-		"\b\u000b\b\f\b\u00a7\u0001\b\u0001\b\u0003\b\u00ac\b\b\u0001\t\u0001\t"+
-		"\u0001\t\u0001\t\u0004\t\u00b2\b\t\u000b\t\f\t\u00b3\u0001\t\u0001\t\u0001"+
-		"\n\u0001\n\u0001\u000b\u0001\u000b\u0001\u000b\u0001\f\u0001\f\u0001\f"+
-		"\u0003\f\u00c0\b\f\u0001\f\u0001\f\u0004\f\u00c4\b\f\u000b\f\f\f\u00c5"+
-		"\u0001\f\u0001\f\u0001\r\u0001\r\u0001\r\u0004\r\u00cd\b\r\u000b\r\f\r"+
-		"\u00ce\u0001\r\u0001\r\u0001\u000e\u0001\u000e\u0003\u000e\u00d5\b\u000e"+
-		"\u0001\u000e\u0003\u000e\u00d8\b\u000e\u0001\u000e\u0001\u000e\u0005\u000e"+
-		"\u00dc\b\u000e\n\u000e\f\u000e\u00df\t\u000e\u0001\u000e\u0001\u000e\u0001"+
-		"\u000f\u0001\u000f\u0001\u000f\u0001\u0010\u0001\u0010\u0001\u0010\u0001"+
-		"\u0011\u0001\u0011\u0001\u0011\u0001\u0011\u0001\u0011\u0001\u0011\u0003"+
-		"\u0011\u00ef\b\u0011\u0001\u0012\u0001\u0012\u0001\u0012\u0001\u0012\u0001"+
-		"\u0012\u0001\u0012\u0003\u0012\u00f7\b\u0012\u0001\u0013\u0001\u0013\u0001"+
-		"\u0013\u0001\u0013\u0001\u0013\u0003\u0013\u00fe\b\u0013\u0001\u0013\u0001"+
-		"\u0013\u0005\u0013\u0102\b\u0013\n\u0013\f\u0013\u0105\t\u0013\u0001\u0013"+
-		"\u0001\u0013\u0001\u0014\u0001\u0014\u0001\u0014\u0001\u0014\u0005\u0014"+
-		"\u010d\b\u0014\n\u0014\f\u0014\u0110\t\u0014\u0001\u0014\u0001\u0014\u0001"+
+		"\u0001\u0000\u0001\u0000\u0001\u0000\u0001\u0000\u0005\u0000C\b\u0000"+
+		"\n\u0000\f\u0000F\t\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0001\u0001"+
+		"\u0001\u0001\u0003\u0001M\b\u0001\u0001\u0001\u0003\u0001P\b\u0001\u0001"+
+		"\u0001\u0001\u0001\u0005\u0001T\b\u0001\n\u0001\f\u0001W\t\u0001\u0001"+
+		"\u0001\u0001\u0001\u0001\u0002\u0001\u0002\u0003\u0002]\b\u0002\u0001"+
+		"\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001"+
+		"\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0004\u0001\u0004\u0001"+
+		"\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001\u0005\u0001"+
+		"\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0006\u0001\u0006\u0003\u0006y\b\u0006\u0001\u0007\u0001\u0007\u0001"+
+		"\u0007\u0001\u0007\u0001\u0007\u0001\u0007\u0003\u0007\u0081\b\u0007\u0001"+
+		"\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0001\b\u0003\b\u008a\b\b\u0001"+
+		"\t\u0001\t\u0001\t\u0001\t\u0004\t\u0090\b\t\u000b\t\f\t\u0091\u0001\t"+
+		"\u0001\t\u0001\n\u0001\n\u0001\u000b\u0001\u000b\u0001\u000b\u0001\f\u0001"+
+		"\f\u0001\f\u0003\f\u009e\b\f\u0001\f\u0001\f\u0004\f\u00a2\b\f\u000b\f"+
+		"\f\f\u00a3\u0001\f\u0001\f\u0001\r\u0001\r\u0001\r\u0004\r\u00ab\b\r\u000b"+
+		"\r\f\r\u00ac\u0001\r\u0001\r\u0001\u000e\u0001\u000e\u0003\u000e\u00b3"+
+		"\b\u000e\u0001\u000e\u0003\u000e\u00b6\b\u000e\u0001\u000e\u0001\u000e"+
+		"\u0005\u000e\u00ba\b\u000e\n\u000e\f\u000e\u00bd\t\u000e\u0001\u000e\u0001"+
+		"\u000e\u0001\u000f\u0001\u000f\u0001\u000f\u0001\u0010\u0001\u0010\u0001"+
+		"\u0010\u0001\u0011\u0001\u0011\u0001\u0011\u0001\u0011\u0001\u0011\u0001"+
+		"\u0011\u0003\u0011\u00cd\b\u0011\u0001\u0012\u0001\u0012\u0001\u0012\u0001"+
+		"\u0012\u0001\u0012\u0001\u0012\u0003\u0012\u00d5\b\u0012\u0001\u0013\u0001"+
+		"\u0013\u0001\u0013\u0001\u0013\u0001\u0013\u0003\u0013\u00dc\b\u0013\u0001"+
+		"\u0013\u0001\u0013\u0005\u0013\u00e0\b\u0013\n\u0013\f\u0013\u00e3\t\u0013"+
+		"\u0001\u0013\u0001\u0013\u0001\u0014\u0001\u0014\u0001\u0014\u0001\u0014"+
+		"\u0005\u0014\u00eb\b\u0014\n\u0014\f\u0014\u00ee\t\u0014\u0001\u0014\u0001"+
 		"\u0014\u0001\u0014\u0001\u0014\u0001\u0014\u0001\u0014\u0001\u0014\u0001"+
-		"\u0014\u0003\u0014\u011b\b\u0014\u0001\u0015\u0004\u0015\u011e\b\u0015"+
-		"\u000b\u0015\f\u0015\u011f\u0001\u0016\u0001\u0016\u0001\u0016\u0003\u0016"+
-		"\u0125\b\u0016\u0001\u0017\u0001\u0017\u0001\u0017\u0001\u0017\u0001\u0017"+
-		"\u0001\u0017\u0001\u0017\u0001\u0017\u0001\u0017\u0001\u0017\u0001\u0017"+
-		"\u0001\u0017\u0001\u0017\u0003\u0017\u0134\b\u0017\u0001\u0018\u0001\u0018"+
-		"\u0001\u0018\u0001\u0019\u0001\u0019\u0001\u001a\u0001\u001a\u0001\u001a"+
-		"\u0001\u001a\u0004\u001a\u013f\b\u001a\u000b\u001a\f\u001a\u0140\u0001"+
-		"\u001b\u0001\u001b\u0001\u001c\u0004\u001c\u0146\b\u001c\u000b\u001c\f"+
-		"\u001c\u0147\u0001\u001d\u0001\u001d\u0001\u001d\u0003\u001d\u014d\b\u001d"+
-		"\u0001\u001e\u0004\u001e\u0150\b\u001e\u000b\u001e\f\u001e\u0151\u0001"+
-		"\u001f\u0001\u001f\u0003\u001f\u0156\b\u001f\u0001 \u0004 \u0159\b \u000b"+
-		" \f \u015a\u0001 \u0001 \u0001 \u0001 \u0003 \u0161\b \u0001!\u0001!\u0001"+
-		"!\u0001!\u0001!\u0001!\u0001!\u0001!\u0001!\u0001!\u0001!\u0001!\u0001"+
-		"!\u0001!\u0003!\u0171\b!\u0001\"\u0001\"\u0001\"\u0001\"\u0001\"\u0003"+
-		"\"\u0178\b\"\u0001#\u0001#\u0001#\u0001#\u0001$\u0001$\u0001$\u0001%\u0001"+
-		"%\u0001%\u0001&\u0001&\u0001&\u0001\'\u0001\'\u0001\'\u0001(\u0001(\u0001"+
-		")\u0001)\u0001*\u0001*\u0001+\u0001+\u0001,\u0001,\u0001-\u0001-\u0001"+
-		"-\u0001-\u0001-\u0000\u0000.\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010"+
-		"\u0012\u0014\u0016\u0018\u001a\u001c\u001e \"$&(*,.02468:<>@BDFHJLNPR"+
-		"TVXZ\u0000\u0007\u0001\u0000=X\u0001\u0000\n\u000f\u0001\u0000\u0011\u0012"+
-		"\u0001\u0000(+\u0001\u0000,-\u0001\u0000()\u0001\u00006;\u019c\u0000\\"+
-		"\u0001\u0000\u0000\u0000\u0002g\u0001\u0000\u0000\u0000\u0004z\u0001\u0000"+
-		"\u0000\u0000\u0006|\u0001\u0000\u0000\u0000\b\u0086\u0001\u0000\u0000"+
-		"\u0000\n\u0088\u0001\u0000\u0000\u0000\f\u0096\u0001\u0000\u0000\u0000"+
-		"\u000e\u0098\u0001\u0000\u0000\u0000\u0010\u00a0\u0001\u0000\u0000\u0000"+
-		"\u0012\u00ad\u0001\u0000\u0000\u0000\u0014\u00b7\u0001\u0000\u0000\u0000"+
-		"\u0016\u00b9\u0001\u0000\u0000\u0000\u0018\u00bc\u0001\u0000\u0000\u0000"+
-		"\u001a\u00c9\u0001\u0000\u0000\u0000\u001c\u00d2\u0001\u0000\u0000\u0000"+
-		"\u001e\u00e2\u0001\u0000\u0000\u0000 \u00e5\u0001\u0000\u0000\u0000\""+
-		"\u00e8\u0001\u0000\u0000\u0000$\u00f0\u0001\u0000\u0000\u0000&\u00f8\u0001"+
-		"\u0000\u0000\u0000(\u0108\u0001\u0000\u0000\u0000*\u011d\u0001\u0000\u0000"+
-		"\u0000,\u0124\u0001\u0000\u0000\u0000.\u0133\u0001\u0000\u0000\u00000"+
-		"\u0135\u0001\u0000\u0000\u00002\u0138\u0001\u0000\u0000\u00004\u013a\u0001"+
-		"\u0000\u0000\u00006\u0142\u0001\u0000\u0000\u00008\u0145\u0001\u0000\u0000"+
-		"\u0000:\u014c\u0001\u0000\u0000\u0000<\u014f\u0001\u0000\u0000\u0000>"+
-		"\u0155\u0001\u0000\u0000\u0000@\u0160\u0001\u0000\u0000\u0000B\u0170\u0001"+
-		"\u0000\u0000\u0000D\u0172\u0001\u0000\u0000\u0000F\u0179\u0001\u0000\u0000"+
-		"\u0000H\u017d\u0001\u0000\u0000\u0000J\u0180\u0001\u0000\u0000\u0000L"+
-		"\u0183\u0001\u0000\u0000\u0000N\u0186\u0001\u0000\u0000\u0000P\u0189\u0001"+
-		"\u0000\u0000\u0000R\u018b\u0001\u0000\u0000\u0000T\u018d\u0001\u0000\u0000"+
-		"\u0000V\u018f\u0001\u0000\u0000\u0000X\u0191\u0001\u0000\u0000\u0000Z"+
-		"\u0193\u0001\u0000\u0000\u0000\\]\u0005\u0001\u0000\u0000]^\u0005\\\u0000"+
-		"\u0000^b\u0005\u0002\u0000\u0000_a\u0003\u0002\u0001\u0000`_\u0001\u0000"+
-		"\u0000\u0000ad\u0001\u0000\u0000\u0000b`\u0001\u0000\u0000\u0000bc\u0001"+
-		"\u0000\u0000\u0000ce\u0001\u0000\u0000\u0000db\u0001\u0000\u0000\u0000"+
-		"ef\u0005\u0003\u0000\u0000f\u0001\u0001\u0000\u0000\u0000gh\u0005\u0004"+
-		"\u0000\u0000hj\u0003\u0004\u0002\u0000ik\u0005\u0005\u0000\u0000ji\u0001"+
-		"\u0000\u0000\u0000jk\u0001\u0000\u0000\u0000km\u0001\u0000\u0000\u0000"+
-		"ln\u0003\u0006\u0003\u0000ml\u0001\u0000\u0000\u0000mn\u0001\u0000\u0000"+
-		"\u0000no\u0001\u0000\u0000\u0000os\u0005\u0002\u0000\u0000pr\u0003\f\u0006"+
-		"\u0000qp\u0001\u0000\u0000\u0000ru\u0001\u0000\u0000\u0000sq\u0001\u0000"+
-		"\u0000\u0000st\u0001\u0000\u0000\u0000tv\u0001\u0000\u0000\u0000us\u0001"+
-		"\u0000\u0000\u0000vw\u0005\u0003\u0000\u0000w\u0003\u0001\u0000\u0000"+
-		"\u0000x{\u0003\b\u0004\u0000y{\u0003\n\u0005\u0000zx\u0001\u0000\u0000"+
-		"\u0000zy\u0001\u0000\u0000\u0000{\u0005\u0001\u0000\u0000\u0000|}\u0005"+
-		"\u0006\u0000\u0000}~\u0003V+\u0000~\u007f\u0003X,\u0000\u007f\u0080\u0003"+
-		"V+\u0000\u0080\u0081\u0003X,\u0000\u0081\u0082\u0003V+\u0000\u0082\u0083"+
-		"\u0003X,\u0000\u0083\u0084\u0003V+\u0000\u0084\u0085\u0003X,\u0000\u0085"+
-		"\u0007\u0001\u0000\u0000\u0000\u0086\u0087\u0007\u0000\u0000\u0000\u0087"+
-		"\t\u0001\u0000\u0000\u0000\u0088\u0089\u0005\u0007\u0000\u0000\u0089\u008a"+
-		"\u0003V+\u0000\u008a\u008b\u0003X,\u0000\u008b\u008c\u0003V+\u0000\u008c"+
-		"\u008d\u0003X,\u0000\u008d\u000b\u0001\u0000\u0000\u0000\u008e\u0097\u0003"+
-		"\u000e\u0007\u0000\u008f\u0097\u0003\u0010\b\u0000\u0090\u0097\u0003\u0012"+
-		"\t\u0000\u0091\u0097\u0003\u0018\f\u0000\u0092\u0097\u0003\"\u0011\u0000"+
-		"\u0093\u0097\u0003$\u0012\u0000\u0094\u0097\u0003&\u0013\u0000\u0095\u0097"+
-		"\u0003(\u0014\u0000\u0096\u008e\u0001\u0000\u0000\u0000\u0096\u008f\u0001"+
-		"\u0000\u0000\u0000\u0096\u0090\u0001\u0000\u0000\u0000\u0096\u0091\u0001"+
-		"\u0000\u0000\u0000\u0096\u0092\u0001\u0000\u0000\u0000\u0096\u0093\u0001"+
-		"\u0000\u0000\u0000\u0096\u0094\u0001\u0000\u0000\u0000\u0096\u0095\u0001"+
-		"\u0000\u0000\u0000\u0097\r\u0001\u0000\u0000\u0000\u0098\u0099\u0005\b"+
-		"\u0000\u0000\u0099\u009e\u0003R)\u0000\u009a\u009b\u0005\u0002\u0000\u0000"+
-		"\u009b\u009c\u0003*\u0015\u0000\u009c\u009d\u0005\u0003\u0000\u0000\u009d"+
-		"\u009f\u0001\u0000\u0000\u0000\u009e\u009a\u0001\u0000\u0000\u0000\u009e"+
-		"\u009f\u0001\u0000\u0000\u0000\u009f\u000f\u0001\u0000\u0000\u0000\u00a0"+
-		"\u00a1\u0005\t\u0000\u0000\u00a1\u00a2\u0007\u0001\u0000\u0000\u00a2\u00ab"+
-		"\u0003R)\u0000\u00a3\u00a5\u0005\u0002\u0000\u0000\u00a4\u00a6\u0003."+
-		"\u0017\u0000\u00a5\u00a4\u0001\u0000\u0000\u0000\u00a6\u00a7\u0001\u0000"+
-		"\u0000\u0000\u00a7\u00a5\u0001\u0000\u0000\u0000\u00a7\u00a8\u0001\u0000"+
-		"\u0000\u0000\u00a8\u00a9\u0001\u0000\u0000\u0000\u00a9\u00aa\u0005\u0003"+
-		"\u0000\u0000\u00aa\u00ac\u0001\u0000\u0000\u0000\u00ab\u00a3\u0001\u0000"+
-		"\u0000\u0000\u00ab\u00ac\u0001\u0000\u0000\u0000\u00ac\u0011\u0001\u0000"+
-		"\u0000\u0000\u00ad\u00ae\u0005\u0010\u0000\u0000\u00ae\u00af\u0003\u0014"+
-		"\n\u0000\u00af\u00b1\u0005\u0002\u0000\u0000\u00b0\u00b2\u0003\u0016\u000b"+
-		"\u0000\u00b1\u00b0\u0001\u0000\u0000\u0000\u00b2\u00b3\u0001\u0000\u0000"+
-		"\u0000\u00b3\u00b1\u0001\u0000\u0000\u0000\u00b3\u00b4\u0001\u0000\u0000"+
-		"\u0000\u00b4\u00b5\u0001\u0000\u0000\u0000\u00b5\u00b6\u0005\u0003\u0000"+
-		"\u0000\u00b6\u0013\u0001\u0000\u0000\u0000\u00b7\u00b8\u0007\u0002\u0000"+
-		"\u0000\u00b8\u0015\u0001\u0000\u0000\u0000\u00b9\u00ba\u0005\u0013\u0000"+
-		"\u0000\u00ba\u00bb\u0003R)\u0000\u00bb\u0017\u0001\u0000\u0000\u0000\u00bc"+
-		"\u00bf\u0005\u0014\u0000\u0000\u00bd\u00be\u0005\u0015\u0000\u0000\u00be"+
-		"\u00c0\u0003V+\u0000\u00bf\u00bd\u0001\u0000\u0000\u0000\u00bf\u00c0\u0001"+
-		"\u0000\u0000\u0000\u00c0\u00c1\u0001\u0000\u0000\u0000\u00c1\u00c3\u0005"+
-		"\u0002\u0000\u0000\u00c2\u00c4\u0003\u001a\r\u0000\u00c3\u00c2\u0001\u0000"+
-		"\u0000\u0000\u00c4\u00c5\u0001\u0000\u0000\u0000\u00c5\u00c3\u0001\u0000"+
-		"\u0000\u0000\u00c5\u00c6\u0001\u0000\u0000\u0000\u00c6\u00c7\u0001\u0000"+
-		"\u0000\u0000\u00c7\u00c8\u0005\u0003\u0000\u0000\u00c8\u0019\u0001\u0000"+
-		"\u0000\u0000\u00c9\u00ca\u0005\u0016\u0000\u0000\u00ca\u00cc\u0005\u0002"+
-		"\u0000\u0000\u00cb\u00cd\u0003\u001c\u000e\u0000\u00cc\u00cb\u0001\u0000"+
-		"\u0000\u0000\u00cd\u00ce\u0001\u0000\u0000\u0000\u00ce\u00cc\u0001\u0000"+
-		"\u0000\u0000\u00ce\u00cf\u0001\u0000\u0000\u0000\u00cf\u00d0\u0001\u0000"+
-		"\u0000\u0000\u00d0\u00d1\u0005\u0003\u0000\u0000\u00d1\u001b\u0001\u0000"+
-		"\u0000\u0000\u00d2\u00d4\u0005\u0017\u0000\u0000\u00d3\u00d5\u0003\u001e"+
-		"\u000f\u0000\u00d4\u00d3\u0001\u0000\u0000\u0000\u00d4\u00d5\u0001\u0000"+
-		"\u0000\u0000\u00d5\u00d7\u0001\u0000\u0000\u0000\u00d6\u00d8\u0003 \u0010"+
-		"\u0000\u00d7\u00d6\u0001\u0000\u0000\u0000\u00d7\u00d8\u0001\u0000\u0000"+
-		"\u0000\u00d8\u00d9\u0001\u0000\u0000\u0000\u00d9\u00dd\u0005\u0002\u0000"+
-		"\u0000\u00da\u00dc\u0003\f\u0006\u0000\u00db\u00da\u0001\u0000\u0000\u0000"+
-		"\u00dc\u00df\u0001\u0000\u0000\u0000\u00dd\u00db\u0001\u0000\u0000\u0000"+
-		"\u00dd\u00de\u0001\u0000\u0000\u0000\u00de\u00e0\u0001\u0000\u0000\u0000"+
-		"\u00df\u00dd\u0001\u0000\u0000\u0000\u00e0\u00e1\u0005\u0003\u0000\u0000"+
-		"\u00e1\u001d\u0001\u0000\u0000\u0000\u00e2\u00e3\u0003V+\u0000\u00e3\u00e4"+
-		"\u0005\u0018\u0000\u0000\u00e4\u001f\u0001\u0000\u0000\u0000\u00e5\u00e6"+
-		"\u0003V+\u0000\u00e6\u00e7\u0005\u0019\u0000\u0000\u00e7!\u0001\u0000"+
-		"\u0000\u0000\u00e8\u00e9\u0005\u001a\u0000\u0000\u00e9\u00ee\u0005^\u0000"+
-		"\u0000\u00ea\u00eb\u0005\u0002\u0000\u0000\u00eb\u00ec\u00038\u001c\u0000"+
-		"\u00ec\u00ed\u0005\u0003\u0000\u0000\u00ed\u00ef\u0001\u0000\u0000\u0000"+
-		"\u00ee\u00ea\u0001\u0000\u0000\u0000\u00ee\u00ef\u0001\u0000\u0000\u0000"+
-		"\u00ef#\u0001\u0000\u0000\u0000\u00f0\u00f1\u0005\u001b\u0000\u0000\u00f1"+
-		"\u00f6\u0005^\u0000\u0000\u00f2\u00f3\u0005\u0002\u0000\u0000\u00f3\u00f4"+
-		"\u0003<\u001e\u0000\u00f4\u00f5\u0005\u0003\u0000\u0000\u00f5\u00f7\u0001"+
-		"\u0000\u0000\u0000\u00f6\u00f2\u0001\u0000\u0000\u0000\u00f6\u00f7\u0001"+
-		"\u0000\u0000\u0000\u00f7%\u0001\u0000\u0000\u0000\u00f8\u00fd\u0005\u001c"+
-		"\u0000\u0000\u00f9\u00fa\u0005\u001d\u0000\u0000\u00fa\u00fb\u0003@ \u0000"+
-		"\u00fb\u00fc\u0005\u001e\u0000\u0000\u00fc\u00fe\u0001\u0000\u0000\u0000"+
-		"\u00fd\u00f9\u0001\u0000\u0000\u0000\u00fd\u00fe\u0001\u0000\u0000\u0000"+
-		"\u00fe\u00ff\u0001\u0000\u0000\u0000\u00ff\u0103\u0005\u0002\u0000\u0000"+
-		"\u0100\u0102\u0003\f\u0006\u0000\u0101\u0100\u0001\u0000\u0000\u0000\u0102"+
-		"\u0105\u0001\u0000\u0000\u0000\u0103\u0101\u0001\u0000\u0000\u0000\u0103"+
-		"\u0104\u0001\u0000\u0000\u0000\u0104\u0106\u0001\u0000\u0000\u0000\u0105"+
-		"\u0103\u0001\u0000\u0000\u0000\u0106\u0107\u0005\u0003\u0000\u0000\u0107"+
-		"\'\u0001\u0000\u0000\u0000\u0108\u0109\u0005\u001f\u0000\u0000\u0109\u010a"+
-		"\u0005\\\u0000\u0000\u010a\u010e\u0005\u0002\u0000\u0000\u010b\u010d\u0003"+
-		"\f\u0006\u0000\u010c\u010b\u0001\u0000\u0000\u0000\u010d\u0110\u0001\u0000"+
-		"\u0000\u0000\u010e\u010c\u0001\u0000\u0000\u0000\u010e\u010f\u0001\u0000"+
-		"\u0000\u0000\u010f\u0111\u0001\u0000\u0000\u0000\u0110\u010e\u0001\u0000"+
-		"\u0000\u0000\u0111\u0112\u0005\u0003\u0000\u0000\u0112\u0113\u0005 \u0000"+
-		"\u0000\u0113\u011a\u0005\\\u0000\u0000\u0114\u0115\u0005a\u0000\u0000"+
-		"\u0115\u0116\u0003V+\u0000\u0116\u0117\u0003X,\u0000\u0117\u0118\u0003"+
-		"V+\u0000\u0118\u0119\u0003X,\u0000\u0119\u011b\u0001\u0000\u0000\u0000"+
-		"\u011a\u0114\u0001\u0000\u0000\u0000\u011a\u011b\u0001\u0000\u0000\u0000"+
-		"\u011b)\u0001\u0000\u0000\u0000\u011c\u011e\u0003,\u0016\u0000\u011d\u011c"+
-		"\u0001\u0000\u0000\u0000\u011e\u011f\u0001\u0000\u0000\u0000\u011f\u011d"+
-		"\u0001\u0000\u0000\u0000\u011f\u0120\u0001\u0000\u0000\u0000\u0120+\u0001"+
-		"\u0000\u0000\u0000\u0121\u0125\u0003.\u0017\u0000\u0122\u0125\u00030\u0018"+
-		"\u0000\u0123\u0125\u00034\u001a\u0000\u0124\u0121\u0001\u0000\u0000\u0000"+
-		"\u0124\u0122\u0001\u0000\u0000\u0000\u0124\u0123\u0001\u0000\u0000\u0000"+
-		"\u0125-\u0001\u0000\u0000\u0000\u0126\u0127\u0005!\u0000\u0000\u0127\u0134"+
-		"\u0003R)\u0000\u0128\u0129\u0005\"\u0000\u0000\u0129\u012a\u0003V+\u0000"+
-		"\u012a\u012b\u0003X,\u0000\u012b\u0134\u0001\u0000\u0000\u0000\u012c\u012d"+
-		"\u0005#\u0000\u0000\u012d\u0134\u0003T*\u0000\u012e\u0134\u0005$\u0000"+
-		"\u0000\u012f\u0134\u0005%\u0000\u0000\u0130\u0134\u0005&\u0000\u0000\u0131"+
-		"\u0132\u0005\'\u0000\u0000\u0132\u0134\u0005b\u0000\u0000\u0133\u0126"+
-		"\u0001\u0000\u0000\u0000\u0133\u0128\u0001\u0000\u0000\u0000\u0133\u012c"+
-		"\u0001\u0000\u0000\u0000\u0133\u012e\u0001\u0000\u0000\u0000\u0133\u012f"+
-		"\u0001\u0000\u0000\u0000\u0133\u0130\u0001\u0000\u0000\u0000\u0133\u0131"+
-		"\u0001\u0000\u0000\u0000\u0134/\u0001\u0000\u0000\u0000\u0135\u0136\u0005"+
-		"\'\u0000\u0000\u0136\u0137\u00032\u0019\u0000\u01371\u0001\u0000\u0000"+
-		"\u0000\u0138\u0139\u0007\u0003\u0000\u0000\u01393\u0001\u0000\u0000\u0000"+
-		"\u013a\u013e\u00036\u001b\u0000\u013b\u013c\u0003V+\u0000\u013c\u013d"+
-		"\u0003X,\u0000\u013d\u013f\u0001\u0000\u0000\u0000\u013e\u013b\u0001\u0000"+
-		"\u0000\u0000\u013f\u0140\u0001\u0000\u0000\u0000\u0140\u013e\u0001\u0000"+
-		"\u0000\u0000\u0140\u0141\u0001\u0000\u0000\u0000\u01415\u0001\u0000\u0000"+
-		"\u0000\u0142\u0143\u0007\u0004\u0000\u0000\u01437\u0001\u0000\u0000\u0000"+
-		"\u0144\u0146\u0003:\u001d\u0000\u0145\u0144\u0001\u0000\u0000\u0000\u0146"+
-		"\u0147\u0001\u0000\u0000\u0000\u0147\u0145\u0001\u0000\u0000\u0000\u0147"+
-		"\u0148\u0001\u0000\u0000\u0000\u01489\u0001\u0000\u0000\u0000\u0149\u014d"+
-		"\u0003B!\u0000\u014a\u014d\u0003D\"\u0000\u014b\u014d\u0003J%\u0000\u014c"+
-		"\u0149\u0001\u0000\u0000\u0000\u014c\u014a\u0001\u0000\u0000\u0000\u014c"+
-		"\u014b\u0001\u0000\u0000\u0000\u014d;\u0001\u0000\u0000\u0000\u014e\u0150"+
-		"\u0003>\u001f\u0000\u014f\u014e\u0001\u0000\u0000\u0000\u0150\u0151\u0001"+
-		"\u0000\u0000\u0000\u0151\u014f\u0001\u0000\u0000\u0000\u0151\u0152\u0001"+
-		"\u0000\u0000\u0000\u0152=\u0001\u0000\u0000\u0000\u0153\u0156\u0003B!"+
-		"\u0000\u0154\u0156\u0003L&\u0000\u0155\u0153\u0001\u0000\u0000\u0000\u0155"+
-		"\u0154\u0001\u0000\u0000\u0000\u0156?\u0001\u0000\u0000\u0000\u0157\u0159"+
-		"\u0003B!\u0000\u0158\u0157\u0001\u0000\u0000\u0000\u0159\u015a\u0001\u0000"+
-		"\u0000\u0000\u015a\u0158\u0001\u0000\u0000\u0000\u015a\u015b\u0001\u0000"+
-		"\u0000\u0000\u015b\u0161\u0001\u0000\u0000\u0000\u015c\u0161\u0003H$\u0000"+
-		"\u015d\u0161\u0003D\"\u0000\u015e\u0161\u00034\u001a\u0000\u015f\u0161"+
-		"\u0003N\'\u0000\u0160\u0158\u0001\u0000\u0000\u0000\u0160\u015c\u0001"+
-		"\u0000\u0000\u0000\u0160\u015d\u0001\u0000\u0000\u0000\u0160\u015e\u0001"+
-		"\u0000\u0000\u0000\u0160\u015f\u0001\u0000\u0000\u0000\u0161A\u0001\u0000"+
-		"\u0000\u0000\u0162\u0163\u0005.\u0000\u0000\u0163\u0164\u0003V+\u0000"+
-		"\u0164\u0165\u0003X,\u0000\u0165\u0171\u0001\u0000\u0000\u0000\u0166\u0167"+
-		"\u0005/\u0000\u0000\u0167\u0168\u0003V+\u0000\u0168\u0169\u0003X,\u0000"+
-		"\u0169\u0171\u0001\u0000\u0000\u0000\u016a\u016b\u0005\"\u0000\u0000\u016b"+
-		"\u016c\u0003V+\u0000\u016c\u016d\u0003X,\u0000\u016d\u016e\u0003V+\u0000"+
-		"\u016e\u016f\u0003X,\u0000\u016f\u0171\u0001\u0000\u0000\u0000\u0170\u0162"+
-		"\u0001\u0000\u0000\u0000\u0170\u0166\u0001\u0000\u0000\u0000\u0170\u016a"+
-		"\u0001\u0000\u0000\u0000\u0171C\u0001\u0000\u0000\u0000\u0172\u0173\u0005"+
-		"0\u0000\u0000\u0173\u0174\u0003V+\u0000\u0174\u0175\u0003X,\u0000\u0175"+
-		"\u0177\u0003T*\u0000\u0176\u0178\u0003F#\u0000\u0177\u0176\u0001\u0000"+
-		"\u0000\u0000\u0177\u0178\u0001\u0000\u0000\u0000\u0178E\u0001\u0000\u0000"+
-		"\u0000\u0179\u017a\u00051\u0000\u0000\u017a\u017b\u0003V+\u0000\u017b"+
-		"\u017c\u0003X,\u0000\u017cG\u0001\u0000\u0000\u0000\u017d\u017e\u0005"+
-		"2\u0000\u0000\u017e\u017f\u0003T*\u0000\u017fI\u0001\u0000\u0000\u0000"+
-		"\u0180\u0181\u00053\u0000\u0000\u0181\u0182\u0003V+\u0000\u0182K\u0001"+
-		"\u0000\u0000\u0000\u0183\u0184\u00054\u0000\u0000\u0184\u0185\u0003V+"+
-		"\u0000\u0185M\u0001\u0000\u0000\u0000\u0186\u0187\u00055\u0000\u0000\u0187"+
-		"\u0188\u0003P(\u0000\u0188O\u0001\u0000\u0000\u0000\u0189\u018a\u0007"+
-		"\u0005\u0000\u0000\u018aQ\u0001\u0000\u0000\u0000\u018b\u018c\u0005]\u0000"+
-		"\u0000\u018cS\u0001\u0000\u0000\u0000\u018d\u018e\u0005Z\u0000\u0000\u018e"+
-		"U\u0001\u0000\u0000\u0000\u018f\u0190\u0005[\u0000\u0000\u0190W\u0001"+
-		"\u0000\u0000\u0000\u0191\u0192\u0007\u0006\u0000\u0000\u0192Y\u0001\u0000"+
-		"\u0000\u0000\u0193\u0194\u0005<\u0000\u0000\u0194\u0195\u0005\\\u0000"+
-		"\u0000\u0195\u0196\u0005\u0003\u0000\u0000\u0196[\u0001\u0000\u0000\u0000"+
-		"\"bjmsz\u0096\u009e\u00a7\u00ab\u00b3\u00bf\u00c5\u00ce\u00d4\u00d7\u00dd"+
-		"\u00ee\u00f6\u00fd\u0103\u010e\u011a\u011f\u0124\u0133\u0140\u0147\u014c"+
-		"\u0151\u0155\u015a\u0160\u0170\u0177";
+		"\u0014\u0001\u0014\u0003\u0014\u00f9\b\u0014\u0001\u0015\u0001\u0015\u0001"+
+		"\u0016\u0001\u0016\u0001\u0016\u0005\u0016\u0100\b\u0016\n\u0016\f\u0016"+
+		"\u0103\t\u0016\u0001\u0016\u0003\u0016\u0106\b\u0016\u0001\u0017\u0001"+
+		"\u0017\u0001\u0017\u0001\u0017\u0001\u0018\u0001\u0018\u0001\u0019\u0001"+
+		"\u0019\u0001\u0019\u0003\u0019\u0111\b\u0019\u0001\u001a\u0001\u001a\u0001"+
+		"\u001b\u0001\u001b\u0001\u001c\u0001\u001c\u0001\u001d\u0001\u001d\u0001"+
+		"\u001e\u0001\u001e\u0001\u001e\u0001\u001e\u0001\u001e\u0000\u0000\u001f"+
+		"\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a"+
+		"\u001c\u001e \"$&(*,.02468:<\u0000\u0004\u0001\u0000+F\u0001\u0000\n\u000f"+
+		"\u0001\u0000\u0011\u0012\u0001\u0000\"\'\u011e\u0000>\u0001\u0000\u0000"+
+		"\u0000\u0002I\u0001\u0000\u0000\u0000\u0004\\\u0001\u0000\u0000\u0000"+
+		"\u0006^\u0001\u0000\u0000\u0000\bh\u0001\u0000\u0000\u0000\nj\u0001\u0000"+
+		"\u0000\u0000\fx\u0001\u0000\u0000\u0000\u000ez\u0001\u0000\u0000\u0000"+
+		"\u0010\u0082\u0001\u0000\u0000\u0000\u0012\u008b\u0001\u0000\u0000\u0000"+
+		"\u0014\u0095\u0001\u0000\u0000\u0000\u0016\u0097\u0001\u0000\u0000\u0000"+
+		"\u0018\u009a\u0001\u0000\u0000\u0000\u001a\u00a7\u0001\u0000\u0000\u0000"+
+		"\u001c\u00b0\u0001\u0000\u0000\u0000\u001e\u00c0\u0001\u0000\u0000\u0000"+
+		" \u00c3\u0001\u0000\u0000\u0000\"\u00c6\u0001\u0000\u0000\u0000$\u00ce"+
+		"\u0001\u0000\u0000\u0000&\u00d6\u0001\u0000\u0000\u0000(\u00e6\u0001\u0000"+
+		"\u0000\u0000*\u00fa\u0001\u0000\u0000\u0000,\u00fc\u0001\u0000\u0000\u0000"+
+		".\u0107\u0001\u0000\u0000\u00000\u010b\u0001\u0000\u0000\u00002\u0110"+
+		"\u0001\u0000\u0000\u00004\u0112\u0001\u0000\u0000\u00006\u0114\u0001\u0000"+
+		"\u0000\u00008\u0116\u0001\u0000\u0000\u0000:\u0118\u0001\u0000\u0000\u0000"+
+		"<\u011a\u0001\u0000\u0000\u0000>?\u0005\u0001\u0000\u0000?@\u0005I\u0000"+
+		"\u0000@D\u0005\u0002\u0000\u0000AC\u0003\u0002\u0001\u0000BA\u0001\u0000"+
+		"\u0000\u0000CF\u0001\u0000\u0000\u0000DB\u0001\u0000\u0000\u0000DE\u0001"+
+		"\u0000\u0000\u0000EG\u0001\u0000\u0000\u0000FD\u0001\u0000\u0000\u0000"+
+		"GH\u0005\u0003\u0000\u0000H\u0001\u0001\u0000\u0000\u0000IJ\u0005\u0004"+
+		"\u0000\u0000JL\u0003\u0004\u0002\u0000KM\u0005\u0005\u0000\u0000LK\u0001"+
+		"\u0000\u0000\u0000LM\u0001\u0000\u0000\u0000MO\u0001\u0000\u0000\u0000"+
+		"NP\u0003\u0006\u0003\u0000ON\u0001\u0000\u0000\u0000OP\u0001\u0000\u0000"+
+		"\u0000PQ\u0001\u0000\u0000\u0000QU\u0005\u0002\u0000\u0000RT\u0003\f\u0006"+
+		"\u0000SR\u0001\u0000\u0000\u0000TW\u0001\u0000\u0000\u0000US\u0001\u0000"+
+		"\u0000\u0000UV\u0001\u0000\u0000\u0000VX\u0001\u0000\u0000\u0000WU\u0001"+
+		"\u0000\u0000\u0000XY\u0005\u0003\u0000\u0000Y\u0003\u0001\u0000\u0000"+
+		"\u0000Z]\u0003\b\u0004\u0000[]\u0003\n\u0005\u0000\\Z\u0001\u0000\u0000"+
+		"\u0000\\[\u0001\u0000\u0000\u0000]\u0005\u0001\u0000\u0000\u0000^_\u0005"+
+		"\u0006\u0000\u0000_`\u00038\u001c\u0000`a\u0003:\u001d\u0000ab\u00038"+
+		"\u001c\u0000bc\u0003:\u001d\u0000cd\u00038\u001c\u0000de\u0003:\u001d"+
+		"\u0000ef\u00038\u001c\u0000fg\u0003:\u001d\u0000g\u0007\u0001\u0000\u0000"+
+		"\u0000hi\u0007\u0000\u0000\u0000i\t\u0001\u0000\u0000\u0000jk\u0005\u0007"+
+		"\u0000\u0000kl\u00038\u001c\u0000lm\u0003:\u001d\u0000mn\u00038\u001c"+
+		"\u0000no\u0003:\u001d\u0000o\u000b\u0001\u0000\u0000\u0000py\u0003\u000e"+
+		"\u0007\u0000qy\u0003\u0010\b\u0000ry\u0003\u0012\t\u0000sy\u0003\u0018"+
+		"\f\u0000ty\u0003\"\u0011\u0000uy\u0003$\u0012\u0000vy\u0003&\u0013\u0000"+
+		"wy\u0003(\u0014\u0000xp\u0001\u0000\u0000\u0000xq\u0001\u0000\u0000\u0000"+
+		"xr\u0001\u0000\u0000\u0000xs\u0001\u0000\u0000\u0000xt\u0001\u0000\u0000"+
+		"\u0000xu\u0001\u0000\u0000\u0000xv\u0001\u0000\u0000\u0000xw\u0001\u0000"+
+		"\u0000\u0000y\r\u0001\u0000\u0000\u0000z{\u0005\b\u0000\u0000{\u0080\u0003"+
+		"4\u001a\u0000|}\u0005\u0002\u0000\u0000}~\u0003*\u0015\u0000~\u007f\u0005"+
+		"\u0003\u0000\u0000\u007f\u0081\u0001\u0000\u0000\u0000\u0080|\u0001\u0000"+
+		"\u0000\u0000\u0080\u0081\u0001\u0000\u0000\u0000\u0081\u000f\u0001\u0000"+
+		"\u0000\u0000\u0082\u0083\u0005\t\u0000\u0000\u0083\u0084\u0007\u0001\u0000"+
+		"\u0000\u0084\u0089\u00034\u001a\u0000\u0085\u0086\u0005\u0002\u0000\u0000"+
+		"\u0086\u0087\u0003,\u0016\u0000\u0087\u0088\u0005\u0003\u0000\u0000\u0088"+
+		"\u008a\u0001\u0000\u0000\u0000\u0089\u0085\u0001\u0000\u0000\u0000\u0089"+
+		"\u008a\u0001\u0000\u0000\u0000\u008a\u0011\u0001\u0000\u0000\u0000\u008b"+
+		"\u008c\u0005\u0010\u0000\u0000\u008c\u008d\u0003\u0014\n\u0000\u008d\u008f"+
+		"\u0005\u0002\u0000\u0000\u008e\u0090\u0003\u0016\u000b\u0000\u008f\u008e"+
+		"\u0001\u0000\u0000\u0000\u0090\u0091\u0001\u0000\u0000\u0000\u0091\u008f"+
+		"\u0001\u0000\u0000\u0000\u0091\u0092\u0001\u0000\u0000\u0000\u0092\u0093"+
+		"\u0001\u0000\u0000\u0000\u0093\u0094\u0005\u0003\u0000\u0000\u0094\u0013"+
+		"\u0001\u0000\u0000\u0000\u0095\u0096\u0007\u0002\u0000\u0000\u0096\u0015"+
+		"\u0001\u0000\u0000\u0000\u0097\u0098\u0005\u0013\u0000\u0000\u0098\u0099"+
+		"\u00034\u001a\u0000\u0099\u0017\u0001\u0000\u0000\u0000\u009a\u009d\u0005"+
+		"\u0014\u0000\u0000\u009b\u009c\u0005\u0015\u0000\u0000\u009c\u009e\u0003"+
+		"8\u001c\u0000\u009d\u009b\u0001\u0000\u0000\u0000\u009d\u009e\u0001\u0000"+
+		"\u0000\u0000\u009e\u009f\u0001\u0000\u0000\u0000\u009f\u00a1\u0005\u0002"+
+		"\u0000\u0000\u00a0\u00a2\u0003\u001a\r\u0000\u00a1\u00a0\u0001\u0000\u0000"+
+		"\u0000\u00a2\u00a3\u0001\u0000\u0000\u0000\u00a3\u00a1\u0001\u0000\u0000"+
+		"\u0000\u00a3\u00a4\u0001\u0000\u0000\u0000\u00a4\u00a5\u0001\u0000\u0000"+
+		"\u0000\u00a5\u00a6\u0005\u0003\u0000\u0000\u00a6\u0019\u0001\u0000\u0000"+
+		"\u0000\u00a7\u00a8\u0005\u0016\u0000\u0000\u00a8\u00aa\u0005\u0002\u0000"+
+		"\u0000\u00a9\u00ab\u0003\u001c\u000e\u0000\u00aa\u00a9\u0001\u0000\u0000"+
+		"\u0000\u00ab\u00ac\u0001\u0000\u0000\u0000\u00ac\u00aa\u0001\u0000\u0000"+
+		"\u0000\u00ac\u00ad\u0001\u0000\u0000\u0000\u00ad\u00ae\u0001\u0000\u0000"+
+		"\u0000\u00ae\u00af\u0005\u0003\u0000\u0000\u00af\u001b\u0001\u0000\u0000"+
+		"\u0000\u00b0\u00b2\u0005\u0017\u0000\u0000\u00b1\u00b3\u0003\u001e\u000f"+
+		"\u0000\u00b2\u00b1\u0001\u0000\u0000\u0000\u00b2\u00b3\u0001\u0000\u0000"+
+		"\u0000\u00b3\u00b5\u0001\u0000\u0000\u0000\u00b4\u00b6\u0003 \u0010\u0000"+
+		"\u00b5\u00b4\u0001\u0000\u0000\u0000\u00b5\u00b6\u0001\u0000\u0000\u0000"+
+		"\u00b6\u00b7\u0001\u0000\u0000\u0000\u00b7\u00bb\u0005\u0002\u0000\u0000"+
+		"\u00b8\u00ba\u0003\f\u0006\u0000\u00b9\u00b8\u0001\u0000\u0000\u0000\u00ba"+
+		"\u00bd\u0001\u0000\u0000\u0000\u00bb\u00b9\u0001\u0000\u0000\u0000\u00bb"+
+		"\u00bc\u0001\u0000\u0000\u0000\u00bc\u00be\u0001\u0000\u0000\u0000\u00bd"+
+		"\u00bb\u0001\u0000\u0000\u0000\u00be\u00bf\u0005\u0003\u0000\u0000\u00bf"+
+		"\u001d\u0001\u0000\u0000\u0000\u00c0\u00c1\u00038\u001c\u0000\u00c1\u00c2"+
+		"\u0005\u0018\u0000\u0000\u00c2\u001f\u0001\u0000\u0000\u0000\u00c3\u00c4"+
+		"\u00038\u001c\u0000\u00c4\u00c5\u0005\u0019\u0000\u0000\u00c5!\u0001\u0000"+
+		"\u0000\u0000\u00c6\u00c7\u0005\u001a\u0000\u0000\u00c7\u00cc\u0005L\u0000"+
+		"\u0000\u00c8\u00c9\u0005\u0002\u0000\u0000\u00c9\u00ca\u0003,\u0016\u0000"+
+		"\u00ca\u00cb\u0005\u0003\u0000\u0000\u00cb\u00cd\u0001\u0000\u0000\u0000"+
+		"\u00cc\u00c8\u0001\u0000\u0000\u0000\u00cc\u00cd\u0001\u0000\u0000\u0000"+
+		"\u00cd#\u0001\u0000\u0000\u0000\u00ce\u00cf\u0005\u001b\u0000\u0000\u00cf"+
+		"\u00d4\u0005L\u0000\u0000\u00d0\u00d1\u0005\u0002\u0000\u0000\u00d1\u00d2"+
+		"\u0003,\u0016\u0000\u00d2\u00d3\u0005\u0003\u0000\u0000\u00d3\u00d5\u0001"+
+		"\u0000\u0000\u0000\u00d4\u00d0\u0001\u0000\u0000\u0000\u00d4\u00d5\u0001"+
+		"\u0000\u0000\u0000\u00d5%\u0001\u0000\u0000\u0000\u00d6\u00db\u0005\u001c"+
+		"\u0000\u0000\u00d7\u00d8\u0005\u001d\u0000\u0000\u00d8\u00d9\u0003,\u0016"+
+		"\u0000\u00d9\u00da\u0005\u001e\u0000\u0000\u00da\u00dc\u0001\u0000\u0000"+
+		"\u0000\u00db\u00d7\u0001\u0000\u0000\u0000\u00db\u00dc\u0001\u0000\u0000"+
+		"\u0000\u00dc\u00dd\u0001\u0000\u0000\u0000\u00dd\u00e1\u0005\u0002\u0000"+
+		"\u0000\u00de\u00e0\u0003\f\u0006\u0000\u00df\u00de\u0001\u0000\u0000\u0000"+
+		"\u00e0\u00e3\u0001\u0000\u0000\u0000\u00e1\u00df\u0001\u0000\u0000\u0000"+
+		"\u00e1\u00e2\u0001\u0000\u0000\u0000\u00e2\u00e4\u0001\u0000\u0000\u0000"+
+		"\u00e3\u00e1\u0001\u0000\u0000\u0000\u00e4\u00e5\u0005\u0003\u0000\u0000"+
+		"\u00e5\'\u0001\u0000\u0000\u0000\u00e6\u00e7\u0005\u001f\u0000\u0000\u00e7"+
+		"\u00e8\u0005I\u0000\u0000\u00e8\u00ec\u0005\u0002\u0000\u0000\u00e9\u00eb"+
+		"\u0003\f\u0006\u0000\u00ea\u00e9\u0001\u0000\u0000\u0000\u00eb\u00ee\u0001"+
+		"\u0000\u0000\u0000\u00ec\u00ea\u0001\u0000\u0000\u0000\u00ec\u00ed\u0001"+
+		"\u0000\u0000\u0000\u00ed\u00ef\u0001\u0000\u0000\u0000\u00ee\u00ec\u0001"+
+		"\u0000\u0000\u0000\u00ef\u00f0\u0005\u0003\u0000\u0000\u00f0\u00f1\u0005"+
+		" \u0000\u0000\u00f1\u00f8\u0005I\u0000\u0000\u00f2\u00f3\u0005O\u0000"+
+		"\u0000\u00f3\u00f4\u00038\u001c\u0000\u00f4\u00f5\u0003:\u001d\u0000\u00f5"+
+		"\u00f6\u00038\u001c\u0000\u00f6\u00f7\u0003:\u001d\u0000\u00f7\u00f9\u0001"+
+		"\u0000\u0000\u0000\u00f8\u00f2\u0001\u0000\u0000\u0000\u00f8\u00f9\u0001"+
+		"\u0000\u0000\u0000\u00f9)\u0001\u0000\u0000\u0000\u00fa\u00fb\u0003,\u0016"+
+		"\u0000\u00fb+\u0001\u0000\u0000\u0000\u00fc\u0101\u0003.\u0017\u0000\u00fd"+
+		"\u00fe\u0005!\u0000\u0000\u00fe\u0100\u0003.\u0017\u0000\u00ff\u00fd\u0001"+
+		"\u0000\u0000\u0000\u0100\u0103\u0001\u0000\u0000\u0000\u0101\u00ff\u0001"+
+		"\u0000\u0000\u0000\u0101\u0102\u0001\u0000\u0000\u0000\u0102\u0105\u0001"+
+		"\u0000\u0000\u0000\u0103\u0101\u0001\u0000\u0000\u0000\u0104\u0106\u0005"+
+		"*\u0000\u0000\u0105\u0104\u0001\u0000\u0000\u0000\u0105\u0106\u0001\u0000"+
+		"\u0000\u0000\u0106-\u0001\u0000\u0000\u0000\u0107\u0108\u00030\u0018\u0000"+
+		"\u0108\u0109\u0005)\u0000\u0000\u0109\u010a\u00032\u0019\u0000\u010a/"+
+		"\u0001\u0000\u0000\u0000\u010b\u010c\u0005I\u0000\u0000\u010c1\u0001\u0000"+
+		"\u0000\u0000\u010d\u0111\u0005I\u0000\u0000\u010e\u0111\u00034\u001a\u0000"+
+		"\u010f\u0111\u0003<\u001e\u0000\u0110\u010d\u0001\u0000\u0000\u0000\u0110"+
+		"\u010e\u0001\u0000\u0000\u0000\u0110\u010f\u0001\u0000\u0000\u0000\u0111"+
+		"3\u0001\u0000\u0000\u0000\u0112\u0113\u0005K\u0000\u0000\u01135\u0001"+
+		"\u0000\u0000\u0000\u0114\u0115\u0005J\u0000\u0000\u01157\u0001\u0000\u0000"+
+		"\u0000\u0116\u0117\u0005H\u0000\u0000\u01179\u0001\u0000\u0000\u0000\u0118"+
+		"\u0119\u0007\u0003\u0000\u0000\u0119;\u0001\u0000\u0000\u0000\u011a\u011b"+
+		"\u0005(\u0000\u0000\u011b\u011c\u0005I\u0000\u0000\u011c\u011d\u0005\u0003"+
+		"\u0000\u0000\u011d=\u0001\u0000\u0000\u0000\u0018DLOU\\x\u0080\u0089\u0091"+
+		"\u009d\u00a3\u00ac\u00b2\u00b5\u00bb\u00cc\u00d4\u00db\u00e1\u00ec\u00f8"+
+		"\u0101\u0105\u0110";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

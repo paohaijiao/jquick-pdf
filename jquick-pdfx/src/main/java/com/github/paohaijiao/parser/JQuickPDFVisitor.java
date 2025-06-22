@@ -143,177 +143,29 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#paragraphStyleType}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#style}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParagraphStyleType(JQuickPDFParser.ParagraphStyleTypeContext ctx);
+	T visitStyle(JQuickPDFParser.StyleContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code textStylefont}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#attr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTextStylefont(JQuickPDFParser.TextStylefontContext ctx);
+	T visitAttr(JQuickPDFParser.AttrContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code textStyleSize}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#key}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTextStyleSize(JQuickPDFParser.TextStyleSizeContext ctx);
+	T visitKey(JQuickPDFParser.KeyContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code textStyleColor}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTextStyleColor(JQuickPDFParser.TextStyleColorContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code textStyleBold}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTextStyleBold(JQuickPDFParser.TextStyleBoldContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code textStyleItalic}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTextStyleItalic(JQuickPDFParser.TextStyleItalicContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code textStyleUnderline}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTextStyleUnderline(JQuickPDFParser.TextStyleUnderlineContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code textStyleAlign}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTextStyleAlign(JQuickPDFParser.TextStyleAlignContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#alignment}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAlignment(JQuickPDFParser.AlignmentContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#alignmentLocation}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAlignmentLocation(JQuickPDFParser.AlignmentLocationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#spacing}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSpacing(JQuickPDFParser.SpacingContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#marginOrPadding}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMarginOrPadding(JQuickPDFParser.MarginOrPaddingContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#imageStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitImageStyle(JQuickPDFParser.ImageStyleContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#imageStyleItem}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitImageStyleItem(JQuickPDFParser.ImageStyleItemContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#svgStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSvgStyle(JQuickPDFParser.SvgStyleContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#svgStyleItem}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSvgStyleItem(JQuickPDFParser.SvgStyleItemContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#divStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDivStyle(JQuickPDFParser.DivStyleContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code dimensionWidth}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDimensionWidth(JQuickPDFParser.DimensionWidthContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code dimensionHeight}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDimensionHeight(JQuickPDFParser.DimensionHeightContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code dimensionSize}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDimensionSize(JQuickPDFParser.DimensionSizeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#border}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBorder(JQuickPDFParser.BorderContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#borderRounded}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBorderRounded(JQuickPDFParser.BorderRoundedContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#background}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBackground(JQuickPDFParser.BackgroundContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#opacity}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOpacity(JQuickPDFParser.OpacityContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#scale}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitScale(JQuickPDFParser.ScaleContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#float}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFloat(JQuickPDFParser.FloatContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#floatDirect}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFloatDirect(JQuickPDFParser.FloatDirectContext ctx);
+	T visitValue(JQuickPDFParser.ValueContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#string}.
 	 * @param ctx the parse tree

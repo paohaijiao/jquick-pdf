@@ -65,9 +65,7 @@ public class JPdfXElementVisitor extends JPdfXImageVisitor {
     @Override
     public IElement visitDiv(JQuickPDFParser.DivContext ctx) {
         Div div = new Div();
-        if (ctx.divStyle() != null) {
 
-        }
         for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
             IElement element = visitElement(elementCtx);
             if (element instanceof BlockElement) {

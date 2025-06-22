@@ -36,34 +36,11 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
 
     @Override
     public Image visitImage(JQuickPDFParser.ImageContext ctx) {
-        String path = ctx.PATH().getText();
-        if (ctx.imageStyle() != null) {
-            visitImageStyle(ctx.imageStyle());
-        }
+
         return null;
     }
 
-    @Override
-    public Void visitImageStyle(JQuickPDFParser.ImageStyleContext ctx) {
-        for (JQuickPDFParser.ImageStyleItemContext item : ctx.imageStyleItem()) {
-            visitImageStyleItem(item);
-        }
-        return null;
-    }
 
-    @Override
-    public Void visitImageStyleItem(JQuickPDFParser.ImageStyleItemContext ctx) {
-        if (ctx.dimension() != null) {
-            visit(ctx.dimension());
-        }
-        if (ctx.border() != null) {
-            visit(ctx.border());
-        }
-        if (ctx.opacity() != null) {
-            visit(ctx.opacity());
-        }
-        return null;
-    }
 
 
     public static Image buildImage() {

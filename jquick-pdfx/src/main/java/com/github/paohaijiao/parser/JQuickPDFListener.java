@@ -228,295 +228,45 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#paragraphStyleType}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#style}.
 	 * @param ctx the parse tree
 	 */
-	void enterParagraphStyleType(JQuickPDFParser.ParagraphStyleTypeContext ctx);
+	void enterStyle(JQuickPDFParser.StyleContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#paragraphStyleType}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#style}.
 	 * @param ctx the parse tree
 	 */
-	void exitParagraphStyleType(JQuickPDFParser.ParagraphStyleTypeContext ctx);
+	void exitStyle(JQuickPDFParser.StyleContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code textStylefont}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#attr}.
 	 * @param ctx the parse tree
 	 */
-	void enterTextStylefont(JQuickPDFParser.TextStylefontContext ctx);
+	void enterAttr(JQuickPDFParser.AttrContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code textStylefont}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#attr}.
 	 * @param ctx the parse tree
 	 */
-	void exitTextStylefont(JQuickPDFParser.TextStylefontContext ctx);
+	void exitAttr(JQuickPDFParser.AttrContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code textStyleSize}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#key}.
 	 * @param ctx the parse tree
 	 */
-	void enterTextStyleSize(JQuickPDFParser.TextStyleSizeContext ctx);
+	void enterKey(JQuickPDFParser.KeyContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code textStyleSize}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#key}.
 	 * @param ctx the parse tree
 	 */
-	void exitTextStyleSize(JQuickPDFParser.TextStyleSizeContext ctx);
+	void exitKey(JQuickPDFParser.KeyContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code textStyleColor}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#value}.
 	 * @param ctx the parse tree
 	 */
-	void enterTextStyleColor(JQuickPDFParser.TextStyleColorContext ctx);
+	void enterValue(JQuickPDFParser.ValueContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code textStyleColor}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#value}.
 	 * @param ctx the parse tree
 	 */
-	void exitTextStyleColor(JQuickPDFParser.TextStyleColorContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code textStyleBold}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterTextStyleBold(JQuickPDFParser.TextStyleBoldContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code textStyleBold}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitTextStyleBold(JQuickPDFParser.TextStyleBoldContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code textStyleItalic}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterTextStyleItalic(JQuickPDFParser.TextStyleItalicContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code textStyleItalic}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitTextStyleItalic(JQuickPDFParser.TextStyleItalicContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code textStyleUnderline}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterTextStyleUnderline(JQuickPDFParser.TextStyleUnderlineContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code textStyleUnderline}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitTextStyleUnderline(JQuickPDFParser.TextStyleUnderlineContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code textStyleAlign}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterTextStyleAlign(JQuickPDFParser.TextStyleAlignContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code textStyleAlign}
-	 * labeled alternative in {@link JQuickPDFParser#textStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitTextStyleAlign(JQuickPDFParser.TextStyleAlignContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#alignment}.
-	 * @param ctx the parse tree
-	 */
-	void enterAlignment(JQuickPDFParser.AlignmentContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#alignment}.
-	 * @param ctx the parse tree
-	 */
-	void exitAlignment(JQuickPDFParser.AlignmentContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#alignmentLocation}.
-	 * @param ctx the parse tree
-	 */
-	void enterAlignmentLocation(JQuickPDFParser.AlignmentLocationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#alignmentLocation}.
-	 * @param ctx the parse tree
-	 */
-	void exitAlignmentLocation(JQuickPDFParser.AlignmentLocationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#spacing}.
-	 * @param ctx the parse tree
-	 */
-	void enterSpacing(JQuickPDFParser.SpacingContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#spacing}.
-	 * @param ctx the parse tree
-	 */
-	void exitSpacing(JQuickPDFParser.SpacingContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#marginOrPadding}.
-	 * @param ctx the parse tree
-	 */
-	void enterMarginOrPadding(JQuickPDFParser.MarginOrPaddingContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#marginOrPadding}.
-	 * @param ctx the parse tree
-	 */
-	void exitMarginOrPadding(JQuickPDFParser.MarginOrPaddingContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#imageStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterImageStyle(JQuickPDFParser.ImageStyleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#imageStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitImageStyle(JQuickPDFParser.ImageStyleContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#imageStyleItem}.
-	 * @param ctx the parse tree
-	 */
-	void enterImageStyleItem(JQuickPDFParser.ImageStyleItemContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#imageStyleItem}.
-	 * @param ctx the parse tree
-	 */
-	void exitImageStyleItem(JQuickPDFParser.ImageStyleItemContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#svgStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterSvgStyle(JQuickPDFParser.SvgStyleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#svgStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitSvgStyle(JQuickPDFParser.SvgStyleContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#svgStyleItem}.
-	 * @param ctx the parse tree
-	 */
-	void enterSvgStyleItem(JQuickPDFParser.SvgStyleItemContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#svgStyleItem}.
-	 * @param ctx the parse tree
-	 */
-	void exitSvgStyleItem(JQuickPDFParser.SvgStyleItemContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#divStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterDivStyle(JQuickPDFParser.DivStyleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#divStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitDivStyle(JQuickPDFParser.DivStyleContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code dimensionWidth}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 */
-	void enterDimensionWidth(JQuickPDFParser.DimensionWidthContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code dimensionWidth}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 */
-	void exitDimensionWidth(JQuickPDFParser.DimensionWidthContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code dimensionHeight}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 */
-	void enterDimensionHeight(JQuickPDFParser.DimensionHeightContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code dimensionHeight}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 */
-	void exitDimensionHeight(JQuickPDFParser.DimensionHeightContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code dimensionSize}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 */
-	void enterDimensionSize(JQuickPDFParser.DimensionSizeContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code dimensionSize}
-	 * labeled alternative in {@link JQuickPDFParser#dimension}.
-	 * @param ctx the parse tree
-	 */
-	void exitDimensionSize(JQuickPDFParser.DimensionSizeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#border}.
-	 * @param ctx the parse tree
-	 */
-	void enterBorder(JQuickPDFParser.BorderContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#border}.
-	 * @param ctx the parse tree
-	 */
-	void exitBorder(JQuickPDFParser.BorderContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#borderRounded}.
-	 * @param ctx the parse tree
-	 */
-	void enterBorderRounded(JQuickPDFParser.BorderRoundedContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#borderRounded}.
-	 * @param ctx the parse tree
-	 */
-	void exitBorderRounded(JQuickPDFParser.BorderRoundedContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#background}.
-	 * @param ctx the parse tree
-	 */
-	void enterBackground(JQuickPDFParser.BackgroundContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#background}.
-	 * @param ctx the parse tree
-	 */
-	void exitBackground(JQuickPDFParser.BackgroundContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#opacity}.
-	 * @param ctx the parse tree
-	 */
-	void enterOpacity(JQuickPDFParser.OpacityContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#opacity}.
-	 * @param ctx the parse tree
-	 */
-	void exitOpacity(JQuickPDFParser.OpacityContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#scale}.
-	 * @param ctx the parse tree
-	 */
-	void enterScale(JQuickPDFParser.ScaleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#scale}.
-	 * @param ctx the parse tree
-	 */
-	void exitScale(JQuickPDFParser.ScaleContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#float}.
-	 * @param ctx the parse tree
-	 */
-	void enterFloat(JQuickPDFParser.FloatContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#float}.
-	 * @param ctx the parse tree
-	 */
-	void exitFloat(JQuickPDFParser.FloatContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#floatDirect}.
-	 * @param ctx the parse tree
-	 */
-	void enterFloatDirect(JQuickPDFParser.FloatDirectContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#floatDirect}.
-	 * @param ctx the parse tree
-	 */
-	void exitFloatDirect(JQuickPDFParser.FloatDirectContext ctx);
+	void exitValue(JQuickPDFParser.ValueContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#string}.
 	 * @param ctx the parse tree

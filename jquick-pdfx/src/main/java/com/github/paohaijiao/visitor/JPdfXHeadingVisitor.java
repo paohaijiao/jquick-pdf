@@ -43,9 +43,7 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         headingModel.setLevel(level);
         String text = ctx.string().getText().replaceAll("\"", "");
         headingModel.setLevel(text);
-        for (JQuickPDFParser.TextStyleContext context : ctx.textStyle()) {
-            visit(context);
-        }
+
         headingModel.setStyle(style);
         Paragraph paragraph = this.buildHeading(headingModel);
         return paragraph;

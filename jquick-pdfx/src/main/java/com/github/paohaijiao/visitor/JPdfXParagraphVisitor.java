@@ -36,7 +36,6 @@ import com.github.paohaijiao.parser.JQuickPDFParser;
 public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
     @Override
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
-        this.cleanTemp();
         String text = ctx.string().getText().replaceAll("^\"|\"$", "");
         if (null != ctx.paragraphStyle()) {
             visitParagraphStyle(ctx.paragraphStyle());
@@ -53,17 +52,7 @@ public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
 
     @Override
     public JStyleDataModel visitParagraphStyle(JQuickPDFParser.ParagraphStyleContext ctx) {
-        for (JQuickPDFParser.ParagraphStyleTypeContext context : ctx.paragraphStyleType()) {
-            if (null != context.textStyle()) {
-                visit(context.textStyle());
-            }
-            if (null != context.alignment()) {
-                visit(context.alignment());
-            }
-            if (null != context.spacing()) {
-                visit(context.spacing());
-            }
-        }
+
         return null;
     }
 

@@ -15,11 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.enums.JDirect;
 import com.github.paohaijiao.enums.JUnit;
-import com.github.paohaijiao.model.*;
-import com.github.paohaijiao.model.style.JStyleDimensionModel;
-import com.github.paohaijiao.model.style.JStyleDimensionSizeModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.paohaijiao.javelin.exception.JAssert;
 import com.paohaijiao.javelin.util.JStringUtils;
@@ -48,7 +44,6 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
         return this.context.get(key);
     }
 
-
     @Override
     public String visitString(JQuickPDFParser.StringContext ctx) {
         return JStringUtils.trim(ctx.getText());
@@ -59,32 +54,6 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
         return JUnit.codeOf(ctx.getText());
     }
 
-    @Override
-    public JDirect visitFloat(JQuickPDFParser.FloatContext ctx) {
-        String direct = visitFloatDirect(ctx.floatDirect());
-        return JDirect.codeOf(direct);
-    }
-
-    @Override
-    public String visitFloatDirect(JQuickPDFParser.FloatDirectContext ctx) {
-        return ctx.getText();
-    }
-
-    @Override
-    public JScaleModel visitScale(JQuickPDFParser.ScaleContext ctx) {
-        BigDecimal number = visitNumber(ctx.number());
-        JScaleModel jScaleModel = new JScaleModel();
-        jScaleModel.setScale(Integer.valueOf(number.intValue()));
-        return jScaleModel;
-    }
-
-    @Override
-    public JOpacityModel visitOpacity(JQuickPDFParser.OpacityContext ctx) {
-        BigDecimal number = visitNumber(ctx.number());
-        JOpacityModel jOpacityModel = new JOpacityModel();
-        jOpacityModel.setOpacity(Integer.valueOf(number.intValue()));
-        return jOpacityModel;
-    }
 
     @Override
     public BigDecimal visitNumber(JQuickPDFParser.NumberContext ctx) {
@@ -95,87 +64,27 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
     public String visitColor(JQuickPDFParser.ColorContext ctx) {
         return ctx.getText();
     }
-
     @Override
-    public JBorderRoundedModel visitBorderRounded(JQuickPDFParser.BorderRoundedContext ctx) {
-        JBorderRoundedModel jBorderRoundedModel = new JBorderRoundedModel();
-        BigDecimal number = visitNumber(ctx.number());
-        jBorderRoundedModel.setNumber(number.intValue());
-        JUnit unit = visitUnit(ctx.unit());
-        jBorderRoundedModel.setUnit(unit);
-        return jBorderRoundedModel;
-    }
-
-    @Override
-    public JBorderModel visitBorder(JQuickPDFParser.BorderContext ctx) {
-        JBorderModel jBorderModel = new JBorderModel();
-        BigDecimal number = visitNumber(ctx.number());
-        jBorderModel.setNumber(number.intValue());
-        JUnit unit = visitUnit(ctx.unit());
-        jBorderModel.setUnit(unit);
-        if (null != ctx.borderRounded()) {
-            JBorderRoundedModel borderRoundedModel = visitBorderRounded(ctx.borderRounded());
-            jBorderModel.setBorderRounded(borderRoundedModel);
+    public Object visitValue(JQuickPDFParser.ValueContext ctx) {
+        if(ctx.IDENTIFIER() != null){
+            return ctx.IDENTIFIER().getText();
+        }else if(ctx.string() != null){
+            return visitString(ctx.string());
+        }else if (null!=ctx.variable()){
+            return visitVariable(ctx.variable());
         }
-        if (null != ctx.color()) {
-            jBorderModel.setColor(visitColor(ctx.color()));
-        }
-        return jBorderModel;
+        JAssert.throwNewException("invalid value");
+        return null;
     }
 
     @Override
-    public JBackGroundModel visitBackground(JQuickPDFParser.BackgroundContext ctx) {
-        JBackGroundModel model = new JBackGroundModel();
-        if (ctx.color() != null) {
-            String color = visitColor(ctx.color());
-            model.setColor(color);
-        }
-        return model;
+    public String visitKey(JQuickPDFParser.KeyContext ctx) {
+        return ctx.IDENTIFIER().getText();
     }
 
-    @Override
-    public JStyleDimensionModel visitDimensionWidth(JQuickPDFParser.DimensionWidthContext ctx) {
-        BigDecimal number = visitNumber(ctx.number());
-        JUnit unit = visitUnit(ctx.unit());
-        JNumberUnitModel jNumberUnitModel = new JNumberUnitModel();
-        jNumberUnitModel.setNumber(number.intValue());
-        jNumberUnitModel.setUnit(unit);
-        JStyleDimensionModel model=new JStyleDimensionModel();
-        model.setDimensionWidth(jNumberUnitModel);
-        return model;
-    }
 
-    @Override
-    public JStyleDimensionModel visitDimensionHeight(JQuickPDFParser.DimensionHeightContext ctx) {
-        BigDecimal number = visitNumber(ctx.number());
-        JUnit unit = visitUnit(ctx.unit());
-        JNumberUnitModel jNumberUnitModel = new JNumberUnitModel();
-        jNumberUnitModel.setNumber(number.intValue());
-        jNumberUnitModel.setUnit(unit);
-        JStyleDimensionModel model=new JStyleDimensionModel();
-        model.setDimensionHeight(jNumberUnitModel);
-        return model;
-    }
 
-    @Override
-    public JStyleDimensionModel visitDimensionSize(JQuickPDFParser.DimensionSizeContext ctx) {
-        JStyleDimensionSizeModel jStyleDimensionSizeModel=new JStyleDimensionSizeModel();
-        BigDecimal leftNumber = visitNumber(ctx.number(0));
-        JUnit leftUnit = visitUnit(ctx.unit(0));
-        JNumberUnitModel left = new JNumberUnitModel();
-        left.setNumber(leftNumber.intValue());
-        left.setUnit(leftUnit);
-        BigDecimal rightNumber = visitNumber(ctx.number(0));
-        JUnit rightUnit = visitUnit(ctx.unit(0));
-        JNumberUnitModel right = new JNumberUnitModel();
-        right.setNumber(rightNumber.intValue());
-        right.setUnit(rightUnit);
-        jStyleDimensionSizeModel.setLeft(left);
-        jStyleDimensionSizeModel.setRight(right);
-        JStyleDimensionModel model=new JStyleDimensionModel();
-        model.setDimensionSize(jStyleDimensionSizeModel);
-        return  model;
-    }
+
 
 
 }

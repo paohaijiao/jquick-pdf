@@ -30,7 +30,7 @@ import java.math.BigDecimal;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXLayOutVisitor extends JTextStyleAndAlignmentAndSpacingVisitor {
+public class JPdfXLayOutVisitor extends JPdfXValueVisitor {
     @Override
     public PageSize visitLayoutOption(JQuickPDFParser.LayoutOptionContext ctx) {
         if (ctx.A0() != null) return PageSize.A0;

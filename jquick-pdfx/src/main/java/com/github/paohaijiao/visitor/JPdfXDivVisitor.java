@@ -23,6 +23,9 @@ import com.github.paohaijiao.model.style.JDivStyleItemModel;
 import com.github.paohaijiao.model.style.JStyleSpacingModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -36,54 +39,9 @@ import com.github.paohaijiao.parser.JQuickPDFParser;
 public class JPdfXDivVisitor extends JPdfXSvgVisitor {
     @Override
     public Void visitDiv(JQuickPDFParser.DivContext ctx) {
-        if (ctx.divStyle() != null) {
-            JDivStyleItemModel style= visitDivStyle(ctx.divStyle());
-        }
-        for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
-            visitElement(elementContext);
-        }
         return null;
     }
 
-    @Override
-    public JDivStyleItemModel visitDivStyle(JQuickPDFParser.DivStyleContext ctx) {
-        JDivStyleItemModel jStyleItemModel=new JDivStyleItemModel();
-        if (null != ctx.dimension()&&!ctx.dimension().isEmpty()) {
-            JStyleDimensionModel dimensionModel=new JStyleDimensionModel();
-            for(JQuickPDFParser.DimensionContext dimensionContext:ctx.dimension()) {
-                JStyleDimensionModel dimension=(JStyleDimensionModel) visit(dimensionContext);
-                if(null!=dimension) {
-                    if(null!=dimension.getDimensionWidth()){
-                        dimensionModel.setDimensionWidth(dimension.getDimensionWidth());
-                    }
-                    if(null!=dimension.getDimensionHeight()){
-                        dimensionModel.setDimensionHeight(dimension.getDimensionHeight());
-                    }
-                    if(null!=dimension.getDimensionSize()){
-                        dimensionModel.setDimensionSize(dimension.getDimensionSize());
-                    }
-                }
-            }
-            jStyleItemModel.setDimension(dimensionModel.getData());
-        }
-        if (null != ctx.background()) {
-            JBackGroundModel backGround=visitBackground(ctx.background());
-            jStyleItemModel.setBackground(backGround);
-        }
-        if (null != ctx.border()) {
-            JBorderModel border= visitBorder(ctx.border());
-            jStyleItemModel.setBorder(border);
-        }
-        if (null != ctx.spacing()) {
-            JStyleSpacingModel spacing=visitSpacing(ctx.spacing());
-            jStyleItemModel.setSpacing(spacing);
-        }
-        if (null != ctx.float_()) {
-            JDirect direct=visitFloat(ctx.float_());
-            jStyleItemModel.setDirect(direct);
-        }
-        return jStyleItemModel;
-    }
 
 
 
