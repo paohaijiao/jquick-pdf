@@ -62,10 +62,6 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         return null;
     }
 
-    @Override
-    public String visitListItem(JQuickPDFParser.ListItemContext ctx) {
-        return visitString(ctx.string());
-    }
 
     private List buildHeading(JListModel data) {
         try {
