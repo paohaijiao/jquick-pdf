@@ -29,49 +29,97 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPage(JQuickPDFParser.PageContext ctx) { }
+	@Override public void enterDoc(JQuickPDFParser.DocContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPage(JQuickPDFParser.PageContext ctx) { }
+	@Override public void exitDoc(JQuickPDFParser.DocContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPageLayout(JQuickPDFParser.PageLayoutContext ctx) { }
+	@Override public void enterDocType(JQuickPDFParser.DocTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPageLayout(JQuickPDFParser.PageLayoutContext ctx) { }
+	@Override public void exitDocType(JQuickPDFParser.DocTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMargins(JQuickPDFParser.MarginsContext ctx) { }
+	@Override public void enterHtml(JQuickPDFParser.HtmlContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMargins(JQuickPDFParser.MarginsContext ctx) { }
+	@Override public void exitHtml(JQuickPDFParser.HtmlContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLayoutOption(JQuickPDFParser.LayoutOptionContext ctx) { }
+	@Override public void enterHead(JQuickPDFParser.HeadContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLayoutOption(JQuickPDFParser.LayoutOptionContext ctx) { }
+	@Override public void exitHead(JQuickPDFParser.HeadContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterHeadStyle(JQuickPDFParser.HeadStyleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitHeadStyle(JQuickPDFParser.HeadStyleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBody(JQuickPDFParser.BodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBody(JQuickPDFParser.BodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

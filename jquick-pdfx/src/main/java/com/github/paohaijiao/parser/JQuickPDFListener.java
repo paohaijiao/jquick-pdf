@@ -18,45 +18,85 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitDocument(JQuickPDFParser.DocumentContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#page}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#doc}.
 	 * @param ctx the parse tree
 	 */
-	void enterPage(JQuickPDFParser.PageContext ctx);
+	void enterDoc(JQuickPDFParser.DocContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#page}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#doc}.
 	 * @param ctx the parse tree
 	 */
-	void exitPage(JQuickPDFParser.PageContext ctx);
+	void exitDoc(JQuickPDFParser.DocContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#pageLayout}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#docType}.
 	 * @param ctx the parse tree
 	 */
-	void enterPageLayout(JQuickPDFParser.PageLayoutContext ctx);
+	void enterDocType(JQuickPDFParser.DocTypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#pageLayout}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#docType}.
 	 * @param ctx the parse tree
 	 */
-	void exitPageLayout(JQuickPDFParser.PageLayoutContext ctx);
+	void exitDocType(JQuickPDFParser.DocTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#margins}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#html}.
 	 * @param ctx the parse tree
 	 */
-	void enterMargins(JQuickPDFParser.MarginsContext ctx);
+	void enterHtml(JQuickPDFParser.HtmlContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#margins}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#html}.
 	 * @param ctx the parse tree
 	 */
-	void exitMargins(JQuickPDFParser.MarginsContext ctx);
+	void exitHtml(JQuickPDFParser.HtmlContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#layoutOption}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#head}.
 	 * @param ctx the parse tree
 	 */
-	void enterLayoutOption(JQuickPDFParser.LayoutOptionContext ctx);
+	void enterHead(JQuickPDFParser.HeadContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#layoutOption}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#head}.
 	 * @param ctx the parse tree
 	 */
-	void exitLayoutOption(JQuickPDFParser.LayoutOptionContext ctx);
+	void exitHead(JQuickPDFParser.HeadContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#headStyle}.
+	 * @param ctx the parse tree
+	 */
+	void enterHeadStyle(JQuickPDFParser.HeadStyleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#headStyle}.
+	 * @param ctx the parse tree
+	 */
+	void exitHeadStyle(JQuickPDFParser.HeadStyleContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#headStyleOption}.
+	 * @param ctx the parse tree
+	 */
+	void enterHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#headStyleOption}.
+	 * @param ctx the parse tree
+	 */
+	void exitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#bodyStyleOption}.
+	 * @param ctx the parse tree
+	 */
+	void enterBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#bodyStyleOption}.
+	 * @param ctx the parse tree
+	 */
+	void exitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#body}.
+	 * @param ctx the parse tree
+	 */
+	void enterBody(JQuickPDFParser.BodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#body}.
+	 * @param ctx the parse tree
+	 */
+	void exitBody(JQuickPDFParser.BodyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#customOption}.
 	 * @param ctx the parse tree

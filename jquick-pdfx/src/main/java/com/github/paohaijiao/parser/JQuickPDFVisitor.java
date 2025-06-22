@@ -17,29 +17,53 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDocument(JQuickPDFParser.DocumentContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#page}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#doc}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPage(JQuickPDFParser.PageContext ctx);
+	T visitDoc(JQuickPDFParser.DocContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#pageLayout}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#docType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPageLayout(JQuickPDFParser.PageLayoutContext ctx);
+	T visitDocType(JQuickPDFParser.DocTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#margins}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#html}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMargins(JQuickPDFParser.MarginsContext ctx);
+	T visitHtml(JQuickPDFParser.HtmlContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#layoutOption}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#head}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLayoutOption(JQuickPDFParser.LayoutOptionContext ctx);
+	T visitHead(JQuickPDFParser.HeadContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#headStyle}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHeadStyle(JQuickPDFParser.HeadStyleContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#headStyleOption}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#bodyStyleOption}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#body}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBody(JQuickPDFParser.BodyContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#customOption}.
 	 * @param ctx the parse tree
