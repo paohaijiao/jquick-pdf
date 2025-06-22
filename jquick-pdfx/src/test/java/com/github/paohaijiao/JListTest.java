@@ -47,10 +47,10 @@ public class JListTest {
                 "    page A4\n" +
                 "        margins 20 px 20 mm 20 mm 20 mm\n" +
                 "        {\n" +
-                "        ol(width:'12px',height:'14px'){\n" +
-                "            <li(width:'12px',height:'14px') >'苹果'</li>\n" +
-                "            <li (width:'12px',height:'14px')>'例子'</li>\n" +
-                "        }\n" +
+                "        <ol style=width:'12px';height:'14px'>\n" +
+                "            <li style=width:'12px';height:'14px' >'苹果'</li>\n" +
+                "            <li style=width:'12px';height:'14px'>'例子'</li>\n" +
+                "        </ol>\n" +
                 "    \n" +
                 "        }\n" +
                 "    }\n" +
