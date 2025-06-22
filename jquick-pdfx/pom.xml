@@ -48,6 +48,15 @@
         </dependency>
         <dependency>
             <groupId>com.itextpdf</groupId>
+            <artifactId>sign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext7-core</artifactId>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf</groupId>
             <artifactId>font-asian</artifactId>
         </dependency>
         <dependency>
