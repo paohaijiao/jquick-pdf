@@ -17,10 +17,12 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.paragraph.JParagraphModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.properties.UnitValue;
 
 
 /**
@@ -36,24 +38,22 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
 
     @Override
     public Table visitTable(JQuickPDFParser.TableContext ctx) {
-//        int colNum = 1;
-//        if (ctx.number() != null) {
-//            colNum = visitNumber(ctx.number()).intValue();
-//        }
-//        Table table = new Table(colNum);
-//        for (JQuickPDFParser.TableRowContext rowCtx : ctx.tableRow()) {
-//            visitTableRow(rowCtx);
-//        }
+        Document document = new Document(pdf);
+        Table table = new Table(UnitValue.createPercentArray(5)).useAllAvailableWidth();
+        for (int i = 1; i <= 5; i++) {
+            table.addHeaderCell(new Cell().add(new Paragraph("Column " + i).setBold()));
+        }
+        for (int i = 1; i <= 100; i++) {
+            for (int j = 1; j <= 5; j++) {
+                table.addCell(new Cell().add(new Paragraph("Row " + i + ", Col " + j)));
+            }
+        }
+        document.add(table);
+        document.close();
         return null;
     }
 
-    @Override
-    public Void visitTableRow(JQuickPDFParser.TableRowContext ctx) {
-        for (JQuickPDFParser.TableCellContext cel : ctx.tableCell()) {
-            visitTableCell(cel);
-        }
-        return null;
-    }
+
 
     @Override
     public Void visitTableCell(JQuickPDFParser.TableCellContext ctx) {

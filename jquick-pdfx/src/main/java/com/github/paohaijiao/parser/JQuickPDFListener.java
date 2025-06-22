@@ -138,15 +138,45 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitTable(JQuickPDFParser.TableContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#tableRow}.
+	 * Enter a parse tree produced by {@link JQuickPDFParser#row}.
 	 * @param ctx the parse tree
 	 */
-	void enterTableRow(JQuickPDFParser.TableRowContext ctx);
+	void enterRow(JQuickPDFParser.RowContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#tableRow}.
+	 * Exit a parse tree produced by {@link JQuickPDFParser#row}.
 	 * @param ctx the parse tree
 	 */
-	void exitTableRow(JQuickPDFParser.TableRowContext ctx);
+	void exitRow(JQuickPDFParser.RowContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#col}.
+	 * @param ctx the parse tree
+	 */
+	void enterCol(JQuickPDFParser.ColContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#col}.
+	 * @param ctx the parse tree
+	 */
+	void exitCol(JQuickPDFParser.ColContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#th}.
+	 * @param ctx the parse tree
+	 */
+	void enterTh(JQuickPDFParser.ThContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#th}.
+	 * @param ctx the parse tree
+	 */
+	void exitTh(JQuickPDFParser.ThContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#td}.
+	 * @param ctx the parse tree
+	 */
+	void enterTd(JQuickPDFParser.TdContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#td}.
+	 * @param ctx the parse tree
+	 */
+	void exitTd(JQuickPDFParser.TdContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#tableCell}.
 	 * @param ctx the parse tree
@@ -217,6 +247,16 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTemplate(JQuickPDFParser.TemplateContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#styleEle}.
+	 * @param ctx the parse tree
+	 */
+	void enterStyleEle(JQuickPDFParser.StyleEleContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#styleEle}.
+	 * @param ctx the parse tree
+	 */
+	void exitStyleEle(JQuickPDFParser.StyleEleContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#style}.
 	 * @param ctx the parse tree

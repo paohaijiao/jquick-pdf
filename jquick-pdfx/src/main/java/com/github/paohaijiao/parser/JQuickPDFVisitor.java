@@ -89,11 +89,29 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTable(JQuickPDFParser.TableContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#tableRow}.
+	 * Visit a parse tree produced by {@link JQuickPDFParser#row}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTableRow(JQuickPDFParser.TableRowContext ctx);
+	T visitRow(JQuickPDFParser.RowContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#col}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCol(JQuickPDFParser.ColContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#th}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTh(JQuickPDFParser.ThContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#td}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTd(JQuickPDFParser.TdContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#tableCell}.
 	 * @param ctx the parse tree
@@ -136,6 +154,12 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTemplate(JQuickPDFParser.TemplateContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#styleEle}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStyleEle(JQuickPDFParser.StyleEleContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#style}.
 	 * @param ctx the parse tree
