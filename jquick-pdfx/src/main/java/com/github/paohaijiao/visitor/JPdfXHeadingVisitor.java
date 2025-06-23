@@ -16,15 +16,9 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.heading.JHeadingModel;
-import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.borders.SolidBorder;
-import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.Paragraph;
-import com.paohaijiao.javelin.util.JStringUtils;
-
-import java.awt.*;
 
 
 /**

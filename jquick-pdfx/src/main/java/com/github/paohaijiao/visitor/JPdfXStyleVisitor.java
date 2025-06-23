@@ -17,7 +17,7 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.paohaijiao.javelin.exception.JAssert;
+import com.github.paohaijiao.exception.JAssert;
 
 
 /**

@@ -17,8 +17,8 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.enums.JUnit;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.paohaijiao.javelin.exception.JAssert;
-import com.paohaijiao.javelin.util.JStringUtils;
+import com.github.paohaijiao.exception.JAssert;
+import com.github.paohaijiao.util.JStringUtils;
 
 import java.math.BigDecimal;
 
