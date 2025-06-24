@@ -15,6 +15,7 @@
         <module>jquick-pdf-plus</module>
         <module>jquick-pdf-pro</module>
         <module>jquick-pdfx</module>
+        <module>jquick-css</module>
     </modules>
     <dependencies>
         <dependency>
