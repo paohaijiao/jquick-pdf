@@ -16,12 +16,18 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.css.ITextStyleUtils;
+import com.github.paohaijiao.css.JElementStyleBuilder;
+import com.github.paohaijiao.css.JStyleCssModel;
+import com.github.paohaijiao.css.constants.JCssConstants;
 import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.pdf.CompressionConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.github.paohaijiao.param.JContext;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Paragraph;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,18 +47,38 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         this.context=new JContext();
         PdfWriter writer=new PdfWriter(fileName);
         PdfDocument pdf = new PdfDocument(writer);
+        this.pdf=pdf;
+    }
+    public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
+        this.context=context;
+        PdfWriter writer=new PdfWriter(fileName);
+        PdfDocument pdf = new PdfDocument(writer);
+        this.pdf=pdf;
         JPdfConfig config = new JPdfConfig();
         config.setTitle("demo");
         config.setAuthor("paohaijiao");
         config.setCompressionLevel(CompressionConstants.BEST_COMPRESSION);
         config.applyTo(writer);
         config.applyMetadataTo(pdf);
-        this.pdf=pdf;
-    }
-    public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
-        this.context=context;
-        PdfDocument pdf = new PdfDocument(new PdfWriter(fileName));
-        this.pdf=pdf;
+        JStyleCssModel headingStyle = JElementStyleBuilder.create()
+            //    .withFont(JCssConstants.FONT_FAMILY_SERIF, JCssConstants.FONT_SIZE_LARGE, "bold", "normal")
+               // .withColor(JCssConstants.COLOR_BLACK)
+                .withMargin(JCssConstants.MARGIN_MEDIUM, "0", JCssConstants.MARGIN_SMALL, "0")
+                .build();
+
+        JStyleCssModel paragraphStyle = JElementStyleBuilder.create()
+            //    .withFont(JCssConstants.FONT_FAMILY_SANS_SERIF, JCssConstants.FONT_SIZE_MEDIUM, "normal", "normal")
+              //  .withColor("#333333")
+                .withMargin("0", "0", JCssConstants.MARGIN_SMALL, "0")
+                .build();
+        Paragraph heading = new Paragraph("Document Title");
+        ITextStyleUtils.applyStyle(heading, headingStyle);
+
+        Paragraph content = new Paragraph("This is the content of the document.");
+        ITextStyleUtils.applyStyle(content, paragraphStyle);
+        Document doc = new Document(pdf);
+        doc.add(heading);
+        doc.add(content);
 
     }
     public JPdfXCommonVisitor(String outputPath) throws IOException {
