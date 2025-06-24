@@ -9,11 +9,7 @@
 
     <artifactId>jquick-pdfx</artifactId>
     <packaging>maven-plugin</packaging>
-
-    <name>jquick-pdfx Maven Plugin</name>
-
-    <url>http://maven.apache.org</url>
-
+    <name>jquick-pdfx</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

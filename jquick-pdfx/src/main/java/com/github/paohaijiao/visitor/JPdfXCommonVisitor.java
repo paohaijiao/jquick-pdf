@@ -15,8 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.kernel.pdf.CompressionConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.github.paohaijiao.param.JContext;
@@ -37,7 +39,14 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
     private String fileName="d://test//DivBasedHeadings.pdf";
     public JPdfXCommonVisitor() throws FileNotFoundException {
         this.context=new JContext();
-        PdfDocument pdf = new PdfDocument(new PdfWriter(fileName));
+        PdfWriter writer=new PdfWriter(fileName);
+        PdfDocument pdf = new PdfDocument(writer);
+        JPdfConfig config = new JPdfConfig();
+        config.setTitle("demo");
+        config.setAuthor("paohaijiao");
+        config.setCompressionLevel(CompressionConstants.BEST_COMPRESSION);
+        config.applyTo(writer);
+        config.applyMetadataTo(pdf);
         this.pdf=pdf;
     }
     public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
