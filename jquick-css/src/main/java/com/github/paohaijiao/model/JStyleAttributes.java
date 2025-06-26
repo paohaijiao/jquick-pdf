@@ -13,7 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.model.style;
+package com.github.paohaijiao.model;
 import java.util.HashMap;
 
 /**

@@ -16,6 +16,7 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.paragraph.JParagraphModel;
+import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -37,11 +38,15 @@ public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
     @Override
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
         Document document = new Document(this.pdf);
-        Paragraph h1 = new Paragraph("Section Title in Paragraph")
-                .setFontSize(18)
-                .setBold()
-                .setMarginBottom(5);
-
+        String text =null;
+        if(ctx.value() != null){
+            text = ctx.value().toString();
+        }
+        JStyleAttributes jStyleAttributes = new JStyleAttributes();
+        if(ctx.styleEle() != null){
+            jStyleAttributes=visitStyleEle(ctx.styleEle());
+        }
+        Paragraph h1 = new Paragraph(text);
         document.add(h1);
         document.add(new Paragraph("这是正文内容..."));
         document.close();

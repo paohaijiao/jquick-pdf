@@ -30,6 +30,15 @@ import com.github.paohaijiao.exception.JAssert;
  * @description
  */
 public class JPdfXStyleVisitor extends JPdfXValueVisitor {
+    @Override
+    public JStyleAttributes visitStyleEle(JQuickPDFParser.StyleEleContext ctx) {
+        if(null!=ctx.style()){
+            return visitStyle(ctx.style());
+        }else{
+            return new JStyleAttributes();
+        }
+    }
+
 
     @Override
     public JStyleAttributes visitAttr(JQuickPDFParser.AttrContext ctx) {
