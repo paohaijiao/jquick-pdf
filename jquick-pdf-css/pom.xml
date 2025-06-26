@@ -6,6 +6,6 @@
         <artifactId>jquick-pdf</artifactId>
         <version>1.0.0</version>
     </parent>
-    <artifactId>jquick-css</artifactId>
+    <artifactId>jquick-pdf-css</artifactId>
     <name>jquick-css</name>
 </project>

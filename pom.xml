@@ -15,7 +15,7 @@
         <module>jquick-pdf-plus</module>
         <module>jquick-pdf-pro</module>
         <module>jquick-pdfx</module>
-        <module>jquick-css</module>
+        <module>jquick-pdf-css</module>
     </modules>
     <dependencies>
         <dependency>
@@ -66,4 +66,18 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.paohaijiao</groupId>
+                <artifactId>jquick-pdf-data</artifactId>
+                <version>${jquick.pdf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.paohaijiao</groupId>
+                <artifactId>jquick-pdf-css</artifactId>
+                <version>${jquick.pdf.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

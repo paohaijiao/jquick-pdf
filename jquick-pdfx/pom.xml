@@ -12,6 +12,7 @@
     <name>jquick-pdfx</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <jquick.pdf.version>1.0.0</jquick.pdf.version>
     </properties>
 
     <dependencies>
@@ -60,7 +61,12 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.paohaijiao</groupId>
+            <artifactId>jquick-pdf-css</artifactId>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
