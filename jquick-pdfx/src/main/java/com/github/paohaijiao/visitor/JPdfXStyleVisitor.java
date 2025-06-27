@@ -16,8 +16,13 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.exception.JAssert;
+import com.github.paohaijiao.util.JStringUtils;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
 
 
 /**
@@ -34,9 +39,23 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
     public JStyleAttributes visitStyleEle(JQuickPDFParser.StyleEleContext ctx) {
         if(null!=ctx.style()){
             return visitStyle(ctx.style());
-        }else{
-            return new JStyleAttributes();
+        }else  if(null!=ctx.STRING()){
+            String string=ctx.STRING().getText();
+            String value= JStringUtils.trim(string);
+            JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(value));
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
+            JQuickPDFParser parser = new JQuickPDFParser(tokens);
+            ParseTree tree = parser.style();
+            try{
+                JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(this.context);
+                JStyleAttributes attributes=(JStyleAttributes) visitor.visit(tree);
+                return attributes;
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
         }
+        return new JStyleAttributes();
     }
 
 

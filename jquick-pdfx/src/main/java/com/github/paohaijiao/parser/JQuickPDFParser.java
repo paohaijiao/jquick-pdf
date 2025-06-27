@@ -1982,6 +1982,7 @@ public class JQuickPDFParser extends Parser {
 
 	@SuppressWarnings("CheckReturnValue")
 	public static class StyleEleContext extends ParserRuleContext {
+		public TerminalNode STRING() { return getToken(JQuickPDFParser.STRING, 0); }
 		public StyleContext style() {
 			return getRuleContext(StyleContext.class,0);
 		}
@@ -2007,13 +2008,32 @@ public class JQuickPDFParser extends Parser {
 	public final StyleEleContext styleEle() throws RecognitionException {
 		StyleEleContext _localctx = new StyleEleContext(_ctx, getState());
 		enterRule(_localctx, 52, RULE_styleEle);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(305);
 			match(T__40);
-			setState(306);
-			style();
+			setState(307);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,36,_ctx) ) {
+			case 1:
+				{
+				setState(306);
+				match(STRING);
+				}
+				break;
+			}
+			setState(310);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			if (_la==IDENTIFIER || _la==STRING) {
+				{
+				setState(309);
+				style();
+				}
+			}
+
 			}
 		}
 		catch (RecognitionException re) {
@@ -2066,32 +2086,40 @@ public class JQuickPDFParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(308);
+			setState(312);
 			attr();
-			setState(313);
+			setState(319);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,36,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,39,_ctx);
 			while ( _alt!=2 && _alt!= ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(309);
-					match(SEMICOLON);
-					setState(310);
+					setState(314);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+					if (_la==SEMICOLON) {
+						{
+						setState(313);
+						match(SEMICOLON);
+						}
+					}
+
+					setState(316);
 					attr();
 					}
 					} 
 				}
-				setState(315);
+				setState(321);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,36,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,39,_ctx);
 			}
-			setState(317);
+			setState(323);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==SEMICOLON) {
 				{
-				setState(316);
+				setState(322);
 				match(SEMICOLON);
 				}
 			}
@@ -2143,11 +2171,11 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(319);
+			setState(325);
 			key();
-			setState(320);
+			setState(326);
 			match(COLON);
-			setState(321);
+			setState(327);
 			value();
 			}
 		}
@@ -2191,20 +2219,20 @@ public class JQuickPDFParser extends Parser {
 		KeyContext _localctx = new KeyContext(_ctx, getState());
 		enterRule(_localctx, 58, RULE_key);
 		try {
-			setState(325);
+			setState(331);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IDENTIFIER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(323);
+				setState(329);
 				match(IDENTIFIER);
 				}
 				break;
 			case STRING:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(324);
+				setState(330);
 				string();
 				}
 				break;
@@ -2258,34 +2286,34 @@ public class JQuickPDFParser extends Parser {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
 		enterRule(_localctx, 60, RULE_value);
 		try {
-			setState(331);
+			setState(337);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case IDENTIFIER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(327);
+				setState(333);
 				match(IDENTIFIER);
 				}
 				break;
 			case STRING:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(328);
+				setState(334);
 				string();
 				}
 				break;
 			case T__47:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(329);
+				setState(335);
 				variable();
 				}
 				break;
 			case NUMBER:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(330);
+				setState(336);
 				number();
 				}
 				break;
@@ -2332,7 +2360,7 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(333);
+			setState(339);
 			match(STRING);
 			}
 		}
@@ -2375,7 +2403,7 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(335);
+			setState(341);
 			match(COLOR);
 			}
 		}
@@ -2418,7 +2446,7 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(337);
+			setState(343);
 			match(NUMBER);
 			}
 		}
@@ -2461,7 +2489,7 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(339);
+			setState(345);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 277076930199552L) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -2512,11 +2540,11 @@ public class JQuickPDFParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(341);
+			setState(347);
 			match(T__47);
-			setState(342);
+			setState(348);
 			match(IDENTIFIER);
-			setState(343);
+			setState(349);
 			match(T__8);
 			}
 		}
@@ -2532,7 +2560,7 @@ public class JQuickPDFParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\u0004\u0001B\u015a\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0004\u0001B\u0160\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
 		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
 		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
 		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
@@ -2579,15 +2607,16 @@ public class JQuickPDFParser extends Parser {
 		"\u0001\u0019\u0005\u0019\u0122\b\u0019\n\u0019\f\u0019\u0125\t\u0019\u0001"+
 		"\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001"+
 		"\u0019\u0001\u0019\u0001\u0019\u0003\u0019\u0130\b\u0019\u0001\u001a\u0001"+
-		"\u001a\u0001\u001a\u0001\u001b\u0001\u001b\u0001\u001b\u0005\u001b\u0138"+
-		"\b\u001b\n\u001b\f\u001b\u013b\t\u001b\u0001\u001b\u0003\u001b\u013e\b"+
-		"\u001b\u0001\u001c\u0001\u001c\u0001\u001c\u0001\u001c\u0001\u001d\u0001"+
-		"\u001d\u0003\u001d\u0146\b\u001d\u0001\u001e\u0001\u001e\u0001\u001e\u0001"+
-		"\u001e\u0003\u001e\u014c\b\u001e\u0001\u001f\u0001\u001f\u0001 \u0001"+
+		"\u001a\u0003\u001a\u0134\b\u001a\u0001\u001a\u0003\u001a\u0137\b\u001a"+
+		"\u0001\u001b\u0001\u001b\u0003\u001b\u013b\b\u001b\u0001\u001b\u0005\u001b"+
+		"\u013e\b\u001b\n\u001b\f\u001b\u0141\t\u001b\u0001\u001b\u0003\u001b\u0144"+
+		"\b\u001b\u0001\u001c\u0001\u001c\u0001\u001c\u0001\u001c\u0001\u001d\u0001"+
+		"\u001d\u0003\u001d\u014c\b\u001d\u0001\u001e\u0001\u001e\u0001\u001e\u0001"+
+		"\u001e\u0003\u001e\u0152\b\u001e\u0001\u001f\u0001\u001f\u0001 \u0001"+
 		" \u0001!\u0001!\u0001\"\u0001\"\u0001#\u0001#\u0001#\u0001#\u0001#\u0000"+
 		"\u0000$\u0000\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018"+
 		"\u001a\u001c\u001e \"$&(*,.02468:<>@BDF\u0000\u0002\u0001\u0000\u0014"+
-		"\u0015\u0001\u0000*/\u0165\u0000H\u0001\u0000\u0000\u0000\u0002K\u0001"+
+		"\u0015\u0001\u0000*/\u016e\u0000H\u0001\u0000\u0000\u0000\u0002K\u0001"+
 		"\u0000\u0000\u0000\u0004O\u0001\u0000\u0000\u0000\u0006Q\u0001\u0000\u0000"+
 		"\u0000\bZ\u0001\u0000\u0000\u0000\n`\u0001\u0000\u0000\u0000\fi\u0001"+
 		"\u0000\u0000\u0000\u000es\u0001\u0000\u0000\u0000\u0010}\u0001\u0000\u0000"+
@@ -2599,10 +2628,10 @@ public class JQuickPDFParser extends Parser {
 		"\u0001\u0000\u0000\u0000(\u00f3\u0001\u0000\u0000\u0000*\u00ff\u0001\u0000"+
 		"\u0000\u0000,\u0103\u0001\u0000\u0000\u0000.\u0107\u0001\u0000\u0000\u0000"+
 		"0\u0110\u0001\u0000\u0000\u00002\u011d\u0001\u0000\u0000\u00004\u0131"+
-		"\u0001\u0000\u0000\u00006\u0134\u0001\u0000\u0000\u00008\u013f\u0001\u0000"+
-		"\u0000\u0000:\u0145\u0001\u0000\u0000\u0000<\u014b\u0001\u0000\u0000\u0000"+
-		">\u014d\u0001\u0000\u0000\u0000@\u014f\u0001\u0000\u0000\u0000B\u0151"+
-		"\u0001\u0000\u0000\u0000D\u0153\u0001\u0000\u0000\u0000F\u0155\u0001\u0000"+
+		"\u0001\u0000\u0000\u00006\u0138\u0001\u0000\u0000\u00008\u0145\u0001\u0000"+
+		"\u0000\u0000:\u014b\u0001\u0000\u0000\u0000<\u0151\u0001\u0000\u0000\u0000"+
+		">\u0153\u0001\u0000\u0000\u0000@\u0155\u0001\u0000\u0000\u0000B\u0157"+
+		"\u0001\u0000\u0000\u0000D\u0159\u0001\u0000\u0000\u0000F\u015b\u0001\u0000"+
 		"\u0000\u0000HI\u0003\u0002\u0001\u0000I\u0001\u0001\u0000\u0000\u0000"+
 		"JL\u0003\u0004\u0002\u0000KJ\u0001\u0000\u0000\u0000KL\u0001\u0000\u0000"+
 		"\u0000LM\u0001\u0000\u0000\u0000MN\u0003\u0006\u0003\u0000N\u0003\u0001"+
@@ -2726,30 +2755,35 @@ public class JQuickPDFParser extends Parser {
 		"\u012a\u012b\u0003B!\u0000\u012b\u012c\u0003D\"\u0000\u012c\u012d\u0003"+
 		"B!\u0000\u012d\u012e\u0003D\"\u0000\u012e\u0130\u0001\u0000\u0000\u0000"+
 		"\u012f\u0129\u0001\u0000\u0000\u0000\u012f\u0130\u0001\u0000\u0000\u0000"+
-		"\u01303\u0001\u0000\u0000\u0000\u0131\u0132\u0005)\u0000\u0000\u0132\u0133"+
-		"\u00036\u001b\u0000\u01335\u0001\u0000\u0000\u0000\u0134\u0139\u00038"+
-		"\u001c\u0000\u0135\u0136\u00052\u0000\u0000\u0136\u0138\u00038\u001c\u0000"+
-		"\u0137\u0135\u0001\u0000\u0000\u0000\u0138\u013b\u0001\u0000\u0000\u0000"+
-		"\u0139\u0137\u0001\u0000\u0000\u0000\u0139\u013a\u0001\u0000\u0000\u0000"+
-		"\u013a\u013d\u0001\u0000\u0000\u0000\u013b\u0139\u0001\u0000\u0000\u0000"+
-		"\u013c\u013e\u00052\u0000\u0000\u013d\u013c\u0001\u0000\u0000\u0000\u013d"+
-		"\u013e\u0001\u0000\u0000\u0000\u013e7\u0001\u0000\u0000\u0000\u013f\u0140"+
-		"\u0003:\u001d\u0000\u0140\u0141\u00051\u0000\u0000\u0141\u0142\u0003<"+
-		"\u001e\u0000\u01429\u0001\u0000\u0000\u0000\u0143\u0146\u0005<\u0000\u0000"+
-		"\u0144\u0146\u0003>\u001f\u0000\u0145\u0143\u0001\u0000\u0000\u0000\u0145"+
-		"\u0144\u0001\u0000\u0000\u0000\u0146;\u0001\u0000\u0000\u0000\u0147\u014c"+
-		"\u0005<\u0000\u0000\u0148\u014c\u0003>\u001f\u0000\u0149\u014c\u0003F"+
-		"#\u0000\u014a\u014c\u0003B!\u0000\u014b\u0147\u0001\u0000\u0000\u0000"+
-		"\u014b\u0148\u0001\u0000\u0000\u0000\u014b\u0149\u0001\u0000\u0000\u0000"+
-		"\u014b\u014a\u0001\u0000\u0000\u0000\u014c=\u0001\u0000\u0000\u0000\u014d"+
-		"\u014e\u0005>\u0000\u0000\u014e?\u0001\u0000\u0000\u0000\u014f\u0150\u0005"+
-		"=\u0000\u0000\u0150A\u0001\u0000\u0000\u0000\u0151\u0152\u0005;\u0000"+
-		"\u0000\u0152C\u0001\u0000\u0000\u0000\u0153\u0154\u0007\u0001\u0000\u0000"+
-		"\u0154E\u0001\u0000\u0000\u0000\u0155\u0156\u00050\u0000\u0000\u0156\u0157"+
-		"\u0005<\u0000\u0000\u0157\u0158\u0005\t\u0000\u0000\u0158G\u0001\u0000"+
-		"\u0000\u0000(KSV\\benx\u0081\u0084\u0090\u0094\u0098\u009f\u00a3\u00a8"+
-		"\u00ad\u00b3\u00bd\u00c1\u00c7\u00cd\u00d4\u00da\u00e1\u00e5\u00ed\u00f5"+
-		"\u00f8\u00fb\u0109\u010c\u0112\u0118\u0123\u012f\u0139\u013d\u0145\u014b";
+		"\u01303\u0001\u0000\u0000\u0000\u0131\u0133\u0005)\u0000\u0000\u0132\u0134"+
+		"\u0005>\u0000\u0000\u0133\u0132\u0001\u0000\u0000\u0000\u0133\u0134\u0001"+
+		"\u0000\u0000\u0000\u0134\u0136\u0001\u0000\u0000\u0000\u0135\u0137\u0003"+
+		"6\u001b\u0000\u0136\u0135\u0001\u0000\u0000\u0000\u0136\u0137\u0001\u0000"+
+		"\u0000\u0000\u01375\u0001\u0000\u0000\u0000\u0138\u013f\u00038\u001c\u0000"+
+		"\u0139\u013b\u00052\u0000\u0000\u013a\u0139\u0001\u0000\u0000\u0000\u013a"+
+		"\u013b\u0001\u0000\u0000\u0000\u013b\u013c\u0001\u0000\u0000\u0000\u013c"+
+		"\u013e\u00038\u001c\u0000\u013d\u013a\u0001\u0000\u0000\u0000\u013e\u0141"+
+		"\u0001\u0000\u0000\u0000\u013f\u013d\u0001\u0000\u0000\u0000\u013f\u0140"+
+		"\u0001\u0000\u0000\u0000\u0140\u0143\u0001\u0000\u0000\u0000\u0141\u013f"+
+		"\u0001\u0000\u0000\u0000\u0142\u0144\u00052\u0000\u0000\u0143\u0142\u0001"+
+		"\u0000\u0000\u0000\u0143\u0144\u0001\u0000\u0000\u0000\u01447\u0001\u0000"+
+		"\u0000\u0000\u0145\u0146\u0003:\u001d\u0000\u0146\u0147\u00051\u0000\u0000"+
+		"\u0147\u0148\u0003<\u001e\u0000\u01489\u0001\u0000\u0000\u0000\u0149\u014c"+
+		"\u0005<\u0000\u0000\u014a\u014c\u0003>\u001f\u0000\u014b\u0149\u0001\u0000"+
+		"\u0000\u0000\u014b\u014a\u0001\u0000\u0000\u0000\u014c;\u0001\u0000\u0000"+
+		"\u0000\u014d\u0152\u0005<\u0000\u0000\u014e\u0152\u0003>\u001f\u0000\u014f"+
+		"\u0152\u0003F#\u0000\u0150\u0152\u0003B!\u0000\u0151\u014d\u0001\u0000"+
+		"\u0000\u0000\u0151\u014e\u0001\u0000\u0000\u0000\u0151\u014f\u0001\u0000"+
+		"\u0000\u0000\u0151\u0150\u0001\u0000\u0000\u0000\u0152=\u0001\u0000\u0000"+
+		"\u0000\u0153\u0154\u0005>\u0000\u0000\u0154?\u0001\u0000\u0000\u0000\u0155"+
+		"\u0156\u0005=\u0000\u0000\u0156A\u0001\u0000\u0000\u0000\u0157\u0158\u0005"+
+		";\u0000\u0000\u0158C\u0001\u0000\u0000\u0000\u0159\u015a\u0007\u0001\u0000"+
+		"\u0000\u015aE\u0001\u0000\u0000\u0000\u015b\u015c\u00050\u0000\u0000\u015c"+
+		"\u015d\u0005<\u0000\u0000\u015d\u015e\u0005\t\u0000\u0000\u015eG\u0001"+
+		"\u0000\u0000\u0000+KSV\\benx\u0081\u0084\u0090\u0094\u0098\u009f\u00a3"+
+		"\u00a8\u00ad\u00b3\u00bd\u00c1\u00c7\u00cd\u00d4\u00da\u00e1\u00e5\u00ed"+
+		"\u00f5\u00f8\u00fb\u0109\u010c\u0112\u0118\u0123\u012f\u0133\u0136\u013a"+
+		"\u013f\u0143\u014b\u0151";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -102,5 +102,29 @@ public class JStyleTest {
         Object key=(Object) visitor.visit(tree);
         System.out.println(key);
     }
+    @Test
+    public void attr3() throws IOException {
+        String input = "style=\"height:1px;width:2px\"" ;
+        System.out.println(input);
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.styleEle();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key=(Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void attr4() throws IOException {
+        String input = "style=height:1px;width:2px" ;
+        System.out.println(input);
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.styleEle();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key=(Object) visitor.visit(tree);
+        System.out.println(key);
+    }
 
 }
