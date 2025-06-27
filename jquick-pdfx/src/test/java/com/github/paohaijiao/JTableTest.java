@@ -43,28 +43,53 @@ public class JTableTest {
 
     @Test
     public void file() throws IOException {
-        String input = "pdf Report {\n" +
-                "    page A4\n" +
-                "        margins 20 px 20 mm 20 mm 20 mm\n" +
-                "        {\n" +
-                "        <table style=color:red;'background-color': yellow;>\n" +
-                "        <tr style=color:red;'background-color': yellow;>\n" +
-                "            <th >'Month'</th>\n" +
-                "            <th>'Savings'</th>\n" +
-                "        </tr>\n" +
-                "         <tr>\n" +
-                "            <td>January</td>\n" +
-                "            <td>'$100'</td>\n" +
-                "  </tr>\n" +
-                "  <tr>\n" +
-                "    <td>February</td>\n" +
-                "    <td>'$80'</td>\n" +
-                "  </tr>\n" +
-                "        </table>\n" +
-                "    \n" +
-                "        }\n" +
+        String input = "<html>\n" +
+                "<head>\n" +
+                "  <style>\n" +
+                "    @page{\n" +
+                "      size: A4;\n" +
+                "      margin: 0;\n" +
                 "    }\n" +
-                "}";
+                "    body {\n" +
+                "      width: '210mm';\n" +
+                "      height: '297mm';\n" +
+                "      margin: 0;\n" +
+                "      padding: '10mm'; \n" +
+                "      'box-sizing': 'border-box';\n" +
+                "    }\n" +
+                "  </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<table >\n" +
+                "        <tr>\n" +
+                "            <th>编号</th>\n" +
+                "            <th>姓名</th>\n" +
+                "            <th>年龄</th>\n" +
+                "            <th>城市</th>\n" +
+                "        </tr>\n" +
+                "        <tr>\n" +
+                "            <td>1</td>\n" +
+                "            <td>张三</td>\n" +
+                "            <td>28</td>\n" +
+                "            <td>北京</td>\n" +
+                "        </tr>\n" +
+                "        \n" +
+                "        <tr>\n" +
+                "            <td>2</td>\n" +
+                "            <td>李四</td>\n" +
+                "            <td>32</td>\n" +
+                "            <td>上海</td>\n" +
+                "        </tr>\n" +
+                "        \n" +
+                "        <tr>\n" +
+                "            <td>3</td>\n" +
+                "            <td>王五</td>\n" +
+                "            <td>25</td>\n" +
+                "            <td>广州</td>\n" +
+                "        </tr>\n" +
+                "    </table>\n" +
+                "</body>\n" +
+                "</html>";
         System.out.println(input);
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);

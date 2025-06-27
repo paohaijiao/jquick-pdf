@@ -15,14 +15,27 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.model.list.JListItemModel;
 import com.github.paohaijiao.model.paragraph.JParagraphModel;
+import com.github.paohaijiao.model.table.JColumnModel;
+import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.itextpdf.kernel.pdf.PdfName.BaseFont;
 
 
 /**
@@ -36,52 +49,111 @@ import com.itextpdf.layout.properties.UnitValue;
  */
 public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
 
+    private static final String th = "th";
+    private static final String td = "td";
+
     @Override
-    public Table visitTable(JQuickPDFParser.TableContext ctx) {
+    public Void visitTable(JQuickPDFParser.TableContext ctx) {
         Document document = new Document(pdf);
-        Table table = new Table(UnitValue.createPercentArray(5)).useAllAvailableWidth();
-        for (int i = 1; i <= 5; i++) {
-            table.addHeaderCell(new Cell().add(new Paragraph("Column " + i).setBold()));
+        JStyleAttributes style = new JStyleAttributes();
+        if (null != ctx.styleEle()) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
-        for (int i = 1; i <= 100; i++) {
-            for (int j = 1; j <= 5; j++) {
-                table.addCell(new Cell().add(new Paragraph("Row " + i + ", Col " + j)));
+        Table table = new Table(UnitValue.createPercentArray(4)).useAllAvailableWidth();
+        for (int i = 0; i < ctx.row().size(); i++) {
+            JQuickPDFParser.RowContext rowContext = ctx.row(i);
+            JRowModel item = visitRow(rowContext);
+            for (JColumnModel column : item.getColumnList()) {
+                if (column.getType().equals(th)) {
+                    Paragraph paragraph = new Paragraph(column.getText());
+                    //super.buildStyle(paragraph, column.getStyle());
+                    Cell cell = new Cell().add(paragraph);
+                    super.buildStyle(cell, column.getStyle());
+                    table.addHeaderCell(cell);
+                } else {
+                    Paragraph paragraph = new Paragraph(column.getText());
+                    //super.buildStyle(paragraph, column.getStyle());
+                    Cell cell = new Cell().add(paragraph);
+                    super.buildStyle(cell, column.getStyle());
+                    table.addCell(cell);
+                }
+
             }
         }
+        super.buildStyle(table, style);
         document.add(table);
         document.close();
         return null;
     }
 
-
-
-
-    private Paragraph buildParagraph(JParagraphModel data) {
-        try {
-            Table table = new Table(new float[]{1, 2, 1}); // 列宽比例
-            // table.setWidthPercent(100); // 宽度百分比
-            //  table.setHorizontalAlignment(HorizontalAlignment.CENTER);
-            table.setMarginTop(10);
-            table.setMarginBottom(10);
-            Cell cell = new Cell().add(new Paragraph("Header"))
-                    // .setBackgroundColor(Color.LIGHT_GRAY)
-                    // .setFontColor(Color.WHITE)
-                    .setTextAlignment(TextAlignment.CENTER)
-                    .setBold();
-
-            //table.setBorder(new SolidBorder(Color.BLACK, 1));
-            boolean alternate = false;
-//            for (Cell tableCell : table.getCells()) {
-//                if (alternate) {
-//                    tableCell.setBackgroundColor(new DeviceRgb(240, 240, 240));
-//                }
-//                alternate = !alternate;
-//            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    @Override
+    public JRowModel visitRow(JQuickPDFParser.RowContext ctx) {
+        JRowModel jRowModel = new JRowModel();
+        JStyleAttributes style = new JStyleAttributes();
+        if (null != ctx.styleEle()) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
-        return null;
+        jRowModel.setStyle(style);
+        List<JColumnModel> columnList = new ArrayList<>();
+        for (int i = 0; i < ctx.col().size(); i++) {
+            JQuickPDFParser.ColContext colContext = ctx.col(i);
+            JColumnModel item = visitCol(colContext);
+            columnList.add(item);
+        }
+        jRowModel.setColumnList(columnList);
+        return jRowModel;
+    }
 
+    @Override
+    public JColumnModel visitCol(JQuickPDFParser.ColContext ctx) {
+        if (ctx.td() != null) {
+            return visitTd(ctx.td());
+        } else {
+            return visitTh(ctx.th());
+        }
+    }
+
+    @Override
+    public JColumnModel visitTh(JQuickPDFParser.ThContext ctx) {
+        JStyleAttributes style = new JStyleAttributes();
+        if (null != ctx.styleEle()) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
+        }
+        String text = "";
+        if (null != ctx.value()) {
+            text = (String) visitValue(ctx.value());
+        }
+        JColumnModel model = new JColumnModel();
+        model.setStyle(style);
+        model.setText(text);
+        model.setType(th);
+        return model;
+    }
+
+    @Override
+    public JColumnModel visitTd(JQuickPDFParser.TdContext ctx) {
+        JStyleAttributes style = new JStyleAttributes();
+        if (null != ctx.styleEle()) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
+        }
+        String text = "";
+        String st=ctx.value().getText();
+        if (null != ctx.value()) {
+            text =  visitValue(ctx.value()).toString();
+        }
+        JColumnModel model = new JColumnModel();
+        model.setStyle(style);
+        model.setText(text);
+        model.setType(th);
+        return model;
     }
 
 

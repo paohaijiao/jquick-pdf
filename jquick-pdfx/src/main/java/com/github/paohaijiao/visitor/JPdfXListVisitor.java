@@ -79,9 +79,6 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
             super.buildStyle(ul, style);
             document.add(ul);
         }
-
-
-
         document.close();
         return null;
     }
