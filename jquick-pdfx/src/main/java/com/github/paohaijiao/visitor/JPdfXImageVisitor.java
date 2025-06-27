@@ -15,6 +15,9 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JImageFactory;
+import com.github.paohaijiao.image.JBaseImageProvider;
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -43,9 +46,35 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
     public Image visitImage(JQuickPDFParser.ImageContext ctx) {
         try{
             Document document = new Document(pdf);
-            ImageData imageData = ImageDataFactory.create("d://sample///sample.jpg");
+            String src=null;
+            if(ctx.src()!=null){
+                src=visitSrc(ctx.src());
+            }
+            String alt=null;
+            if(ctx.alt()!=null){
+                alt=visitAlt(ctx.alt());
+            }
+            String value=null;
+            if(ctx.value()!=null){
+                value=visitValue(ctx.value()).toString();
+            }
+            JStyleAttributes style = new JStyleAttributes();
+            if (null != ctx.styleEle()) {
+                style = visitStyleEle(ctx.styleEle());
+            } else {
+                style = new JStyleAttributes();
+            }
+            JBaseImageProvider imageProvider= JImageFactory.createProvider(src);
+            byte[] bytes=imageProvider.loadImage();
+            ImageData imageData = ImageDataFactory.create(bytes);
             Image image = new Image(imageData);
-           // document.add(new Paragraph("Below is an image:"));
+            if(null!=alt){
+                image.getAccessibilityProperties().setAlternateDescription(alt);
+            }
+            if(null!=value){
+                image.getAccessibilityProperties().setActualText(value);
+            }
+            super.buildStyle(image, style);
             document.add(image);
             document.close();
         }catch (Exception e){

@@ -88,12 +88,20 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
         }
         JAssert.throwNewException("invalid key");
         return null;
-
     }
-
-
-
-
-
+    @Override
+    public String visitSrc(JQuickPDFParser.SrcContext ctx) {
+        if(null!=ctx.value()){
+            return visit(ctx.value()).toString();
+        }
+        return null;
+    }
+    @Override
+    public String visitAlt(JQuickPDFParser.AltContext ctx) {
+        if(null!=ctx.value()){
+            return visit(ctx.value()).toString();
+        }
+        return null;
+    }
 
 }

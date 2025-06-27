@@ -46,15 +46,26 @@ public class JImageTest {
 
     @Test
     public void file() throws IOException {
-        String input = "pdf Report {\n" +
-                "    page A4\n" +
-                "        margins 20 px 20 mm 20 mm 20 mm\n" +
-                "        {\n" +
-                "        <image src='haha' style=color:red;'background-color': yellow;>\n" +
-                "    \n" +
-                "        }\n" +
+        String input = "<html>\n" +
+                "<head>\n" +
+                "  <style>\n" +
+                "    @page{\n" +
+                "      size: A4;\n" +
+                "      margin: 0;\n" +
                 "    }\n" +
-                "}";
+                "    body {\n" +
+                "      width: '210mm';\n" +
+                "      height: '297mm';\n" +
+                "      margin: 0;\n" +
+                "      padding: '10mm'; \n" +
+                "      'box-sizing': 'border-box';\n" +
+                "    }\n" +
+                "  </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:200px;height:300px\"></image>\n" +
+                "</body>\n" +
+                "</html>";
         System.out.println(input);
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -64,7 +75,7 @@ public class JImageTest {
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
         String key=(String) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println("image generate");
     }
 
     @Test
