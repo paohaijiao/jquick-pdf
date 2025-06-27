@@ -43,16 +43,26 @@ public class JHeadingTest {
 
     @Test
     public void file() throws IOException {
-        String input = "\n" +
-                "pdf Report {\n" +
-                "    page A4\n" +
-                "        margins 20 px 20 mm 20 mm 20 mm\n" +
-                "        {\n" +
-                "        <h1 style=width:'12px';height:'14px'></h1>\n" +
-                "    \n" +
-                "        }\n" +
+        String input = "<html>\n" +
+                "<head>\n" +
+                "  <style>\n" +
+                "    @page{\n" +
+                "      size: A4;\n" +
+                "      margin: 0;\n" +
                 "    }\n" +
-                "}\n";
+                "    body {\n" +
+                "      width: '210mm';\n" +
+                "      height: '297mm';\n" +
+                "      margin: 0;\n" +
+                "      padding: '10mm'; \n" +
+                "      'box-sizing': 'border-box';\n" +
+                "    }\n" +
+                "  </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<h6 style=width:'200px';height:'34px'>hahazazazaZAzAZAzaazAZa</h1>\n" +
+                "</body>\n" +
+                "</html>";
         System.out.println(input);
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);

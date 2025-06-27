@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.heading.JHeadingModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
@@ -35,65 +36,53 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
     @Override
     public Void visitHeading(JQuickPDFParser.HeadingContext ctx) {
         Document document = new Document(this.pdf);
-        Paragraph h1 = new Paragraph("Section Title in head")
-                .setFontSize(18)
-                .setBold()
-                .setMarginBottom(5);
-
+        Integer number = 1;//default h1
+        if (ctx.number() != null && !ctx.number().isEmpty()) {
+            String numberTxt=ctx.number().get(0).getText();
+            number = Integer.parseInt(numberTxt.toString());
+        }
+        String value="";
+        if(null!=ctx.value()){
+             value=(String)visitValue(ctx.value());
+        }
+        JStyleAttributes style=new JStyleAttributes();
+        if(null!=ctx.styleEle()){
+            style=visitStyleEle(ctx.styleEle());
+        }else{
+            style=new JStyleAttributes();
+        }
+        Integer fontSize = getFontSize(""+number);
+        style.put(JStyleAttributes.FONT_SIZE,fontSize+"");
+        Paragraph h1 = new Paragraph(value);
+        super.buildStyle(h1, style);
         document.add(h1);
-        document.add(new Paragraph("这是正文内容..."));
         document.close();
         return null;
     }
 
-    private Paragraph buildHeading(JHeadingModel data) {
-        try {
-            Paragraph heading = new Paragraph(data.getText());
-//            switch (data.getLevel()) {
-//                case "h1":
-//                    heading.setFontSize(24);
-//                    break;
-//                case "h2":
-//                    heading.setFontSize(22);
-//                    break;
-//                case "h3":
-//                    heading.setFontSize(20);
-//                    break;
-//                case "h4":
-//                    heading.setFontSize(18);
-//                    break;
-//                case "h5":
-//                    heading.setFontSize(16);
-//                    break;
-//                case "h6":
-//                    heading.setFontSize(14);
-//                    break;
-//            }
-//            JStyleAttributes model = data.getStyle();
-//            if (null != model) {
-//                if (null != model.getFont()) {
-//                    heading.setFont(PdfFontFactory.createFont(model.getFont())); // 字体
-//                }
-//                if (null != model.getFontSize()) {
-//                    heading.setFontSize(model.getFontSize()); // 字号
-//                }
-//            }
-
-//            heading.setFixedLeading(20); // 行高
-//            heading.setFirstLineIndent(20); // 首行缩进
-//            heading.setMarginLeft(10); // 左边距
-//            heading.setMarginRight(10); // 右边距
-//            heading.setTextAlignment(TextAlignment.CENTER); // 对齐方式
-//            Style h1Style = new Style();
-//            h1Style.setFontSize(24);
-//            //  .setFontColor(Color.RED);
-//            heading.addStyle(h1Style);
-            return heading;
-        } catch (Exception e) {
-            e.printStackTrace();
+    private Integer getFontSize(String level) {
+        Integer fontSize = 24;
+        switch (level) {
+            case "h1":
+                fontSize = 24;
+                break;
+            case "h2":
+                fontSize = 22;
+                break;
+            case "h3":
+                fontSize = 20;
+                break;
+            case "h4":
+                fontSize = 18;
+                break;
+            case "h5":
+                fontSize = 16;
+                break;
+            case "h6":
+                fontSize = 14;
+                break;
         }
-        return null;
-
+        return fontSize;
     }
 
 

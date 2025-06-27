@@ -54,7 +54,9 @@ public abstract  class JBaseRenderer implements JStyleRenderer {
         if (styles.getPadding() != null) {
             float padding = Float.parseFloat(styles.getPadding().replace("px", ""));
             ((BlockElement<?>) element).setPadding(padding);
-
+        }
+        if (styles.getFontSize() != null) {
+            ((BlockElement<?>) element).setFontSize(styles.getFontSize());
         }
 
         if (element instanceof BlockElement) {
