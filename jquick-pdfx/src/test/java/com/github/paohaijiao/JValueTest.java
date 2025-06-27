@@ -106,7 +106,7 @@ public class JValueTest {
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
     @Test
     public void color3() throws IOException {
@@ -118,7 +118,7 @@ public class JValueTest {
         ParseTree tree = parser.color();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
     @Test
     public void string() throws IOException {
@@ -127,10 +127,10 @@ public class JValueTest {
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
-        ParseTree tree = parser.document();
+        ParseTree tree = parser.string();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
 
 }

@@ -45,7 +45,7 @@ public class JStyleTest {
         ParseTree tree = parser.value();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
     @Test
     public void value1() throws IOException {
@@ -56,7 +56,7 @@ public class JStyleTest {
         ParseTree tree = parser.value();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
     @Test
     public void key() throws IOException {
@@ -67,7 +67,7 @@ public class JStyleTest {
         ParseTree tree = parser.value();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
     @Test
     public void attr() throws IOException {
@@ -78,7 +78,7 @@ public class JStyleTest {
         ParseTree tree = parser.attr();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
     @Test
     public void attr1() throws IOException {
@@ -89,18 +89,18 @@ public class JStyleTest {
         ParseTree tree = parser.attr();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
     @Test
     public void attr2() throws IOException {
-        String input = "height:'1px',width:'2px'" ;
+        String input = "height:'1px';width:'2px'" ;
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.style();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
         Object key=(Object) visitor.visit(tree);
-        System.out.println("pdf generate");
+        System.out.println(key);
     }
 
 }
