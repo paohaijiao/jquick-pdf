@@ -15,12 +15,16 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.model.list.JListModel;
+import com.github.paohaijiao.enums.JListType;
+import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.model.list.JListItemModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.List;
-import com.itextpdf.layout.element.ListItem;
 import com.itextpdf.layout.element.Paragraph;
+
+import java.util.ArrayList;
 
 
 /**
@@ -39,56 +43,72 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 
     @Override
     public List visitList(JQuickPDFParser.ListContext ctx) {
-//        if (ctx.orderType() != null) {
-//            visitOrderType(ctx.orderType());
-//        }
-//        java.util.List<String> list = new ArrayList<>();
-//        for (JQuickPDFParser.ListItemContext item : ctx.listItem()) {
-//            String items = visitListItem(item);
-//            list.add(items);
-//        }
-//        JListModel jListModel = new JListModel();
-//        jListModel.setList(list);
-//        List jList = buildHeading(jListModel);
-//        return jList;
         Document document = new Document(pdf);
-        List list = new List();
-        list.add(new ListItem("First item"));
-        list.add(new ListItem("Second item"));
-        list.add(new ListItem("Third item"));
-        document.add(new Paragraph("Unordered List Example:"));
-        document.add(list);
+        JListType listType = JListType.ol;
+        if(null!=ctx.listEle()&&!ctx.listEle().isEmpty()){
+            listType=visitListEle(ctx.listEle().get(0));
+        }
+        JStyleAttributes style=new JStyleAttributes();
+        if(null!=ctx.styleEle()){
+            style=visitStyleEle(ctx.styleEle());
+        }else{
+            style=new JStyleAttributes();
+        }
+        if(JListType.ol.getCode().equals(listType.getCode())){
+            Div ol = new Div();
+            for(int i=0; i<ctx.listItem().size(); i++){
+                JQuickPDFParser.ListItemContext listItemContext=ctx.listItem(i);
+                JListItemModel item=visitListItem(listItemContext);
+                String text=String.format("%s.%s",i+1,item.getText());
+                Paragraph paragraph=new Paragraph(text);
+                super.buildStyle(paragraph, item.getStyle());
+                ol.add(paragraph);
+            }
+            super.buildStyle(ol, style);
+            document.add(ol);
+        }else{
+            Div ul = new Div();
+            for(int i=0; i<ctx.listItem().size(); i++){
+                JQuickPDFParser.ListItemContext listItemContext=ctx.listItem(i);
+                JListItemModel item=visitListItem(listItemContext);
+                String text=String.format("• %s",item.getText());
+                Paragraph paragraph=new Paragraph(text);
+                super.buildStyle(paragraph, item.getStyle());
+                ul.add(paragraph);
+            }
+            super.buildStyle(ul, style);
+            document.add(ul);
+        }
+
+
+
         document.close();
         return null;
     }
 
-
-    private List buildHeading(JListModel data) {
-        try {
-            List list = new List()
-                    .setSymbolIndent(data.getSymbolIndent()) // 列表符号缩进
-                    .setListSymbol(data.getSymbol()) // 无序列表符号
-                    //.setListSymbol(ListNumberingType.DECIMAL) // 有序列表
-                    //.setFont(PdfFontFactory.createFont(FontConstants.HELVETICA))
-                    .setFontSize(data.getFontSize());
-            if (null != data.getList() && data.getList().size() > 0) {
-                data.getList().forEach(item -> {
-                    list.add(new ListItem(item));
-                });
-
-            }
-//            for (IElement item : list.getChildren()) {
-//                if (item instanceof ListItem) {
-//                    ((ListItem) item).setFontColor(Color.DARK_GRAY);
-//                }
-//            }
-            return list;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-
+    @Override
+    public JListType visitListEle(JQuickPDFParser.ListEleContext ctx) {
+        String type=ctx.getText();
+        return JListType.codeOf(type);
     }
+    @Override
+    public JListItemModel visitListItem(JQuickPDFParser.ListItemContext ctx) {
+        JListItemModel item=new JListItemModel();
+        JStyleAttributes style=new JStyleAttributes();
+        if(ctx.styleEle()!=null){
+            style=visitStyleEle(ctx.styleEle());
+        }else{
+            style=new JStyleAttributes();
+        }
+        String value="";
+        if(ctx.value()!=null){
+            value=(String)visitValue(ctx.value());
+        }
+        item.setText(value);
+        item.setStyle(style);
+        return item;
+    }
+
 
 
 }

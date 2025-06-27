@@ -13,26 +13,26 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.model.style;
+package com.github.paohaijiao.model.list;
 
-import com.github.paohaijiao.model.JNumberUnitModel;
+import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.model.style.JStyleModel;
 import lombok.Data;
 
 /**
- * packageName com.github.paohaijiao.model.style
+ * packageName com.paohaijiao.javelin.model.paragraph
  *
  * @author Martin
  * @version 1.0.0
- * @className JStyleItem
- * @date 2025/6/22
+ * @className JParagraphModel
+ * @date 2025/6/14
  * @description
  */
 @Data
-public class JStyleDimensionSizeModel {
+public class JListItemModel {
 
-    private JNumberUnitModel left;
+    private String text;
 
-    private JNumberUnitModel right;
-
+    private JStyleAttributes style;
 
 }
