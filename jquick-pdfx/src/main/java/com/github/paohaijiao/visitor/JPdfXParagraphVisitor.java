@@ -15,8 +15,8 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.paragraph.JParagraphModel;
-import com.github.paohaijiao.model.style.JStyleAttributes;
 import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.font.PdfFontFactory;

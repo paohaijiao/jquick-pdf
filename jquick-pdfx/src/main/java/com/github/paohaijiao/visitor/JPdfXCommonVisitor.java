@@ -20,7 +20,7 @@ import com.github.paohaijiao.css.ITextStyleUtils;
 import com.github.paohaijiao.css.JElementStyleBuilder;
 import com.github.paohaijiao.css.JStyleCssModel;
 import com.github.paohaijiao.css.constants.JCssConstants;
-import com.github.paohaijiao.model.style.JStyleAttributes;
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.pdf.CompressionConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;

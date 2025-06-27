@@ -15,7 +15,7 @@
  */
 package com.github.paohaijiao.model.heading;
 
-import com.github.paohaijiao.model.style.JStyleAttributes;
+import com.github.paohaijiao.model.JStyleAttributes;
 import lombok.Data;
 
 /**
