@@ -40,15 +40,15 @@ public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
         Document document = new Document(this.pdf);
         String text =null;
         if(ctx.value() != null){
-            text = ctx.value().toString();
+            text = ctx.value().getText();
         }
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
         if(ctx.styleEle() != null){
             jStyleAttributes=visitStyleEle(ctx.styleEle());
         }
         Paragraph h1 = new Paragraph(text);
+        super.buildStyle(h1, jStyleAttributes);
         document.add(h1);
-        document.add(new Paragraph("这是正文内容..."));
         document.close();
         return null;
     }

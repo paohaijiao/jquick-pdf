@@ -15,6 +15,8 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.handler.JStyleHandler;
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.style.JStyleAlignModel;
 import com.github.paohaijiao.model.style.JStyleSpacingModel;
 import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
@@ -23,6 +25,8 @@ import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.github.paohaijiao.param.JContext;
+import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.element.Paragraph;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -78,6 +82,9 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
             // Named colors
             return new DeviceRgb(0, 0, 0); // default black
         }
+    }
+    protected void buildStyle(IElement ele,JStyleAttributes style) {
+        JStyleHandler.applyStyles(ele, style);
     }
 
 }
