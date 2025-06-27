@@ -18,7 +18,7 @@
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.series.JBoxplot;
-import com.paohaijiao.com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
+import com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
 import org.junit.Test;
 
 import javax.xml.parsers.ParserConfigurationException;

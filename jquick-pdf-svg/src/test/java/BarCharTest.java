@@ -19,7 +19,7 @@ import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JValueAxis;
 import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.series.JBar;
-import com.paohaijiao.com.github.paohaijiao.bar.JBarChartsRenderer;
+import com.github.paohaijiao.bar.JBarChartsRenderer;
 import org.junit.Test;
 
 import java.io.IOException;

@@ -20,11 +20,8 @@ import com.github.paohaijiao.series.JGraph;
 import com.github.paohaijiao.series.force.JCategory;
 import com.github.paohaijiao.series.force.JLink;
 import com.github.paohaijiao.series.force.JNode;
-import com.paohaijiao.com.github.paohaijiao.relation.JRelationChartRenderer;
-import org.apache.batik.dom.GenericDOMImplementation;
-import org.apache.batik.svggen.SVGGraphics2D;
+import com.github.paohaijiao.relation.JRelationChartRenderer;
 import org.junit.Test;
-import org.w3c.dom.Document;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;

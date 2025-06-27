@@ -20,7 +20,7 @@ import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JValueAxis;
 import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.series.JLine;
-import com.paohaijiao.com.github.paohaijiao.line.JLineChartsRenderer;
+import com.github.paohaijiao.line.JLineChartsRenderer;
 import org.junit.Test;
 
 import java.io.IOException;

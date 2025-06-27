@@ -16,10 +16,10 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JPdfConfig;
-import com.github.paohaijiao.css.ITextStyleUtils;
-import com.github.paohaijiao.css.JElementStyleBuilder;
-import com.github.paohaijiao.css.JStyleCssModel;
-import com.github.paohaijiao.css.constants.JCssConstants;
+import com.github.paohaijiao.util.ITextStyleUtils;
+import com.github.paohaijiao.builder.JElementStyleBuilder;
+import com.github.paohaijiao.model.JStyleCssModel;
+import com.github.paohaijiao.constants.JCssConstants;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.pdf.CompressionConstants;

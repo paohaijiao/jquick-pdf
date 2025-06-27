@@ -29,6 +29,7 @@ import lombok.Data;
 @Data
 public class JPdfXConfig {
     private String outputPath = "generated-pdf";
+
     private String author = "PDF Generator";
 
     private String creator = "PDF Project";

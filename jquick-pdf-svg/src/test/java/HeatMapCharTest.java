@@ -17,7 +17,7 @@
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.series.JHeatmap;
-import com.paohaijiao.echart.heatMap.JHeatMapChartRenderer;
+import com.github.paohaijiao.heatMap.JHeatMapChartRenderer;
 import org.junit.Test;
 
 import javax.xml.parsers.ParserConfigurationException;

@@ -16,7 +16,7 @@
  */
 
 import com.github.paohaijiao.JOption;
-import com.paohaijiao.com.github.paohaijiao.sunburst.JSunburstChart;
+import com.github.paohaijiao.sunburst.JSunburstChart;
 import org.junit.Test;
 
 import java.io.IOException;
