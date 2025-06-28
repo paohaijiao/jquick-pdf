@@ -62,7 +62,7 @@ public class JTableTest {
                 "<body>\n" +
                 "<table >\n" +
                 "        <tr>\n" +
-                "            <th>编号</th>\n" +
+                "            <th style=\"font-family:simhei\">编号</th>\n" +
                 "            <th>姓名</th>\n" +
                 "            <th>年龄</th>\n" +
                 "            <th>城市</th>\n" +

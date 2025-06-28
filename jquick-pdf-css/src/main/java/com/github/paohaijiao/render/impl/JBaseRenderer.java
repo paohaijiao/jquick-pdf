@@ -123,15 +123,15 @@ public abstract  class JBaseRenderer implements JStyleRenderer {
         return new SolidBorder(parseColor(parts[2]), width);
     }
     protected PdfFont getFont(String fontFamily) {
-//        JFontProviderFactory factory=new JFontProviderFactory();
-//        factory.registerResourceFont("font/simsun.ttc", JFontProviderFactory.DEFAULT_FONT);
-//        try {
-//            JFontProvider fontProvider = factory.getFontProvider(fontFamily);
-//            PdfFont font = fontProvider.fontProvider();
-//            return font;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        JFontProviderFactory factory=new JFontProviderFactory();
+        factory.registerResourceFont("font/simhei.ttf", JFontProviderFactory.DEFAULT_FONT);
+        try {
+            JFontProvider fontProvider = factory.getFontProvider(fontFamily);
+            PdfFont font = fontProvider.fontProvider();
+            return font;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 }

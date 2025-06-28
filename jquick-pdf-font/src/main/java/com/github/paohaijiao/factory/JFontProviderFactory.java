@@ -34,7 +34,7 @@ import java.util.Map;
  */
 public class JFontProviderFactory {
     private static final String DEFAULT_ENCODING = "Identity-H";
-    public static final String DEFAULT_FONT = "simsun";
+    public static final String DEFAULT_FONT = "simhei";
 
 
 
