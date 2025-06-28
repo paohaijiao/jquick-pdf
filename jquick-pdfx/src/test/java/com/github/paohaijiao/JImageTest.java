@@ -77,15 +77,37 @@ public class JImageTest {
         String key=(String) visitor.visit(tree);
         System.out.println("image generate");
     }
-
     @Test
-    public void test() throws IOException {
-        PdfDocument pdf = new PdfDocument(new PdfWriter("d://test//BasicImage.pdf"));
-        Document document = new Document(pdf);
-        ImageData imageData = ImageDataFactory.create("d://sample///sample.jpg");
-        Image image = new Image(imageData);
-        document.add(new Paragraph("Below is an image:"));
-        document.add(image);
-        document.close();
+    public void file1() throws IOException {
+        String input = "<html>\n" +
+                "<head>\n" +
+                "  <style>\n" +
+                "    @page{\n" +
+                "      size: A4;\n" +
+                "      margin: 0;\n" +
+                "    }\n" +
+                "    body {\n" +
+                "      width: '210mm';\n" +
+                "      height: '297mm';\n" +
+                "      margin: 0;\n" +
+                "      padding: '10mm'; \n" +
+                "      'box-sizing': 'border-box';\n" +
+                "    }\n" +
+                "  </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<image src=\"d://test//a.png\" style=\"width:200px;height:300px\"></image>\n" +
+                "</body>\n" +
+                "</html>";
+        System.out.println(input);
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.document();
+        JContext params = new JContext();
+        params.put("key", "value");
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
+        String key=(String) visitor.visit(tree);
+        System.out.println("image generate");
     }
 }
