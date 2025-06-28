@@ -15,8 +15,14 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JImageFactory;
+import com.github.paohaijiao.image.JBaseImageProvider;
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.borders.SolidBorder;
@@ -33,18 +39,25 @@ import com.itextpdf.layout.borders.SolidBorder;
 public class JPdfXDivVisitor extends JPdfXSvgVisitor {
     @Override
     public Void visitDiv(JQuickPDFParser.DivContext ctx) {
-        Paragraph divHeading = new Paragraph("Section Title in Div")
-                .setFontSize(18)
-                .setBold()
-                .setMarginBottom(5);
-        Div headerDiv = new Div()
-                .setBorder(new SolidBorder(1))
-                .setPadding(10)
-                .setMarginBottom(20);
-        headerDiv.add(divHeading);
-        Document document = new Document(this.pdf);
-        document.add(headerDiv);
-        document.close();
+            Document document = new Document(pdf);
+            Div div = new Div();
+            JStyleAttributes style = new JStyleAttributes();
+            if (null != ctx.styleEle()) {
+                style = visitStyleEle(ctx.styleEle());
+            } else {
+                style = new JStyleAttributes();
+            }
+            String value=null;
+            if (null != ctx.value()) {
+                value=visitValue(ctx.value()).toString();
+                Paragraph p = new Paragraph(value)
+                        .setFontSize(18)
+                        .setBold();
+                div.add(p);
+            }
+            super.buildStyle(div, style);
+            document.add(div);
+            document.close();
         return null;
     }
 
