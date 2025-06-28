@@ -12,8 +12,6 @@
     <modules>
         <module>jquick-pdf-svg</module>
         <module>jquick-pdf-data</module>
-        <module>jquick-pdf-plus</module>
-        <module>jquick-pdf-pro</module>
         <module>jquick-pdfx</module>
         <module>jquick-pdf-css</module>
     </modules>
