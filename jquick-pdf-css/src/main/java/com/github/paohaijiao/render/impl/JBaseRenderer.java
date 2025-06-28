@@ -14,6 +14,8 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.render.impl;
+import com.github.paohaijiao.enums.JFrontStyle;
+import com.github.paohaijiao.enums.JFrontWeight;
 import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.font.JFontProvider;
 import com.github.paohaijiao.model.JStyleAttributes;
@@ -39,11 +41,12 @@ import java.io.IOException;
  * @date 2025/6/27
  * @description
  */
-public abstract  class JBaseRenderer implements JStyleRenderer {
+public abstract  class JBaseRenderer extends  JFontRenderer implements JStyleRenderer {
 
     public abstract void applyStyles(IElement element, JStyleAttributes styles);
 
     protected void applyCommonStyles(IElement element, JStyleAttributes styles) {
+        super.applyFontStyles(element, styles);
         if (styles.getBackgroundColor() != null) {
             Color bgColor = parseColor(styles.getBackgroundColor());
             ((BlockElement<?>) element).setBackgroundColor(bgColor);
@@ -62,27 +65,8 @@ public abstract  class JBaseRenderer implements JStyleRenderer {
             float padding = Float.parseFloat(styles.getPadding().replace("px", ""));
             ((BlockElement<?>) element).setPadding(padding);
         }
-        if (styles.getFontSize() != null) {
-            ((BlockElement<?>) element).setFontSize(styles.getFontSize());
-        }
-        if (styles.getFontSize() != null) {
-            ((BlockElement<?>) element).setFontSize(styles.getFontSize());
-        }
-        if(styles.getFontFamily() != null) {
-             PdfFont font=this.getFont(styles.getFontFamily());
-             if(null!=font) {
-                 ((BlockElement<?>) element).setFont(font);
-             }
-        }else{
-            PdfFont font = null;
-            try {//process chinese charater
-                font = PdfFontFactory.createFont("STSong-Light", "UniGB-UCS2-H", PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
-                ((BlockElement<?>) element).setFont(font);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
 
-        }
+
 
         if (element instanceof BlockElement) {
             BlockElement<?> blockElement = (BlockElement<?>) element;
@@ -122,16 +106,5 @@ public abstract  class JBaseRenderer implements JStyleRenderer {
         float width = Float.parseFloat(parts[0].replace("px", ""));
         return new SolidBorder(parseColor(parts[2]), width);
     }
-    protected PdfFont getFont(String fontFamily) {
-        JFontProviderFactory factory=new JFontProviderFactory();
-        factory.registerResourceFont("font/simhei.ttf", JFontProviderFactory.DEFAULT_FONT);
-        try {
-            JFontProvider fontProvider = factory.getFontProvider(fontFamily);
-            PdfFont font = fontProvider.fontProvider();
-            return font;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 }

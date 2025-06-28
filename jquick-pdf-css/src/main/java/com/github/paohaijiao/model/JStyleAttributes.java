@@ -14,6 +14,8 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.model;
+import com.github.paohaijiao.model.font.JStyleFontModel;
+
 import java.util.HashMap;
 
 /**
@@ -25,7 +27,7 @@ import java.util.HashMap;
  * @date 2025/6/22
  * @description
  */
-public class JStyleAttributes extends HashMap<String, String>{
+public class JStyleAttributes extends JStyleFontModel {
     public static final String ID = "id";
     public static final String CLASS = "class";
     public static final String STYLE = "style";
@@ -33,8 +35,7 @@ public class JStyleAttributes extends HashMap<String, String>{
     public static final String HEIGHT = "height";
     public static final String COLOR = "color";
     public static final String BACKGROUND_COLOR = "background-color";
-    public static final String FONT_SIZE = "font-size";
-    public static final String FONT_FAMILY = "font-family";
+
     public static final String MARGIN = "margin";
     public static final String PADDING = "padding";
     public static final String BORDER = "border";
@@ -126,13 +127,7 @@ public class JStyleAttributes extends HashMap<String, String>{
         }
 
     }
-    public void setFontFamily(String fontFamily) {
-        put(FONT_FAMILY, fontFamily);
-    }
 
-    public String getFontFamily() {
-        return get(FONT_FAMILY);
-    }
 
 
     public void setMargin(String margin) {
