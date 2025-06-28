@@ -14,7 +14,11 @@
         <module>jquick-pdf-data</module>
         <module>jquick-pdfx</module>
         <module>jquick-pdf-css</module>
+        <module>jquick-pdf-font</module>
     </modules>
+    <properties>
+        <jquick.pdf.version>1.0.0</jquick.pdf.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>org.antlr</groupId>
@@ -76,6 +80,31 @@
                 <artifactId>jquick-pdf-css</artifactId>
                 <version>${jquick.pdf.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.paohaijiao</groupId>
+                <artifactId>jquick-pdf-font</artifactId>
+                <version>${jquick.pdf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.paohaijiao</groupId>
+                <artifactId>jquick-pdf-pdfx</artifactId>
+                <version>${jquick.pdf.version}</version>
+            </dependency>
+
+
         </dependencies>
     </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>ttc</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

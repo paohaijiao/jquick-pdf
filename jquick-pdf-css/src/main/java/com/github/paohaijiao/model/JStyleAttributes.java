@@ -34,7 +34,7 @@ public class JStyleAttributes extends HashMap<String, String>{
     public static final String COLOR = "color";
     public static final String BACKGROUND_COLOR = "background-color";
     public static final String FONT_SIZE = "font-size";
-    public static final String FONT = "font";
+    public static final String FONT_FAMILY = "font-family";
     public static final String MARGIN = "margin";
     public static final String PADDING = "padding";
     public static final String BORDER = "border";
@@ -126,12 +126,12 @@ public class JStyleAttributes extends HashMap<String, String>{
         }
 
     }
-    public void setFont(String font) {
-        put(FONT, font);
+    public void setFontFamily(String fontFamily) {
+        put(FONT_FAMILY, fontFamily);
     }
 
-    public String getFont() {
-        return get(FONT);
+    public String getFontFamily() {
+        return get(FONT_FAMILY);
     }
 
 

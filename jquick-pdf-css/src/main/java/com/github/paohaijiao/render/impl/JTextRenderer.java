@@ -38,9 +38,6 @@ public class JTextRenderer extends JBaseRenderer {
             text.setFontColor(parseColor(styles.getColor()));
         }
         text.setFontSize(styles.getFontSize());
-
-        if (styles.getFont() != null) {
-        }
         if (styles.getTextAlign() != null) {
             TextAlignment alignment = TextAlignment.valueOf(
                     styles.getTextAlign().toUpperCase());

@@ -14,8 +14,12 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.render.impl;
+import com.github.paohaijiao.factory.JFontProviderFactory;
+import com.github.paohaijiao.font.JFontProvider;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.render.JStyleRenderer;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.properties.*;
@@ -23,6 +27,9 @@ import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.borders.SolidBorder;
+
+import java.io.IOException;
+
 /**
  * packageName com.github.paohaijiao.render.impl
  *
@@ -57,6 +64,24 @@ public abstract  class JBaseRenderer implements JStyleRenderer {
         }
         if (styles.getFontSize() != null) {
             ((BlockElement<?>) element).setFontSize(styles.getFontSize());
+        }
+        if (styles.getFontSize() != null) {
+            ((BlockElement<?>) element).setFontSize(styles.getFontSize());
+        }
+        if(styles.getFontFamily() != null) {
+             PdfFont font=this.getFont(styles.getFontFamily());
+             if(null!=font) {
+                 ((BlockElement<?>) element).setFont(font);
+             }
+        }else{
+            PdfFont font = null;
+            try {//process chinese charater
+                font = PdfFontFactory.createFont("STSong-Light", "UniGB-UCS2-H", PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+                ((BlockElement<?>) element).setFont(font);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
         }
 
         if (element instanceof BlockElement) {
@@ -96,5 +121,17 @@ public abstract  class JBaseRenderer implements JStyleRenderer {
         String[] parts = borderStr.split(" ");
         float width = Float.parseFloat(parts[0].replace("px", ""));
         return new SolidBorder(parseColor(parts[2]), width);
+    }
+    protected PdfFont getFont(String fontFamily) {
+//        JFontProviderFactory factory=new JFontProviderFactory();
+//        factory.registerResourceFont("font/simsun.ttc", JFontProviderFactory.DEFAULT_FONT);
+//        try {
+//            JFontProvider fontProvider = factory.getFontProvider(fontFamily);
+//            PdfFont font = fontProvider.fontProvider();
+//            return font;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        return null;
     }
 }

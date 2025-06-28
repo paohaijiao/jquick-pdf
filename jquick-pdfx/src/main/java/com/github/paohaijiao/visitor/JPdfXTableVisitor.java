@@ -21,6 +21,7 @@ import com.github.paohaijiao.model.paragraph.JParagraphModel;
 import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -68,13 +69,13 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
             for (JColumnModel column : item.getColumnList()) {
                 if (column.getType().equals(th)) {
                     Paragraph paragraph = new Paragraph(column.getText());
-                    //super.buildStyle(paragraph, column.getStyle());
+                    super.buildStyle(paragraph, column.getStyle());
                     Cell cell = new Cell().add(paragraph);
                     super.buildStyle(cell, column.getStyle());
-                    table.addHeaderCell(cell);
+                    table.addCell(cell);
                 } else {
                     Paragraph paragraph = new Paragraph(column.getText());
-                    //super.buildStyle(paragraph, column.getStyle());
+                    super.buildStyle(paragraph, column.getStyle());
                     Cell cell = new Cell().add(paragraph);
                     super.buildStyle(cell, column.getStyle());
                     table.addCell(cell);

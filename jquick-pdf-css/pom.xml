@@ -8,4 +8,10 @@
     </parent>
     <artifactId>jquick-pdf-css</artifactId>
     <name>jquick-css</name>
+    <dependencies>
+        <dependency>
+            <groupId>com.github.paohaijiao</groupId>
+            <artifactId>jquick-pdf-font</artifactId>
+        </dependency>
+    </dependencies>
 </project>
