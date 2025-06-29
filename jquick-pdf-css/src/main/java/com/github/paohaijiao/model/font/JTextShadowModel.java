@@ -34,8 +34,8 @@ import java.awt.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JTextShadowModel {
-    public  float offsetX;
-    public  float offsetY;
-    public  float blurRadius;
+    public float offsetX;
+    public float offsetY;
+    public float blurRadius;
     public Color color;
 }

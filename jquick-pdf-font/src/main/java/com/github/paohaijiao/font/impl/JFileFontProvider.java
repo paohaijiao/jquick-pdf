@@ -39,10 +39,10 @@ public class JFileFontProvider implements JFontProvider {
     }
 
     @Override
-    public PdfFont fontProvider()  {
-        try{
+    public PdfFont fontProvider() {
+        try {
             return PdfFontFactory.createFont(FontProgramFactory.createFont(fontPath), encoding);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;

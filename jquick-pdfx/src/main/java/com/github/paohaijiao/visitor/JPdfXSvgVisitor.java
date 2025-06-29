@@ -15,14 +15,9 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JImageFactory;
-import com.github.paohaijiao.image.JBaseImageProvider;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.io.image.ImageData;
-import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.svg.converter.SvgConverter;
 
@@ -41,13 +36,13 @@ public class JPdfXSvgVisitor extends JPdfXImageVisitor {
     @Override
     public Void visitSvg(JQuickPDFParser.SvgContext ctx) {
         Document document = new Document(pdf);
-        String src=null;
-        if(ctx.src()!=null){
-            src=visitSrc(ctx.src());
+        String src = null;
+        if (ctx.src() != null) {
+            src = visitSrc(ctx.src());
         }
-        String value=null;
-        if(ctx.value()!=null){
-            value=visitValue(ctx.value()).toString();
+        String value = null;
+        if (ctx.value() != null) {
+            value = visitValue(ctx.value()).toString();
         }
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
@@ -55,14 +50,14 @@ public class JPdfXSvgVisitor extends JPdfXImageVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        float width=style.getWidth()==null?50f:Float.parseFloat(style.getWidth());
-        float height=style.getHeight()==null?600f:Float.parseFloat(style.getHeight());
-        Paragraph paragraph=new Paragraph(value==null?"":value);
+        float width = style.getWidth() == null ? 50f : Float.parseFloat(style.getWidth());
+        float height = style.getHeight() == null ? 600f : Float.parseFloat(style.getHeight());
+        Paragraph paragraph = new Paragraph(value == null ? "" : value);
         super.buildStyle(paragraph, style);
         document.add(paragraph);
-        SvgConverter.drawOnDocument(src, document.getPdfDocument(),1,width,height);
+        SvgConverter.drawOnDocument(src, document.getPdfDocument(), 1, width, height);
         document.close();
-    return  null;
+        return null;
     }
 
 }

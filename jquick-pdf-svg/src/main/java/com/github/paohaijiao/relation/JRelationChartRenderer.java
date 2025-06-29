@@ -17,18 +17,20 @@ package com.github.paohaijiao.relation;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.json.JGsonOption;
+import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import com.github.paohaijiao.series.JGraph;
 import com.github.paohaijiao.series.JSeries;
 import com.github.paohaijiao.series.force.JCategory;
 import com.github.paohaijiao.series.force.JLink;
 import com.github.paohaijiao.series.force.JNode;
-import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
 import java.awt.geom.Path2D;
-import java.util.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 /**
  * packageName com.paohaijiao.echart.generate

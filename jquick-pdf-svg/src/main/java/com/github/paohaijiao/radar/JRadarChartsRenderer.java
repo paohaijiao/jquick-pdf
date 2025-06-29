@@ -18,8 +18,8 @@ package com.github.paohaijiao.radar;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JRadar;
-import com.github.paohaijiao.series.JRadarSeries;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.series.JRadarSeries;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;

@@ -16,12 +16,12 @@
 
 package com.github.paohaijiao.json;
 
-import com.google.gson.*;
 import com.github.paohaijiao.axis.JAxis;
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JTimeAxis;
 import com.github.paohaijiao.axis.JValueAxis;
 import com.github.paohaijiao.code.JAxisType;
+import com.google.gson.*;
 
 import java.lang.reflect.Type;
 

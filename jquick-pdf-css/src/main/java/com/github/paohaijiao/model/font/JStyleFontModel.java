@@ -40,6 +40,7 @@ public class JStyleFontModel extends HashMap<String, String> {
     public static final String COLOR = "color";
     public static final String TEXT_ALIGN = "text-align";
     public static final String TEXT_SHADOW = "text-shadow";
+
     public void setFontWeight(String fontWeight) {
         put(FONT_WEIGHT, fontWeight);
     }
@@ -55,6 +56,7 @@ public class JStyleFontModel extends HashMap<String, String> {
     public String getFontStyle() {
         return get(FONT_STYLE);
     }
+
     public void setFontFamily(String fontFamily) {
         put(FONT_FAMILY, fontFamily);
     }
@@ -62,6 +64,7 @@ public class JStyleFontModel extends HashMap<String, String> {
     public String getFontFamily() {
         return get(FONT_FAMILY);
     }
+
     public void setFontVariant(String fontVariant) {
         put(FONT_VARIANT, fontVariant);
     }

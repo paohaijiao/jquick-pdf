@@ -14,10 +14,10 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.render.impl;
+
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.layout.properties.TextAlignment;
 
 /**

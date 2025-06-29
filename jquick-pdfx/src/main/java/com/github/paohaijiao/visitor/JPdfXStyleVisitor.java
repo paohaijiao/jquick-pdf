@@ -15,10 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.util.JStringUtils;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -37,20 +37,20 @@ import org.antlr.v4.runtime.tree.ParseTree;
 public class JPdfXStyleVisitor extends JPdfXValueVisitor {
     @Override
     public JStyleAttributes visitStyleEle(JQuickPDFParser.StyleEleContext ctx) {
-        if(null!=ctx.style()){
+        if (null != ctx.style()) {
             return visitStyle(ctx.style());
-        }else  if(null!=ctx.STRING()){
-            String string=ctx.STRING().getText();
-            String value= JStringUtils.trim(string);
+        } else if (null != ctx.STRING()) {
+            String string = ctx.STRING().getText();
+            String value = JStringUtils.trim(string);
             JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(value));
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             JQuickPDFParser parser = new JQuickPDFParser(tokens);
             ParseTree tree = parser.style();
-            try{
+            try {
                 JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(this.context);
-                JStyleAttributes attributes=(JStyleAttributes) visitor.visit(tree);
+                JStyleAttributes attributes = (JStyleAttributes) visitor.visit(tree);
                 return attributes;
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
@@ -61,33 +61,33 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
 
     @Override
     public JStyleAttributes visitAttr(JQuickPDFParser.AttrContext ctx) {
-        String key=null;
-        Object value=null;
-        if(ctx.key()!=null){
-            key=visitKey(ctx.key());
+        String key = null;
+        Object value = null;
+        if (ctx.key() != null) {
+            key = visitKey(ctx.key());
         }
-        JAssert.notNull(key,"key is null");
-        if(ctx.value()!=null){
-            String str=ctx.getText();
-            value=visitValue(ctx.value());
+        JAssert.notNull(key, "key is null");
+        if (ctx.value() != null) {
+            String str = ctx.getText();
+            value = visitValue(ctx.value());
         }
-        JAssert.notNull(value,"value is null");
-        JStyleAttributes attr=new JStyleAttributes();
-        attr.put(key,value.toString());
+        JAssert.notNull(value, "value is null");
+        JStyleAttributes attr = new JStyleAttributes();
+        attr.put(key, value.toString());
         return attr;
     }
+
     @Override
     public JStyleAttributes visitStyle(JQuickPDFParser.StyleContext ctx) {
-        JStyleAttributes data=new JStyleAttributes();
-        for(JQuickPDFParser.AttrContext attrContext:ctx.attr()){
-            JStyleAttributes attr= visitAttr(attrContext);
-            for (String key:attr.keySet()){
-                data.put(key,attr.get(key));
+        JStyleAttributes data = new JStyleAttributes();
+        for (JQuickPDFParser.AttrContext attrContext : ctx.attr()) {
+            JStyleAttributes attr = visitAttr(attrContext);
+            for (String key : attr.keySet()) {
+                data.put(key, attr.get(key));
             }
         }
         return data;
     }
-
 
 
 }

@@ -66,21 +66,23 @@ public class JChartRendererFactory {
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }
     }
+
     public static String renderChart(JChartType type, JOption option) {
         JAbstractChartRenderer renderer = createRenderer(type, option);
-        try{
-            String content = renderer.renderToString( option);
+        try {
+            String content = renderer.renderToString(option);
             return content;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-    public static void renderChart(JChartType type, JOption option,String filePath) {
+
+    public static void renderChart(JChartType type, JOption option, String filePath) {
         JAbstractChartRenderer renderer = createRenderer(type, option);
-        try{
-            renderer.render( option,filePath);
-        }catch (Exception e){
+        try {
+            renderer.render(option, filePath);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

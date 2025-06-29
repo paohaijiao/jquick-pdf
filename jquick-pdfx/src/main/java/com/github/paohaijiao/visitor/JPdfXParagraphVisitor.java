@@ -38,13 +38,13 @@ public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
     @Override
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
         Document document = new Document(this.pdf);
-        String text =null;
-        if(ctx.value() != null){
+        String text = null;
+        if (ctx.value() != null) {
             text = ctx.value().getText();
         }
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
-        if(ctx.styleEle() != null){
-            jStyleAttributes=visitStyleEle(ctx.styleEle());
+        if (ctx.styleEle() != null) {
+            jStyleAttributes = visitStyleEle(ctx.styleEle());
         }
         Paragraph h1 = new Paragraph(text);
         super.buildStyle(h1, jStyleAttributes);
@@ -52,7 +52,6 @@ public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
         document.close();
         return null;
     }
-
 
 
     private Paragraph buildParagraph(JParagraphModel data) {

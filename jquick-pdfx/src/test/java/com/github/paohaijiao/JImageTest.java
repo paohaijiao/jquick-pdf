@@ -15,17 +15,10 @@
  */
 package com.github.paohaijiao;
 
+import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
-import com.itextpdf.io.image.ImageData;
-import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.element.Paragraph;
-import com.github.paohaijiao.param.JContext;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -74,9 +67,10 @@ public class JImageTest {
         JContext params = new JContext();
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        String key=(String) visitor.visit(tree);
+        String key = (String) visitor.visit(tree);
         System.out.println("image generate");
     }
+
     @Test
     public void file1() throws IOException {
         String input = "<html>\n" +
@@ -107,7 +101,7 @@ public class JImageTest {
         JContext params = new JContext();
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        String key=(String) visitor.visit(tree);
+        String key = (String) visitor.visit(tree);
         System.out.println("image generate");
     }
 }

@@ -16,8 +16,8 @@
 package com.github.paohaijiao.heatMap;
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.series.JHeatmap;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.series.JHeatmap;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;

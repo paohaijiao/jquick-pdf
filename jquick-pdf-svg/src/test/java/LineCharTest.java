@@ -19,8 +19,8 @@ import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JValueAxis;
 import com.github.paohaijiao.code.JTrigger;
-import com.github.paohaijiao.series.JLine;
 import com.github.paohaijiao.line.JLineChartsRenderer;
+import com.github.paohaijiao.series.JLine;
 import org.junit.Test;
 
 import java.io.IOException;

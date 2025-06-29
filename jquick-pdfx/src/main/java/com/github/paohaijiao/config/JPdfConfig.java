@@ -15,7 +15,10 @@
  */
 package com.github.paohaijiao.config;
 
-import com.itextpdf.kernel.pdf.*;
+import com.itextpdf.kernel.pdf.CompressionConstants;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfDocumentInfo;
+import com.itextpdf.kernel.pdf.PdfWriter;
 import lombok.Data;
 
 /**
@@ -29,7 +32,6 @@ import lombok.Data;
  */
 @Data
 public class JPdfConfig {
-
 
 
     private String title;
@@ -52,10 +54,10 @@ public class JPdfConfig {
     private boolean autoCloseStream = true;
 
 
-
     public JPdfConfig() {
 
     }
+
     public void applyTo(PdfWriter writer) {
         if (writer == null) return;
         writer.setCompressionLevel(compressionLevel);

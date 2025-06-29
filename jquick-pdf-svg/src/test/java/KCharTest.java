@@ -18,8 +18,8 @@ import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JValueAxis;
 import com.github.paohaijiao.code.JTrigger;
-import com.github.paohaijiao.series.JCandlestick;
 import com.github.paohaijiao.k.JKChartsRenderer;
+import com.github.paohaijiao.series.JCandlestick;
 import org.junit.Test;
 
 import java.io.IOException;

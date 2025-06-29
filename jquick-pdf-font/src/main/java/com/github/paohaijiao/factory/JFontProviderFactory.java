@@ -37,26 +37,32 @@ public class JFontProviderFactory {
     public static final String DEFAULT_FONT = "simhei";
 
 
-
     private final Map<String, JFontProvider> fontProviders = new HashMap<>();
+
     public void registerSystemFont(String fontName, String alias) {
         registerSystemFont(fontName, alias, DEFAULT_ENCODING);
     }
+
     public void registerSystemFont(String fontName, String alias, String encoding) {
         fontProviders.put(alias, new JSystemFontProvider(fontName, encoding));
     }
+
     public void registerFileFont(String fontPath, String alias) {
         registerFileFont(fontPath, alias, DEFAULT_ENCODING);
     }
+
     public void registerFileFont(String fontPath, String alias, String encoding) {
         fontProviders.put(alias, new JFileFontProvider(fontPath, encoding));
     }
+
     public void registerResourceFont(String resourcePath, String alias) {
         registerResourceFont(resourcePath, alias, DEFAULT_ENCODING);
     }
+
     public void registerResourceFont(String resourcePath, String alias, String encoding) {
         fontProviders.put(alias, new JResourceFontProvider(resourcePath, encoding));
     }
+
     public JFontProvider getFontProvider(String alias) {
         JFontProvider provider = fontProviders.get(alias);
         if (provider == null) {
@@ -64,6 +70,7 @@ public class JFontProviderFactory {
         }
         return provider;
     }
+
     public boolean isFontRegistered(String alias) {
         return fontProviders.containsKey(alias);
     }

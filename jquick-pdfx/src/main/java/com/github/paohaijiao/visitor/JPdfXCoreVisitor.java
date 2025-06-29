@@ -19,14 +19,13 @@ import com.github.paohaijiao.handler.JStyleHandler;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.style.JStyleAlignModel;
 import com.github.paohaijiao.model.style.JStyleSpacingModel;
+import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
-import com.github.paohaijiao.param.JContext;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Paragraph;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -45,6 +44,7 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected PageSize currentPageSize = PageSize.A4;
     protected float[] currentMargins = new float[]{72, 72, 72, 72}; // default 1 inch margins // top, right, bottom, left
     protected JContext context = new JContext();
+
     protected float convertToPoints(float value, String unit) {
         switch (unit) {
             case "px":
@@ -83,7 +83,8 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
             return new DeviceRgb(0, 0, 0); // default black
         }
     }
-    protected void buildStyle(IElement ele,JStyleAttributes style) {
+
+    protected void buildStyle(IElement ele, JStyleAttributes style) {
         JStyleHandler.applyStyles(ele, style);
     }
 

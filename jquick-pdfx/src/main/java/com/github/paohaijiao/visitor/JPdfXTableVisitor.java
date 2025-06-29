@@ -16,27 +16,17 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.list.JListItemModel;
-import com.github.paohaijiao.model.paragraph.JParagraphModel;
 import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.io.font.FontProgramFactory;
-import com.itextpdf.io.font.PdfEncodings;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.itextpdf.kernel.pdf.PdfName.BaseFont;
 
 
 /**
@@ -146,9 +136,9 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
             style = new JStyleAttributes();
         }
         String text = "";
-        String st=ctx.value().getText();
+        String st = ctx.value().getText();
         if (null != ctx.value()) {
-            text =  visitValue(ctx.value()).toString();
+            text = visitValue(ctx.value()).toString();
         }
         JColumnModel model = new JColumnModel();
         model.setStyle(style);

@@ -35,6 +35,7 @@ public class JFontFactory {
     public static JFontProvider createFontLoader(JFontType type, String fontPath) {
         return createFontLoader(type, fontPath, PdfEncodings.IDENTITY_H);
     }
+
     public static JFontProvider createFontLoader(JFontType type, String fontPath, String encoding) {
         switch (type) {
             case SYSTEM:

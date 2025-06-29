@@ -44,14 +44,14 @@ public class JResourceFontProvider implements JFontProvider {
     }
 
     @Override
-    public PdfFont fontProvider()  {
+    public PdfFont fontProvider() {
         try (InputStream is = getClass().getClassLoader().getResourceAsStream(resourcePath)) {
             if (is == null) {
                 throw new IOException("Font resource not found: " + resourcePath);
             }
             byte[] bytes = IOUtils.toByteArray(is);
             FontProgram fontProgram = FontProgramFactory.createFont(bytes);
-            return PdfFontFactory.createFont(fontProgram, encoding,PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
+            return PdfFontFactory.createFont(fontProgram, encoding, PdfFontFactory.EmbeddingStrategy.PREFER_EMBEDDED);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

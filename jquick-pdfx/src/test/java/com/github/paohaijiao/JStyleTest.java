@@ -38,92 +38,99 @@ public class JStyleTest {
 
     @Test
     public void value() throws IOException {
-        String input = "aq123" ;
+        String input = "aq123";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.value();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void value1() throws IOException {
-        String input = "'aq123'" ;
+        String input = "'aq123'";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.value();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void key() throws IOException {
-        String input = "dwdwedwe" ;
+        String input = "dwdwedwe";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.value();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void attr() throws IOException {
-        String input = "key:value" ;
+        String input = "key:value";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.attr();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void attr1() throws IOException {
-        String input = "key:'value1'" ;
+        String input = "key:'value1'";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.attr();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void attr2() throws IOException {
-        String input = "height:'1px';width:'2px'" ;
+        String input = "height:'1px';width:'2px'";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.style();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void attr3() throws IOException {
-        String input = "style=\"height:1px;width:2px\"" ;
+        String input = "style=\"height:1px;width:2px\"";
         System.out.println(input);
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.styleEle();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void attr4() throws IOException {
-        String input = "style=height:1px;width:2px" ;
+        String input = "style=height:1px;width:2px";
         System.out.println(input);
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.styleEle();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
 

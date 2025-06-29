@@ -14,10 +14,12 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.render.impl;
+
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.properties.TextAlignment;
+
 /**
  * packageName com.github.paohaijiao.render.impl
  *
@@ -27,7 +29,7 @@ import com.itextpdf.layout.properties.TextAlignment;
  * @date 2025/6/27
  * @description
  */
-public class JBlockRenderer extends JBaseRenderer{
+public class JBlockRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(IElement element, JStyleAttributes styles) {
         super.applyCommonStyles(element, styles);

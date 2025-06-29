@@ -15,19 +15,11 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.config.JPdfConfig;
-import com.github.paohaijiao.util.ITextStyleUtils;
-import com.github.paohaijiao.builder.JElementStyleBuilder;
-import com.github.paohaijiao.model.JStyleCssModel;
-import com.github.paohaijiao.constants.JCssConstants;
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.kernel.pdf.CompressionConstants;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.github.paohaijiao.param.JContext;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -42,79 +34,88 @@ import java.io.IOException;
  * @description
  */
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
-    private String fileName="d://test//DivBasedHeadings.pdf";
+    private String fileName = "d://test//DivBasedHeadings.pdf";
+
     public JPdfXCommonVisitor() throws FileNotFoundException {
-        this.context=new JContext();
-        PdfWriter writer=new PdfWriter(fileName);
+        this.context = new JContext();
+        PdfWriter writer = new PdfWriter(fileName);
         PdfDocument pdf = new PdfDocument(writer);
-        this.pdf=pdf;
+        this.pdf = pdf;
     }
+
     public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
-        this.context=context;
-        PdfWriter writer=new PdfWriter(fileName);
+        this.context = context;
+        PdfWriter writer = new PdfWriter(fileName);
         PdfDocument pdf = new PdfDocument(writer);
-        this.pdf=pdf;
+        this.pdf = pdf;
     }
+
     public JPdfXCommonVisitor(String outputPath) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(fileName));
-        this.pdf=pdf;
+        this.pdf = pdf;
     }
 
     @Override
     public Void visitDocument(JQuickPDFParser.DocumentContext ctx) {
-        if(null!=ctx.doc()){
+        if (null != ctx.doc()) {
             visitDoc(ctx.doc());
         }
         return null;
     }
+
     @Override
     public Void visitDoc(JQuickPDFParser.DocContext ctx) {
-        if(null!=ctx.html()){
+        if (null != ctx.html()) {
             visitHtml(ctx.html());
         }
         return null;
     }
+
     @Override
     public Void visitHtml(JQuickPDFParser.HtmlContext ctx) {
-        if(null!=ctx.head()){
+        if (null != ctx.head()) {
             visitHead(ctx.head());
         }
-        if(null!=ctx.body()){
+        if (null != ctx.body()) {
             visitBody(ctx.body());
         }
         return null;
     }
+
     @Override
     public Void visitHead(JQuickPDFParser.HeadContext ctx) {
-        if(null!=ctx.headStyle()){
+        if (null != ctx.headStyle()) {
             visitHeadStyle(ctx.headStyle());
         }
         return null;
     }
+
     @Override
     public Void visitHeadStyle(JQuickPDFParser.HeadStyleContext ctx) {
-        if(null!=ctx.headStyleOption()){
+        if (null != ctx.headStyleOption()) {
             visitHeadStyleOption(ctx.headStyleOption());
         }
-        if(null!=ctx.bodyStyleOption()){
+        if (null != ctx.bodyStyleOption()) {
             visitBodyStyleOption(ctx.bodyStyleOption());
         }
         return null;
     }
+
     @Override
     public Void visitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx) {
-        if(ctx.style()!=null&&!ctx.style().isEmpty()){
-            for (JQuickPDFParser.StyleContext styleContext :ctx.style()) {
-                JStyleAttributes style= visitStyle(styleContext);
+        if (ctx.style() != null && !ctx.style().isEmpty()) {
+            for (JQuickPDFParser.StyleContext styleContext : ctx.style()) {
+                JStyleAttributes style = visitStyle(styleContext);
             }
         }
         return null;
     }
+
     @Override
     public Void visitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx) {
-        if(ctx.style()!=null&&!ctx.style().isEmpty()){
-            for (JQuickPDFParser.StyleContext styleContext :ctx.style()) {
-                JStyleAttributes style= visitStyle(styleContext);
+        if (ctx.style() != null && !ctx.style().isEmpty()) {
+            for (JQuickPDFParser.StyleContext styleContext : ctx.style()) {
+                JStyleAttributes style = visitStyle(styleContext);
             }
         }
         return null;
@@ -122,16 +123,13 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     @Override
     public Void visitBody(JQuickPDFParser.BodyContext ctx) {
-        if(ctx.element()!=null&&!ctx.element().isEmpty()){
-            for (JQuickPDFParser.ElementContext styleContext :ctx.element()) {
-                 visitElement(styleContext);
+        if (ctx.element() != null && !ctx.element().isEmpty()) {
+            for (JQuickPDFParser.ElementContext styleContext : ctx.element()) {
+                visitElement(styleContext);
             }
         }
         return null;
     }
-
-
-
 
 
 }

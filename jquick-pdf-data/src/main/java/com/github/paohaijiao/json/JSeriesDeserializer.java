@@ -16,9 +16,10 @@
 
 package com.github.paohaijiao.json;
 
+import com.github.paohaijiao.code.JSeriesType;
 import com.github.paohaijiao.series.*;
 import com.google.gson.*;
-import com.github.paohaijiao.code.JSeriesType;
+
 import java.lang.reflect.Type;
 
 /**

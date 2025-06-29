@@ -23,9 +23,6 @@ import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.element.List;
-import com.itextpdf.layout.element.ListItem;
-import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 
 import java.net.MalformedURLException;
@@ -44,19 +41,19 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
 
     @Override
     public Image visitImage(JQuickPDFParser.ImageContext ctx) {
-        try{
+        try {
             Document document = new Document(pdf);
-            String src=null;
-            if(ctx.src()!=null){
-                src=visitSrc(ctx.src());
+            String src = null;
+            if (ctx.src() != null) {
+                src = visitSrc(ctx.src());
             }
-            String alt=null;
-            if(ctx.alt()!=null){
-                alt=visitAlt(ctx.alt());
+            String alt = null;
+            if (ctx.alt() != null) {
+                alt = visitAlt(ctx.alt());
             }
-            String value=null;
-            if(ctx.value()!=null){
-                value=visitValue(ctx.value()).toString();
+            String value = null;
+            if (ctx.value() != null) {
+                value = visitValue(ctx.value()).toString();
             }
             JStyleAttributes style = new JStyleAttributes();
             if (null != ctx.styleEle()) {
@@ -64,27 +61,25 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
             } else {
                 style = new JStyleAttributes();
             }
-            JBaseImageProvider imageProvider= JImageFactory.createProvider(src);
-            byte[] bytes=imageProvider.loadImage();
+            JBaseImageProvider imageProvider = JImageFactory.createProvider(src);
+            byte[] bytes = imageProvider.loadImage();
             ImageData imageData = ImageDataFactory.create(bytes);
             Image image = new Image(imageData);
-            if(null!=alt){
+            if (null != alt) {
                 image.getAccessibilityProperties().setAlternateDescription(alt);
             }
-            if(null!=value){
+            if (null != value) {
                 image.getAccessibilityProperties().setActualText(value);
             }
             super.buildStyle(image, style);
             document.add(image);
             document.close();
-        }catch (Exception e){
-         e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         return null;
     }
-
-
 
 
     public static Image buildImage() {

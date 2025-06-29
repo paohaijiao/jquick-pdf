@@ -25,7 +25,6 @@ import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.element.Paragraph;
 
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 
 /**
  * packageName com.github.paohaijiao.handler
@@ -44,7 +43,7 @@ public class JStyleHandler {
     }
 
     public static void main(String[] args) throws FileNotFoundException {
-        PdfWriter writer=new PdfWriter("d://test//hello.pdf");
+        PdfWriter writer = new PdfWriter("d://test//hello.pdf");
         PdfDocument pdf = new PdfDocument(writer);
         Paragraph paragraph = new Paragraph("Hello World");
         JStyleAttributes styles = new JStyleAttributes();

@@ -16,8 +16,8 @@
 package com.github.paohaijiao.boxPlot;
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.series.JBoxplot;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.series.JBoxplot;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;

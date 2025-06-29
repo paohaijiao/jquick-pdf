@@ -32,16 +32,17 @@ import com.itextpdf.kernel.font.PdfFontFactory;
 public class JSystemFontProvider implements JFontProvider {
     private final String fontName;
     private final String encoding;
+
     public JSystemFontProvider(String fontName, String encoding) {
         this.fontName = fontName;
         this.encoding = encoding;
     }
 
     @Override
-    public PdfFont fontProvider()  {
-        try{
+    public PdfFont fontProvider() {
+        try {
             return PdfFontFactory.createFont(FontProgramFactory.createFont(fontName), encoding);
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;

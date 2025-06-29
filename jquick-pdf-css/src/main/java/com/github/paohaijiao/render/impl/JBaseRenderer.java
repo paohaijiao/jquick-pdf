@@ -14,23 +14,16 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.render.impl;
-import com.github.paohaijiao.enums.JFrontStyle;
-import com.github.paohaijiao.enums.JFrontWeight;
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.github.paohaijiao.font.JFontProvider;
+
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.render.JStyleRenderer;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.layout.element.BlockElement;
-import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.properties.*;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.borders.SolidBorder;
-
-import java.io.IOException;
+import com.itextpdf.layout.element.BlockElement;
+import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.properties.UnitValue;
 
 /**
  * packageName com.github.paohaijiao.render.impl
@@ -41,7 +34,7 @@ import java.io.IOException;
  * @date 2025/6/27
  * @description
  */
-public abstract  class JBaseRenderer extends  JFontRenderer implements JStyleRenderer {
+public abstract class JBaseRenderer extends JFontRenderer implements JStyleRenderer {
 
     public abstract void applyStyles(IElement element, JStyleAttributes styles);
 
@@ -65,7 +58,6 @@ public abstract  class JBaseRenderer extends  JFontRenderer implements JStyleRen
             float padding = Float.parseFloat(styles.getPadding().replace("px", ""));
             ((BlockElement<?>) element).setPadding(padding);
         }
-
 
 
         if (element instanceof BlockElement) {

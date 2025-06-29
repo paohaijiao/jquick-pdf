@@ -21,8 +21,10 @@ import com.github.paohaijiao.render.impl.JDefautRenderer;
 import com.github.paohaijiao.render.impl.JImageRenderer;
 import com.github.paohaijiao.render.impl.JTextRenderer;
 import com.itextpdf.layout.element.*;
+
 import java.util.HashMap;
 import java.util.Map;
+
 /**
  * packageName com.github.paohaijiao.render.impl
  *

@@ -18,8 +18,8 @@ import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JValueAxis;
 import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.data.JData;
-import com.github.paohaijiao.series.JScatter;
 import com.github.paohaijiao.scatter.JScatterChartsRenderer;
+import com.github.paohaijiao.series.JScatter;
 import org.junit.Test;
 
 import java.io.IOException;

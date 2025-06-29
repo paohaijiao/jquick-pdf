@@ -18,9 +18,10 @@ package com.github.paohaijiao.line;
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JValueAxis;
-import com.github.paohaijiao.series.JLine;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.series.JLine;
 import org.apache.batik.svggen.SVGGraphics2D;
+
 import java.awt.*;
 import java.util.List;
 

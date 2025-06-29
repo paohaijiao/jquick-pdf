@@ -15,21 +15,6 @@
  */
 package com.github.paohaijiao;
 
-import com.github.paohaijiao.builder.JElementStyleBuilder;
-import com.github.paohaijiao.config.JPdfConfig;
-import com.github.paohaijiao.constants.JCssConstants;
-import com.github.paohaijiao.model.JStyleCssModel;
-import com.github.paohaijiao.param.JContext;
-import com.github.paohaijiao.parser.JQuickPDFLexer;
-import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.util.ITextStyleUtils;
-import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
-import com.itextpdf.kernel.pdf.CompressionConstants;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.tree.ParseTree;
 import org.junit.Test;
 
 import java.io.IOException;

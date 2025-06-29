@@ -21,7 +21,6 @@ import com.github.paohaijiao.JLabelLine;
 import com.github.paohaijiao.code.JPosition;
 import com.github.paohaijiao.style.*;
 
-
 import java.io.Serializable;
 
 /**

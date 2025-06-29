@@ -29,8 +29,6 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvasConstants;
 
 import java.io.IOException;
 
-import static com.itextpdf.kernel.pdf.PdfName.FontFamily;
-
 /**
  * packageName com.github.paohaijiao.event
  *
@@ -45,9 +43,9 @@ public class JPdfXWatermarkEventHandler implements IEventHandler {
     public void handleEvent(Event event) {
         PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
         PdfPage page = docEvent.getPage();
-        PdfFont font =null;
+        PdfFont font = null;
         try {
-             font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+            font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -57,7 +55,7 @@ public class JPdfXWatermarkEventHandler implements IEventHandler {
                 .setFillColor(ColorConstants.LIGHT_GRAY)
                 .setTextMatrix(30, 30)
                 .beginText()
-                .setFontAndSize(font,60)
+                .setFontAndSize(font, 60)
                 .setTextRenderingMode(PdfCanvasConstants.TextRenderingMode.FILL)
                 .setTextMatrix(AffineTransform.getRotateInstance(Math.PI / 4))
                 .showText("DRAFT")

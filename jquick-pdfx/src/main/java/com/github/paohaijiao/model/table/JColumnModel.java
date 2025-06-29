@@ -18,9 +18,6 @@ package com.github.paohaijiao.model.table;
 import com.github.paohaijiao.model.JStyleAttributes;
 import lombok.Data;
 
-import javax.swing.*;
-import java.util.List;
-
 /**
  * packageName com.paohaijiao.javelin.model.paragraph
  *

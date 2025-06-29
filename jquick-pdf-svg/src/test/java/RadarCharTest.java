@@ -19,9 +19,9 @@ import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JRadar;
 import com.github.paohaijiao.code.JSeriesType;
 import com.github.paohaijiao.code.JTrigger;
+import com.github.paohaijiao.radar.JRadarChartsRenderer;
 import com.github.paohaijiao.series.JRadarSeries;
 import com.github.paohaijiao.style.JTextStyle;
-import com.github.paohaijiao.radar.JRadarChartsRenderer;
 import org.junit.Test;
 
 import javax.xml.parsers.ParserConfigurationException;

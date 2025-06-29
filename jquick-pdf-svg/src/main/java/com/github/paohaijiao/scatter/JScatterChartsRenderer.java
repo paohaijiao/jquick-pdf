@@ -17,8 +17,8 @@ package com.github.paohaijiao.scatter;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.data.JData;
-import com.github.paohaijiao.series.JScatter;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.series.JScatter;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;

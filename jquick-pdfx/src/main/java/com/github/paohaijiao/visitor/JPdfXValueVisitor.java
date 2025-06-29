@@ -16,8 +16,8 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.enums.JUnit;
-import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.exception.JAssert;
+import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
 
 import java.math.BigDecimal;
@@ -36,11 +36,11 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
 
     @Override
     public Object visitVariable(JQuickPDFParser.VariableContext ctx) {
-        String key=null;
-        if(ctx.IDENTIFIER() != null){
-            key= JStringUtils.trim(ctx.IDENTIFIER().getText());
+        String key = null;
+        if (ctx.IDENTIFIER() != null) {
+            key = JStringUtils.trim(ctx.IDENTIFIER().getText());
         }
-        JAssert.notNull(key,"variable text must not be null");
+        JAssert.notNull(key, "variable text must not be null");
         return this.context.get(key);
     }
 
@@ -64,41 +64,44 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
     public String visitColor(JQuickPDFParser.ColorContext ctx) {
         return ctx.getText();
     }
+
     @Override
     public Object visitValue(JQuickPDFParser.ValueContext ctx) {
-        if(ctx.IDENTIFIER() != null){
+        if (ctx.IDENTIFIER() != null) {
             return ctx.IDENTIFIER().getText();
-        }else if(ctx.string() != null){
+        } else if (ctx.string() != null) {
             return visitString(ctx.string());
-        }else if (null!=ctx.variable()){
+        } else if (null != ctx.variable()) {
             return visitVariable(ctx.variable());
-        }else if (null!=ctx.number()){
+        } else if (null != ctx.number()) {
             return visitNumber(ctx.number());
-        }else{
+        } else {
             return ctx.getText();
         }
     }
 
     @Override
     public String visitKey(JQuickPDFParser.KeyContext ctx) {
-        if(null!=ctx.IDENTIFIER()){
+        if (null != ctx.IDENTIFIER()) {
             return ctx.IDENTIFIER().getText();
-        }else if(null!=ctx.string()){
+        } else if (null != ctx.string()) {
             return JStringUtils.trim(visitString(ctx.string()));
         }
         JAssert.throwNewException("invalid key");
         return null;
     }
+
     @Override
     public String visitSrc(JQuickPDFParser.SrcContext ctx) {
-        if(null!=ctx.value()){
+        if (null != ctx.value()) {
             return visit(ctx.value()).toString();
         }
         return null;
     }
+
     @Override
     public String visitAlt(JQuickPDFParser.AltContext ctx) {
-        if(null!=ctx.value()){
+        if (null != ctx.value()) {
             return visit(ctx.value()).toString();
         }
         return null;

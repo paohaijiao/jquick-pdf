@@ -14,7 +14,8 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.constant;
-import java.awt.Color;
+
+import java.awt.*;
 
 /**
  * packageName com.github.paohaijiao.constant

@@ -17,9 +17,9 @@
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JValueAxis;
+import com.github.paohaijiao.bar.JBarChartsRenderer;
 import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.series.JBar;
-import com.github.paohaijiao.bar.JBarChartsRenderer;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -49,7 +49,7 @@ public class BarCharTest {
         option.series(bar);
         JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
         jBarChartsRenderer.render(option, "D://test//echart-output.svg");
-        String str=jBarChartsRenderer.renderToString(option);
+        String str = jBarChartsRenderer.renderToString(option);
         System.out.println(str);
     }
 }

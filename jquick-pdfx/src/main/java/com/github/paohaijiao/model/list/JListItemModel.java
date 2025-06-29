@@ -16,7 +16,6 @@
 package com.github.paohaijiao.model.list;
 
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.style.JStyleModel;
 import lombok.Data;
 
 /**

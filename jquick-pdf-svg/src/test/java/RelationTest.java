@@ -16,17 +16,18 @@
 
 import com.github.paohaijiao.code.JLayout;
 import com.github.paohaijiao.json.JGsonOption;
+import com.github.paohaijiao.relation.JRelationChartRenderer;
 import com.github.paohaijiao.series.JGraph;
 import com.github.paohaijiao.series.force.JCategory;
 import com.github.paohaijiao.series.force.JLink;
 import com.github.paohaijiao.series.force.JNode;
-import com.github.paohaijiao.relation.JRelationChartRenderer;
 import org.junit.Test;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RelationTest {
     @Test

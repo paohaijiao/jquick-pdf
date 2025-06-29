@@ -17,8 +17,8 @@ package com.github.paohaijiao.bar;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
-import com.github.paohaijiao.series.JBar;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.series.JBar;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;

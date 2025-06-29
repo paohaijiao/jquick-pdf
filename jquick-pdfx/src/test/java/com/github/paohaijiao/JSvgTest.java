@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao;
 
+import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
@@ -25,7 +26,6 @@ import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
-import com.github.paohaijiao.param.JContext;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -73,7 +73,7 @@ public class JSvgTest {
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.document();
         JContext params = new JContext();
-        String svg="<?xml version=\"1.0\"?>\n" +
+        String svg = "<?xml version=\"1.0\"?>\n" +
                 "<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.0//EN'\n" +
                 "          'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>\n" +
                 "<svg xmlns:xlink=\"http://www.w3.org/1999/xlink\" style=\"fill-opacity:1; color-rendering:auto; color-interpolation:auto; text-rendering:auto; stroke:black; stroke-linecap:square; stroke-miterlimit:10; shape-rendering:auto; stroke-opacity:1; fill:black; stroke-dasharray:none; font-weight:normal; stroke-width:1; font-family:'Dialog'; font-style:normal; stroke-linejoin:miter; font-size:12px; stroke-dashoffset:0; image-rendering:auto;\" width=\"800\" height=\"600\" xmlns=\"http://www.w3.org/2000/svg\"\n" +
@@ -144,7 +144,7 @@ public class JSvgTest {
                 "></svg>";
         params.put("key", svg);
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        String key=(String) visitor.visit(tree);
+        String key = (String) visitor.visit(tree);
         System.out.println("pdf generate");
     }
 

@@ -15,12 +15,6 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.kernel.geom.PageSize;
-
-import java.math.BigDecimal;
-
-
 /**
  * packageName com.paohaijiao.javelin.visitor
  *
@@ -63,7 +57,6 @@ public class JPdfXLayOutVisitor extends JPdfXStyleVisitor {
 //        if (ctx.TABLOID() != null) return PageSize.TABLOID;
 //        return PageSize.A4;
 //    }
-
 
 
 }

@@ -23,9 +23,10 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.string.JStringUtils;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.element.BlockElement;
+import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.element.Text;
 
-import java.awt.*;
 import java.io.IOException;
 
 /**
@@ -39,7 +40,7 @@ import java.io.IOException;
  */
 public class JFontRenderer {
     protected PdfFont getFont(String fontFamily) {
-        JFontProviderFactory factory=new JFontProviderFactory();
+        JFontProviderFactory factory = new JFontProviderFactory();
         factory.registerResourceFont("font/simhei.ttf", JFontProviderFactory.DEFAULT_FONT);
         try {
             JFontProvider fontProvider = factory.getFontProvider(fontFamily);
@@ -50,6 +51,7 @@ public class JFontRenderer {
         }
         return null;
     }
+
     protected void applyFontStyles(IElement element, JStyleAttributes styles) {
         if (styles.getFontFamily() != null) {
             PdfFont font = this.getFont(styles.getFontFamily());
@@ -99,8 +101,8 @@ public class JFontRenderer {
             }
         }
         if (styles.getTextTransform() != null) {
-            setTransformedText(element,styles);
-         }
+            setTransformedText(element, styles);
+        }
         if (styles.getColor() != null) {
             try {
                 com.itextpdf.kernel.colors.Color color = com.itextpdf.kernel.colors.Color.convertRgbToCmyk(
@@ -136,6 +138,7 @@ public class JFontRenderer {
             // For example, by drawing the text multiple times with offsets
         }
     }
+
     protected String transform(String text, String textTransform) {
         if (text == null || textTransform == null) {
             return text;
@@ -151,13 +154,14 @@ public class JFontRenderer {
                 return text;
         }
     }
+
     protected void setTransformedText(IElement element, JStyleAttributes styles) {
-        if ( element == null) {
+        if (element == null) {
             return;
         }
         if (element instanceof Text) {
-            Text textEle=((Text) element);
-            String text=textEle.getText();
+            Text textEle = ((Text) element);
+            String text = textEle.getText();
             String transformedText = transform(text, styles.getTextTransform());
             textEle.setText(transformedText);
         }

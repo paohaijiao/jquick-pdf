@@ -24,8 +24,6 @@ import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Paragraph;
 
-import java.util.ArrayList;
-
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -39,40 +37,38 @@ import java.util.ArrayList;
 public class JPdfXListVisitor extends JPdfXTableVisitor {
 
 
-
-
     @Override
     public List visitList(JQuickPDFParser.ListContext ctx) {
         Document document = new Document(pdf);
         JListType listType = JListType.ol;
-        if(null!=ctx.listEle()&&!ctx.listEle().isEmpty()){
-            listType=visitListEle(ctx.listEle().get(0));
+        if (null != ctx.listEle() && !ctx.listEle().isEmpty()) {
+            listType = visitListEle(ctx.listEle().get(0));
         }
-        JStyleAttributes style=new JStyleAttributes();
-        if(null!=ctx.styleEle()){
-            style=visitStyleEle(ctx.styleEle());
-        }else{
-            style=new JStyleAttributes();
+        JStyleAttributes style = new JStyleAttributes();
+        if (null != ctx.styleEle()) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
-        if(JListType.ol.getCode().equals(listType.getCode())){
+        if (JListType.ol.getCode().equals(listType.getCode())) {
             Div ol = new Div();
-            for(int i=0; i<ctx.listItem().size(); i++){
-                JQuickPDFParser.ListItemContext listItemContext=ctx.listItem(i);
-                JListItemModel item=visitListItem(listItemContext);
-                String text=String.format("%s.%s",i+1,item.getText());
-                Paragraph paragraph=new Paragraph(text);
+            for (int i = 0; i < ctx.listItem().size(); i++) {
+                JQuickPDFParser.ListItemContext listItemContext = ctx.listItem(i);
+                JListItemModel item = visitListItem(listItemContext);
+                String text = String.format("%s.%s", i + 1, item.getText());
+                Paragraph paragraph = new Paragraph(text);
                 super.buildStyle(paragraph, item.getStyle());
                 ol.add(paragraph);
             }
             super.buildStyle(ol, style);
             document.add(ol);
-        }else{
+        } else {
             Div ul = new Div();
-            for(int i=0; i<ctx.listItem().size(); i++){
-                JQuickPDFParser.ListItemContext listItemContext=ctx.listItem(i);
-                JListItemModel item=visitListItem(listItemContext);
-                String text=String.format("• %s",item.getText());
-                Paragraph paragraph=new Paragraph(text);
+            for (int i = 0; i < ctx.listItem().size(); i++) {
+                JQuickPDFParser.ListItemContext listItemContext = ctx.listItem(i);
+                JListItemModel item = visitListItem(listItemContext);
+                String text = String.format("• %s", item.getText());
+                Paragraph paragraph = new Paragraph(text);
                 super.buildStyle(paragraph, item.getStyle());
                 ul.add(paragraph);
             }
@@ -85,27 +81,27 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 
     @Override
     public JListType visitListEle(JQuickPDFParser.ListEleContext ctx) {
-        String type=ctx.getText();
+        String type = ctx.getText();
         return JListType.codeOf(type);
     }
+
     @Override
     public JListItemModel visitListItem(JQuickPDFParser.ListItemContext ctx) {
-        JListItemModel item=new JListItemModel();
-        JStyleAttributes style=new JStyleAttributes();
-        if(ctx.styleEle()!=null){
-            style=visitStyleEle(ctx.styleEle());
-        }else{
-            style=new JStyleAttributes();
+        JListItemModel item = new JListItemModel();
+        JStyleAttributes style = new JStyleAttributes();
+        if (ctx.styleEle() != null) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
-        String value="";
-        if(ctx.value()!=null){
-            value=(String)visitValue(ctx.value());
+        String value = "";
+        if (ctx.value() != null) {
+            value = (String) visitValue(ctx.value());
         }
         item.setText(value);
         item.setStyle(style);
         return item;
     }
-
 
 
 }

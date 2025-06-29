@@ -16,6 +16,7 @@
  */
 package com.github.paohaijiao;
 
+import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
@@ -23,7 +24,6 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
-import com.github.paohaijiao.param.JContext;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -73,7 +73,7 @@ public class JHtmlTest {
         JContext params = new JContext();
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        String key=(String) visitor.visit(tree);
+        String key = (String) visitor.visit(tree);
         System.out.println("pdf generate");
     }
 

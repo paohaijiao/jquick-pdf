@@ -16,7 +16,6 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.heading.JHeadingModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
@@ -38,21 +37,21 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         Document document = new Document(this.pdf);
         Integer number = 1;//default h1
         if (ctx.number() != null && !ctx.number().isEmpty()) {
-            String numberTxt=ctx.number().get(0).getText();
+            String numberTxt = ctx.number().get(0).getText();
             number = Integer.parseInt(numberTxt.toString());
         }
-        String value="";
-        if(null!=ctx.value()){
-             value=(String)visitValue(ctx.value());
+        String value = "";
+        if (null != ctx.value()) {
+            value = (String) visitValue(ctx.value());
         }
-        JStyleAttributes style=new JStyleAttributes();
-        if(null!=ctx.styleEle()){
-            style=visitStyleEle(ctx.styleEle());
-        }else{
-            style=new JStyleAttributes();
+        JStyleAttributes style = new JStyleAttributes();
+        if (null != ctx.styleEle()) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
-        Integer fontSize = getFontSize(""+number);
-        style.put(JStyleAttributes.FONT_SIZE,fontSize+"");
+        Integer fontSize = getFontSize("" + number);
+        style.put(JStyleAttributes.FONT_SIZE, fontSize + "");
         Paragraph h1 = new Paragraph(value);
         super.buildStyle(h1, style);
         document.add(h1);

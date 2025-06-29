@@ -15,10 +15,10 @@
  */
 package com.github.paohaijiao;
 
+import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
-import com.github.paohaijiao.param.JContext;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -48,9 +48,10 @@ public class JValueTest {
         JContext params = new JContext();
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        String key=(String) visitor.visit(tree);
+        String key = (String) visitor.visit(tree);
         System.out.println("pdf generate");
     }
+
     @Test
     public void unit() throws IOException {
         String input = "px";
@@ -62,9 +63,10 @@ public class JValueTest {
         JContext params = new JContext();
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println("pdf generate");
     }
+
     @Test
     public void number() throws IOException {
         String input = "1";
@@ -76,9 +78,10 @@ public class JValueTest {
         JContext params = new JContext();
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println("pdf generate");
     }
+
     @Test
     public void color() throws IOException {
         String input = "#1234";
@@ -90,7 +93,7 @@ public class JValueTest {
         JContext params = new JContext();
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println("pdf generate");
     }
 
@@ -105,9 +108,10 @@ public class JValueTest {
         JContext params = new JContext();
         params.put("key", "value");
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void color3() throws IOException {
         String input = "rgb(255,244,255)\n" +
@@ -117,9 +121,10 @@ public class JValueTest {
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.color();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void string() throws IOException {
         String input = "'xsaxsaxsa'" +
@@ -129,7 +134,7 @@ public class JValueTest {
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.string();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key=(Object) visitor.visit(tree);
+        Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
 

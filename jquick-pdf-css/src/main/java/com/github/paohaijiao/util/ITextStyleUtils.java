@@ -22,15 +22,12 @@ import com.itextpdf.kernel.colors.WebColors;
 import com.itextpdf.layout.IPropertyContainer;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.borders.SolidBorder;
-import com.itextpdf.layout.properties.Background;
-import com.itextpdf.layout.properties.Property;
-import com.itextpdf.layout.properties.TextAlignment;
-import com.itextpdf.layout.properties.UnitValue;
-import com.itextpdf.layout.properties.VerticalAlignment;
+import com.itextpdf.layout.properties.*;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
+
 /**
  * packageName com.github.paohaijiao.css
  *
@@ -68,7 +65,7 @@ public class ITextStyleUtils {
         TEXT_ALIGN_MAP.put("left", TextAlignment.LEFT);
         TEXT_ALIGN_MAP.put("right", TextAlignment.RIGHT);
         TEXT_ALIGN_MAP.put("center", TextAlignment.CENTER);
-      //  TEXT_ALIGN_MAP.put("justify", TextAlignment.JUSTIFY);
+        //  TEXT_ALIGN_MAP.put("justify", TextAlignment.JUSTIFY);
 
         // 初始化垂直对齐映射
         VERTICAL_ALIGN_MAP.put("top", VerticalAlignment.TOP);
@@ -168,7 +165,7 @@ public class ITextStyleUtils {
         if (style.getMargin() != null) {
             UnitValue margin = parseUnitValue(style.getMargin());
             if (margin != null) {
-             //   element.setProperty(Property.MARGIN, margin);
+                //   element.setProperty(Property.MARGIN, margin);
             }
         } else {
             if (style.getMarginTop() != null) {
@@ -200,7 +197,7 @@ public class ITextStyleUtils {
         if (style.getPadding() != null) {
             UnitValue padding = parseUnitValue(style.getPadding());
             if (padding != null) {
-              //  element.setProperty(Property.PADDING, padding);
+                //  element.setProperty(Property.PADDING, padding);
             }
         } else {
             if (style.getPaddingTop() != null) {
@@ -290,9 +287,9 @@ public class ITextStyleUtils {
 
         if (style.getPosition() != null) {
             if ("absolute".equalsIgnoreCase(style.getPosition())) {
-         //       element.setProperty(Property.POSITION, com.itextpdf.layout.properties.Property.PositionProperty.ABSOLUTE);
+                //       element.setProperty(Property.POSITION, com.itextpdf.layout.properties.Property.PositionProperty.ABSOLUTE);
             } else if ("fixed".equalsIgnoreCase(style.getPosition())) {
-        //        element.setProperty(Property.POSITION, com.itextpdf.layout.properties.Property.PositionProperty.FIXED);
+                //        element.setProperty(Property.POSITION, com.itextpdf.layout.properties.Property.PositionProperty.FIXED);
             }
         }
     }

@@ -1,12 +1,11 @@
 package com.github.paohaijiao.enums;
 
-import lombok.Data;
 import lombok.Getter;
 
 @Getter
 public enum JListType {
-    ol("ol","order list"),
-    ul("ul","un order list");
+    ol("ol", "order list"),
+    ul("ul", "un order list");
 
     private String code;
     private String name;
