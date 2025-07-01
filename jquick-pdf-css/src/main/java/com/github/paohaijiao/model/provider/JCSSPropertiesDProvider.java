@@ -18,7 +18,6 @@ package com.github.paohaijiao.model.provider;
 import com.github.paohaijiao.model.css.JCSSPropertiesDModel;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.properties.Property;
-import com.itextpdf.layout.properties.UnitValue;
 
 
 /**
@@ -34,6 +33,7 @@ public class JCSSPropertiesDProvider extends JCSSPropertiesBaseProvider {
 
     /**
      * Converts JCSSPropertiesDModel properties to iText Style
+     *
      * @param model the CSS properties model
      * @return iText Style object with configured properties
      */
@@ -66,7 +66,7 @@ public class JCSSPropertiesDProvider extends JCSSPropertiesBaseProvider {
                     break;
                 case "flex":
                     // iText 7.2+ supports flex layout
-                   // style.setProperty(Property.DISPLAY, com.itextpdf.layout.properties.Display.FLEX);
+                    // style.setProperty(Property.DISPLAY, com.itextpdf.layout.properties.Display.FLEX);
                     break;
                 case "inline-block":
                     // Similar to inline but allows some block properties
@@ -79,7 +79,6 @@ public class JCSSPropertiesDProvider extends JCSSPropertiesBaseProvider {
 
         return style;
     }
-
 
 
 }

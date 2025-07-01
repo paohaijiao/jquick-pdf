@@ -38,26 +38,22 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
     public static final String OFFSET_POSITION = "offset-position";
     public static final String OFFSET_ROTATE = "offset-rotate";
 
-    // Visual properties
     public static final String OPACITY = "opacity";
     public static final String ORDER = "order";
     public static final String ORPHANS = "orphans";
 
-    // Outline properties
     public static final String OUTLINE = "outline";
     public static final String OUTLINE_COLOR = "outline-color";
     public static final String OUTLINE_OFFSET = "outline-offset";
     public static final String OUTLINE_STYLE = "outline-style";
     public static final String OUTLINE_WIDTH = "outline-width";
 
-    // Overflow properties
     public static final String OVERFLOW = "overflow";
     public static final String OVERFLOW_ANCHOR = "overflow-anchor";
     public static final String OVERFLOW_WRAP = "overflow-wrap";
     public static final String OVERFLOW_X = "overflow-x";
     public static final String OVERFLOW_Y = "overflow-y";
 
-    // Overscroll properties
     public static final String OVERSCROLL_BEHAVIOR = "overscroll-behavior";
     public static final String OVERSCROLL_BEHAVIOR_BLOCK = "overscroll-behavior-block";
     public static final String OVERSCROLL_BEHAVIOR_INLINE = "overscroll-behavior-inline";
@@ -106,7 +102,6 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         return get(OBJECT_POSITION);
     }
 
-    // Offset/Motion Path Properties
     public void setOffset(String value) {
         put(OFFSET, value);
     }
@@ -155,7 +150,6 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         return get(OFFSET_ROTATE);
     }
 
-    // Visual Properties
     public void setOpacity(String value) {
         if (isValidNumber(value, 0, 1)) {
             put(OPACITY, value);
@@ -188,7 +182,6 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         return get(ORPHANS);
     }
 
-    // Outline Properties
     public void setOutline(String value) {
         put(OUTLINE, value);
     }

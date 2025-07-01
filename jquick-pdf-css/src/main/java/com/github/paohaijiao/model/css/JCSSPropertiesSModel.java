@@ -28,7 +28,6 @@ import java.util.List;
  * @description
  */
 public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
-    // Add these constants to the existing constants section
     public static final String SCALE = "scale";
     public static final String SCOPE = "@scope";
     public static final String SCROLL_BEHAVIOR = "scroll-behavior";
@@ -158,12 +157,6 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         return get(SCROLL_MARGIN_BLOCK);
     }
 
-// [...] Similar methods for all other scroll-margin properties:
-// scroll-margin-block-end, scroll-margin-block-start,
-// scroll-margin-bottom, scroll-margin-inline,
-// scroll-margin-inline-end, scroll-margin-inline-start,
-// scroll-margin-left, scroll-margin-right, scroll-margin-top
-
 
     /**
      * Sets the scroll padding shorthand (1-4 values)
@@ -191,13 +184,6 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         return get(SCROLL_PADDING_BLOCK);
     }
 
-// [...] Similar methods for all other scroll-padding properties:
-// scroll-padding-block-end, scroll-padding-block-start,
-// scroll-padding-bottom, scroll-padding-inline,
-// scroll-padding-inline-end, scroll-padding-inline-start,
-// scroll-padding-left, scroll-padding-right, scroll-padding-top
-
-    // Helper method to validate length values
     private boolean isValidLengthValue(String value) {
         if (value == null) return false;
         return value.equals("auto") || value.equals("initial") || value.equals("inherit") ||
@@ -350,7 +336,6 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         return get(SCROLL_PADDING_TOP);
     }
 
-    // Add these lists for valid values
     private static final List<String> VALID_SCROLL_SNAP_ALIGN_VALUES = Arrays.asList(
             "none", "start", "end", "center", "initial", "inherit"
     );

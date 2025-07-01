@@ -31,7 +31,6 @@ public class JCSSPropertiesVModel extends JCSSPropertiesUModel {
     public static final String VERTICAL_ALIGN = "vertical-align";
     public static final String VISIBILITY = "visibility";
 
-    // Valid values lists
     private static final List<String> VALID_VERTICAL_ALIGN_VALUES = Arrays.asList(
             "baseline", "sub", "super", "text-top", "text-bottom",
             "middle", "top", "bottom", "initial", "inherit"

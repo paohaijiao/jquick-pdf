@@ -31,7 +31,6 @@ public class JCSSPropertiesUModel extends JCSSPropertiesTModel {
     public static final String UNICODE_BIDI = "unicode-bidi";
     public static final String USER_SELECT = "user-select";
 
-    // Valid values lists
     private static final List<String> VALID_UNICODE_BIDI_VALUES = Arrays.asList(
             "normal", "embed", "isolate", "bidi-override", "isolate-override", "plaintext", "initial", "inherit"
     );

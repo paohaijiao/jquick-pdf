@@ -15,6 +15,9 @@
  */
 package com.github.paohaijiao.model.css;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * packageName com.github.paohaijiao.model.css
  *
@@ -25,205 +28,236 @@ package com.github.paohaijiao.model.css;
  * @description
  */
 public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
-    public static final String FILTER = "filter";
-    public static final String FLEX = "flex";
-    public static final String FLEX_BASIS = "flex-basis";
-    public static final String FLEX_DIRECTION = "flex-direction";
-    public static final String FLEX_FLOW = "flex-flow";
-    public static final String FLEX_GROW = "flex-grow";
-    public static final String FLEX_SHRINK = "flex-shrink";
-    public static final String FLEX_WRAP = "flex-wrap";
-    public static final String FLOAT = "float";
-    public static final String FONT = "font";
-    public static final String FONT_FAMILY = "font-family";
-    public static final String FONT_FEATURE_SETTINGS = "font-feature-settings";
-    public static final String FONT_KERNING = "font-kerning";
-    public static final String FONT_SIZE = "font-size";
-    public static final String FONT_SIZE_ADJUST = "font-size-adjust";
-    public static final String FONT_STRETCH = "font-stretch";
-    public static final String FONT_STYLE = "font-style";
-    public static final String FONT_VARIANT = "font-variant";
-    public static final String FONT_VARIANT_CAPS = "font-variant-caps";
-    public static final String FONT_WEIGHT = "font-weight";
+    public static final String GAP = "gap";
+    public static final String GRID = "grid";
+    public static final String GRID_AREA = "grid-area";
+    public static final String GRID_AUTO_COLUMNS = "grid-auto-columns";
+    public static final String GRID_AUTO_FLOW = "grid-auto-flow";
+    public static final String GRID_AUTO_ROWS = "grid-auto-rows";
+    public static final String GRID_COLUMN = "grid-column";
+    public static final String GRID_COLUMN_END = "grid-column-end";
+    public static final String GRID_COLUMN_START = "grid-column-start";
+    public static final String GRID_ROW = "grid-row";
+    public static final String GRID_ROW_END = "grid-row-end";
+    public static final String GRID_ROW_START = "grid-row-start";
+    public static final String GRID_TEMPLATE = "grid-template";
+    public static final String GRID_TEMPLATE_AREAS = "grid-template-areas";
+    public static final String GRID_TEMPLATE_COLUMNS = "grid-template-columns";
+    public static final String GRID_TEMPLATE_ROWS = "grid-template-rows";
 
-    public static final String FONT_FACE = "@font-face";
-    public static final String FONT_PALETTE_VALUES = "@font-palette-values";
+    private static final List<String> VALID_GRID_AUTO_FLOW_VALUES = Arrays.asList(
+            "row", "column", "dense", "row dense", "column dense", "inherit", "initial", "unset"
+    );
 
-    public void setFilter(String filter) {
-        put(FILTER, filter);
+    /**
+     * Sets the gap between grid items (shorthand for row-gap and column-gap)
+     *
+     * @param value The gap value (e.g., "10px", "1em 2rem")
+     */
+    public void setGap(String value) {
+        put(GAP, value);
     }
 
-    public String getFilter() {
-        return get(FILTER);
+    /**
+     * Sets the grid shorthand property
+     *
+     * @param value The grid value (e.g., "100px 1fr / 50px 1fr")
+     */
+    public void setGrid(String value) {
+        put(GRID, value);
     }
 
-    public void setFlex(String flex) {
-        put(FLEX, flex);
+    /**
+     * Sets the grid-area property
+     *
+     * @param value The grid-area value (e.g., "1 / 1 / 3 / 3")
+     */
+    public void setGridArea(String value) {
+        put(GRID_AREA, value);
     }
 
-    public String getFlex() {
-        return get(FLEX);
+    /**
+     * Sets the grid-auto-columns property
+     *
+     * @param value The grid-auto-columns value (e.g., "min-content", "1fr")
+     */
+    public void setGridAutoColumns(String value) {
+        put(GRID_AUTO_COLUMNS, value);
     }
 
-    public void setFlexBasis(String flexBasis) {
-        put(FLEX_BASIS, flexBasis);
+    /**
+     * Sets the grid-auto-flow property
+     *
+     * @param value Allowed values: row | column | dense | row dense | column dense
+     */
+    public void setGridAutoFlow(String value) {
+        if (VALID_GRID_AUTO_FLOW_VALUES.contains(value)) {
+            put(GRID_AUTO_FLOW, value);
+        } else {
+            throw new IllegalArgumentException("Invalid grid-auto-flow value: " + value);
+        }
     }
 
-    public String getFlexBasis() {
-        return get(FLEX_BASIS);
+    /**
+     * Sets the grid-auto-rows property
+     *
+     * @param value The grid-auto-rows value (e.g., "min-content", "1fr")
+     */
+    public void setGridAutoRows(String value) {
+        put(GRID_AUTO_ROWS, value);
     }
 
-    public void setFlexDirection(String flexDirection) {
-        put(FLEX_DIRECTION, flexDirection);
+    /**
+     * Sets the grid-column shorthand property
+     *
+     * @param value The grid-column value (e.g., "1 / 3")
+     */
+    public void setGridColumn(String value) {
+        put(GRID_COLUMN, value);
     }
 
-    public String getFlexDirection() {
-        return get(FLEX_DIRECTION);
+    /**
+     * Sets the grid-column-end property
+     *
+     * @param value The grid-column-end value (e.g., "2", "span 2")
+     */
+    public void setGridColumnEnd(String value) {
+        put(GRID_COLUMN_END, value);
     }
 
-    public void setFlexFlow(String flexFlow) {
-        put(FLEX_FLOW, flexFlow);
+    /**
+     * Sets the grid-column-start property
+     *
+     * @param value The grid-column-start value (e.g., "1", "span 2")
+     */
+    public void setGridColumnStart(String value) {
+        put(GRID_COLUMN_START, value);
     }
 
-    public String getFlexFlow() {
-        return get(FLEX_FLOW);
+    /**
+     * Sets the grid-row shorthand property
+     *
+     * @param value The grid-row value (e.g., "1 / 3")
+     */
+    public void setGridRow(String value) {
+        put(GRID_ROW, value);
     }
 
-    public void setFlexGrow(String flexGrow) {
-        put(FLEX_GROW, flexGrow);
+    /**
+     * Sets the grid-row-end property
+     *
+     * @param value The grid-row-end value (e.g., "2", "span 2")
+     */
+    public void setGridRowEnd(String value) {
+        put(GRID_ROW_END, value);
     }
 
-    public String getFlexGrow() {
-        return get(FLEX_GROW);
+    /**
+     * Sets the grid-row-start property
+     *
+     * @param value The grid-row-start value (e.g., "1", "span 2")
+     */
+    public void setGridRowStart(String value) {
+        put(GRID_ROW_START, value);
     }
 
-    public void setFlexShrink(String flexShrink) {
-        put(FLEX_SHRINK, flexShrink);
+    /**
+     * Sets the grid-template shorthand property
+     *
+     * @param value The grid-template value (e.g., "100px 1fr / 50px 1fr")
+     */
+    public void setGridTemplate(String value) {
+        put(GRID_TEMPLATE, value);
     }
 
-    public String getFlexShrink() {
-        return get(FLEX_SHRINK);
+    /**
+     * Sets the grid-template-areas property
+     *
+     * @param value The grid-template-areas value (e.g., "'header header' 'sidebar main'")
+     */
+    public void setGridTemplateAreas(String value) {
+        put(GRID_TEMPLATE_AREAS, value);
     }
 
-    public void setFlexWrap(String flexWrap) {
-        put(FLEX_WRAP, flexWrap);
+    /**
+     * Sets the grid-template-columns property
+     *
+     * @param value The grid-template-columns value (e.g., "100px 1fr", "repeat(3, 1fr)")
+     */
+    public void setGridTemplateColumns(String value) {
+        put(GRID_TEMPLATE_COLUMNS, value);
     }
 
-    public String getFlexWrap() {
-        return get(FLEX_WRAP);
+    /**
+     * Sets the grid-template-rows property
+     *
+     * @param value The grid-template-rows value (e.g., "50px 1fr", "repeat(2, min-content)")
+     */
+    public void setGridTemplateRows(String value) {
+        put(GRID_TEMPLATE_ROWS, value);
     }
 
-    public void setFloat(String floatValue) {
-        put(FLOAT, floatValue);
+    public String getGap() {
+        return get(GAP);
     }
 
-    public String getFloat() {
-        return get(FLOAT);
+    public String getGrid() {
+        return get(GRID);
     }
 
-    public void setFont(String font) {
-        put(FONT, font);
+    public String getGridArea() {
+        return get(GRID_AREA);
     }
 
-    public String getFont() {
-        return get(FONT);
+    public String getGridAutoColumns() {
+        return get(GRID_AUTO_COLUMNS);
     }
 
-    public void setFontFamily(String fontFamily) {
-        put(FONT_FAMILY, fontFamily);
+    public String getGridAutoFlow() {
+        return get(GRID_AUTO_FLOW);
     }
 
-    public String getFontFamily() {
-        return get(FONT_FAMILY);
+    public String getGridAutoRows() {
+        return get(GRID_AUTO_ROWS);
     }
 
-    public void setFontFeatureSettings(String fontFeatureSettings) {
-        put(FONT_FEATURE_SETTINGS, fontFeatureSettings);
+    public String getGridColumn() {
+        return get(GRID_COLUMN);
     }
 
-    public String getFontFeatureSettings() {
-        return get(FONT_FEATURE_SETTINGS);
+    public String getGridColumnEnd() {
+        return get(GRID_COLUMN_END);
     }
 
-    public void setFontKerning(String fontKerning) {
-        put(FONT_KERNING, fontKerning);
+    public String getGridColumnStart() {
+        return get(GRID_COLUMN_START);
     }
 
-    public String getFontKerning() {
-        return get(FONT_KERNING);
+    public String getGridRow() {
+        return get(GRID_ROW);
     }
 
-    public void setFontSize(String fontSize) {
-        put(FONT_SIZE, fontSize);
+    public String getGridRowEnd() {
+        return get(GRID_ROW_END);
     }
 
-    public String getFontSize() {
-        return get(FONT_SIZE);
+    public String getGridRowStart() {
+        return get(GRID_ROW_START);
     }
 
-    public void setFontSizeAdjust(String fontSizeAdjust) {
-        put(FONT_SIZE_ADJUST, fontSizeAdjust);
+    public String getGridTemplate() {
+        return get(GRID_TEMPLATE);
     }
 
-    public String getFontSizeAdjust() {
-        return get(FONT_SIZE_ADJUST);
+    public String getGridTemplateAreas() {
+        return get(GRID_TEMPLATE_AREAS);
     }
 
-    public void setFontStretch(String fontStretch) {
-        put(FONT_STRETCH, fontStretch);
+    public String getGridTemplateColumns() {
+        return get(GRID_TEMPLATE_COLUMNS);
     }
 
-    public String getFontStretch() {
-        return get(FONT_STRETCH);
+    public String getGridTemplateRows() {
+        return get(GRID_TEMPLATE_ROWS);
     }
-
-    public void setFontStyle(String fontStyle) {
-        put(FONT_STYLE, fontStyle);
-    }
-
-    public String getFontStyle() {
-        return get(FONT_STYLE);
-    }
-
-    public void setFontVariant(String fontVariant) {
-        put(FONT_VARIANT, fontVariant);
-    }
-
-    public String getFontVariant() {
-        return get(FONT_VARIANT);
-    }
-
-    public void setFontVariantCaps(String fontVariantCaps) {
-        put(FONT_VARIANT_CAPS, fontVariantCaps);
-    }
-
-    public String getFontVariantCaps() {
-        return get(FONT_VARIANT_CAPS);
-    }
-
-    public void setFontWeight(String fontWeight) {
-        put(FONT_WEIGHT, fontWeight);
-    }
-
-    public String getFontWeight() {
-        return get(FONT_WEIGHT);
-    }
-
-
-    public void setFontFaceRule(String fontFaceValue) {
-        put(FONT_FACE, fontFaceValue);
-    }
-
-    public String getFontFaceRule() {
-        return get(FONT_FACE);
-    }
-
-    public void setFontPaletteValuesRule(String fontPaletteValues) {
-        put(FONT_PALETTE_VALUES, fontPaletteValues);
-    }
-
-    public String getFontPaletteValuesRule() {
-        return get(FONT_PALETTE_VALUES);
-    }
-
 }

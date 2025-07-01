@@ -36,7 +36,6 @@ public class JCSSPropertiesWModel extends JCSSPropertiesVModel {
     public static final String WORD_WRAP = "word-wrap";
     public static final String WRITING_MODE = "writing-mode";
 
-    // Valid values lists
     private static final List<String> VALID_WHITE_SPACE_VALUES = Arrays.asList(
             "normal", "nowrap", "pre", "pre-wrap", "pre-line", "break-spaces", "initial", "inherit"
     );

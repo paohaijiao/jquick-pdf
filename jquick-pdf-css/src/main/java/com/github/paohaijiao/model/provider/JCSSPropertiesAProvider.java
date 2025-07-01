@@ -22,7 +22,9 @@ import com.itextpdf.layout.Style;
 import com.itextpdf.layout.borders.DashedBorder;
 import com.itextpdf.layout.borders.DottedBorder;
 import com.itextpdf.layout.borders.SolidBorder;
-import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.element.BlockElement;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.properties.Property;
 
 /**

@@ -15,7 +15,6 @@
  */
 package com.github.paohaijiao.model.provider;
 
-import com.github.paohaijiao.model.css.JCSSPropertiesEModel;
 import com.github.paohaijiao.model.css.JCSSPropertiesFModel;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.properties.Property;
@@ -108,7 +107,7 @@ public class JCSSPropertiesFProvider extends JCSSPropertiesBaseProvider {
         }
 
         if (cssModel.getFontSize() != null) {
-          //  style.setFontSize(UnitValue.parseUnitValue(cssModel.getFontSize()));
+            //  style.setFontSize(UnitValue.parseUnitValue(cssModel.getFontSize()));
         }
 
         if (cssModel.getFontSizeAdjust() != null) {
@@ -120,7 +119,7 @@ public class JCSSPropertiesFProvider extends JCSSPropertiesBaseProvider {
         }
 
         if (cssModel.getFontStyle() != null) {
-          //  style.setFontStyle(FontStyle.valueOf(cssModel.getFontStyle().toUpperCase()));
+            //  style.setFontStyle(FontStyle.valueOf(cssModel.getFontStyle().toUpperCase()));
         }
 
         if (cssModel.getFontVariant() != null) {

@@ -1,120 +1,155 @@
-///*
-// * Licensed under the Apache License, Version 2.0 (the "License");
-// * you may not use this file except in compliance with the License.
-// * You may obtain a copy of the License at
-// *
-// *     http://www.apache.org/licenses/LICENSE-2.0
-// *
-// * Unless required by applicable law or agreed to in writing, software
-// * distributed under the License is distributed on an "AS IS" BASIS,
-// * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// * See the License for the specific language governing permissions and
-// * limitations under the License.
-// *
-// * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
-// */
-//package com.github.paohaijiao.model.provider;
-//
-//import com.github.paohaijiao.model.css.JCSSPropertiesGModel;
-//import com.itextpdf.layout.Style;
-//import com.itextpdf.layout.properties.FlexDirection;
-//import com.itextpdf.layout.properties.FlexWrap;
-//import com.itextpdf.layout.properties.FontStyle;
-//import com.itextpdf.layout.properties.Property;
-//import com.itextpdf.layout.properties.UnitValue;
-//import com.itextpdf.layout.properties.TextAlignment;
-//import com.itextpdf.layout.properties.VerticalAlignment;
-//import com.itextpdf.io.font.PdfEncodings;
-//import com.itextpdf.io.font.constants.StandardFonts;
-//import com.itextpdf.kernel.font.PdfFont;
-//import com.itextpdf.kernel.font.PdfFontFactory;
-//
-//
-///**
-// * packageName com.github.paohaijiao.model.provider
-// *
-// * @author Martin
-// * @version 1.0.0
-// * @className JCSSPropertiesAProvider
-// * @date 2025/7/1
-// * @description
-// */
-//public class JCSSPropertiesGProvider extends JCSSPropertiesBaseProvider {
-//    public static Style convertToStyle(JCSSPropertiesGModel cssModel) {
-//        Style style = new Style();
-//
-//        // Filter property (not directly supported in iText)
-//        if (cssModel.getFilter() != null) {
-//            // Custom implementation would be needed for filter effects
-//        }
-//
-//        // Flex properties
-//        handleFlexProperties(style, cssModel);
-//
-//        // Float property (iText handles this differently than CSS)
-//        if (cssModel.getFloat() != null) {
-//            // iText doesn't have direct CSS float equivalent
-//            // Could use setRelativePosition() for similar effects
-//        }
-//
-//        // Font properties
-//        handleFontProperties(style, cssModel);
-//
-//        // Font face rules need to be handled at document level
-//        if (cssModel.getFontFaceRule() != null) {
-//            // This would require registering the font with PdfDocument
-//            // Not something we can do in a Style object
-//        }
-//
-//        if (cssModel.getFontPaletteValuesRule() != null) {
-//            // Font palette values not supported in iText
-//        }
-//
-//        return style;
-//    }
-//
-//    private static void handleFlexProperties(Style style, JCSSPropertiesGModel cssModel) {
-//        // Flex shorthand property
-//        if (cssModel.getFlex() != null) {
-//            String[] flexValues = cssModel.getFlex().split("\\s+");
-//            if (flexValues.length >= 1) {
-//                style.setProperty(Property.FLEX_GROW, Float.parseFloat(flexValues[0]));
-//            }
-//            if (flexValues.length >= 2) {
-//                style.setProperty(Property.FLEX_SHRINK, Float.parseFloat(flexValues[1]));
-//            }
-//            if (flexValues.length >= 3) {
-//                style.setProperty(Property.FLEX_BASIS, UnitValue.parseUnitValue(flexValues[2]));
-//            }
-//        }
-//
-//        // Individual flex properties
-//        if (cssModel.getFlexGrow() != null) {
-//            style.setProperty(Property.FLEX_GROW, Float.parseFloat(cssModel.getFlexGrow()));
-//        }
-//
-//        if (cssModel.getFlexShrink() != null) {
-//            style.setProperty(Property.FLEX_SHRINK, Float.parseFloat(cssModel.getFlexShrink()));
-//        }
-//
-//        if (cssModel.getFlexBasis() != null) {
-//        }
-//
-//        if (cssModel.getFlexDirection() != null) {
-//
-//        }
-//
-//        if (cssModel.getFlexWrap() != null) {
-//
-//        }
-//
-//        // Flex-flow shorthand (combines flex-direction and flex-wrap)
-//        if (cssModel.getFlexFlow() != null) {
-//        }
-//    }
-//
-//
-//
-//
-//
-//}
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
+ */
+package com.github.paohaijiao.model.provider;
+
+import com.github.paohaijiao.model.css.JCSSPropertiesGModel;
+import com.itextpdf.layout.Style;
+import com.itextpdf.layout.properties.UnitValue;
+
+import java.util.List;
+
+
+/**
+ * packageName com.github.paohaijiao.model.provider
+ *
+ * @author Martin
+ * @version 1.0.0
+ * @className JCSSPropertiesAProvider
+ * @date 2025/7/1
+ * @description
+ */
+public class JCSSPropertiesGProvider extends JCSSPropertiesBaseProvider {
+    private static final List<String> VALID_GRID_AUTO_FLOW_VALUES = Arrays.asList(
+            "row", "column", "dense", "row dense", "column dense", "inherit", "initial", "unset"
+    );
+
+    /**
+     * Converts JCSSPropertiesGModel properties to iText Style
+     *
+     * @param cssModel The model containing CSS grid properties
+     * @return iText Style with all applicable grid properties set
+     */
+    public static Style convertToStyle(JCSSPropertiesGModel cssModel) {
+        Style style = new Style();
+        if (cssModel.getGap() != null) {
+            setGap(style, cssModel.getGap());
+        }
+        if (cssModel.getGrid() != null) {
+            setGrid(style, cssModel.getGrid());
+        }
+
+        if (cssModel.getGridArea() != null) {
+            //   style.setProperty(Property.GRID_AREA, cssModel.getGridArea());
+        }
+
+        if (cssModel.getGridAutoColumns() != null) {
+            //     style.setProperty(Property.GRID_AUTO_COLUMNS,
+            //           GridValue.createGridValue(cssModel.getGridAutoColumns()));
+        }
+
+        if (cssModel.getGridAutoFlow() != null) {
+            if (VALID_GRID_AUTO_FLOW_VALUES.contains(cssModel.getGridAutoFlow())) {
+                //     style.setProperty(Property.GRID_AUTO_FLOW, cssModel.getGridAutoFlow());
+            }
+        }
+
+        if (cssModel.getGridAutoRows() != null) {
+            //   style.setProperty(Property.GRID_AUTO_ROWS,
+            //           GridValue.createGridValue(cssModel.getGridAutoRows()));
+        }
+
+        if (cssModel.getGridColumn() != null) {
+            //   style.setProperty(Property.GRID_COLUMN, cssModel.getGridColumn());
+        }
+
+        if (cssModel.getGridColumnEnd() != null) {
+            //    style.setProperty(Property.GRID_COLUMN_END, cssModel.getGridColumnEnd());
+        }
+
+        if (cssModel.getGridColumnStart() != null) {
+            //   style.setProperty(Property.GRID_COLUMN_START, cssModel.getGridColumnStart());
+        }
+
+        if (cssModel.getGridRow() != null) {
+            //   style.setProperty(Property.GRID_ROW, cssModel.getGridRow());
+        }
+
+        if (cssModel.getGridRowEnd() != null) {
+            //   style.setProperty(Property.GRID_ROW_END, cssModel.getGridRowEnd());
+        }
+
+        if (cssModel.getGridRowStart() != null) {
+            //    style.setProperty(Property.GRID_ROW_START, cssModel.getGridRowStart());
+        }
+
+        if (cssModel.getGridTemplate() != null) {
+            setGridTemplate(style, cssModel.getGridTemplate());
+        }
+
+        if (cssModel.getGridTemplateAreas() != null) {
+            //  style.setProperty(Property.GRID_TEMPLATE_AREAS, cssModel.getGridTemplateAreas());
+        }
+
+        if (cssModel.getGridTemplateColumns() != null) {
+            //    style.setProperty(Property.GRID_TEMPLATE_COLUMNS,
+            //           GridValue.createGridValue(cssModel.getGridTemplateColumns()));
+        }
+
+        if (cssModel.getGridTemplateRows() != null) {
+            //  style.setProperty(Property.GRID_TEMPLATE_ROWS,
+            //          GridValue.createGridValue(cssModel.getGridTemplateRows()));
+        }
+
+        return style;
+    }
+
+    private static void setGap(Style style, String gapValue) {
+        String[] parts = gapValue.split(" ");
+        if (parts.length == 1) {
+            UnitValue gap = parseUnitValue(parts[0]);
+//            style.setProperty(Property.ROW_GAP, gap);
+//            style.setProperty(Property.COLUMN_GAP, gap);
+        } else if (parts.length == 2) {
+            //  style.setProperty(Property.ROW_GAP, parseUnitValue(parts[0]));
+            //  style.setProperty(Property.COLUMN_GAP, parseUnitValue(parts[1]));
+        }
+    }
+
+    private static void setGrid(Style style, String gridValue) {
+        // This is a simplified implementation - iText doesn't have direct grid shorthand support
+        // You might need to parse the value into template rows/columns
+        String[] parts = gridValue.split("/");
+        if (parts.length == 2) {
+//            style.setProperty(Property.GRID_TEMPLATE_ROWS,
+//                    GridValue.createGridValue(parts[0].trim()));
+//            style.setProperty(Property.GRID_TEMPLATE_COLUMNS,
+//                    GridValue.createGridValue(parts[1].trim()));
+        }
+    }
+
+    private static void setGridTemplate(Style style, String templateValue) {
+        // Similar to grid shorthand
+        String[] parts = templateValue.split("/");
+        if (parts.length == 2) {
+//            style.setProperty(Property.GRID_TEMPLATE_ROWS,
+//                    GridValue.createGridValue(parts[0].trim()));
+//            style.setProperty(Property.GRID_TEMPLATE_COLUMNS,
+//                    GridValue.createGridValue(parts[1].trim()));
+        }
+    }
+
+
+}

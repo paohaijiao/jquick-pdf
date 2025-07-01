@@ -15,7 +15,6 @@
  */
 package com.github.paohaijiao.model.provider;
 
-import com.github.paohaijiao.model.css.JCSSPropertiesAModel;
 import com.github.paohaijiao.model.css.JCSSPropertiesBModel;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -24,14 +23,10 @@ import com.itextpdf.kernel.pdf.xobject.PdfXObject;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.BlockElement;
-import com.itextpdf.layout.properties.Background;
-import com.itextpdf.layout.properties.BorderRadius;
-import com.itextpdf.layout.properties.BoxSizingPropertyValue;
-import com.itextpdf.layout.properties.UnitValue;
 import com.itextpdf.layout.properties.BackgroundImage;
-import com.itextpdf.layout.properties.BackgroundRepeat;
 import com.itextpdf.layout.properties.BackgroundPosition;
-import com.itextpdf.layout.properties.BackgroundSize;
+import com.itextpdf.layout.properties.BorderRadius;
+import com.itextpdf.layout.properties.UnitValue;
 
 import java.net.MalformedURLException;
 
@@ -46,21 +41,21 @@ import java.net.MalformedURLException;
  */
 public class JCSSPropertiesBProvider extends JCSSPropertiesBaseProvider {
     public static void applyProperties(BlockElement<?> element, JCSSPropertiesBModel cssProperties) throws MalformedURLException {
-        Style style=new Style();
+        Style style = new Style();
         if (element == null || cssProperties == null) {
-            return ;
+            return;
         }
         if (cssProperties.getBackgroundColor() != null) {
             style.setBackgroundColor(parseColor(cssProperties.getBackgroundColor()));
         }
 
         if (cssProperties.getBackgroundImage() != null) {
-            PdfXObject pdfXObject=new PdfImageXObject(ImageDataFactory.create(cssProperties.getBackgroundImage()));
+            PdfXObject pdfXObject = new PdfImageXObject(ImageDataFactory.create(cssProperties.getBackgroundImage()));
             BackgroundImage backgroundImage = new BackgroundImage.Builder()
                     .setImage(pdfXObject)
-                 //   .setBackgroundRepeat(parseBackgroundRepeat(cssProperties.getBackgroundRepeat()))
+                    //   .setBackgroundRepeat(parseBackgroundRepeat(cssProperties.getBackgroundRepeat()))
                     .setBackgroundPosition(parseBackgroundPosition(cssProperties.getBackgroundPosition()))
-                  //  .setBackgroundSize(parseBackgroundSize(cssProperties.getBackgroundSize()))
+                    //  .setBackgroundSize(parseBackgroundSize(cssProperties.getBackgroundSize()))
                     .build();
             style.setBackgroundImage(backgroundImage);
         }
@@ -80,11 +75,12 @@ public class JCSSPropertiesBProvider extends JCSSPropertiesBaseProvider {
 //        applyBoxModelProperties(element, style);
 //        applyOtherProperties(element, style);
     }
+
     public static PdfImageXObject createPdfXObject(PdfDocument pdfDoc, String imagePath) throws MalformedURLException {
         return new PdfImageXObject(ImageDataFactory.create(imagePath));
     }
 
-    private static void applyBorderProperties(BlockElement<?> element,Style style, JCSSPropertiesBModel cssModel) {
+    private static void applyBorderProperties(BlockElement<?> element, Style style, JCSSPropertiesBModel cssModel) {
         if (cssModel.getBorder() != null) {
             Border border = parseBorder(cssModel.getBorder());
             style.setBorder(border);
@@ -110,21 +106,25 @@ public class JCSSPropertiesBProvider extends JCSSPropertiesBaseProvider {
 
         if (cssModel.getBorderTopLeftRadius() != null) {
             float radiusValue = Float.parseFloat(cssModel.getBorderTopLeftRadius());
-            style.setBorderTopLeftRadius(new BorderRadius(UnitValue.createPointValue(radiusValue)));        }
+            style.setBorderTopLeftRadius(new BorderRadius(UnitValue.createPointValue(radiusValue)));
+        }
         if (cssModel.getBorderTopRightRadius() != null) {
             float radiusValue = Float.parseFloat(cssModel.getBorderTopRightRadius());
-            style.setBorderTopRightRadius(new BorderRadius(UnitValue.createPointValue(radiusValue)));        }
+            style.setBorderTopRightRadius(new BorderRadius(UnitValue.createPointValue(radiusValue)));
+        }
         if (cssModel.getBorderBottomRightRadius() != null) {
             float radiusValue = Float.parseFloat(cssModel.getBorderBottomRightRadius());
-            style.setBorderBottomRightRadius(new BorderRadius(UnitValue.createPointValue(radiusValue)));        }
+            style.setBorderBottomRightRadius(new BorderRadius(UnitValue.createPointValue(radiusValue)));
+        }
         if (cssModel.getBorderBottomLeftRadius() != null) {
             float radiusValue = Float.parseFloat(cssModel.getBorderBottomLeftRadius());
-            style.setBorderBottomLeftRadius(new BorderRadius(UnitValue.createPointValue(radiusValue)));        }
+            style.setBorderBottomLeftRadius(new BorderRadius(UnitValue.createPointValue(radiusValue)));
+        }
     }
 
-    private static void applyBoxModelProperties(BlockElement<?> element,Style style, JCSSPropertiesBModel cssModel) {
+    private static void applyBoxModelProperties(BlockElement<?> element, Style style, JCSSPropertiesBModel cssModel) {
         if (cssModel.getBoxSizing() != null) {
-           // style.setBoxSizing(BoxSizingPropertyValue.valueOf(cssModel.getBoxSizing().toUpperCase()));
+            // style.setBoxSizing(BoxSizingPropertyValue.valueOf(cssModel.getBoxSizing().toUpperCase()));
         }
 
         if (cssModel.getBoxShadow() != null) {
@@ -136,7 +136,6 @@ public class JCSSPropertiesBProvider extends JCSSPropertiesBaseProvider {
     }
 
 
-
     private static BorderRadius parseBorderRadius(String borderRadiusValue) {
         // Implement parsing of border-radius property
         return new BorderRadius(UnitValue.createPointValue(0));
@@ -145,7 +144,7 @@ public class JCSSPropertiesBProvider extends JCSSPropertiesBaseProvider {
 
     private static BackgroundPosition parseBackgroundPosition(String positionValue) {
         return null;
-       // return new BackgroundPosition().setPositionX(50).setPositionY(50).setUnitX(BackgroundPosition.Unit.PERCENTAGE).setUnitY(BackgroundPosition.Unit.PERCENTAGE);
+        // return new BackgroundPosition().setPositionX(50).setPositionY(50).setUnitX(BackgroundPosition.Unit.PERCENTAGE).setUnitY(BackgroundPosition.Unit.PERCENTAGE);
     }
 
 //    private static BackgroundSize parseBackgroundSize(String sizeValue) {

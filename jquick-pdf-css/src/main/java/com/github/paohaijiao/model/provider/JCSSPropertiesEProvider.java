@@ -15,10 +15,8 @@
  */
 package com.github.paohaijiao.model.provider;
 
-import com.github.paohaijiao.model.css.JCSSPropertiesDModel;
 import com.github.paohaijiao.model.css.JCSSPropertiesEModel;
 import com.itextpdf.layout.Style;
-import com.itextpdf.layout.properties.Property;
 
 
 /**
@@ -35,6 +33,7 @@ public class JCSSPropertiesEProvider extends JCSSPropertiesBaseProvider {
 
     /**
      * Converts JCSSPropertiesEModel properties to iText Style
+     *
      * @param model the CSS properties model
      * @return iText Style object with configured properties
      */

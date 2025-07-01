@@ -17,7 +17,6 @@ package com.github.paohaijiao.model.provider;
 
 import com.github.paohaijiao.model.css.JCSSPropertiesCModel;
 import com.itextpdf.kernel.colors.Color;
-
 import com.itextpdf.layout.Style;
 
 
@@ -94,10 +93,6 @@ public class JCSSPropertiesCProvider extends JCSSPropertiesBaseProvider {
 
         }
     }
-
-
-
-
 
 
 }
