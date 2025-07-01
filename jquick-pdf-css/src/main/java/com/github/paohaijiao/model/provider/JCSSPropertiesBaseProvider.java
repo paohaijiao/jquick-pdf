@@ -18,8 +18,7 @@ package com.github.paohaijiao.model.provider;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.colors.DeviceRgb;
-import com.itextpdf.layout.borders.Border;
-import com.itextpdf.layout.borders.SolidBorder;
+import com.itextpdf.layout.borders.*;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.List;
@@ -44,6 +43,23 @@ public class JCSSPropertiesBaseProvider {
       protected static Border parseBorder(String borderValue) {
         Border solidBorder = new SolidBorder(ColorConstants.BLACK, 1f);
         return solidBorder;
+    }
+    private static Border createBorderByStyle(String style, Color color, float width) {
+        switch (style.toLowerCase()) {
+            case "dashed":
+                return new DashedBorder(color, width);
+            case "dotted":
+                return new DottedBorder(color, width);
+            case "double":
+                return new DoubleBorder(color, width);
+            case "groove":
+            case "ridge":
+            case "inset":
+            case "outset":
+                return new SolidBorder(color, width);
+            default:
+                return new SolidBorder(color, width);
+        }
     }
 
         protected static void addElement(BlockElement<?> container, IElement element) {
