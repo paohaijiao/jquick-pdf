@@ -35,8 +35,11 @@ public class JPdfConfig {
 
 
     private String title;
+
     private String author;
+
     private String subject;
+
     private String keywords;
 
 

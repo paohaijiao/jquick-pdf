@@ -87,7 +87,7 @@
             </dependency>
             <dependency>
                 <groupId>com.github.paohaijiao</groupId>
-                <artifactId>jquick-pdf-pdfx</artifactId>
+                <artifactId>jquick-pdfx</artifactId>
                 <version>${jquick.pdf.version}</version>
             </dependency>
 

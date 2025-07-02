@@ -13,27 +13,28 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.model.heading;
+package com.github.paohaijiao.css.e.model;
 
-import com.github.paohaijiao.model.JStyleAttributes;
-import lombok.Data;
+import com.github.paohaijiao.css.d.model.JCSSPropertiesDModel;
 
 /**
- * packageName com.paohaijiao.javelin.model.paragraph
+ * packageName com.github.paohaijiao.model.css
  *
  * @author Martin
  * @version 1.0.0
- * @className JParagraphModel
- * @date 2025/6/14
+ * @className CSSPropertiesBModel
+ * @date 2025/6/29
  * @description
  */
-@Data
-public class JHeadingModel {
+public class JCSSPropertiesEModel extends JCSSPropertiesDModel {
+    public static final String EMPTYCELLS = "empty-cells";
 
-    private String text;
+    public void setEmptycells(String emptycells) {
+        put(EMPTYCELLS, emptycells);
+    }
 
-    private Integer level;
-
-    private JStyleAttributes style;
+    public String getEmptycells() {
+        return get(EMPTYCELLS);
+    }
 
 }

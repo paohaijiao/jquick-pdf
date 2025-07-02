@@ -13,27 +13,36 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.model.heading;
+package com.github.paohaijiao.css.d.model;
 
-import com.github.paohaijiao.model.JStyleAttributes;
-import lombok.Data;
+import com.github.paohaijiao.css.c.model.JCSSPropertiesCModel;
 
 /**
- * packageName com.paohaijiao.javelin.model.paragraph
+ * packageName com.github.paohaijiao.model.css
  *
  * @author Martin
  * @version 1.0.0
- * @className JParagraphModel
- * @date 2025/6/14
+ * @className CSSPropertiesBModel
+ * @date 2025/6/29
  * @description
  */
-@Data
-public class JHeadingModel {
+public class JCSSPropertiesDModel extends JCSSPropertiesCModel {
+    public static final String DIRECTION = "direction";
+    public static final String DISPLAY = "display";
 
-    private String text;
+    public void setDirection(String direction) {
+        put(DIRECTION, direction);
+    }
 
-    private Integer level;
+    public String getDirection() {
+        return get(DIRECTION);
+    }
 
-    private JStyleAttributes style;
+    public void setDisplay(String display) {
+        put(DISPLAY, display);
+    }
 
+    public String getDisplay() {
+        return get(DISPLAY);
+    }
 }

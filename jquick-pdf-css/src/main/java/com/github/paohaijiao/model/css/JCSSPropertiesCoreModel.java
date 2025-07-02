@@ -13,27 +13,18 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.model.heading;
+package com.github.paohaijiao.model.css;
 
-import com.github.paohaijiao.model.JStyleAttributes;
-import lombok.Data;
+import com.github.paohaijiao.css.z.model.JCSSPropertiesZModel;
 
 /**
- * packageName com.paohaijiao.javelin.model.paragraph
+ * packageName com.github.paohaijiao.model.css
  *
  * @author Martin
  * @version 1.0.0
- * @className JParagraphModel
- * @date 2025/6/14
+ * @className CSSPropertiesBModel
+ * @date 2025/6/29
  * @description
  */
-@Data
-public class JHeadingModel {
-
-    private String text;
-
-    private Integer level;
-
-    private JStyleAttributes style;
-
+public class JCSSPropertiesCoreModel extends JCSSPropertiesZModel {
 }

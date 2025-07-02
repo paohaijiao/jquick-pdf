@@ -15,12 +15,18 @@
  */
 package com.github.paohaijiao.model.provider;
 
+import com.github.paohaijiao.exception.JAssert;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.kernel.pdf.xobject.PdfImageXObject;
+import com.itextpdf.kernel.pdf.xobject.PdfXObject;
 import com.itextpdf.layout.borders.*;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.UnitValue;
+
+import java.net.MalformedURLException;
 
 
 /**
@@ -33,6 +39,32 @@ import com.itextpdf.layout.properties.UnitValue;
  * @description
  */
 public class JCSSPropertiesBaseProvider {
+
+    protected static PdfXObject getPdfXObject(String imageUrl) {
+        try {
+            PdfXObject pdfXObject = new PdfImageXObject(ImageDataFactory.create(imageUrl));
+            return pdfXObject;
+        } catch (MalformedURLException e) {
+                e.printStackTrace();
+        }
+        return null;
+
+    }
+    protected static float parseFloatValue(String value) {
+        if (value == null || value.isEmpty()) return 0;
+        String numericPart = value.replaceAll("[^0-9.-]", "");
+        try {
+            return Float.parseFloat(numericPart);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+    protected static Float[] parseLocation(String value) {
+        return new Float[]{0f, 0F, 0f, 0f};
+    }
+    protected static Float stringToFloat(String value) {
+        return Float.parseFloat(value);
+    }
     protected static UnitValue parseUnitValue(String value) {
         if (value.endsWith("px")) {
             float pxValue = Float.parseFloat(value.substring(0, value.length() - 2));

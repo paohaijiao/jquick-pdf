@@ -15,7 +15,7 @@
  */
 package com.github.paohaijiao.model;
 
-import com.github.paohaijiao.model.css.JCSSPropertiesZModel;
+import com.github.paohaijiao.css.z.model.JCSSPropertiesZModel;
 
 /**
  * packageName com.github.paohaijiao.model
