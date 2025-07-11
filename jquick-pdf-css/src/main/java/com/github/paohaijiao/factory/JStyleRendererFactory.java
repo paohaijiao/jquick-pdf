@@ -16,10 +16,7 @@
 package com.github.paohaijiao.factory;
 
 import com.github.paohaijiao.render.JStyleRenderer;
-import com.github.paohaijiao.render.impl.JBlockRenderer;
-import com.github.paohaijiao.render.impl.JDefautRenderer;
-import com.github.paohaijiao.render.impl.JImageRenderer;
-import com.github.paohaijiao.render.impl.JTextRenderer;
+import com.github.paohaijiao.render.impl.*;
 import com.itextpdf.layout.element.*;
 
 import java.util.HashMap;
@@ -43,11 +40,12 @@ public class JStyleRendererFactory {
         renderers.put(Paragraph.class, new JBlockRenderer());
         renderers.put(Div.class, new JBlockRenderer());
         renderers.put(Image.class, new JImageRenderer());
-//        renderers.put(Link.class, new JLinkRenderer());
-//        renderers.put(List.class, new JListRenderer());
-//        renderers.put(ListItem.class, new JListItemRenderer());
-//        renderers.put(Table.class, new JTableRenderer());
-//        renderers.put(Cell.class, new JCellRenderer());
+        renderers.put(Link.class, new JLinkRenderer());
+        renderers.put(List.class, new JListRenderer());
+        renderers.put(ListItem.class, new JListItemRenderer());
+        renderers.put(Table.class, new JTableRenderer());
+        renderers.put(LineSeparator.class, new JLineSeperaterRenderer());
+        renderers.put(TabStop.class, new JTabTypeRenderer());
     }
 
     public static JStyleRenderer getRenderer(IElement element) {

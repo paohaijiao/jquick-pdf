@@ -79,7 +79,8 @@ public class JFontRenderer {
             ((BlockElement<?>) element).setBold();
         }
         if (styles.getFontSize() != null) {
-            ((BlockElement<?>) element).setFontSize(styles.getFontSize());
+            String fontSize=styles.getFontSize();
+            ((BlockElement<?>) element).setFontSize(Float.parseFloat(fontSize));
         }
         if (styles.getLetterSpacing() != null) {
             try {
@@ -93,16 +94,16 @@ public class JFontRenderer {
         if (styles.getLetterSpacing() != null) {
             ((BlockElement<?>) element).setCharacterSpacing(Float.parseFloat(styles.getLetterSpacing()));
         }
-        if (styles.getTextDecoration() != null) {
-            if ("underline".equalsIgnoreCase(styles.getTextDecoration())) {
-                ((BlockElement<?>) element).setUnderline();
-            } else if ("line-through".equalsIgnoreCase(styles.getTextDecoration())) {
-                ((BlockElement<?>) element).setLineThrough();
-            }
-        }
-        if (styles.getTextTransform() != null) {
-            setTransformedText(element, styles);
-        }
+//        if (styles.getTextDecoration() != null) {
+//            if ("underline".equalsIgnoreCase(styles.getTextDecoration())) {
+//                ((BlockElement<?>) element).setUnderline();
+//            } else if ("line-through".equalsIgnoreCase(styles.getTextDecoration())) {
+//                ((BlockElement<?>) element).setLineThrough();
+//            }
+//        }
+//        if (styles.getTextTransform() != null) {
+//            setTransformedText(element, styles);
+//        }
         if (styles.getColor() != null) {
             try {
                 com.itextpdf.kernel.colors.Color color = com.itextpdf.kernel.colors.Color.convertRgbToCmyk(
@@ -133,10 +134,10 @@ public class JFontRenderer {
                     break;
             }
         }
-        if (styles.getTextShadow() != null) {
-            // iText doesn't directly support text shadow, you might need to implement this with custom logic
-            // For example, by drawing the text multiple times with offsets
-        }
+//        if (styles.getTextShadow() != null) {
+//            // iText doesn't directly support text shadow, you might need to implement this with custom logic
+//            // For example, by drawing the text multiple times with offsets
+//        }
     }
 
     protected String transform(String text, String textTransform) {
@@ -162,8 +163,8 @@ public class JFontRenderer {
         if (element instanceof Text) {
             Text textEle = ((Text) element);
             String text = textEle.getText();
-            String transformedText = transform(text, styles.getTextTransform());
-            textEle.setText(transformedText);
+            //String transformedText = transform(text, styles.getTextTransform());
+         //   textEle.setText(transformedText);
         }
 //        else if (element instanceof Paragraph) {
 //            Paragraph p = (Paragraph) element;

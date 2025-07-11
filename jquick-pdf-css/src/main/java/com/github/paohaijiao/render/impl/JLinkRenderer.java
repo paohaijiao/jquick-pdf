@@ -17,7 +17,7 @@ package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Text;
+import com.itextpdf.layout.element.Link;
 import com.itextpdf.layout.properties.TextAlignment;
 
 /**
@@ -29,19 +29,19 @@ import com.itextpdf.layout.properties.TextAlignment;
  * @date 2025/6/27
  * @description
  */
-public class JTextRenderer extends JBaseRenderer {
+public class JLinkRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(IElement element, JStyleAttributes styles) {
         super.applyCommonStyles(element, styles);
-        Text text = (Text) element;
+        Link link = (Link) element;
         if (styles.getColor() != null) {
-            text.setFontColor(parseColor(styles.getColor()));
+            link.setFontColor(parseColor(styles.getColor()));
         }
 //        text.setFontSize(styles.getFontSize());
         if (styles.getTextAlign() != null) {
             TextAlignment alignment = TextAlignment.valueOf(
                     styles.getTextAlign().toUpperCase());
-            text.setTextAlignment(alignment);
+            link.setTextAlignment(alignment);
         }
     }
 }

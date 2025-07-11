@@ -48,5 +48,4 @@ public class JPdfXConfig {
     private String encoding = "UTF-8";
 
     private boolean compressed = true;
-    private boolean compressed = true;
 }

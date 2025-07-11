@@ -36,12 +36,12 @@ public class JImageRenderer extends JBaseRenderer {
         //    super.applyCommonStyles(element, styles);
         Image image = (Image) element;
         AccessibilityProperties accessibilityProperties = image.getAccessibilityProperties();
-        if (styles.getAlt() != null) {
-            accessibilityProperties.setAlternateDescription(styles.getAlt());
-        }
-        if (styles.getTitle() != null) {
-            accessibilityProperties.setActualText(styles.getTitle());
-        }
+//        if (styles.getAlt() != null) {
+//            accessibilityProperties.setAlternateDescription(styles.getAlt());
+//        }
+//        if (styles.getTitle() != null) {
+//            accessibilityProperties.setActualText(styles.getTitle());
+//        }
         if (styles.getWidth() != null) {
             image.setWidth(UnitValue.createPointValue(
                     Float.parseFloat(styles.getWidth().replace("px", ""))

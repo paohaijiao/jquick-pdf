@@ -45,11 +45,14 @@ import java.util.regex.Pattern;
  * @description
  */
 public class JCSSPropertiesBProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
+
     public static final String VISIBLE = "visible";
+
     public static final String HIDDEN = "hidden";
+
     public static final String INHERIT = "inherit";
     @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) throws MalformedURLException {
         Style style = new Style();
         if (cssProperties.getBackdropFilter() != null) {
             buildBackdropFilter(style,cssProperties);

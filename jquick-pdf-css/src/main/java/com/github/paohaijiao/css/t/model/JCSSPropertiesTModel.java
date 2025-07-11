@@ -30,6 +30,7 @@ public class JCSSPropertiesTModel extends JCSSPropertiesSModel {
     public static final String TAB_SIZE = "tab-size";
     public static final String TABLE_LAYOUT = "table-layout";
     public static final String TEXT_ALIGN = "text-align";
+    public static final String TABLE_ALIGN = "table-align";
     public static final String TEXT_ALIGN_LAST = "text-align-last";
     public static final String TEXT_DECORATION = "text-decoration";
     public static final String TEXT_DECORATION_COLOR = "text-decoration-color";
@@ -318,5 +319,13 @@ public class JCSSPropertiesTModel extends JCSSPropertiesSModel {
 
     private boolean isValidTimingFunction(String value) {
         return value.matches("^ease|ease-in|ease-out|ease-in-out|linear|step-start|step-end|steps\\(\\d+.*\\)|cubic-bezier\\(.*\\)$");
+    }
+
+    public String getTableAlignment() {
+        return get(TABLE_ALIGN);
+    }
+
+    public void setTableAlignment(String align) {
+        this.put(TABLE_ALIGN, align);
     }
 }

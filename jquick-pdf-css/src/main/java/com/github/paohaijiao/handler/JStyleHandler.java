@@ -51,7 +51,7 @@ public class JStyleHandler {
         styles.setColor("#333333");
         styles.setFontSize("16");
         styles.setPadding("10px");
-        styles.setTextAlign("center");
+       // styles.setTextAlign("center");
         JStyleHandler.applyStyles(paragraph, styles);
         Document document = new Document(pdf);
         document.add(paragraph);

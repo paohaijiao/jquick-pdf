@@ -17,31 +17,31 @@ package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.element.TabStop;
+import com.itextpdf.layout.properties.TabAlignment;
 
 /**
  * packageName com.github.paohaijiao.render.impl
  *
  * @author Martin
  * @version 1.0.0
- * @className JTextRenderer
+ * @className JBlockRenderer
  * @date 2025/6/27
  * @description
  */
-public class JTextRenderer extends JBaseRenderer {
+public class JLineSeperaterRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(IElement element, JStyleAttributes styles) {
         super.applyCommonStyles(element, styles);
-        Text text = (Text) element;
-        if (styles.getColor() != null) {
-            text.setFontColor(parseColor(styles.getColor()));
+        TabStop block = (TabStop) element;
+        if (styles.getTableAlignment() != null) {
+            TabAlignment alignment = TabAlignment.valueOf(
+                    styles.getTableAlignment().toUpperCase());
+            block.setTabAlignment(alignment);
         }
-//        text.setFontSize(styles.getFontSize());
-        if (styles.getTextAlign() != null) {
-            TextAlignment alignment = TextAlignment.valueOf(
-                    styles.getTextAlign().toUpperCase());
-            text.setTextAlignment(alignment);
-        }
+
+//        if ("none".equalsIgnoreCase(styles.get(styles.get("display")))) {
+//            block.setVisibility(Visibility.HIDDEN);
+//        }
     }
 }
