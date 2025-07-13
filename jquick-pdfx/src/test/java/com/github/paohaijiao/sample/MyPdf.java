@@ -75,13 +75,7 @@ public class MyPdf {
     protected Map<CatalogType, java.util.List<CataLog>> cataLogsMap = new LinkedHashMap<>();
     protected Properties properties = new Properties();
     protected Set<Integer> pageSet = new HashSet<>();
-    private static void generateDirectory(String outPath) {
-        String directory = outPath.substring(0, outPath.lastIndexOf("/"));
-        File file = new File(directory);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-    }
+
     private FontProvider getFontProvider(){
         FontProvider fontProvider = new FontProvider();
         try {
@@ -108,7 +102,6 @@ public class MyPdf {
         return fontProvider;
     }
     public  void initPdf(String outPath) {
-        this.generateDirectory(outPath);
         this.outPath = outPath;
         String inPath = outPath;
         if (part <= 0 || part > 20) {
@@ -122,10 +115,7 @@ public class MyPdf {
         pdf = new PdfDocument(writer);
         pdf.setDefaultPageSize(PageSize.A4);
         pdf.getDefaultPageSize().applyMargins(0, 0, 0, 0, true);
-
-        // Initialize font provider first
         FontProvider fontProvider = getFontProvider();
-
         doc = new Document(pdf);
         doc.setMargins(50, 60, 50, 60);
         doc.setFontProvider(fontProvider);
@@ -139,7 +129,6 @@ public class MyPdf {
     public static void main(String[] args) {
         MyPdf proxy = new MyPdf();
         String prefix = "d://test//";
-        String fileName = "report1.pdf";
         proxy.initPdf(prefix);
         proxy.addIndex();
         proxy.addHello();
@@ -159,7 +148,6 @@ public class MyPdf {
         introductionImage.setMargins(-50, -60, -60, -60);
         Image honorImage = new Image(ImageDataFactory.create(MyPdf.class.getClassLoader().getResource("image/qyzx.jpeg")));
         honorImage.setMargins(-50, -60, -60, -60);
-
         doc.add(indexImage);
         pdf.addNewPage(2).flush();
         doc.add(introductionImage);
@@ -184,12 +172,12 @@ public class MyPdf {
         p1.add(new Text("hellow").addStyle(large).setBorderBottom(new SolidBorder(0.5f)));
         p1.add(new Text("女士") + "：\n").addStyle(large);
         p1.add(new Text("您好！\n"));
-        p1.add(new Text("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0衷心感谢您对我们的信任，选择壹基因疾病遗传风险基因检测服务!\n" +
+        p1.add(new Text("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0衷心感谢您对我们的信任，选择疾病遗传风险基因检测服务!\n" +
                 "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0当您收到这份报告书的时候，我们已经根据您的需求，秉持科学、专业、严谨和保密的态度为您完成了本次基因检测，并根据您的个人特有基因检测结果进行了全面深入的分析。\n" +
                 "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0现代医学研究表明，所有疾病（除外伤）的发生均与基因有关，而易感基因与疾病的发生有着非常密切的关系，患病是基因（内因）与外部环境（外因）共同作用的结果。我们只有了解自身的基因奥秘、预测出疾病的发生风险，才能更好的利用现代医学手段，做到早预防、早诊断、早治疗，实现“上医治未病”的目的。\n" +
                 "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0本报告是通过对受检者提供的生物样本（一般为口腔黏膜细胞）进行基因检测，依据国际有关疾病易感基因的公开研究成果和数据，参考国际权威23andme，对检测结果进行分析，计算出受检者患某些疾病的风险指数。医学专家顾问团队依据患病风险等级给出针对性的饮食、运动、常规体检等方面的健康建议，旨在帮助受检者根据个人基因信息，科学合理地加强自身健康管理，预防疾病的发生。\n" +
                 "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0希望本次检测能为您带来舒适满意的体验，针对本次检测，如果您有任何疑问需要解答，敬请拨打我们的健康热线400-163-5588。我们恭候您的来电，并保证给予及时、专业、贴心的回复。\n" +
-                "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0壹基因衷心祝愿您身体健康、享受品质生活！"));
+                "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0衷心祝愿您身体健康、享受品质生活！"));
         div.add(p1);
 
 
@@ -200,7 +188,6 @@ public class MyPdf {
         doc.add(div);
     }
     public void addExaminee() {
-
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         Div div1 = new Div();
         Image iconImage27 = new Image(ImageDataFactory.create(MyPdf.class.getClassLoader().getResource("image/icon-27.png")));
@@ -209,7 +196,6 @@ public class MyPdf {
         p1.add(new Text("受检人信息").addStyle(ReportStyle.getTitleStyle()));
         div1.add(p1);
         doc.add(div1);
-
         Div div2 = new Div();
         div2.addStyle(ReportStyle.getDefaultTableOuter().setBorder(new SolidBorder(ReportColor.getThemeColor(), 0.7f)));
         Table table = new Table(3).useAllAvailableWidth();
@@ -436,33 +422,22 @@ public class MyPdf {
         java.util.List<GeneDesc> geneDesc =GeneDesc.getDatas();
         java.util.List<Content> contents = this.handlerContents(itemsBean);
         java.util.List<Literatures> literatures = Literatures.getData();
-
         HeaderTextEvent headerTextEvent = new HeaderTextEvent(title, font);
         pdf.addEventHandler(PdfDocumentEvent.START_PAGE, headerTextEvent);
-
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
-
-        // 获取当前目录
         CataLog cataLog = new CataLog(itemsBean.getIndex(), itemsBean.getName(), itemsBean.getName(), itemsBean.getLabel(), pdf.getNumberOfPages(), extraParam);
         java.util.List<CataLog> cataLogs = this.cataLogsMap.getOrDefault(extraParam.getType(), new ArrayList<>());
         cataLogs.add(cataLog);
         this.cataLogsMap.put(extraParam.getType(), cataLogs);
-
-        // 检测结果正文
         Paragraph p1 = new Paragraph();
-
         p1.add(new Text(itemsBean.getName() + "\n").addStyle(ReportStyle.getTitleStyle()));
         p1.add(ReportComponent.getSecondTitle("检测结果"));
         doc.add(p1);
-
         ReportPainting painting = new ReportPainting(pdf, font);
-
         String categoryCode = itemsBean.getCode();
         boolean gaoLevelFlag = "cjzl".equals(categoryCode) || "xhxt".equals(categoryCode) || "cs".equals(categoryCode) || "jsxl".equals(categoryCode) || "ln".equals(categoryCode) || "nfm".equals(categoryCode) || "xnxg".equals(categoryCode) || "zsmy".equals(categoryCode);
         if (gaoLevelFlag) {
-            // 头条，进度条
             painting.drawSegment(score);
-
             Div progressBlock = new Div();
             Paragraph level = new Paragraph();
             level.setWidth(200);
@@ -473,7 +448,6 @@ public class MyPdf {
             Style attentionStyle = new Style();
             attentionStyle.setBorderRadius(new BorderRadius(5));
             attentionStyle.setFontColor(ColorConstants.WHITE);
-
             Text level1 = new Text("低").addStyle(style);
             Text level2 = new Text("稍低").addStyle(style);
             Text level3 = new Text("正常").addStyle(style);
@@ -510,8 +484,6 @@ public class MyPdf {
             level.setHorizontalAlignment(HorizontalAlignment.CENTER);
             progressBlock.add(level);
             doc.add(progressBlock);
-
-            // 正文
             int index = 0;
             Paragraph p2 = new Paragraph();
             p2.setMarginTop(60);
@@ -565,19 +537,14 @@ public class MyPdf {
             checkDiv.add(p4);
             doc.add(checkDiv);
         }
-        // 维生素矿物质
         boolean wssFlag = "wss".equals(categoryCode) || "kwz".equals(categoryCode);
         if (wssFlag) {
             painting.drawWss(1, itemsBean);
         }
-
-        // 个性特质 天赋潜能 美容护肤 纤体瘦身
         boolean personFlag = "gxtz".equals(categoryCode) || "jfss".equals(categoryCode) || "mrhf".equals(categoryCode) || "jfss".equals(categoryCode) || "categoryCode".equals(itemsBean.getCode());
         if (personFlag) {
             this.addPersonalityTraits(itemsBean, categoryCode);
         }
-
-        // 基因位点信息
         Paragraph p2 = new Paragraph("基因位点信息").addStyle(ReportStyle.getSecondTitleStyle());
         if (wssFlag) {
             p2.setMarginTop(110);
@@ -597,8 +564,6 @@ public class MyPdf {
             geneLocusTable.addCell(ReportComponent.getTableCell().setPadding(padding).add(new Paragraph(geneDescBean.getLabel())));
         }
         doc.add(geneLocusTable);
-
-        // 简介，症状，健康建议，基因解读
         for (Content content : contents) {
             if (content.getLabel().contains("线上") || content.getLabel().contains("卡路里表") ||
                     content.getLabel().contains("减肥建议") || content.getLabel().contains("饮食护理") || content.getLabel().contains("外部护理")) {
@@ -642,8 +607,6 @@ public class MyPdf {
             doc.setFontFamily("simhei");
             doc.add(overall);
         }
-
-        // 文献
         int number = 1;
         Div literatureDiv = new Div();
         Paragraph titleParagraph = ReportComponent.getTitleParagraph(new Text("参考文献（部分）").addStyle(ReportStyle.getSecondTitleStyle()));
@@ -661,8 +624,6 @@ public class MyPdf {
             literatureDiv.add(segment);
         }
         doc.add(literatureDiv);
-
-        // 移除监听器
         pdf.removeEventHandler(PdfDocumentEvent.START_PAGE, headerTextEvent);
         painting.close();
     }
@@ -688,7 +649,6 @@ public class MyPdf {
     }
 
     private java.util.List<IElement> getFixContent(String content) {
-
         if (content.startsWith("<div>")) {
             content = content.replaceAll("<div>", "<div style='line-height:18pt;font-size:16px;'>");
         } else {
@@ -746,19 +706,17 @@ public class MyPdf {
 
     public void addThanks() {
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
-
         properties.setProperty(ReportConstant.FORBIDDE, pdf.getNumberOfPages() + "");
-
         Paragraph p1 = new Paragraph();
         p1.setHorizontalAlignment(HorizontalAlignment.CENTER);
         p1.setMaxWidth(UnitValue.createPercentValue(80));
         p1.setMarginTop(200f);
         p1.setCharacterSpacing(0.4f);
-        p1.add(new Text("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0再次感谢您选用壹基因提供的基因检测服务。\n" +
+        p1.add(new Text("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0再次感谢您选用提供的基因检测服务。\n" +
                 "\n" +
                 "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0疾病的发生受到先天和后天两个因素的共同影响，某疾病先天遗传风险低并不代表患病概率是零，如果后天生活习惯很差，生存环境不好，都会提升疾病的发生风险，促进疾病的最终发生；做基因检测的目的，不是去忽视低风险的疾病，而是要找出高风险疾病进行重点预防，采取措施进行针对性干预，以便阻断或者延缓疾病的发生。\n" +
                 "\n" +
-                "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0您可以通过我们提供的健康建议开展健康管理，对风险较高项目积极预防，如改变饮食习惯，定期进行针对性的临床体检等。若您携带某种疾病易感基因型，该基因型很可能也存在于您亲属的基因中并遗传给他们的后代。因此，壹基因建议您的亲属也针对这些高风险项目进行检测，以了解自身健康风险，及早采取干预措施，拥有健康品质生活。\n" +
+                "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0您可以通过我们提供的健康建议开展健康管理，对风险较高项目积极预防，如改变饮食习惯，定期进行针对性的临床体检等。若您携带某种疾病易感基因型，该基因型很可能也存在于您亲属的基因中并遗传给他们的后代。因此，建议您的亲属也针对这些高风险项目进行检测，以了解自身健康风险，及早采取干预措施，拥有健康品质生活。\n" +
                 "\n" +
                 "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0如果您对我们检测服务和体验有任何意见或建议，敬请拨打我们的健康热线400-163-5588，或者手机扫描下部二维码，联系您的专属健康顾问。"));
         doc.add(p1);
@@ -768,7 +726,6 @@ public class MyPdf {
         backImage.setFixedPosition(pageNum, 0, 0, UnitValue.createPercentValue(125));
         backImage.scale(1, 1.05f);
         doc.add(backImage);
-
         try {
             URL resource1 = MyPdf.class.getClassLoader().getResource("image/cjzl.png");
             Image csQrCodeImage = new Image(ImageDataFactory.create(resource1));
@@ -788,7 +745,6 @@ public class MyPdf {
     public void addBackCover() {
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
-
         Image backCoverImage = new Image(ImageDataFactory.create(MyPdf.class.getClassLoader().getResource("image/封底-02.png")));
         backCoverImage.setWidth(UnitValue.createPercentValue(100));
         backCoverImage.scale(1.3f, 1.3f);
@@ -803,12 +759,9 @@ public class MyPdf {
         pdf.addEventHandler(PdfDocumentEvent.END_PAGE, catalogMoveEvent);
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         int startNum = pdf.getNumberOfPages();
-
         Div div1 = getCataLogDiv(0);
         doc.add(div1);
         pdf.removeEventHandler(PdfDocumentEvent.END_PAGE, catalogMoveEvent);
-
-        // 改造目录
         int pageSize = catalogMoveEvent.getPageSize();
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         Div cataLogDiv = getCataLogDiv(pageSize);
