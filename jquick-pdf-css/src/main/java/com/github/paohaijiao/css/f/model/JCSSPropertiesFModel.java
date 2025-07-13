@@ -36,7 +36,7 @@ public class JCSSPropertiesFModel extends JCSSPropertiesEModel {
     public static final String FLEX_SHRINK = "flex-shrink";
     public static final String FLEX_WRAP = "flex-wrap";
     public static final String FLOAT = "float";
-    public static final String FONT = "font";
+    public static final String FONT = "fonts";
     public static final String FONT_FAMILY = "font-family";
     public static final String FONT_FEATURE_SETTINGS = "font-feature-settings";
     public static final String FONT_KERNING = "font-kerning";

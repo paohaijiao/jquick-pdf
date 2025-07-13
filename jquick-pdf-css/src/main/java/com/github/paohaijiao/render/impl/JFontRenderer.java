@@ -41,7 +41,7 @@ import java.io.IOException;
 public class JFontRenderer {
     protected PdfFont getFont(String fontFamily) {
         JFontProviderFactory factory = new JFontProviderFactory();
-        factory.registerResourceFont("font/simhei.ttf", JFontProviderFactory.DEFAULT_FONT);
+        factory.registerResourceFont("fonts/simhei.ttf", JFontProviderFactory.DEFAULT_FONT);
         try {
             JFontProvider fontProvider = factory.getFontProvider(fontFamily);
             PdfFont font = fontProvider.fontProvider();
