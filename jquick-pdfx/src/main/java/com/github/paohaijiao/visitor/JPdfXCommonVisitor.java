@@ -18,6 +18,7 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.sample.ReportPainting;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -148,6 +149,9 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                 }
             }
         }
+        ReportPainting painting = new ReportPainting(pdf, font);
+        painting.drawHello("image/纸质报告-03.png");
+        painting.close();
         return null;
     }
 

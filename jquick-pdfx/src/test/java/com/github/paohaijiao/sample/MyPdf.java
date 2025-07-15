@@ -181,9 +181,9 @@ public class MyPdf {
         div.add(p1);
 
 
-//        ReportPainting painting = new ReportPainting(pdf, font);
-//        painting.drawHello("image/纸质报告-03.png");
-//        painting.close();
+        ReportPainting painting = new ReportPainting(pdf, font);
+        painting.drawHello("image/纸质报告-03.png");
+        painting.close();
 
         doc.add(div);
     }
