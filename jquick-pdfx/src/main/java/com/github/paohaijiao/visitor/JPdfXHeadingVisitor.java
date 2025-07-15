@@ -33,8 +33,7 @@ import com.itextpdf.layout.element.Paragraph;
 public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
 
     @Override
-    public Void visitHeading(JQuickPDFParser.HeadingContext ctx) {
-        Document document = new Document(this.pdf);
+    public Paragraph visitHeading(JQuickPDFParser.HeadingContext ctx) {
         Integer number = 1;//default h1
         if (ctx.number() != null && !ctx.number().isEmpty()) {
             String numberTxt = ctx.number().get(0).getText();
@@ -54,9 +53,8 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         style.put(JStyleAttributes.FONT_SIZE, fontSize + "");
         Paragraph h1 = new Paragraph(value);
         super.buildStyle(h1, style);
-        document.add(h1);
-        document.close();
-        return null;
+//        doc.add(h1);
+        return h1;
     }
 
     private Integer getFontSize(String level) {

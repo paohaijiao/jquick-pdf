@@ -44,8 +44,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
     private static final String td = "td";
 
     @Override
-    public Void visitTable(JQuickPDFParser.TableContext ctx) {
-        Document document = new Document(pdf);
+    public Table visitTable(JQuickPDFParser.TableContext ctx) {
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
@@ -74,9 +73,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
             }
         }
         super.buildStyle(table, style);
-        document.add(table);
-        document.close();
-        return null;
+        return table;
     }
 
     @Override

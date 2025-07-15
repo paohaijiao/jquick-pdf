@@ -18,9 +18,18 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.html2pdf.ConverterProperties;
+import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.AreaBreak;
+import com.itextpdf.layout.element.IBlockElement;
+import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.font.FontProvider;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
@@ -34,25 +43,21 @@ import java.io.IOException;
  * @description
  */
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
+
     private String fileName = "d://test//DivBasedHeadings.pdf";
 
     public JPdfXCommonVisitor() throws FileNotFoundException {
         this.context = new JContext();
-        PdfWriter writer = new PdfWriter(fileName);
-        PdfDocument pdf = new PdfDocument(writer);
-        this.pdf = pdf;
+        initPdf(fileName);
     }
 
     public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
         this.context = context;
-        PdfWriter writer = new PdfWriter(fileName);
-        PdfDocument pdf = new PdfDocument(writer);
-        this.pdf = pdf;
+        initPdf(fileName);
     }
 
     public JPdfXCommonVisitor(String outputPath) throws IOException {
-        PdfDocument pdf = new PdfDocument(new PdfWriter(fileName));
-        this.pdf = pdf;
+        initPdf(fileName);
     }
 
     @Override
@@ -79,6 +84,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         if (null != ctx.body()) {
             visitBody(ctx.body());
         }
+        pdf.close();
         return null;
     }
 
@@ -123,9 +129,23 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     @Override
     public Void visitBody(JQuickPDFParser.BodyContext ctx) {
+        String text=ctx.getText();
         if (ctx.element() != null && !ctx.element().isEmpty()) {
-            for (JQuickPDFParser.ElementContext styleContext : ctx.element()) {
-                visitElement(styleContext);
+            for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
+                String elementTxt=elementContext.getText();
+                Object object=visitElement(elementContext);
+                if (object instanceof Image) {
+                    Image image=(Image)object;
+                    doc.add(image);
+                }
+                if (object instanceof IBlockElement) {
+                    IBlockElement blockElement=(IBlockElement)object;
+                    doc.add(blockElement);
+                }
+                if (object instanceof AreaBreak) {
+                    AreaBreak areaBreak=(AreaBreak)object;
+                    doc.add(areaBreak);
+                }
             }
         }
         return null;

@@ -56,7 +56,15 @@ public class JImageTest {
                 "  </style>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:200px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
+                "<image src=\"https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7\" style=\"width:2000px;height:300px\"></image>\n" +
                 "</body>\n" +
                 "</html>";
         System.out.println(input);

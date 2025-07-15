@@ -38,8 +38,7 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 
 
     @Override
-    public List visitList(JQuickPDFParser.ListContext ctx) {
-        Document document = new Document(pdf);
+    public Div visitList(JQuickPDFParser.ListContext ctx) {
         JListType listType = JListType.ol;
         if (null != ctx.listEle() && !ctx.listEle().isEmpty()) {
             listType = visitListEle(ctx.listEle().get(0));
@@ -57,11 +56,11 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
                 JListItemModel item = visitListItem(listItemContext);
                 String text = String.format("%s.%s", i + 1, item.getText());
                 Paragraph paragraph = new Paragraph(text);
-                super.buildStyle(paragraph, item.getStyle());
+              //  super.buildStyle(paragraph, item.getStyle());
                 ol.add(paragraph);
             }
             super.buildStyle(ol, style);
-            document.add(ol);
+            return ol;
         } else {
             Div ul = new Div();
             for (int i = 0; i < ctx.listItem().size(); i++) {
@@ -69,14 +68,12 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
                 JListItemModel item = visitListItem(listItemContext);
                 String text = String.format("• %s", item.getText());
                 Paragraph paragraph = new Paragraph(text);
-                super.buildStyle(paragraph, item.getStyle());
+             //   super.buildStyle(paragraph, item.getStyle());
                 ul.add(paragraph);
             }
-            super.buildStyle(ul, style);
-            document.add(ul);
+      //      super.buildStyle(ul, style);
+            return ul;
         }
-        document.close();
-        return null;
     }
 
     @Override

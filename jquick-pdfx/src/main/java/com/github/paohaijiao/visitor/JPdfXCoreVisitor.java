@@ -21,11 +21,23 @@ import com.github.paohaijiao.model.style.JStyleAlignModel;
 import com.github.paohaijiao.model.style.JStyleSpacingModel;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
+import com.itextpdf.html2pdf.ConverterProperties;
+import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.font.FontProvider;
+
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Properties;
+import java.util.Set;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -44,7 +56,11 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected PageSize currentPageSize = PageSize.A4;
     protected float[] currentMargins = new float[]{72, 72, 72, 72}; // default 1 inch margins // top, right, bottom, left
     protected JContext context = new JContext();
-
+    protected PdfFont font;
+    protected Document doc;
+    protected Properties properties = new Properties();
+    protected Set<Integer> pageSet = new HashSet<>();
+    protected ConverterProperties proper=new ConverterProperties();
     protected float convertToPoints(float value, String unit) {
         switch (unit) {
             case "px":
@@ -86,6 +102,55 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 
     protected void buildStyle(IElement ele, JStyleAttributes style) {
         JStyleHandler.applyStyles(ele, style);
+    }
+
+    protected FontProvider getFontProvider(){
+        FontProvider fontProvider = new FontProvider();
+        try {
+            // Load the font from resources
+            String fontPath = "fonts/simhei.ttf";
+            fontProvider.addFont(fontPath, PdfEncodings.IDENTITY_H);
+
+            // Also set the global font variable if not already set
+            if (font == null) {
+                font = PdfFontFactory.createFont(fontPath, PdfEncodings.IDENTITY_H);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Fallback to a standard font if Chinese font fails
+            try {
+                fontProvider.addFont("Helvetica");
+                if (font == null) {
+                    font = PdfFontFactory.createFont("Helvetica");
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return fontProvider;
+    }
+
+    protected void initPdf(String fileName)  {
+        try{
+            PdfWriter writer = new PdfWriter(fileName);
+            PdfDocument pdf = new PdfDocument(writer);
+            pdf = new PdfDocument(writer);
+            pdf.setDefaultPageSize(PageSize.A4);
+            pdf.getDefaultPageSize().applyMargins(0, 0, 0, 0, true);
+            FontProvider fontProvider = getFontProvider();
+            doc = new Document(pdf);
+            doc.setMargins(50, 60, 50, 60);
+            doc.setFontProvider(fontProvider);
+            doc.setFont(font);
+            doc.setFontSize(10.5f);
+            doc.setCharacterSpacing(0.1f);
+            proper = new ConverterProperties();
+            proper.setFontProvider(fontProvider);
+            this.pdf = pdf;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 }

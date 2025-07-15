@@ -149,13 +149,13 @@ public class MyPdf {
         Image honorImage = new Image(ImageDataFactory.create(MyPdf.class.getClassLoader().getResource("image/qyzx.jpeg")));
         honorImage.setMargins(-50, -60, -60, -60);
         doc.add(indexImage);
-        pdf.addNewPage(2).flush();
+        pdf.addNewPage(2).flush();//todo
         doc.add(introductionImage);
         doc.add(honorImage);
         return ;
     }
     public void addHello() {
-        doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+        doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));//todo
         Div div = new Div();
         div.setWidth(UnitValue.createPercentValue(100));
         div.setHeight(UnitValue.createPercentValue(100));
@@ -169,8 +169,8 @@ public class MyPdf {
         large.setFontSize(22);
         large.setFontColor(ReportColor.getThemeColor());
         p1.add(new Text("尊敬的 ").addStyle(large));
-        p1.add(new Text("hellow").addStyle(large).setBorderBottom(new SolidBorder(0.5f)));
-        p1.add(new Text("女士") + "：\n").addStyle(large);
+        p1.add(new Text("泡海椒").addStyle(large).setBorderBottom(new SolidBorder(0.5f)));
+        p1.add(new Text("先生") + "：\n").addStyle(large);
         p1.add(new Text("您好！\n"));
         p1.add(new Text("\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0衷心感谢您对我们的信任，选择疾病遗传风险基因检测服务!\n" +
                 "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0当您收到这份报告书的时候，我们已经根据您的需求，秉持科学、专业、严谨和保密的态度为您完成了本次基因检测，并根据您的个人特有基因检测结果进行了全面深入的分析。\n" +

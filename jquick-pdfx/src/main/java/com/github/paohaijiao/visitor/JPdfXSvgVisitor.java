@@ -18,6 +18,7 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.svg.converter.SvgConverter;
 
@@ -34,8 +35,7 @@ public class JPdfXSvgVisitor extends JPdfXImageVisitor {
 
 
     @Override
-    public Void visitSvg(JQuickPDFParser.SvgContext ctx) {
-        Document document = new Document(pdf);
+    public IElement visitSvg(JQuickPDFParser.SvgContext ctx) {
         String src = null;
         if (ctx.src() != null) {
             src = visitSrc(ctx.src());
@@ -54,9 +54,8 @@ public class JPdfXSvgVisitor extends JPdfXImageVisitor {
         float height = style.getHeight() == null ? 600f : Float.parseFloat(style.getHeight());
         Paragraph paragraph = new Paragraph(value == null ? "" : value);
         super.buildStyle(paragraph, style);
-        document.add(paragraph);
-        SvgConverter.drawOnDocument(src, document.getPdfDocument(), 1, width, height);
-        document.close();
+        doc.add(paragraph);
+        SvgConverter.drawOnDocument(src, doc.getPdfDocument(), 1, width, height);
         return null;
     }
 

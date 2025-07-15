@@ -60,10 +60,6 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
         return new BigDecimal(ctx.getText());
     }
 
-    @Override
-    public String visitColor(JQuickPDFParser.ColorContext ctx) {
-        return ctx.getText();
-    }
 
     @Override
     public Object visitValue(JQuickPDFParser.ValueContext ctx) {

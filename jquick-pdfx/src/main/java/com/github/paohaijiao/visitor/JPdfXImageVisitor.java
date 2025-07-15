@@ -42,7 +42,6 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
     @Override
     public Image visitImage(JQuickPDFParser.ImageContext ctx) {
         try {
-            Document document = new Document(pdf);
             String src = null;
             if (ctx.src() != null) {
                 src = visitSrc(ctx.src());
@@ -71,13 +70,13 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
             if (null != value) {
                 image.getAccessibilityProperties().setActualText(value);
             }
-            super.buildStyle(image, style);
-            document.add(image);
-            document.close();
+            image.setMargins(-50, -60, -60, -60);
+         //   super.buildStyle(image, style);
+//            doc.add(image);
+            return image;
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 

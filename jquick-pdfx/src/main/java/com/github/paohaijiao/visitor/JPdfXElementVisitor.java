@@ -16,7 +16,10 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.Paragraph;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -31,26 +34,26 @@ public class JPdfXElementVisitor extends JPdfXDivVisitor {
 
 
     @Override
-    public Void visitElement(JQuickPDFParser.ElementContext ctx) {
+    public Object visitElement(JQuickPDFParser.ElementContext ctx) {
+        String text=ctx.getText();
         if (ctx.paragraph() != null) {
-            visitParagraph(ctx.paragraph());
+            Paragraph paragraph= visitParagraph(ctx.paragraph());
+            return paragraph;
         } else if (ctx.heading() != null) {
-            visitHeading(ctx.heading());
+            return visitHeading(ctx.heading());
         } else if (ctx.list() != null) {
-            visitList(ctx.list());
+            return visitList(ctx.list());
         } else if (ctx.table() != null) {
-            visitTable(ctx.table());
+            return  visitTable(ctx.table());
         } else if (ctx.image() != null) {
-            visitImage(ctx.image());
+            return  visitImage(ctx.image());
         } else if (ctx.svg() != null) {
-            visitSvg(ctx.svg());
+            return visitSvg(ctx.svg());
         } else if (ctx.div() != null) {
-            visitDiv(ctx.div());
+            return   visitDiv(ctx.div());
         } else if (ctx.template() != null) {
-            visitTemplate(ctx.template());
+            return visitTemplate(ctx.template());
         }
-
-
         return null;
     }
 

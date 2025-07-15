@@ -18,8 +18,9 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Div;
-import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.HorizontalAlignment;
+import com.itextpdf.layout.properties.UnitValue;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -32,8 +33,7 @@ import com.itextpdf.layout.element.Paragraph;
  */
 public class JPdfXDivVisitor extends JPdfXSvgVisitor {
     @Override
-    public Void visitDiv(JQuickPDFParser.DivContext ctx) {
-        Document document = new Document(pdf);
+    public Div visitDiv(JQuickPDFParser.DivContext ctx) {
         Div div = new Div();
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
@@ -49,10 +49,30 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
                     .setBold();
             div.add(p);
         }
+        if (null != ctx.element()&& !ctx.element().isEmpty()) {
+            for (JQuickPDFParser.ElementContext styleContext : ctx.element()) {
+                Object object=visitElement(styleContext);
+                if (object instanceof Image) {
+                    Image image=(Image)object;
+                    div.add(image);
+                }
+                if (object instanceof IBlockElement) {
+                    IBlockElement blockElement=(IBlockElement)object;
+                    doc.add(blockElement);
+                }
+                if (object instanceof AreaBreak) {
+                    AreaBreak areaBreak=(AreaBreak)object;
+                    doc.add(areaBreak);
+                }
+            }
+
+        }
+        div.setWidth(UnitValue.createPercentValue(100));
+        div.setHeight(UnitValue.createPercentValue(100));
+        div.setHorizontalAlignment(HorizontalAlignment.CENTER);
         super.buildStyle(div, style);
-        document.add(div);
-        document.close();
-        return null;
+        //doc.add(div);
+        return div;
     }
 
 

@@ -22,7 +22,10 @@ import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Text;
+import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.properties.UnitValue;
 
 
 /**
@@ -34,23 +37,32 @@ import com.itextpdf.layout.properties.TextAlignment;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXParagraphVisitor extends JPdfXLayOutVisitor {
+public class JPdfXParagraphVisitor extends JPdfXSpanVisitor  {
     @Override
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
-        Document document = new Document(this.pdf);
-        String text = null;
+        String value = "";
         if (ctx.value() != null) {
-            text = ctx.value().getText();
+            value = ctx.value().getText();
+        }
+        Paragraph h1 = new Paragraph(value);
+        if (ctx.span() != null&&!ctx.span().isEmpty()) {
+            for (JQuickPDFParser.SpanContext spanContext : ctx.span()){
+                Text text= visitSpan(spanContext);
+                h1.add(text);
+            }
         }
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
         if (ctx.styleEle() != null) {
             jStyleAttributes = visitStyleEle(ctx.styleEle());
         }
-        Paragraph h1 = new Paragraph(text);
+
+        h1.setHorizontalAlignment(HorizontalAlignment.CENTER);
+        h1.setMaxWidth(UnitValue.createPercentValue(75));
+        h1.setMarginTop(180f);
+        h1.setCharacterSpacing(0.4f);
         super.buildStyle(h1, jStyleAttributes);
-        document.add(h1);
-        document.close();
-        return null;
+       // doc.add(h1);
+        return h1;
     }
 
 
