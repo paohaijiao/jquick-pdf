@@ -19,8 +19,11 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.paragraph.JParagraphModel;
 import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.sample.ReportStyle;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.properties.HorizontalAlignment;
@@ -51,11 +54,20 @@ public class JPdfXParagraphVisitor extends JPdfXSpanVisitor  {
                 h1.add(text);
             }
         }
+        if (ctx.image() != null&&!ctx.image().isEmpty()) {
+            for (JQuickPDFParser.ImageContext imageContext : ctx.image()){
+                Object image= visitImage(imageContext);
+                if(null!=image&&image instanceof Image){
+                    Image image1= (Image) image;
+                    h1.add(image1);
+                }
+
+            }
+        }
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
         if (ctx.styleEle() != null) {
             jStyleAttributes = visitStyleEle(ctx.styleEle());
         }
-
         h1.setHorizontalAlignment(HorizontalAlignment.CENTER);
         h1.setMaxWidth(UnitValue.createPercentValue(75));
         h1.setMarginTop(180f);

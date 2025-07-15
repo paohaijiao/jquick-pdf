@@ -29,6 +29,7 @@ import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.font.FontProvider;
+import com.itextpdf.layout.properties.AreaBreakType;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -5,20 +5,13 @@
       size: A4;
       margin: 0;
     }
-    body{
-      width: '210mm';
-      height: '297mm';
-      margin: 0;
-      padding: '10mm';
-      'box-sizing': 'border-box';
-    }
   </style>
 </head>
 <body>
 <image src="D:/pdf/image/征信中心.png" ></image>
 <image src="D:/pdf/image/信贷记录.jpg" ></image>
 <image src="D:/pdf/image/qyzx.jpeg" ></image>
-<div style="page-break-after:true">
+<div >
    <p>
     <span>尊敬的<br></span>
     <span>泡海椒</span>
@@ -36,11 +29,44 @@
       </span>
     </p>
 </div>
+<div style="page-break-after:true">
+</div>
 <div>
     <p>
-        <img src="D:/pdf/image/icon-27.png" style="height:18;width:15;marginBottom:-2;marginRight:2"></img>
+        <image src="D:/pdf/image/icon-27.png" style="height:18;width:15;marginBottom:-2;marginRight:2"></image>
         <span style="fontSize:20;bold:true;font-color:rgb(37, 98, 206)“>  受检人信息</span>
     </p>
+</div>
+<div>
+
+        <table>
+        <tr>
+            <th style="font-weight:bold">编号</th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>城市</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>张三</td>
+            <td>28</td>
+            <td>北京</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>李四</td>
+            <td>32</td>
+            <td>上海</td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>王五</td>
+            <td>25</td>
+            <td>广州</td>
+        </tr>
+    </table>
 
 </div>
 </body>
