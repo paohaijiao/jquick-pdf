@@ -16,6 +16,7 @@
 package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.properties.TextAlignment;
@@ -31,8 +32,8 @@ import com.itextpdf.layout.properties.TextAlignment;
  */
 public class JTableRenderer extends JBaseRenderer {
     @Override
-    public void applyStyles(IElement element, JStyleAttributes styles) {
-        super.applyCommonStyles(element, styles);
+    public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
+        super.applyCommonStyles(doc,element, styles);
         BlockElement<?> block = (BlockElement<?>) element;
         if (styles.getTextAlign() != null) {
             TextAlignment alignment = TextAlignment.valueOf(

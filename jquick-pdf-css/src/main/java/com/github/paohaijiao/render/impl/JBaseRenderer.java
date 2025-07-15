@@ -19,10 +19,13 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.render.JStyleRenderer;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.borders.SolidBorder;
+import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.properties.AreaBreakType;
 import com.itextpdf.layout.properties.UnitValue;
 
 /**
@@ -36,9 +39,9 @@ import com.itextpdf.layout.properties.UnitValue;
  */
 public abstract class JBaseRenderer extends JFontRenderer implements JStyleRenderer {
 
-    public abstract void applyStyles(IElement element, JStyleAttributes styles);
+    public abstract void applyStyles(Document doc, IElement element, JStyleAttributes styles);
 
-    protected void applyCommonStyles(IElement element, JStyleAttributes styles) {
+    protected void applyCommonStyles(Document doc,IElement element, JStyleAttributes styles) {
         super.applyFontStyles(element, styles);
         if (styles.getBackgroundColor() != null) {
             Color bgColor = parseColor(styles.getBackgroundColor());
@@ -57,6 +60,9 @@ public abstract class JBaseRenderer extends JFontRenderer implements JStyleRende
         if (styles.getPadding() != null) {
             float padding = Float.parseFloat(styles.getPadding().replace("px", ""));
             ((BlockElement<?>) element).setPadding(padding);
+        }
+        if (styles.getPageBreakAfter() != null) {
+            doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         }
 
 

@@ -36,26 +36,10 @@ import java.io.FileNotFoundException;
  * @description
  */
 public class JStyleHandler {
-    public static void applyStyles(IElement element, JStyleAttributes styles) {
-        if (element == null || styles == null) return;
+
+    public static void applyStyles(Document doc,IElement element, JStyleAttributes styles) {
+        if (doc==null||element == null || styles == null) return;
         JStyleRenderer renderer = JStyleRendererFactory.getRenderer(element);
-        renderer.applyStyles(element, styles);
-    }
-
-    public static void main(String[] args) throws FileNotFoundException {
-        PdfWriter writer = new PdfWriter("d://test//hello.pdf");
-        PdfDocument pdf = new PdfDocument(writer);
-        Paragraph paragraph = new Paragraph("Hello World");
-        JStyleAttributes styles = new JStyleAttributes();
-        styles.setBackgroundColor("#f0f0f0");
-        styles.setColor("#333333");
-        styles.setFontSize("16");
-        styles.setPadding("10px");
-       // styles.setTextAlign("center");
-        JStyleHandler.applyStyles(paragraph, styles);
-        Document document = new Document(pdf);
-        document.add(paragraph);
-        document.close();
-
+        renderer.applyStyles(doc,element, styles);
     }
 }

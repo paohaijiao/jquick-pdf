@@ -16,6 +16,7 @@
 package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.element.TabStop;
 import com.itextpdf.layout.properties.TabAlignment;
@@ -31,8 +32,8 @@ import com.itextpdf.layout.properties.TabAlignment;
  */
 public class JLineSeperaterRenderer extends JBaseRenderer {
     @Override
-    public void applyStyles(IElement element, JStyleAttributes styles) {
-        super.applyCommonStyles(element, styles);
+    public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
+        super.applyCommonStyles(doc,element, styles);
         TabStop block = (TabStop) element;
         if (styles.getTableAlignment() != null) {
             TabAlignment alignment = TabAlignment.valueOf(

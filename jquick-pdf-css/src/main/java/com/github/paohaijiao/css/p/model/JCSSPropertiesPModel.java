@@ -42,13 +42,10 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
     public static final String PADDING_RIGHT = "padding-right";
     public static final String PADDING_TOP = "padding-top";
 
-    // Page and print properties
     public static final String PAGE = "@page";
     public static final String PAGE_BREAK_AFTER = "page-break-after";
     public static final String PAGE_BREAK_BEFORE = "page-break-before";
     public static final String PAGE_BREAK_INSIDE = "page-break-inside";
-
-    // Visual and layout properties
     public static final String PAINT_ORDER = "paint-order";
     public static final String PERSPECTIVE = "perspective";
     public static final String PERSPECTIVE_ORIGIN = "perspective-origin";

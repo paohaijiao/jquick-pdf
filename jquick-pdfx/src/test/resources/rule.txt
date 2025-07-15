@@ -18,7 +18,7 @@
 <image src="D:/pdf/image/征信中心.png" ></image>
 <image src="D:/pdf/image/信贷记录.jpg" ></image>
 <image src="D:/pdf/image/qyzx.jpeg" ></image>
-<div>
+<div style="page-break-after:true">
    <p>
     <span>尊敬的<br></span>
     <span>泡海椒</span>
@@ -35,6 +35,13 @@
        <span>衷心祝愿您身体健康、享受品质生活！
       </span>
     </p>
+</div>
+<div>
+    <p>
+        <img src="D:/pdf/image/icon-27.png" style="height:18;width:15;marginBottom:-2;marginRight:2"></img>
+        <span style="fontSize:20;bold:true;font-color:rgb(37, 98, 206)“>  受检人信息</span>
+    </p>
+
 </div>
 </body>
 </html>

@@ -17,6 +17,7 @@ package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.kernel.pdf.tagutils.AccessibilityProperties;
+import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.properties.UnitValue;
@@ -32,7 +33,7 @@ import com.itextpdf.layout.properties.UnitValue;
  */
 public class JImageRenderer extends JBaseRenderer {
     @Override
-    public void applyStyles(IElement element, JStyleAttributes styles) {
+    public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
         //    super.applyCommonStyles(element, styles);
         Image image = (Image) element;
         AccessibilityProperties accessibilityProperties = image.getAccessibilityProperties();
