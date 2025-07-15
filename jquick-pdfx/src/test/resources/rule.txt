@@ -37,7 +37,7 @@
         <span style="fontSize:20;bold:true;font-color:rgb(37, 98, 206)">  受检人信息</span>
     </p>
 </div>
-<div style="page-break-after:true">
+<div style="page-break-after:true"></div>
 <div>
 
         <table>
