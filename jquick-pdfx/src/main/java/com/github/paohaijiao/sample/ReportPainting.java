@@ -20,11 +20,7 @@ import lombok.Data;
 import java.io.IOException;
 import java.net.URL;
 
-/**
- * @author: laoliangliang
- * @description:
- * @create: 2020/5/20 8:34
- **/
+
 @Data
 public class ReportPainting {
     private PdfCanvas pdfCanvas;
@@ -130,7 +126,6 @@ public class ReportPainting {
     }
 
     public void drawHello(String imagePath, float offset) {
-        System.out.println(imagePath);
         URL resource = ReportPainting.class.getClassLoader().getResource(imagePath);
         Image backImage = new Image(ImageDataFactory.create(resource));
         PdfPage page = pdf.getPage(pdf.getNumberOfPages());

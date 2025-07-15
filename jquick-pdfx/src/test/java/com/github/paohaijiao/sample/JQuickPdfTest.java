@@ -1,6 +1,9 @@
 package com.github.paohaijiao.sample;
 
+import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
+import com.github.paohaijiao.resouce.JReader;
+import com.github.paohaijiao.resouce.impl.JFileReader;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -11,19 +14,9 @@ public class JQuickPdfTest {
 
     @Test
     public void file() throws IOException {
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("rule.txt")) {
-            if (inputStream != null) {
-                // 读取输入流内容
-                byte[] bytes = inputStream.readAllBytes();
-                String content = new String(bytes, StandardCharsets.UTF_8);
-                JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
-                System.out.println(content);
-                executor.execute(content);
-            } else {
-                System.out.println("文件未找到");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        JReader fileReader = new JFileReader("rule.txt");
+        JAdaptor context = new JAdaptor(fileReader);
+        JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
+        executor.execute(context.getRuleContent());
     }
 }

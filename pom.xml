@@ -17,6 +17,8 @@
         <module>jquick-pdf-font</module>
     </modules>
     <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <jquick.pdf.version>1.2.0</jquick.pdf.version>
         <batik.version>1.12</batik.version>
         <itext.svg.version>7.2.5</itext.svg.version>
