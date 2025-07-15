@@ -34,9 +34,10 @@
 <div>
     <p>
         <image src="D:/pdf/image/icon-27.png" style="height:18;width:15;marginBottom:-2;marginRight:2"></image>
-        <span style="fontSize:20;bold:true;font-color:rgb(37, 98, 206)“>  受检人信息</span>
+        <span style="fontSize:20;bold:true;font-color:rgb(37, 98, 206)">  受检人信息</span>
     </p>
 </div>
+<div style="page-break-after:true">
 <div>
 
         <table>

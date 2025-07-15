@@ -20,10 +20,13 @@ import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.Style;
+import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.UnitValue;
+import com.itextpdf.layout.properties.VerticalAlignment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,29 +54,38 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        Table table = new Table(UnitValue.createPercentArray(4)).useAllAvailableWidth();
-        for (int i = 0; i < ctx.row().size(); i++) {
-            JQuickPDFParser.RowContext rowContext = ctx.row(i);
-            JRowModel item = visitRow(rowContext);
-            for (JColumnModel column : item.getColumnList()) {
-                if (column.getType().equals(th)) {
-                    Paragraph paragraph = new Paragraph(column.getText());
-                    super.buildStyle(paragraph, column.getStyle());
-                    Cell cell = new Cell().add(paragraph);
-                    super.buildStyle(cell, column.getStyle());
-                    table.addCell(cell);
-                } else {
-                    Paragraph paragraph = new Paragraph(column.getText());
-                    super.buildStyle(paragraph, column.getStyle());
-                    Cell cell = new Cell().add(paragraph);
-                    super.buildStyle(cell, column.getStyle());
-                    table.addCell(cell);
-                }
+        if(null!=ctx.row()&&!ctx.row().isEmpty()){
+            int colSize = ctx.row(0).col().size();
+            Table table = new Table(UnitValue.createPercentArray(colSize)).useAllAvailableWidth();
+            for (int i = 0; i < ctx.row().size(); i++) {
+                JQuickPDFParser.RowContext rowContext = ctx.row(i);
+                JRowModel item = visitRow(rowContext);
+                for (JColumnModel column : item.getColumnList()) {
+                    if (column.getType().equals(th)) {
+                        Paragraph paragraph = new Paragraph(column.getText());
+                        buildParagraphStyle(paragraph);
+                        super.buildStyle(paragraph, column.getStyle());
+                        Cell cell = new Cell().add(paragraph);
+                        buildStyle(cell);
+                        super.buildStyle(cell, column.getStyle());
+                        table.addCell(cell);
+                    } else {
+                        Paragraph paragraph = new Paragraph(column.getText());
+                        buildParagraphStyle(paragraph);
+                        super.buildStyle(paragraph, column.getStyle());
+                        Cell cell = new Cell().add(paragraph);
+                        buildStyle(cell);
+                        super.buildStyle(cell, column.getStyle());
+                        table.addCell(cell);
+                    }
 
+                }
             }
+            super.buildStyle(table, style);
+            return table;
         }
-        super.buildStyle(table, style);
-        return table;
+        return null;
+
     }
 
     @Override
@@ -143,6 +155,22 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         model.setType(th);
         return model;
     }
+
+    private Style buildStyle(Cell cell){
+        Style deFaultStyle = new Style();
+        deFaultStyle.setPadding(10);
+        deFaultStyle.setBorder(Border.NO_BORDER);
+        deFaultStyle.setVerticalAlignment(VerticalAlignment.MIDDLE);
+        cell.addStyle(deFaultStyle);
+        return deFaultStyle;
+    }
+    private Style buildParagraphStyle(Paragraph paragraph){
+        Style deFaultStyle = new Style();
+        deFaultStyle.setFontSize(11);
+        paragraph.addStyle(deFaultStyle);
+        return deFaultStyle;
+    }
+
 
 
 }
