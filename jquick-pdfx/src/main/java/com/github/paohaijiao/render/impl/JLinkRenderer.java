@@ -33,16 +33,6 @@ import com.itextpdf.layout.properties.TextAlignment;
 public class JLinkRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyCommonStyles(doc,element, styles);
-        Link link = (Link) element;
-        if (styles.getColor() != null) {
-          //  link.setFontColor(parseColor(styles.getColor()));
-        }
-//        text.setFontSize(styles.getFontSize());
-        if (styles.getTextAlign() != null) {
-//            TextAlignment alignment = TextAlignment.valueOf(
-//                    styles.getTextAlign().toUpperCase());
-//            link.setTextAlignment(alignment);
-        }
+        super.applyElementProperty(doc,element, styles);
     }
 }

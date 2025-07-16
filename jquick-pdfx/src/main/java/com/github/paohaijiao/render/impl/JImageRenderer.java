@@ -34,32 +34,6 @@ import com.itextpdf.layout.properties.UnitValue;
 public class JImageRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyCommonStyles(doc,element, styles);
-        Image image = (Image) element;
-        AccessibilityProperties accessibilityProperties = image.getAccessibilityProperties();
-//        if (styles.getAlt() != null) {
-//            accessibilityProperties.setAlternateDescription(styles.getAlt());
-//        }
-//        if (styles.getTitle() != null) {
-//            accessibilityProperties.setActualText(styles.getTitle());
-//        }
-        if (styles.getWidth() != null) {
-            image.setWidth(UnitValue.createPointValue(
-                    Float.parseFloat(styles.getWidth().replace("px", ""))
-            ));
-        }
-        if (styles.getHeight() != null) {
-            image.setHeight(UnitValue.createPointValue(
-                    Float.parseFloat(styles.getHeight().replace("px", ""))
-            ));
-        }
-        if (styles.get("opacity") != null) {
-            try {
-                float opacity = Float.parseFloat(styles.get("opacity"));
-                image.setOpacity(opacity);
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-            }
-        }
+        super.applyElementProperty(doc,element, styles);
     }
 }

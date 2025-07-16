@@ -33,16 +33,6 @@ import com.itextpdf.layout.properties.TextAlignment;
 public class JTabTypeRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyCommonStyles(doc,element, styles);
-        BlockElement<?> block = (BlockElement<?>) element;
-        if (styles.getTextAlign() != null) {
-            TextAlignment alignment = TextAlignment.valueOf(
-                    styles.getTextAlign().toUpperCase());
-            block.setTextAlignment(alignment);
-        }
-
-//        if ("none".equalsIgnoreCase(styles.get(styles.get("display")))) {
-//            block.setVisibility(Visibility.HIDDEN);
-//        }
+        super.applyBlockElement(doc,element, styles);
     }
 }

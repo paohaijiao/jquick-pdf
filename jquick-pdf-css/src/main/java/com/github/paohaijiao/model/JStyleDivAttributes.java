@@ -10,13 +10,18 @@ public class JStyleDivAttributes extends JStyleBlockAttributes {
 
 
 
-    public JStyleDivAttributes setFillArea(Boolean fillArea) {
+    public void setFillArea(String fillArea) {
         put(JStyleDivAttributes.fillArea, fillArea);
-        return this;
     }
 
-    public JStyleDivAttributes setFillAreaOnSplit(Boolean fillAreaOnSplit) {
+    public void setFillAreaOnSplit(String fillAreaOnSplit) {
         put(JStyleDivAttributes.fillAreaOnSplit, fillAreaOnSplit);
-        return this;
+    }
+
+    public String getFillArea() {
+        return get(JStyleDivAttributes.fillArea);
+    }
+    public String getFillAreaOnSplit() {
+        return get(JStyleDivAttributes.fillAreaOnSplit);
     }
 }

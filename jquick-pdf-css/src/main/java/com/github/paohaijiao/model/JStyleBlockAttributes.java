@@ -2,7 +2,7 @@ package com.github.paohaijiao.model;
 
 import java.util.HashMap;
 
-public class JStyleBlockAttributes  extends HashMap<String, String> {
+public class JStyleBlockAttributes  extends JStyleElementPropertyAttributes {
 
 
 

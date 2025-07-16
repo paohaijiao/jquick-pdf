@@ -15,21 +15,27 @@
  */
 package com.github.paohaijiao.render.impl;
 
-import com.github.paohaijiao.enums.JVerticalAlignment;
+import com.github.paohaijiao.enums.*;
+import com.github.paohaijiao.executor.JQuickPdfColorExecutor;
 import com.github.paohaijiao.executor.JQuickPdfUnitExecutor;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.JStyleBlockAttributes;
 import com.github.paohaijiao.model.JStyleDivAttributes;
+import com.github.paohaijiao.model.JStyleElementPropertyAttributes;
 import com.github.paohaijiao.render.JStyleRenderer;
 import com.github.paohaijiao.unit.JUnitConverter;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.properties.AreaBreakType;
 import com.itextpdf.layout.properties.UnitValue;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * packageName com.github.paohaijiao.render.impl
@@ -174,7 +180,150 @@ public abstract class JBaseRenderer implements JStyleRenderer {
             float f=JUnitConverter.toFloat(unitValue);
             block.setMaxWidth(f);
         }
+        this.applyElementProperty(doc, element, styles);
+    }
 
+    public void  applyElementProperty(Document doc, IElement element, JStyleAttributes styles){
+        JStyleElementPropertyAttributes elementPropertyAttributes = new JStyleElementPropertyAttributes();
+        elementPropertyAttributes.putAll(styles);
+        BlockElement<?> block = (BlockElement<?>) element;
+        if(null!=elementPropertyAttributes.getRelativePosition()){
+            block.setRelativePosition(0,0,0,0);
+        }
+        if(null!=elementPropertyAttributes.getFixedPosition()){
+            block.setFixedPosition(0,0,0,0);
+        }
+        if(null!=elementPropertyAttributes.getFont()){
+            //block.setFont(null);
+        }
+        if(null!=elementPropertyAttributes.getFontFamilyNames()){
+            String[] array=elementPropertyAttributes.getFontFamilyNames().split(",");
+            block.setFontFamily(Arrays.asList(array));
+        }
+        if(null!=elementPropertyAttributes.getFontColor()){
+            JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
+            Color color=executor.execute(elementPropertyAttributes.getFontColor());
+            block.setFontColor(color);
+        }
+        if(null!=elementPropertyAttributes.getOpacity()){
+            block.setOpacity(Float.parseFloat(elementPropertyAttributes.getOpacity()));
+        }
+        if(null!=elementPropertyAttributes.getFontSize()){
+            block.setFontSize(Float.parseFloat(elementPropertyAttributes.getFontSize()));
+        }
+        if(null!=elementPropertyAttributes.getTextAlignment()){
+            JTextAlignment jTextAlignme= JTextAlignment.codeOf(elementPropertyAttributes.getTextAlignment());
+            block.setTextAlignment(jTextAlignme.getType());
+        }
+        if(null!=elementPropertyAttributes.getCharacterSpacing()){
+            block.setCharacterSpacing(Float.parseFloat(elementPropertyAttributes.getCharacterSpacing()));
+        }
+        if(null!=elementPropertyAttributes.getWordSpacing()){
+            block.setWordSpacing(Float.parseFloat(elementPropertyAttributes.getWordSpacing()));
+        }
+        if(null!=elementPropertyAttributes.getWordSpacing()){
+            block.setWordSpacing(Float.parseFloat(elementPropertyAttributes.getWordSpacing()));
+        }
+        if(null!=elementPropertyAttributes.getFontKerning()){
+            JFontKerning fontKerning= JFontKerning.codeOf(elementPropertyAttributes.getFontKerning());
+            block.setFontKerning(fontKerning.getType());
+        }
+        if(null!=elementPropertyAttributes.getBackgroundColor()){
+            JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
+            Color color=executor.execute(elementPropertyAttributes.getBackgroundColor());
+            block.setBackgroundColor(color);
+        }
+        if(null!=elementPropertyAttributes.getBackgroundImage()){
+            //block.setBackgroundImage(null);
+        }
+        if(null!=elementPropertyAttributes.getBorder()){
+//            block.setBorder(Border.DASHED)
+        }
+
+        if(null!=elementPropertyAttributes.getBorderTop()){
+//            block.setBorderTop(Border.DASHED)
+        }
+        if(null!=elementPropertyAttributes.getBorderRight()){
+           // block.setBorderLeft()
+        }
+        if(null!=elementPropertyAttributes.getBorderLeft()){
+
+        }
+        if(null!=elementPropertyAttributes.getBorderBottom()){
+
+        }
+        if(null!=elementPropertyAttributes.getBorderRadius()){
+
+        }
+        if(null!=elementPropertyAttributes.getBorderBottomLeftRadius()){
+
+        }
+        if(null!=elementPropertyAttributes.getBorderBottomRightRadius()){
+
+        }
+        if(null!=elementPropertyAttributes.getBorderTopRightRadius()){
+
+        }
+        if(null!=elementPropertyAttributes.getBorderTopLeftRadius()){
+
+        }
+        if(null!=elementPropertyAttributes.getSplitCharacters()){
+         block.setCharacterSpacing(Float.parseFloat(elementPropertyAttributes.getSplitCharacters()));
+        }
+        if(null!=elementPropertyAttributes.getTextRenderingMode()){
+            block.setTextRenderingMode(Integer.parseInt(elementPropertyAttributes.getTextRenderingMode()));
+        }
+        if(null!=elementPropertyAttributes.getStrokeColor()){
+            JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
+            Color color=executor.execute(elementPropertyAttributes.getStrokeColor());
+            block.setStrokeColor(color);
+        }
+
+        if(null!=elementPropertyAttributes.getStrokeWidth()){
+            block.setStrokeWidth(Float.parseFloat(elementPropertyAttributes.getStrokeWidth()));
+        }
+        if(null!=elementPropertyAttributes.getBold()){
+            if(Boolean.parseBoolean(elementPropertyAttributes.getBold())){
+                block.setBold();
+            }
+        }
+        if(null!=elementPropertyAttributes.getItalic()){
+            if(Boolean.parseBoolean(elementPropertyAttributes.getItalic())){
+                block.setItalic();
+            }
+        }
+
+        if(null!=elementPropertyAttributes.getLineThrough()){
+            if(Boolean.parseBoolean(elementPropertyAttributes.getLineThrough())){
+                block.setLineThrough();
+            }
+        }
+        if(null!=elementPropertyAttributes.getUnderline()){
+            if(Boolean.parseBoolean(elementPropertyAttributes.getUnderline())){
+                block.setUnderline();
+            }
+        }
+        if(null!=elementPropertyAttributes.getBaseDirection()){
+            if(Boolean.parseBoolean(elementPropertyAttributes.getUnderline())){
+                JBaseDirection jBaseDirection= JBaseDirection.codeOf(elementPropertyAttributes.getBaseDirection());
+                if(null!=jBaseDirection){
+                    block.setBaseDirection(jBaseDirection.getType());
+                }
+            }
+        }
+        if(null!=elementPropertyAttributes.getHyphenation()){
+//            block.setHyphenation()
+        }
+        if(null!=elementPropertyAttributes.getFontScript()){
+            JUnicodeScript script=JUnicodeScript.codeOf(elementPropertyAttributes.getFontScript());
+            if(null!=script){
+                block.setFontScript(script.getType());
+            }
+
+        }
+        if(null!=elementPropertyAttributes.getDestination()){
+            block.setDestination(elementPropertyAttributes.getDestination());
+        }
     }
 
 

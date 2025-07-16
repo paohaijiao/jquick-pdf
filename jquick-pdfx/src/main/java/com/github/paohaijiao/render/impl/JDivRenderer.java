@@ -36,16 +36,16 @@ import com.itextpdf.layout.properties.TextAlignment;
 public class JDivRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
+        super.applyBlockElement(doc,element, styles);
         JStyleDivAttributes divStyles = new JStyleDivAttributes();
         divStyles.putAll(styles);
-        BlockElement<?> block = (BlockElement<?>) element;
-        if (styles.get() != null) {
-            TextAlignment alignment = TextAlignment.valueOf(
-                    styles.getTextAlign().toUpperCase());
-            block.setTextAlignment(alignment);
+        Div div = (Div) element;
+        if (divStyles.getFillArea() != null) {
+            div.setFillAvailableArea(Boolean.parseBoolean(divStyles.getFillArea()));
         }
-        Paragraph div = new Paragraph();
-        div.set
+        if (divStyles.getFillAreaOnSplit() != null) {
+            div.setFillAvailableAreaOnSplit(Boolean.parseBoolean(divStyles.getFillAreaOnSplit()));
+        }
     }
 
 
