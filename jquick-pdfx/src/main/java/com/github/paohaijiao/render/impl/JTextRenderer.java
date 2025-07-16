@@ -17,8 +17,8 @@ package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.properties.TextAlignment;
 
 /**
@@ -26,23 +26,23 @@ import com.itextpdf.layout.properties.TextAlignment;
  *
  * @author Martin
  * @version 1.0.0
- * @className JBlockRenderer
+ * @className JTextRenderer
  * @date 2025/6/27
  * @description
  */
-public class JBlockRenderer extends JBaseRenderer {
+public class JTextRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
         super.applyCommonStyles(doc,element, styles);
-        BlockElement<?> block = (BlockElement<?>) element;
+        Text text = (Text) element;
+        if (styles.getColor() != null) {
+          //  text.setFontColor(parseColor(styles.getColor()));
+        }
+//        text.setFontSize(styles.getFontSize());
         if (styles.getTextAlign() != null) {
             TextAlignment alignment = TextAlignment.valueOf(
                     styles.getTextAlign().toUpperCase());
-            block.setTextAlignment(alignment);
+            text.setTextAlignment(alignment);
         }
-
-//        if ("none".equalsIgnoreCase(styles.get(styles.get("display")))) {
-//            block.setVisibility(Visibility.HIDDEN);
-//        }
     }
 }

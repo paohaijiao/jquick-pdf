@@ -1,4 +1,4 @@
-// Generated from D:/idea/jthornruleGrammer/pdf/JQuickPDF.g4 by ANTLR 4.13.2
+// Generated from D:/my/jthornruleGrammer/pdf/JQuickPDF.g4 by ANTLR 4.13.2
 package com.github.paohaijiao.parser;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -387,4 +387,74 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVariable(JQuickPDFParser.VariableContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code hex}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterHex(JQuickPDFParser.HexContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code hex}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitHex(JQuickPDFParser.HexContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code rgb}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterRgb(JQuickPDFParser.RgbContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code rgb}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitRgb(JQuickPDFParser.RgbContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cmykNumber}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterCmykNumber(JQuickPDFParser.CmykNumberContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code cmykNumber}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitCmykNumber(JQuickPDFParser.CmykNumberContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code cmykPecent}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterCmykPecent(JQuickPDFParser.CmykPecentContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code cmykPecent}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitCmykPecent(JQuickPDFParser.CmykPecentContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code colorVal}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void enterColorVal(JQuickPDFParser.ColorValContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code colorVal}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 */
+	void exitColorVal(JQuickPDFParser.ColorValContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#colorValue}.
+	 * @param ctx the parse tree
+	 */
+	void enterColorValue(JQuickPDFParser.ColorValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#colorValue}.
+	 * @param ctx the parse tree
+	 */
+	void exitColorValue(JQuickPDFParser.ColorValueContext ctx);
 }

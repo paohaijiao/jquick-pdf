@@ -1,0 +1,185 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
+ */
+package com.github.paohaijiao.render.impl;
+
+import com.github.paohaijiao.enums.JVerticalAlignment;
+import com.github.paohaijiao.executor.JQuickPdfUnitExecutor;
+import com.github.paohaijiao.executor.JQuickPdfXExecutor;
+import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.model.JStyleBlockAttributes;
+import com.github.paohaijiao.model.JStyleDivAttributes;
+import com.github.paohaijiao.render.JStyleRenderer;
+import com.github.paohaijiao.unit.JUnitConverter;
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.AreaBreak;
+import com.itextpdf.layout.element.BlockElement;
+import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.properties.AreaBreakType;
+import com.itextpdf.layout.properties.UnitValue;
+
+/**
+ * packageName com.github.paohaijiao.render.impl
+ *
+ * @author Martin
+ * @version 1.0.0
+ * @className JBaseRenderer
+ * @date 2025/6/27
+ * @description
+ */
+public abstract class JBaseRenderer implements JStyleRenderer {
+
+    public abstract void applyStyles(Document doc, IElement element, JStyleAttributes styles);
+
+
+    public void  applyBlockElement(Document doc, IElement element, JStyleAttributes styles){
+        JStyleBlockAttributes divStyles = new JStyleBlockAttributes();
+        divStyles.putAll(styles);
+        BlockElement<?> block = (BlockElement<?>) element;
+        if(divStyles.getMarginLeft() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getMarginLeft());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMarginLeft(f);
+        }
+        if(divStyles.getMarginRight() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getMarginRight());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMarginRight(f);
+        }
+        if(divStyles.getMarginTop() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getMarginTop());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMarginTop(f);
+        }
+        if(divStyles.getMarginBottom() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getMarginBottom());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMarginBottom(f);
+        }
+        if(divStyles.getCommonMargin() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getCommonMargin());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMargin(f);
+        }
+        if(divStyles.getMargins() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getCommonMargin());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMargins(0,0,0,0);
+        }
+        if(divStyles.getPaddingLeft() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getPaddingLeft());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setPaddingLeft(f);
+        }
+
+        if(divStyles.getPaddingRight() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getPaddingRight());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setPaddingRight(f);
+        }
+        if(divStyles.getPaddingTop() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getPaddingTop());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setPaddingTop(f);
+        }
+        if(divStyles.getPaddingBottom() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getPaddingBottom());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setPaddingBottom(f);
+        }
+        if(divStyles.getCommonPadding() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getCommonPadding());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setPadding(f);
+        }
+        if(divStyles.getPaddings() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getPaddings());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setPaddings(0f,0,0,0);
+        }
+        if(divStyles.getVerticalAlignment() != null){
+            JVerticalAlignment verticalAlignment=JVerticalAlignment.codeOf(divStyles.getVerticalAlignment());
+            block.setVerticalAlignment(verticalAlignment.getType());
+        }
+        if(divStyles.getSpacingRatio() != null){
+            block.setSpacingRatio(Float.parseFloat(divStyles.getSpacingRatio()));
+        }
+        if(divStyles.getKeepTogether() != null){
+            block.setKeepTogether(Boolean.parseBoolean(divStyles.getKeepTogether()));
+        }
+        if(divStyles.getKeepWithNext() != null){
+            block.setKeepWithNext(Boolean.parseBoolean(divStyles.getKeepWithNext()));
+        }
+        if(divStyles.getAngleInRadians() != null){
+            block.setRotationAngle(Float.parseFloat(divStyles.getAngleInRadians()));
+        }
+        if(divStyles.getWidth() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getWidth());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setWidth(f);
+        }
+        if(divStyles.getHeight() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getHeight());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setHeight(f);
+        }
+        if(divStyles.getMaxHeight() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getMaxHeight());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMaxHeight(f);
+        }
+        if(divStyles.getMinHeight() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getMinHeight());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMinHeight(f);
+        }
+        if(divStyles.getMinWidth() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getMinWidth());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMinWidth(f);
+        }
+        if(divStyles.getMaxWidth() != null){
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            UnitValue unitValue= executor.execute(divStyles.getMaxWidth());
+            float f=JUnitConverter.toFloat(unitValue);
+            block.setMaxWidth(f);
+        }
+
+    }
+
+
+
+
+
+
+}

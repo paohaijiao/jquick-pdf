@@ -18,32 +18,32 @@ package com.github.paohaijiao.executor;
 import com.github.paohaijiao.antlr.impl.JAbstractAntlrExecutor;
 import com.github.paohaijiao.console.JConsole;
 import com.github.paohaijiao.exception.JAntlrExecutionException;
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
+import com.github.paohaijiao.visitor.JPdfXStyleVisitor;
+import com.itextpdf.layout.properties.UnitValue;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
 
-import java.io.FileNotFoundException;
-
-public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
+public class JQuickPdfUnitExecutor extends JAbstractAntlrExecutor<String, UnitValue> {
     private JContext context;
 
-    public JQuickPdfXExecutor() {
+    public JQuickPdfUnitExecutor() {
         this.context = new JContext();
     }
 
-    public JQuickPdfXExecutor(JContext context) {
+    public JQuickPdfUnitExecutor(JContext context) {
         this.context = context;
     }
 
     @Override
     protected Lexer createLexer(CharStream input) {
         JConsole console=new JConsole();
-        console.debug("evalue:\n"+input.toString());
+        console.debug("unit:\n"+input.toString());
         return new JQuickPDFLexer(input);
     }
 
@@ -53,16 +53,16 @@ public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
     }
 
     @Override
-    protected Object parse(Parser parser) throws JAntlrExecutionException {
+    protected UnitValue parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
-        JQuickPDFParser.DocumentContext tree = calcParser.document();
-        JPdfXCommonVisitor visitor = null;
+        JQuickPDFParser.UnitContext tree = calcParser.unit();
+        JPdfXStyleVisitor visitor = null;
         try {
-            visitor = new JPdfXCommonVisitor(context);
-        } catch (FileNotFoundException e) {
+            visitor = new JPdfXStyleVisitor();
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        Object response = visitor.visit(tree);
+        UnitValue response = visitor.visitUnit(tree);
         return response;
     }
 }

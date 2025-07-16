@@ -32,9 +32,44 @@ public class JUnitConverter {
 
     private static final float MM_PER_INCH = 25.4f;  // 1 inch = 25.4 mm
 
-    private static final float CM_PER_INCH = 2.54f;   // 1 inch = 2.54 cm
+    private static final float CM_PER_INCH = 2.54f;
+    // 1 inch = 2.54 cm
+    public static float toFloat(UnitValue unitValue) {
+        return toFloat(unitValue, "pt");
+    }
+    public static float toFloat(UnitValue unitValue, String targetUnit) {
+        if (unitValue == null) {
+            throw new IllegalArgumentException("UnitValue不能为空");
+        }
+        if (targetUnit == null || targetUnit.isEmpty()) {
+            throw new IllegalArgumentException("目标单位不能为空");
+        }
+        float ptValue;
+        if (unitValue.isPointValue()) {
+            ptValue = unitValue.getValue();
+        } else if (unitValue.isPercentValue()) {
+            throw new IllegalArgumentException("百分比单位不能直接转换为其他单位，需要参考基准值");
+        } else {
+            throw new IllegalArgumentException("不支持的UnitValue类型");
+        }
 
-
+        switch (targetUnit.toLowerCase()) {
+            case "px":
+                return ptToPx(ptValue);
+            case "pt":
+                return ptValue;
+            case "mm":
+                return ptToMm(ptValue);
+            case "cm":
+                return ptToCm(ptValue);
+            case "in":
+                return ptToInch(ptValue);
+            case "%":
+                throw new IllegalArgumentException("不能将绝对单位转换为百分比");
+            default:
+                throw new IllegalArgumentException("不支持的目标单位: " + targetUnit);
+        }
+    }
     public static UnitValue create(float value, String unit) {
         if (unit == null || unit.isEmpty()) {
             throw new IllegalArgumentException("单位不能为空");
@@ -60,16 +95,20 @@ public class JUnitConverter {
         return px * (PT_PER_INCH / PX_PER_INCH); // px * (72/96) = px * 0.75
     }
     public static float mmToPt(float mm) {
-        return inchToPt(mm / MM_PER_INCH); // 先转英寸再转点
+
+        return inchToPt(mm / MM_PER_INCH);
+
     }
     public static float cmToPt(float cm) {
-        return inchToPt(cm / CM_PER_INCH); // 先转英寸再转点
+
+        return inchToPt(cm / CM_PER_INCH);
     }
     public static float inchToPt(float inch) {
         return inch * PT_PER_INCH;
     }
     public static float ptToPx(float pt) {
-        return pt * (PX_PER_INCH / PT_PER_INCH); // pt * (96/72) = pt * 1.333...
+
+        return pt * (PX_PER_INCH / PT_PER_INCH);
     }
     public static float ptToMm(float pt) {
         return ptToInch(pt) * MM_PER_INCH;

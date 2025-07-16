@@ -70,5 +70,20 @@
     </table>
 
 </div>
+<div style="margin:30 0 20 0">
+    <p>
+        <image src="D:/pdf/image/icon-29.png" style="height:18;width:15;marginBottom:-2;marginRight:2"></image>
+        <span style="font-size:20;bold:true;font-color:rgb(37, 98, 206)">检测内容</span>
+    </p>
+    <p style="font-size:11">
+       检测套餐：<br>
+    </p>
+     <p>
+        检测方法：高通量基因分型技术：<br>
+     </p>
+     <p>
+        检测形式：对受检者基因组中与各项检测项目密切相关的基因信息进行DNA分型检测。<br>
+     </p>
+</div>
 </body>
 </html>

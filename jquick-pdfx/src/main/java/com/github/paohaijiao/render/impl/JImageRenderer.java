@@ -34,7 +34,7 @@ import com.itextpdf.layout.properties.UnitValue;
 public class JImageRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        //    super.applyCommonStyles(element, styles);
+        super.applyCommonStyles(doc,element, styles);
         Image image = (Image) element;
         AccessibilityProperties accessibilityProperties = image.getAccessibilityProperties();
 //        if (styles.getAlt() != null) {

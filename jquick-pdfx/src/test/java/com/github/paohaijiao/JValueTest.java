@@ -19,6 +19,7 @@ import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
+import com.itextpdf.kernel.colors.Color;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -81,49 +82,172 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println("pdf generate");
     }
-//
-//    @Test
-//    public void color() throws IOException {
-//        String input = "#1234";
-//        System.out.println(input);
-//        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-//        CommonTokenStream tokens = new CommonTokenStream(lexer);
-//        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-////        ParseTree tree = parser.color();
-//        JContext params = new JContext();
-//        params.put("key", "value");
-//        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-//        Object key = (Object) visitor.visit(tree);
-//        System.out.println("pdf generate");
-//    }
 
-//    @Test
-//    public void color2() throws IOException {
-//        String input = "red";
-//        System.out.println(input);
-//        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-//        CommonTokenStream tokens = new CommonTokenStream(lexer);
-//        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-//        ParseTree tree = parser.color();
-//        JContext params = new JContext();
-//        params.put("key", "value");
-//        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
-//        Object key = (Object) visitor.visit(tree);
-//        System.out.println(key);
-//    }
+    @Test
+    public void color() throws IOException {
+        String input = "#FF0000";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.color();
+        JContext params = new JContext();
+        params.put("key", "value");
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
 
-//    @Test
-//    public void color3() throws IOException {
-//        String input = "rgb(255,244,255)\n" +
-//                "\n";
-//        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
-//        CommonTokenStream tokens = new CommonTokenStream(lexer);
-//        JQuickPDFParser parser = new JQuickPDFParser(tokens);
-//        ParseTree tree = parser.color();
-//        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-//        Object key = (Object) visitor.visit(tree);
-//        System.out.println(key);
-//    }
+    @Test
+    public void color2() throws IOException {
+        String input = "red";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.color();
+        JContext params = new JContext();
+        params.put("key", "value");
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+
+    @Test
+    public void color3() throws IOException {
+        String input = "rgb(255,244,255)\n" +
+                "\n";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.color();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void color4() throws IOException {
+        String input = "cmyk(100,50,0,25)\n" +
+                "\n";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.color();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void colo5() throws IOException {
+        String input = "cmyk(100%,50%,0%,25%)\n" +
+                "\n";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.color();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void colo6() throws IOException {
+        String input = "red";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.color();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Color) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void defaulUnit() throws IOException {
+        String input = "2";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.unit();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void px() throws IOException {
+        String input = "2 px";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.unit();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void pt() throws IOException {
+        String input = "2 pt";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.unit();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void mm() throws IOException {
+        String input = "2 mm";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.unit();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void cm() throws IOException {
+        String input = "2 cm";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.unit();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void in() throws IOException {
+        String input = "2 in";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.unit();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void perce() throws IOException {
+        String input = "2 %";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.unit();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+    @Test
+    public void per () throws IOException {
+        String input = "2 in";
+        JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        JQuickPDFParser parser = new JQuickPDFParser(tokens);
+        ParseTree tree = parser.unit();
+        JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
+        Object key = (Object) visitor.visit(tree);
+        System.out.println(key);
+    }
+
+
 
     @Test
     public void string() throws IOException {

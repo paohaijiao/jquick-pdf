@@ -23,14 +23,13 @@ import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.io.font.PdfEncodings;
-import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.font.FontProvider;
 
@@ -61,63 +60,23 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected Properties properties = new Properties();
     protected Set<Integer> pageSet = new HashSet<>();
     protected ConverterProperties proper=new ConverterProperties();
-    protected float convertToPoints(float value, String unit) {
-        switch (unit) {
-            case "px":
-                return value * 72f / 96f;
-            case "pt":
-                return value;
-            case "mm":
-                return value * 72f / 25.4f;
-            case "cm":
-                return value * 72f / 2.54f;
-            case "in":
-                return value * 72f;
-            case "%":
-                return PageSize.A4.getWidth() * value / 100f;
-            default:
-                return value;
-        }
-    }
 
-    protected Color parseColor(String colorStr) {
-        if (colorStr.startsWith("#")) {
-            return new DeviceRgb(
-                    Integer.valueOf(colorStr.substring(1, 3), 16),
-                    Integer.valueOf(colorStr.substring(3, 5), 16),
-                    Integer.valueOf(colorStr.substring(5, 7), 16)
-            );
-        } else if (colorStr.startsWith("rgb(")) {
-            String[] parts = colorStr.substring(4, colorStr.length() - 1).split(",");
-            return new DeviceRgb(
-                    Integer.parseInt(parts[0].trim()),
-                    Integer.parseInt(parts[1].trim()),
-                    Integer.parseInt(parts[2].trim())
-            );
-        } else {
-            // Named colors
-            return new DeviceRgb(0, 0, 0); // default black
-        }
-    }
 
     protected void buildStyle(IElement ele, JStyleAttributes style) {
+        Div div = new Div();
         JStyleHandler.applyStyles(doc,ele, style);
     }
 
     protected FontProvider getFontProvider(){
         FontProvider fontProvider = new FontProvider();
         try {
-            // Load the font from resources
             String fontPath = "fonts/simhei.ttf";
             fontProvider.addFont(fontPath, PdfEncodings.IDENTITY_H);
-
-            // Also set the global font variable if not already set
             if (font == null) {
                 font = PdfFontFactory.createFont(fontPath, PdfEncodings.IDENTITY_H);
             }
         } catch (IOException e) {
             e.printStackTrace();
-            // Fallback to a standard font if Chinese font fails
             try {
                 fontProvider.addFont("Helvetica");
                 if (font == null) {

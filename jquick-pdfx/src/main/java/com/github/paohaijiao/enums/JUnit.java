@@ -10,7 +10,6 @@ public enum JUnit {
     cm("cm", "cm"),
     in("in", "in"),
     percent("%", "%");
-
     private String code;
     private String name;
 

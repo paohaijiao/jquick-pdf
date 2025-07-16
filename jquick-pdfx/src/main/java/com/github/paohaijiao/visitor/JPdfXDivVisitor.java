@@ -44,9 +44,9 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
         String value = null;
         if (null != ctx.value()) {
             value = visitValue(ctx.value()).toString();
-            Paragraph p = new Paragraph(value)
-                    .setFontSize(18)
-                    .setBold();
+            Paragraph p = new Paragraph(value);
+//                    .setFontSize(18)
+//                    .setBold();
             div.add(p);
         }
         if (null != ctx.element()&& !ctx.element().isEmpty()) {
@@ -67,9 +67,9 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
             }
 
         }
-        div.setWidth(UnitValue.createPercentValue(100));
-        div.setHeight(UnitValue.createPercentValue(100));
-        div.setHorizontalAlignment(HorizontalAlignment.CENTER);
+//        div.setWidth(UnitValue.createPercentValue(100));
+//        div.setHeight(UnitValue.createPercentValue(100));
+//        div.setHorizontalAlignment(HorizontalAlignment.CENTER);
         super.buildStyle(div, style);
         //doc.add(div);
         return div;

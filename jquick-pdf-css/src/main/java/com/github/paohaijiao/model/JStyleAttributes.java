@@ -15,7 +15,8 @@
  */
 package com.github.paohaijiao.model;
 
-import com.github.paohaijiao.css.z.model.JCSSPropertiesZModel;
+
+import java.util.HashMap;
 
 /**
  * packageName com.github.paohaijiao.model
@@ -26,6 +27,6 @@ import com.github.paohaijiao.css.z.model.JCSSPropertiesZModel;
  * @date 2025/6/22
  * @description
  */
-public class JStyleAttributes extends JCSSPropertiesZModel {
+public class JStyleAttributes extends HashMap<String, String> {
 
 }

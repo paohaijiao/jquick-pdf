@@ -37,8 +37,8 @@ public class JStyleRendererFactory {
 
     static {
         renderers.put(Text.class, new JTextRenderer());
-        renderers.put(Paragraph.class, new JBlockRenderer());
-        renderers.put(Div.class, new JBlockRenderer());
+        renderers.put(Paragraph.class, new JDivRenderer());
+        renderers.put(Div.class, new JDivRenderer());
         renderers.put(Image.class, new JImageRenderer());
         renderers.put(Link.class, new JLinkRenderer());
         renderers.put(List.class, new JListRenderer());

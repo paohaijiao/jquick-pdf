@@ -2,6 +2,8 @@ package com.github.paohaijiao.color;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceCmyk;
 import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import com.itextpdf.kernel.pdf.extgstate.PdfExtGState;
 import lombok.Getter;
 
 @Getter
@@ -74,10 +76,18 @@ public enum JColorEnums {
         return null;
     }
     public static Color colorOf(Integer red, Integer green, Integer blue) {
-        return  new DeviceRgb(255, 0, 255);
+        return  new DeviceRgb(red, green, blue);
     }
     public static Color colorOf(Float c, Float m,Float y,  Float k) {
         DeviceCmyk cmykColor = new DeviceCmyk(c, m, y, k);
+        return cmykColor;
+    }
+    public static Color colorOfPercent(Float c, Float m,Float y,  Float k) {
+        float c1 = c / 100f;
+        float m1 = m / 100f;
+        float y1 = y / 100f;
+        float k1 = k / 100f;
+        DeviceCmyk cmykColor = new DeviceCmyk(c1, m1, y1, k1);
         return cmykColor;
     }
     public static DeviceRgb convertHexToRgb(String hexColor) {

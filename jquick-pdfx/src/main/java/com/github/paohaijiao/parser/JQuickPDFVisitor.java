@@ -1,4 +1,4 @@
-// Generated from D:/idea/jthornruleGrammer/pdf/JQuickPDF.g4 by ANTLR 4.13.2
+// Generated from D:/my/jthornruleGrammer/pdf/JQuickPDF.g4 by ANTLR 4.13.2
 package com.github.paohaijiao.parser;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -238,4 +238,45 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitVariable(JQuickPDFParser.VariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code hex}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHex(JQuickPDFParser.HexContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code rgb}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRgb(JQuickPDFParser.RgbContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code cmykNumber}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCmykNumber(JQuickPDFParser.CmykNumberContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code cmykPecent}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCmykPecent(JQuickPDFParser.CmykPecentContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code colorVal}
+	 * labeled alternative in {@link JQuickPDFParser#color}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColorVal(JQuickPDFParser.ColorValContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#colorValue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColorValue(JQuickPDFParser.ColorValueContext ctx);
 }

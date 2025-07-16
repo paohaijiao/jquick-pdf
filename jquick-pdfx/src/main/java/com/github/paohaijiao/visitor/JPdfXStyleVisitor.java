@@ -15,14 +15,24 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.color.JColorEnums;
+import com.github.paohaijiao.enums.JUnit;
 import com.github.paohaijiao.exception.JAssert;
+import com.github.paohaijiao.executor.JQuickPdfStyleExecutor;
+import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.unit.JUnitConverter;
 import com.github.paohaijiao.util.JStringUtils;
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.DeviceRgb;
+import com.itextpdf.layout.properties.UnitValue;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
+
+import java.math.BigDecimal;
 
 
 /**
@@ -42,18 +52,9 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         } else if (null != ctx.STRING()) {
             String string = ctx.STRING().getText();
             String value = JStringUtils.trim(string);
-            JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(value));
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            JQuickPDFParser parser = new JQuickPDFParser(tokens);
-            ParseTree tree = parser.style();
-            try {
-                JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(this.context);
-                JStyleAttributes attributes = (JStyleAttributes) visitor.visit(tree);
-                return attributes;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            JQuickPdfStyleExecutor executor=new JQuickPdfStyleExecutor();
+            JStyleAttributes styleAttributes=executor.execute(value);
+            return styleAttributes;
         }
         return new JStyleAttributes();
     }
@@ -88,6 +89,81 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         }
         return data;
     }
+
+    @Override
+    public Color visitHex(JQuickPDFParser.HexContext ctx) {
+        if(null!=ctx){
+            String value=ctx.getText();
+            DeviceRgb  rgb=JColorEnums.convertHexToRgb(value);
+            return rgb;
+        }
+        JAssert.throwNewException("invalidate the color format ");
+        return null;
+    }
+    @Override
+    public Color visitRgb(JQuickPDFParser.RgbContext ctx) {
+         String text=ctx.RGB_COLOR().getText();
+        String[] numbers = text.replace("rgb(", "").replace(")", "").split(",");
+        int r = Integer.parseInt(numbers[0].trim());
+        int g = Integer.parseInt(numbers[1].trim());
+        int b = Integer.parseInt(numbers[2].trim());
+        Color  rgb=JColorEnums.colorOf(r,g,b);
+        return rgb;
+    }
+    @Override
+    public Color visitCmykPecent(JQuickPDFParser.CmykPecentContext ctx) {
+        if(null!=ctx&&null!=ctx.NUMBER()&&4==ctx.NUMBER().size()){
+            BigDecimal c=new BigDecimal(ctx.NUMBER(0).getText());
+            BigDecimal m=new BigDecimal(ctx.NUMBER(1).getText());
+            BigDecimal y=new BigDecimal(ctx.NUMBER(2).getText());
+            BigDecimal k=new BigDecimal(ctx.NUMBER(3).getText());
+            Color rgb=JColorEnums.colorOfPercent(c.floatValue(),m.floatValue(),y.floatValue(), k.floatValue());
+            return rgb;
+        }
+        JAssert.throwNewException("invalidate the color format ");
+        return null;
+    }
+    @Override
+    public Color visitCmykNumber(JQuickPDFParser.CmykNumberContext ctx) {
+        String text=ctx.CMYK_COLOR().getText();
+        String[] numbers = text.replace("cmyk(", "").replace(")", "").split(",");
+        Float c=Float.parseFloat(numbers[0].trim());
+        Float m=Float.parseFloat(numbers[1].trim());
+        Float y=Float.parseFloat(numbers[2].trim());
+        Float k=Float.parseFloat(numbers[3].trim());
+        Color rgb=JColorEnums.colorOf(c.floatValue(),m.floatValue(),y.floatValue(), k.floatValue());
+        return rgb;
+    }
+    @Override
+    public Color visitColorVal(JQuickPDFParser.ColorValContext ctx) {
+        if(null!=ctx&&null!=ctx.colorValue()){
+            String color=ctx.colorValue().getText();
+            Color rgb=JColorEnums.colorOf(color);
+            return rgb;
+        }
+        JAssert.throwNewException("invalidate the color format ");
+        return null;
+    }
+
+    @Override
+    public UnitValue visitUnit(JQuickPDFParser.UnitContext ctx) {
+        if(null==ctx.UNIT()){
+            BigDecimal bigDecimal= new BigDecimal(ctx.number().getText());
+            UnitValue unitValue= JUnitConverter.create(bigDecimal.floatValue(),JUnit.px.getCode());
+            return unitValue;
+        }
+        if(null!=ctx.number()&&null!=ctx.UNIT()){
+            String unit= ctx.UNIT().getText();
+            JUnit un=JUnit.codeOf(unit);
+            BigDecimal bigDecimal= new BigDecimal(ctx.number().getText());
+            UnitValue unitValue= JUnitConverter.create(bigDecimal.floatValue(),un.getCode());
+            return unitValue;
+        }
+        JAssert.throwNewException("invalidate the unit format ");
+        return null;
+    }
+
+
 
 
 }
