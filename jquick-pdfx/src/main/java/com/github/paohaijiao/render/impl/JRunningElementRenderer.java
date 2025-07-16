@@ -16,11 +16,10 @@
 package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.model.JStyleDivAttributes;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.LineSeparator;
-import com.itextpdf.layout.element.TabStop;
-import com.itextpdf.layout.properties.TabAlignment;
 
 /**
  * packageName com.github.paohaijiao.render.impl
@@ -31,9 +30,13 @@ import com.itextpdf.layout.properties.TabAlignment;
  * @date 2025/6/27
  * @description
  */
-public class JLineSeperaterRenderer extends JBaseRenderer {
+public class JRunningElementRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
         super.applyBlockElement(doc,element, styles);
     }
+
+
+
+
 }

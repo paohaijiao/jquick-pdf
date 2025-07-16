@@ -17,6 +17,12 @@ package com.github.paohaijiao.factory;
 
 import com.github.paohaijiao.render.JStyleRenderer;
 import com.github.paohaijiao.render.impl.*;
+import com.itextpdf.html2pdf.attach.impl.layout.HtmlPageBreak;
+import com.itextpdf.html2pdf.attach.impl.layout.PageCountElement;
+import com.itextpdf.html2pdf.attach.impl.layout.PageTargetCountElement;
+import com.itextpdf.html2pdf.attach.impl.layout.RunningElement;
+import com.itextpdf.html2pdf.attach.impl.layout.form.element.*;
+import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.element.*;
 
 import java.util.HashMap;
@@ -36,15 +42,34 @@ public class JStyleRendererFactory {
     private static final Map<Class<?>, JStyleRenderer> renderers = new HashMap<>();
 
     static {
-        renderers.put(Text.class, new JTextRenderer());
-        renderers.put(Paragraph.class, new JDivRenderer());
-        renderers.put(Div.class, new JDivRenderer());
-        renderers.put(Image.class, new JImageRenderer());
+        renderers.put(AreaBreak.class, new JAreaBreakRender());
+        renderers.put(Button.class, new JButtonRender());
+        renderers.put(Cell.class, new JCellRender());
+        renderers.put(CheckBox.class, new JCheckBoxRender());
+        renderers.put(ComboBoxField.class, new JCombolBoxRender());
+        renderers.put(FormField.class, new JFormRender());
+        renderers.put(HtmlPageBreak.class, new JHtmlPageBreakRender());
+        renderers.put(InputButton.class, new JInputButtonRender());
+        renderers.put(InputField.class, new JInputFieldRender());
+        renderers.put(LineSeparator.class, new JLineSeperaterRenderer());
         renderers.put(Link.class, new JLinkRenderer());
         renderers.put(List.class, new JListRenderer());
+        renderers.put(ListBoxField.class, new JListBoxFieldRender());
         renderers.put(ListItem.class, new JListItemRenderer());
+        renderers.put(PageCountElement.class, new JPageCountElementRender());
+        renderers.put(PageTargetCountElement.class, new JPageTargetCountRender());
+        renderers.put(Paragraph.class, new JParagraphRenderer());
+        renderers.put(Radio.class, new JRadioRender());
+        //renderers.put(FlexContainer.class, new JTextRenderer());
+        renderers.put(Text.class, new JTextRenderer());
+        renderers.put(RunningElement.class, new JRunningElementRenderer());
+        renderers.put(Tab.class, new JTabRender());
+        renderers.put(TextArea.class, new JTextAreaRender());
+
+        renderers.put(Div.class, new JDivRenderer());
+        renderers.put(Image.class, new JImageRenderer());
         renderers.put(Table.class, new JTableRenderer());
-        renderers.put(LineSeparator.class, new JLineSeperaterRenderer());
+        renderers.put(Canvas.class, new JConvasRender());
         renderers.put(TabStop.class, new JTabTypeRenderer());
     }
 
