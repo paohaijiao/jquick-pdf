@@ -23,6 +23,7 @@ import com.github.paohaijiao.sample.ReportColor;
 import com.github.paohaijiao.unit.JUnitConverter;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.ElementPropertyContainer;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.AreaBreak;
@@ -183,7 +184,7 @@ public abstract class JBaseRenderer implements JStyleRenderer {
     public void  applyElementProperty(Document doc, IElement element, JStyleAttributes styles){
         JStyleElementPropertyAttributes elementPropertyAttributes = new JStyleElementPropertyAttributes();
         elementPropertyAttributes.putAll(styles);
-        BlockElement<?> block = (BlockElement<?>) element;
+        ElementPropertyContainer<?> block = (ElementPropertyContainer<?>) element;
         if(null!=elementPropertyAttributes.getRelativePosition()){
             JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
             JMarginModel marginModel= executor.execute(elementPropertyAttributes.getRelativePosition());

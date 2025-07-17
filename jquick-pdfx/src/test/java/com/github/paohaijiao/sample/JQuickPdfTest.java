@@ -5,6 +5,7 @@ import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JFileReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
+import com.itextpdf.layout.element.Image;
 import org.junit.Test;
 
 import java.io.IOException;

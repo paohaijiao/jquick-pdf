@@ -68,10 +68,6 @@ public class JPdfXParagraphVisitor extends JPdfXSpanVisitor  {
         if (ctx.styleEle() != null) {
             jStyleAttributes = visitStyleEle(ctx.styleEle());
         }
-        h1.setHorizontalAlignment(HorizontalAlignment.CENTER);
-        h1.setMaxWidth(UnitValue.createPercentValue(75));
-        h1.setMarginTop(180f);
-        h1.setCharacterSpacing(0.4f);
         super.buildStyle(h1, jStyleAttributes);
        // doc.add(h1);
         return h1;

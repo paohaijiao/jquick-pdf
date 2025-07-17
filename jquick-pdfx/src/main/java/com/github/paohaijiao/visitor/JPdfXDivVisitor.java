@@ -65,7 +65,7 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
             }
 
         }
-        super.buildStyle(div, style);
+      //  super.buildStyle(div, style);
         return div;
     }
 
