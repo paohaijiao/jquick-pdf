@@ -18,22 +18,25 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.sample.ReportPainting;
+import com.github.paohaijiao.sample.*;
+import com.github.paohaijiao.sample.event.CatalogMoveEvent;
 import com.itextpdf.html2pdf.ConverterProperties;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.AreaBreak;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.font.FontProvider;
 import com.itextpdf.layout.properties.AreaBreakType;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.*;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -155,6 +158,82 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 //        painting.close();
         return null;
     }
+    public void addCatalog() {
+        CatalogMoveEvent catalogMoveEvent = new CatalogMoveEvent(properties);
+        pdf.addEventHandler(PdfDocumentEvent.END_PAGE, catalogMoveEvent);
+        doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+        int startNum = pdf.getNumberOfPages();
+        Div div1 = getCataLogDiv(0);
+        doc.add(div1);
+        pdf.removeEventHandler(PdfDocumentEvent.END_PAGE, catalogMoveEvent);
+        int pageSize = catalogMoveEvent.getPageSize();
+        doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
+        Div cataLogDiv = getCataLogDiv(pageSize);
+        doc.add(cataLogDiv);
 
+        for (int i = startNum; i < startNum + pageSize; i++) {
+            pdf.removePage(startNum);
+        }
+        return ;
+    }
+    private Div getCataLogDiv(int offPage) {
+        Div div1 = new Div();
+        Table tableCatalog = new Table(4).useAllAvailableWidth();
+        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("检测结果概况").addStyle(ReportStyle.getSecondTitleStyle())));
+        tableCatalog.addCell(ReportComponent.getCatelogCell(2).add(ReportComponent.getCatelogDottedLine(1)));
+        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("8")));
+        tableCatalog.startNewRow();
+        Paragraph p1 = new Paragraph();
+        p1.add(new Text("目录").addStyle(ReportStyle.getTitleStyle()).setFontSize(32));
+        java.util.List<CataLog> cataLogs = cataLogsMap.getOrDefault(CatalogType.ATTENTION, new LinkedList<>());
+        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("需要注意").addStyle(ReportStyle.getSecondTitleStyle())));
+        tableCatalog.startNewRow();
+        this.addCatalogDetail(offPage, tableCatalog, cataLogs);
 
+        cataLogs = cataLogsMap.getOrDefault(CatalogType.NORMAL, new LinkedList<>());
+        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("正常项目").addStyle(ReportStyle.getSecondTitleStyle())));
+        tableCatalog.startNewRow();
+        Map<String, List<CataLog>> cataLogMap = cataLogs.stream().collect(Collectors.groupingBy(CataLog::getCategoryName, LinkedHashMap::new, Collectors.toList()));
+        Set<Map.Entry<String, List<CataLog>>> entries1 = cataLogMap.entrySet();
+        for (Map.Entry<String, java.util.List<CataLog>> cataLogEntry : entries1) {
+            String categoryName = cataLogEntry.getKey();
+            tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph(categoryName).addStyle(ReportStyle.getSecondTitleStyle().setFontSize(13))));
+            tableCatalog.startNewRow();
+            java.util.List<CataLog> values = cataLogEntry.getValue();
+            this.addCatalogDetail(offPage, tableCatalog, values);
+        }
+        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("结束语").addStyle(ReportStyle.getSecondTitleStyle())));
+        div1.add(p1);
+        div1.add(tableCatalog);
+        return div1;
+    }
+    private void addCatalogDetail(int offPage, Table tableCatalog, java.util.List<CataLog> values) {
+        for (CataLog cataLog : values) {
+            tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph(cataLog.getName())));
+            tableCatalog.addCell(ReportComponent.getCatelogCell().add(ReportComponent.getCatelogDottedLine(2)));
+            System.out.println(selectColor(cataLog));
+            tableCatalog.addCell(ReportComponent.getCatelogCell().add(new com.itextpdf.layout.element.List().add(new ListItem(cataLog.getLabel())
+                    .setListSymbol(new Image(ImageDataFactory.create(JPdfXCommonVisitor.class.getClassLoader().getResource("image/dark-green-point.png")))
+                            .addStyle(ReportStyle.getDefaultPoint())))));
+            tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph((cataLog.getPageNumber() + offPage) + "")));
+            tableCatalog.startNewRow();
+        }
+    }
+    private String selectColor(CataLog cataLog) {
+        switch (cataLog.getIndex()) {
+            case 0:
+                return "green";
+            case 1:
+                return "dark-green";
+            case 2:
+                return "blue";
+            case 3:
+                return "orange";
+            case 4:
+                return "red";
+            default:
+                break;
+        }
+        return "blue";
+    }
 }

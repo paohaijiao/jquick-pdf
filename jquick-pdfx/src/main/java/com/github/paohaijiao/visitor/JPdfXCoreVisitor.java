@@ -21,6 +21,8 @@ import com.github.paohaijiao.model.style.JStyleAlignModel;
 import com.github.paohaijiao.model.style.JStyleSpacingModel;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
+import com.github.paohaijiao.sample.CataLog;
+import com.github.paohaijiao.sample.CatalogType;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.kernel.font.PdfFont;
@@ -52,6 +54,8 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected JStyleAlignModel align = new JStyleAlignModel();
     protected JStyleSpacingModel spacingModel = new JStyleSpacingModel();
     //protected Map<String, Template> templates = new HashMap<>();
+    protected Map<CatalogType, java.util.List<CataLog>> cataLogsMap = new LinkedHashMap<>();
+
     protected PageSize currentPageSize = PageSize.A4;
     protected float[] currentMargins = new float[]{72, 72, 72, 72}; // default 1 inch margins // top, right, bottom, left
     protected JContext context = new JContext();

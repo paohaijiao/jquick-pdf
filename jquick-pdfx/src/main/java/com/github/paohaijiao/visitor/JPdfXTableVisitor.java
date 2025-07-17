@@ -161,12 +161,15 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         paragraph.addStyle(deFaultStyle);
         return deFaultStyle;
     }
-    private void saveSub(Cell paragraph,Object object) {
+    private void saveSub(Cell cell,Object object) {
         if(null!=object&&object instanceof java.util.List) {
             java.util.List<Object> list=(java.util.List<Object>) object;
             list.forEach(e -> {
                 if (e instanceof IBlockElement) {
-                    paragraph.add((IBlockElement) e);
+                    cell.add((IBlockElement) e);
+                }
+                if (e instanceof Image) {
+                    cell.add((Image) e);
                 }
             });
         }

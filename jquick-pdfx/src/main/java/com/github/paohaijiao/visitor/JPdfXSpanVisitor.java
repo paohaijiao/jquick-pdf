@@ -43,7 +43,10 @@ public class JPdfXSpanVisitor extends JPdfXLayOutVisitor {
     public Text visitSpan(JQuickPDFParser.SpanContext ctx) {
         String value = "";
         if (null != ctx.value()) {
-            value = (String) visitValue(ctx.value());
+           Object val = visitValue(ctx.value());
+           if(null!=val&&val instanceof String){
+               value=val.toString();
+           }
         }
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
