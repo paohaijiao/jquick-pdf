@@ -171,7 +171,7 @@ public class JValueTest {
     }
     @Test
     public void px() throws IOException {
-        String input = "2 px";
+        String input = "2.9px";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
@@ -182,7 +182,7 @@ public class JValueTest {
     }
     @Test
     public void pt() throws IOException {
-        String input = "2 pt";
+        String input = "2pt";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
@@ -193,7 +193,7 @@ public class JValueTest {
     }
     @Test
     public void mm() throws IOException {
-        String input = "2 mm";
+        String input = "2mm";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
@@ -204,7 +204,7 @@ public class JValueTest {
     }
     @Test
     public void cm() throws IOException {
-        String input = "2 cm";
+        String input = "2cm";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
@@ -215,7 +215,7 @@ public class JValueTest {
     }
     @Test
     public void in() throws IOException {
-        String input = "2 in";
+        String input = "2in";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
@@ -237,7 +237,7 @@ public class JValueTest {
     }
     @Test
     public void per () throws IOException {
-        String input = "2 in";
+        String input = "2in";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         JQuickPDFParser parser = new JQuickPDFParser(tokens);

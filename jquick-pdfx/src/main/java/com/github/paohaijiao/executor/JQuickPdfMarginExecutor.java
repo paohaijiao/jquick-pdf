@@ -17,34 +17,34 @@ package com.github.paohaijiao.executor;
 
 import com.github.paohaijiao.antlr.impl.JAbstractAntlrExecutor;
 import com.github.paohaijiao.console.JConsole;
+import com.github.paohaijiao.enums.JBorder;
 import com.github.paohaijiao.exception.JAntlrExecutionException;
-import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.model.JMarginModel;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXStyleVisitor;
-import com.itextpdf.layout.properties.UnitValue;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
 
-public class JQuickPdfUnitExecutor extends JAbstractAntlrExecutor<String, UnitValue> {
+public class JQuickPdfMarginExecutor extends JAbstractAntlrExecutor<String, JMarginModel> {
 
     private JContext context;
 
-    public JQuickPdfUnitExecutor() {
+    public JQuickPdfMarginExecutor() {
         this.context = new JContext();
     }
 
-    public JQuickPdfUnitExecutor(JContext context) {
+    public JQuickPdfMarginExecutor(JContext context) {
         this.context = context;
     }
 
     @Override
     protected Lexer createLexer(CharStream input) {
         JConsole console=new JConsole();
-        console.debug("unit:\n"+input.toString());
+        console.debug("style:\n"+input.toString());
         return new JQuickPDFLexer(input);
     }
 
@@ -54,11 +54,11 @@ public class JQuickPdfUnitExecutor extends JAbstractAntlrExecutor<String, UnitVa
     }
 
     @Override
-    protected UnitValue parse(Parser parser) throws JAntlrExecutionException {
+    protected JMarginModel parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
-        JQuickPDFParser.UnitContext tree = calcParser.unit();
-        JPdfXStyleVisitor visitor = new JPdfXStyleVisitor();
-        UnitValue response = visitor.visitUnit(tree);
+        JQuickPDFParser.MarginValueContext tree = calcParser.marginValue();
+        JPdfXStyleVisitor visitor  = new JPdfXStyleVisitor();
+        JMarginModel response = visitor.visitMarginValue(tree);
         return response;
     }
 }

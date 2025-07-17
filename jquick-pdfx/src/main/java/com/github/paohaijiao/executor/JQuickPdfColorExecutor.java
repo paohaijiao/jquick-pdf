@@ -56,12 +56,7 @@ public class JQuickPdfColorExecutor extends JAbstractAntlrExecutor<String, Color
     protected Color parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
         JQuickPDFParser.ColorContext tree = calcParser.color();
-        JPdfXStyleVisitor visitor = null;
-        try {
-            visitor = new JPdfXStyleVisitor();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        JPdfXStyleVisitor visitor  = new JPdfXStyleVisitor();
         Color color = (Color)visitor.visit(tree);
         return color;
     }

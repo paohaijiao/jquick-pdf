@@ -49,37 +49,9 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        Integer fontSize = getFontSize("" + number);
-        style.put(JStyleAttributes.FONT_SIZE, fontSize + "");
         Paragraph h1 = new Paragraph(value);
         super.buildStyle(h1, style);
-//        doc.add(h1);
         return h1;
-    }
-
-    private Integer getFontSize(String level) {
-        Integer fontSize = 24;
-        switch (level) {
-            case "h1":
-                fontSize = 24;
-                break;
-            case "h2":
-                fontSize = 22;
-                break;
-            case "h3":
-                fontSize = 20;
-                break;
-            case "h4":
-                fontSize = 18;
-                break;
-            case "h5":
-                fontSize = 16;
-                break;
-            case "h6":
-                fontSize = 14;
-                break;
-        }
-        return fontSize;
     }
 
 

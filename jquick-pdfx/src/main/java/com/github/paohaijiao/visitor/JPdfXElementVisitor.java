@@ -60,14 +60,6 @@ public class JPdfXElementVisitor extends JPdfXDivVisitor {
 
     @Override
     public IElement visitTemplate(JQuickPDFParser.TemplateContext ctx) {
-//        Div templateContent = new Div();
-//        for (JQuickPDFParser.ElementContext elementCtx : ctx.element()) {
-//
-//        }
-//        if (ctx.IDENTIFIER(1) != null) {
-//        }
-//
-//        return templateContent;
         return null;
     }
 }

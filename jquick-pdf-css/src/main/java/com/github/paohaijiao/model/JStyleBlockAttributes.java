@@ -158,7 +158,7 @@ public class JStyleBlockAttributes  extends JStyleElementPropertyAttributes {
 
 
     public String getMarginLeft() {
-        return get(JStyleBlockAttributes.marginLeft).toString();
+        return get(JStyleBlockAttributes.marginLeft);
     }
 
     public String getMarginRight() {

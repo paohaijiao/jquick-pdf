@@ -437,6 +437,18 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMarginValue(JQuickPDFParser.MarginValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMarginValue(JQuickPDFParser.MarginValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterNumber(JQuickPDFParser.NumberContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -444,6 +456,18 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNumber(JQuickPDFParser.NumberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBorderType(JQuickPDFParser.BorderTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBorderType(JQuickPDFParser.BorderTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -473,73 +497,25 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHex(JQuickPDFParser.HexContext ctx) { }
+	@Override public void enterColor(JQuickPDFParser.ColorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHex(JQuickPDFParser.HexContext ctx) { }
+	@Override public void exitColor(JQuickPDFParser.ColorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRgb(JQuickPDFParser.RgbContext ctx) { }
+	@Override public void enterU(JQuickPDFParser.UContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRgb(JQuickPDFParser.RgbContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCmykNumber(JQuickPDFParser.CmykNumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCmykNumber(JQuickPDFParser.CmykNumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCmykPecent(JQuickPDFParser.CmykPecentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCmykPecent(JQuickPDFParser.CmykPecentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterColorVal(JQuickPDFParser.ColorValContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitColorVal(JQuickPDFParser.ColorValContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterColorValue(JQuickPDFParser.ColorValueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitColorValue(JQuickPDFParser.ColorValueContext ctx) { }
+	@Override public void exitU(JQuickPDFParser.UContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

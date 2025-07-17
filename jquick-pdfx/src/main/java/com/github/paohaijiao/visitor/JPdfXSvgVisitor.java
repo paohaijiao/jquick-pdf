@@ -50,12 +50,10 @@ public class JPdfXSvgVisitor extends JPdfXImageVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        float width = style.getWidth() == null ? 50f : Float.parseFloat(style.getWidth());
-        float height = style.getHeight() == null ? 600f : Float.parseFloat(style.getHeight());
         Paragraph paragraph = new Paragraph(value == null ? "" : value);
         super.buildStyle(paragraph, style);
         doc.add(paragraph);
-        SvgConverter.drawOnDocument(src, doc.getPdfDocument(), 1, width, height);
+        SvgConverter.drawOnDocument(src, doc.getPdfDocument(), 1, 50f, 600f);
         return null;
     }
 

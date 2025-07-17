@@ -70,8 +70,8 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
             if (null != value) {
                 image.getAccessibilityProperties().setActualText(value);
             }
-            image.setMargins(-50, -60, -60, -60);
-         //   super.buildStyle(image, style);
+           // image.setMargins(-50, -60, -60, -60);
+            super.buildStyle(image, style);
 //            doc.add(image);
             return image;
         } catch (Exception e) {

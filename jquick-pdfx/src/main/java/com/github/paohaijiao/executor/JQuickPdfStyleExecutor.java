@@ -32,6 +32,7 @@ import org.antlr.v4.runtime.TokenStream;
 import java.io.FileNotFoundException;
 
 public class JQuickPdfStyleExecutor extends JAbstractAntlrExecutor<String, JStyleAttributes> {
+
     private JContext context;
 
     public JQuickPdfStyleExecutor() {
@@ -58,12 +59,7 @@ public class JQuickPdfStyleExecutor extends JAbstractAntlrExecutor<String, JStyl
     protected JStyleAttributes parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
         JQuickPDFParser.StyleContext tree = calcParser.style();
-        JPdfXStyleVisitor visitor = null;
-        try {
-            visitor = new JPdfXStyleVisitor();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        JPdfXStyleVisitor visitor =  new JPdfXStyleVisitor();
         JStyleAttributes response = visitor.visitStyle(tree);
         return response;
     }

@@ -45,33 +45,27 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
         if (null != ctx.value()) {
             value = visitValue(ctx.value()).toString();
             Paragraph p = new Paragraph(value);
-//                    .setFontSize(18)
-//                    .setBold();
             div.add(p);
         }
         if (null != ctx.element()&& !ctx.element().isEmpty()) {
             for (JQuickPDFParser.ElementContext styleContext : ctx.element()) {
                 Object object=visitElement(styleContext);
-                if (object instanceof Image) {
+                if (null!=object &&object instanceof Image) {
                     Image image=(Image)object;
                     div.add(image);
                 }
-                if (object instanceof IBlockElement) {
+                if (null!=object && object instanceof IBlockElement) {
                     IBlockElement blockElement=(IBlockElement)object;
                     doc.add(blockElement);
                 }
-                if (object instanceof AreaBreak) {
+                if (null!=object && object instanceof AreaBreak) {
                     AreaBreak areaBreak=(AreaBreak)object;
                     doc.add(areaBreak);
                 }
             }
 
         }
-//        div.setWidth(UnitValue.createPercentValue(100));
-//        div.setHeight(UnitValue.createPercentValue(100));
-//        div.setHorizontalAlignment(HorizontalAlignment.CENTER);
         super.buildStyle(div, style);
-        //doc.add(div);
         return div;
     }
 
