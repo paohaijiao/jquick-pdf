@@ -34,6 +34,6 @@ public class JColumnModel {
 
     private String type;
 
-    private String text;
+    private Object object;
 
 }

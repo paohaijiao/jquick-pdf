@@ -18,7 +18,11 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.BlockElement;
+import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.Paragraph;
+
+import java.util.ArrayList;
 
 
 /**
@@ -40,8 +44,14 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
             number = Integer.parseInt(numberTxt.toString());
         }
         String value = "";
-        if (null != ctx.value()) {
-            value = (String) visitValue(ctx.value());
+        java.util.List<BlockElement<?>> elements=new ArrayList<>();
+        if (null != ctx.elemValue()) {
+          Object  val = visitElemValue(ctx.elemValue());
+          if (null != val && val instanceof String) {
+              value = (String) val;
+          } else if (null != val && val instanceof List) {
+              elements=buildSubElem(val);
+          }
         }
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
@@ -50,6 +60,10 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
             style = new JStyleAttributes();
         }
         Paragraph h1 = new Paragraph(value);
+        if(!elements.isEmpty())
+            elements.forEach((e)->{
+                h1.add(e);
+            });
         super.buildStyle(h1, style);
         return h1;
     }

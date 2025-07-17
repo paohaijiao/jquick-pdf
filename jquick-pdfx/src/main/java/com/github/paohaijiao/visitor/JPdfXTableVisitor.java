@@ -19,9 +19,9 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.Document;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
@@ -61,25 +61,28 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
                 JQuickPDFParser.RowContext rowContext = ctx.row(i);
                 JRowModel item = visitRow(rowContext);
                 for (JColumnModel column : item.getColumnList()) {
-                    if (column.getType().equals(th)) {
-                        Paragraph paragraph = new Paragraph(column.getText());
-                        buildParagraphStyle(paragraph);
-                        super.buildStyle(paragraph, column.getStyle());
-                        Cell cell = new Cell().add(paragraph);
-                        buildStyle(cell);
-                        super.buildStyle(cell, column.getStyle());
-                        table.addCell(cell);
-                    } else {
-                        Paragraph paragraph = new Paragraph(column.getText());
-                        buildParagraphStyle(paragraph);
-                        super.buildStyle(paragraph, column.getStyle());
-                        Cell cell = new Cell().add(paragraph);
-                        buildStyle(cell);
-                        super.buildStyle(cell, column.getStyle());
-                        table.addCell(cell);
+                    String text="";
+                    if(null!=column.getObject()&&column.getObject() instanceof String){
+                        text=column.getObject().toString();
                     }
-
+                    java.util.List<BlockElement<?>> elements=new ArrayList<>();
+                    if(null!=column.getObject()&&column.getObject() instanceof List){
+                        elements=buildSubElem(column);
+                    }
+                    Paragraph paragraph = new Paragraph(text);
+                    buildParagraphStyle(paragraph);
+                    super.buildStyle(paragraph, column.getStyle());
+                    Cell cell = new Cell().add(paragraph);
+                    buildStyle(cell);
+                    if(!elements.isEmpty()){
+                        elements.forEach(element->{
+                            cell.add(element);
+                        });
+                    }
+                    super.buildStyle(cell, column.getStyle());
+                    table.addCell(cell);
                 }
+                table.startNewRow();
             }
             super.buildStyle(table, style);
             return table;
@@ -125,13 +128,13 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        String text = "";
-        if (null != ctx.value()) {
-            text = (String) visitValue(ctx.value());
+        Object value =null;
+        if (null != ctx.elemValue()) {
+            value =visitElemValue(ctx.elemValue());
         }
         JColumnModel model = new JColumnModel();
         model.setStyle(style);
-        model.setText(text);
+        model.setObject(value);
         model.setType(th);
         return model;
     }
@@ -144,15 +147,14 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        String text = "";
-        String st = ctx.value().getText();
-        if (null != ctx.value()) {
-            text = visitValue(ctx.value()).toString();
+        Object value =null;
+        if (null != ctx.elemValue()) {
+            value =visitElemValue(ctx.elemValue());
         }
         JColumnModel model = new JColumnModel();
         model.setStyle(style);
-        model.setText(text);
-        model.setType(th);
+        model.setObject(value);
+        model.setType(td);
         return model;
     }
 

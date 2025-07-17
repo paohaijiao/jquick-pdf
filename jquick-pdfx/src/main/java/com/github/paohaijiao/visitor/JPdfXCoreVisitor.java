@@ -29,14 +29,14 @@ import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.font.FontProvider;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Properties;
-import java.util.Set;
+import java.util.*;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -111,5 +111,19 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         }
 
     }
+    protected List< BlockElement<?>> buildSubElem(Object object) {
+        List< BlockElement<?>> list=new ArrayList<>();
+        if (object instanceof List) {
+            List<Object> obj=( List<Object>)object;
+            for (Object sub:obj){
+                if(sub instanceof BlockElement){
+                    BlockElement<?> subElem=(BlockElement<?>)sub;
+                    list.add(subElem);
+                }
+            }
+        }
+        return list;
+    }
+
 
 }

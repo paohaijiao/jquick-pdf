@@ -30,7 +30,7 @@ import lombok.Data;
 @Data
 public class JListItemModel {
 
-    private String text;
+    private Object elementValue;
 
     private JStyleAttributes style;
 

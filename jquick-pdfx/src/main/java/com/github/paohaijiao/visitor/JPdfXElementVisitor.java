@@ -53,6 +53,8 @@ public class JPdfXElementVisitor extends JPdfXDivVisitor {
             return   visitDiv(ctx.div());
         } else if (ctx.template() != null) {
             return visitTemplate(ctx.template());
+        }else if (ctx.span() != null) {
+            return visitSpan(ctx.span());
         }
         return null;
     }

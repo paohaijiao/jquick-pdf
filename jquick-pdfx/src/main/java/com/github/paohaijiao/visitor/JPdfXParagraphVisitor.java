@@ -23,14 +23,12 @@ import com.github.paohaijiao.sample.ReportStyle;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Text;
+import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
 
-
+import java.util.ArrayList;
 /**
  * packageName com.paohaijiao.javelin.visitor
  *
@@ -43,77 +41,32 @@ import com.itextpdf.layout.properties.UnitValue;
 public class JPdfXParagraphVisitor extends JPdfXSpanVisitor  {
     @Override
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
-        String value = "";
-        if (ctx.value() != null) {
-            value = ctx.value().getText();
+        Object value = null;
+        if (ctx.elemValue() != null) {
+            value =visitElemValue(ctx.elemValue());
         }
-        Paragraph h1 = new Paragraph(value);
-        if (ctx.span() != null&&!ctx.span().isEmpty()) {
-            for (JQuickPDFParser.SpanContext spanContext : ctx.span()){
-                Text text= visitSpan(spanContext);
-                h1.add(text);
+        String text="";
+        java.util.List<BlockElement<?>> elements=new ArrayList<>();
+        if (null != ctx.elemValue()) {
+            Object  val = visitElemValue(ctx.elemValue());
+            if (null != val && val instanceof String) {
+                text = (String) val;
+            } else if (null != val && val instanceof List) {
+                elements=buildSubElem(val);
             }
         }
-        if (ctx.image() != null&&!ctx.image().isEmpty()) {
-            for (JQuickPDFParser.ImageContext imageContext : ctx.image()){
-                Object image= visitImage(imageContext);
-                if(null!=image&&image instanceof Image){
-                    Image image1= (Image) image;
-                    h1.add(image1);
-                }
-
-            }
+        Paragraph h1 = new Paragraph(text);
+        if(!elements.isEmpty()){
+            elements.forEach(e->{
+                h1.add(e);
+            });
         }
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
         if (ctx.styleEle() != null) {
             jStyleAttributes = visitStyleEle(ctx.styleEle());
         }
         super.buildStyle(h1, jStyleAttributes);
-       // doc.add(h1);
         return h1;
     }
-
-
-    private Paragraph buildParagraph(JParagraphModel data) {
-        try {
-            Paragraph paragraph = new Paragraph(data.getText());
-            JStyleModel model = data.getStyle();
-            if (null != model) {
-                if (null != model.getFont()) {
-                    paragraph.setFont(PdfFontFactory.createFont(model.getFont())); // 字体
-                }
-                if (null != model.getSize()) {
-                    paragraph.setFontSize(model.getSize()); // 字号
-                }
-                if (null != model.getColor()) {
-                    //paragraph.setFontColor(Color.); // 颜色
-                }
-                if (null != model.getBold() && model.getBold()) {
-                    paragraph.setBold(); // 加粗
-                }
-                if (null != model.getItalic() && model.getItalic()) {
-                    paragraph.setItalic(); // 加粗
-                }
-                if (null != model.getUnderline() && model.getUnderline()) {
-                    paragraph.setUnderline(); // 加粗
-                }
-                if (null != model.getUnderline() && model.getUnderline()) {
-                    paragraph.setUnderline();
-                }
-            }
-
-            paragraph.setFixedLeading(20); // 行高
-            paragraph.setFirstLineIndent(20); // 首行缩进
-            paragraph.setMarginLeft(10); // 左边距
-            paragraph.setMarginRight(10); // 右边距
-            paragraph.setTextAlignment(TextAlignment.CENTER); // 对齐方式
-            return paragraph;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-
-    }
-
 
 }

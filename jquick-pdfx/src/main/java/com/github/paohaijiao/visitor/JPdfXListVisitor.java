@@ -20,9 +20,9 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.list.JListItemModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Div;
-import com.itextpdf.layout.element.List;
-import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.*;
+
+import java.util.ArrayList;
 
 
 /**
@@ -38,42 +38,22 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 
 
     @Override
-    public Div visitList(JQuickPDFParser.ListContext ctx) {
-        JListType listType = JListType.ol;
-        if (null != ctx.listEle() && !ctx.listEle().isEmpty()) {
-            listType = visitListEle(ctx.listEle().get(0));
-        }
+    public List visitList(JQuickPDFParser.ListContext ctx) {
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        if (JListType.ol.getCode().equals(listType.getCode())) {
-            Div ol = new Div();
-            for (int i = 0; i < ctx.listItem().size(); i++) {
-                JQuickPDFParser.ListItemContext listItemContext = ctx.listItem(i);
-                JListItemModel item = visitListItem(listItemContext);
-                String text = String.format("%s.%s", i + 1, item.getText());
-                Paragraph paragraph = new Paragraph(text);
-              //  super.buildStyle(paragraph, item.getStyle());
-                ol.add(paragraph);
+        List list=new List();
+        if(null!=ctx.listItem()&&!ctx.listItem().isEmpty()){
+            for (JQuickPDFParser.ListItemContext listItemContext:ctx.listItem()){
+                ListItem item=visitListItem(listItemContext);
+                list.add(item);
             }
-            super.buildStyle(ol, style);
-            return ol;
-        } else {
-            Div ul = new Div();
-            for (int i = 0; i < ctx.listItem().size(); i++) {
-                JQuickPDFParser.ListItemContext listItemContext = ctx.listItem(i);
-                JListItemModel item = visitListItem(listItemContext);
-                String text = String.format("• %s", item.getText());
-                Paragraph paragraph = new Paragraph(text);
-             //   super.buildStyle(paragraph, item.getStyle());
-                ul.add(paragraph);
-            }
-      //      super.buildStyle(ul, style);
-            return ul;
         }
+        super.buildStyle(list, style);
+        return list;
     }
 
     @Override
@@ -83,20 +63,32 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
     }
 
     @Override
-    public JListItemModel visitListItem(JQuickPDFParser.ListItemContext ctx) {
-        JListItemModel item = new JListItemModel();
+    public ListItem visitListItem(JQuickPDFParser.ListItemContext ctx) {
+        ListItem item = new ListItem();
         JStyleAttributes style = new JStyleAttributes();
         if (ctx.styleEle() != null) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        String value = "";
-        if (ctx.value() != null) {
-            value = (String) visitValue(ctx.value());
+        Object value = null;
+        if (ctx.elemValue() != null) {
+            value = (String) visitElemValue(ctx.elemValue());
         }
-        item.setText(value);
-        item.setStyle(style);
+        String text = "";
+        java.util.List<BlockElement<?>> elements=new ArrayList<>();
+        if(null!=value&&value instanceof String){
+            text=(String)value;
+        }else if (null != value && value instanceof List) {
+            elements=buildSubElem(value);
+        }
+        item.setListSymbol(new Text(text));
+        if(!elements.isEmpty()){
+            elements.forEach(element->{
+                item.add(element);
+            });
+        }
+        super.buildStyle(item, style);
         return item;
     }
 
