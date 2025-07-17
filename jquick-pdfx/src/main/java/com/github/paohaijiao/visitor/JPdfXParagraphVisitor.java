@@ -16,17 +16,11 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.paragraph.JParagraphModel;
-import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.sample.ReportStyle;
-import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.*;
-import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.itextpdf.layout.properties.TextAlignment;
-import com.itextpdf.layout.properties.UnitValue;
+import com.itextpdf.layout.element.IBlockElement;
+import com.itextpdf.layout.element.IElement;
+import com.itextpdf.layout.element.ILeafElement;
+import com.itextpdf.layout.element.Paragraph;
 
 import java.util.ArrayList;
 /**
@@ -41,32 +35,39 @@ import java.util.ArrayList;
 public class JPdfXParagraphVisitor extends JPdfXSpanVisitor  {
     @Override
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
+        String text = "";
         Object value = null;
         if (ctx.elemValue() != null) {
             value =visitElemValue(ctx.elemValue());
-        }
-        String text="";
-        java.util.List<BlockElement<?>> elements=new ArrayList<>();
-        if (null != ctx.elemValue()) {
-            Object  val = visitElemValue(ctx.elemValue());
-            if (null != val && val instanceof String) {
-                text = (String) val;
-            } else if (null != val && val instanceof List) {
-                elements=buildSubElem(val);
+            if (null != value && value instanceof String) {
+                text = (String) value;
             }
         }
         Paragraph h1 = new Paragraph(text);
-        if(!elements.isEmpty()){
-            elements.forEach(e->{
-                h1.add(e);
-            });
-        }
+        saveSub(h1,value);
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
         if (ctx.styleEle() != null) {
             jStyleAttributes = visitStyleEle(ctx.styleEle());
         }
         super.buildStyle(h1, jStyleAttributes);
         return h1;
+    }
+
+    private void saveSub(Paragraph paragraph,Object object) {
+        if(null!=object&&object instanceof java.util.List) {
+            java.util.List<Object> list=(java.util.List<Object>) object;
+            list.forEach(e -> {
+                if (e instanceof String) {
+                    paragraph.add((String) e);
+                }
+                if (e instanceof ILeafElement) {
+                    paragraph.add((ILeafElement) e);
+                }
+                if (e instanceof IBlockElement) {
+                    paragraph.add((IBlockElement) e);
+                }
+            });
+        }
     }
 
 }

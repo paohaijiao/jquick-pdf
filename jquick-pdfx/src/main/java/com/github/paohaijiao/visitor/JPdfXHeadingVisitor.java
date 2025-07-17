@@ -18,9 +18,7 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.BlockElement;
-import com.itextpdf.layout.element.List;
-import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.*;
 
 import java.util.ArrayList;
 
@@ -43,14 +41,12 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
             String numberTxt = ctx.number().get(0).getText();
             number = Integer.parseInt(numberTxt.toString());
         }
-        String value = "";
-        java.util.List<BlockElement<?>> elements=new ArrayList<>();
+        Object value=null;
+        String text="";
         if (null != ctx.elemValue()) {
-          Object  val = visitElemValue(ctx.elemValue());
-          if (null != val && val instanceof String) {
-              value = (String) val;
-          } else if (null != val && val instanceof List) {
-              elements=buildSubElem(val);
+            value = visitElemValue(ctx.elemValue());
+          if (null != value && value instanceof String) {
+              text = (String) value;
           }
         }
         JStyleAttributes style = new JStyleAttributes();
@@ -59,13 +55,26 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        Paragraph h1 = new Paragraph(value);
-        if(!elements.isEmpty())
-            elements.forEach((e)->{
-                h1.add(e);
-            });
+        Paragraph h1 = new Paragraph(text);
+        saveSub(h1,value);
         super.buildStyle(h1, style);
         return h1;
+    }
+    private void saveSub(Paragraph paragraph,Object object) {
+        if(null!=object&&object instanceof java.util.List) {
+            java.util.List<Object> list=(java.util.List<Object>) object;
+            list.forEach(e -> {
+                if (e instanceof String) {
+                    paragraph.add((String) e);
+                }
+                if (e instanceof ILeafElement) {
+                    paragraph.add((ILeafElement) e);
+                }
+                if (e instanceof IBlockElement) {
+                    paragraph.add((IBlockElement) e);
+                }
+            });
+        }
     }
 
 

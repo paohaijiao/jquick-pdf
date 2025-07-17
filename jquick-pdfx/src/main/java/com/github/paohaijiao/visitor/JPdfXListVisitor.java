@@ -76,21 +76,23 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
             value = (String) visitElemValue(ctx.elemValue());
         }
         String text = "";
-        java.util.List<BlockElement<?>> elements=new ArrayList<>();
         if(null!=value&&value instanceof String){
             text=(String)value;
-        }else if (null != value && value instanceof List) {
-            elements=buildSubElem(value);
         }
         item.setListSymbol(new Text(text));
-        if(!elements.isEmpty()){
-            elements.forEach(element->{
-                item.add(element);
-            });
-        }
+        saveSub(item,value);
         super.buildStyle(item, style);
         return item;
     }
-
+    private void saveSub(ListItem listItem,Object object) {
+        if(null!=object&&object instanceof java.util.List) {
+            java.util.List<Object> list=(java.util.List<Object>) object;
+            list.forEach(e -> {
+                if (e instanceof IBlockElement) {
+                    listItem.add((IBlockElement) e);
+                }
+            });
+        }
+    }
 
 }

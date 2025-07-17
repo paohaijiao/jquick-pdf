@@ -21,10 +21,7 @@ import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.borders.Border;
-import com.itextpdf.layout.element.BlockElement;
-import com.itextpdf.layout.element.Cell;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.UnitValue;
 import com.itextpdf.layout.properties.VerticalAlignment;
 
@@ -65,20 +62,12 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
                     if(null!=column.getObject()&&column.getObject() instanceof String){
                         text=column.getObject().toString();
                     }
-                    java.util.List<BlockElement<?>> elements=new ArrayList<>();
-                    if(null!=column.getObject()&&column.getObject() instanceof List){
-                        elements=buildSubElem(column);
-                    }
                     Paragraph paragraph = new Paragraph(text);
                     buildParagraphStyle(paragraph);
                     super.buildStyle(paragraph, column.getStyle());
                     Cell cell = new Cell().add(paragraph);
+                    saveSub(cell,column.getObject());
                     buildStyle(cell);
-                    if(!elements.isEmpty()){
-                        elements.forEach(element->{
-                            cell.add(element);
-                        });
-                    }
                     super.buildStyle(cell, column.getStyle());
                     table.addCell(cell);
                 }
@@ -172,7 +161,16 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         paragraph.addStyle(deFaultStyle);
         return deFaultStyle;
     }
-
+    private void saveSub(Cell paragraph,Object object) {
+        if(null!=object&&object instanceof java.util.List) {
+            java.util.List<Object> list=(java.util.List<Object>) object;
+            list.forEach(e -> {
+                if (e instanceof IBlockElement) {
+                    paragraph.add((IBlockElement) e);
+                }
+            });
+        }
+    }
 
 
 }

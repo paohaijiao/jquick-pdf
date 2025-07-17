@@ -111,19 +111,7 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         }
 
     }
-    protected List< BlockElement<?>> buildSubElem(Object object) {
-        List< BlockElement<?>> list=new ArrayList<>();
-        if (object instanceof List) {
-            List<Object> obj=( List<Object>)object;
-            for (Object sub:obj){
-                if(sub instanceof BlockElement){
-                    BlockElement<?> subElem=(BlockElement<?>)sub;
-                    list.add(subElem);
-                }
-            }
-        }
-        return list;
-    }
+
 
 
 }
