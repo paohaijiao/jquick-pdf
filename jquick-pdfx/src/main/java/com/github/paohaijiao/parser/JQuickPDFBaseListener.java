@@ -1,4 +1,4 @@
-// Generated from D:/my/jthornruleGrammer/pdf/JQuickPDF.g4 by ANTLR 4.13.2
+// Generated from D:/idea/jthornruleGrammer/pdf/JQuickPDF.g4 by ANTLR 4.13.2
 package com.github.paohaijiao.parser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -257,6 +257,18 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterElemValue(JQuickPDFParser.ElemValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitElemValue(JQuickPDFParser.ElemValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterImage(JQuickPDFParser.ImageContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -461,6 +473,18 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterBorderType(JQuickPDFParser.BorderTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBorderType(JQuickPDFParser.BorderTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterUnit(JQuickPDFParser.UnitContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -485,85 +509,25 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHex(JQuickPDFParser.HexContext ctx) { }
+	@Override public void enterColor(JQuickPDFParser.ColorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitHex(JQuickPDFParser.HexContext ctx) { }
+	@Override public void exitColor(JQuickPDFParser.ColorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRgb(JQuickPDFParser.RgbContext ctx) { }
+	@Override public void enterU(JQuickPDFParser.UContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRgb(JQuickPDFParser.RgbContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCmykNumber(JQuickPDFParser.CmykNumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCmykNumber(JQuickPDFParser.CmykNumberContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCmykPecent(JQuickPDFParser.CmykPecentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCmykPecent(JQuickPDFParser.CmykPecentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterColorVal(JQuickPDFParser.ColorValContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitColorVal(JQuickPDFParser.ColorValContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterColorValue(JQuickPDFParser.ColorValueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitColorValue(JQuickPDFParser.ColorValueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBorderType(JQuickPDFParser.BorderTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBorderType(JQuickPDFParser.BorderTypeContext ctx) { }
+	@Override public void exitU(JQuickPDFParser.UContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

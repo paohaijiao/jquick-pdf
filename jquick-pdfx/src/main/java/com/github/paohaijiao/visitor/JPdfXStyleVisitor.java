@@ -160,6 +160,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
     public JMarginModel visitMarginValue(JQuickPDFParser.MarginValueContext ctx) {
         if(ctx.NUMBERUNIT() != null&&ctx.NUMBERUNIT().size()==4) {
             JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
+            String txt=ctx.NUMBERUNIT().get(0).getText();
             UnitValue first=executor.execute(ctx.NUMBERUNIT().get(0).getText());
             UnitValue second=executor.execute(ctx.NUMBERUNIT().get(1).getText());
             UnitValue third=executor.execute(ctx.NUMBERUNIT().get(2).getText());

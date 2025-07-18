@@ -2,9 +2,8 @@
 <body>
 
 
-<div style="margins:20px 30px 40px 50px">
+<div style="destination:hello">
   检测形式：对受检者基因组中与各项检测项目密切相关的基因信息进行DNA分型检测。
-
 </div>
 </body>
 </html>

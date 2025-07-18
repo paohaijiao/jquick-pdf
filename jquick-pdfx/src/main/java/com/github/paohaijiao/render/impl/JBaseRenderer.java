@@ -21,7 +21,15 @@ import com.github.paohaijiao.model.*;
 import com.github.paohaijiao.render.JStyleRenderer;
 import com.github.paohaijiao.sample.ReportColor;
 import com.github.paohaijiao.unit.JUnitConverter;
+import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.pdf.xobject.PdfImageXObject;
+import com.itextpdf.kernel.pdf.xobject.PdfXObject;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.ElementPropertyContainer;
 import com.itextpdf.layout.borders.Border;
@@ -29,10 +37,11 @@ import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.properties.AreaBreakType;
-import com.itextpdf.layout.properties.BorderRadius;
-import com.itextpdf.layout.properties.UnitValue;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.properties.*;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.List;
@@ -96,100 +105,134 @@ public abstract class JBaseRenderer implements JStyleRenderer {
             }
 
         }
-        if(divStyles.getMargins() != null){//margins:20px 30px 40px 50px
+        if(divStyles.getMargins() != null){//margins:'20px 30px 40px 50px'
             JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
             JMarginModel marginModel= executor.execute(divStyles.getMargins());
             if(null!=marginModel){
                 block.setMargins(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
             }
         }
-        if(divStyles.getPaddingLeft() != null){
+        if(divStyles.getPaddingLeft() != null){//paddingLeft:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getPaddingLeft());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setPaddingLeft(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setPaddingLeft(f);
+            }
         }
 
-        if(divStyles.getPaddingRight() != null){
+        if(divStyles.getPaddingRight() != null){//paddingRight:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getPaddingRight());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setPaddingRight(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setPaddingRight(f);
+            }
+
         }
-        if(divStyles.getPaddingTop() != null){
+        if(divStyles.getPaddingTop() != null){//paddingTop:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getPaddingTop());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setPaddingTop(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setPaddingTop(f);
+            }
         }
-        if(divStyles.getPaddingBottom() != null){
+        if(divStyles.getPaddingBottom() != null){//paddingBottom:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getPaddingBottom());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setPaddingBottom(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setPaddingBottom(f);
+            }
+
         }
-        if(divStyles.getCommonPadding() != null){
+        if(divStyles.getCommonPadding() != null){//commonPadding:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getCommonPadding());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setPadding(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setPadding(f);
+            }
+
         }
-        if(divStyles.getPaddings() != null){
+        if(divStyles.getPaddings() != null){//paddings:'50px 50px 60px 70px'
             JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
             JMarginModel marginModel= executor.execute(divStyles.getPaddings());
-            block.setPaddings(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            if(null!=marginModel){
+                block.setPaddings(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            }
         }
-        if(divStyles.getVerticalAlignment() != null){
+        if(divStyles.getVerticalAlignment() != null){//verticalAlignment:top
             JVerticalAlignment verticalAlignment=JVerticalAlignment.codeOf(divStyles.getVerticalAlignment());
-            block.setVerticalAlignment(verticalAlignment.getType());
+            if(null!=verticalAlignment){
+                block.setVerticalAlignment(verticalAlignment.getType());
+            }
         }
-        if(divStyles.getSpacingRatio() != null){
+        if(divStyles.getSpacingRatio() != null){//spacingRatio:30
             block.setSpacingRatio(Float.parseFloat(divStyles.getSpacingRatio()));
         }
-        if(divStyles.getKeepTogether() != null){
+        if(divStyles.getKeepTogether() != null){//keepTogether:true
             block.setKeepTogether(Boolean.parseBoolean(divStyles.getKeepTogether()));
         }
-        if(divStyles.getKeepWithNext() != null){
+        if(divStyles.getKeepWithNext() != null){//keepWithNext:true
             block.setKeepWithNext(Boolean.parseBoolean(divStyles.getKeepWithNext()));
         }
-        if(divStyles.getAngleInRadians() != null){
+        if(divStyles.getAngleInRadians() != null){//angleInRadians:30
             block.setRotationAngle(Float.parseFloat(divStyles.getAngleInRadians()));
         }
-        if(divStyles.getWidth() != null){
+        if(divStyles.getWidth() != null){//width:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getWidth());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setWidth(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setWidth(f);
+            }
         }
-        if(divStyles.getHeight() != null){
+        if(divStyles.getHeight() != null){//height:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getHeight());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setHeight(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setHeight(f);
+            }
+
         }
-        if(divStyles.getMaxHeight() != null){
+        if(divStyles.getMaxHeight() != null){//maxHeight:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getMaxHeight());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMaxHeight(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMaxHeight(f);
+            }
+
         }
-        if(divStyles.getMinHeight() != null){
+        if(divStyles.getMinHeight() != null){//minHeight:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getMinHeight());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMinHeight(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMinHeight(f);
+            }
+
         }
-        if(divStyles.getMinWidth() != null){
+        if(divStyles.getMinWidth() != null){//minWidth:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getMinWidth());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMinWidth(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMinWidth(f);
+            }
+
         }
-        if(divStyles.getMaxWidth() != null){
+        if(divStyles.getMaxWidth() != null){//maxWidth:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getMaxWidth());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMaxWidth(f);
+            if(null!=unitValue){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMaxWidth(f);
+            }
+
         }
         this.applyElementProperty(doc, element, styles);
     }
@@ -198,77 +241,127 @@ public abstract class JBaseRenderer implements JStyleRenderer {
         JStyleElementPropertyAttributes elementPropertyAttributes = new JStyleElementPropertyAttributes();
         elementPropertyAttributes.putAll(styles);
         ElementPropertyContainer<?> block = (ElementPropertyContainer<?>) element;
-        if(null!=elementPropertyAttributes.getRelativePosition()){
+        if(null!=elementPropertyAttributes.getRelativePosition()){//relativePosition:'30px 30px 30px 30px'
             JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
             JMarginModel marginModel= executor.execute(elementPropertyAttributes.getRelativePosition());
-            block.setRelativePosition(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            if(null!=marginModel){
+                block.setRelativePosition(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            }
         }
         if(null!=elementPropertyAttributes.getFixedPosition()){
 //            JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
 //            JMarginModel marginModel= executor.execute(elementPropertyAttributes.getFixedPosition());
-//            block.setFixedPosition(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
 //            block.setFixedPosition(0,0,0,0);
         }
-        if(null!=elementPropertyAttributes.getFont()){
-            //block.setFont(null);
+        if(null!=elementPropertyAttributes.getFont()){//font:HELVETICA
+            try {
+                JFontEnum jFontEnum=JFontEnum.codeOf(elementPropertyAttributes.getFont());
+                if(null!=jFontEnum){
+                    PdfFont font = PdfFontFactory.createFont(jFontEnum.getFontName());
+                    block.setFont(font);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
         }
-        if(null!=elementPropertyAttributes.getFontFamilyNames()){
+        if(null!=elementPropertyAttributes.getFontFamilyNames()){//fontFamilyNames:Helvetica
             String[] array=elementPropertyAttributes.getFontFamilyNames().split(",");
-            block.setFontFamily(Arrays.asList(array));
+            if(null!=array&&array.length>0){
+                block.setFontFamily(Arrays.asList(array));
+            }
         }
-        if(null!=elementPropertyAttributes.getFontColor()){
+        if(null!=elementPropertyAttributes.getFontColor()){//fontColor:red
             JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
             Color color=executor.execute(elementPropertyAttributes.getFontColor());
-            block.setFontColor(color);
+            if(null!=color){
+                block.setFontColor(color);
+            }
         }
-        if(null!=elementPropertyAttributes.getOpacity()){
+        if(null!=elementPropertyAttributes.getOpacity()){//opacity:0.5
             block.setOpacity(Float.parseFloat(elementPropertyAttributes.getOpacity()));
         }
-        if(null!=elementPropertyAttributes.getFontSize()){
+        if(null!=elementPropertyAttributes.getFontSize()){//fontSize:34
             block.setFontSize(Float.parseFloat(elementPropertyAttributes.getFontSize()));
         }
-        if(null!=elementPropertyAttributes.getTextAlignment()){
+        if(null!=elementPropertyAttributes.getTextAlignment()){//textAlignment:left
             JTextAlignment jTextAlignme= JTextAlignment.codeOf(elementPropertyAttributes.getTextAlignment());
-            block.setTextAlignment(jTextAlignme.getType());
+            if(null!=jTextAlignme){
+                block.setTextAlignment(jTextAlignme.getType());
+            }
         }
-        if(null!=elementPropertyAttributes.getCharacterSpacing()){
+        if(null!=elementPropertyAttributes.getCharacterSpacing()){//characterSpacing:30
             block.setCharacterSpacing(Float.parseFloat(elementPropertyAttributes.getCharacterSpacing()));
         }
-        if(null!=elementPropertyAttributes.getWordSpacing()){
+        if(null!=elementPropertyAttributes.getWordSpacing()){//wordSpacing:30
             block.setWordSpacing(Float.parseFloat(elementPropertyAttributes.getWordSpacing()));
         }
-        if(null!=elementPropertyAttributes.getWordSpacing()){
-            block.setWordSpacing(Float.parseFloat(elementPropertyAttributes.getWordSpacing()));
-        }
-        if(null!=elementPropertyAttributes.getFontKerning()){
+        if(null!=elementPropertyAttributes.getFontKerning()){//fontKerning:yes
             JFontKerning fontKerning= JFontKerning.codeOf(elementPropertyAttributes.getFontKerning());
-            block.setFontKerning(fontKerning.getType());
+            if(null!=fontKerning){
+                block.setFontKerning(fontKerning.getType());
+            }
         }
-        if(null!=elementPropertyAttributes.getBackgroundColor()){
+        if(null!=elementPropertyAttributes.getBackgroundColor()){//backgroundColor:red
             JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
             Color color=executor.execute(elementPropertyAttributes.getBackgroundColor());
-            block.setBackgroundColor(color);
+            if(color!=null){
+                block.setBackgroundColor(color);
+            }
         }
-        if(null!=elementPropertyAttributes.getBackgroundImage()){
-            //block.setBackgroundImage(null);
+        if(null!=elementPropertyAttributes.getBackgroundImage()){//backgroundImage:'D:/pdf/image/封底-02.png' no effect
+            try{
+                ImageData imageData = ImageDataFactory.create(elementPropertyAttributes.getBackgroundImage());
+                if(null!=imageData){
+                    PdfImageXObject xObject = new PdfImageXObject(imageData);
+                    BackgroundImage background = new BackgroundImage.Builder()
+                            .setImage(xObject)
+                            .build();
+                    block.setBackgroundImage(background);
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
         }
-        if(null!=elementPropertyAttributes.getBorder()){
-            block.setBorder(buildBorder(elementPropertyAttributes.getBorder()));
+        if(null!=elementPropertyAttributes.getBorder()){//border:'solid 32px red'
+            Border border=buildBorder(elementPropertyAttributes.getBorder());
+            if(null!=border){
+                block.setBorder(border);
+            }
         }
 
-        if(null!=elementPropertyAttributes.getBorderTop()){
-            block.setBorderTop(buildBorder(elementPropertyAttributes.getBorderTop()));
+        if(null!=elementPropertyAttributes.getBorderTop()){//borderTop:'solid 32px red'
+            Border border=buildBorder(elementPropertyAttributes.getBorderTop());
+            if(null!=border){
+                block.setBorderTop(border);
+            }
+
         }
-        if(null!=elementPropertyAttributes.getBorderRight()){
-            block.setBorderRight(buildBorder(elementPropertyAttributes.getBorderRight()));
+        if(null!=elementPropertyAttributes.getBorderRight()){//borderRight:'solid 32px red'
+            Border border= buildBorder(elementPropertyAttributes.getBorderRight());
+            if(null!=border){
+                block.setBorderRight(border);
+            }
+
         }
-        if(null!=elementPropertyAttributes.getBorderLeft()){
-            block.setBorderLeft(buildBorder(elementPropertyAttributes.getBorderLeft()));
+        if(null!=elementPropertyAttributes.getBorderLeft()){//borderLeft:'solid 32px red'
+            Border border=buildBorder(elementPropertyAttributes.getBorderLeft());
+            if(null!=border){
+                block.setBorderLeft(border);
+            }
+
         }
-        if(null!=elementPropertyAttributes.getBorderBottom()){
-            block.setBorderBottom(buildBorder(elementPropertyAttributes.getBorderBottom()));
+        if(null!=elementPropertyAttributes.getBorderBottom()){//borderBottom:'solid 32px red'
+            Border border=buildBorder(elementPropertyAttributes.getBorderBottom());
+            if(null!=border){
+                block.setBorderBottom(border);
+            }
+
         }
-        if(null!=elementPropertyAttributes.getBorderRadius()){
+        if(null!=elementPropertyAttributes.getBorderRadius()){//borderRadius:'32px 24px'
             String[] array=elementPropertyAttributes.getBorderRadius().split(" ");
             if(null!=array&&2==array.length){
                 JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
@@ -278,7 +371,7 @@ public abstract class JBaseRenderer implements JStyleRenderer {
                 block.setBorderRadius(radius);
             }
         }
-        if(null!=elementPropertyAttributes.getBorderBottomLeftRadius()){
+        if(null!=elementPropertyAttributes.getBorderBottomLeftRadius()){//borderBottomLeftRadius:'32px 24px'
             String[] array=elementPropertyAttributes.getBorderBottomLeftRadius().split(" ");
             if(null!=array&&2==array.length){
                 JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
@@ -288,7 +381,7 @@ public abstract class JBaseRenderer implements JStyleRenderer {
                 block.setBorderBottomLeftRadius(radius);
             }
         }
-        if(null!=elementPropertyAttributes.getBorderBottomRightRadius()){
+        if(null!=elementPropertyAttributes.getBorderBottomRightRadius()){//borderBottomRightRadius:'32px 24px'
             String[] array=elementPropertyAttributes.getBorderBottomRightRadius().split(" ");
             if(null!=array&&2==array.length){
                 JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
@@ -299,7 +392,7 @@ public abstract class JBaseRenderer implements JStyleRenderer {
             }
 
         }
-        if(null!=elementPropertyAttributes.getBorderTopRightRadius()){
+        if(null!=elementPropertyAttributes.getBorderTopRightRadius()){//borderTopRightRadius:'32px 24px'
             String[] array=elementPropertyAttributes.getBorderTopRightRadius().split(" ");
             if(null!=array&&2==array.length){
                 JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
@@ -309,7 +402,7 @@ public abstract class JBaseRenderer implements JStyleRenderer {
                 block.setBorderTopRightRadius(radius);
             }
         }
-        if(null!=elementPropertyAttributes.getBorderTopLeftRadius()){
+        if(null!=elementPropertyAttributes.getBorderTopLeftRadius()){//borderTopLeftRadius:'32px 24px'
             String[] array=elementPropertyAttributes.getBorderTopLeftRadius().split(" ");
             if(null!=array&&2==array.length){
                 JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
@@ -319,61 +412,60 @@ public abstract class JBaseRenderer implements JStyleRenderer {
                 block.setBorderTopLeftRadius(radius);
             }
         }
-        if(null!=elementPropertyAttributes.getSplitCharacters()){
-         block.setCharacterSpacing(Float.parseFloat(elementPropertyAttributes.getSplitCharacters()));
+        if(null!=elementPropertyAttributes.getSplitCharacters()){//splitCharacters:24
+            block.setCharacterSpacing(Float.parseFloat(elementPropertyAttributes.getSplitCharacters()));
         }
-        if(null!=elementPropertyAttributes.getTextRenderingMode()){
+        if(null!=elementPropertyAttributes.getTextRenderingMode()){//textRenderingMode:24textRenderingMode:24
             block.setTextRenderingMode(Integer.parseInt(elementPropertyAttributes.getTextRenderingMode()));
         }
-        if(null!=elementPropertyAttributes.getStrokeColor()){
+        if(null!=elementPropertyAttributes.getStrokeColor()){//strokeColor:red
             JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
             Color color=executor.execute(elementPropertyAttributes.getStrokeColor());
             block.setStrokeColor(color);
         }
 
-        if(null!=elementPropertyAttributes.getStrokeWidth()){
+        if(null!=elementPropertyAttributes.getStrokeWidth()){//strokeWidth:24
             block.setStrokeWidth(Float.parseFloat(elementPropertyAttributes.getStrokeWidth()));
         }
-        if(null!=elementPropertyAttributes.getBold()){
+        if(null!=elementPropertyAttributes.getBold()){//bold:true
             if(Boolean.parseBoolean(elementPropertyAttributes.getBold())){
                 block.setBold();
             }
         }
-        if(null!=elementPropertyAttributes.getItalic()){
+        if(null!=elementPropertyAttributes.getItalic()){//italic:true
             if(Boolean.parseBoolean(elementPropertyAttributes.getItalic())){
                 block.setItalic();
             }
         }
 
-        if(null!=elementPropertyAttributes.getLineThrough()){
+        if(null!=elementPropertyAttributes.getLineThrough()){//lineThrough:true
             if(Boolean.parseBoolean(elementPropertyAttributes.getLineThrough())){
                 block.setLineThrough();
             }
         }
-        if(null!=elementPropertyAttributes.getUnderline()){
+        if(null!=elementPropertyAttributes.getUnderline()){//underline:true
             if(Boolean.parseBoolean(elementPropertyAttributes.getUnderline())){
                 block.setUnderline();
             }
         }
-        if(null!=elementPropertyAttributes.getBaseDirection()){
-            if(Boolean.parseBoolean(elementPropertyAttributes.getUnderline())){
-                JBaseDirection jBaseDirection= JBaseDirection.codeOf(elementPropertyAttributes.getBaseDirection());
+        if(null!=elementPropertyAttributes.getBaseDirection()){//baseDirection:'no_bidi'
+             JBaseDirection jBaseDirection= JBaseDirection.codeOf(elementPropertyAttributes.getBaseDirection());
                 if(null!=jBaseDirection){
                     block.setBaseDirection(jBaseDirection.getType());
                 }
-            }
+
         }
         if(null!=elementPropertyAttributes.getHyphenation()){
 //            block.setHyphenation()
         }
-        if(null!=elementPropertyAttributes.getFontScript()){
+        if(null!=elementPropertyAttributes.getFontScript()){//fontScript:common
             JUnicodeScript script=JUnicodeScript.codeOf(elementPropertyAttributes.getFontScript());
             if(null!=script){
                 block.setFontScript(script.getType());
             }
 
         }
-        if(null!=elementPropertyAttributes.getDestination()){
+        if(null!=elementPropertyAttributes.getDestination()){//destination:hello
             block.setDestination(elementPropertyAttributes.getDestination());
         }
     }
@@ -388,8 +480,8 @@ public abstract class JBaseRenderer implements JStyleRenderer {
                 Constructor<?> constructor;
                 Object borderInstance;
                 if (width != null && color != null) {
-                    constructor = borderClass.getConstructor(float.class, Color.class);
-                    borderInstance = constructor.newInstance(width, color);
+                    constructor = borderClass.getConstructor( Color.class,float.class);
+                    borderInstance = constructor.newInstance(color,width);
                 } else if (width != null) {
                     constructor = borderClass.getConstructor(float.class);
                     borderInstance = constructor.newInstance(width);

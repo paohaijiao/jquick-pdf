@@ -19,7 +19,7 @@ public enum JFontKerning {
     }
     public static JFontKerning codeOf(String code) {
         for (JFontKerning type : values()) {
-            if (type.code.equals(code)) {
+            if (type.code.equalsIgnoreCase(code)) {
                 return type;
             }
         }

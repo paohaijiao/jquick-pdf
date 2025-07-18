@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 public enum JUnicodeScript {
     // Common and Latin scripts
-    NO_BIDI("COMMON", Character.UnicodeScript.COMMON),
+    NO_BIDI("common", Character.UnicodeScript.COMMON),
     DEFAULT_BIDI("latin", Character.UnicodeScript.LATIN),
     LEFT_TO_RIGHT("left_to_right", Character.UnicodeScript.GREEK),
 
