@@ -25,15 +25,20 @@ import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.font.FontProvider;
 import com.itextpdf.layout.properties.AreaBreakType;
+import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.properties.VerticalAlignment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -89,6 +94,8 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         if (null != ctx.body()) {
             visitBody(ctx.body());
         }
+//        this.addCatalog();
+//        this.addPageNumber();
         pdf.close();
         return null;
     }
@@ -235,5 +242,64 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                 break;
         }
         return "blue";
+    }
+    protected String getInPath() {
+        String outPath= "d://test//";
+        int index = outPath.lastIndexOf("/");
+        int index2 = outPath.lastIndexOf("/", index-1);
+        String prefix = outPath.substring(0, index2);
+        String fileName = outPath.substring(index);
+        String name = fileName.split("\\.")[0];
+        String pre = prefix + "/temp";
+        if (!Files.exists(Paths.get(pre))) {
+            try {
+                Files.createDirectories(Paths.get(pre));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return pre + name + "_temp.pdf";
+    }
+    public void addPageNumber() {
+        Integer catalogSize = Integer.parseInt(properties.getProperty(ReportConstant.CATALOG_SIZE));
+        pdf.close();
+        PdfReader reader = null;
+        PdfWriter writer = null;
+        String inPath = getInPath();
+        try {
+            reader = new PdfReader(new File(inPath));
+            writer = new PdfWriter(new File("d://test//hello.pdf"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PdfDocument pdf = new PdfDocument(reader, writer);
+        Document doc = new Document(pdf);
+        int startPage = 7;
+        int numberOfPages = pdf.getNumberOfPages();
+        for (int i = 0; i < catalogSize; i++) {
+            pdf.movePage(numberOfPages, startPage);
+        }
+        String forbidPage = properties.getProperty(ReportConstant.FORBIDDE);
+        for (int pageNumber = 1; pageNumber < numberOfPages + 1; pageNumber++) {
+
+            if (pageNumber > 6 + catalogSize && pageNumber != 8 + catalogSize) {
+                if (forbidPage != null && (pageNumber - catalogSize) >= Integer.parseInt(forbidPage)) {
+                    continue;
+                }
+                if (pageSet.contains(pageNumber - catalogSize)) {
+                    continue;
+                }
+                PageSize pageSize = pdf.getDefaultPageSize();
+                doc.showTextAligned(new Paragraph(String.format("- %d -", pageNumber)), pageSize.getWidth() / 2, 30, pageNumber, TextAlignment.CENTER, VerticalAlignment.MIDDLE, 0);
+            }
+        }
+        pdf.close();
+        // 删除临时文件
+        try {
+            Files.delete(Paths.get(inPath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return ;
     }
 }

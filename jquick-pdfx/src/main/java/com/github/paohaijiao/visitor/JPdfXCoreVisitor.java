@@ -67,7 +67,6 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 
 
     protected void buildStyle(IElement ele, JStyleAttributes style) {
-        Div div = new Div();
         JStyleHandler.applyStyles(doc,ele, style);
     }
 

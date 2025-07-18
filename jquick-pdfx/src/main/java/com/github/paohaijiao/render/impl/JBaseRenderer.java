@@ -55,40 +55,53 @@ public abstract class JBaseRenderer implements JStyleRenderer {
         JStyleBlockAttributes divStyles = new JStyleBlockAttributes();
         divStyles.putAll(styles);
         BlockElement<?> block = (BlockElement<?>) element;
-        if(divStyles.getMarginLeft() != null){
+        if(divStyles.getMarginLeft() != null){//marginLeft:1px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getMarginLeft());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMarginLeft(f);
+            if(unitValue != null){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMarginLeft(f);
+            }
         }
-        if(divStyles.getMarginRight() != null){
+        if(divStyles.getMarginRight() != null){//marginRight:500px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getMarginRight());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMarginRight(f);
+            if(unitValue != null){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMarginRight(f);
+            }
         }
-        if(divStyles.getMarginTop() != null){
+        if(divStyles.getMarginTop() != null){//marginTop:500px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getMarginTop());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMarginTop(f);
+            if(unitValue != null){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMarginTop(f);
+            }
         }
-        if(divStyles.getMarginBottom() != null){
+        if(divStyles.getMarginBottom() != null){//marginBottom:500px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getMarginBottom());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMarginBottom(f);
+            if(unitValue != null){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMarginBottom(f);
+            }
         }
-        if(divStyles.getCommonMargin() != null){
+        if(divStyles.getCommonMargin() != null){//commonMargin:100px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             UnitValue unitValue= executor.execute(divStyles.getCommonMargin());
-            float f=JUnitConverter.toFloat(unitValue);
-            block.setMargin(f);
+            if(unitValue != null){
+                float f=JUnitConverter.toFloat(unitValue);
+                block.setMargin(f);
+            }
+
         }
-        if(divStyles.getMargins() != null){
+        if(divStyles.getMargins() != null){//margins:20px 30px 40px 50px
             JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
             JMarginModel marginModel= executor.execute(divStyles.getMargins());
-            block.setMargins(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            if(null!=marginModel){
+                block.setMargins(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            }
         }
         if(divStyles.getPaddingLeft() != null){
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
