@@ -108,6 +108,26 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitElement(JQuickPDFParser.ElementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#comboBoxField}.
+	 * @param ctx the parse tree
+	 */
+	void enterComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#comboBoxField}.
+	 * @param ctx the parse tree
+	 */
+	void exitComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#checkbox}.
+	 * @param ctx the parse tree
+	 */
+	void enterCheckbox(JQuickPDFParser.CheckboxContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#checkbox}.
+	 * @param ctx the parse tree
+	 */
+	void exitCheckbox(JQuickPDFParser.CheckboxContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#areaBreak}.
 	 * @param ctx the parse tree
 	 */
@@ -117,6 +137,16 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAreaBreak(JQuickPDFParser.AreaBreakContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#button}.
+	 * @param ctx the parse tree
+	 */
+	void enterButton(JQuickPDFParser.ButtonContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#button}.
+	 * @param ctx the parse tree
+	 */
+	void exitButton(JQuickPDFParser.ButtonContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#paragraph}.
 	 * @param ctx the parse tree
@@ -277,6 +307,126 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitDiv(JQuickPDFParser.DivContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#htmlPageBreak}.
+	 * @param ctx the parse tree
+	 */
+	void enterHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#htmlPageBreak}.
+	 * @param ctx the parse tree
+	 */
+	void exitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#inputButton}.
+	 * @param ctx the parse tree
+	 */
+	void enterInputButton(JQuickPDFParser.InputButtonContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#inputButton}.
+	 * @param ctx the parse tree
+	 */
+	void exitInputButton(JQuickPDFParser.InputButtonContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#inputField}.
+	 * @param ctx the parse tree
+	 */
+	void enterInputField(JQuickPDFParser.InputFieldContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#inputField}.
+	 * @param ctx the parse tree
+	 */
+	void exitInputField(JQuickPDFParser.InputFieldContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#lineSeparator}.
+	 * @param ctx the parse tree
+	 */
+	void enterLineSeparator(JQuickPDFParser.LineSeparatorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#lineSeparator}.
+	 * @param ctx the parse tree
+	 */
+	void exitLineSeparator(JQuickPDFParser.LineSeparatorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#link}.
+	 * @param ctx the parse tree
+	 */
+	void enterLink(JQuickPDFParser.LinkContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#link}.
+	 * @param ctx the parse tree
+	 */
+	void exitLink(JQuickPDFParser.LinkContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#listBoxField}.
+	 * @param ctx the parse tree
+	 */
+	void enterListBoxField(JQuickPDFParser.ListBoxFieldContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#listBoxField}.
+	 * @param ctx the parse tree
+	 */
+	void exitListBoxField(JQuickPDFParser.ListBoxFieldContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#pageCountElement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPageCountElement(JQuickPDFParser.PageCountElementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#pageCountElement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPageCountElement(JQuickPDFParser.PageCountElementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#pageTargetCountElement}.
+	 * @param ctx the parse tree
+	 */
+	void enterPageTargetCountElement(JQuickPDFParser.PageTargetCountElementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#pageTargetCountElement}.
+	 * @param ctx the parse tree
+	 */
+	void exitPageTargetCountElement(JQuickPDFParser.PageTargetCountElementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#radio}.
+	 * @param ctx the parse tree
+	 */
+	void enterRadio(JQuickPDFParser.RadioContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#radio}.
+	 * @param ctx the parse tree
+	 */
+	void exitRadio(JQuickPDFParser.RadioContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#runningElement}.
+	 * @param ctx the parse tree
+	 */
+	void enterRunningElement(JQuickPDFParser.RunningElementContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#runningElement}.
+	 * @param ctx the parse tree
+	 */
+	void exitRunningElement(JQuickPDFParser.RunningElementContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#tab}.
+	 * @param ctx the parse tree
+	 */
+	void enterTab(JQuickPDFParser.TabContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#tab}.
+	 * @param ctx the parse tree
+	 */
+	void exitTab(JQuickPDFParser.TabContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#textArea}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextArea(JQuickPDFParser.TextAreaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#textArea}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextArea(JQuickPDFParser.TextAreaContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#span}.
 	 * @param ctx the parse tree

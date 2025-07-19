@@ -71,11 +71,29 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElement(JQuickPDFParser.ElementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#comboBoxField}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#checkbox}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCheckbox(JQuickPDFParser.CheckboxContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#areaBreak}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitAreaBreak(JQuickPDFParser.AreaBreakContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#button}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitButton(JQuickPDFParser.ButtonContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#paragraph}.
 	 * @param ctx the parse tree
@@ -172,6 +190,78 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDiv(JQuickPDFParser.DivContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#htmlPageBreak}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#inputButton}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInputButton(JQuickPDFParser.InputButtonContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#inputField}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInputField(JQuickPDFParser.InputFieldContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#lineSeparator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLineSeparator(JQuickPDFParser.LineSeparatorContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#link}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLink(JQuickPDFParser.LinkContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#listBoxField}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitListBoxField(JQuickPDFParser.ListBoxFieldContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#pageCountElement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPageCountElement(JQuickPDFParser.PageCountElementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#pageTargetCountElement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPageTargetCountElement(JQuickPDFParser.PageTargetCountElementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#radio}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRadio(JQuickPDFParser.RadioContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#runningElement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRunningElement(JQuickPDFParser.RunningElementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#tab}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTab(JQuickPDFParser.TabContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#textArea}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextArea(JQuickPDFParser.TextAreaContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#span}.
 	 * @param ctx the parse tree

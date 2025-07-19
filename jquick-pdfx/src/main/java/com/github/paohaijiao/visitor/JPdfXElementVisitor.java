@@ -58,6 +58,8 @@ public class JPdfXElementVisitor extends JPdfXDivVisitor {
         }
         else if (ctx.areaBreak() != null) {
             return visitAreaBreak(ctx.areaBreak());
+        }else if(ctx.button()!=null){
+            return visitButton(ctx.button());
         }
         return null;
     }

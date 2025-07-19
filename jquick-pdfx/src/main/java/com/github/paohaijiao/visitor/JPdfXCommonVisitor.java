@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
@@ -158,12 +159,34 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                     AreaBreak areaBreak=(AreaBreak)object;
                     doc.add(areaBreak);
                 }
+                if (object instanceof JHtmlRenderModel) {
+                    JHtmlRenderModel areaBreak=(JHtmlRenderModel)object;
+                    if(areaBreak.getList()!=null){
+                        areaBreak.getList().forEach(e->{
+                            saveSub(e);
+                        });
+                    }
+                }
             }
         }
 //        ReportPainting painting = new ReportPainting(pdf, font);
 //        painting.drawHello("image/纸质报告-03.png");
 //        painting.close();
         return null;
+    }
+    private void saveSub(  Object object){
+        if (object instanceof Image) {
+            Image image=(Image)object;
+            doc.add(image);
+        }
+        if (object instanceof IBlockElement) {
+            IBlockElement blockElement=(IBlockElement)object;
+            doc.add(blockElement);
+        }
+        if (object instanceof AreaBreak) {
+            AreaBreak areaBreak=(AreaBreak)object;
+            doc.add(areaBreak);
+        }
     }
     public void addCatalog() {
         CatalogMoveEvent catalogMoveEvent = new CatalogMoveEvent(properties);
@@ -294,7 +317,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
             }
         }
         pdf.close();
-        // 删除临时文件
         try {
             Files.delete(Paths.get(inPath));
         } catch (IOException e) {

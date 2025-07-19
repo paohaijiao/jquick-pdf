@@ -16,56 +16,53 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.paragraph.JParagraphModel;
-import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.sample.ReportColor;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.layout.element.AreaBreak;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.itextpdf.layout.properties.TextAlignment;
-import com.itextpdf.layout.properties.UnitValue;
-
+import com.itextpdf.html2pdf.attach.impl.layout.form.element.InputButton;
+import com.itextpdf.html2pdf.attach.impl.layout.form.element.InputField;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
  *
  * @author Martin
  * @version 1.0.0
- * @className JPdfXCommonVisitor
- * @date 2025/6/14
+ * @className JPdfXDivVisitor
+ * @date 2025/6/15
  * @description
  */
-public class JPdfXSpanVisitor extends JPdfXLayOutVisitor {
+public class JPdfXInputFieldVisitor extends JPdfXSvgVisitor {
 
     @Override
-    public Text visitSpan(JQuickPDFParser.SpanContext ctx) {
-        String value = "";
-        if (null != ctx.value()) {
-           Object val = visitValue(ctx.value());
-           if(null!=val&&val instanceof String){
-               value=val.toString();
-           }
-        }
+    public InputField visitInputField(JQuickPDFParser.InputFieldContext ctx) {
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        if(ctx.lbr()!=null){
-            value="\n"+value;
+        String value = "";
+        if (null != ctx.IDENTIFIER()) {
+            value =ctx.IDENTIFIER().getText();
         }
-        if(ctx.rbr()!=null){
-            value=value+"\n";
+        InputField inputField=new InputField(value);
+        super.buildStyle(inputField, style);
+        return inputField;
+   }
+
+    @Override
+    public InputButton visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx) {
+        JStyleAttributes style = new JStyleAttributes();
+        if (null != ctx.styleEle()) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
-        Text text=new Text(value);
-        super.buildStyle(text, style);
-        return text;
+        String value = "";
+        if (null != ctx.IDENTIFIER()) {
+            value =ctx.IDENTIFIER().getText();
+        }
+        InputButton inputButton=new InputButton(value);
+        super.buildStyle(inputButton, style);
+        return inputButton;
     }
-
-
 
 }
