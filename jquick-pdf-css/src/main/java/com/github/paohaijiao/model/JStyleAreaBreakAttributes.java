@@ -13,24 +13,28 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.render.impl;
+package com.github.paohaijiao.model;
 
-import com.github.paohaijiao.model.JStyleAreaBreakAttributes;
-import com.github.paohaijiao.model.JStyleAttributes;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.IElement;
+
+import java.util.HashMap;
 
 /**
- * packageName com.github.paohaijiao.render.impl
+ * packageName com.github.paohaijiao.model
  *
  * @author Martin
  * @version 1.0.0
- * @since 2025/7/17
+ * @className HtmlAttributes
+ * @date 2025/6/22
+ * @description
  */
-public class JAreaBreakRender extends JBaseRenderer{
+public class JStyleAreaBreakAttributes extends HashMap<String, String> {
+    public static final String pageSize = "pageSize";
 
-    @Override
-    public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyElementProperty(doc,element, styles);
+    public String getPageSize(){
+        return get(pageSize);
     }
+    public void setPageSize(String pageSize){
+        put(pageSize,pageSize);
+    }
+
 }

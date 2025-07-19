@@ -15,18 +15,17 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.enums.JAreaBreakEnums;
+import com.github.paohaijiao.enums.JPageSize;
+import com.github.paohaijiao.model.JStyleAreaBreakAttributes;
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.paragraph.JParagraphModel;
-import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.sample.ReportColor;
-import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.layout.element.AreaBreak;
-import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.itextpdf.layout.properties.TextAlignment;
-import com.itextpdf.layout.properties.UnitValue;
+import com.itextpdf.layout.properties.AreaBreakType;
+
+import java.math.BigDecimal;
 
 
 /**
@@ -38,33 +37,41 @@ import com.itextpdf.layout.properties.UnitValue;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXSpanVisitor extends JPdfXLayOutVisitor {
-
+public class JPdfXAreaBreakVisitor extends JPdfXLayOutVisitor {
     @Override
-    public Text visitSpan(JQuickPDFParser.SpanContext ctx) {
-        String value = "";
-        if (null != ctx.value()) {
-           Object val = visitValue(ctx.value());
-           if(null!=val&&val instanceof String){
-               value=val.toString();
-           }
-        }
+    public AreaBreak visitAreaBreak(JQuickPDFParser.AreaBreakContext ctx) {
         JStyleAttributes style = new JStyleAttributes();
+        String breakType=null;
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        if(ctx.lbr()!=null){
-            value="\n"+value;
+        if(ctx.IDENTIFIER()!=null){
+            breakType=ctx.IDENTIFIER().getText();
         }
-        if(ctx.rbr()!=null){
-            value=value+"\n";
-        }
-        Text text=new Text(value);
         AreaBreak areaBreak=new AreaBreak();
-        super.buildStyle(text, style);
-        return text;
+        if(null!=breakType){
+            JAreaBreakEnums breakEnums=JAreaBreakEnums.codeOf(breakType);
+            if(breakEnums!=null){
+                areaBreak=new AreaBreak(breakEnums.getType());
+            }
+        }
+        super.buildStyle(areaBreak, style);
+        this.buildStyle(areaBreak, style);
+        return areaBreak;
+    }
+
+    private void buildStyle(AreaBreak areaBreak, JStyleAttributes style) {
+        JStyleAreaBreakAttributes attr = new JStyleAreaBreakAttributes();
+        attr.putAll(style);
+        if(null!=attr.getPageSize()){
+            JPageSize pageSize= JPageSize.codeOf(attr.getPageSize());
+            if(null!=pageSize){
+                areaBreak.setPageSize(pageSize.getPageSize());
+            }
+
+        }
     }
 
 

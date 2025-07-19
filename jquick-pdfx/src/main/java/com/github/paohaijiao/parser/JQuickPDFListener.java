@@ -108,6 +108,16 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitElement(JQuickPDFParser.ElementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#areaBreak}.
+	 * @param ctx the parse tree
+	 */
+	void enterAreaBreak(JQuickPDFParser.AreaBreakContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#areaBreak}.
+	 * @param ctx the parse tree
+	 */
+	void exitAreaBreak(JQuickPDFParser.AreaBreakContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#paragraph}.
 	 * @param ctx the parse tree
 	 */
@@ -427,14 +437,4 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitColor(JQuickPDFParser.ColorContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#u}.
-	 * @param ctx the parse tree
-	 */
-	void enterU(JQuickPDFParser.UContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#u}.
-	 * @param ctx the parse tree
-	 */
-	void exitU(JQuickPDFParser.UContext ctx);
 }

@@ -6,9 +6,7 @@ import java.util.HashMap;
 public class JStyleElementPropertyAttributes extends HashMap<String, String> {
 
 
-    public static final String fillArea = "fillArea";
 
-    public static final String fillAreaOnSplit = "fillAreaOnSplit";
 
 
     public static final String relativePosition = "relativePosition";

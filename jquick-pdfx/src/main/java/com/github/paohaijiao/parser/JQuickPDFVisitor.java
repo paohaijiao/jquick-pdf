@@ -71,6 +71,12 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitElement(JQuickPDFParser.ElementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#areaBreak}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAreaBreak(JQuickPDFParser.AreaBreakContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#paragraph}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -262,10 +268,4 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitColor(JQuickPDFParser.ColorContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#u}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitU(JQuickPDFParser.UContext ctx);
 }
