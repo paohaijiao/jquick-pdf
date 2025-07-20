@@ -80,4 +80,8 @@ public class TabPage {
     public void setActive(boolean active) {
         this.active = active;
     }
+
+    public PdfFont getFont() {
+        return font;
+    }
 }
