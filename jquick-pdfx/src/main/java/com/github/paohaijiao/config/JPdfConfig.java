@@ -60,6 +60,8 @@ public class JPdfConfig {
 
     private JSecurityConfig securityConfig=new JSecurityConfig();
 
+    private JGraphConfig graphConfig=new JGraphConfig();
+
 
 
 

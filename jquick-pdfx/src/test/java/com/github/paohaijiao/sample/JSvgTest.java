@@ -92,7 +92,7 @@ public class JSvgTest {
                     "    ></g\n" +
                     "  ></g\n" +
                     "></svg>";
-
+            System.out.println(svgContent);
             SvgImage svgImage = new SvgImage(svgContent);
             document.add(svgImage);
             document.close();

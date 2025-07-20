@@ -15,6 +15,9 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.config.JGraphConfig;
+import com.github.paohaijiao.exception.JAssert;
+import com.github.paohaijiao.extension.svg.SvgImage;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.element.IElement;
@@ -35,25 +38,26 @@ public class JPdfXSvgVisitor extends JPdfXImageVisitor {
 
     @Override
     public IElement visitSvg(JQuickPDFParser.SvgContext ctx) {
-        String src = null;
-        if (ctx.src() != null) {
-            src = visitSrc(ctx.src());
-        }
-        String value = null;
-        if (ctx.value() != null) {
-            value = visitValue(ctx.value()).toString();
-        }
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        Paragraph paragraph = new Paragraph(value == null ? "" : value);
-        super.buildStyle(paragraph, style);
-        doc.add(paragraph);
-        SvgConverter.drawOnDocument(src, doc.getPdfDocument(), 1, 50f, 600f);
-        return null;
+        SvgImage svgImage=null;
+        if(ctx.variable()!=null){
+            Object var=  visitVariable(ctx.variable());
+            JAssert.notNull(var,"the variable not  null");
+            svgImage=new SvgImage(var.toString());
+        }else if(ctx.IDENTIFIER()!=null) {
+            String identify = ctx.IDENTIFIER().getText();
+            JGraphConfig graphConfig = this.config.getGraphConfig();
+            JAssert.notNull(graphConfig, "the graph config not  null");
+            String content = graphConfig.drawGraph(identify);
+            svgImage = new SvgImage(content);
+        }
+        super.buildStyle(svgImage, style);
+        return svgImage;
     }
 
 }

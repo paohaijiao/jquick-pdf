@@ -24,7 +24,18 @@
             <artifactId>antlr4</artifactId>
             <scope>provided</scope>
         </dependency>
-
+        <dependency>
+            <groupId>io.github.paohaijiao</groupId>
+            <artifactId>jquick-pdf-svg</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.paohaijiao</groupId>
+            <artifactId>jquick-pdf-css</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.github.paohaijiao</groupId>
+            <artifactId>jquick-pdf-font</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.itextpdf</groupId>
@@ -64,10 +75,7 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>io.github.paohaijiao</groupId>
-            <artifactId>jquick-pdf-css</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.itextpdf</groupId>
             <artifactId>itext7-core</artifactId>

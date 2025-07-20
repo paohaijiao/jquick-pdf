@@ -52,6 +52,12 @@
             </dependency>
             <dependency>
                 <groupId>io.github.paohaijiao</groupId>
+                <artifactId>jquick-pdf-svg</artifactId>
+                <version>${jquick.pdf.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.paohaijiao</groupId>
                 <artifactId>jquick-pdfx</artifactId>
                 <version>${jquick.pdf.version}</version>
             </dependency>
