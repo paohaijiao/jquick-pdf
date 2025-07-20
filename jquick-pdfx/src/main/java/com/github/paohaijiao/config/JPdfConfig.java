@@ -15,7 +15,11 @@
  */
 package com.github.paohaijiao.config;
 
+import com.itextpdf.kernel.geom.PageSize;
 import lombok.Data;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * packageName com.github.paohaijiao.model.meta
@@ -34,6 +38,15 @@ public class JPdfConfig {
     private String templateFile="//template.pdf";
 
     private String outputFile="//hello.pdf";
+
+    private PageSize defaultPageSize=PageSize.A4;
+
+    private List<Integer> margins= Arrays.asList(0, 0, 0, 0);
+
+    private Boolean reverse=true;
+
+    private JDocConfig doc=new JDocConfig();
+
 
     private JPageConfig pageConfig= new JPageConfig();
 

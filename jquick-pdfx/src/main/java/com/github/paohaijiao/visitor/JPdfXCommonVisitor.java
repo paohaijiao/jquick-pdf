@@ -222,7 +222,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("需要注意").addStyle(ReportStyle.getSecondTitleStyle())));
         tableCatalog.startNewRow();
         this.addCatalogDetail(offPage, tableCatalog, cataLogs);
-
         cataLogs = cataLogsMap.getOrDefault(CatalogType.NORMAL, new LinkedList<>());
         tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("正常项目").addStyle(ReportStyle.getSecondTitleStyle())));
         tableCatalog.startNewRow();
@@ -244,30 +243,12 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         for (CataLog cataLog : values) {
             tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph(cataLog.getName())));
             tableCatalog.addCell(ReportComponent.getCatelogCell().add(ReportComponent.getCatelogDottedLine(2)));
-            System.out.println(selectColor(cataLog));
             tableCatalog.addCell(ReportComponent.getCatelogCell().add(new com.itextpdf.layout.element.List().add(new ListItem(cataLog.getLabel())
                     .setListSymbol(new Image(ImageDataFactory.create(JPdfXCommonVisitor.class.getClassLoader().getResource("image/dark-green-point.png")))
                             .addStyle(ReportStyle.getDefaultPoint())))));
             tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph((cataLog.getPageNumber() + offPage) + "")));
             tableCatalog.startNewRow();
         }
-    }
-    private String selectColor(CataLog cataLog) {
-        switch (cataLog.getIndex()) {
-            case 0:
-                return "green";
-            case 1:
-                return "dark-green";
-            case 2:
-                return "blue";
-            case 3:
-                return "orange";
-            case 4:
-                return "red";
-            default:
-                break;
-        }
-        return "blue";
     }
     public void addPageNumber() {
         Integer catalogSize = Integer.parseInt(properties.getProperty(ReportConstant.CATALOG_SIZE));

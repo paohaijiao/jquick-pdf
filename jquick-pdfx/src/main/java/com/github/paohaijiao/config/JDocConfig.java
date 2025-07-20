@@ -16,11 +16,12 @@
 package com.github.paohaijiao.config;
 
 import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.kernel.geom.PageSize;
 import lombok.Data;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * packageName com.github.paohaijiao.config
@@ -30,23 +31,9 @@ import lombok.Data;
  * @since 2025/7/20
  */
 @Data
-public class JHeaderConfig {
-
-    private boolean enabled = true;
-
-    private String text="这是标题烂";
-
+public class JDocConfig {
+    private List<Integer> margins= Arrays.asList(50, 60, 50, 60);
     private PdfFont font= JFontProviderFactory.defualtFont();
-
-    private float fontSize = 10;
-
-    private Color fontColor=new DeviceRgb(37, 98, 206);
-
-    private float height = 30;
-
-    private Color backgroundColor;
-
-
-    private TextAlignment alignment = TextAlignment.CENTER;
-
+    private float fontSize= 10.5f;
+    private float characterSpacing= 0.1f;
 }

@@ -102,15 +102,18 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
             PdfWriter writer = new PdfWriter(config.getTempFilePath());
             PdfDocument pdf = new PdfDocument(writer);
             pdf = new PdfDocument(writer);
-            pdf.setDefaultPageSize(PageSize.A4);
-            pdf.getDefaultPageSize().applyMargins(0, 0, 0, 0, true);
+            pdf.setDefaultPageSize(config.getDefaultPageSize());
+            pdf.getDefaultPageSize().applyMargins(config.getMargins().get(0),
+                    config.getMargins().get(1), config.getMargins().get(2),
+                    config.getMargins().get(3), config.getReverse());
             FontProvider fontProvider = getFontProvider();
             doc = new Document(pdf);
-            doc.setMargins(50, 60, 50, 60);
+            doc.setMargins(config.getDoc().getMargins().get(0), config.getDoc().getMargins().get(1),
+                    config.getDoc().getMargins().get(2), config.getDoc().getMargins().get(3));
             doc.setFontProvider(fontProvider);
-            doc.setFont(font);
-            doc.setFontSize(10.5f);
-            doc.setCharacterSpacing(0.1f);
+            doc.setFont(config.getDoc().getFont());
+            doc.setFontSize(config.getDoc().getFontSize());
+            doc.setCharacterSpacing(config.getDoc().getCharacterSpacing());
             proper = new ConverterProperties();
             proper.setFontProvider(fontProvider);
             if (config.getFontConfig().getDefaultFont() != null) {
