@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.config;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import lombok.Data;
 
@@ -27,15 +28,15 @@ import lombok.Data;
 @Data
 public class JFontConfig {
 
-    private PdfFont defaultFont;
+    private PdfFont defaultFont= JFontProviderFactory.defualtFont();
 
-    private PdfFont titleFont;
+    private PdfFont titleFont=JFontProviderFactory.defualtFont();
 
-    private PdfFont bodyFont;
+    private PdfFont bodyFont=JFontProviderFactory.defualtFont();
 
-    private PdfFont headerFooterFont;
+    private PdfFont headerFooterFont=JFontProviderFactory.defualtFont();
 
-    private PdfFont codeFont;
+    private PdfFont codeFont=JFontProviderFactory.defualtFont();
 
     private String fontDirectory = "fonts";
 

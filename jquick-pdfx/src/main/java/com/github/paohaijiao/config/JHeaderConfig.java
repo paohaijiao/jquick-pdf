@@ -15,8 +15,11 @@
  */
 package com.github.paohaijiao.config;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.properties.TextAlignment;
 import lombok.Data;
 
@@ -32,13 +35,13 @@ public class JHeaderConfig {
 
     private boolean enabled = true;
 
-    private String text;
+    private String text="这是标题烂";
 
-    private PdfFont font;
+    private PdfFont font= JFontProviderFactory.defualtFont();
 
     private float fontSize = 10;
 
-    private Color fontColor;
+    private Color fontColor=new DeviceRgb(37, 98, 206);
 
     private float height = 30;
 

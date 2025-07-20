@@ -15,7 +15,10 @@
  */
 package com.github.paohaijiao.config;
 
+import com.github.paohaijiao.color.JColorEnums;
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.layout.properties.TextAlignment;
 import lombok.Data;
@@ -34,15 +37,15 @@ public class JFooterConfig {
 
     private String text = "第 {page} 页";
 
-    private PdfFont font;
+    private PdfFont font= JFontProviderFactory.defualtFont();
 
     private float fontSize = 10;
 
-    private Color fontColor;
+    private Color fontColor=new DeviceRgb(37, 98, 206);
 
     private float height = 30;
 
-    private Color backgroundColor;
+    private Color backgroundColor= JColorEnums.WHITE.getColor();;
 
     private TextAlignment alignment = TextAlignment.CENTER;
 

@@ -42,7 +42,13 @@ public class JFontProviderFactory {
     static{
         fontProviders.put(DEFAULT_FONT,new JDefaultFontProvider(DEFAULT_FONT,"fonts/simhei.ttf", JPdfEncoding.IDENTITY_H));
     }
-
+    public static PdfFont defualtFont() {
+        if(!fontProviders.containsKey(DEFAULT_FONT)){
+            throw new IllegalArgumentException("Unknown font provider for font: " + DEFAULT_FONT);
+        }
+        JFontProvider provider =fontProviders.get(DEFAULT_FONT);
+        return provider.getFont();
+    }
     public static PdfFont getFont(String font) {
         if(!fontProviders.containsKey(font)){
             throw new IllegalArgumentException("Unknown font provider for font: " + font);
