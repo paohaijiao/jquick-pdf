@@ -143,6 +143,7 @@ public class JSvgTest {
                 "  ></g\n" +
                 "></svg>";
         params.put("key", svg);
+        System.out.println(svg);
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
         String key = (String) visitor.visit(tree);
         System.out.println("pdf generate");
