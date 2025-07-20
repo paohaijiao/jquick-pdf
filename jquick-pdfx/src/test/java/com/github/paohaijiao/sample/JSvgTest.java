@@ -107,12 +107,8 @@ public class JSvgTest {
                     "></svg>";
 
             SvgImage svgImage = new SvgImage(svgContent);
-            svgImage.setPageNum(1);
             document.add(svgImage);
-
-            // 7. 关闭文档（保存到文件）
             document.close();
-
             System.out.println("PDF文件已生成: " + new File(outputPath).getAbsolutePath());
 
         } catch (IOException e) {
