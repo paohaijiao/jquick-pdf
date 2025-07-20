@@ -15,12 +15,12 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.config.JGraphConfig;
+import com.github.paohaijiao.config.JTreeNodeConfig;
 import com.github.paohaijiao.exception.JAssert;
-import com.github.paohaijiao.extension.svg.SvgImage;
+import com.github.paohaijiao.extension.tree.TreeElement;
+import com.github.paohaijiao.extension.tree.TreeNode;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.element.IElement;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -31,31 +31,32 @@ import com.itextpdf.layout.element.IElement;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXSvgVisitor extends JPdfXTreeVisitor {
-
+public class JPdfXTreeVisitor extends JPdfXImageVisitor {
 
     @Override
-    public IElement visitSvg(JQuickPDFParser.SvgContext ctx) {
+    public TreeElement visitTree(JQuickPDFParser.TreeContext ctx) {
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        SvgImage svgImage=null;
-        if(ctx.variable()!=null){
-            Object var=  visitVariable(ctx.variable());
-            JAssert.notNull(var,"the variable not  null");
-            svgImage=new SvgImage(var.toString());
-        }else if(ctx.IDENTIFIER()!=null) {
+        TreeElement tree = null;
+        if (ctx.variable() != null) {
+            Object var = visitVariable(ctx.variable());
+            JAssert.notNull(var, "the variable not  null");
+            TreeNode root = (TreeNode) var;
+            tree = new TreeElement(root);
+        } else if (ctx.IDENTIFIER() != null) {
             String identify = ctx.IDENTIFIER().getText();
-            JGraphConfig graphConfig = this.config.getGraphConfig();
-            JAssert.notNull(graphConfig, "the graph config not  null");
-            String content = graphConfig.drawGraph(identify);
-            svgImage = new SvgImage(content);
+            JTreeNodeConfig treeConfig = this.config.getTreeConfig();
+            JAssert.notNull(treeConfig, "the tree config not  null");
+            TreeNode treeNode = treeConfig.drawTree(identify);
+            tree = new TreeElement(treeNode);
         }
-        super.buildStyle(svgImage, style);
-        return svgImage;
+        super.buildStyle(tree, style);
+        return tree;
     }
+
 
 }

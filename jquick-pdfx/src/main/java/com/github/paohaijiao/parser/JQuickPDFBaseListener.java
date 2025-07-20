@@ -516,6 +516,24 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTextArea(JQuickPDFParser.TextAreaContext ctx) { }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void enterTree(JQuickPDFParser.TreeContext ctx) {
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * <p>The default implementation does nothing.</p>
+     */
+    @Override
+    public void exitTree(JQuickPDFParser.TreeContext ctx) {
+    }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -263,6 +263,13 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTextArea(JQuickPDFParser.TextAreaContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#tree}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTree(JQuickPDFParser.TreeContext ctx);
+
+	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#span}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

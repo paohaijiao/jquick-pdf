@@ -428,6 +428,19 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitTextArea(JQuickPDFParser.TextAreaContext ctx);
 	/**
+     * Enter a parse tree produced by {@link JQuickPDFParser#tree}.
+     * @param ctx the parse tree
+     */
+    void enterTree(JQuickPDFParser.TreeContext ctx);
+
+    /**
+     * Exit a parse tree produced by {@link JQuickPDFParser#tree}.
+     *
+     * @param ctx the parse tree
+     */
+    void exitTree(JQuickPDFParser.TreeContext ctx);
+
+    /**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#span}.
 	 * @param ctx the parse tree
 	 */

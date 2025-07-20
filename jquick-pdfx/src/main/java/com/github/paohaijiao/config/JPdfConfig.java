@@ -62,7 +62,7 @@ public class JPdfConfig {
 
     private JGraphConfig graphConfig=new JGraphConfig();
 
-
+    private JTreeNodeConfig treeConfig = new JTreeNodeConfig();
 
 
     public String getTempFilePath() {
