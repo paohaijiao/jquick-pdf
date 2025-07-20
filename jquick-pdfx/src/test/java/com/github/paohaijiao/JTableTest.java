@@ -23,6 +23,7 @@ import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -100,6 +101,7 @@ public class JTableTest {
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
         String key = (String) visitor.visit(tree);
         System.out.println("pdf generate");
+        Table table=ne
     }
 
     @Test
