@@ -15,31 +15,36 @@
  */
 package com.github.paohaijiao.config;
 
+import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.font.PdfFont;
-import lombok.Data;
+import com.itextpdf.layout.properties.TextAlignment;
 
 /**
  * packageName com.github.paohaijiao.config
+ *
  * @author Martin
  * @version 1.0.0
  * @since 2025/7/20
  */
-@Data
-public class JFontConfig {
+public class JFooterConfig {
 
-    private PdfFont defaultFont;
+    private boolean enabled = true;
 
-    private PdfFont titleFont;
+    private String text = "第 {page} 页";
 
-    private PdfFont bodyFont;
+    private PdfFont font;
 
-    private PdfFont headerFooterFont;
+    private float fontSize = 10;
 
-    private PdfFont codeFont;
+    private Color fontColor;
 
-    private String fontDirectory = "fonts";
+    private float height = 30;
 
-    private String defaultFontName = "SimSun";
+    private Color backgroundColor;
 
-    private String defaultEncoding = "UniGB-UCS2-H";
+    private TextAlignment alignment = TextAlignment.CENTER;
+
+    private boolean showPageNumber = true;
+
+    private String pageNumberFormat = "第 %d 页";
 }

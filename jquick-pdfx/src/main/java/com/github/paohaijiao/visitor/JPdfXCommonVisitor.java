@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.param.JContext;
@@ -55,20 +56,23 @@ import java.util.stream.Collectors;
  */
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
-    private String fileName = "d://test//DivBasedHeadings.pdf";
 
     public JPdfXCommonVisitor() throws FileNotFoundException {
         this.context = new JContext();
-        initPdf(fileName);
+        this.config=new JPdfConfig();
     }
-
     public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
         this.context = context;
-        initPdf(fileName);
+        this.config=new JPdfConfig();
+    }
+    public JPdfXCommonVisitor(JPdfConfig config) throws FileNotFoundException {
+        this.context = new JContext();
+        this.config= config;
     }
 
-    public JPdfXCommonVisitor(String outputPath) throws IOException {
-        initPdf(fileName);
+    public JPdfXCommonVisitor(JContext context,JPdfConfig config) throws FileNotFoundException {
+        this.context = context;
+        this.config = config;
     }
 
     @Override
@@ -89,12 +93,14 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     @Override
     public Void visitHtml(JQuickPDFParser.HtmlContext ctx) {
+        initPdf(config);
         if (null != ctx.head()) {
             visitHead(ctx.head());
         }
         if (null != ctx.body()) {
             visitBody(ctx.body());
         }
+
         this.addCatalog();
         this.addPageNumber();
         pdf.close();
@@ -200,7 +206,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         Div cataLogDiv = getCataLogDiv(pageSize);
         doc.add(cataLogDiv);
-
         for (int i = startNum; i < startNum + pageSize; i++) {
             pdf.removePage(startNum);
         }
@@ -266,32 +271,14 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         }
         return "blue";
     }
-    protected String getInPath() {
-        String outPath= "d://test//";
-        int index = outPath.lastIndexOf("/");
-        int index2 = outPath.lastIndexOf("/", index-1);
-        String prefix = outPath.substring(0, index2);
-        String fileName = outPath.substring(index);
-        String name = fileName.split("\\.")[0];
-        String pre = prefix + "/temp";
-        if (!Files.exists(Paths.get(pre))) {
-            try {
-                Files.createDirectories(Paths.get(pre));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return pre + name + "_temp.pdf";
-    }
     public void addPageNumber() {
         Integer catalogSize = Integer.parseInt(properties.getProperty(ReportConstant.CATALOG_SIZE));
         pdf.close();
         PdfReader reader = null;
         PdfWriter writer = null;
-        String inPath = getInPath();
         try {
-            reader = new PdfReader(new File(inPath));
-            writer = new PdfWriter(new File("d://test//hello.pdf"));
+            reader = new PdfReader(new File(this.config.getTempFilePath()));
+            writer = new PdfWriter(new File(this.config.getOutputFilePath()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -318,7 +305,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         }
         pdf.close();
         try {
-            Files.delete(Paths.get(inPath));
+            Files.delete(Paths.get(this.config.getTempFilePath()));
         } catch (IOException e) {
             e.printStackTrace();
         }

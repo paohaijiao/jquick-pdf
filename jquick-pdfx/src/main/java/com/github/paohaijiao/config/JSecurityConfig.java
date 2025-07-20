@@ -15,31 +15,33 @@
  */
 package com.github.paohaijiao.config;
 
-import com.itextpdf.kernel.font.PdfFont;
 import lombok.Data;
 
 /**
  * packageName com.github.paohaijiao.config
+ *
  * @author Martin
  * @version 1.0.0
  * @since 2025/7/20
  */
 @Data
-public class JFontConfig {
+public class JSecurityConfig {
 
-    private PdfFont defaultFont;
+    private boolean encrypted = false;
 
-    private PdfFont titleFont;
+    private String userPassword;
 
-    private PdfFont bodyFont;
+    private String ownerPassword;
 
-    private PdfFont headerFooterFont;
+    private boolean allowPrinting = true;
 
-    private PdfFont codeFont;
+    private boolean allowCopy = true;
 
-    private String fontDirectory = "fonts";
+    private boolean allowModification = false;
 
-    private String defaultFontName = "SimSun";
+    private EncryptionAlgorithm algorithm = EncryptionAlgorithm.AES_256;
 
-    private String defaultEncoding = "UniGB-UCS2-H";
+    public enum EncryptionAlgorithm {
+        STANDARD_40, STANDARD_128, AES_128, AES_256
+    }
 }

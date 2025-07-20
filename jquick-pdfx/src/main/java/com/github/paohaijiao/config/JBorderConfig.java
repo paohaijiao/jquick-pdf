@@ -15,6 +15,9 @@
  */
 package com.github.paohaijiao.config;
 
+import com.github.paohaijiao.enums.JBorder;
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import lombok.Data;
 
 /**
@@ -22,30 +25,15 @@ import lombok.Data;
  *
  * @author Martin
  * @version 1.0.0
- * @className JPdfXConfig
- * @date 2025/6/22
- * @description
+ * @since 2025/7/20
  */
 @Data
-public class JPdfXConfig {
-    private String outputPath = "generated-pdf";
+public class JBorderConfig {
 
-    private String author = "PDF Generator";
+    private float width = 0.5f;
 
-    private String creator = "PDF Project";
+    private Color color = new DeviceRgb(200, 200, 200);
 
-    private String title = "demo PDF";
+    private JBorder type = JBorder.solid;
 
-    private float marginLeft = 20;
-    private float marginRight = 20;
-    private float marginTop = 20;
-    private float marginBottom = 20;
-
-    private String pageSize = "A4";
-
-    private boolean pageNumbering = true;
-
-    private String encoding = "UTF-8";
-
-    private boolean compressed = true;
 }

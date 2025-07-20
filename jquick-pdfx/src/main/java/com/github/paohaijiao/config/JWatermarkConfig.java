@@ -15,31 +15,34 @@
  */
 package com.github.paohaijiao.config;
 
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
 import lombok.Data;
 
 /**
  * packageName com.github.paohaijiao.config
+ *
  * @author Martin
  * @version 1.0.0
  * @since 2025/7/20
  */
 @Data
-public class JFontConfig {
+public class JWatermarkConfig {
 
-    private PdfFont defaultFont;
+    private boolean enabled = false;
 
-    private PdfFont titleFont;
+    private String text;
 
-    private PdfFont bodyFont;
+    private PdfFont font;
 
-    private PdfFont headerFooterFont;
+    private float fontSize = 40;
 
-    private PdfFont codeFont;
+    private Color fontColor = new DeviceRgb(200, 200, 200);
 
-    private String fontDirectory = "fonts";
+    private float rotation = 45;
 
-    private String defaultFontName = "SimSun";
+    private float opacity = 0.3f;
 
-    private String defaultEncoding = "UniGB-UCS2-H";
+    private float[] spacing = {200, 200};
 }

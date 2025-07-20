@@ -14,8 +14,6 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.sample;
-
-
 import cn.hutool.core.date.DateUtil;
 import com.github.paohaijiao.sample.data.*;
 import com.github.paohaijiao.sample.event.CatalogMoveEvent;

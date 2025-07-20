@@ -33,46 +33,33 @@ import lombok.Data;
 @Data
 public class JPdfConfig {
 
+    private String workspace="d://test";
 
-    private String title;
+    private String templateFile="//template.pdf";
 
-    private String author;
+    private String outputFile="//hello.pdf";
 
-    private String subject;
+    private JPageConfig pageConfig= new JPageConfig();
 
-    private String keywords;
+    private JHeaderConfig headerConfig=new JHeaderConfig();
 
+    private JFooterConfig footerConfig=new JFooterConfig();
 
-    private int compressionLevel = CompressionConstants.DEFAULT_COMPRESSION;
+    private JWatermarkConfig watermarkConfig=new JWatermarkConfig();
 
-    private String tempDirectory;
+    private JFontConfig fontConfig=new JFontConfig();
 
-    private String defaultFont = "Helvetica";
-    private float defaultFontSize = 12f;
-
-    private String userPassword;
-
-    private String ownerPassword;
-
-    private boolean autoCloseStream = true;
+    private JSecurityConfig securityConfig=new JSecurityConfig();
 
 
-    public JPdfConfig() {
 
+
+    public String getTempFilePath() {
+        return this.workspace+templateFile;
     }
 
-    public void applyTo(PdfWriter writer) {
-        if (writer == null) return;
-        writer.setCompressionLevel(compressionLevel);
-    }
-
-    public void applyMetadataTo(PdfDocument pdfDoc) {
-        if (pdfDoc == null) return;
-        PdfDocumentInfo info = pdfDoc.getDocumentInfo();
-        if (title != null) info.setTitle(title);
-        if (author != null) info.setAuthor(author);
-        if (subject != null) info.setSubject(subject);
-        if (keywords != null) info.setKeywords(keywords);
+    public String getOutputFilePath() {
+        return this.workspace+outputFile;
     }
 
 }

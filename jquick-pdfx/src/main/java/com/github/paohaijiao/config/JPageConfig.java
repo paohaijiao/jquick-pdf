@@ -15,31 +15,28 @@
  */
 package com.github.paohaijiao.config;
 
-import com.itextpdf.kernel.font.PdfFont;
+import com.itextpdf.kernel.geom.PageSize;
 import lombok.Data;
 
 /**
  * packageName com.github.paohaijiao.config
+ *
  * @author Martin
  * @version 1.0.0
  * @since 2025/7/20
  */
 @Data
-public class JFontConfig {
+public class JPageConfig {
 
-    private PdfFont defaultFont;
+    private PageSize pageSize;
 
-    private PdfFont titleFont;
+    private float[] margins = {50, 36, 50, 36};
 
-    private PdfFont bodyFont;
+    private boolean autoPageBreak = true;
 
-    private PdfFont headerFooterFont;
+    private PageOrientation orientation = PageOrientation.PORTRAIT;
 
-    private PdfFont codeFont;
-
-    private String fontDirectory = "fonts";
-
-    private String defaultFontName = "SimSun";
-
-    private String defaultEncoding = "UniGB-UCS2-H";
+    public enum PageOrientation {
+        PORTRAIT, LANDSCAPE
+    }
 }

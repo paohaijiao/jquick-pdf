@@ -16,6 +16,7 @@
 package com.github.paohaijiao.executor;
 
 import com.github.paohaijiao.antlr.impl.JAbstractAntlrExecutor;
+import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.console.JConsole;
 import com.github.paohaijiao.exception.JAntlrExecutionException;
 import com.github.paohaijiao.param.JContext;
@@ -32,12 +33,24 @@ import java.io.FileNotFoundException;
 public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
     private JContext context;
 
-    public JQuickPdfXExecutor() {
+    private JPdfConfig config;
+
+    public JQuickPdfXExecutor() throws FileNotFoundException {
         this.context = new JContext();
+        this.config=new JPdfConfig();
+    }
+    public JQuickPdfXExecutor(JContext context) throws FileNotFoundException {
+        this.context = context;
+        this.config=new JPdfConfig();
+    }
+    public JQuickPdfXExecutor(JPdfConfig config) throws FileNotFoundException {
+        this.context = new JContext();
+        this.config= config;
     }
 
-    public JQuickPdfXExecutor(JContext context) {
+    public JQuickPdfXExecutor(JContext context,JPdfConfig config) throws FileNotFoundException {
         this.context = context;
+        this.config = config;
     }
 
     @Override

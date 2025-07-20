@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.handler.JStyleHandler;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.style.JStyleAlignModel;
@@ -50,8 +51,13 @@ import java.util.*;
  * @description
  */
 public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
+
     protected PdfDocument pdf;
+
+    protected JPdfConfig config=new JPdfConfig();
+
     protected JStyleAlignModel align = new JStyleAlignModel();
+
     protected JStyleSpacingModel spacingModel = new JStyleSpacingModel();
     //protected Map<String, Template> templates = new HashMap<>();
     protected Map<CatalogType, java.util.List<CataLog>> cataLogsMap = new LinkedHashMap<>();
@@ -92,9 +98,9 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         return fontProvider;
     }
 
-    protected void initPdf(String fileName)  {
+    protected void initPdf(JPdfConfig config)  {
         try{
-            PdfWriter writer = new PdfWriter(fileName);
+            PdfWriter writer = new PdfWriter(config.getTempFilePath());
             PdfDocument pdf = new PdfDocument(writer);
             pdf = new PdfDocument(writer);
             pdf.setDefaultPageSize(PageSize.A4);
