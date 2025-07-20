@@ -17,40 +17,38 @@ package com.github.paohaijiao.font.impl;
 
 import com.github.paohaijiao.enums.JPdfEncoding;
 import com.github.paohaijiao.font.JFontProvider;
-import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.font.FontProvider;
-
 /**
  * packageName com.github.paohaijiao.font.impl
  *
  * @author Martin
  * @version 1.0.0
- * @className JFileFontLoader
+ * @className JSystemFontLoader
  * @date 2025/6/22
  * @description
  */
-public class JFileFontProvider implements JFontProvider {
+public class JDefaultFontProvider implements JFontProvider {
     private final String fontName;
     private final String fontPath;
     private final JPdfEncoding encoding;
 
-    public JFileFontProvider(String fontName,String fontPath, JPdfEncoding encoding) {
+    public JDefaultFontProvider(String fontName,String fontPath, JPdfEncoding encoding) {
         this.fontName = fontName;
         this.fontPath = fontPath;
         this.encoding = encoding;
     }
 
     @Override
-    public PdfFont getFont() {
-        try {
+    public PdfFont getFont()  {
+        try{
             FontProvider fontProvider = new FontProvider();
             fontProvider.addFont(fontPath, encoding.getEncoding());
             PdfFont font = PdfFontFactory.createFont(fontPath, encoding.getEncoding());
             return font;
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

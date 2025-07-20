@@ -101,7 +101,6 @@ public class JTableTest {
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor(params);
         String key = (String) visitor.visit(tree);
         System.out.println("pdf generate");
-        Table table=ne
     }
 
     @Test

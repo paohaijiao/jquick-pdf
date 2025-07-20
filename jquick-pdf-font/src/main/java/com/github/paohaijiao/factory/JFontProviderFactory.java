@@ -15,10 +15,11 @@
  */
 package com.github.paohaijiao.factory;
 
+import com.github.paohaijiao.enums.JPdfEncoding;
 import com.github.paohaijiao.font.JFontProvider;
-import com.github.paohaijiao.font.impl.JFileFontProvider;
-import com.github.paohaijiao.font.impl.JResourceFontProvider;
-import com.github.paohaijiao.font.impl.JSystemFontProvider;
+import com.github.paohaijiao.font.impl.JDefaultFontProvider;
+
+import com.itextpdf.kernel.font.PdfFont;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,46 +34,62 @@ import java.util.Map;
  * @description
  */
 public class JFontProviderFactory {
-    private static final String DEFAULT_ENCODING = "Identity-H";
+
     public static final String DEFAULT_FONT = "simhei";
 
 
-    private final Map<String, JFontProvider> fontProviders = new HashMap<>();
+    private static final Map<String, JFontProvider> fontProviders = new HashMap<>();
 
-    public void registerSystemFont(String fontName, String alias) {
-        registerSystemFont(fontName, alias, DEFAULT_ENCODING);
+    static{
+        fontProviders.put(DEFAULT_FONT,new JDefaultFontProvider(DEFAULT_FONT,"fonts/simhei.ttf", JPdfEncoding.IDENTITY_H));
     }
 
-    public void registerSystemFont(String fontName, String alias, String encoding) {
-        fontProviders.put(alias, new JSystemFontProvider(fontName, encoding));
-    }
-
-    public void registerFileFont(String fontPath, String alias) {
-        registerFileFont(fontPath, alias, DEFAULT_ENCODING);
-    }
-
-    public void registerFileFont(String fontPath, String alias, String encoding) {
-        fontProviders.put(alias, new JFileFontProvider(fontPath, encoding));
-    }
-
-    public void registerResourceFont(String resourcePath, String alias) {
-        registerResourceFont(resourcePath, alias, DEFAULT_ENCODING);
-    }
-
-    public void registerResourceFont(String resourcePath, String alias, String encoding) {
-        fontProviders.put(alias, new JResourceFontProvider(resourcePath, encoding));
-    }
-
-    public JFontProvider getFontProvider(String alias) {
-        JFontProvider provider = fontProviders.get(alias);
-        if (provider == null) {
-            throw new IllegalArgumentException("Font provider not registered for alias: " + alias);
+    public static PdfFont getFont(String font) {
+        if(!fontProviders.containsKey(font)){
+            throw new IllegalArgumentException("Unknown font provider for font: " + font);
         }
-        return provider;
+        JFontProvider provider =fontProviders.get(font);
+        return provider.getFont();
     }
 
-    public boolean isFontRegistered(String alias) {
-        return fontProviders.containsKey(alias);
-    }
+
+
+
+//
+//    public void registerSystemFont(String fontName, String alias) {
+//        registerSystemFont(fontName, alias, DEFAULT_ENCODING);
+//    }
+//
+//    public void registerSystemFont(String fontName, String alias, String encoding) {
+//        fontProviders.put(alias, new JSystemFontProvider(fontName, encoding));
+//    }
+//
+//    public void registerFileFont(String fontPath, String alias) {
+//        registerFileFont(fontPath, alias, DEFAULT_ENCODING);
+//    }
+//
+//    public void registerFileFont(String fontPath, String alias, String encoding) {
+//        fontProviders.put(alias, new JFileFontProvider(fontPath, encoding));
+//    }
+//
+//    public void registerResourceFont(String resourcePath, String alias) {
+//        registerResourceFont(resourcePath, alias, DEFAULT_ENCODING);
+//    }
+//
+//    public void registerResourceFont(String resourcePath, String alias, String encoding) {
+//        fontProviders.put(alias, new JResourceFontProvider(resourcePath, encoding));
+//    }
+//
+//    public JFontProvider getFontProvider(String alias) {
+//        JFontProvider provider = fontProviders.get(alias);
+//        if (provider == null) {
+//            throw new IllegalArgumentException("Font provider not registered for alias: " + alias);
+//        }
+//        return provider;
+//    }
+//
+//    public boolean isFontRegistered(String alias) {
+//        return fontProviders.containsKey(alias);
+//    }
 
 }
