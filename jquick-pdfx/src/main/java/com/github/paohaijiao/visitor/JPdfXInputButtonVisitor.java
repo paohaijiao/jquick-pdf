@@ -28,7 +28,7 @@ import com.itextpdf.html2pdf.attach.impl.layout.form.element.InputButton;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXInputButtonVisitor extends JPdfXSvgVisitor {
+public class JPdfXInputButtonVisitor extends JPdfXHtmlPageBreakVisitor {
     @Override
     public InputButton visitInputButton(JQuickPDFParser.InputButtonContext ctx) {
         JStyleAttributes style = new JStyleAttributes();

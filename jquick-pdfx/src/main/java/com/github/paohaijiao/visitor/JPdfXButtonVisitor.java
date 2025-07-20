@@ -38,7 +38,7 @@ import java.util.List;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXButtonVisitor extends JPdfXLayOutVisitor {
+public class JPdfXButtonVisitor extends JPdfXAreaBreakVisitor {
     @Override
     public JHtmlRenderModel visitButton(JQuickPDFParser.ButtonContext ctx) {
         String text=ctx.getText();

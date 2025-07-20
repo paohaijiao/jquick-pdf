@@ -32,7 +32,7 @@ import java.util.List;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXCheckBoxVisitor extends JPdfXLayOutVisitor {
+public class JPdfXCheckBoxVisitor extends JPdfXButtonVisitor {
 
     @Override
     public JHtmlRenderModel visitCheckbox(JQuickPDFParser.CheckboxContext ctx) {

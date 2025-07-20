@@ -29,7 +29,7 @@ import com.itextpdf.html2pdf.attach.impl.layout.form.element.ListBoxField;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXPageCountElementVisitor extends JPdfXSvgVisitor {
+public class JPdfXPageCountElementVisitor extends JPdfXListBoxVisitor {
 
     @Override
     public PageCountElement visitPageCountElement(JQuickPDFParser.PageCountElementContext ctx) {

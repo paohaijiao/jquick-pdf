@@ -32,7 +32,7 @@ import com.itextpdf.layout.element.Link;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXLinkVisitor extends JPdfXSvgVisitor {
+public class JPdfXLinkVisitor extends JPdfXLineSeparaterVisitor {
 
     @Override
     public Link visitLink(JQuickPDFParser.LinkContext ctx) {

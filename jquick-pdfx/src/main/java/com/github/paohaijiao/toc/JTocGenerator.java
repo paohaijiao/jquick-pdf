@@ -1,6 +1,5 @@
 package com.github.paohaijiao.toc;
 
-import com.github.paohaijiao.model.heading.JHeadingModel;
 import com.itextpdf.kernel.pdf.*;
 import com.itextpdf.kernel.events.Event;
 import com.itextpdf.kernel.events.IEventHandler;
@@ -30,8 +29,6 @@ public class JTocGenerator implements IEventHandler {
         PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
         PdfPage page = docEvent.getPage();
         int pageNumber = pdfDoc.getPageNumber(page);
-
-        // 检查当前页是否有标题
         headings.stream()
                 .filter(h -> currentPage == pageNumber)
                 .forEach(h -> addBookmark(h, page));

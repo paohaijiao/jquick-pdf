@@ -34,7 +34,7 @@ import java.util.List;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXComboBoxFieldVisitor extends JPdfXLayOutVisitor {
+public class JPdfXComboBoxFieldVisitor extends JPdfXCheckBoxVisitor {
 
     @Override
     public ComboBoxField visitComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx) {

@@ -23,7 +23,7 @@ public class JQuickPdfTest {
     @Test
     public void file() throws IOException {
 
-        JReader fileReader = new JReSourceFileReader("rule1.txt");
+        JReader fileReader = new JReSourceFileReader("rule.txt");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());

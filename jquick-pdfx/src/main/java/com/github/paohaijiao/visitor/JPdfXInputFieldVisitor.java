@@ -29,7 +29,7 @@ import com.itextpdf.html2pdf.attach.impl.layout.form.element.InputField;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXInputFieldVisitor extends JPdfXSvgVisitor {
+public class JPdfXInputFieldVisitor extends JPdfXInputButtonVisitor {
 
     @Override
     public InputField visitInputField(JQuickPDFParser.InputFieldContext ctx) {
@@ -47,22 +47,5 @@ public class JPdfXInputFieldVisitor extends JPdfXSvgVisitor {
         super.buildStyle(inputField, style);
         return inputField;
    }
-
-    @Override
-    public InputButton visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
-        }
-        String value = "";
-        if (null != ctx.IDENTIFIER()) {
-            value =ctx.IDENTIFIER().getText();
-        }
-        InputButton inputButton=new InputButton(value);
-        super.buildStyle(inputButton, style);
-        return inputButton;
-    }
 
 }

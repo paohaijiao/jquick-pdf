@@ -32,7 +32,7 @@ import org.apache.commons.lang3.StringUtils;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXHtmlPageBreakVisitor extends JPdfXSvgVisitor {
+public class JPdfXHtmlPageBreakVisitor extends JPdfXComboBoxFieldVisitor {
     @Override
     public HtmlPageBreak visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx) {
         HtmlPageBreak htmlPageBreak=new HtmlPageBreak(HtmlPageBreakType.ALWAYS);

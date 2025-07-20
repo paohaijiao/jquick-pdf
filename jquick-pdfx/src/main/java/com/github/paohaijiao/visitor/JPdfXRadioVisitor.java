@@ -29,7 +29,7 @@ import com.itextpdf.html2pdf.attach.impl.layout.form.element.Radio;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXRadioVisitor extends JPdfXSvgVisitor {
+public class JPdfXRadioVisitor extends JPdfXPageTargetCountElementVisitor {
 
     @Override
     public Radio visitRadio(JQuickPDFParser.RadioContext ctx) {

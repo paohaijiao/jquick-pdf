@@ -30,7 +30,7 @@ import com.itextpdf.layout.element.Paragraph;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXElementVisitor extends JPdfXDivVisitor {
+public class JPdfXElementVisitor extends JPdfXTextAreaVisitor  {
 
 
     @Override

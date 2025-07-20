@@ -29,7 +29,7 @@ import com.itextpdf.html2pdf.attach.impl.layout.PageTargetCountElement;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXPageTargetCountElementVisitor extends JPdfXSvgVisitor {
+public class JPdfXPageTargetCountElementVisitor extends JPdfXPageCountElementVisitor {
 
     @Override
     public PageTargetCountElement visitPageTargetCountElement(JQuickPDFParser.PageTargetCountElementContext ctx) {

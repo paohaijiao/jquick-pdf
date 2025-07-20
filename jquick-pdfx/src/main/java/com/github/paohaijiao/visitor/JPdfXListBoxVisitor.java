@@ -30,7 +30,7 @@ import com.itextpdf.layout.element.Link;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXListBoxVisitor extends JPdfXSvgVisitor {
+public class JPdfXListBoxVisitor extends JPdfXLinkVisitor {
 
     @Override
      public ListBoxField visitListBoxField(JQuickPDFParser.ListBoxFieldContext ctx) {

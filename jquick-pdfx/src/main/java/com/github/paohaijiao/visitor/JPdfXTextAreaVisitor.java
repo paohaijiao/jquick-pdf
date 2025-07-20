@@ -29,7 +29,7 @@ import com.itextpdf.layout.element.Tab;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXTextAreaVisitor extends JPdfXSvgVisitor {
+public class JPdfXTextAreaVisitor extends JPdfXTabVisitor {
 
     @Override
     public TextArea visitTextArea(JQuickPDFParser.TextAreaContext ctx) {

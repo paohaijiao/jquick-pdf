@@ -37,7 +37,7 @@ import java.math.BigDecimal;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXAreaBreakVisitor extends JPdfXLayOutVisitor {
+public class JPdfXAreaBreakVisitor extends JPdfXDivVisitor {
     @Override
     public AreaBreak visitAreaBreak(JQuickPDFParser.AreaBreakContext ctx) {
         JStyleAttributes style = new JStyleAttributes();
@@ -73,7 +73,5 @@ public class JPdfXAreaBreakVisitor extends JPdfXLayOutVisitor {
 
         }
     }
-
-
 
 }

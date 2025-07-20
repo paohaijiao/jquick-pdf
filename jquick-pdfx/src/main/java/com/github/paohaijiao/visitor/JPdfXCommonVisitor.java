@@ -95,8 +95,8 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         if (null != ctx.body()) {
             visitBody(ctx.body());
         }
-//        this.addCatalog();
-//        this.addPageNumber();
+        this.addCatalog();
+        this.addPageNumber();
         pdf.close();
         return null;
     }

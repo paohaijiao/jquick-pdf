@@ -32,7 +32,7 @@ import com.itextpdf.layout.element.LineSeparator;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXLineSeparaterVisitor extends JPdfXSvgVisitor {
+public class JPdfXLineSeparaterVisitor extends JPdfXInputFieldVisitor {
 
     @Override
     public LineSeparator visitLineSeparator(JQuickPDFParser.LineSeparatorContext ctx) {
