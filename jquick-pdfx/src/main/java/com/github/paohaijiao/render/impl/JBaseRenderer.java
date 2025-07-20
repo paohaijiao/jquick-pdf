@@ -16,35 +16,30 @@
 package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.enums.*;
-import com.github.paohaijiao.executor.*;
+import com.github.paohaijiao.executor.JQuickPdfBorderExecutor;
+import com.github.paohaijiao.executor.JQuickPdfColorExecutor;
+import com.github.paohaijiao.executor.JQuickPdfMarginExecutor;
+import com.github.paohaijiao.executor.JQuickPdfUnitExecutor;
 import com.github.paohaijiao.model.*;
 import com.github.paohaijiao.render.JStyleRenderer;
-import com.github.paohaijiao.sample.ReportColor;
 import com.github.paohaijiao.unit.JUnitConverter;
-import com.itextpdf.io.font.PdfEncodings;
-import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.xobject.PdfImageXObject;
-import com.itextpdf.kernel.pdf.xobject.PdfXObject;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.ElementPropertyContainer;
 import com.itextpdf.layout.borders.Border;
-import com.itextpdf.layout.borders.SolidBorder;
-import com.itextpdf.layout.element.AreaBreak;
 import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.properties.*;
+import com.itextpdf.layout.properties.BackgroundImage;
+import com.itextpdf.layout.properties.BorderRadius;
+import com.itextpdf.layout.properties.UnitValue;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * packageName com.github.paohaijiao.render.impl

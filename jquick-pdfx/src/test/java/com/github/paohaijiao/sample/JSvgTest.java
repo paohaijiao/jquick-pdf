@@ -1,27 +1,14 @@
 package com.github.paohaijiao.sample;
 
-import com.github.paohaijiao.adaptor.JAdaptor;
-import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.extension.svg.SvgImage;
-import com.github.paohaijiao.resouce.JReader;
-import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
-import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
-import org.apache.batik.anim.dom.SAXSVGDocumentFactory;
-import org.apache.batik.transcoder.TranscoderInput;
-import org.apache.batik.transcoder.TranscoderOutput;
-import org.apache.batik.util.XMLResourceDescriptor;
 import org.junit.Test;
-import org.w3c.dom.svg.SVGDocument;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.StringReader;
 
 public class JSvgTest {
 

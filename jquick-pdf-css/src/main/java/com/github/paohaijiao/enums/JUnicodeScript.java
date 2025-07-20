@@ -1,6 +1,5 @@
 package com.github.paohaijiao.enums;
 
-import com.itextpdf.layout.properties.BaseDirection;
 import lombok.Getter;
 
 @Getter

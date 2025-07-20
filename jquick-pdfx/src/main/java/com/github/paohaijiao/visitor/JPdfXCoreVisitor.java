@@ -16,6 +16,7 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.event.HeaderFooterHandler;
 import com.github.paohaijiao.handler.JStyleHandler;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.style.JStyleAlignModel;
@@ -26,16 +27,14 @@ import com.github.paohaijiao.sample.CataLog;
 import com.github.paohaijiao.sample.CatalogType;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.BlockElement;
-import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.font.FontProvider;
 
 import java.io.IOException;
@@ -98,7 +97,7 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         return fontProvider;
     }
 
-    protected void initPdf(JPdfConfig config)  {
+    protected void configure(JPdfConfig config)  {
         try{
             PdfWriter writer = new PdfWriter(config.getTempFilePath());
             PdfDocument pdf = new PdfDocument(writer);
@@ -114,7 +113,19 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
             doc.setCharacterSpacing(0.1f);
             proper = new ConverterProperties();
             proper.setFontProvider(fontProvider);
+            if (config.getFontConfig().getDefaultFont() != null) {
+                doc.setFont(config.getFontConfig().getDefaultFont());
+            }
+            if (config.getHeaderConfig().isEnabled() || config.getFooterConfig().isEnabled()) {
+                pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
+                        new HeaderFooterHandler(config.getHeaderConfig(), config.getFooterConfig()));
+            }
+//            if (config.getWatermarkConfig().isEnabled()) {
+//                pdf.addEventHandler(PdfDocumentEvent.START_PAGE,
+//                        new JPdfXWatermarkEventHandler(config.getWatermarkConfig()));
+//            }
             this.pdf = pdf;
+
         }catch (Exception e){
             e.printStackTrace();
         }

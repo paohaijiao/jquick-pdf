@@ -17,12 +17,11 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.enums.JListType;
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.list.JListItemModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.*;
-
-import java.util.ArrayList;
+import com.itextpdf.layout.element.IBlockElement;
+import com.itextpdf.layout.element.List;
+import com.itextpdf.layout.element.ListItem;
+import com.itextpdf.layout.element.Text;
 
 
 /**

@@ -15,20 +15,6 @@
  */
 package com.github.paohaijiao.render.impl;
 
-import com.github.paohaijiao.enums.JFrontStyle;
-import com.github.paohaijiao.enums.JFrontWeight;
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.github.paohaijiao.font.JFontProvider;
-import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.string.JStringUtils;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.layout.element.BlockElement;
-import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Text;
-
-import java.io.IOException;
-
 /**
  * packageName com.github.paohaijiao.render.impl
  *

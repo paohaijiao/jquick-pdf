@@ -15,9 +15,6 @@
  */
 package com.github.paohaijiao.sample.data;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * packageName com.github.paohaijiao.sample.data
  *

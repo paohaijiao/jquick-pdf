@@ -17,10 +17,7 @@ package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.properties.TextAlignment;
 
 /**
  * packageName com.github.paohaijiao.render.impl

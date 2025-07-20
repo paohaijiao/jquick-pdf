@@ -18,7 +18,6 @@ package com.github.paohaijiao.factory;
 import com.github.paohaijiao.enums.JPdfEncoding;
 import com.github.paohaijiao.font.JFontProvider;
 import com.github.paohaijiao.font.impl.JDefaultFontProvider;
-
 import com.itextpdf.kernel.font.PdfFont;
 
 import java.util.HashMap;

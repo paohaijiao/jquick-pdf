@@ -17,7 +17,6 @@ package com.github.paohaijiao.font.impl;
 
 import com.github.paohaijiao.enums.JPdfEncoding;
 import com.github.paohaijiao.font.JFontProvider;
-import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.font.FontProvider;

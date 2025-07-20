@@ -17,7 +17,6 @@ package com.github.paohaijiao.executor;
 
 import com.github.paohaijiao.antlr.impl.JAbstractAntlrExecutor;
 import com.github.paohaijiao.console.JConsole;
-import com.github.paohaijiao.enums.JBorder;
 import com.github.paohaijiao.exception.JAntlrExecutionException;
 import com.github.paohaijiao.model.JMarginModel;
 import com.github.paohaijiao.param.JContext;

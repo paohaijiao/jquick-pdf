@@ -39,7 +39,6 @@ public class JPdfXPageEventHandler implements IEventHandler {
         PdfDocument pdfDoc = docEvent.getDocument();
         PdfPage page = docEvent.getPage();
         Rectangle pageSize = page.getPageSize();
-        // 获取Canvas对象进行绘制
         PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), pdfDoc);
         pdfCanvas.beginText()
                 .setFontAndSize(pdfDoc.getDefaultFont(), 10)

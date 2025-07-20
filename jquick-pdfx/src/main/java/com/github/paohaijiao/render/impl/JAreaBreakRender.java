@@ -15,7 +15,6 @@
  */
 package com.github.paohaijiao.render.impl;
 
-import com.github.paohaijiao.model.JStyleAreaBreakAttributes;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.IElement;

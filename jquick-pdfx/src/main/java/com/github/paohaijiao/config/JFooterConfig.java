@@ -18,6 +18,7 @@ package com.github.paohaijiao.config;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.layout.properties.TextAlignment;
+import lombok.Data;
 
 /**
  * packageName com.github.paohaijiao.config
@@ -26,6 +27,7 @@ import com.itextpdf.layout.properties.TextAlignment;
  * @version 1.0.0
  * @since 2025/7/20
  */
+@Data
 public class JFooterConfig {
 
     private boolean enabled = true;

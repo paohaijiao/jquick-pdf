@@ -16,17 +16,8 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.paragraph.JParagraphModel;
-import com.github.paohaijiao.model.style.JStyleModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.sample.ReportColor;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.layout.element.AreaBreak;
-import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.itextpdf.layout.properties.TextAlignment;
-import com.itextpdf.layout.properties.UnitValue;
 
 
 /**

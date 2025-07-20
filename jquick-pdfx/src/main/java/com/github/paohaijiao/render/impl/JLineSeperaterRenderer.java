@@ -18,9 +18,6 @@ package com.github.paohaijiao.render.impl;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.LineSeparator;
-import com.itextpdf.layout.element.TabStop;
-import com.itextpdf.layout.properties.TabAlignment;
 
 /**
  * packageName com.github.paohaijiao.render.impl

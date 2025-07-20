@@ -1,7 +1,6 @@
 package com.github.paohaijiao.enums;
 
 import com.itextpdf.layout.properties.FontKerning;
-import com.itextpdf.layout.properties.TextAlignment;
 import lombok.Getter;
 
 @Getter

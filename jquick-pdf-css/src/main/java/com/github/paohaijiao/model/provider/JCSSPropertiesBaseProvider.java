@@ -15,7 +15,6 @@
  */
 package com.github.paohaijiao.model.provider;
 
-import com.github.paohaijiao.exception.JAssert;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.ColorConstants;

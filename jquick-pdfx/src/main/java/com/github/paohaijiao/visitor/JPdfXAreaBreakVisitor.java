@@ -20,12 +20,7 @@ import com.github.paohaijiao.enums.JPageSize;
 import com.github.paohaijiao.model.JStyleAreaBreakAttributes;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.layout.element.AreaBreak;
-import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.properties.AreaBreakType;
-
-import java.math.BigDecimal;
 
 
 /**

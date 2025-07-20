@@ -15,14 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.html2pdf.attach.impl.layout.form.element.ComboBoxField;
-import com.itextpdf.layout.element.*;
-
-import java.util.List;
+import com.itextpdf.layout.element.IBlockElement;
 
 
 /**

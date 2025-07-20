@@ -15,10 +15,6 @@
  */
 package com.github.paohaijiao.config;
 
-import com.itextpdf.kernel.pdf.CompressionConstants;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfDocumentInfo;
-import com.itextpdf.kernel.pdf.PdfWriter;
 import lombok.Data;
 
 /**

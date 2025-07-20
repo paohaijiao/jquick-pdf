@@ -14,8 +14,12 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.sample;
+
 import cn.hutool.core.date.DateUtil;
-import com.github.paohaijiao.sample.data.*;
+import com.github.paohaijiao.sample.data.Categories;
+import com.github.paohaijiao.sample.data.Content;
+import com.github.paohaijiao.sample.data.GeneDesc;
+import com.github.paohaijiao.sample.data.Literatures;
 import com.github.paohaijiao.sample.event.CatalogMoveEvent;
 import com.github.paohaijiao.sample.event.HeaderTextEvent;
 import com.itextpdf.html2pdf.ConverterProperties;
@@ -26,6 +30,7 @@ import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
+import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
@@ -36,7 +41,6 @@ import com.itextpdf.layout.Style;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.element.List;
-import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.layout.font.FontProvider;
 import com.itextpdf.layout.properties.*;
 import lombok.Getter;

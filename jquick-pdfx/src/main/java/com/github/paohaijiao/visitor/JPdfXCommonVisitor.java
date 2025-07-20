@@ -22,7 +22,6 @@ import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.sample.*;
 import com.github.paohaijiao.sample.event.CatalogMoveEvent;
-import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.geom.PageSize;
@@ -31,7 +30,6 @@ import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
-import com.itextpdf.layout.font.FontProvider;
 import com.itextpdf.layout.properties.AreaBreakType;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.VerticalAlignment;
@@ -93,7 +91,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     @Override
     public Void visitHtml(JQuickPDFParser.HtmlContext ctx) {
-        initPdf(config);
+        configure(config);
         if (null != ctx.head()) {
             visitHead(ctx.head());
         }

@@ -18,11 +18,8 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.element.ILeafElement;
 import com.itextpdf.layout.element.Paragraph;
-
-import java.util.ArrayList;
 /**
  * packageName com.paohaijiao.javelin.visitor
  *

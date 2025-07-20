@@ -15,11 +15,8 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.enums.JBorder;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.html2pdf.attach.impl.layout.form.element.InputButton;
-import com.itextpdf.html2pdf.attach.impl.layout.form.element.InputField;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.element.LineSeparator;
 

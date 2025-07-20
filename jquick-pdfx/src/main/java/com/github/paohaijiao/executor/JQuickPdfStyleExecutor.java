@@ -22,14 +22,11 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
 import com.github.paohaijiao.visitor.JPdfXStyleVisitor;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
-
-import java.io.FileNotFoundException;
 
 public class JQuickPdfStyleExecutor extends JAbstractAntlrExecutor<String, JStyleAttributes> {
 

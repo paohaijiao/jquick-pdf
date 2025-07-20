@@ -18,7 +18,6 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.html2pdf.attach.impl.layout.form.element.TextArea;
-import com.itextpdf.layout.element.Tab;
 
 /**
  * packageName com.paohaijiao.javelin.visitor

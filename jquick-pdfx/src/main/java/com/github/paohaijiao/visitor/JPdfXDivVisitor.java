@@ -17,10 +17,7 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
-import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.itextpdf.layout.properties.UnitValue;
 
 /**
  * packageName com.paohaijiao.javelin.visitor

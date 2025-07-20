@@ -17,23 +17,17 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.color.JColorEnums;
 import com.github.paohaijiao.enums.JBorder;
-import com.github.paohaijiao.enums.JUnit;
 import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.executor.JQuickPdfStyleExecutor;
 import com.github.paohaijiao.executor.JQuickPdfUnitExecutor;
-import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.model.JMarginModel;
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.unit.JUnitConverter;
 import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.layout.properties.UnitValue;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.math.BigDecimal;
 import java.util.regex.Matcher;

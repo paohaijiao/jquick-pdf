@@ -16,9 +16,7 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.element.Div;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 
 /**

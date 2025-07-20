@@ -16,11 +16,8 @@
 package com.github.paohaijiao.render.impl;
 
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.itextpdf.kernel.pdf.tagutils.AccessibilityProperties;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.properties.UnitValue;
 
 /**
  * packageName com.github.paohaijiao.render.impl

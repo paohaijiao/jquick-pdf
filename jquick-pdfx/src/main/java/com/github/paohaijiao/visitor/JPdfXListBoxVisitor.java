@@ -18,8 +18,6 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.html2pdf.attach.impl.layout.form.element.ListBoxField;
-import com.itextpdf.kernel.pdf.action.PdfAction;
-import com.itextpdf.layout.element.Link;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
