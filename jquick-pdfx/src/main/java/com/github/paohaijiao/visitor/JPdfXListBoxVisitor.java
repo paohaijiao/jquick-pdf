@@ -15,8 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.html2pdf.attach.impl.layout.form.element.ListBoxField;
 
 /**
@@ -32,7 +34,6 @@ public class JPdfXListBoxVisitor extends JPdfXLinkVisitor {
 
     @Override
      public ListBoxField visitListBoxField(JQuickPDFParser.ListBoxFieldContext ctx) {
-
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
@@ -40,10 +41,11 @@ public class JPdfXListBoxVisitor extends JPdfXLinkVisitor {
             style = new JStyleAttributes();
         }
         String value = "";
-        if (null != ctx.IDENTIFIER()) {
-            value =ctx.IDENTIFIER().getText();
+        if (null != ctx.value()) {
+            value =ctx.value().getText();
         }
-        ListBoxField listBoxField = new ListBoxField(value,30,true);
+        ListBoxField listBoxField = new ListBoxField(JStringUtils.trim(value),30,true);
+        listBoxField.setFont(JFontProviderFactory.defualtFont());
         super.buildStyle(listBoxField, style);
         return listBoxField;
    }

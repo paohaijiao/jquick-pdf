@@ -15,8 +15,7 @@
  */
 package com.github.paohaijiao.config;
 
-import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.DeviceRgb;
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import lombok.Data;
 
@@ -28,21 +27,15 @@ import lombok.Data;
  * @since 2025/7/20
  */
 @Data
-public class JWatermarkConfig {
+public class JWaterRemarkConfig {
 
-    private boolean enabled = false;
+    private Boolean enabled=true;
 
-    private String text;
+    private String watermarkText="水印";
 
-    private PdfFont font;
+    private PdfFont font= JFontProviderFactory.defualtFont();
 
-    private float fontSize = 40;
 
-    private Color fontColor = new DeviceRgb(200, 200, 200);
+    private Float fillOpacity=0.3f;
 
-    private float rotation = 45;
-
-    private float opacity = 0.3f;
-
-    private float[] spacing = {200, 200};
 }

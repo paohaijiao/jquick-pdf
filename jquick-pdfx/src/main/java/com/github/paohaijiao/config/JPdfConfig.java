@@ -35,7 +35,7 @@ public class JPdfConfig {
 
     private String workspace="d://test";
 
-    private String templateFile="//template.pdf";
+//    private String templateFile="//template.pdf";
 
     private String outputFile="//hello.pdf";
 
@@ -44,6 +44,8 @@ public class JPdfConfig {
     private List<Integer> margins= Arrays.asList(0, 0, 0, 0);
 
     private Boolean reverse=true;
+
+    private JCatalogConfig catalogConfig=new JCatalogConfig();
 
     private JDocConfig doc=new JDocConfig();
 
@@ -54,7 +56,7 @@ public class JPdfConfig {
 
     private JFooterConfig footerConfig=new JFooterConfig();
 
-    private JWatermarkConfig watermarkConfig=new JWatermarkConfig();
+    private JWaterRemarkConfig watermarkConfig=new JWaterRemarkConfig();
 
     private JFontConfig fontConfig=new JFontConfig();
 
@@ -62,12 +64,13 @@ public class JPdfConfig {
 
     private JGraphConfig graphConfig=new JGraphConfig();
 
+    private JComboBoxFieldConfig comboBoxFieldConfig=new JComboBoxFieldConfig();
+
     private JTreeNodeConfig treeConfig = new JTreeNodeConfig();
 
+    private JTemplateConfig templateConfig = new JTemplateConfig();
 
-    public String getTempFilePath() {
-        return this.workspace+templateFile;
-    }
+
 
     public String getOutputFilePath() {
         return this.workspace+outputFile;

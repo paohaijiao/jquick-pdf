@@ -61,9 +61,7 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
 
     @Override
     public Object visitValue(JQuickPDFParser.ValueContext ctx) {
-        if (ctx.IDENTIFIER() != null) {
-            return ctx.IDENTIFIER().getText();
-        } else if (ctx.string() != null) {
+       if (ctx.string() != null) {
             return visitString(ctx.string());
         } else if (null != ctx.variable()) {
             return visitVariable(ctx.variable());

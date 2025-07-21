@@ -54,6 +54,7 @@ public class JPdfXSvgVisitor extends JPdfXTreeVisitor {
             String content = graphConfig.drawGraph(identify);
             svgImage = new SvgImage(content);
         }
+
         super.buildStyle(svgImage, style);
         return svgImage;
     }

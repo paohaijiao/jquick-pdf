@@ -1,0 +1,7 @@
+<html>
+<body>
+<p>'上面的内容'</p>
+<lineSeparator style=”strokeColor:red“></lineSeparator>
+<p>'下面的内容'</p>
+</body>
+</html>

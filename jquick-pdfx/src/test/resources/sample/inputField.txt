@@ -1,0 +1,5 @@
+<html>
+<body>
+<inputField style="font-color:blue">'你好中国'</inputField>
+</body>
+</html>

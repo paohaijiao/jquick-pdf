@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
@@ -44,6 +45,7 @@ public class JPdfXLineSeparaterVisitor extends JPdfXInputFieldVisitor {
         if (null != ctx.IDENTIFIER()) {
             value =ctx.IDENTIFIER().getText();
         }
+        line.setFont(JFontProviderFactory.defualtFont());
         super.buildStyle(line, style);
         return line;
    }

@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.factory;
 
+import com.github.paohaijiao.extension.svg.SvgImage;
 import com.github.paohaijiao.render.JStyleRenderer;
 import com.github.paohaijiao.render.impl.*;
 import com.itextpdf.html2pdf.attach.impl.layout.HtmlPageBreak;
@@ -54,8 +55,9 @@ public class JStyleRendererFactory {
         renderers.put(LineSeparator.class, new JLineSeperaterRenderer());
         renderers.put(Link.class, new JLinkRenderer());
         renderers.put(List.class, new JListRenderer());
-        renderers.put(ListBoxField.class, new JListBoxFieldRender());
         renderers.put(ListItem.class, new JListItemRenderer());
+        renderers.put(ListBoxField.class, new JListBoxFieldRender());
+
         renderers.put(PageCountElement.class, new JPageCountElementRender());
         renderers.put(PageTargetCountElement.class, new JPageTargetCountRender());
         renderers.put(Paragraph.class, new JParagraphRenderer());
@@ -67,6 +69,7 @@ public class JStyleRendererFactory {
         renderers.put(TextArea.class, new JTextAreaRender());
 
         renderers.put(Div.class, new JDivRenderer());
+        renderers.put(SvgImage.class, new JImageRenderer());
         renderers.put(Image.class, new JImageRenderer());
         renderers.put(Table.class, new JTableRenderer());
         renderers.put(Canvas.class, new JConvasRender());

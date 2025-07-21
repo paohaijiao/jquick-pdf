@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.element.*;
@@ -32,6 +33,7 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
     @Override
     public Div visitDiv(JQuickPDFParser.DivContext ctx) {
         Div div = new Div();
+        div.setFont(JFontProviderFactory.defualtFont());
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
@@ -42,6 +44,7 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
         if (null != ctx.value()) {
             value = visitValue(ctx.value()).toString();
             Paragraph p = new Paragraph(value);
+            p.setFont(JFontProviderFactory.defualtFont());
             div.add(p);
         }
         if (null != ctx.element()&& !ctx.element().isEmpty()) {

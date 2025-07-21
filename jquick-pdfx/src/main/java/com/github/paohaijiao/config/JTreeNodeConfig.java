@@ -132,7 +132,7 @@ public class JTreeNodeConfig<T extends TreeNode> extends HashMap<String, T> {
     }
 
     public T drawTree(String key) {
-        if (containsKey(key)) {
+        if (!containsKey(key)) {
             throw new IllegalArgumentException("tree " + key + " not exists");
         } else {
             T t = this.get(key);

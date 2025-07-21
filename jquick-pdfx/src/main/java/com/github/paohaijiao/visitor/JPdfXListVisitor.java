@@ -16,12 +16,13 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.enums.JListType;
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.model.JStyleListAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.List;
-import com.itextpdf.layout.element.ListItem;
-import com.itextpdf.layout.element.Text;
+import com.github.paohaijiao.util.JStringUtils;
+import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.ListNumberingType;
 
 
 /**
@@ -44,7 +45,10 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        List list=new List();
+        List list = new List()
+                .setSymbolIndent(12)
+                .setListSymbol(ListNumberingType.DECIMAL);
+        list.setFont(JFontProviderFactory.defualtFont());
         if(null!=ctx.listItem()&&!ctx.listItem().isEmpty()){
             for (JQuickPDFParser.ListItemContext listItemContext:ctx.listItem()){
                 ListItem item=visitListItem(listItemContext);
@@ -52,14 +56,20 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
             }
         }
         super.buildStyle(list, style);
+        JStyleListAttributes newStyle=new JStyleListAttributes();
+        newStyle.putAll(style);
+        this.buildExtraStyle(list,newStyle);
         return list;
     }
-
-    @Override
-    public JListType visitListEle(JQuickPDFParser.ListEleContext ctx) {
-        String type = ctx.getText();
-        return JListType.codeOf(type);
+    private void buildExtraStyle(List list, JStyleListAttributes style) {
+//        if(style.getSymbol()!=null){
+//            list.setListSymbol(style.getSymbol());
+//        }
+        if(style.getImage()!=null){
+            list.setListSymbol(style.getImage());
+        }
     }
+
 
     @Override
     public ListItem visitListItem(JQuickPDFParser.ListItemContext ctx) {
@@ -76,9 +86,10 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         }
         String text = "";
         if(null!=value&&value instanceof String){
-            text=(String)value;
+            text= JStringUtils.trim(value.toString());
         }
-        item.setListSymbol(new Text(text));
+        item.setListSymbol(text);
+        item.setFont(JFontProviderFactory.defualtFont());
         saveSub(item,value);
         super.buildStyle(item, style);
         return item;

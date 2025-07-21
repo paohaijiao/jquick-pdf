@@ -33,12 +33,10 @@ import com.itextpdf.layout.properties.TextAlignment;
  * @version 1.0.0
  * @since 2025/7/20
  */
-public class HeaderFooterHandler implements IEventHandler {
-    private final JHeaderConfig headerConfig;
+public class JFooterHandler implements IEventHandler {
     private final JFooterConfig footerConfig;
 
-    public HeaderFooterHandler(JHeaderConfig headerConfig, JFooterConfig footerConfig) {
-        this.headerConfig = headerConfig;
+    public JFooterHandler( JFooterConfig footerConfig) {
         this.footerConfig = footerConfig;
     }
 
@@ -50,49 +48,13 @@ public class HeaderFooterHandler implements IEventHandler {
         PdfCanvas canvas = new PdfCanvas(page.newContentStreamBefore(),
                 page.getResources(),
                 docEvent.getDocument());
-        if (headerConfig.isEnabled()) {
-            drawHeader(canvas, pageSize, docEvent);
-        }
+
         if (footerConfig.isEnabled()) {
             drawFooter(canvas, pageSize, docEvent);
         }
         canvas.release();
     }
 
-    private void drawHeader(PdfCanvas canvas, Rectangle pageSize, PdfDocumentEvent docEvent) {
-        PdfFont font = headerConfig.getFont();
-        if (font == null) {
-            font = docEvent.getDocument().getDefaultFont();
-        }
-        float x = calculateXPosition(headerConfig.getAlignment(), pageSize);
-        float y = pageSize.getTop() - headerConfig.getHeight() / 2;
-        if (headerConfig.getBackgroundColor() != null) {
-            canvas.saveState()
-                    .setFillColor(headerConfig.getBackgroundColor())
-                    .rectangle(pageSize.getLeft(),
-                            pageSize.getTop() - headerConfig.getHeight(),
-                            pageSize.getWidth(),
-                            headerConfig.getHeight())
-                    .fill()
-                    .restoreState();
-        }
-
-//        if (headerConfig.getBorder() != null) {
-//            drawBorder(canvas, pageSize, pageSize.getTop() - headerConfig.getHeight(),
-//                    headerConfig.getBorder());
-//        }
-
-        canvas.beginText()
-                .setFontAndSize(font, headerConfig.getFontSize())
-                .setColor(headerConfig.getFontColor(), true)
-                .moveText(x, y)
-                .showText(headerConfig.getText())
-                .endText();
-
-//        if (headerConfig.getLogo() != null) {
-//            drawLogo(canvas, pageSize, headerConfig.getLogo());
-//        }
-    }
 
     private void drawFooter(PdfCanvas canvas, Rectangle pageSize, PdfDocumentEvent docEvent) {
         PdfFont font = footerConfig.getFont();
@@ -101,11 +63,10 @@ public class HeaderFooterHandler implements IEventHandler {
         }
         float x = calculateXPosition(footerConfig.getAlignment(), pageSize);
         float y = footerConfig.getHeight() / 2;
-        String footerText = footerConfig.getText();
+        String footerText = "";
         if (footerConfig.isShowPageNumber()) {
             int pageNumber = docEvent.getDocument().getPageNumber(docEvent.getPage());
-            footerText = footerText.replace("{page}",
-                    String.format(footerConfig.getPageNumberFormat(), pageNumber));
+            footerText = String.format(footerConfig.getPageNumberFormat(), pageNumber);
         }
         if (footerConfig.getBackgroundColor() != null) {
             canvas.saveState()

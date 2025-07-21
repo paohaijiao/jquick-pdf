@@ -19,6 +19,7 @@ import com.github.paohaijiao.config.JTreeNodeConfig;
 import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.extension.tree.TreeElement;
 import com.github.paohaijiao.extension.tree.TreeNode;
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 
@@ -53,6 +54,9 @@ public class JPdfXTreeVisitor extends JPdfXImageVisitor {
             JAssert.notNull(treeConfig, "the tree config not  null");
             TreeNode treeNode = treeConfig.drawTree(identify);
             tree = new TreeElement(treeNode);
+        }
+        if(tree!=null){
+            tree.setFont(JFontProviderFactory.defualtFont());
         }
         super.buildStyle(tree, style);
         return tree;

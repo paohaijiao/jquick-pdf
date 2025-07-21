@@ -28,7 +28,7 @@ import com.itextpdf.layout.element.Paragraph;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXElementVisitor extends JPdfXTextAreaVisitor  {
+public class JPdfXElementVisitor extends JPdfXTemplateVisitor  {
 
 
     @Override
@@ -58,13 +58,38 @@ public class JPdfXElementVisitor extends JPdfXTextAreaVisitor  {
             return visitAreaBreak(ctx.areaBreak());
         }else if(ctx.button()!=null){
             return visitButton(ctx.button());
+        }else if(ctx.tab()!=null){
+            return visitTab(ctx.tab());
+        }else if(ctx.checkbox()!=null){
+            return visitCheckbox(ctx.checkbox());
+        }else if(ctx.comboBoxField()!=null){
+            return visitComboBoxField(ctx.comboBoxField());
+        }
+        else if(ctx.htmlPageBreak()!=null){
+            return visitHtmlPageBreak(ctx.htmlPageBreak());
+        }
+        else if(ctx.inputField()!=null){
+            return visitInputField(ctx.inputField());
+        } else if(ctx.lineSeparator()!=null){
+            return visitLineSeparator(ctx.lineSeparator());
+        } else if(ctx.link()!=null){
+            return visitLink(ctx.link());
+        }
+        else if(ctx.listBoxField()!=null){
+            return visitListBoxField(ctx.listBoxField());
+        }else if(ctx.pageCountElement()!=null){
+            return visitPageCountElement(ctx.pageCountElement());
+        }else if(ctx.tab()!=null){
+            return visitTab(ctx.tab());
+        }
+        else if(ctx.textArea()!=null){
+            return visitTextArea(ctx.textArea());
+        }else if(ctx.tree()!=null){
+            return visitTree(ctx.tree());
         }
         return null;
     }
 
 
-    @Override
-    public IElement visitTemplate(JQuickPDFParser.TemplateContext ctx) {
-        return null;
-    }
+
 }

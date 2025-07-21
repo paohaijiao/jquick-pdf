@@ -98,9 +98,8 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         if (null != ctx.body()) {
             visitBody(ctx.body());
         }
-
-        this.addCatalog();
-        this.addPageNumber();
+//        this.addCatalog();
+//        this.addPageNumber();
         pdf.close();
         return null;
     }
@@ -146,10 +145,8 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     @Override
     public Void visitBody(JQuickPDFParser.BodyContext ctx) {
-        String text=ctx.getText();
         if (ctx.element() != null && !ctx.element().isEmpty()) {
             for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
-                String elementTxt=elementContext.getText();
                 Object object=visitElement(elementContext);
                 if (object instanceof Image) {
                     Image image=(Image)object;
@@ -173,9 +170,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                 }
             }
         }
-//        ReportPainting painting = new ReportPainting(pdf, font);
-//        painting.drawHello("image/纸质报告-03.png");
-//        painting.close();
         return null;
     }
     private void saveSub(  Object object){
@@ -256,7 +250,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         PdfReader reader = null;
         PdfWriter writer = null;
         try {
-            reader = new PdfReader(new File(this.config.getTempFilePath()));
+            reader = new PdfReader(new File(this.config.getOutputFilePath()));
             writer = new PdfWriter(new File(this.config.getOutputFilePath()));
         } catch (IOException e) {
             e.printStackTrace();
@@ -284,7 +278,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         }
         pdf.close();
         try {
-            Files.delete(Paths.get(this.config.getTempFilePath()));
+            Files.delete(Paths.get(this.config.getOutputFilePath()));
         } catch (IOException e) {
             e.printStackTrace();
         }

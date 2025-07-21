@@ -15,9 +15,12 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.html2pdf.attach.impl.layout.form.element.TextArea;
+import com.itextpdf.layout.element.Paragraph;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -39,10 +42,15 @@ public class JPdfXTextAreaVisitor extends JPdfXTabVisitor {
             style = new JStyleAttributes();
         }
         String value = "";
-        if (null != ctx.IDENTIFIER()) {
-            value =ctx.IDENTIFIER().getText();
+        if (null != ctx.value()) {
+            value =ctx.value().getText();
         }
-        TextArea textArea = new TextArea(value);
+        TextArea textArea = new TextArea(JStringUtils.trim(value));
+        Paragraph paragraph = new Paragraph();
+        paragraph.add(JStringUtils.trim(value));
+        paragraph.setFont(JFontProviderFactory.defualtFont());
+        textArea.setPlaceholder(paragraph);
+        textArea.setFont(JFontProviderFactory.defualtFont());
         super.buildStyle(textArea, style);
         return textArea;
    }

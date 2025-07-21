@@ -15,9 +15,12 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.html2pdf.HtmlConverter;
+import com.itextpdf.html2pdf.attach.impl.layout.form.element.Button;
 import com.itextpdf.layout.element.IElement;
 
 import java.util.List;
@@ -35,10 +38,20 @@ import java.util.List;
 public class JPdfXButtonVisitor extends JPdfXAreaBreakVisitor {
     @Override
     public JHtmlRenderModel visitButton(JQuickPDFParser.ButtonContext ctx) {
+        String style="";
+        String value="";
+        if(ctx.styleEle()!=null){
+            style=ctx.styleEle().getText();
+        }
+        if(ctx.value()!=null){
+            value=ctx.value().getText();
+        }
+        String button=String.format("<button %s>%s</button>",style, JStringUtils.trim(value));
         String text=ctx.getText();
-        List<IElement> iElements= HtmlConverter.convertToElements( text,proper);
+        List<IElement> iElements= HtmlConverter.convertToElements( button,proper);
         JHtmlRenderModel jHtmlRenderModel=new JHtmlRenderModel();
         jHtmlRenderModel.setList(iElements);
+        //areaBreak.setFont(JFontProviderFactory.defualtFont());
         return jHtmlRenderModel;
     }
 

@@ -15,8 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.layout.element.Link;
 
@@ -40,12 +42,13 @@ public class JPdfXLinkVisitor extends JPdfXLineSeparaterVisitor {
             style = new JStyleAttributes();
         }
         String value = "";
-        if (null != ctx.IDENTIFIER()) {
-            value =ctx.IDENTIFIER().getText();
+        if (null != ctx.value()) {
+            value =ctx.value().getText();
         }
-        Link line = new Link(value,new PdfAction());
-        super.buildStyle(line, style);
-        return line;
+        Link link = new Link(JStringUtils.trim(value),new PdfAction());
+        link.setFont(JFontProviderFactory.defualtFont());
+        super.buildStyle(link, style);
+        return link;
    }
 
 

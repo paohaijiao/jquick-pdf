@@ -33,6 +33,7 @@ import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
  * @description
  */
 public class JPdfXPageEventHandler implements IEventHandler {
+
     @Override
     public void handleEvent(Event event) {
         PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
@@ -47,4 +48,5 @@ public class JPdfXPageEventHandler implements IEventHandler {
                 .endText();
         pdfCanvas.release();
     }
+
 }

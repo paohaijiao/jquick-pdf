@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.layout.element.Tab;
@@ -28,23 +29,20 @@ import com.itextpdf.layout.element.Tab;
  * @date 2025/6/15
  * @description
  */
-public class JPdfXTabVisitor extends JPdfXRadioVisitor {
+public class JPdfXTabVisitor extends JPdfXPageCountElementVisitor {
 
     @Override
      public Tab visitTab(JQuickPDFParser.TabContext ctx) {
-
-    JStyleAttributes style = new JStyleAttributes();
+        JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        String value = "";
-        if (null != ctx.IDENTIFIER()) {
-            value =ctx.IDENTIFIER().getText();
-        }
         Tab tab = new Tab();
+        tab.setFont(JFontProviderFactory.defualtFont());
         super.buildStyle(tab, style);
+
         return tab;
    }
 

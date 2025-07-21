@@ -40,7 +40,7 @@ import java.io.IOException;
  */
 public class PdfTabComponent {
     public static void main(String[] args) throws Exception {
-        PdfDocument pdfDoc = new PdfDocument(new PdfWriter("output.pdf"));
+        PdfDocument pdfDoc = new PdfDocument(new PdfWriter("d://test//output.pdf"));
         Document document = new Document(pdfDoc);
 
         // 创建 3 个图层（对应 3 个选项卡）

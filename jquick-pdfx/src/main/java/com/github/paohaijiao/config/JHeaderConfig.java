@@ -34,7 +34,7 @@ public class JHeaderConfig {
 
     private boolean enabled = true;
 
-    private String text="这是标题烂";
+    private String text="页眉";
 
     private PdfFont font= JFontProviderFactory.defualtFont();
 
