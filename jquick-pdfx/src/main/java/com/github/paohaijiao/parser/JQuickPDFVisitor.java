@@ -83,6 +83,12 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCheckbox(JQuickPDFParser.CheckboxContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#checkboxStatus}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCheckboxStatus(JQuickPDFParser.CheckboxStatusContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#areaBreak}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -112,12 +118,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitList(JQuickPDFParser.ListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#listEle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitListEle(JQuickPDFParser.ListEleContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#listItem}.
 	 * @param ctx the parse tree
@@ -197,12 +197,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#inputButton}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInputButton(JQuickPDFParser.InputButtonContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#inputField}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -233,24 +227,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPageCountElement(JQuickPDFParser.PageCountElementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#pageTargetCountElement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPageTargetCountElement(JQuickPDFParser.PageTargetCountElementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#radio}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRadio(JQuickPDFParser.RadioContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#runningElement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRunningElement(JQuickPDFParser.RunningElementContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#tab}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -268,7 +244,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTree(JQuickPDFParser.TreeContext ctx);
-
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#span}.
 	 * @param ctx the parse tree
