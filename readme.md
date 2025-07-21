@@ -106,7 +106,7 @@ templates with support for dynamic content and rich styling.
 | `<br>`     | Line break (Newline)            | `type` (before/after)          | `<br type="after">`           |
 | `<tab>`     | tab                             | `type` (before/after)          | `<br type="after">`           |
 
-#### 1.<p>
+#### 1. paragraph
 ```java
      JReader fileReader = new JReSourceFileReader("sample/paragraph.txt");
      JAdaptor context = new JAdaptor(fileReader);
@@ -131,7 +131,7 @@ templates with support for dynamic content and rich styling.
 </body>
 </html>
 ```
-#### 2.<h1>-<h6>
+#### 2.h1-h6
 ```html
 <html>
 <body>
@@ -194,7 +194,7 @@ templates with support for dynamic content and rich styling.
 </body>
 </html>
 ```
-####  2.<areaBreak>
+####  2.areaBreak
 ```html
 <html>
 <body>
@@ -208,7 +208,7 @@ templates with support for dynamic content and rich styling.
 </body>
 </html>
 ```
-####  3.<htmlPageBreak>
+####  3.htmlPageBreak
 ```html
 <html>
 <body>
@@ -224,7 +224,7 @@ templates with support for dynamic content and rich styling.
 | `<list>` | Ordered/Unordered list (List)       | `list-style`, `indent`, `symbol-indent` | `list-style="circle"`       |
 | `<li>`   | List item (ListItem)                | `margin-left`, `list-symbol`   | `margin-left="15px"`          |
 
-####  1.<list>
+####  1.list
 ```html
 <html>
 <body>
@@ -248,7 +248,7 @@ templates with support for dynamic content and rich styling.
 | `<td>`  | Table data cell (TableCell)         | `colspan`, `rowspan`, `valign`  | `colspan="2"`                 |
 | `<th>`  | Table header cell (TableCell)       | `scope`, `font-weight`         | `font-weight="bold"`          |
 
-####  1.<table>
+####  1.table
 ```html
 <html>
 <body>
@@ -274,7 +274,7 @@ templates with support for dynamic content and rich styling.
 | `<inputField>`    | Text input (TextField)              | `maxlength`, `password`, `readonly` | `password="true"`          |
 | `<comboBoxField>` | Dropdown selector (ComboBoxField)   | `options`, `editable`, `selectedIndex` | `options="A,B,C"`      |
 
-####  1.<button>
+####  1.button
 ```html
 <html>
 <body>
@@ -282,7 +282,7 @@ templates with support for dynamic content and rich styling.
 </body>
 </html>
 ```
-####  2.<checkbox>
+####  2.checkbox
 ```html
 <html>
 <body>
@@ -290,7 +290,7 @@ templates with support for dynamic content and rich styling.
 </body>
 </html>
 ```
-####  3.<inputField>
+####  3.inputField
 ```html
 <html>
 <body>
@@ -298,7 +298,7 @@ templates with support for dynamic content and rich styling.
 </body>
 </html>
 ```
-####  4.<comboBoxField>
+####  4.comboBoxField
 ```html
 <html>
 <body>
@@ -326,7 +326,7 @@ templates with support for dynamic content and rich styling.
 | RELATION    | Represents a relation chart           |
 | SCATTER     | Represents a scatter plot             |
 | SUNBURST    | Represents a sunburst chart           |
-####  1.<image>
+####  1.image
 ```html
 <html>
 <body>
@@ -336,7 +336,7 @@ templates with support for dynamic content and rich styling.
 </body>
 </html>
 ```
-####  2.<svg>
+####  2.svg
 ```java
 JContext params = new JContext();
 String svg = "<?xml version=\"1.0\"?>\n" +
@@ -421,7 +421,7 @@ executor.execute(context.getRuleContent());
 </body>
 </html>
 ```
-####  3.<svg> for java render
+####  3.svg for java render
 ```java
    JGraphContainer graphContainer=new JGraphContainer();
         JOption option = new JOption();
@@ -478,7 +478,7 @@ executor.execute(context.getRuleContent());
 | `<listBoxField>` | Multi-select list (ListField)        | `options`, `multiple`, `size`     | `options="A,B,C" multiple="true"` |
 | `<textArea>`     | Multi-line text input (TextAreaField)| `rows`, `cols`, `wrap`            | `rows="5" cols="40"`            |
 | `<tree>`         | Hierarchical data (PdfOutline)       | `collapsed`, `level`, `title`     | `collapsed="false" level="1"`   |
-####  1.<pageCountElement>
+####  1.pageCountElement
 ```html
 <html>
 <body>
@@ -503,7 +503,7 @@ executor.execute(context.getRuleContent());
 </body>
 </html>
 ```
-####  2.<template>
+####  2.template
 ```java
         JPdfConfig config=new JPdfConfig();
 JTemplateConfig templateConfig=config.getTemplateConfig();
@@ -520,7 +520,7 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </html>
 ```
-####  3.<link> -->future will support the click action
+####  3.link -->future will support the click action
 ```html
 <html>
 <body>
@@ -530,7 +530,7 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </html>
 ```
-####  3.<listBoxField>
+####  4.listBoxField
 ```html
 <html>
 <body>
@@ -539,7 +539,7 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </html>
 ```
-####  4.<textArea>
+####  5.textArea
 ```html
 <html>
 <body>
@@ -549,7 +549,7 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </html>
 ```
-####  5.<tree>
+####  6.tree
 ```java
 JContext context=new JContext();
 TreeNode root = new TreeNode("Root");
@@ -575,7 +575,7 @@ executor.execute(adaptor.getRuleContent());
 ```
 
 
-####  6.<tree>
+####  7.tree
 ```java
    JPdfConfig config=new JPdfConfig();
 TreeNode root = new TreeNode("Root");
