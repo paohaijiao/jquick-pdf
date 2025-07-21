@@ -1,0 +1,11 @@
+<html>
+<body>
+<list style="symbol:hahaha">
+    <li style="fontColor:red">'选项1'</li>
+    <li style="fontColor:red">'选项2'</li>
+    <li style="fontColor:red">'选项3'</li>
+    <li style="fontColor:red">'选项4'</li>
+    <li style="fontColor:red">'选项5'</li>
+</list>
+</body>
+</html>

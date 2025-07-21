@@ -35,8 +35,6 @@ public class JFooterConfig {
 
     private boolean enabled = true;
 
-    private String text = "第 {page} 页";
-
     private PdfFont font= JFontProviderFactory.defualtFont();
 
     private float fontSize = 10;

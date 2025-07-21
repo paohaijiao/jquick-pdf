@@ -15,11 +15,15 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.ILeafElement;
-import com.itextpdf.layout.element.Paragraph;
+import com.github.paohaijiao.util.JStringUtils;
+import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.TextAlignment;
+
+import java.util.Arrays;
 
 
 /**
@@ -54,10 +58,12 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        Paragraph h1 = new Paragraph(text);
-        saveSub(h1,value);
-        super.buildStyle(h1, style);
-        return h1;
+        Paragraph paragraph = new Paragraph(JStringUtils.trim(text));
+        paragraph.setFont(JFontProviderFactory.defualtFont());
+        createHeading(paragraph,number);
+        saveSub(paragraph,value);
+        super.buildStyle(paragraph, style);
+        return paragraph;
     }
     private void saveSub(Paragraph paragraph,Object object) {
         if(null!=object&&object instanceof java.util.List) {
@@ -72,8 +78,73 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
                 if (e instanceof IBlockElement) {
                     paragraph.add((IBlockElement) e);
                 }
+                if (e instanceof TabStop) {
+                    TabStop tabStop = (TabStop) e;
+                    paragraph.addTabStops(Arrays.asList(tabStop));
+                }
             });
         }
+    }
+    private static Paragraph createHeading(Paragraph heading, int level)  {
+        heading.setFont(JFontProviderFactory.defualtFont());
+        switch (level) {
+            case 1: // H1
+                heading.setFontSize(24);
+                heading.setBold();
+                heading.setFontColor(ColorConstants.DARK_GRAY);
+                heading.setTextAlignment(TextAlignment.LEFT);
+                heading.setMarginTop(30);
+                heading.setMarginBottom(10);
+                break;
+            case 2: // H2
+                heading.setFontSize(20);
+                heading.setBold();
+                heading.setFontColor(ColorConstants.DARK_GRAY);
+                heading.setTextAlignment(TextAlignment.LEFT);
+                heading.setMarginTop(25);
+                heading.setMarginBottom(8);
+                break;
+            case 3: // H3
+                heading.setFontSize(16);
+                heading.setBold();
+                heading.setFontColor(ColorConstants.BLACK);
+                heading.setTextAlignment(TextAlignment.LEFT);
+                heading.setMarginTop(20);
+                heading.setMarginBottom(6);
+                break;
+            case 4: // H4
+                heading.setFontSize(14);
+                heading.setBold();
+                heading.setFontColor(ColorConstants.BLACK);
+                heading.setTextAlignment(TextAlignment.LEFT);
+                heading.setMarginTop(15);
+                heading.setMarginBottom(5);
+                break;
+            case 5: // H5
+                heading.setFontSize(12);
+                heading.setBold();
+                heading.setFontColor(ColorConstants.BLACK);
+                heading.setTextAlignment(TextAlignment.LEFT);
+                heading.setMarginTop(10);
+                heading.setMarginBottom(4);
+                break;
+            case 6: // H6
+                heading.setFontSize(10);
+                heading.setBold();
+                heading.setFontColor(ColorConstants.GRAY);
+                heading.setTextAlignment(TextAlignment.LEFT);
+                heading.setMarginTop(8);
+                heading.setMarginBottom(3);
+                break;
+            default:
+                heading.setFontSize(14);
+                heading.setBold();
+                heading.setFontColor(ColorConstants.BLACK);
+                heading.setTextAlignment(TextAlignment.LEFT);
+                heading.setMarginTop(15);
+                heading.setMarginBottom(5);
+        }
+        return heading;
     }
 
 

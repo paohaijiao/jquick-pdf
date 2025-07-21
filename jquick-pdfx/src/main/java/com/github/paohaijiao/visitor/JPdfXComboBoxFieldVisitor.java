@@ -15,10 +15,16 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.util.JStringUtils;
+import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.html2pdf.attach.impl.layout.form.element.ComboBoxField;
 import com.itextpdf.layout.element.IBlockElement;
+import com.itextpdf.layout.element.IElement;
+
+import java.util.List;
 
 
 /**
@@ -33,34 +39,19 @@ import com.itextpdf.layout.element.IBlockElement;
 public class JPdfXComboBoxFieldVisitor extends JPdfXCheckBoxVisitor {
 
     @Override
-    public ComboBoxField visitComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
+    public JHtmlRenderModel visitComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx) {
+        String style="";
+        String value="";
+        if(ctx.styleEle()!=null){
+            style=ctx.styleEle().getText();
         }
-        String text = "";
-        Object value = null;
-        if (ctx.elemValue() != null) {
-            value =visitElemValue(ctx.elemValue());
-            if (null != value && value instanceof String) {
-                text = (String) value;
-            }
+        if(ctx.value()!=null){
+            value=ctx.value().getText();
         }
-        ComboBoxField comboBoxField = new ComboBoxField(text);
-        saveSub(comboBoxField,value);
-        super.buildStyle(comboBoxField, style);
-        return comboBoxField;
-    }
-    private void saveSub(ComboBoxField comboBoxField,Object object) {
-        if(null!=object&&object instanceof java.util.List) {
-            java.util.List<Object> list=(java.util.List<Object>) object;
-            list.forEach(e -> {
-                if (e instanceof IBlockElement) {
-                    comboBoxField.addOption((IBlockElement) e);
-                }
-            });
-        }
+        String html = String.format("<select %s><option  selected>%s</option></select>",style, JStringUtils.trim(value));
+        List<IElement> iElements= HtmlConverter.convertToElements( html,proper);
+        JHtmlRenderModel jHtmlRenderModel=new JHtmlRenderModel();
+        jHtmlRenderModel.setList(iElements);
+        return jHtmlRenderModel;
     }
 }

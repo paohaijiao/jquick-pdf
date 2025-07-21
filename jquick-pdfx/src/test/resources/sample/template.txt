@@ -1,0 +1,5 @@
+<html>
+<body>
+<template>&html</template>
+</body>
+</html>

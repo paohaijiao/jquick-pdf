@@ -15,10 +15,12 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.element.*;
@@ -54,6 +56,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         if(null!=ctx.row()&&!ctx.row().isEmpty()){
             int colSize = ctx.row(0).col().size();
             Table table = new Table(UnitValue.createPercentArray(colSize)).useAllAvailableWidth();
+            table.setFont(JFontProviderFactory.defualtFont());
             for (int i = 0; i < ctx.row().size(); i++) {
                 JQuickPDFParser.RowContext rowContext = ctx.row(i);
                 JRowModel item = visitRow(rowContext);
@@ -62,10 +65,12 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
                     if(null!=column.getObject()&&column.getObject() instanceof String){
                         text=column.getObject().toString();
                     }
-                    Paragraph paragraph = new Paragraph(text);
+                    Paragraph paragraph = new Paragraph(JStringUtils.trim(text));
+                    paragraph.setFont(JFontProviderFactory.defualtFont());
                     buildParagraphStyle(paragraph);
                     super.buildStyle(paragraph, column.getStyle());
                     Cell cell = new Cell().add(paragraph);
+                    cell.setFont(JFontProviderFactory.defualtFont());
                     saveSub(cell,column.getObject());
                     buildStyle(cell);
                     super.buildStyle(cell, column.getStyle());

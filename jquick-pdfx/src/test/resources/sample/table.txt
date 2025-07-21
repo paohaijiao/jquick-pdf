@@ -1,0 +1,14 @@
+<html>
+<body>
+<table >
+    <tr>
+        <td style="fontColor:red">'中国'</td>
+        <td style="fontColor:red">'四川'</td>
+    </tr>
+    <tr>
+        <td style="fontColor:red">'你好'</td>
+        <td style="fontColor:red">'世界'</td>
+    </tr>
+</table>
+</body>
+</html>

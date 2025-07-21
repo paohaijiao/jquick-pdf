@@ -71,7 +71,6 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
             }
            // image.setMargins(-50, -60, -60, -60);
             super.buildStyle(image, style);
-//            doc.add(image);
             return image;
         } catch (Exception e) {
             e.printStackTrace();

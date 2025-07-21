@@ -53,7 +53,7 @@ public class JSvgUtil {
                 }
             }
         } catch (Exception e) {
-            // 解析失败时使用默认值
+            e.printStackTrace();
         }
         return dimensions;
     }

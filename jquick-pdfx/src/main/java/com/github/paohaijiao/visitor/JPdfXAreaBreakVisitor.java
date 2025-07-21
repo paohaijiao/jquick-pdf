@@ -17,6 +17,7 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.enums.JAreaBreakEnums;
 import com.github.paohaijiao.enums.JPageSize;
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAreaBreakAttributes;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
@@ -46,6 +47,7 @@ public class JPdfXAreaBreakVisitor extends JPdfXDivVisitor {
             breakType=ctx.IDENTIFIER().getText();
         }
         AreaBreak areaBreak=new AreaBreak();
+        areaBreak.setFont(JFontProviderFactory.defualtFont());
         if(null!=breakType){
             JAreaBreakEnums breakEnums=JAreaBreakEnums.codeOf(breakType);
             if(breakEnums!=null){

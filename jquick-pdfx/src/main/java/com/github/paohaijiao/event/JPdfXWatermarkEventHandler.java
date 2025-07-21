@@ -15,19 +15,18 @@
  */
 package com.github.paohaijiao.event;
 
-import com.itextpdf.io.font.constants.StandardFonts;
-import com.itextpdf.kernel.colors.ColorConstants;
+import com.github.paohaijiao.config.JWaterRemarkConfig;
 import com.itextpdf.kernel.events.Event;
 import com.itextpdf.kernel.events.IEventHandler;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.kernel.geom.AffineTransform;
+import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvasConstants;
-
-import java.io.IOException;
+import com.itextpdf.kernel.pdf.extgstate.PdfExtGState;
+import com.itextpdf.layout.Canvas;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.properties.TextAlignment;
+import com.itextpdf.layout.properties.VerticalAlignment;
 
 /**
  * packageName com.github.paohaijiao.event
@@ -39,29 +38,34 @@ import java.io.IOException;
  * @description
  */
 public class JPdfXWatermarkEventHandler implements IEventHandler {
+
+    private JWaterRemarkConfig watermarkConfig;
+
+    public JPdfXWatermarkEventHandler(JWaterRemarkConfig watermarkConfig) {
+        this.watermarkConfig = watermarkConfig;
+    }
+
     @Override
     public void handleEvent(Event event) {
         PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
+        PdfDocument pdfDoc = docEvent.getDocument();
         PdfPage page = docEvent.getPage();
-        PdfFont font = null;
-        try {
-            font = PdfFontFactory.createFont(StandardFonts.HELVETICA);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-        PdfCanvas canvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), docEvent.getDocument());
-        canvas.saveState()
-                .setFillColor(ColorConstants.LIGHT_GRAY)
-                .setTextMatrix(30, 30)
-                .beginText()
-                .setFontAndSize(font, 60)
-                .setTextRenderingMode(PdfCanvasConstants.TextRenderingMode.FILL)
-                .setTextMatrix(AffineTransform.getRotateInstance(Math.PI / 4))
-                .showText("DRAFT")
-                .endText()
-                .restoreState();
-
-        canvas.release();
+        PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), pdfDoc);
+        pdfCanvas.saveState();
+        PdfExtGState gs = new PdfExtGState();
+        gs.setFillOpacity(watermarkConfig.getFillOpacity());
+        pdfCanvas.setExtGState(gs);
+        Canvas canvas = new Canvas(pdfCanvas, page.getPageSize());
+        canvas.showTextAligned(
+                new Paragraph(watermarkConfig.getWatermarkText()).setFont(watermarkConfig.getFont())
+                        .setFontSize(60)
+                        .setRotationAngle(Math.PI / 4),
+                page.getPageSize().getWidth() / 2,
+                page.getPageSize().getHeight() / 2,
+                TextAlignment.CENTER,
+                VerticalAlignment.MIDDLE);
+        canvas.close();
+        pdfCanvas.restoreState();
+        pdfCanvas.release();
     }
 }

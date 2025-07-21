@@ -16,6 +16,7 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.enums.JHtmlPageBreakTypeEnums;
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.itextpdf.html2pdf.attach.impl.layout.HtmlPageBreak;
@@ -51,6 +52,7 @@ public class JPdfXHtmlPageBreakVisitor extends JPdfXComboBoxFieldVisitor {
                 htmlPageBreak=new HtmlPageBreak(enums.getType());
             }
         }
+        htmlPageBreak.setFont(JFontProviderFactory.defualtFont());
         super.buildStyle(htmlPageBreak, style);
         return htmlPageBreak;
     }

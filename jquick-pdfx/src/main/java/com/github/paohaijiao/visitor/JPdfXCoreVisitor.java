@@ -16,7 +16,10 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JPdfConfig;
-import com.github.paohaijiao.event.HeaderFooterHandler;
+import com.github.paohaijiao.event.JFooterHandler;
+import com.github.paohaijiao.event.JHeaderHandler;
+import com.github.paohaijiao.event.JPdfXWatermarkEventHandler;
+import com.github.paohaijiao.event.JTocEventHandler;
 import com.github.paohaijiao.handler.JStyleHandler;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.style.JStyleAlignModel;
@@ -96,10 +99,12 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         }
         return fontProvider;
     }
+    protected void save(JPdfConfig config)  {
 
+    }
     protected void configure(JPdfConfig config)  {
         try{
-            PdfWriter writer = new PdfWriter(config.getTempFilePath());
+            PdfWriter writer = new PdfWriter(config.getOutputFilePath());
             PdfDocument pdf = new PdfDocument(writer);
             pdf = new PdfDocument(writer);
             pdf.setDefaultPageSize(config.getDefaultPageSize());
@@ -119,10 +124,22 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
             if (config.getFontConfig().getDefaultFont() != null) {
                 doc.setFont(config.getFontConfig().getDefaultFont());
             }
-            if (config.getHeaderConfig().isEnabled() || config.getFooterConfig().isEnabled()) {
+            if (null!=config.getHeaderConfig()&&config.getHeaderConfig().isEnabled() ) {
                 pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
-                        new HeaderFooterHandler(config.getHeaderConfig(), config.getFooterConfig()));
+                        new JHeaderHandler(config.getHeaderConfig()));
             }
+            if (null!=config.getFooterConfig()&&config.getFooterConfig().isEnabled() ) {
+                pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
+                        new JFooterHandler( config.getFooterConfig()));
+            }
+            if (config.getCatalogConfig() != null&&config.getCatalogConfig().isEnabled()) {
+                pdf.addEventHandler(PdfDocumentEvent.START_PAGE, new JTocEventHandler(pdf,config.getCatalogConfig()));
+            }
+            if (config.getWatermarkConfig() != null&&config.getWatermarkConfig().getEnabled()) {
+                pdf.addEventHandler(PdfDocumentEvent.START_PAGE, new JPdfXWatermarkEventHandler(config.getWatermarkConfig()));
+            }
+
+
 //            if (config.getWatermarkConfig().isEnabled()) {
 //                pdf.addEventHandler(PdfDocumentEvent.START_PAGE,
 //                        new JPdfXWatermarkEventHandler(config.getWatermarkConfig()));

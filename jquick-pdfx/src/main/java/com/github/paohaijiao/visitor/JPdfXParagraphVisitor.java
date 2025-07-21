@@ -15,8 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.ILeafElement;
 import com.itextpdf.layout.element.Paragraph;
@@ -40,7 +42,8 @@ public class JPdfXParagraphVisitor extends JPdfXSpanVisitor  {
                 text = (String) value;
             }
         }
-        Paragraph h1 = new Paragraph(text);
+        Paragraph h1 = new Paragraph(JStringUtils.trim(text));
+        h1.setFont(JFontProviderFactory.defualtFont());
         saveSub(h1,value);
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
         if (ctx.styleEle() != null) {

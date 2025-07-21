@@ -71,9 +71,9 @@ public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
         JQuickPDFParser.DocumentContext tree = calcParser.document();
         JPdfXCommonVisitor visitor = null;
         try {
-            visitor = new JPdfXCommonVisitor(context);
+            visitor = new JPdfXCommonVisitor(context,config);
         } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+           e.printStackTrace();
         }
         Object response = visitor.visit(tree);
         return response;

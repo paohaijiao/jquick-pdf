@@ -15,8 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.console.JConsole;
 import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.html2pdf.HtmlConverter;
 import com.itextpdf.layout.element.IElement;
 
@@ -36,10 +38,26 @@ public class JPdfXCheckBoxVisitor extends JPdfXButtonVisitor {
 
     @Override
     public JHtmlRenderModel visitCheckbox(JQuickPDFParser.CheckboxContext ctx) {
-        String text=ctx.getText();
-        List<IElement> iElements= HtmlConverter.convertToElements( text,proper);
+        String style="";
+        String value="";
+        String checkStatus="";
+        if(ctx.styleEle()!=null){
+            style=ctx.styleEle().getText();
+        }
+        if(ctx.checkboxStatus()!=null){
+            checkStatus="checked";
+        }
+        if(ctx.value()!=null){
+            value=ctx.value().getText();
+        }
+        String checkbox=String.format("<input type=\"checkbox\" id=\"checkBoxItem\" %s  %s>" +
+                "<label for=\"checkBoxItem\">%s</label><br>\n",style, checkStatus,JStringUtils.trim(value));
+        JConsole console=new JConsole();
+        console.info(checkbox);
+        List<IElement> iElements= HtmlConverter.convertToElements( checkbox,proper);
         JHtmlRenderModel jHtmlRenderModel=new JHtmlRenderModel();
         jHtmlRenderModel.setList(iElements);
+        //areaBreak.setFont(JFontProviderFactory.defualtFont());
         return jHtmlRenderModel;
     }
 

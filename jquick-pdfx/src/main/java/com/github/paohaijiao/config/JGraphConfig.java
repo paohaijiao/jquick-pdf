@@ -133,7 +133,7 @@ public class JGraphConfig <T extends JGraphContainer> extends HashMap<String,  T
     }
 
     public String drawGraph(String key) {
-        if(containsKey(key)) {
+        if(!containsKey(key)) {
             throw new IllegalArgumentException("graph " + key + " not exists");
         }else{
             T t=this.get(key);
