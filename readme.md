@@ -31,80 +31,80 @@ templates with support for dynamic content and rich styling.
 ## Elements STYLE
 
 ### BlockElement Styles
-| Property              | Example Value             | Description                                                                 |
-|-----------------------|---------------------------|-----------------------------------------------------------------------------|
-| marginLeft            | `"1px"`                   | Left margin value                                                           |
-| marginRight           | `"500px"`                 | Right margin value                                                          |
-| marginTop             | `"500px"`                 | Top margin value                                                            |
-| marginBottom          | `"500px"`                 | Bottom margin value                                                         |
-| commonMargin          | `"100px"`                 | Uniform margin for all sides                                                |
-| margins               | `"20px 30px 40px 50px"`   | Margins for top, right, bottom, left                                        |
-| paddingLeft           | `"50px"`                  | Left padding value                                                          |
-| paddingRight          | `"50px"`                  | Right padding value                                                         |
-| paddingTop            | `"50px"`                  | Top padding value                                                           |
-| paddingBottom         | `"50px"`                  | Bottom padding value                                                        |
-| commonPadding         | `"50px"`                  | Uniform padding for all sides                                               |
-| paddings              | `"50px 50px 60px 70px"`   | Paddings for top, right, bottom, left                                       |
-| verticalAlignment     | `"top"`                   | Vertical alignment (top/middle/bottom)                                      |
-| spacingRatio          | `"30"`                    | Spacing ratio between elements                                              |
-| keepTogether          | `"true"`                  | Whether to keep element together                                            |
-| keepWithNext          | `"true"`                  | Whether to keep element with next element                                   |
-| angleInRadians        | `"30"`                    | Rotation angle in radians                                                   |
-| width                 | `"300px"`                 | Element width                                                               |
-| height                | `"300px"`                 | Element height                                                              |
-| maxHeight             | `"300px"`                 | Maximum element height                                                      |
-| minHeight             | `"300px"`                 | Minimum element height                                                      |
-| minWidth              | `"300px"`                 | Minimum element width                                                       |
-| maxWidth              | `"300px"`                 | Maximum element width                                                       |
+| Property              | Example Value            | Description                                                                 |
+|-----------------------|--------------------------|-----------------------------------------------------------------------------|
+| marginLeft            | `"1px"`                  | Left margin value                                                           |
+| marginRight           | `"500px"`                | Right margin value                                                          |
+| marginTop             | `"500px"`                | Top margin value                                                            |
+| marginBottom          | `"500px"`                | Bottom margin value                                                         |
+| commonMargin          | `"100px"`                | Uniform margin for all sides                                                |
+| margins               | `"'20px 30px 40px 50px'"`   | Margins for top, right, bottom, left                                        |
+| paddingLeft           | `"50px"`                 | Left padding value                                                          |
+| paddingRight          | `"50px"`                 | Right padding value                                                         |
+| paddingTop            | `"50px"`                 | Top padding value                                                           |
+| paddingBottom         | `"50px"`                 | Bottom padding value                                                        |
+| commonPadding         | `"50px"`                 | Uniform padding for all sides                                               |
+| paddings              | `"50px 50px 60px 70px"`  | Paddings for top, right, bottom, left                                       |
+| verticalAlignment     | `"top"`                  | Vertical alignment (top/middle/bottom)                                      |
+| spacingRatio          | `"30"`                   | Spacing ratio between elements                                              |
+| keepTogether          | `"true"`                 | Whether to keep element together                                            |
+| keepWithNext          | `"true"`                 | Whether to keep element with next element                                   |
+| angleInRadians        | `"30"`                   | Rotation angle in radians                                                   |
+| width                 | `"300px"`                | Element width                                                               |
+| height                | `"300px"`                | Element height                                                              |
+| maxHeight             | `"300px"`                | Maximum element height                                                      |
+| minHeight             | `"300px"`                | Minimum element height                                                      |
+| minWidth              | `"300px"`                | Minimum element width                                                       |
+| maxWidth              | `"300px"`                | Maximum element width                                                       |
 
 ## ElementProperty Styles
-| Property                  | Example Value             | Description                                                                 |
-|---------------------------|---------------------------|-----------------------------------------------------------------------------|
-| relativePosition          | `"30px 30px 30px 30px"`   | Relative position values                                                    |
-| font                      | `"HELVETICA"`             | Font type                                                                   |
-| fontFamilyNames           | `"Helvetica"`             | Font family names (comma-separated)                                         |
-| fontColor                 | `"red"`                   | Font color                                                                  |
-| opacity                   | `"0.5"`                   | Element opacity                                                             |
-| fontSize                  | `"34"`                    | Font size                                                                   |
-| textAlignment             | `"left"`                  | Text alignment (left/right/center/justified)                                |
-| characterSpacing          | `"30"`                    | Character spacing                                                           |
-| wordSpacing               | `"30"`                    | Word spacing                                                                |
-| fontKerning               | `"yes"`                   | Font kerning setting                                                        |
-| backgroundColor           | `"red"`                   | Background color                                                            |
-| backgroundImage           | `"D:/pdf/image.png"`      | Background image path                                                       |
-| border                    | `"solid 32px red"`        | Border style (type width color)                                             |
-| borderTop                 | `"solid 32px red"`        | Top border style                                                            |
-| borderRight               | `"solid 32px red"`        | Right border style                                                          |
-| borderLeft                | `"solid 32px red"`        | Left border style                                                           |
-| borderBottom              | `"solid 32px red"`        | Bottom border style                                                         |
-| borderRadius              | `"32px 24px"`             | Border radius values                                                        |
-| borderBottomLeftRadius    | `"32px 24px"`             | Bottom-left border radius                                                   |
-| borderBottomRightRadius   | `"32px 24px"`             | Bottom-right border radius                                                  |
-| borderTopRightRadius      | `"32px 24px"`             | Top-right border radius                                                     |
-| borderTopLeftRadius       | `"32px 24px"`             | Top-left border radius                                                      |
-| splitCharacters           | `"24"`                    | Character spacing (same as characterSpacing)                                |
-| textRenderingMode         | `"24"`                    | Text rendering mode                                                         |
-| strokeColor               | `"red"`                   | Stroke color                                                                |
-| strokeWidth               | `"24"`                    | Stroke width                                                                |
-| bold                      | `"true"`                  | Whether text is bold                                                        |
-| italic                    | `"true"`                  | Whether text is italic                                                      |
-| lineThrough               | `"true"`                  | Whether text has line-through                                               |
-| underline                 | `"true"`                  | Whether text is underlined                                                  |
-| baseDirection             | `"no_bidi"`               | Text base direction                                                         |
-| fontScript                | `"common"`                | Font script type                                                            |
-| destination               | `"hello"`                 | Element destination/anchor name                                             |
+| Property                  | Example Value             | Description                                                    |
+|---------------------------|---------------------------|----------------------------------------------------------------|
+| relativePosition          | `"30px 30px 30px 30px"`   | Relative position values                                       |
+| font                      | `"HELVETICA"`             | Font type:the specific value you can refer JFontEnum           |
+| fontFamilyNames           | `"Helvetica"`             | Font family names (comma-separated)                            |
+| fontColor                 | `"red"`                   | Font color: the value refer JColorEnums  class                 |
+| opacity                   | `"0.5"`                   | Element opacity                                                |
+| fontSize                  | `"34"`                    | Font size                                                      |
+| textAlignment             | `"left"`                  | Text alignment the specific value you can refer JTextAlignment |
+| characterSpacing          | `"30"`                    | Character spacing                                              |
+| wordSpacing               | `"30"`                    | Word spacing                                                   |
+| fontKerning               | `"yes"`                   | Font kerning setting                                           |
+| backgroundColor           | `"red"`                   | Background color  the value refer JColorEnums  class                                               |
+| backgroundImage           | `"D:/pdf/image.png"`      | Background image path                                          |
+| border                    | `"solid 32px red"`        | Border style (type width color)                                |
+| borderTop                 | `"solid 32px red"`        | Top border style                                               |
+| borderRight               | `"solid 32px red"`        | Right border style                                             |
+| borderLeft                | `"solid 32px red"`        | Left border style                                              |
+| borderBottom              | `"solid 32px red"`        | Bottom border style                                            |
+| borderRadius              | `"32px 24px"`             | Border radius values                                           |
+| borderBottomLeftRadius    | `"32px 24px"`             | Bottom-left border radius                                      |
+| borderBottomRightRadius   | `"32px 24px"`             | Bottom-right border radius                                     |
+| borderTopRightRadius      | `"32px 24px"`             | Top-right border radius                                        |
+| borderTopLeftRadius       | `"32px 24px"`             | Top-left border radius                                         |
+| splitCharacters           | `"24"`                    | Character spacing (same as characterSpacing)                   |
+| textRenderingMode         | `"24"`                    | Text rendering mode                                            |
+| strokeColor               | `"red"`                   | Stroke color                                                   |
+| strokeWidth               | `"24"`                    | Stroke width                                                   |
+| bold                      | `"true"`                  | Whether text is bold                                           |
+| italic                    | `"true"`                  | Whether text is italic                                         |
+| lineThrough               | `"true"`                  | Whether text has line-through                                  |
+| underline                 | `"true"`                  | Whether text is underlined                                     |
+| baseDirection             | `"no_bidi"`               | Text base direction                                            |
+| fontScript                | `"common"`                | Font script type                                               |
+| destination               | `"hello"`                 | Element destination/anchor name                                |
 
 ## Content Elements
 
 ### Text Elements
 
-| Element    | Description                     | Attributes                     | Values                          |
-|------------|---------------------------------|--------------------------------|---------------------------------|
-| `<p>`      | Paragraph block (Paragraph)     | `text-align`, `line-height`, `indent` | `text-align="justify"`         |
-| `<h1>-<h6>`| Headings (Paragraph with style) | `font-size`, `color`, `margin-bottom` | `font-size="24pt"`            |
-| `<span>`   | Inline text container (Chunk)   | `font-style`, `background`, `color` | `font-style="italic"`         |
-| `<br>`     | Line break (Newline)            | `type` (before/after)          | `<br type="after">`           |
-| `<tab>`     | tab                             | `type` (before/after)          | `<br type="after">`           |
+| Element    | Description                     | Style Attributes      | Values                          |
+|------------|---------------------------------|-----------------------|---------------------------------|
+| `<p>`      | Paragraph block (Paragraph)     | ElementProperty style | `text-align="justify"`         |
+| `<h1>-<h6>`| Headings (Paragraph with style) | ElementProperty style | `font-size="24pt"`            |
+| `<span>`   | Inline text container (Chunk)   | ElementProperty style | `font-style="italic"`         |
+| `<br>`     | Line break (Newline)            | ElementProperty style | `<br type="after">`           |
+| `<tab>`     | tab                             | ElementProperty style | `<br type="after">`           |
 
 #### 1. paragraph
 ```java
@@ -181,11 +181,11 @@ templates with support for dynamic content and rich styling.
 ```
 ### Layout Elements
 
-| Element         | Description                          | Attributes                     | Values                          |
-|-----------------|-------------------------------------|--------------------------------|---------------------------------|
-| `<div>`         | Block container (Div)               | `position`, `width`, `height`  | `width="100%"`                 |
-| `<areaBreak>`   | Section break (AreaBreak)           | `type`, `title`, `margin-top`  | `type="nextPage"`              |
-| `<htmlPageBreak>`| Explicit page break (NewPage)       | N/A                            | `<htmlPageBreak/>`             |
+| Element         | Description                          | Style Attributes                | Values                          |
+|-----------------|-------------------------------------|---------------------------------|---------------------------------|
+| `<div>`         | Block container (Div)               | ElementProperty style and Block | `width="100%"`                 |
+| `<areaBreak>`   | Section break (AreaBreak)           | ElementProperty                 | `type="nextPage"`              |
+| `<htmlPageBreak>`| Explicit page break (NewPage)       | ElementProperty                 | `<htmlPageBreak/>`             |
 #### 1.div
 ```html
 <html>
@@ -219,10 +219,10 @@ templates with support for dynamic content and rich styling.
 
 ### List Elements
 
-| Element  | Description                          | Attributes                     | Values                          |
-|----------|-------------------------------------|--------------------------------|---------------------------------|
-| `<list>` | Ordered/Unordered list (List)       | `list-style`, `indent`, `symbol-indent` | `list-style="circle"`       |
-| `<li>`   | List item (ListItem)                | `margin-left`, `list-symbol`   | `margin-left="15px"`          |
+| Element  | Description                          | Style Attributes                | Values                          |
+|----------|-------------------------------------|---------------------------------|---------------------------------|
+| `<list>` | Ordered/Unordered list (List)       | ElementProperty style and Block | `list-style="circle"`       |
+| `<li>`   | List item (ListItem)                | ElementProperty                 | `margin-left="15px"`          |
 
 ####  1.list
 ```html
@@ -241,12 +241,12 @@ templates with support for dynamic content and rich styling.
 
 ### Table Elements
 
-| Element | Description                          | Attributes                     | Values                          |
-|---------|-------------------------------------|--------------------------------|---------------------------------|
-| `<table>` | Table container (Table)            | `width`, `border`, `cellpadding` | `border="1px"`                |
-| `<tr>`  | Table row (TableRow)                | `height`, `border`, `background` | `height="30px"`               |
-| `<td>`  | Table data cell (TableCell)         | `colspan`, `rowspan`, `valign`  | `colspan="2"`                 |
-| `<th>`  | Table header cell (TableCell)       | `scope`, `font-weight`         | `font-weight="bold"`          |
+| Element | Description                          | Style Attributes                | Values                          |
+|---------|-------------------------------------|---------------------------------|---------------------------------|
+| `<table>` | Table container (Table)            | ElementProperty style and Block | `border="1px"`                |
+| `<tr>`  | Table row (TableRow)                | ElementProperty                 | `height="30px"`               |
+| `<td>`  | Table data cell (TableCell)         | ElementProperty                 | `colspan="2"`                 |
+| `<th>`  | Table header cell (TableCell)       | ElementProperty                 | `font-weight="bold"`          |
 
 ####  1.table
 ```html
@@ -267,12 +267,12 @@ templates with support for dynamic content and rich styling.
 ```
 ### Form Elements
 
-| Element           | Description                          | Attributes                     | Values                          |
-|-------------------|-------------------------------------|--------------------------------|---------------------------------|
-| `<button>`        | Push button (PushbuttonField)       | `name`, `value`, `font-size`   | `name="submitBtn"`             |
-| `<checkbox>`      | Checkbox (CheckboxField)            | `checked`, `size`, `border`    | `checked="true"`               |
-| `<inputField>`    | Text input (TextField)              | `maxlength`, `password`, `readonly` | `password="true"`          |
-| `<comboBoxField>` | Dropdown selector (ComboBoxField)   | `options`, `editable`, `selectedIndex` | `options="A,B,C"`      |
+| Element           | Description                          | Attributes | Values            |
+|-------------------|-------------------------------------|------------|-------------------|
+| `<button>`        | Push button (PushbuttonField)       | N/A        | N/A               |
+| `<checkbox>`      | Checkbox (CheckboxField)            | N/A        |  N/A        |
+| `<inputField>`    | Text input (TextField)              | N/A        |  N/A       |
+| `<comboBoxField>` | Dropdown selector (ComboBoxField)   | N/A        |  N/A       |
 
 ####  1.button
 ```html
@@ -309,10 +309,10 @@ templates with support for dynamic content and rich styling.
 
 ### Media Elements
 
-| Element  | Description                          | Attributes                     | Values                          |
-|----------|-------------------------------------|--------------------------------|---------------------------------|
-| `<image>` | Embedded image (Image)             | `src`, `width`, `alt`         | `src="logo.png" width="200px"` |
-| `<svg>`   | Vector graphics (PdfTemplate)      | `viewBox`, `preserveAspectRatio` | `viewBox="0 0 100 100"`      |
+| Element  | Description                          | STYLE Attributes       | Values                         |
+|----------|-------------------------------------|------------------------|--------------------------------|
+| `<image>` | Embedded image (Image)             | ElementProperty style  | `src="logo.png" width="200px"` |
+| `<svg>`   | Vector graphics (PdfTemplate)      | ElementProperty style  | N/A                            |
 # ChartType Enum Values
 | Enum Value  | Description/Notes                     |
 |-------------|---------------------------------------|
@@ -469,15 +469,15 @@ executor.execute(context.getRuleContent());
 
 ## Special Elements
 
-| Element              | Description                          | Attributes                     | Values                          |
-|----------------------|-------------------------------------|--------------------------------|---------------------------------|
-| `<pageCountElement>` | Page numbering (PageNumber)         | `format`, `startNumber`        | `format="Page {0}"`            |
-| `<template>`         | Reusable content (PdfTemplate)      | `name`, `layer`               | `name="headerTpl"`             |
-| `${variable}`        | Data binding (MergeField)           | N/A                            | `${currentDate}`               |
-| `<link>`         | Hyperlink (PdfAction)                | `href`, `target`, `color`         | `href="https://example.com"`    |
-| `<listBoxField>` | Multi-select list (ListField)        | `options`, `multiple`, `size`     | `options="A,B,C" multiple="true"` |
-| `<textArea>`     | Multi-line text input (TextAreaField)| `rows`, `cols`, `wrap`            | `rows="5" cols="40"`            |
-| `<tree>`         | Hierarchical data (PdfOutline)       | `collapsed`, `level`, `title`     | `collapsed="false" level="1"`   |
+| Element              | Description                          | Attributes | Values            |
+|----------------------|-------------------------------------|------------|-------------------|
+| `<pageCountElement>` | Page numbering (PageNumber)         | N/A        | N/A               |
+| `<template>`         | Reusable content (PdfTemplate)      | N/A        | N/A               |
+| `${variable}`        | Data binding (MergeField)           | N/A        | N/A               |
+| `<link>`         | Hyperlink (PdfAction)                | N/A        | N/A               |
+| `<listBoxField>` | Multi-select list (ListField)        | N/A        | N/A `             |
+| `<textArea>`     | Multi-line text input (TextAreaField)| N/A        | N/A               |
+| `<tree>`         | Hierarchical data (PdfOutline)       | N/A        | N/A               |
 ####  1.pageCountElement
 ```html
 <html>
