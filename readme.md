@@ -326,6 +326,256 @@ templates with support for dynamic content and rich styling.
 | RELATION    | Represents a relation chart           |
 | SCATTER     | Represents a scatter plot             |
 | SUNBURST    | Represents a sunburst chart           |
+#### sample java code
+##### 1.BAR CHART
+```java
+     JOption option = new JOption();
+        option.title().text("销售数据").subtext("2023年度");
+        option.tooltip().trigger(JTrigger.axis);
+        JCategoryAxis xAxis = new JCategoryAxis();
+        xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+        option.xAxis(xAxis);
+        option.yAxis(new JValueAxis());
+        JBar bar = new JBar();
+        bar.name("销量").data(5, 20, 36, 10, 10, 20);
+        option.series(bar);
+```
+##### 2.BOXPLOT CHART
+```java
+        JOption option = new JOption();
+        option.title().text("销售数据分布");
+        option.xAxis(new JCategoryAxis().data("一季度", "二季度", "三季度", "四季度"));
+        option.series(new JBoxplot().data(
+                new Object[]{10, 15, 20, 25, 30},
+                new Object[]{12, 18, 22, 28, 35},
+                new Object[]{8, 14, 19, 26, 32},
+                new Object[]{11, 16, 21, 27, 33}
+        ));
+```
+##### 3.BOXPLOT CHART
+```java
+ JOption option = new JOption();
+        option.title("2023年月度温度分布热力图");
+        option.xAxis(new JCategoryAxis()
+                .data("1月", "2月", "3月", "4月", "5月", "6月",
+                              "7月", "8月", "9月", "10月", "11月", "12月"));
+        option.yAxis(new JCategoryAxis()
+                .data("凌晨(0-6)", "早晨(6-9)", "上午(9-12)",
+                              "中午(12-14)", "下午(14-18)", "晚上(18-24)"));
+JHeatmap heatmap = new JHeatmap();
+        heatmap.data(
+                new Object[]{0, 0, -5.2}, new Object[]{0, 1, -3.8}, new Object[]{0, 2, 1.5},
+        new Object[]{0, 3, 4.2}, new Object[]{0, 4, 2.8}, new Object[]{0, 5, -2.1},
+        new Object[]{1, 0, -3.5}, new Object[]{1, 1, -1.2}, new Object[]{1, 2, 3.0},
+        new Object[]{1, 3, 6.5}, new Object[]{1, 4, 4.2}, new Object[]{1, 5, 0.5},
+        new Object[]{2, 0, 0.8}, new Object[]{2, 1, 3.5}, new Object[]{2, 2, 8.2},
+        new Object[]{2, 3, 12.0}, new Object[]{2, 4, 9.5}, new Object[]{2, 5, 4.2},
+        new Object[]{3, 0, 5.2}, new Object[]{3, 1, 8.0}, new Object[]{3, 2, 12.5},
+        new Object[]{3, 3, 16.8}, new Object[]{3, 4, 14.2}, new Object[]{3, 5, 9.5},
+        new Object[]{4, 0, 10.5}, new Object[]{4, 1, 13.2}, new Object[]{4, 2, 17.8},
+        new Object[]{4, 3, 21.5}, new Object[]{4, 4, 19.0}, new Object[]{4, 5, 14.8},
+        new Object[]{5, 0, 15.2}, new Object[]{5, 1, 18.5}, new Object[]{5, 2, 22.0},
+        new Object[]{5, 3, 26.5}, new Object[]{5, 4, 24.2}, new Object[]{5, 5, 19.8},
+        new Object[]{6, 0, 18.5}, new Object[]{6, 1, 22.0}, new Object[]{6, 2, 26.5},
+        new Object[]{6, 3, 30.2}, new Object[]{6, 4, 28.5}, new Object[]{6, 5, 23.8},
+        new Object[]{7, 0, 17.8}, new Object[]{7, 1, 21.5}, new Object[]{7, 2, 25.2},
+        new Object[]{7, 3, 29.0}, new Object[]{7, 4, 27.5}, new Object[]{7, 5, 22.8},
+        new Object[]{8, 0, 13.5}, new Object[]{8, 1, 16.2}, new Object[]{8, 2, 20.0},
+        new Object[]{8, 3, 24.5}, new Object[]{8, 4, 22.0}, new Object[]{8, 5, 17.5},
+        new Object[]{9, 0, 8.2}, new Object[]{9, 1, 11.5}, new Object[]{9, 2, 15.0},
+        new Object[]{9, 3, 18.8}, new Object[]{9, 4, 16.5}, new Object[]{9, 5, 12.0},
+        new Object[]{10, 0, 2.5}, new Object[]{10, 1, 5.0}, new Object[]{10, 2, 9.2},
+        new Object[]{10, 3, 12.5}, new Object[]{10, 4, 10.0}, new Object[]{10, 5, 5.5},
+        new Object[]{11, 0, -2.8}, new Object[]{11, 1, -0.5}, new Object[]{11, 2, 3.5},
+        new Object[]{11, 3, 6.8}, new Object[]{11, 4, 4.2}, new Object[]{11, 5, 0.0}
+        );
+        option.series(heatmap);
+```
+##### 4.K CHART
+```java
+ JOption option = new JOption();
+        option.title().text("股票K线图(含数据)");
+        option.tooltip().trigger(JTrigger.axis);
+JCategoryAxis xAxis = new JCategoryAxis();
+        xAxis.data("01/01", "01/02", "01/03", "01/04", "01/05",
+                           "01/06", "01/07", "01/08", "01/09", "01/10");
+        option.xAxis(xAxis);
+        option.yAxis(new JValueAxis());
+JCandlestick candlestick = new JCandlestick();
+        candlestick.name("股价")
+                .data(
+                        new Object[]{105.2, 108.5, 104.8, 109.1},
+        new Object[]{108.6, 107.8, 106.5, 109.5},
+        new Object[]{107.9, 105.3, 104.2, 108.0},
+        new Object[]{105.4, 106.1, 104.5, 107.2},
+        new Object[]{106.2, 104.8, 103.0, 107.5},
+        new Object[]{104.9, 107.3, 104.0, 108.2},
+        new Object[]{107.4, 109.1, 106.5, 110.2},
+        new Object[]{109.2, 108.8, 107.0, 110.5},
+        new Object[]{108.9, 110.3, 108.2, 111.0},
+        new Object[]{110.4, 112.1, 109.5, 112.8}
+        );
+        option.series(candlestick);
+```
+##### 5.LINE CHART
+```java
+JOption option = new JOption();
+option.title().text("销售数据折线图");
+option.tooltip().trigger(JTrigger.axis);
+JCategoryAxis xAxis = new JCategoryAxis();
+xAxis.data("1月", "2月", "3月", "4月", "5月", "6月", "7月");
+option.xAxis(xAxis);
+option.yAxis(new JValueAxis());
+JLine line = new JLine();
+line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
+option.series(line);
+```
+##### 6.PIE CHART
+```java
+ JOption option = new JOption();
+        option.title().text("销售占比").subtext("2023年度");
+        option.tooltip().trigger(JTrigger.item);
+JPie pie = new JPie("销售占比");
+        pie.data(
+                new JData().name("衬衫").value(35),
+                new JData().name("羊毛衫").value(20),
+                new JData().name("雪纺衫").value(15),
+                new JData().name("裤子").value(18),
+                new JData().name("高跟鞋").value(8),
+                new JData().name("袜子").value(4)
+        );
+                option.series(pie);
+```
+##### 7.RADAR CHART
+```java
+   // 创建图表选项
+JOption option = new JOption();
+        option.title().text("雷达图示例")
+                .subtext("预算 vs 开销对比")
+                .left("center")
+                .textStyle(new JTextStyle().color("#333"));
+
+        // 设置提示框
+        option.tooltip().trigger(JTrigger.item);
+
+// 设置雷达图指标
+JRadar radar = new JRadar();
+        radar.indicator(
+                new JRadar.Indicator().name("销售").max(6500),
+                new JRadar.Indicator().name("管理").max(16000),
+                new JRadar.Indicator().name("信息技术").max(30000),
+                new JRadar.Indicator().name("客服").max(38000),
+                new JRadar.Indicator().name("研发").max(52000),
+                new JRadar.Indicator().name("市场").max(25000)
+        );
+                option.radar(radar);
+
+// 添加雷达图系列数据
+JRadarSeries budgetSeries = new JRadarSeries();
+        budgetSeries.name("预算")
+                .type(JSeriesType.radar)
+                .data(4300, 10000, 28000, 35000, 50000, 19000);
+
+JRadarSeries actualSeries = new JRadarSeries();
+        actualSeries.name("实际开销")
+                .type(JSeriesType.radar)
+                .data(5000, 14000, 28000, 31000, 42000, 21000);
+
+        option.series(budgetSeries, actualSeries);
+```
+##### 8.RELATION CHART
+```java
+        JGsonOption option = new JGsonOption();
+        option.title("Relationship Chart Test");
+
+        // 创建图系列
+        JGraph graph = new JGraph();
+        graph.name("关系图");
+        graph.layout(JLayout.force); // 使用力导向布局
+        graph.force().repulsion(100); // 设置排斥力
+        graph.draggable(true); // 节点可拖动
+
+        // 添加节点 - 修正了ID问题
+        List<JNode> nodes = new ArrayList<>();
+        nodes.add(new JNode("1", "Node A").symbolSize(30).category(0));//id 1
+        nodes.add(new JNode("2", "Node B").symbolSize(25).category(1));
+        nodes.add(new JNode("3", "Node C").symbolSize(20).category(2));
+        nodes.add(new JNode("4", "Node D").symbolSize(15).category(0));
+        nodes.add(new JNode("5", "Node E").symbolSize(35).category(1));
+        nodes.add(new JNode("6", "Node F").symbolSize(20).category(3));
+        nodes.add(new JNode("7", "Node G").symbolSize(25).category(2));
+        nodes.add(new JNode("8", "Node H").symbolSize(15).category(4));
+        nodes.add(new JNode("9", "Node I").symbolSize(30).category(3));
+        nodes.add(new JNode("10", "Node J").symbolSize(20).category(0));
+        graph.setData(nodes);
+
+        // 添加连接
+        List<JLink> links = new ArrayList<>();
+        links.add(new JLink("1", "2"));
+        links.add(new JLink("1", "3"));
+        links.add(new JLink("2", "4"));
+        links.add(new JLink("3", "5"));
+        links.add(new JLink("4", "6"));
+        links.add(new JLink("5", "7"));
+        links.add(new JLink("6", "8"));
+        links.add(new JLink("7", "9"));
+        links.add(new JLink("8", "10"));
+        links.add(new JLink("9", "1"));
+        links.add(new JLink("10", "2"));
+        links.add(new JLink("3", "6"));
+        links.add(new JLink("4", "7"));
+        links.add(new JLink("5", "8"));
+        graph.setLinks(links);
+
+        // 添加类别
+        List<JCategory> categories = new ArrayList<>();
+        categories.add(new JCategory().name("Category 1"));
+        categories.add(new JCategory().name("Category 2"));
+        categories.add(new JCategory().name("Category 3"));
+        categories.add(new JCategory().name("Category 4"));
+        categories.add(new JCategory().name("Category 5"));
+        graph.setCategories(categories);
+
+        option.series(graph);
+        option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
+```
+#####  9.scatter
+```java
+        JData[] data= new JData[]{
+        new JData().value(new Double[]{10.0, 8.04}),
+        new JData().value(new Double[]{8.07, 6.95}),
+        new JData().value(new Double[]{13.0, 7.58}),
+        new JData().value(new Double[]{9.05, 8.81}),
+        new JData().value(new Double[]{11.0, 8.33}),
+        new JData().value(new Double[]{14.0, 7.66}),
+        new JData().value(new Double[]{13.4, 6.81}),
+        new JData().value(new Double[]{10.0, 6.33}),
+        new JData().value(new Double[]{14.0, 8.96}),
+        new JData().value(new Double[]{12.5, 6.82}),
+        new JData().value(new Double[]{9.15, 7.2}),
+        new JData().value(new Double[]{11.5, 7.2}),
+        new JData().value(new Double[]{3.03, 4.23}),
+        new JData().value(new Double[]{12.2, 7.83}),
+        new JData().value(new Double[]{2.02, 4.47}),
+        new JData().value(new Double[]{1.05, 3.33}),
+        new JData().value(new Double[]{4.05, 4.96}),
+        new JData().value(new Double[]{6.03, 7.24}),
+        new JData().value(new Double[]{12.0, 6.26}),
+        new JData().value(new Double[]{12.0, 8.84}),
+        new JData().value(new Double[]{7.08, 5.82}),
+        new JData().value(new Double[]{5.02, 5.68})
+};
+JOption option = new JOption();
+        option.title().text("散点图示例");
+        option.tooltip().trigger(JTrigger.axis);
+        option.xAxis(new JValueAxis().scale(true));
+        option.yAxis(new JValueAxis().scale(true));
+JScatter scatter = new JScatter();
+        scatter.symbolSize(20)
+                .data(data);
+        option.series(scatter);
+
+```
 ####  1.image
 ```html
 <html>

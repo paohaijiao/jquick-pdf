@@ -65,6 +65,30 @@ public class ScatterCharTest {
 
     @Test
     public void testBarChar1() throws IOException {
+        JData[] data= new JData[]{
+                new JData().value(new Double[]{10.0, 8.04}),
+                new JData().value(new Double[]{8.07, 6.95}),
+                new JData().value(new Double[]{13.0, 7.58}),
+                new JData().value(new Double[]{9.05, 8.81}),
+                new JData().value(new Double[]{11.0, 8.33}),
+                new JData().value(new Double[]{14.0, 7.66}),
+                new JData().value(new Double[]{13.4, 6.81}),
+                new JData().value(new Double[]{10.0, 6.33}),
+                new JData().value(new Double[]{14.0, 8.96}),
+                new JData().value(new Double[]{12.5, 6.82}),
+                new JData().value(new Double[]{9.15, 7.2}),
+                new JData().value(new Double[]{11.5, 7.2}),
+                new JData().value(new Double[]{3.03, 4.23}),
+                new JData().value(new Double[]{12.2, 7.83}),
+                new JData().value(new Double[]{2.02, 4.47}),
+                new JData().value(new Double[]{1.05, 3.33}),
+                new JData().value(new Double[]{4.05, 4.96}),
+                new JData().value(new Double[]{6.03, 7.24}),
+                new JData().value(new Double[]{12.0, 6.26}),
+                new JData().value(new Double[]{12.0, 8.84}),
+                new JData().value(new Double[]{7.08, 5.82}),
+                new JData().value(new Double[]{5.02, 5.68})
+        };
         JOption option = new JOption();
         option.title().text("散点图示例");
         option.tooltip().trigger(JTrigger.axis);
@@ -72,7 +96,7 @@ public class ScatterCharTest {
         option.yAxis(new JValueAxis().scale(true));
         JScatter scatter = new JScatter();
         scatter.symbolSize(20)
-                .data(createScatterData());
+                .data(data);
         option.series(scatter);
 
 
