@@ -20,6 +20,9 @@ import com.github.paohaijiao.JTooltip;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 通用的Data对象...和Data接口同名，Data接口中的data使用的就是这里的Data..
  *
@@ -46,6 +49,19 @@ public class JData extends JBasicData<JData> {
      * 平滑曲线弧度，smooth为true时有效，指定平滑曲线弧度
      */
     private Double smoothRadian;
+
+    private List<JData> children=new ArrayList<>();
+
+    public List<JData> getChildren() {
+        return children;
+    }
+
+    public JData addChild(JData jData) {
+           if (children != null) {
+                children.add(jData);
+           }
+           return this;
+    }
 
     /**
      * 构造函数
