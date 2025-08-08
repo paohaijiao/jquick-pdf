@@ -26,8 +26,11 @@ import java.util.List;
 
 public class JKChartsRenderer extends JAbstractChartRenderer {
     private static final Color RISING_COLOR = Color.RED;
+
     private static final Color FALLING_COLOR = Color.GREEN;
+
     private static final Color CANDLE_BORDER_COLOR = Color.BLACK;
+
     private static final Font AXIS_LABEL_FONT = new Font("Arial", Font.PLAIN, 12);
 
     @Override
@@ -144,7 +147,6 @@ public class JKChartsRenderer extends JAbstractChartRenderer {
             }
         }
 
-        // 添加一些边距
         double margin = (max - min) * 0.1;
         return new double[]{min - margin, max + margin};
     }

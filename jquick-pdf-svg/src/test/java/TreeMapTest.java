@@ -25,9 +25,9 @@ import com.github.paohaijiao.words.JWordCloudRenderer;
 import com.github.paohaijiao.words.JWordCloudSeries;
 import org.junit.Test;
 
-import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -41,66 +41,57 @@ import java.util.Arrays;
  * @Version: 1.0
  */
 public class TreeMapTest {
-    public static JOption createDiskUsageOption() {
-        // 创建根节点数据
-        JData root = new JData();
-        root.setName("Disk Usage");
-        root.setValue(1234224); // 根节点值通常设为0或总和
+    private static List<JData> createTestData() {
+        JData electronics = new JData("电子产品", 12000)
+                .children(Arrays.asList(
+                        new JData("智能手机", 6500),
+                        new JData("笔记本电脑", 3500),
+                        new JData("平板电脑", 2000)
+                ));
+        JData clothing = new JData("服装", 8500)
+                .children(Arrays.asList(
+                        new JData("男装", 4000)
+                                .children(Arrays.asList(
+                                        new JData("衬衫", 1500),
+                                        new JData("裤子", 1800),
+                                        new JData("外套", 700)
+                                )),
+                        new JData("女装", 4500)
+                ));
 
-        // 添加子节点
-        JData system = new JData();
-        system.setName("System");
-        system.setValue(104857600); // 100 MB
-        root.addChild(system);
-        JData systemBin = new JData();
-        systemBin.setName("bin");
-        systemBin.setValue(52428800); // 50 MB
+        JData food = new JData("食品", 7500)
+                .children(Arrays.asList(
+                        new JData("零食", 3000),
+                        new JData("饮料", 2500),
+                        new JData("生鲜", 2000)
+                ));
 
-        JData systemLib = new JData();
-        systemLib.setName("lib");
-        systemLib.setValue(52428800); // 50 MB
+        JData furniture = new JData("家具", 5000)
+                .children(Arrays.asList(
+                        new JData("客厅家具", 2500),
+                        new JData("卧室家具", 1500),
+                        new JData("办公家具", 1000)
+                ));
 
-        system.setChildren(Arrays.asList(systemBin, systemLib));
+        JData books = new JData("图书", 3000)
+                .children(Arrays.asList(
+                        new JData("科技类", 1200),
+                        new JData("文学类", 1000),
+                        new JData("儿童读物", 800)
+                ));
 
-        JData data = new JData();
-        data.setName("Data");
-        data.setValue(5368709120L); // 5 GB
-
-        JData documents = new JData();
-        documents.setName("Documents");
-        documents.setValue(1073741824L); // 1 GB
-
-        JData media = new JData();
-        media.setName("Media");
-        media.setValue(3221225472L); // 3 GB
-
-        JData projects = new JData();
-        projects.setName("Projects");
-        projects.setValue(1073741824L); // 1 GB
-
-        data.setChildren(Arrays.asList(documents, media, projects));
-
-        JData backup = new JData();
-        backup.setName("Backup");
-        backup.setValue(2147483648L); // 2 GB
-
-        root.setChildren(Arrays.asList(system, data, backup));
-
-        // 创建TreeMap系列
-        JTreeMapSeries series = new JTreeMapSeries("Disk Usage");
-        series.data(Arrays.asList(root)); // 将根节点作为数据
-
-        // 创建JOption
-        JOption option = new JOption();
-        option.title("Disk Usage Visualization");
-        option.series(Arrays.asList(series));
-
-        return option;
+        return Arrays.asList(electronics, clothing, food, furniture, books);
     }
-
     @Test
     public void testBarChar1() throws IOException {
-        JOption option = TreeMapTest.createDiskUsageOption();
+        List<JData> testData = createTestData();
+        JTreeMapSeries series = new JTreeMapSeries("销售数据")
+                .data(testData)
+                .showValue(true)
+                .showPercentage(true);
+        JOption option = new JOption()
+                .title("2025年产品销售占比")
+                .series(series);
 
         JTreeMapRenderer renderer = new JTreeMapRenderer();
         renderer.render(option, "d://test//treemap.svg");

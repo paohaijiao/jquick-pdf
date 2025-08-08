@@ -62,6 +62,12 @@ public class JData extends JBasicData<JData> {
            }
            return this;
     }
+    public JData children(List<JData> jData) {
+        if (jData != null) {
+            children.addAll(jData);
+        }
+        return this;
+    }
 
     /**
      * 构造函数

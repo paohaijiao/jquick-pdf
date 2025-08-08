@@ -18,9 +18,7 @@ package com.github.paohaijiao.treemap;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.data.JData;
-import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import com.github.paohaijiao.series.JSeries;
-import com.github.paohaijiao.style.JItemStyle;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -37,23 +35,194 @@ import java.util.List;
  * @since 2025/8/7
  */
 public class JTreeMapRenderer  extends JAbstractChartRenderer {
-    private static final Color[] COLORS = generateEChartsStyleColors();
+    private static final Color[] COLORS = {
+            new Color(65, 105, 225), new Color(60, 179, 113),
+            new Color(255, 165, 0),  new Color(220, 20, 60),
+            new Color(147, 112, 219), new Color(30, 144, 255)
+    };
+
+    private static final Color[] DARK_COLORS = {
+            new Color(25, 65, 165),  new Color(20, 119, 63),
+            new Color(205, 105, 0),  new Color(160, 0, 20),
+            new Color(97, 62, 159),  new Color(0, 94, 184)
+    };
+
     private static final DecimalFormat PERCENT_FORMAT = new DecimalFormat("0.0%");
-    private static final int BORDER_RADIUS = 4;
-    private static final int LABEL_PADDING = 8;
+    private static final int MIN_PARTITION_SIZE = 30;
+    private static final int PADDING = 1;
+    private static final int LABEL_PADDING = 5;
+    private static final Color BORDER_COLOR = new Color(255, 255, 255, 100);
 
     @Override
-    protected void drawChart(SVGGraphics2D svg, JOption option, int width, int height) {
-        // ECharts风格的背景
-        svg.setPaint(new Color(250, 250, 250));
-        svg.fillRect(0, 0, width, height);
-        drawTitle(svg, option, width);
+    protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
+        svgGenerator.setPaint(new Color(245, 245, 245));
+        svgGenerator.fillRect(0, 0, width, height);
+        drawTitle(svgGenerator, option, width);
 
         JTreeMapSeries series = findTreeMapSeries(option);
-        if (series == null) return;
+        if (series == null || series.data() == null || series.data().isEmpty()) {
+            return;
+        }
 
         Rectangle area = new Rectangle(50, 70, width - 100, height - 120);
-        drawEChartsTreeMap(svg, series, area);
+        drawEChartsStyleTreeMap(svgGenerator, series, area);
+    }
+
+    private void drawEChartsStyleTreeMap(SVGGraphics2D svgGenerator, JTreeMapSeries series, Rectangle area) {
+        List<JData> roots = series.data();
+        double total = calculateTotalValue(roots);
+
+        // 使用队列进行广度优先遍历
+        Queue<LayoutNode> queue = new LinkedList<>();
+        int colorIndex = 0;
+
+        for (JData root : roots) {
+            queue.add(new LayoutNode(root, area, false, colorIndex));
+            colorIndex = (colorIndex + 1) % COLORS.length;
+        }
+
+        while (!queue.isEmpty()) {
+            LayoutNode node = queue.poll();
+            JData data = node.data;
+            Rectangle rect = node.rect;
+
+            if (rect.width < MIN_PARTITION_SIZE || rect.height < MIN_PARTITION_SIZE) {
+                continue;
+            }
+
+            // 绘制当前节点
+            double value = ((Number) data.value()).doubleValue();
+            double ratio = value / total;
+            drawEChartsNode(svgGenerator, data, rect, node.colorIndex, ratio, node.isHorizontal);
+            if (data.getChildren() != null && !data.getChildren().isEmpty()) {
+                List<JData> children = new ArrayList<>(data.getChildren());
+                children.sort(Comparator.comparingDouble(d -> -((Number) d.value()).doubleValue()));
+
+                double childrenTotal = calculateTotalValue(children);
+                List<Rectangle> childRects = calculateChildRects(rect, children, childrenTotal, !node.isHorizontal);
+
+                for (int i = 0; i < children.size(); i++) {
+                    if (i < childRects.size()) {
+                        queue.add(new LayoutNode(children.get(i), childRects.get(i), !node.isHorizontal, node.colorIndex));
+                    }
+                }
+            }
+        }
+    }
+
+    private List<Rectangle> calculateChildRects(Rectangle parentRect, List<JData> children,
+                                                double total, boolean isHorizontal) {
+        List<Rectangle> rects = new ArrayList<>();
+        double accumulated = 0;
+
+        for (JData child : children) {
+            double value = ((Number) child.value()).doubleValue();
+            double ratio = value / total;
+
+            Rectangle rect;
+            if (isHorizontal) {
+                int height = (int)(parentRect.height * ratio);
+                rect = new Rectangle(
+                        parentRect.x,
+                        parentRect.y + (int)(parentRect.height * accumulated),
+                        parentRect.width,
+                        height
+                );
+            } else {
+                int width = (int)(parentRect.width * ratio);
+                rect = new Rectangle(
+                        parentRect.x + (int)(parentRect.width * accumulated),
+                        parentRect.y,
+                        width,
+                        parentRect.height
+                );
+            }
+
+            rects.add(rect);
+            accumulated += ratio;
+        }
+
+        return rects;
+    }
+
+    private void drawEChartsNode(SVGGraphics2D svgGenerator, JData data, Rectangle rect,
+                                 int colorIndex, double ratio, boolean isParentHorizontal) {
+        // 绘制背景 (使用深色作为底色)
+        Color baseColor = DARK_COLORS[colorIndex % DARK_COLORS.length];
+        svgGenerator.setPaint(baseColor);
+        svgGenerator.fillRect(rect.x, rect.y, rect.width, rect.height);
+
+        // 添加渐变效果 (使用浅色作为高光)
+        Color highlightColor = COLORS[colorIndex % COLORS.length];
+        GradientPaint gradient = isParentHorizontal
+                ? new GradientPaint(rect.x, rect.y, highlightColor, rect.x, rect.y + rect.height, baseColor)
+                : new GradientPaint(rect.x, rect.y, highlightColor, rect.x + rect.width, rect.y, baseColor);
+
+        svgGenerator.setPaint(gradient);
+        svgGenerator.fillRect(rect.x, rect.y, rect.width, rect.height);
+
+        // 绘制边框
+        svgGenerator.setPaint(BORDER_COLOR);
+        svgGenerator.drawRect(rect.x, rect.y, rect.width, rect.height);
+
+        // 绘制标签
+        if (rect.width > MIN_PARTITION_SIZE * 2 && rect.height > MIN_PARTITION_SIZE * 2) {
+            drawEChartsLabel(svgGenerator, data, rect, ratio);
+        }
+    }
+
+    private void drawEChartsLabel(SVGGraphics2D svgGenerator, JData data, Rectangle rect, double ratio) {
+        String name = data.name();
+        String value = formatSize(((Number) data.value()).doubleValue());
+        String percent = PERCENT_FORMAT.format(ratio);
+
+        svgGenerator.setPaint(Color.WHITE);
+
+        // 计算字体大小
+        int fontSize = Math.min(rect.width, rect.height) / 8;
+        fontSize = Math.max(10, Math.min(16, fontSize));
+        Font font = new Font("Microsoft YaHei", Font.BOLD, fontSize);
+        svgGenerator.setFont(font);
+
+        FontMetrics metrics = svgGenerator.getFontMetrics();
+        int nameWidth = metrics.stringWidth(name);
+        int valueWidth = metrics.stringWidth(value);
+        int percentWidth = metrics.stringWidth(percent);
+
+        int maxWidth = Math.max(nameWidth, Math.max(valueWidth, percentWidth));
+
+        if (maxWidth + LABEL_PADDING * 2 > rect.width) {
+            // 空间不足，只显示名称
+            int x = rect.x + (rect.width - nameWidth) / 2;
+            int y = rect.y + (rect.height + metrics.getAscent()) / 2;
+            svgGenerator.drawString(name, x, y);
+        } else {
+            // 显示完整信息
+            int x = rect.x + (rect.width - nameWidth) / 2;
+            int y = rect.y + rect.height / 2 - metrics.getHeight();
+            svgGenerator.drawString(name, x, y);
+
+            x = rect.x + (rect.width - valueWidth) / 2;
+            y += metrics.getHeight();
+            svgGenerator.drawString(value, x, y);
+
+            x = rect.x + (rect.width - percentWidth) / 2;
+            y += metrics.getHeight();
+            svgGenerator.drawString(percent, x, y);
+        }
+    }
+
+    private double calculateTotalValue(List<JData> dataList) {
+        return dataList.stream()
+                .mapToDouble(data -> ((Number) data.value()).doubleValue())
+                .sum();
+    }
+
+    private String formatSize(double size) {
+        if (size < 1024) return String.format("%.0f B", size);
+        if (size < 1024 * 1024) return String.format("%.1f KB", size / 1024);
+        if (size < 1024 * 1024 * 1024) return String.format("%.1f MB", size / (1024 * 1024));
+        return String.format("%.1f GB", size / (1024 * 1024 * 1024));
     }
 
     private JTreeMapSeries findTreeMapSeries(JOption option) {
@@ -65,233 +234,27 @@ public class JTreeMapRenderer  extends JAbstractChartRenderer {
                 .orElse(null);
     }
 
-    private void drawEChartsTreeMap(SVGGraphics2D svg, JTreeMapSeries series, Rectangle area) {
-        List<JData> dataList = series.data();
-        double total = dataList.stream().mapToDouble(d -> ((Number)d.value()).doubleValue()).sum();
+    private static class LayoutNode {
+        JData data;
+        Rectangle rect;
+        boolean isHorizontal;
+        int colorIndex;
 
-        // ECharts的squarified算法
-        squarify(svg, new ArrayList<>(dataList), new ArrayList<>(), area, total,
-                series, 0, true, calculateDepth(dataList));
-    }
-
-    private void squarify(SVGGraphics2D svg, List<JData> remaining, List<JData> row,
-                          Rectangle rect, double total, JTreeMapSeries series,
-                          int colorIndex, boolean horizontal, int maxDepth) {
-        if (remaining.isEmpty()) {
-            layoutRow(svg, row, rect, total, series, colorIndex, horizontal, maxDepth);
-            return;
-        }
-
-        JData next = remaining.get(0);
-        List<JData> newRow = new ArrayList<>(row);
-        newRow.add(next);
-
-        if (row.isEmpty() || worstRatio(row, rect, horizontal) >= worstRatio(newRow, rect, horizontal)) {
-            squarify(svg, remaining.subList(1, remaining.size()), newRow, rect, total,
-                    series, colorIndex, horizontal, maxDepth);
-        } else {
-            Rectangle[] split = layoutRow(svg, row, rect, total, series, colorIndex, horizontal, maxDepth);
-            squarify(svg, remaining, new ArrayList<>(), split[1], total,
-                    series, (colorIndex + row.size()) % COLORS.length, !horizontal, maxDepth);
+        LayoutNode(JData data, Rectangle rect, boolean isHorizontal, int colorIndex) {
+            this.data = data;
+            this.rect = rect;
+            this.isHorizontal = isHorizontal;
+            this.colorIndex = colorIndex;
         }
     }
 
-    private Rectangle[] layoutRow(SVGGraphics2D svg, List<JData> row, Rectangle rect,
-                                  double total, JTreeMapSeries series, int colorIndex,
-                                  boolean horizontal, int maxDepth) {
-        double sum = row.stream().mapToDouble(d -> ((Number)d.value()).doubleValue()).sum();
-        double ratio = sum / total;
-
-        Rectangle rowRect, remainingRect;
-        if (horizontal) {
-            int h = (int)(rect.height * ratio);
-            rowRect = new Rectangle(rect.x, rect.y, rect.width, h);
-            remainingRect = new Rectangle(rect.x, rect.y + h, rect.width, rect.height - h);
-
-            double accumulated = 0;
-            for (JData data : row) {
-                double r = ((Number)data.value()).doubleValue() / sum;
-                int w = (int)(rowRect.width * r);
-                Rectangle cell = new Rectangle(
-                        rowRect.x + (int)(rowRect.width * accumulated),
-                        rowRect.y, w, rowRect.height
-                );
-                drawEChartsNode(svg, data, cell, (colorIndex + row.indexOf(data)) % COLORS.length,
-                        ((Number)data.value()).doubleValue() / total, maxDepth);
-                accumulated += r;
-            }
-        } else {
-            int w = (int)(rect.width * ratio);
-            rowRect = new Rectangle(rect.x, rect.y, w, rect.height);
-            remainingRect = new Rectangle(rect.x + w, rect.y, rect.width - w, rect.height);
-
-            double accumulated = 0;
-            for (JData data : row) {
-                double r = ((Number)data.value()).doubleValue() / sum;
-                int h = (int)(rowRect.height * r);
-                Rectangle cell = new Rectangle(
-                        rowRect.x,
-                        rowRect.y + (int)(rowRect.height * accumulated),
-                        rowRect.width, h
-                );
-                drawEChartsNode(svg, data, cell, (colorIndex + row.indexOf(data)) % COLORS.length,
-                        ((Number)data.value()).doubleValue() / total, maxDepth);
-                accumulated += r;
-            }
-        }
-        return new Rectangle[]{rowRect, remainingRect};
+    @Override
+    protected int getDefaultWidth() {
+        return 900;
     }
 
-    private void drawEChartsNode(SVGGraphics2D svg, JData data, Rectangle rect,
-                                 int colorIndex, double ratio, int maxDepth) {
-
-        RoundRectangle2D roundedRect = new RoundRectangle2D.Double(
-                rect.x, rect.y, rect.width, rect.height, BORDER_RADIUS, BORDER_RADIUS
-        );
-
-        // 根据层级计算颜色深浅
-        Color color = adjustColorByDepth(COLORS[colorIndex], calculateNodeDepth(data), maxDepth);
-        svg.setPaint(color);
-        svg.fill(roundedRect);
-
-        // 白色半透明边框
-        svg.setPaint(new Color(255, 255, 255, 150));
-        svg.setStroke(new BasicStroke(1.5f));
-        svg.draw(roundedRect);
-
-        // 绘制标签（仅当空间足够时）
-        if (rect.width > 80 && rect.height > 50) {
-            drawEChartsLabel(svg, data, rect, ratio);
-        }
-    }
-
-    private void drawEChartsLabel(SVGGraphics2D svg, JData data, Rectangle rect, double ratio) {
-        String name = data.name();
-        String value = formatValue(data.value());
-        String percent = PERCENT_FORMAT.format(ratio);
-
-        svg.setPaint(Color.WHITE);
-        Font font = new Font("Microsoft YaHei", Font.PLAIN, calculateFontSize(rect));
-        svg.setFont(font);
-
-        FontMetrics fm = svg.getFontMetrics();
-        String[] lines = {name, value, percent};
-        int totalHeight = fm.getHeight() * lines.length;
-        int y = rect.y + (rect.height - totalHeight) / 2 + fm.getAscent();
-
-        for (String line : lines) {
-            int x = rect.x + (rect.width - fm.stringWidth(line)) / 2;
-            // 文字阴影效果
-            svg.setPaint(new Color(0, 0, 0, 100));
-            svg.drawString(line, x + 1, y + 1);
-            svg.setPaint(Color.WHITE);
-            svg.drawString(line, x, y);
-            y += fm.getHeight();
-        }
-    }
-
-    // 生成ECharts风格的颜色数组
-    private static Color[] generateEChartsStyleColors() {
-        return new Color[] {
-                new Color(55, 162, 218), new Color(116, 21, 219),
-                new Color(254, 194, 16), new Color(255, 125, 64),
-                new Color(50, 207, 193), new Color(97, 216, 0),
-                new Color(244, 91, 105), new Color(148, 112, 196),
-                new Color(247, 159, 31), new Color(18, 205, 201)
-        };
-    }
-
-    // 根据节点深度调整颜色
-    private Color adjustColorByDepth(Color base, int depth, int maxDepth) {
-        float factor = 0.8f + (0.2f * depth / maxDepth);
-        return new Color(
-                Math.min(255, (int)(base.getRed() * factor)),
-                Math.min(255, (int)(base.getGreen() * factor)),
-                Math.min(255, (int)(base.getBlue() * factor))
-        );
-    }
-
-    // 计算节点深度
-    private int calculateNodeDepth(JData data) {
-        if (data.getChildren() == null || data.getChildren().isEmpty()) return 0;
-        int maxChildDepth = 0;
-        for (JData child : data.getChildren()) {
-            maxChildDepth = Math.max(maxChildDepth, calculateNodeDepth(child));
-        }
-        return maxChildDepth + 1;
-    }
-
-    // 计算树的最大深度
-    private int calculateDepth(List<JData> dataList) {
-        int max = 0;
-        for (JData data : dataList) {
-            max = Math.max(max, calculateNodeDepth(data));
-        }
-        return max;
-    }
-    private int calculateFontSize(Rectangle rect, int lineCount) {
-        // 基础计算：取矩形短边的1/8（经验值）
-        int shortSide = Math.min(rect.width, rect.height);
-        int baseSize = shortSide / 8;
-
-        // 根据行数调整（确保行间距合理）
-        int heightBasedSize = (int)(rect.height / (lineCount * 1.8));
-
-        // 边界控制（最小10px，最大不超过短边的1/4）
-        int minSize = 10;
-        int maxSize = Math.max(16, shortSide / 4);
-
-        // 取高度和基础计算的最小值，并限制在范围内
-        return Math.max(minSize, Math.min(maxSize, Math.min(baseSize, heightBasedSize)));
-    }
-
-    // 重载简化版（默认3行文本）
-    private int calculateFontSize(Rectangle rect) {
-        return calculateFontSize(rect, 3);
-    }
-    private String formatValue(Object value) {
-        if (!(value instanceof Number)) {
-            return String.valueOf(value);
-        }
-
-        double num = ((Number) value).doubleValue();
-        String[] units = {"", "K", "M", "B"};
-        int unitIndex = 0;
-
-        // 计算合适的单位
-        while (num >= 1000 && unitIndex < units.length - 1) {
-            num /= 1000;
-            unitIndex++;
-        }
-
-        // 决定小数位数
-        String formatPattern;
-        if (num >= 100) {
-            formatPattern = "%,.0f%s";  // 100+ 显示整数
-        } else if (num >= 10) {
-            formatPattern = "%,.1f%s";  // 10-100 显示1位小数
-        } else {
-            formatPattern = "%,.2f%s";  // <10 显示2位小数
-        }
-
-        return String.format(formatPattern, num, units[unitIndex]);
-    }
-    private double worstRatio(List<JData> row, Rectangle rect, boolean horizontal) {
-        double sum = row.stream().mapToDouble(d -> ((Number)d.value()).doubleValue()).sum();
-        double area = horizontal ? rect.getWidth() * rect.getHeight() : rect.getHeight() * rect.getWidth();
-        double ratio = sum / area;
-
-        double maxRatio = Double.MIN_VALUE;
-        double minRatio = Double.MAX_VALUE;
-
-        for (JData data : row) {
-            double value = ((Number) data.value()).doubleValue();
-            double r = value / (sum * ratio);
-            maxRatio = Math.max(maxRatio, r);
-            minRatio = Math.min(minRatio, r);
-        }
-
-        // 返回最大比例差（ECharts标准计算方式）
-        return Math.max(maxRatio / minRatio, minRatio / maxRatio);
+    @Override
+    protected int getDefaultHeight() {
+        return 600;
     }
 }
