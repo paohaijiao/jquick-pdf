@@ -25,6 +25,7 @@ import java.awt.*;
 import java.util.List;
 
 public class JKChartsRenderer extends JAbstractChartRenderer {
+
     private static final Color RISING_COLOR = Color.RED;
 
     private static final Color FALLING_COLOR = Color.GREEN;

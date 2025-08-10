@@ -1072,4 +1072,7 @@ public class JOption implements Serializable {
         this.yAxis = yAxis;
     }
 
+
+    public JDiskNode data;
+
 }

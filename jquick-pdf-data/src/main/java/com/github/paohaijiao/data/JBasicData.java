@@ -42,6 +42,7 @@ public abstract class JBasicData<T> implements Serializable {
     private String name;
     private String text;
     private Object value;
+    private String category;
     /**
      * 饼图、雷达图、力导、和弦图使用x,y
      */
@@ -187,6 +188,9 @@ public abstract class JBasicData<T> implements Serializable {
     public Object value() {
         return this.value;
     }
+    public String category() {
+        return this.category;
+    }
 
     /**
      * 设置value值
@@ -197,6 +201,11 @@ public abstract class JBasicData<T> implements Serializable {
         this.value = value;
         return (T) this;
     }
+    public T category(String category) {
+        this.category = category;
+        return (T) this;
+    }
+
 
     /**
      * 设置value值

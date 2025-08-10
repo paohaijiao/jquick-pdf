@@ -18,16 +18,17 @@
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JTitle;
 import com.github.paohaijiao.data.JData;
+import com.github.paohaijiao.data.JSeriesData;
+import com.github.paohaijiao.series.JTreemap;
 import com.github.paohaijiao.style.JItemStyle;
+import com.github.paohaijiao.JDiskNode;
+import com.github.paohaijiao.sunburst.JSunburstChart;
 import com.github.paohaijiao.treemap.JTreeMapRenderer;
 import com.github.paohaijiao.treemap.JTreeMapSeries;
-import com.github.paohaijiao.words.JWordCloudRenderer;
-import com.github.paohaijiao.words.JWordCloudSeries;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 /**
@@ -41,61 +42,78 @@ import java.util.List;
  * @Version: 1.0
  */
 public class TreeMapTest {
-    private static List<JData> createTestData() {
-        JData electronics = new JData("电子产品", 12000)
-                .children(Arrays.asList(
-                        new JData("智能手机", 6500),
-                        new JData("笔记本电脑", 3500),
-                        new JData("平板电脑", 2000)
-                ));
-        JData clothing = new JData("服装", 8500)
-                .children(Arrays.asList(
-                        new JData("男装", 4000)
-                                .children(Arrays.asList(
-                                        new JData("衬衫", 1500),
-                                        new JData("裤子", 1800),
-                                        new JData("外套", 700)
-                                )),
-                        new JData("女装", 4500)
-                ));
+    public  JOption createGroupedTreemapOption() {
+        JOption option = new JOption();
+        option.setTitle(new JTitle().text("公司部门预算（按类别分组）"));
 
-        JData food = new JData("食品", 7500)
-                .children(Arrays.asList(
-                        new JData("零食", 3000),
-                        new JData("饮料", 2500),
-                        new JData("生鲜", 2000)
-                ));
+        JTreemap treemap = new JTreemap();
+        treemap.setData(Arrays.asList(
+                createNode("研发-前端", 2000000, "研发"),
+                createNode("研发-后端", 2500000, "研发"),
+                createNode("市场-广告", 1500000, "市场"),
+                createNode("市场-推广", 1700000, "市场"),
+                createNode("销售-国内", 1800000, "销售"),
+                createNode("销售-国际", 1000000, "销售"),
+                createNode("行政-总务", 800000, "行政"),
+                createNode("行政-人事", 600000, "行政")
+        ));
 
-        JData furniture = new JData("家具", 5000)
-                .children(Arrays.asList(
-                        new JData("客厅家具", 2500),
-                        new JData("卧室家具", 1500),
-                        new JData("办公家具", 1000)
-                ));
+        option.setSeries(Collections.singletonList(treemap));
+        return option;
+    }
 
-        JData books = new JData("图书", 3000)
-                .children(Arrays.asList(
-                        new JData("科技类", 1200),
-                        new JData("文学类", 1000),
-                        new JData("儿童读物", 800)
-                ));
+    // 示例2：扁平化数据（无分组，适合测试基础布局）
+    public  JOption createFlatTreemapOption() {
+        JOption option = new JOption();
+        option.setTitle(new JTitle().text("2023年产品销售额"));
+        JTreemap treemap = new JTreemap();
+        treemap.setData(Arrays.asList(
+                createNode("智能手机", 4500000),
+                createNode("笔记本电脑", 3200000),
+                createNode("平板电脑", 2800000),
+                createNode("智能手表", 1500000),
+                createNode("耳机", 1200000),
+                createNode("路由器", 800000)
+        ));
 
-        return Arrays.asList(electronics, clothing, food, furniture, books);
+        option.setSeries(Collections.singletonList(treemap));
+        return option;
+    }
+
+    // 示例3：极端数据测试（包含零值和超大值）
+    public  JOption createEdgeCaseOption() {
+        JOption option = new JOption();
+        option.setTitle(new JTitle().text("极端数据测试"));
+        JTreemap treemap = new JTreemap();
+        treemap.setData(Arrays.asList(
+                createNode("超大项", 10000000),
+                createNode("零值项", 0),
+                createNode("普通项A", 500000),
+                createNode("普通项B", 300000),
+                createNode("极小项", 1)
+        ));
+
+        option.setSeries(Collections.singletonList(treemap));
+        return option;
+    }
+
+    private  JData createNode(String name, double value, String category) {
+        return new JData(name).value(value).category(category);
+    }
+
+    // 创建扁平节点（无类别）
+    private  JData createNode(String name, double value) {
+        return new JData(name).value(value);
     }
     @Test
     public void testBarChar1() throws IOException {
-        List<JData> testData = createTestData();
-        JTreeMapSeries series = new JTreeMapSeries("销售数据")
-                .data(testData)
-                .showValue(true)
-                .showPercentage(true);
-        JOption option = new JOption()
-                .title("2025年产品销售占比")
-                .series(series);
-
-        JTreeMapRenderer renderer = new JTreeMapRenderer();
-        renderer.render(option, "d://test//treemap.svg");
+        JOption option = createGroupedTreemapOption();
+        option.title().text("Sunburst Chart");
+        JTreeMapRenderer chart = new JTreeMapRenderer();
+        chart.render(option, "d://test//treemap.svg");
 
     }
+
+
 
 }
