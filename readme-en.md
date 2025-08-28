@@ -1,57 +1,56 @@
-# JQuickPDF 文档
-
-- [1. 概述](#1-概述)
-- [2. 安装](#2-安装)
-- [3. 基本语法](#3-基本语法)
-- [4. 元素样式](#4-元素样式)
-    - [4.1 块元素样式](#41-块元素样式)
-    - [4.2 元素属性样式](#42-元素属性样式)
-- [5. 内容元素](#5-内容元素)
-    - [5.1 文本元素](#51-文本元素)
-        - [5.1.1 段落](#511-段落)
-        - [5.1.2 标题（h1-h6）](#512-标题h1-h6)
-        - [5.1.3 行内文本](#513-行内文本)
-        - [5.1.4 制表符](#514-制表符)
-    - [5.2 布局元素](#52-布局元素)
-        - [5.2.1 容器](#521-容器)
-        - [5.2.2 区域分隔](#522-区域分隔)
-        - [5.2.3 HTML 分页符](#523-html-分页符)
-    - [5.3 列表元素](#53-列表元素)
-        - [5.3.1 列表](#531-列表)
-    - [5.4 表格元素](#54-表格元素)
-        - [5.4.1 表格](#541-表格)
-    - [5.5 表单元素](#55-表单元素)
-        - [5.5.1 按钮](#551-按钮)
-        - [5.5.2 复选框](#552-复选框)
-        - [5.5.3 输入框](#553-输入框)
-        - [5.5.4 下拉选择框](#554-下拉选择框)
-    - [5.6 媒体元素](#56-媒体元素)
-        - [5.6.1 图片](#561-图片)
-        - [5.6.2 矢量图形](#562-矢量图形)
-- [6. 图表类型枚举值](#6-图表类型枚举值)
-    - [6.1 柱状图（示例代码）](#61-柱状图示例代码)
-    - [6.2 箱线图（示例代码）](#62-箱线图示例代码)
-    - [6.3 热力图（示例代码）](#63-热力图示例代码)
-    - [6.4 K线图（示例代码）](#64-k线图示例代码)
-    - [6.5 折线图（示例代码）](#65-折线图示例代码)
-    - [6.6 饼图（示例代码）](#66-饼图示例代码)
-    - [6.7 雷达图（示例代码）](#67-雷达图示例代码)
-    - [6.8 关系图（示例代码）](#68-关系图示例代码)
-    - [6.9 散点图（示例代码）](#69-散点图示例代码)
-- [7. 特殊元素](#7-特殊元素)
-    - [7.1 页码元素](#71-页码元素)
-    - [7.2 模板](#72-模板)
-    - [7.3 链接](#73-链接)
-    - [7.4 列表框](#74-列表框)
-    - [7.5 文本区域](#75-文本区域)
-    - [7.6 树形结构（示例1）](#76-树形结构示例1)
-    - [7.7 树形结构（示例2）](#77-树形结构示例2)
-## 概述
+# JQuickPDF Documentation
+- [1. Overview](#1-overview)
+- [2. Installation](#2-installation)
+- [3. Basic Syntax](#3-basic-syntax)
+- [4. Elements STYLE](#4-elements-style)
+    - [4.1 BlockElementBlockElement Styles](#41-blockelement-styles)
+    - [4.2 ElementProperty Styles](#42-elementproperty-styles)
+- [5. Content Elements](#5-content-elements)
+    - [5.1 Text Elements](#51-text-elements)
+        - [5.1.1 paragraph](#511-paragraph)
+        - [5.1.2 h1-h6](#512-h1-h6)
+        - [5.1.3 span](#513-span)
+        - [5.1.4 tab](#514-tab)
+    - [5.2 Layout Elements](#52-layout-elements)
+        - [5.2.1 div](#521-div)
+        - [5.2.2 areaBreak](#522-areabreak)
+        - [5.2.3 htmlPageBreak](#523-htmlpagebreak)
+    - [5.3 List Elements](#53-list-elements)
+        - [5.3.1 list](#531-list)
+    - [5.4 Table Elements](#54-table-elements)
+        - [5.4.1 table](#541-table)
+    - [5.5 Form Elements](#55-form-elements)
+        - [5.5.1 button](#551-button)
+        - [5.5.2 checkbox](#552-checkbox)
+        - [5.5.3 inputField](#553-inputfield)
+        - [5.5.4 comboBoxField](#554-comboboxfield)
+    - [5.6 Media Elements](#56-media-elements)
+        - [5.6.1 image](#561-image)
+        - [5.6.2 svg](#562-svg)
+- [6. ChartType Enum Values](#6-charttype-enum-values)
+    - [6.1 BAR CHART](#61-bar-chart)
+    - [6.2 BOXPLOT CHART](#62-boxplot-chart)
+    - [6.3 HEATMAP CHART](#63-heatmap-chart)
+    - [6.4 K CHART](#64-k-chart)
+    - [6.5 LINE CHART](#65-line-chart)
+    - [6.6 PIE CHART](#66-pie-chart)
+    - [6.7 RADAR CHART](#67-radar-chart)
+    - [6.8 RELATION CHART](#68-relation-chart)
+    - [6.9 SCATTER CHART](#69-scatter-chart)
+- [7. Special Elements](#7-special-elements)
+    - [7.1 pageCountElement](#71-pagecountelement)
+    - [7.2 template](#72-template)
+    - [7.3 link](#73-link)
+    - [7.4 listBoxField](#74-listboxfield)
+    - [7.5 textArea](#75-textarea)
+    - [7.6 tree](#76-tree)
+    - [7.7 tree](#77-tree)
+## Overview
 ```string
-      jQuickPDF 是一个轻量级的 Java 库，用于从类似 HTML 的模板生成 PDF 文档，支持动态内容和丰富的样式。
-
+    jQuickPDF is a lightweight Java library for generating PDF documents from HTML-like 
+templates with support for dynamic content and rich styling.
 ```
-## 安装
+## Installation
 ```xml
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
@@ -59,7 +58,7 @@
     <version>1.0.0</version>
 </dependency>
 ```
-## 基础语法
+## Basic Syntax
 ```html
 <!DOCTYPE html>
 <html>
@@ -77,82 +76,82 @@
 ## Elements STYLE
 
 ### BlockElement Styles
-| Property              | Example Value            | Description               |
-|-----------------------|--------------------------|---------------------------|
-| marginLeft            | `"1px"`                  | 左边距值                      |
-| marginRight           | `"500px"`                | 右边距值                      |
-| marginTop             | `"500px"`                | 上边距值                      |
-| marginBottom          | `"500px"`                | 下边距值                      |
-| commonMargin          | `"100px"`                | 所有边统一的边距                  |
-| margins               | `"'20px 30px 40px 50px'"`   | 上、右、下、左边距                 |
-| paddingLeft           | `"50px"`                 | 左内边距值                     |
-| paddingRight          | `"50px"`                 | 右内边距值                     |
-| paddingTop            | `"50px"`                 | 上内边距值                     |
-| paddingBottom         | `"50px"`                 | 下内边距值                     |
-| commonPadding         | `"50px"`                 | 所有边统一的内边距                 |
-| paddings              | `"50px 50px 60px 70px"`  | 上、右、下、左内边距                |
-| verticalAlignment     | `"top"`                  | 垂直对齐方式(top/middle/bottom) |
-| spacingRatio          | `"30"`                   | 元素之间的间距比例                 |
-| keepTogether          | `"true"`                 | 是否保持元素在一起                 |
-| keepWithNext          | `"true"`                 | 是否与下一个元素保持在一起             |
-| angleInRadians        | `"30"`                   | 旋转角度(弧度)                  |
-| width                 | `"300px"`                | 元素宽度                      |
-| height                | `"300px"`                | 元素高度                      |
-| maxHeight             | `"300px"`                | 元素最大高度                    |
-| minHeight             | `"300px"`                | 元素最小高度                    |
-| minWidth              | `"300px"`                | 元素最小宽度                    |
-| maxWidth              | `"300px"`                | 元素最大宽度                    |
+| Property              | Example Value            | Description                                                                 |
+|-----------------------|--------------------------|-----------------------------------------------------------------------------|
+| marginLeft            | `"1px"`                  | Left margin value                                                           |
+| marginRight           | `"500px"`                | Right margin value                                                          |
+| marginTop             | `"500px"`                | Top margin value                                                            |
+| marginBottom          | `"500px"`                | Bottom margin value                                                         |
+| commonMargin          | `"100px"`                | Uniform margin for all sides                                                |
+| margins               | `"'20px 30px 40px 50px'"`   | Margins for top, right, bottom, left                                        |
+| paddingLeft           | `"50px"`                 | Left padding value                                                          |
+| paddingRight          | `"50px"`                 | Right padding value                                                         |
+| paddingTop            | `"50px"`                 | Top padding value                                                           |
+| paddingBottom         | `"50px"`                 | Bottom padding value                                                        |
+| commonPadding         | `"50px"`                 | Uniform padding for all sides                                               |
+| paddings              | `"50px 50px 60px 70px"`  | Paddings for top, right, bottom, left                                       |
+| verticalAlignment     | `"top"`                  | Vertical alignment (top/middle/bottom)                                      |
+| spacingRatio          | `"30"`                   | Spacing ratio between elements                                              |
+| keepTogether          | `"true"`                 | Whether to keep element together                                            |
+| keepWithNext          | `"true"`                 | Whether to keep element with next element                                   |
+| angleInRadians        | `"30"`                   | Rotation angle in radians                                                   |
+| width                 | `"300px"`                | Element width                                                               |
+| height                | `"300px"`                | Element height                                                              |
+| maxHeight             | `"300px"`                | Maximum element height                                                      |
+| minHeight             | `"300px"`                | Minimum element height                                                      |
+| minWidth              | `"300px"`                | Minimum element width                                                       |
+| maxWidth              | `"300px"`                | Maximum element width                                                       |
 
 ## ElementProperty Styles
-| Property                  | Example Value             | Description                 |
-|---------------------------|---------------------------|-----------------------------|
-| relativePosition          | `"30px 30px 30px 30px"`   | 相对位置值                       |
-| font                      | `"HELVETICA"`             | 字体类型:具体值可参考 JFontEnum       |
-| fontFamilyNames           | `"Helvetica"`             | 字体家族名称(逗号分隔)                |
-| fontColor                 | `"red"`                   | 字体颜色:值参考 JColorEnums 类      |
-| opacity                   | `"0.5"`                   | 元素透明度                       |
-| fontSize                  | `"34"`                    | 字体大小                        |
-| textAlignment             | `"left"`                  | 文本对齐方式，具体值参考 JTextAlignment |
-| characterSpacing          | `"30"`                    | 字符间距                        |
-| wordSpacing               | `"30"`                    | 单词间距                        |
-| fontKerning               | `"yes"`                   | 字体字距调整设置                    |
-| backgroundColor           | `"red"`                   | 背景颜色，值参考 JColorEnums 类      |
-| backgroundImage           | `"D:/pdf/image.png"`      | 背景图片路径                      |
-| border                    | `"solid 32px red"`        | 边框样式(类型 宽度 颜色)              |
-| borderTop                 | `"solid 32px red"`        | 上边框样式                       |
-| borderRight               | `"solid 32px red"`        | 右边框样式                       |
-| borderLeft                | `"solid 32px red"`        | 左边框样式                       |
-| borderBottom              | `"solid 32px red"`        | 下边框样式                       |
-| borderRadius              | `"32px 24px"`             | 边框圆角值                       |
-| borderBottomLeftRadius    | `"32px 24px"`             | 左下边框圆角                      |
-| borderBottomRightRadius   | `"32px 24px"`             | 右下边框圆角                      |
-| borderTopRightRadius      | `"32px 24px"`             | 右上边框圆角                      |
-| borderTopLeftRadius       | `"32px 24px"`             | 左上边框圆角                      |
-| splitCharacters           | `"24"`                    | 字符间距(同 characterSpacing)    |
-| textRenderingMode         | `"24"`                    | 文本渲染模式                      |
-| strokeColor               | `"red"`                   | 描边颜色                        |
-| strokeWidth               | `"24"`                    | 描边宽度                        |
-| bold                      | `"true"`                  | 文本是否加粗                      |
-| italic                    | `"true"`                  | 文本是否斜体                      |
-| lineThrough               | `"true"`                  | 文本是否有删除线                    |
-| underline                 | `"true"`                  | 文本是否有下划线                    |
-| baseDirection             | `"no_bidi"`               | 文本基础方向                      |
-| fontScript                | `"common"`                | 字体脚本类型                      |
-| destination               | `"hello"`                 | 元素目标/锚点名称                   |
+| Property                  | Example Value             | Description                                                    |
+|---------------------------|---------------------------|----------------------------------------------------------------|
+| relativePosition          | `"30px 30px 30px 30px"`   | Relative position values                                       |
+| font                      | `"HELVETICA"`             | Font type:the specific value you can refer JFontEnum           |
+| fontFamilyNames           | `"Helvetica"`             | Font family names (comma-separated)                            |
+| fontColor                 | `"red"`                   | Font color: the value refer JColorEnums  class                 |
+| opacity                   | `"0.5"`                   | Element opacity                                                |
+| fontSize                  | `"34"`                    | Font size                                                      |
+| textAlignment             | `"left"`                  | Text alignment the specific value you can refer JTextAlignment |
+| characterSpacing          | `"30"`                    | Character spacing                                              |
+| wordSpacing               | `"30"`                    | Word spacing                                                   |
+| fontKerning               | `"yes"`                   | Font kerning setting                                           |
+| backgroundColor           | `"red"`                   | Background color  the value refer JColorEnums  class                                               |
+| backgroundImage           | `"D:/pdf/image.png"`      | Background image path                                          |
+| border                    | `"solid 32px red"`        | Border style (type width color)                                |
+| borderTop                 | `"solid 32px red"`        | Top border style                                               |
+| borderRight               | `"solid 32px red"`        | Right border style                                             |
+| borderLeft                | `"solid 32px red"`        | Left border style                                              |
+| borderBottom              | `"solid 32px red"`        | Bottom border style                                            |
+| borderRadius              | `"32px 24px"`             | Border radius values                                           |
+| borderBottomLeftRadius    | `"32px 24px"`             | Bottom-left border radius                                      |
+| borderBottomRightRadius   | `"32px 24px"`             | Bottom-right border radius                                     |
+| borderTopRightRadius      | `"32px 24px"`             | Top-right border radius                                        |
+| borderTopLeftRadius       | `"32px 24px"`             | Top-left border radius                                         |
+| splitCharacters           | `"24"`                    | Character spacing (same as characterSpacing)                   |
+| textRenderingMode         | `"24"`                    | Text rendering mode                                            |
+| strokeColor               | `"red"`                   | Stroke color                                                   |
+| strokeWidth               | `"24"`                    | Stroke width                                                   |
+| bold                      | `"true"`                  | Whether text is bold                                           |
+| italic                    | `"true"`                  | Whether text is italic                                         |
+| lineThrough               | `"true"`                  | Whether text has line-through                                  |
+| underline                 | `"true"`                  | Whether text is underlined                                     |
+| baseDirection             | `"no_bidi"`               | Text base direction                                            |
+| fontScript                | `"common"`                | Font script type                                               |
+| destination               | `"hello"`                 | Element destination/anchor name                                |
 
 ## Content Elements
 
 ### Text Elements
 
-| Element    | Description    | Style Attributes      | Values                          |
-|------------|----------------|-----------------------|---------------------------------|
-| `<p>`      | 段落块(Paragraph) | ElementProperty style | `text-align="justify"`         |
-| `<h1>-<h6>`| 标题(带样式的段落)     | ElementProperty style | `font-size="24pt"`            |
-| `<span>`   | 内联文本容器(Chunk)  | ElementProperty style | `font-style="italic"`         |
-| `<br>`     | 换行(Newline)    | ElementProperty style | `<br type="after">`           |
-| `<tab>`     | 制表符	           | ElementProperty style | `<br type="after">`           |
+| Element    | Description                     | Style Attributes      | Values                          |
+|------------|---------------------------------|-----------------------|---------------------------------|
+| `<p>`      | Paragraph block (Paragraph)     | ElementProperty style | `text-align="justify"`         |
+| `<h1>-<h6>`| Headings (Paragraph with style) | ElementProperty style | `font-size="24pt"`            |
+| `<span>`   | Inline text container (Chunk)   | ElementProperty style | `font-style="italic"`         |
+| `<br>`     | Line break (Newline)            | ElementProperty style | `<br type="after">`           |
+| `<tab>`     | tab                             | ElementProperty style | `<br type="after">`           |
 
-#### 1. 段落
+#### 1. paragraph
 ```java
      JReader fileReader = new JReSourceFileReader("sample/paragraph.txt");
      JAdaptor context = new JAdaptor(fileReader);
@@ -177,7 +176,7 @@
 </body>
 </html>
 ```
-#### 2.标题h1-h6
+#### 2.h1-h6
 ```html
 <html>
 <body>
@@ -202,7 +201,7 @@
 </body>
 </html>
 ```
-#### 3.span内联文本
+#### 3.span
 ```html
 <html>
 <body>
@@ -212,7 +211,7 @@
 </body>
 </html>
 ```
-#### 4.tab制表符
+#### 4.tab
 ```html
 <html>
 <body>
@@ -225,14 +224,14 @@
 </body>
 </html>
 ```
-### 布局元素
+### Layout Elements
 
-| Element         | Description      | Style Attributes                | Values                          |
-|-----------------|------------------|---------------------------------|---------------------------------|
-| `<div>`         | 块容器(Div)         | ElementProperty style and Block | `width="100%"`                 |
-| `<areaBreak>`   | 分节符(AreaBreak)   | ElementProperty                 | `type="nextPage"`              |
-| `<htmlPageBreak>`| 显式分页符(NewPage)	  | ElementProperty                 | `<htmlPageBreak/>`             |
-#### 1. div块容器
+| Element         | Description                          | Style Attributes                | Values                          |
+|-----------------|-------------------------------------|---------------------------------|---------------------------------|
+| `<div>`         | Block container (Div)               | ElementProperty style and Block | `width="100%"`                 |
+| `<areaBreak>`   | Section break (AreaBreak)           | ElementProperty                 | `type="nextPage"`              |
+| `<htmlPageBreak>`| Explicit page break (NewPage)       | ElementProperty                 | `<htmlPageBreak/>`             |
+#### 1.div
 ```html
 <html>
 <body>
@@ -240,7 +239,7 @@
 </body>
 </html>
 ```
-####  2. areaBreak分节符
+####  2.areaBreak
 ```html
 <html>
 <body>
@@ -254,7 +253,7 @@
 </body>
 </html>
 ```
-####  3.htmlPageBreak分页符
+####  3.htmlPageBreak
 ```html
 <html>
 <body>
@@ -265,12 +264,12 @@
 
 ### List Elements
 
-| Element  | Description    | Style Attributes                | Values                          |
-|----------|----------------|---------------------------------|---------------------------------|
-| `<list>` | 有序/无序列表(List)	 | ElementProperty style and Block | `list-style="circle"`       |
-| `<li>`   | 列表项(ListItem)  | ElementProperty                 | `margin-left="15px"`          |
+| Element  | Description                          | Style Attributes                | Values                          |
+|----------|-------------------------------------|---------------------------------|---------------------------------|
+| `<list>` | Ordered/Unordered list (List)       | ElementProperty style and Block | `list-style="circle"`       |
+| `<li>`   | List item (ListItem)                | ElementProperty                 | `margin-left="15px"`          |
 
-####  1.列表
+####  1.list
 ```html
 <html>
 <body>
@@ -285,16 +284,16 @@
 </html>
 ```
 
-### 表格元素
+### Table Elements
 
 | Element | Description                          | Style Attributes                | Values                          |
 |---------|-------------------------------------|---------------------------------|---------------------------------|
-| `<table>` | 表格容器(Table)           | ElementProperty style and Block | `border="1px"`                |
-| `<tr>`  | 表格行(TableRow)              | ElementProperty                 | `height="30px"`               |
-| `<td>`  | 表格数据单元格(TableCell)         | ElementProperty                 | `colspan="2"`                 |
-| `<th>`  | 表格标题单元格(TableCell)       | ElementProperty                 | `font-weight="bold"`          |
+| `<table>` | Table container (Table)            | ElementProperty style and Block | `border="1px"`                |
+| `<tr>`  | Table row (TableRow)                | ElementProperty                 | `height="30px"`               |
+| `<td>`  | Table data cell (TableCell)         | ElementProperty                 | `colspan="2"`                 |
+| `<th>`  | Table header cell (TableCell)       | ElementProperty                 | `font-weight="bold"`          |
 
-####  1.表格
+####  1.table
 ```html
 <html>
 <body>
@@ -311,16 +310,16 @@
 </body>
 </html>
 ```
-### 表单元素
+### Form Elements
 
-| Element           | Description                       | Attributes | Values            |
-|-------------------|-----------------------------------|------------|-------------------|
-| `<button>`        | 按钮(PushbuttonField)               | N/A        | N/A               |
-| `<checkbox>`      | 复选框(CheckboxField)         | N/A        |  N/A        |
-| `<inputField>`    | 文本输入框(TextField)           | N/A        |  N/A       |
-| `<comboBoxField>` | 下拉选择框(ComboBoxField) | N/A        |  N/A       |
+| Element           | Description                          | Attributes | Values            |
+|-------------------|-------------------------------------|------------|-------------------|
+| `<button>`        | Push button (PushbuttonField)       | N/A        | N/A               |
+| `<checkbox>`      | Checkbox (CheckboxField)            | N/A        |  N/A        |
+| `<inputField>`    | Text input (TextField)              | N/A        |  N/A       |
+| `<comboBoxField>` | Dropdown selector (ComboBoxField)   | N/A        |  N/A       |
 
-####  1.按钮
+####  1.button
 ```html
 <html>
 <body>
@@ -328,7 +327,7 @@
 </body>
 </html>
 ```
-####  2.复选框
+####  2.checkbox
 ```html
 <html>
 <body>
@@ -336,7 +335,7 @@
 </body>
 </html>
 ```
-####  3.文本输入框
+####  3.inputField
 ```html
 <html>
 <body>
@@ -344,7 +343,7 @@
 </body>
 </html>
 ```
-####  4.下拉选择框
+####  4.comboBoxField
 ```html
 <html>
 <body>
@@ -353,27 +352,27 @@
 </html>
 ```
 
-### 媒体元素
+### Media Elements
 
-| Element  | Description        | STYLE Attributes       | Values                         |
-|----------|--------------------|------------------------|--------------------------------|
-| `<image>` | 嵌入图片(Image)        | ElementProperty style  | `src="logo.png" width="200px"` |
-| `<svg>`   | 矢量图形(PdfTemplate)  | ElementProperty style  | N/A                            |
+| Element  | Description                          | STYLE Attributes       | Values                         |
+|----------|-------------------------------------|------------------------|--------------------------------|
+| `<image>` | Embedded image (Image)             | ElementProperty style  | `src="logo.png" width="200px"` |
+| `<svg>`   | Vector graphics (PdfTemplate)      | ElementProperty style  | N/A                            |
 # ChartType Enum Values
-| Enum Value  | Description/Notes |
-|-------------|-------------------|
-| BAR         | 柱状图               |
-| BOXPLOT     | 箱线图               |
-| HEATMAP     | 热力图               |
-| K           | K线图(蜡烛图)          |
-| LINE        | 折线图               |
-| PIE         | 饼图                |
-| RADAR       | 雷达图               |
-| RELATION    | 关系图               |
-| SCATTER     | 散点图               |
-| SUNBURST    | 旭日图               |
+| Enum Value  | Description/Notes                     |
+|-------------|---------------------------------------|
+| BAR         | Represents a bar chart                |
+| BOXPLOT     | Represents a box plot chart           |
+| HEATMAP     | Represents a heatmap chart            |
+| K           | Represents a K-line chart (candlestick) |
+| LINE        | Represents a line chart               |
+| PIE         | Represents a pie chart                |
+| RADAR       | Represents a radar chart              |
+| RELATION    | Represents a relation chart           |
+| SCATTER     | Represents a scatter plot             |
+| SUNBURST    | Represents a sunburst chart           |
 #### sample java code
-##### 1. 柱状图
+##### 1.BAR CHART
 ```java
      JOption option = new JOption();
         option.title().text("销售数据").subtext("2023年度");
@@ -386,7 +385,7 @@
         bar.name("销量").data(5, 20, 36, 10, 10, 20);
         option.series(bar);
 ```
-##### 2.箱线图
+##### 2.BOXPLOT CHART
 ```java
         JOption option = new JOption();
         option.title().text("销售数据分布");
@@ -398,7 +397,7 @@
                 new Object[]{11, 16, 21, 27, 33}
         ));
 ```
-##### 3.热力图
+##### 3.BOXPLOT CHART
 ```java
  JOption option = new JOption();
         option.title("2023年月度温度分布热力图");
@@ -437,7 +436,7 @@ JHeatmap heatmap = new JHeatmap();
         );
         option.series(heatmap);
 ```
-##### 4.K线图
+##### 4.K CHART
 ```java
  JOption option = new JOption();
         option.title().text("股票K线图(含数据)");
@@ -463,7 +462,7 @@ JCandlestick candlestick = new JCandlestick();
         );
         option.series(candlestick);
 ```
-##### 5.折线图
+##### 5.LINE CHART
 ```java
 JOption option = new JOption();
 option.title().text("销售数据折线图");
@@ -476,7 +475,7 @@ JLine line = new JLine();
 line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
 option.series(line);
 ```
-##### 6.饼图
+##### 6.PIE CHART
 ```java
  JOption option = new JOption();
         option.title().text("销售占比").subtext("2023年度");
@@ -492,7 +491,7 @@ JPie pie = new JPie("销售占比");
         );
                 option.series(pie);
 ```
-##### 7.雷达图
+##### 7.RADAR CHART
 ```java
    // 创建图表选项
 JOption option = new JOption();
@@ -529,7 +528,7 @@ JRadarSeries actualSeries = new JRadarSeries();
 
         option.series(budgetSeries, actualSeries);
 ```
-##### 8.关系图
+##### 8.RELATION CHART
 ```java
         JGsonOption option = new JGsonOption();
         option.title("Relationship Chart Test");
@@ -585,7 +584,7 @@ JRadarSeries actualSeries = new JRadarSeries();
         option.series(graph);
         option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
 ```
-#####  9.散点图
+#####  9.scatter
 ```java
         JData[] data= new JData[]{
         new JData().value(new Double[]{10.0, 8.04}),
@@ -622,7 +621,7 @@ JScatter scatter = new JScatter();
         option.series(scatter);
 
 ```
-####  1.图片
+####  1.image
 ```html
 <html>
 <body>
@@ -632,7 +631,7 @@ JScatter scatter = new JScatter();
 </body>
 </html>
 ```
-####  2.SVG矢量图
+####  2.svg
 ```java
 JContext params = new JContext();
 String svg = "<?xml version=\"1.0\"?>\n" +
@@ -717,7 +716,7 @@ executor.execute(context.getRuleContent());
 </body>
 </html>
 ```
-####  3.SVG矢量图 for java render
+####  3.svg for java render
 ```java
    JGraphContainer graphContainer=new JGraphContainer();
         JOption option = new JOption();
@@ -763,7 +762,7 @@ executor.execute(context.getRuleContent());
 </html>
 ```
 
-## 特殊元素
+## Special Elements
 
 | Element              | Description                          | Attributes | Values            |
 |----------------------|-------------------------------------|------------|-------------------|
@@ -799,7 +798,7 @@ executor.execute(context.getRuleContent());
 </body>
 </html>
 ```
-####  2.模板
+####  2.template
 ```java
         JPdfConfig config=new JPdfConfig();
 JTemplateConfig templateConfig=config.getTemplateConfig();
@@ -835,7 +834,7 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </html>
 ```
-####  5.大文本
+####  5.textArea
 ```html
 <html>
 <body>
@@ -845,7 +844,7 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </html>
 ```
-####  6.树
+####  6.tree
 ```java
 JContext context=new JContext();
 TreeNode root = new TreeNode("Root");
@@ -871,7 +870,7 @@ executor.execute(adaptor.getRuleContent());
 ```
 
 
-####  7.树
+####  7.tree
 ```java
    JPdfConfig config=new JPdfConfig();
 TreeNode root = new TreeNode("Root");
