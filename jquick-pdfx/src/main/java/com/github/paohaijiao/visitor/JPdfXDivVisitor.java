@@ -62,6 +62,11 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
                     AreaBreak areaBreak=(AreaBreak)object;
                     doc.add(areaBreak);
                 }
+                if (null!=object && object instanceof String) {
+                    Paragraph paragraph=new Paragraph((String)object);
+                    paragraph.setFont(JFontProviderFactory.defualtFont());
+                    doc.add(paragraph);
+                }
             }
 
         }

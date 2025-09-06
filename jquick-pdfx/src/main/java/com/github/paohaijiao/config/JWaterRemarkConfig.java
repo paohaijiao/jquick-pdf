@@ -29,7 +29,7 @@ import lombok.Data;
 @Data
 public class JWaterRemarkConfig {
 
-    private Boolean enabled=true;
+    private Boolean enabled=false;
 
     private String watermarkText="水印";
 

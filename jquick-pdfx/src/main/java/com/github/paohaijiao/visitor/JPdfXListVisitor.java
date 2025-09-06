@@ -115,6 +115,12 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
                 if (e instanceof IBlockElement) {
                     listItem.add((IBlockElement) e);
                 }
+                if (e instanceof String) {
+                    Paragraph paragraph = new Paragraph((String) e);
+                    paragraph.setFont(JFontProviderFactory.defualtFont());
+                    listItem.add(paragraph);
+                }
+
             });
     }
 
