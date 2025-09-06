@@ -48,46 +48,6 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitHtml(JQuickPDFParser.HtmlContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#head}.
-	 * @param ctx the parse tree
-	 */
-	void enterHead(JQuickPDFParser.HeadContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#head}.
-	 * @param ctx the parse tree
-	 */
-	void exitHead(JQuickPDFParser.HeadContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#headStyle}.
-	 * @param ctx the parse tree
-	 */
-	void enterHeadStyle(JQuickPDFParser.HeadStyleContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#headStyle}.
-	 * @param ctx the parse tree
-	 */
-	void exitHeadStyle(JQuickPDFParser.HeadStyleContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#headStyleOption}.
-	 * @param ctx the parse tree
-	 */
-	void enterHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#headStyleOption}.
-	 * @param ctx the parse tree
-	 */
-	void exitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#bodyStyleOption}.
-	 * @param ctx the parse tree
-	 */
-	void enterBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#bodyStyleOption}.
-	 * @param ctx the parse tree
-	 */
-	void exitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#body}.
 	 * @param ctx the parse tree
 	 */
@@ -197,6 +157,16 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitListItem(JQuickPDFParser.ListItemContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#listType}.
+	 * @param ctx the parse tree
+	 */
+	void enterListType(JQuickPDFParser.ListTypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#listType}.
+	 * @param ctx the parse tree
+	 */
+	void exitListType(JQuickPDFParser.ListTypeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#table}.
 	 * @param ctx the parse tree

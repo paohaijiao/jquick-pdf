@@ -92,9 +92,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
     @Override
     public Void visitHtml(JQuickPDFParser.HtmlContext ctx) {
         configure(config);
-        if (null != ctx.head()) {
-            visitHead(ctx.head());
-        }
         if (null != ctx.body()) {
             visitBody(ctx.body());
         }
@@ -104,44 +101,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         return null;
     }
 
-    @Override
-    public Void visitHead(JQuickPDFParser.HeadContext ctx) {
-        if (null != ctx.headStyle()) {
-            visitHeadStyle(ctx.headStyle());
-        }
-        return null;
-    }
-
-    @Override
-    public Void visitHeadStyle(JQuickPDFParser.HeadStyleContext ctx) {
-        if (null != ctx.headStyleOption()) {
-            visitHeadStyleOption(ctx.headStyleOption());
-        }
-        if (null != ctx.bodyStyleOption()) {
-            visitBodyStyleOption(ctx.bodyStyleOption());
-        }
-        return null;
-    }
-
-    @Override
-    public Void visitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx) {
-        if (ctx.style() != null && !ctx.style().isEmpty()) {
-            for (JQuickPDFParser.StyleContext styleContext : ctx.style()) {
-                JStyleAttributes style = visitStyle(styleContext);
-            }
-        }
-        return null;
-    }
-
-    @Override
-    public Void visitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx) {
-        if (ctx.style() != null && !ctx.style().isEmpty()) {
-            for (JQuickPDFParser.StyleContext styleContext : ctx.style()) {
-                JStyleAttributes style = visitStyle(styleContext);
-            }
-        }
-        return null;
-    }
 
     @Override
     public Void visitBody(JQuickPDFParser.BodyContext ctx) {

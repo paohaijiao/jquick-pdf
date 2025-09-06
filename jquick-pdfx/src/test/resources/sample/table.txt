@@ -1,14 +1,16 @@
-<html>
+<pdf>
 <body>
 <table >
     <tr>
-        <td style="fontColor:red">'中国'</td>
-        <td style="fontColor:red">'四川'</td>
+        <th style="fontColor:red">'产品ID'</th>
+        <th style="fontColor:red">'产品名称'</th>
+        <th style="fontColor:red">'价格元'</th>
     </tr>
     <tr>
-        <td style="fontColor:red">'你好'</td>
-        <td style="fontColor:red">'世界'</td>
+        <td style="fontColor:red">'1000'</td>
+        <td style="fontColor:red">'泡海椒'</td>
+        <td style="fontColor:red">'华为M7'</td>
     </tr>
 </table>
 </body>
-</html>
+</pdf>

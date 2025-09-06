@@ -35,30 +35,6 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitHtml(JQuickPDFParser.HtmlContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#head}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitHead(JQuickPDFParser.HeadContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#headStyle}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitHeadStyle(JQuickPDFParser.HeadStyleContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#headStyleOption}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#bodyStyleOption}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#body}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -124,6 +100,12 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitListItem(JQuickPDFParser.ListItemContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#listType}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitListType(JQuickPDFParser.ListTypeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#table}.
 	 * @param ctx the parse tree

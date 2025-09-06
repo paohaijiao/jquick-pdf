@@ -20,9 +20,15 @@ import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.JStyleListAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.sample.ReportColor;
 import com.github.paohaijiao.util.JStringUtils;
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.Leading;
 import com.itextpdf.layout.properties.ListNumberingType;
+import com.itextpdf.layout.properties.Property;
+import com.itextpdf.layout.properties.TextAlignment;
 
 
 /**
@@ -35,7 +41,12 @@ import com.itextpdf.layout.properties.ListNumberingType;
  * @description
  */
 public class JPdfXListVisitor extends JPdfXTableVisitor {
-
+    private static final Color PRIMARY_COLOR = new DeviceRgb(52, 152, 219);
+    private static final Color SUCCESS_COLOR = new DeviceRgb(46, 204, 113);
+    private static final Color WARNING_COLOR = new DeviceRgb(241, 196, 15);
+    private static final Color DANGER_COLOR = new DeviceRgb(231, 76, 60);
+    private static final Color LIGHT_BG = new DeviceRgb(248, 249, 250);
+    private static final Color BORDER_COLOR = new DeviceRgb(234, 234, 234);
 
     @Override
     public List visitList(JQuickPDFParser.ListContext ctx) {
@@ -45,26 +56,31 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        List list = new List()
-                .setSymbolIndent(12)
-                .setListSymbol(ListNumberingType.DECIMAL);
+        List list = new List(ListNumberingType.ROMAN_UPPER);
         list.setFont(JFontProviderFactory.defualtFont());
+        list.setMarginLeft(20);
+        list.setSymbolIndent(15);
+        list.setTextAlignment(TextAlignment.JUSTIFIED);
+        super.buildStyle(list, style);
         if(null!=ctx.listItem()&&!ctx.listItem().isEmpty()){
             for (JQuickPDFParser.ListItemContext listItemContext:ctx.listItem()){
                 ListItem item=visitListItem(listItemContext);
                 list.add(item);
             }
         }
-        super.buildStyle(list, style);
-        JStyleListAttributes newStyle=new JStyleListAttributes();
-        newStyle.putAll(style);
-        this.buildExtraStyle(list,newStyle);
+//        super.buildStyle(list, style);
+//        JStyleListAttributes newStyle=new JStyleListAttributes();
+//        newStyle.putAll(style);
+//        this.buildExtraStyle(list,newStyle);
         return list;
     }
+    private void buildDefaultListStyle( List list){
+        list.setFont(JFontProviderFactory.defualtFont());
+        list.setMarginLeft(20);
+        list.setSymbolIndent(15);
+        list.setTextAlignment(TextAlignment.JUSTIFIED);
+    }
     private void buildExtraStyle(List list, JStyleListAttributes style) {
-//        if(style.getSymbol()!=null){
-//            list.setListSymbol(style.getSymbol());
-//        }
         if(style.getImage()!=null){
             list.setListSymbol(style.getImage());
         }
@@ -73,7 +89,6 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 
     @Override
     public ListItem visitListItem(JQuickPDFParser.ListItemContext ctx) {
-        ListItem item = new ListItem();
         JStyleAttributes style = new JStyleAttributes();
         if (ctx.styleEle() != null) {
             style = visitStyleEle(ctx.styleEle());
@@ -88,11 +103,15 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         if(null!=value&&value instanceof String){
             text= JStringUtils.trim(value.toString());
         }
-        item.setListSymbol(text);
-        item.setFont(JFontProviderFactory.defualtFont());
+        ListItem item = new ListItem(text);
         saveSub(item,value);
+        buildDefaultListItemStyle(item);
         super.buildStyle(item, style);
         return item;
+    }
+    private void buildDefaultListItemStyle( ListItem listItem){
+        listItem.setFontColor(ReportColor.getThemeColor());
+        listItem.setFontSize(11);
     }
     private void saveSub(ListItem listItem,Object object) {
         if(null!=object&&object instanceof java.util.List) {

@@ -20,10 +20,15 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.sample.ReportColor;
 import com.github.paohaijiao.util.JStringUtils;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.HorizontalAlignment;
+import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.UnitValue;
 import com.itextpdf.layout.properties.VerticalAlignment;
 
@@ -42,7 +47,13 @@ import java.util.List;
  */
 public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
 
+    private static final DeviceRgb HEADER_COLOR = new DeviceRgb(66, 133, 244); // 蓝色表头
+    private static final DeviceRgb HEADER_TEXT_COLOR = new DeviceRgb(255, 255, 255); // 白色文字
+    private static final DeviceRgb EVEN_ROW_COLOR = new DeviceRgb(245, 245, 245); // 浅灰色偶数行
+    private static final DeviceRgb TEXT_COLOR = new DeviceRgb(51, 51, 51); // 深灰色文字
+    private static final DeviceRgb BORDER_COLOR = new DeviceRgb(221, 221, 221);
     private static final String th = "th";
+
     private static final String td = "td";
 
     @Override
@@ -54,30 +65,83 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
             style = new JStyleAttributes();
         }
         if(null!=ctx.row()&&!ctx.row().isEmpty()){
-            int colSize = ctx.row(0).col().size();
-            Table table = new Table(UnitValue.createPercentArray(colSize)).useAllAvailableWidth();
-            table.setFont(JFontProviderFactory.defualtFont());
+            Table table = new Table(3)
+                    .setHorizontalAlignment(HorizontalAlignment.CENTER)
+                    .setMarginBottom(30);
+            Border tableBorder = new SolidBorder(BORDER_COLOR, 1);
             for (int i = 0; i < ctx.row().size(); i++) {
                 JQuickPDFParser.RowContext rowContext = ctx.row(i);
                 JRowModel item = visitRow(rowContext);
                 for (JColumnModel column : item.getColumnList()) {
-                    String text="";
-                    if(null!=column.getObject()&&column.getObject() instanceof String){
-                        text=column.getObject().toString();
+                    String value=null==column.getObject()?"":column.getObject().toString();
+                    if(th.equals(column.getType())){
+                        Cell headerCell = new Cell()
+                                .add(new Paragraph(value).setBold())
+                                .setBackgroundColor(HEADER_COLOR)
+                                .setFontColor(HEADER_TEXT_COLOR)
+                                .setTextAlignment(TextAlignment.CENTER)
+                                .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                                .setWidth(250)
+                                .setBorder(tableBorder)
+                                .setPadding(8);
+                        table.addHeaderCell(headerCell);
                     }
-                    Paragraph paragraph = new Paragraph(JStringUtils.trim(text));
-                    paragraph.setFont(JFontProviderFactory.defualtFont());
-                    buildParagraphStyle(paragraph);
-                    super.buildStyle(paragraph, column.getStyle());
-                    Cell cell = new Cell().add(paragraph);
-                    cell.setFont(JFontProviderFactory.defualtFont());
-                    saveSub(cell,column.getObject());
-                    buildStyle(cell);
-                    super.buildStyle(cell, column.getStyle());
+                    if(td.equals(column.getType())){
+                        DeviceRgb rowColor = (i % 2 == 0) ? EVEN_ROW_COLOR : null;
+                            Cell cell = new Cell()
+                                    .add(new Paragraph(value))
+                                    .setFontColor(TEXT_COLOR)
+                                    .setBorder(tableBorder)
+                                    .setPadding(8)
+                                    .setVerticalAlignment(VerticalAlignment.MIDDLE);
+                            if (rowColor != null) {
+                                cell.setBackgroundColor(rowColor);
+                            }
+                            table.addCell(cell);
+                    }
+
+                }
+            }
+            String[][] data = {
+                    {"P001", "智能手表 Pro", "1299"},
+                    {"P002", "无线蓝牙耳机", "799"},
+                    {"P003", "便携式充电器 20000mAh", "199"},
+                    {"P004", "智能手环", "159"},
+                    {"P005", "高清摄像头 1080P", "299"}
+            };
+            for (int i = 0; i < data.length; i++) {
+                DeviceRgb rowColor = (i % 2 == 0) ? EVEN_ROW_COLOR : null;
+                for (int j = 0; j < data[i].length; j++) {
+                    Cell cell = new Cell()
+                            .add(new Paragraph(data[i][j]))
+                            .setFontColor(TEXT_COLOR)
+                            .setBorder(tableBorder)
+                            .setPadding(8)
+                            .setVerticalAlignment(VerticalAlignment.MIDDLE);
+                    if (rowColor != null) {
+                        cell.setBackgroundColor(rowColor);
+                    }
                     table.addCell(cell);
                 }
-                table.startNewRow();
             }
+            Cell totalLabelCell = new Cell(1, 2) // 跨2列
+                    .add(new Paragraph("总计").setBold())
+                    .setFontColor(TEXT_COLOR)
+                    .setBackgroundColor(ReportColor.getThemeColor())
+                    .setTextAlignment(TextAlignment.RIGHT)
+                    .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                    .setBorder(tableBorder)
+                    .setPadding(8);
+            Cell totalValueCell = new Cell()
+                    .add(new Paragraph("2755").setBold())
+                    .setFontColor(TEXT_COLOR)
+                    .setBackgroundColor(ReportColor.getThemeColor())
+                    .setTextAlignment(TextAlignment.RIGHT)
+                    .setVerticalAlignment(VerticalAlignment.MIDDLE)
+                    .setBorder(tableBorder)
+                    .setPadding(8);
+            table.addCell(totalLabelCell);
+            table.addCell(totalValueCell);
             super.buildStyle(table, style);
             return table;
         }
