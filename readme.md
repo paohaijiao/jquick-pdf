@@ -894,10 +894,10 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </html>
 ```
-```html
+
 <iframe src="./pay/sample.pdf" width="100%" height="600px" style="border: none;">
 </iframe>
-```
+
 # **捐献 ☕**
 
 感谢您使用这个开源项目！它完全免费并将持续维护，但开发者确实需要您的支持。
