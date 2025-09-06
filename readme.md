@@ -897,6 +897,7 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 
 <iframe src="./pay/sample.pdf" width="100%" height="600px" style="border: none;">
 </iframe>
+<embed src="./pay/sample.pdf" type="application/pdf" width="100%" height="600">
 
 # **捐献 ☕**
 
