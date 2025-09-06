@@ -1,5 +1,5 @@
 package com.github.paohaijiao.sample;
-import com.github.paohaijiao.model.TreemapNode;
+import com.github.paohaijiao.treemap.TreemapNode;
 import org.apache.batik.anim.dom.SVGDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.w3c.dom.Document;
@@ -14,8 +14,6 @@ import java.util.Map;
 
 public class TreemapWithBatik {
 
-
-    // 按部门分类的颜色映射
     private static final Map<String, Color> DEPARTMENT_COLORS = new HashMap<>();
     private static final Map<String, Color> CATEGORY_COLORS = new HashMap<>();
 

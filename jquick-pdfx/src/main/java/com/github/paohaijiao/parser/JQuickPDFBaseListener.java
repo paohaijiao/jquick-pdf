@@ -1,18 +1,4 @@
-/*
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
- */
+// Generated from D:/idea/jthornruleGrammer/pdf/JQuickPDF.g4 by ANTLR 4.13.2
 package com.github.paohaijiao.parser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -74,54 +60,6 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitHtml(JQuickPDFParser.HtmlContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterHead(JQuickPDFParser.HeadContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitHead(JQuickPDFParser.HeadContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterHeadStyle(JQuickPDFParser.HeadStyleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitHeadStyle(JQuickPDFParser.HeadStyleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitHeadStyleOption(JQuickPDFParser.HeadStyleOptionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitBodyStyleOption(JQuickPDFParser.BodyStyleOptionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -254,6 +192,18 @@ public class JQuickPDFBaseListener implements JQuickPDFListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitListItem(JQuickPDFParser.ListItemContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterListType(JQuickPDFParser.ListTypeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitListType(JQuickPDFParser.ListTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
