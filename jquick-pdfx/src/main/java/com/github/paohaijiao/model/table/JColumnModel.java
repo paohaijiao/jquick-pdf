@@ -18,6 +18,8 @@ package com.github.paohaijiao.model.table;
 import com.github.paohaijiao.model.JStyleAttributes;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * packageName com.paohaijiao.javelin.model.paragraph
  *
@@ -34,6 +36,6 @@ public class JColumnModel {
 
     private String type;
 
-    private Object object;
+    private List<Object> object;
 
 }

@@ -1,43 +1,39 @@
 <pdf>
 <body>
-  <div style="text-align:center; margin-bottom:15px; padding:12px; background:linear-gradient(135deg, #2c3e50 0%, #3498db 100%); color:white; border-radius:4px; position:relative">
-    <h1 style="color:white; margin-bottom:8px; font-size:20px; font-weight:bold">'企业信用评级报告'</h1>
-    <p style="color:rgba(255,255,255,0.9); font-size:11px; margin:2px">'报告编号: CR-2023-08975 | 评估日期: 2023年11月15日'</p>
-    <p style="color:rgba(255,255,255,0.9); font-size:11px; margin:2px">'评估机构: 企业信用评估中心'</p>
-    <div style="position:absolute; top:10px; right:15px; opacity:0.8">
-    </div>
+  <div style="textAlignment:center; marginBottom:15px; paddings:50px 50px 60px 70px; background:#3E6B9D; color:white; borderRadius:4px; position:relative">
+    <h1 style="textAlignment:center;color:white; marginBottom:8px; fontSize:20; fontWeight:bold">'企业信用评级报告'</h1>
+    <p style="textAlignment:center;color:rgba(255,255,255,0.9); font-size:11px; margin:2px">'报告编号: CR-2023-08975 | 评估日期: 2023年11月15日'</p>
+    <p style="textAlignment:center;color:rgba(255,255,255,0.9); font-size:11px; margin:2px">'评估机构: 四川省企业信用评估中心'</p>
   </div>
-  <div style="display:flex; margin-bottom:15px; border:1px solid #dee2e6; border-radius:4px; overflow:hidden">
-    <div style="width:18%; background-color:#f8f9fa; display:flex; align-items:center; justify-content:center; padding:12px">
-    </div>
-    <div style="width:82%; padding:12px">
-      <h2 style="color:#2c3e50; margin-top:0; margin-bottom:8px; font-size:14px; font-weight:bold">'北京智云科技有限公司'</h2>
-      <table style="width:100%; border-collapse:collapse; font-size:10px">
+  <div style="marginBottom:15px; border:1px solid #dee2e6; borderRadius:4px;">
+    <div style="padding:12px">
+      <h2 style="color:#2c3e50; marginTop:0; marginBottom:8px; fontSize:14; fontWeight:bold">'四川省泡海椒科技有限公司'</h2>
+      <table style="width:600px;verticalAlignment:center; fontSize:10">
         <tr>
-          <th style="background-color:#f8f9fa; padding:5px; text-align:left; width:22%; border:1px solid #dee2e6">'统一信用代码'</th>
-          <td style="padding:5px; border:1px solid #dee2e6">'91110108MA01XX1234'</td>
-          <th style="background-color:#f8f9fa; padding:5px; text-align:left; width:22%; border:1px solid #dee2e6">'成立日期'</th>
-          <td style="padding:5px; border:1px solid #dee2e6">'2018年5月20日'</td>
+          <td style="backgroundColor:#f8f9fa;padding:5px; textAlign:left;width:150px;">'统一信用代码'</td>
+          <td style="backgroundColor:#f8f9fa;padding:5px;width:150px;  ">'91110108MA01XX1234'</td>
+          <td style="background-color:#f8f9fa; padding:5px; text-align:left;width:150px;">'成立日期'</td>
+          <td style="padding:5px; width:150px;">'2018年5月20日'</td>
         </tr>
         <tr>
-          <th style="background-color:#f8f9fa; padding:5px; text-align:left; border:1px solid #dee2e6">'注册资本'</th>
-          <td style="padding:5px; border:1px solid #dee2e6">'1000万元人民币'</td>
-          <th style="background-color:#f8f9fa; padding:5px; text-align:left; border:1px solid #dee2e6">'法定代表人'</th>
-          <td style="padding:5px; border:1px solid #dee2e6">'张明'</td>
+          <td style="background-color:#f8f9fa; padding:5px; text-align:left; ">'注册资本'</td>
+          <td style="padding:5px; ">'1000万元人民币'</td>
+          <td style="background-color:#f8f9fa; padding:5px; text-align:left; ">'法定代表人'</td>
+          <td style="padding:5px;">'张明'</td>
         </tr>
         <tr>
-          <th style="background-color:#f8f9fa; padding:5px; text-align:left; border:1px solid #dee2e6">'所属行业'</th>
-          <td style="padding:5px; border:1px solid #dee2e6">'软件和信息技术服务业'</td>
-          <th style="background-color:#f8f9fa; padding:5px; text-align:left; border:1px solid #dee2e6">'企业规模'</th>
-          <td style="padding:5px; border:1px solid #dee2e6">'中型（150-200人）'</td>
+          <td style="background-color:#f8f9fa; padding:5px; text-align:left; ">'所属行业'</td>
+          <td style="padding:5px; ">'软件和信息技术服务业'</td>
+          <td style="background-color:#f8f9fa; padding:5px; text-align:left; ">'企业规模'</td>
+          <td style="padding:5px; ">'中型（150-200人）'</td>
         </tr>
       </table>
     </div>
   </div>
 
-  <div style="margin-bottom:15px">
-    <h2 style="color:#3498db; border-bottom:1px solid #3498db; padding-bottom:4px; font-size:13px; margin-bottom:10px">'企业资质认证'</h2>
-    <div style="display:flex; justify-content:space-between; margin-top:12px; flex-wrap:wrap; gap:8px">
+  <div style="marginBottom:15px">
+    <h2 style="color:#3498db;  fontSize:13; marginBottom:10px">'企业资质认证'</h2>
+    <div style="display:flex; justify-content:space-between; marginTop:12px; flex-wrap:wrap; gap:8px">
       <div style="width:23%; background:linear-gradient(135deg, #4CAF50 0%, #81C784 100%); color:white; padding:10px; border-radius:5px; text-align:center">
         <div style="font-size:18px; font-weight:bold; margin-bottom:3px">AAA</div>
         <div style="font-size:10px">'信用等级'</div>
@@ -118,24 +114,24 @@
         '连续三年保持40%以上增长，2023年达到25,680万元'
       </li>
       <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #2196F3; border-radius:0 4px 4px 0">
-        <span style="font-weight:bold; color:#2c3e50">💰 利润率提升: </span>
-        净利率从14.5%提升至21.1%，盈利能力显著增强
+        <span style="font-weight:bold; color:#2c3e50">'💰 利润率提升: '</span>
+        '净利率从14.5%提升至21.1%，盈利能力显著增强'
       </li>
       <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #FF9800; border-radius:0 4px 4px 0">
-        <span style="font-weight:bold; color:#2c3e50">🔬 研发投入: </span>
-        研发费用年均增长38.9%，占营收比例达13.3%
+        <span style="font-weight:bold; color:#2c3e50">'🔬 研发投入:' </span>
+        '研发费用年均增长38.9%，占营收比例达13.3%'
       </li>
       <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #9C27B0; border-radius:0 4px 4px 0">
-        <span style="font-weight:bold; color:#2c3e50">👥 人才结构: </span>
-        技术研发人员占比42%，硕士以上学历占35%
+        <span style="font-weight:bold; color:#2c3e50">'👥 人才结构:' </span>
+        '技术研发人员占比42%，硕士以上学历占35%'
       </li>
       <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #E91E63; border-radius:0 4px 4px 0">
-        <span style="font-weight:bold; color:#2c3e50">🏆 客户质量: </span>
-        服务15家上市公司，客户续约率92%，大客户满意度4.8/5.0
+        <span style="font-weight:bold; color:#2c3e50">'🏆 客户质量:' </span>
+        '服务15家上市公司，客户续约率92%，大客户满意度4.8/5.0'
       </li>
       <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #009688; border-radius:0 4px 4px 0">
-        <span style="font-weight:bold; color:#2c3e50">📊 资产质量: </span>
-        资产负债率维持在38%左右，流动比率2.8，偿债能力良好
+        <span style="font-weight:bold; color:#2c3e50">'📊 资产质量:' </span>
+        '资产负债率维持在38%左右，流动比率2.8，偿债能力良好'
       </li>
     </list>
   </div>
@@ -143,13 +139,9 @@
   <div style="margin-bottom:15px">
     <h2 style="color:#3498db; border-bottom:1px solid #3498db; padding-bottom:4px; font-size:13px; margin-bottom:10px">'信用评级雷达图'</h2>
     <div style="display:flex; justify-content:space-between; margin-top:10px">
-      <div style="width:48%">
-
-      </div>
-
-      <div style="width:48%">
-        <div style="background-color:#f8f9fa; padding:15px; border-radius:4px; height:230px; overflow-y:auto">
-          <h3 style="color:#2c3e50; margin-top:0; font-size:12px; margin-bottom:8px">'评级指标说明'</h3>
+      <div style="width:400px">
+        <div style="backgroundColor:#f8f9fa; padding:15px; borderRadius:4px; height:230px; overflow-y:auto">
+          <h3 style="color:#2c3e50; margin-top:0; fontSize:12; marginBottom:8px">'评级指标说明'</h3>
           <list style="list-style-type:none; padding-left:0; font-size:10px">
             <li style="margin-bottom:6px; padding-left:16px; position:relative">
               <span style="position:absolute; left:0; width:8px; height:8px; background-color:#3498db; border-radius:50%; top:4px"></span>

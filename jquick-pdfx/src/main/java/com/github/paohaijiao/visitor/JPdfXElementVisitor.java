@@ -77,6 +77,8 @@ public class JPdfXElementVisitor extends JPdfXTemplateVisitor  {
             return visitTextArea(ctx.textArea());
         }else if(ctx.tree()!=null){
             return visitTree(ctx.tree());
+        }else if(ctx.value()!=null){
+            return visitValue(ctx.value());
         }
         return null;
     }

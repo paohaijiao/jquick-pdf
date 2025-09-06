@@ -151,7 +151,14 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         }
 
     }
-
+    public static String trim(String str) {
+        if(null==str || "".equals(str)) {
+            return str;
+        }
+        String newStr = str.replaceAll("^['\"]|['\"]$", "");
+        newStr = newStr.replaceAll("'", "");
+        return newStr;
+    }
 
 
 }

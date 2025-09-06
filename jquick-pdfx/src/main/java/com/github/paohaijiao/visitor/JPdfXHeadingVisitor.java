@@ -18,12 +18,15 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.kernel.colors.ColorConstants;
-import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.element.IBlockElement;
+import com.itextpdf.layout.element.ILeafElement;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.TabStop;
 import com.itextpdf.layout.properties.TextAlignment;
 
 import java.util.Arrays;
+import java.util.List;
 
 
 /**
@@ -44,13 +47,10 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
             String numberTxt = ctx.number().get(0).getText();
             number = Integer.parseInt(numberTxt.toString());
         }
-        Object value=null;
+        List<Object> value = null;
         String text="";
         if (null != ctx.elemValue()) {
             value = visitElemValue(ctx.elemValue());
-          if (null != value && value instanceof String) {
-              text = (String) value;
-          }
         }
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
@@ -58,16 +58,15 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        Paragraph paragraph = new Paragraph(JStringUtils.trim(text));
+        Paragraph paragraph = new Paragraph(trim(text));
         paragraph.setFont(JFontProviderFactory.defualtFont());
         createHeading(paragraph,number);
         saveSub(paragraph,value);
         super.buildStyle(paragraph, style);
         return paragraph;
     }
-    private void saveSub(Paragraph paragraph,Object object) {
-        if(null!=object&&object instanceof java.util.List) {
-            java.util.List<Object> list=(java.util.List<Object>) object;
+
+    private void saveSub(Paragraph paragraph, List<Object> list) {
             list.forEach(e -> {
                 if (e instanceof String) {
                     paragraph.add((String) e);
@@ -83,7 +82,6 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
                     paragraph.addTabStops(Arrays.asList(tabStop));
                 }
             });
-        }
     }
     private static Paragraph createHeading(Paragraph heading, int level)  {
         heading.setFont(JFontProviderFactory.defualtFont());
