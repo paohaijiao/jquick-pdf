@@ -99,10 +99,10 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
         return null;
     }
     @Override
-    public Object visitElemValue(JQuickPDFParser.ElemValueContext ctx) {
+    public List<Object> visitElemValue(JQuickPDFParser.ElemValueContext ctx) {
         List<Object> elements = new ArrayList<>();
         if(ctx.value() != null) {
-            return ctx.value().getText();
+             elements.add(ctx.value().getText());
         } else if (null != ctx.element()&&!ctx.element().isEmpty()) {
             for (JQuickPDFParser.ElementContext elementContext:ctx.element()){
                 Object object=visitElement(elementContext);

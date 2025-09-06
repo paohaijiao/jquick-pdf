@@ -33,22 +33,33 @@ public class JUnitConverter {
     private static final float MM_PER_INCH = 25.4f;  // 1 inch = 25.4 mm
 
     private static final float CM_PER_INCH = 2.54f;
+
+    public static final float A4_WIDTH_PT = 595f;
+
+    public static final float A4_HEIGHT_PT = 842f;
     // 1 inch = 2.54 cm
     public static float toFloat(UnitValue unitValue) {
         return toFloat(unitValue, "pt");
     }
     public static float toFloat(UnitValue unitValue, String targetUnit) {
+        return toFloat(unitValue, targetUnit, A4_WIDTH_PT);
+    }
+    public static float toFloat(UnitValue unitValue, String targetUnit, Float referenceValue) {
         if (unitValue == null) {
             throw new IllegalArgumentException("UnitValue不能为空");
         }
         if (targetUnit == null || targetUnit.isEmpty()) {
             throw new IllegalArgumentException("目标单位不能为空");
         }
+
         float ptValue;
         if (unitValue.isPointValue()) {
             ptValue = unitValue.getValue();
         } else if (unitValue.isPercentValue()) {
-            throw new IllegalArgumentException("百分比单位不能直接转换为其他单位，需要参考基准值");
+            if (referenceValue == null) {
+                throw new IllegalArgumentException("百分比单位转换需要提供参考基准值");
+            }
+            ptValue = (unitValue.getValue() / 100f) * referenceValue;
         } else {
             throw new IllegalArgumentException("不支持的UnitValue类型");
         }
@@ -65,7 +76,10 @@ public class JUnitConverter {
             case "in":
                 return ptToInch(ptValue);
             case "%":
-                throw new IllegalArgumentException("不能将绝对单位转换为百分比");
+                if (referenceValue == null) {
+                    throw new IllegalArgumentException("转换为百分比需要提供参考基准值");
+                }
+                return (ptValue / referenceValue) * 100f;
             default:
                 throw new IllegalArgumentException("不支持的目标单位: " + targetUnit);
         }

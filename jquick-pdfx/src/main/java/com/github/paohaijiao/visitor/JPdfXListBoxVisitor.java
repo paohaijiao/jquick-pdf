@@ -32,23 +32,6 @@ import com.itextpdf.html2pdf.attach.impl.layout.form.element.ListBoxField;
  */
 public class JPdfXListBoxVisitor extends JPdfXLinkVisitor {
 
-    @Override
-     public ListBoxField visitListBoxField(JQuickPDFParser.ListBoxFieldContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
-        }
-        String value = "";
-        if (null != ctx.value()) {
-            value =ctx.value().getText();
-        }
-        ListBoxField listBoxField = new ListBoxField(JStringUtils.trim(value),30,true);
-        listBoxField.setFont(JFontProviderFactory.defualtFont());
-        super.buildStyle(listBoxField, style);
-        return listBoxField;
-   }
 
 
 }

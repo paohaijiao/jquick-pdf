@@ -290,6 +290,16 @@ public class JElementTest {
         executor.execute(adaptor.getRuleContent());
     }
 
+    @Test
+    public void report() throws IOException {
+        JPdfConfig config=new JPdfConfig();
+        JTemplateConfig templateConfig=config.getTemplateConfig();
+        JReader fileReader = new JReSourceFileReader("report.txt");
+        JAdaptor adaptor = new JAdaptor(fileReader);
+        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
+        executor.execute(adaptor.getRuleContent());
+    }
+
 
 
 

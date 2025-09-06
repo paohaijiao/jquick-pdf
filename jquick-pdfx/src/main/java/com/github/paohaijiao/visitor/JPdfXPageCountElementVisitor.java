@@ -15,10 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.html2pdf.attach.impl.layout.PageCountElement;
+
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -31,23 +28,6 @@ import com.itextpdf.html2pdf.attach.impl.layout.PageCountElement;
  */
 public class JPdfXPageCountElementVisitor extends JPdfXListBoxVisitor {
 
-    @Override
-    public PageCountElement visitPageCountElement(JQuickPDFParser.PageCountElementContext ctx) {
-     JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
-        }
-        String value = "";
-        if (null != ctx.value()) {
-            value =ctx.value().getText();
-        }
-        PageCountElement pageCountElement = new PageCountElement();
-        pageCountElement.setFont(JFontProviderFactory.defualtFont());
-        super.buildStyle(pageCountElement, style);
-        return pageCountElement;
-   }
 
 
 }

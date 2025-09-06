@@ -95,16 +95,13 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        Object value = null;
+        java.util.List<Object> subelem = null;
+        System.out.println(ctx.elemValue().getText());
         if (ctx.elemValue() != null) {
-            value = (String) visitElemValue(ctx.elemValue());
+            subelem =  visitElemValue(ctx.elemValue());
         }
-        String text = "";
-        if(null!=value&&value instanceof String){
-            text= JStringUtils.trim(value.toString());
-        }
-        ListItem item = new ListItem(text);
-        saveSub(item,value);
+        ListItem item = new ListItem();
+        saveSub(item,subelem);
         buildDefaultListItemStyle(item);
         super.buildStyle(item, style);
         return item;
@@ -113,15 +110,12 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         listItem.setFontColor(ReportColor.getThemeColor());
         listItem.setFontSize(11);
     }
-    private void saveSub(ListItem listItem,Object object) {
-        if(null!=object&&object instanceof java.util.List) {
-            java.util.List<Object> list=(java.util.List<Object>) object;
+    private void saveSub(ListItem listItem,java.util.List<Object> list) {
             list.forEach(e -> {
                 if (e instanceof IBlockElement) {
                     listItem.add((IBlockElement) e);
                 }
             });
-        }
     }
 
 }

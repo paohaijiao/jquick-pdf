@@ -71,9 +71,9 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             String str = ctx.getText();
             value = visitValue(ctx.value());
         }
-        JAssert.notNull(value, "value is null");
+       // JAssert.notNull(value, "value is null");
         JStyleAttributes attr = new JStyleAttributes();
-        attr.put(key, value.toString());
+        attr.put(key, null==value?"":value.toString());
         return attr;
     }
 

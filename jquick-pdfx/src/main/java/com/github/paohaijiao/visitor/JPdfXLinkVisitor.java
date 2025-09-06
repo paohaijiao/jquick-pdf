@@ -33,23 +33,7 @@ import com.itextpdf.layout.element.Link;
  */
 public class JPdfXLinkVisitor extends JPdfXLineSeparaterVisitor {
 
-    @Override
-    public Link visitLink(JQuickPDFParser.LinkContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
-        }
-        String value = "";
-        if (null != ctx.value()) {
-            value =ctx.value().getText();
-        }
-        Link link = new Link(JStringUtils.trim(value),new PdfAction());
-        link.setFont(JFontProviderFactory.defualtFont());
-        super.buildStyle(link, style);
-        return link;
-   }
+
 
 
 }
