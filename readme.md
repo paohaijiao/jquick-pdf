@@ -59,18 +59,11 @@
 ```
 ## 基础语法
 ```html
-<!DOCTYPE html>
-<html>
-<head>
-    <style>
-        @page { margin: 2cm }
-        body { font-family: Arial }
-    </style>
-</head>
+<pdf>
 <body>
     <!-- Content goes here -->
 </body>
-</html>
+</pdf>
 ```
 ## Elements STYLE
 
@@ -158,7 +151,7 @@
      executor.execute(context.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <p>
      '这是 is Paragraph......................................................................'
@@ -173,11 +166,11 @@
      <span> '这种 is Paragraph1......................................................................'</span>
 </p>
 </body>
-</html>
+</pdf>
 ```
 #### 2.标题h1-h6
 ```html
-<html>
+<pdf>
 <body>
 <h1>
     '这是 is h1......................................................................'
@@ -198,21 +191,21 @@
     '这是 is h6......................................................................'
 </h6>
 </body>
-</html>
+</pdf>
 ```
 #### 3.span内联文本
 ```html
-<html>
+<pdf>
 <body>
 <p>
 <span style="fontColor:blue">'你好中国'</span>
 </p>
 </body>
-</html>
+</pdf>
 ```
 #### 4.tab制表符
 ```html
-<html>
+<pdf>
 <body>
 <p style="fontColor:red">
 <tab>/tab>
@@ -221,7 +214,7 @@
 <span>'你好中国'</span>
 </p>
 </body>
-</html>
+</pdf>
 ```
 ### 布局元素
 
@@ -232,15 +225,15 @@
 | `<htmlPageBreak>`| 显式分页符(NewPage)	  | ElementProperty                 | `<htmlPageBreak/>`             |
 #### 1. div块容器
 ```html
-<html>
+<pdf>
 <body>
 <div style="fontColor:red">'你好中国'</div>
 </body>
-</html>
+</pdf>
 ```
 ####  2. areaBreak分节符
 ```html
-<html>
+<pdf>
 <body>
 <p>
 <span style="fontColor:blue">'你好中国'</span>
@@ -250,15 +243,15 @@
 <span style="fontColor:blue">'你好中国'</span>
 </p>
 </body>
-</html>
+</pdf>
 ```
 ####  3.htmlPageBreak分页符
 ```html
-<html>
+<pdf>
 <body>
 <htmlPageBreak style="font-color:blue">next_area</htmlPageBreak>
 </body>
-</html>
+</pdf>
 ```
 
 ### List Elements
@@ -270,7 +263,7 @@
 
 ####  1.列表
 ```html
-<html>
+<pdf>
 <body>
 <list style="symbol:hahaha">
     <li style="fontColor:red">'选项1'</li>
@@ -280,7 +273,7 @@
     <li style="fontColor:red">'选项5'</li>
 </list>
 </body>
-</html>
+</pdf>
 ```
 
 ### 表格元素
@@ -294,7 +287,7 @@
 
 ####  1.表格
 ```html
-<html>
+<pdf>
 <body>
 <table >
     <tr>
@@ -307,7 +300,7 @@
     </tr>
 </table>
 </body>
-</html>
+</pdf>
 ```
 ### 表单元素
 
@@ -320,35 +313,35 @@
 
 ####  1.按钮
 ```html
-<html>
+<pdf>
 <body>
 <button style="fontColor:blue">'提交'</button>
 </body>
-</html>
+</pdf>
 ```
 ####  2.复选框
 ```html
-<html>
+<pdf>
 <body>
 <checkbox style="font-color:blue" checked>'提交'</checkbox>
 </body>
-</html>
+</pdf>
 ```
 ####  3.文本输入框
 ```html
-<html>
+<pdf>
 <body>
 <inputField style="font-color:blue">'你好中国'</inputField>
 </body>
-</html>
+</pdf>
 ```
 ####  4.下拉选择框
 ```html
-<html>
+<pdf>
 <body>
 <comboBoxField style="font-color:blue" checked>'提交'</comboBoxField>
 </body>
-</html>
+</pdf>
 ```
 
 ### 媒体元素
@@ -622,13 +615,13 @@ JScatter scatter = new JScatter();
 ```
 ####  1.图片
 ```html
-<html>
+<pdf>
 <body>
 <image src="https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7" style="width:2000px;height:300px"></image>
 <image src="https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7" style="width:2000px;height:300px"></image>
 <image src="https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7" style="width:2000px;height:300px"></image>
 </body>
-</html>
+</pdf>
 ```
 ####  2.SVG矢量图
 ```java
@@ -709,11 +702,11 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(params);
 executor.execute(context.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <svg>${svg}</svg>
 </body>
-</html>
+</pdf>
 ```
 ####  3.SVG矢量图 for java render
 ```java
@@ -754,11 +747,11 @@ executor.execute(context.getRuleContent());
         executor.execute(context.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <svg>svg</svg>
 </body>
-</html>
+</pdf>
 ```
 
 ## 特殊元素
@@ -771,7 +764,7 @@ executor.execute(context.getRuleContent());
 | `<tree>`         | Hierarchical data (PdfOutline)       | N/A        | N/A               |
 ####  1.pageCountElement ( remove from version1.4)
 ```html
-<html>
+<pdf>
 <body>
 </p>
 <areaBreak></areaBreak>
@@ -792,7 +785,7 @@ executor.execute(context.getRuleContent());
 </p>
 
 </body>
-</html>
+</pdf>
 ```
 ####  2.模板
 ```java
@@ -805,11 +798,11 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <template>&html</template>
 </body>
-</html>
+</pdf>
 ```
 ####  3.link --> ( remove from version1.4)
 ```html
@@ -823,22 +816,22 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 ```
 ####  4.listBoxField ( remove from version1.4)
 ```html
-<html>
+<pdf>
 <body>
 <listBoxField style="fontColor:red">'这是啥元素'
 </listBoxField>
 </body>
-</html>
+</pdf>
 ```
 ####  5.大文本
 ```html
-<html>
+<pdf>
 <body>
 <p style="fontColor:red">
 <textArea>'你好中国'</textArea>
 </p>
 </body>
-</html>
+</pdf>
 ```
 ####  6.树
 ```java
@@ -858,11 +851,11 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(context);
 executor.execute(adaptor.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <tree>${tree}</tree>
 </body>
-</html>
+</pdf>
 ```
 
 
@@ -885,11 +878,11 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <tree>tree</tree>
 </body>
-</html>
+</pdf>
 ```
 ####  8 样例
 ```java

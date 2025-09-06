@@ -61,17 +61,11 @@ templates with support for dynamic content and rich styling.
 ## Basic Syntax
 ```html
 <!DOCTYPE html>
-<html>
-<head>
-    <style>
-        @page { margin: 2cm }
-        body { font-family: Arial }
-    </style>
-</head>
+<pdf>
 <body>
     <!-- Content goes here -->
 </body>
-</html>
+</pdf>
 ```
 ## Elements STYLE
 
@@ -159,7 +153,7 @@ templates with support for dynamic content and rich styling.
      executor.execute(context.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <p>
      '这是 is Paragraph......................................................................'
@@ -174,11 +168,11 @@ templates with support for dynamic content and rich styling.
      <span> '这种 is Paragraph1......................................................................'</span>
 </p>
 </body>
-</html>
+</pdf>
 ```
 #### 2.h1-h6
 ```html
-<html>
+<pdf>
 <body>
 <h1>
     '这是 is h1......................................................................'
@@ -199,21 +193,21 @@ templates with support for dynamic content and rich styling.
     '这是 is h6......................................................................'
 </h6>
 </body>
-</html>
+</pdf>
 ```
 #### 3.span
 ```html
-<html>
+<pdf>
 <body>
 <p>
 <span style="fontColor:blue">'你好中国'</span>
 </p>
 </body>
-</html>
+</pdf>
 ```
 #### 4.tab
 ```html
-<html>
+<pdf>
 <body>
 <p style="fontColor:red">
 <tab>/tab>
@@ -222,7 +216,7 @@ templates with support for dynamic content and rich styling.
 <span>'你好中国'</span>
 </p>
 </body>
-</html>
+</pdf>
 ```
 ### Layout Elements
 
@@ -233,15 +227,15 @@ templates with support for dynamic content and rich styling.
 | `<htmlPageBreak>`| Explicit page break (NewPage)       | ElementProperty                 | `<htmlPageBreak/>`             |
 #### 1.div
 ```html
-<html>
+<pdf>
 <body>
 <div style="fontColor:red">'你好中国'</div>
 </body>
-</html>
+</pdf>
 ```
 ####  2.areaBreak
 ```html
-<html>
+<pdf>
 <body>
 <p>
 <span style="fontColor:blue">'你好中国'</span>
@@ -251,15 +245,15 @@ templates with support for dynamic content and rich styling.
 <span style="fontColor:blue">'你好中国'</span>
 </p>
 </body>
-</html>
+</pdf>
 ```
 ####  3.htmlPageBreak
 ```html
-<html>
+<pdf>
 <body>
 <htmlPageBreak style="font-color:blue">next_area</htmlPageBreak>
 </body>
-</html>
+</pdf>
 ```
 
 ### List Elements
@@ -271,7 +265,7 @@ templates with support for dynamic content and rich styling.
 
 ####  1.list
 ```html
-<html>
+<pdf>
 <body>
 <list style="symbol:hahaha">
     <li style="fontColor:red">'选项1'</li>
@@ -281,7 +275,7 @@ templates with support for dynamic content and rich styling.
     <li style="fontColor:red">'选项5'</li>
 </list>
 </body>
-</html>
+</pdf>
 ```
 
 ### Table Elements
@@ -295,7 +289,7 @@ templates with support for dynamic content and rich styling.
 
 ####  1.table
 ```html
-<html>
+<pdf>
 <body>
 <table >
     <tr>
@@ -308,7 +302,7 @@ templates with support for dynamic content and rich styling.
     </tr>
 </table>
 </body>
-</html>
+</pdf>
 ```
 ### Form Elements
 
@@ -321,35 +315,35 @@ templates with support for dynamic content and rich styling.
 
 ####  1.button
 ```html
-<html>
+<pdf>
 <body>
 <button style="fontColor:blue">'提交'</button>
 </body>
-</html>
+</pdf>
 ```
 ####  2.checkbox
 ```html
-<html>
+<pdf>
 <body>
 <checkbox style="font-color:blue" checked>'提交'</checkbox>
 </body>
-</html>
+</pdf>
 ```
 ####  3.inputField
 ```html
-<html>
+<pdf>
 <body>
 <inputField style="font-color:blue">'你好中国'</inputField>
 </body>
-</html>
+</pdf>
 ```
 ####  4.comboBoxField
 ```html
-<html>
+<pdf>
 <body>
 <comboBoxField style="font-color:blue" checked>'提交'</comboBoxField>
 </body>
-</html>
+</pdf>
 ```
 
 ### Media Elements
@@ -710,11 +704,11 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(params);
 executor.execute(context.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <svg>${svg}</svg>
 </body>
-</html>
+</pdf>
 ```
 ####  3.svg for java render
 ```java
@@ -755,11 +749,11 @@ executor.execute(context.getRuleContent());
         executor.execute(context.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
-<svg>svg</svg>
+<svg>${svg}</svg>
 </body>
-</html>
+</pdf>
 ```
 
 ## Special Elements
@@ -775,7 +769,7 @@ executor.execute(context.getRuleContent());
 | `<tree>`         | Hierarchical data (PdfOutline)       | N/A        | N/A               |
 ####  1.pageCountElement  ( remove from version1.4)
 ```html
-<html>
+<pdf>
 <body>
 </p>
 <areaBreak></areaBreak>
@@ -796,7 +790,7 @@ executor.execute(context.getRuleContent());
 </p>
 
 </body>
-</html>
+</pdf>
 ```
 ####  2.template
 ```java
@@ -809,40 +803,40 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <template>&html</template>
 </body>
-</html>
+</pdf>
 ```
 ####  3.link --> ( remove from version1.4)
 ```html
-<html>
+<pdf>
 <body>
 <p>
 <link style=”strokeColor:red“>'你好'</link>
 </p>
 </body>
-</html>
+</pdf>
 ```
 ####  4.listBoxField  ( remove from version1.4)
 ```html
-<html>
+<pdf>
 <body>
 <listBoxField style="fontColor:red">'这是啥元素'
 </listBoxField>
 </body>
-</html>
+</pdf>
 ```
 ####  5.textArea
 ```html
-<html>
+<pdf>
 <body>
 <p style="fontColor:red">
 <textArea>'你好中国'</textArea>
 </p>
 </body>
-</html>
+</pdf>
 ```
 ####  6.tree
 ```java
@@ -862,11 +856,11 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(context);
 executor.execute(adaptor.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <tree>${tree}</tree>
 </body>
-</html>
+</pdf>
 ```
 
 
@@ -889,11 +883,11 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());
 ```
 ```html
-<html>
+<pdf>
 <body>
 <tree>tree</tree>
 </body>
-</html>
+</pdf>
 ```
 ####  8 demo
 ```java
