@@ -81,6 +81,4 @@ public class JPdfXElementVisitor extends JPdfXTemplateVisitor  {
         return null;
     }
 
-
-
 }
