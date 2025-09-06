@@ -288,16 +288,6 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 */
 	void exitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#inputField}.
-	 * @param ctx the parse tree
-	 */
-	void enterInputField(JQuickPDFParser.InputFieldContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#inputField}.
-	 * @param ctx the parse tree
-	 */
-	void exitInputField(JQuickPDFParser.InputFieldContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#lineSeparator}.
 	 * @param ctx the parse tree
 	 */
@@ -307,36 +297,6 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLineSeparator(JQuickPDFParser.LineSeparatorContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#link}.
-	 * @param ctx the parse tree
-	 */
-	void enterLink(JQuickPDFParser.LinkContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#link}.
-	 * @param ctx the parse tree
-	 */
-	void exitLink(JQuickPDFParser.LinkContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#listBoxField}.
-	 * @param ctx the parse tree
-	 */
-	void enterListBoxField(JQuickPDFParser.ListBoxFieldContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#listBoxField}.
-	 * @param ctx the parse tree
-	 */
-	void exitListBoxField(JQuickPDFParser.ListBoxFieldContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link JQuickPDFParser#pageCountElement}.
-	 * @param ctx the parse tree
-	 */
-	void enterPageCountElement(JQuickPDFParser.PageCountElementContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link JQuickPDFParser#pageCountElement}.
-	 * @param ctx the parse tree
-	 */
-	void exitPageCountElement(JQuickPDFParser.PageCountElementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#tab}.
 	 * @param ctx the parse tree
@@ -517,6 +477,16 @@ public interface JQuickPDFListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVariable(JQuickPDFParser.VariableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link JQuickPDFParser#addressOf}.
+	 * @param ctx the parse tree
+	 */
+	void enterAddressOf(JQuickPDFParser.AddressOfContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JQuickPDFParser#addressOf}.
+	 * @param ctx the parse tree
+	 */
+	void exitAddressOf(JQuickPDFParser.AddressOfContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link JQuickPDFParser#color}.
 	 * @param ctx the parse tree

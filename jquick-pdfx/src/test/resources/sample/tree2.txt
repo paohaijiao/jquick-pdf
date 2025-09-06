@@ -1,5 +1,5 @@
-<html>
+<pdf>
 <body>
 <tree>tree</tree>
 </body>
-</html>
+</pdf>

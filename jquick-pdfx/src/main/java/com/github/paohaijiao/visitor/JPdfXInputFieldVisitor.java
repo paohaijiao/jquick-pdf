@@ -15,12 +15,6 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.html2pdf.attach.impl.layout.form.element.InputField;
-import com.itextpdf.layout.element.Paragraph;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -32,27 +26,5 @@ import com.itextpdf.layout.element.Paragraph;
  * @description
  */
 public class JPdfXInputFieldVisitor extends JPdfXHtmlPageBreakVisitor {
-
-    @Override
-    public InputField visitInputField(JQuickPDFParser.InputFieldContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
-        }
-        String value = "";
-        if (null != ctx.value()) {
-            value =ctx.value().getText();
-        }
-        InputField inputField=new InputField(value);
-        inputField.setFont(JFontProviderFactory.defualtFont());
-        Paragraph paragraph=new Paragraph();
-        paragraph.add(JStringUtils.trim(value));
-        paragraph.setFont(JFontProviderFactory.defualtFont());
-        inputField.setPlaceholder(paragraph);
-        super.buildStyle(inputField, style);
-        return inputField;
-   }
 
 }

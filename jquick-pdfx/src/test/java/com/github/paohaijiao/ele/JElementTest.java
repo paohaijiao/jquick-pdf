@@ -166,7 +166,6 @@ public class JElementTest {
         graphContainer.setType(JChartType.K);
         JGraphConfig graphConfig=new JGraphConfig();
         graphConfig.put("svg",graphContainer);
-
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
@@ -223,37 +222,10 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
-    @Test
-    public void inputField() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/inputField.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
-        executor.execute(context.getRuleContent());
-    }
+
     @Test
     public void lineSeperator() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/lineSeperator.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
-        executor.execute(context.getRuleContent());
-    }
-    @Test
-    public void link() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/link.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
-        executor.execute(context.getRuleContent());
-    }
-    @Test
-    public void listBoxField() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/listBoxField.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
-        executor.execute(context.getRuleContent());
-    }
-    @Test
-    public void pageCountElement() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/pageCountElem.txt");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());

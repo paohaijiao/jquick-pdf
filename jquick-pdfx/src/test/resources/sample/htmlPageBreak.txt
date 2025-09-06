@@ -1,5 +1,5 @@
-<html>
+<pdf>
 <body>
 <htmlPageBreak style="font-color:blue">next_area</htmlPageBreak>
 </body>
-</html>
+</pdf>

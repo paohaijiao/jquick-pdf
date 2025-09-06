@@ -1,4 +1,4 @@
-<html>
+<pdf>
 <body>
 <p>
 <span style="fontColor:blue">'你好中国'</span>
@@ -8,4 +8,4 @@
 <span style="fontColor:blue">'你好中国'</span>
 </p>
 </body>
-</html>
+</pdf>

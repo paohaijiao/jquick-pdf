@@ -1,5 +1,5 @@
-<html>
+<pdf>
 <body>
 <svg>${svg}</svg>
 </body>
-</html>
+</pdf>

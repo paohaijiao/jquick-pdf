@@ -179,35 +179,11 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#inputField}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInputField(JQuickPDFParser.InputFieldContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#lineSeparator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitLineSeparator(JQuickPDFParser.LineSeparatorContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#link}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLink(JQuickPDFParser.LinkContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#listBoxField}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitListBoxField(JQuickPDFParser.ListBoxFieldContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link JQuickPDFParser#pageCountElement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPageCountElement(JQuickPDFParser.PageCountElementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#tab}.
 	 * @param ctx the parse tree
@@ -316,6 +292,12 @@ public interface JQuickPDFVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitVariable(JQuickPDFParser.VariableContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JQuickPDFParser#addressOf}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAddressOf(JQuickPDFParser.AddressOfContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JQuickPDFParser#color}.
 	 * @param ctx the parse tree

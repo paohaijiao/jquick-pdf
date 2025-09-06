@@ -1,5 +1,5 @@
-<html>
+<pdf>
 <body>
 <checkbox style="font-color:blue" checked>'提交'</checkbox>
 </body>
-</html>
+</pdf>

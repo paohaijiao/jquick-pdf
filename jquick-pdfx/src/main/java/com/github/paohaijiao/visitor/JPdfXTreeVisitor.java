@@ -48,8 +48,8 @@ public class JPdfXTreeVisitor extends JPdfXImageVisitor {
             JAssert.notNull(var, "the variable not  null");
             TreeNode root = (TreeNode) var;
             tree = new TreeElement(root);
-        } else if (ctx.IDENTIFIER() != null) {
-            String identify = ctx.IDENTIFIER().getText();
+        } else if (ctx.addressOf() != null) {
+            String identify = ctx.addressOf().IDENTIFIER().getText();
             JTreeNodeConfig treeConfig = this.config.getTreeConfig();
             JAssert.notNull(treeConfig, "the tree config not  null");
             TreeNode treeNode = treeConfig.drawTree(identify);

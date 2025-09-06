@@ -1,7 +1,0 @@
-<html>
-<body>
-<p>
-<link style=”strokeColor:red“>'你好'</link>
-</p>
-</body>
-</html>

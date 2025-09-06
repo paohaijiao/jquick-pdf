@@ -1,7 +1,7 @@
-<html>
+<pdf>
 <body>
 <p style="fontColor:red">
 <textArea>'你好中国'</textArea>
 </p>
 </body>
-</html>
+</pdf>

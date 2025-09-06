@@ -47,8 +47,8 @@ public class JPdfXSvgVisitor extends JPdfXTreeVisitor {
             Object var=  visitVariable(ctx.variable());
             JAssert.notNull(var,"the variable not  null");
             svgImage=new SvgImage(var.toString());
-        }else if(ctx.IDENTIFIER()!=null) {
-            String identify = ctx.IDENTIFIER().getText();
+        }else if(ctx.addressOf()!=null) {
+            String identify = ctx.addressOf().IDENTIFIER().getText();
             JGraphConfig graphConfig = this.config.getGraphConfig();
             JAssert.notNull(graphConfig, "the graph config not  null");
             String content = graphConfig.drawGraph(identify);

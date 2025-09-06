@@ -68,18 +68,9 @@ public class JPdfXElementVisitor extends JPdfXTemplateVisitor  {
         else if(ctx.htmlPageBreak()!=null){
             return visitHtmlPageBreak(ctx.htmlPageBreak());
         }
-        else if(ctx.inputField()!=null){
-            return visitInputField(ctx.inputField());
-        } else if(ctx.lineSeparator()!=null){
+        else if(ctx.lineSeparator()!=null){
             return visitLineSeparator(ctx.lineSeparator());
-        } else if(ctx.link()!=null){
-            return visitLink(ctx.link());
-        }
-        else if(ctx.listBoxField()!=null){
-            return visitListBoxField(ctx.listBoxField());
-        }else if(ctx.pageCountElement()!=null){
-            return visitPageCountElement(ctx.pageCountElement());
-        }else if(ctx.tab()!=null){
+        } else if(ctx.tab()!=null){
             return visitTab(ctx.tab());
         }
         else if(ctx.textArea()!=null){
