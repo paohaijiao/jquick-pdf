@@ -988,7 +988,6 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 ```
 ![Demo](./pay/demo.png)
 # **捐献 ☕**
-
 感谢您使用这个开源项目！它完全免费并将持续维护，但开发者确实需要您的支持。
 
 ---
