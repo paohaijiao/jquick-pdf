@@ -62,7 +62,6 @@ public class TreeMapTest {
         return option;
     }
 
-    // 示例2：扁平化数据（无分组，适合测试基础布局）
     public  JOption createFlatTreemapOption() {
         JOption option = new JOption();
         option.setTitle(new JTitle().text("2023年产品销售额"));
@@ -80,7 +79,6 @@ public class TreeMapTest {
         return option;
     }
 
-    // 示例3：极端数据测试（包含零值和超大值）
     public  JOption createEdgeCaseOption() {
         JOption option = new JOption();
         option.setTitle(new JTitle().text("极端数据测试"));
@@ -101,7 +99,6 @@ public class TreeMapTest {
         return new JData(name).value(value).category(category);
     }
 
-    // 创建扁平节点（无类别）
     private  JData createNode(String name, double value) {
         return new JData(name).value(value);
     }
