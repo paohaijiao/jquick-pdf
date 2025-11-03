@@ -26,6 +26,7 @@ public enum JChartType {
     RELATION("ration","关系图"),
     SCATTER("scatter","散点图"),
     SUNBURST("sunburst","旭日图"),
+    WORDCLOUD("wordCloud","词云"),
     ;
     private String code;
 

@@ -28,6 +28,7 @@ import com.github.paohaijiao.radar.JRadarChartsRenderer;
 import com.github.paohaijiao.relation.JRelationChartRenderer;
 import com.github.paohaijiao.scatter.JScatterChartsRenderer;
 import com.github.paohaijiao.sunburst.JSunburstChart;
+import com.github.paohaijiao.words.JWordCloudRenderer;
 
 /**
  * packageName com.github.paohaijiao.factory
@@ -62,6 +63,8 @@ public class JChartRendererFactory {
                 return new JScatterChartsRenderer();
             case SUNBURST:
                 return new JSunburstChart();
+            case WORDCLOUD:
+                return new JWordCloudRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }
