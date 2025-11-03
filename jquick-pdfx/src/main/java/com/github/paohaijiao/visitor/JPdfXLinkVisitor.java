@@ -15,13 +15,6 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.kernel.pdf.action.PdfAction;
-import com.itextpdf.layout.element.Link;
-
 /**
  * packageName com.paohaijiao.javelin.visitor
  *

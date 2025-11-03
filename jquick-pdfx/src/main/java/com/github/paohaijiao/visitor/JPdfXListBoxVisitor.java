@@ -15,12 +15,6 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.html2pdf.attach.impl.layout.form.element.ListBoxField;
-
 /**
  * packageName com.paohaijiao.javelin.visitor
  *

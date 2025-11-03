@@ -17,15 +17,10 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JTemplateConfig;
 import com.github.paohaijiao.exception.JAssert;
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JHtmlRenderModel;
-import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.html2pdf.attach.impl.layout.form.element.TextArea;
 import com.itextpdf.layout.element.IElement;
-import com.itextpdf.layout.element.Paragraph;
 
 import java.util.List;
 

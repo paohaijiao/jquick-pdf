@@ -1,7 +1,7 @@
 package com.github.paohaijiao.sample;
+
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

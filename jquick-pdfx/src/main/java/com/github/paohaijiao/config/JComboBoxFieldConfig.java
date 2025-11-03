@@ -15,8 +15,6 @@
  */
 package com.github.paohaijiao.config;
 
-import com.github.paohaijiao.data.JGraphContainer;
-import com.github.paohaijiao.factory.JChartRendererFactory;
 import lombok.Data;
 
 import java.util.HashMap;

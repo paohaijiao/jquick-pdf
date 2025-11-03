@@ -15,19 +15,18 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.enums.JListType;
 import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.JStyleListAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.sample.ReportColor;
-import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.DeviceRgb;
-import com.itextpdf.layout.element.*;
-import com.itextpdf.layout.properties.Leading;
+import com.itextpdf.layout.element.IBlockElement;
+import com.itextpdf.layout.element.List;
+import com.itextpdf.layout.element.ListItem;
+import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.properties.ListNumberingType;
-import com.itextpdf.layout.properties.Property;
 import com.itextpdf.layout.properties.TextAlignment;
 
 

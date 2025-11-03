@@ -17,7 +17,6 @@ package com.github.paohaijiao.config;
 
 import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.geom.PageSize;
 import lombok.Data;
 
 import java.util.Arrays;

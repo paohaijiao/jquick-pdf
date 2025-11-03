@@ -19,6 +19,7 @@ import com.github.paohaijiao.code.JSeriesType;
 import com.github.paohaijiao.data.JData;
 import com.github.paohaijiao.series.JSeries;
 import com.github.paohaijiao.style.JItemStyle;
+
 import java.util.List;
 /**
  * packageName com.github.paohaijiao.words

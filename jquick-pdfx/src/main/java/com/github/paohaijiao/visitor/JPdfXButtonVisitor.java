@@ -15,12 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.html2pdf.attach.impl.layout.form.element.Button;
 import com.itextpdf.layout.element.IElement;
 
 import java.util.List;

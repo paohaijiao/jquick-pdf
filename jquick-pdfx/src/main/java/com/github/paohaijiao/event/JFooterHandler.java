@@ -16,7 +16,6 @@
 package com.github.paohaijiao.event;
 
 import com.github.paohaijiao.config.JFooterConfig;
-import com.github.paohaijiao.config.JHeaderConfig;
 import com.itextpdf.kernel.events.Event;
 import com.itextpdf.kernel.events.IEventHandler;
 import com.itextpdf.kernel.events.PdfDocumentEvent;

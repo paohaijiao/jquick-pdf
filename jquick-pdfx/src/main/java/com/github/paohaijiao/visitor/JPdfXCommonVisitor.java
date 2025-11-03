@@ -17,7 +17,6 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.model.JHtmlRenderModel;
-import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.sample.*;
