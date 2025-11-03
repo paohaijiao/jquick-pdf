@@ -1073,6 +1073,5 @@ public class JOption implements Serializable {
     }
 
 
-    public JDiskNode data;
 
 }
