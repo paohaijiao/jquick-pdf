@@ -15,39 +15,37 @@
  */
 package com.github.paohaijiao.treemap;
 
-import lombok.Data;
-
-import java.awt.*;
-import java.awt.geom.Rectangle2D;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * packageName com.github.paohaijiao.treemap
  *
  * @author Martin
  * @version 1.0.0
- * @since 2025/8/27
+ * @since 2025/11/4
  */
-@Data
-public class TreemapNode {
-    String name;
-    double value;
-    List<TreemapNode> children;
-    Color color;
-    Rectangle2D.Double rect;
+public class TreemapDepartmentRule {
 
-    public TreemapNode(String name, double value) {
-        this.name = name;
-        this.value = value;
-        this.children = new ArrayList<>();
+    private String keyword;
+
+    private String department;
+
+    public TreemapDepartmentRule(String keyword, String department) {
+        this.keyword = keyword;
+        this.department = department;
     }
 
-    public void addChild(TreemapNode child) {
-        children.add(child);
+    public String getKeyword() {
+        return keyword;
     }
 
-    public boolean hasChildren() {
-        return !children.isEmpty();
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
     }
 }
