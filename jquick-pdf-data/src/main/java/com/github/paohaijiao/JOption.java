@@ -24,7 +24,7 @@ import com.github.paohaijiao.option.JNoDataLoadingOption;
 import com.github.paohaijiao.series.JParallel;
 import com.github.paohaijiao.series.JSeries;
 import com.github.paohaijiao.style.JItemStyle;
-import com.github.paohaijiao.treemap.TreemapOption;
+import com.github.paohaijiao.treemap.TreeMapOption;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -195,14 +195,14 @@ public class JOption implements Serializable {
      */
     private JRadar radar;
 
-    private TreemapOption treemapOption;
+    private TreeMapOption treemapOption;
 
 
-    public TreemapOption getTreemapOption() {
+    public TreeMapOption getTreemapOption() {
         return treemapOption;
     }
 
-    public void setTreemapOption(TreemapOption treemapOption) {
+    public void setTreemapOption(TreeMapOption treemapOption) {
         this.treemapOption = treemapOption;
     }
 

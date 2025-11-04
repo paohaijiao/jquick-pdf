@@ -25,7 +25,7 @@ import java.util.Map;
 /**
  * 树形图配置选项类
  */
-public class TreemapOption {
+public class TreeMapOption {
 
     private int marginLeft = 50;
 
@@ -75,9 +75,9 @@ public class TreemapOption {
 
     private Map<String, Color> categoryColors = new HashMap<>();
 
-    private List<TreemapDepartmentRule> departmentRules = new ArrayList<>();
+    private List<TreeMapMapping> departmentRules = new ArrayList<>();
 
-    private JTreemapNode root;
+    private JTreeMapNode root;
 
     public int getMarginLeft() {
         return marginLeft;
@@ -271,19 +271,19 @@ public class TreemapOption {
         this.categoryColors = categoryColors;
     }
 
-    public List<TreemapDepartmentRule> getDepartmentRules() {
+    public List<TreeMapMapping> getDepartmentRules() {
         return departmentRules;
     }
 
-    public void setDepartmentRules(List<TreemapDepartmentRule> departmentRules) {
+    public void setDepartmentRules(List<TreeMapMapping> departmentRules) {
         this.departmentRules = departmentRules;
     }
 
-    public JTreemapNode getRoot() {
+    public JTreeMapNode getRoot() {
         return root;
     }
 
-    public void setRoot(JTreemapNode root) {
+    public void setRoot(JTreeMapNode root) {
         this.root = root;
     }
 }

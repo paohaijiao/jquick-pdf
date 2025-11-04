@@ -22,13 +22,13 @@ package com.github.paohaijiao.treemap;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class TreemapDepartmentRule {
+public class TreeMapMapping {
 
     private String keyword;
 
     private String department;
 
-    public TreemapDepartmentRule(String keyword, String department) {
+    public TreeMapMapping(String keyword, String department) {
         this.keyword = keyword;
         this.department = department;
     }

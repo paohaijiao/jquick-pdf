@@ -13,19 +13,35 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-
+package com.github.paohaijiao.ele;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.adaptor.JAdaptor;
+import com.github.paohaijiao.config.JGraphConfig;
+import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfXExecutor;
+import com.github.paohaijiao.resouce.JReader;
+import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import com.github.paohaijiao.treemap.JTreeMapNode;
-import com.github.paohaijiao.treemap.JTreeMapRenderer;
 import com.github.paohaijiao.treemap.TreeMapMapping;
 import com.github.paohaijiao.treemap.TreeMapOption;
+import org.junit.Test;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class JTreemapRendererExample {
+/**
+ * packageName com.github.paohaijiao.ele
+ *
+ * @author Martin
+ * @version 1.0.0
+ * @since 2025/11/4
+ */
+public class JTreeMapTest {
 
     private static final Map<String, Color> DEPARTMENT_COLORS = new HashMap<>();
     private static final Map<String, Color> CATEGORY_COLORS = new HashMap<>();
@@ -73,7 +89,6 @@ public class JTreemapRendererExample {
         CATEGORY_COLORS.put("SEO优化", new Color(142, 36, 166));
         CATEGORY_COLORS.put("邮件营销", new Color(194, 87, 212));
     }
-
     public static JTreeMapNode createTestData() {
         JTreeMapNode root = new JTreeMapNode("公司业务", 1000);
         JTreeMapNode tech = new JTreeMapNode("技术部", 350);
@@ -178,46 +193,42 @@ public class JTreemapRendererExample {
 
         return root;
     }
-
-    public static void main(String[] args) {
-        try {
-            JTreeMapNode root = createTestData();
-            TreeMapOption treemapOption = new TreeMapOption();
-            treemapOption.setRoot(root);
-            treemapOption.setDepartmentColors(DEPARTMENT_COLORS);
-            treemapOption.setCategoryColors(CATEGORY_COLORS);
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("开发", "技术部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("项目", "技术部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("服务", "技术部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("会计", "财务部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("预算", "财务部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("税务", "财务部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("审计", "财务部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("销售", "销售部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("区域", "销售部"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("招聘", "人力资源"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("培训", "人力资源"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("薪酬", "人力资源"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("员工", "人力资源"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("营销", "市场营销"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("品牌", "市场营销"));
-            treemapOption.getDepartmentRules().add(new TreeMapMapping("公关", "市场营销"));
-            JOption option = new JOption();
-            option.setTreemapOption(treemapOption);
-            option.title("公司业务分布矩形树图（JTreemapRenderer）");
-            JTreeMapRenderer renderer = new JTreeMapRenderer();
-            String outputPath = "d://test//jtreemap_renderer_output.svg";
-            renderer.render(option, outputPath);
-            System.out.println("JTreemapRenderer 树形图生成成功！");
-            System.out.println("文件保存位置: " + outputPath);
-            System.out.println("使用配置：");
-            System.out.println("  - 部门颜色映射: " + DEPARTMENT_COLORS.size() + " 个部门");
-            System.out.println("  - 分类颜色映射: " + CATEGORY_COLORS.size() + " 个分类");
-            System.out.println("  - 部门规则: " + treemapOption.getDepartmentRules().size() + " 条规则");
-        } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("生成失败：请检查目录是否存在，或依赖包是否完整");
-        }
+    @Test
+    public void svg2() throws IOException {
+        JGraphContainer graphContainer=new JGraphContainer();
+        JTreeMapNode root = createTestData();
+        TreeMapOption treemapOption = new TreeMapOption();
+        treemapOption.setRoot(root);
+        treemapOption.setDepartmentColors(DEPARTMENT_COLORS);
+        treemapOption.setCategoryColors(CATEGORY_COLORS);
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("开发", "技术部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("项目", "技术部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("服务", "技术部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("会计", "财务部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("预算", "财务部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("税务", "财务部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("审计", "财务部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("销售", "销售部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("区域", "销售部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("招聘", "人力资源"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("培训", "人力资源"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("薪酬", "人力资源"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("员工", "人力资源"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("营销", "市场营销"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("品牌", "市场营销"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("公关", "市场营销"));
+        JOption option = new JOption();
+        option.setTreemapOption(treemapOption);
+        option.title("公司业务分布矩形树图（JTreemapRenderer）");
+        graphContainer.setType(JChartType.TREEMAP);
+        graphContainer.setOption(option);
+        JGraphConfig graphConfig=new JGraphConfig();
+        graphConfig.put("svg",graphContainer);
+        JPdfConfig config = new JPdfConfig();
+        config.setGraphConfig(graphConfig);
+        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
+        JAdaptor context = new JAdaptor(fileReader);
+        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
+        executor.execute(context.getRuleContent());
     }
 }
-

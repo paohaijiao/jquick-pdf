@@ -27,24 +27,24 @@ import java.util.List;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JTreemapNode {
+public class JTreeMapNode {
 
     private String name;
 
     private double value;
 
-    private List<JTreemapNode> children = new ArrayList<>();
+    private List<JTreeMapNode> children = new ArrayList<>();
 
     private Rectangle2D rect;
 
     private Color color;
 
-    public JTreemapNode(String name, double value) {
+    public JTreeMapNode(String name, double value) {
         this.name = name;
         this.value = value;
     }
 
-    public void addChild(JTreemapNode child) {
+    public void addChild(JTreeMapNode child) {
         this.children.add(child);
     }
 
@@ -68,11 +68,11 @@ public class JTreemapNode {
         this.value = value;
     }
 
-    public List<JTreemapNode> getChildren() {
+    public List<JTreeMapNode> getChildren() {
         return children;
     }
 
-    public void setChildren(List<JTreemapNode> children) {
+    public void setChildren(List<JTreeMapNode> children) {
         this.children = children;
     }
 

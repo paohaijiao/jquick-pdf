@@ -27,14 +27,14 @@ import java.util.Map;
 /**
  * 树形图渲染器，所有配置通过JOption传入
  */
-public class JTreemapRenderer extends JAbstractChartRenderer {
+public class JTreeMapRenderer extends JAbstractChartRenderer {
 
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
         svgGenerator.setPaint(getBackgroundColor(option));
         svgGenerator.fillRect(0, 0, width, height);
         drawTitle(svgGenerator, option, width);
-        TreemapOption treemapOption = getTreemapOption(option);
+        TreeMapOption treemapOption = getTreemapOption(option);
         if (treemapOption == null || treemapOption.getRoot() == null) {
             drawNoDataMessage(svgGenerator, width, height);
             return;
@@ -52,18 +52,18 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 从JOption中获取树形图专用配置
      */
-    private TreemapOption getTreemapOption(JOption option) {
-        if (option.getTreemapOption() instanceof TreemapOption) {
+    private TreeMapOption getTreemapOption(JOption option) {
+        if (option.getTreemapOption() instanceof TreeMapOption) {
             return option.getTreemapOption();
         }
-        return new TreemapOption();
+        return new TreeMapOption();
     }
 
     /**
      * 获取背景颜色
      */
     private Color getBackgroundColor(JOption option) {
-        TreemapOption treemapOption = getTreemapOption(option);
+        TreeMapOption treemapOption = getTreemapOption(option);
         return treemapOption.getBackgroundColor() != null ? treemapOption.getBackgroundColor() : BACKGROUND_COLOR;
     }
 
@@ -81,7 +81,7 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 计算整个树的布局（新增方法）
      */
-    private void calculateTreeLayout(JTreemapNode node, double x, double y, double width, double height) {
+    private void calculateTreeLayout(JTreeMapNode node, double x, double y, double width, double height) {
         if (node == null) return;
         if (node.getRect() == null) {// 为当前节点设置矩形（如果是根节点，通常不显示）
             node.setRect(new Rectangle2D.Double(x, y, width, height));
@@ -94,16 +94,16 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 改进的树形图布局算法（切片切丁算法）
      */
-    private void calculateLayoutImproved(List<JTreemapNode> nodes, double x, double y, double width, double height) {
+    private void calculateLayoutImproved(List<JTreeMapNode> nodes, double x, double y, double width, double height) {
         if (nodes == null || nodes.isEmpty()) return;
-        double total = nodes.stream().mapToDouble(JTreemapNode::getValue).sum();
+        double total = nodes.stream().mapToDouble(JTreeMapNode::getValue).sum();
         if (total <= 0) return;
         nodes.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));// 按值排序以获得更好的视觉效果
         boolean vertical = width < height; // 根据宽高比决定分割方向
         double current = vertical ? y : x;
         double remaining = vertical ? height : width;
         for (int i = 0; i < nodes.size(); i++) {
-            JTreemapNode node = nodes.get(i);
+            JTreeMapNode node = nodes.get(i);
             double ratio = node.getValue() / total;
             double size = remaining * ratio;
             Rectangle2D rect;
@@ -133,12 +133,12 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 绘制树形图
      */
-    private void drawTreemap(SVGGraphics2D svgGenerator, JTreemapNode node, TreemapOption option) {
+    private void drawTreemap(SVGGraphics2D svgGenerator, JTreeMapNode node, TreeMapOption option) {
         if (node.getRect() == null) return;
         if (node.getName().equals("公司业务")) {
             // 只绘制子节点
             if (node.hasChildren()) {
-                for (JTreemapNode child : node.getChildren()) {
+                for (JTreeMapNode child : node.getChildren()) {
                     drawTreemap(svgGenerator, child, option);
                 }
             }
@@ -152,7 +152,7 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
         svgGenerator.draw(node.getRect());
         drawNodeLabel(svgGenerator, node, color, option);
         if (node.hasChildren()) {// 递归绘制子节点
-            for (JTreemapNode child : node.getChildren()) {
+            for (JTreeMapNode child : node.getChildren()) {
                 drawTreemap(svgGenerator, child, option);
             }
         }
@@ -161,7 +161,7 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 获取节点颜色
      */
-    private Color getNodeColor(JTreemapNode node, TreemapOption option) {
+    private Color getNodeColor(JTreeMapNode node, TreeMapOption option) {
         if (node.getColor() != null) {// 优先使用节点自身配置的颜色
             return node.getColor();
         }
@@ -181,7 +181,7 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 生成相似颜色
      */
-    private Color generateSimilarColor(JTreemapNode node, TreemapOption option) {
+    private Color generateSimilarColor(JTreeMapNode node, TreeMapOption option) {
         String department = inferDepartment(node.getName(), option);
         Map<String, Color> departmentColors = option.getDepartmentColors();
         if (department != null && departmentColors.containsKey(department)) {
@@ -199,9 +199,9 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 推断部门
      */
-    private String inferDepartment(String categoryName, TreemapOption option) {
-        List<TreemapDepartmentRule> rules = option.getDepartmentRules();
-        for (TreemapDepartmentRule rule : rules) {
+    private String inferDepartment(String categoryName, TreeMapOption option) {
+        List<TreeMapMapping> rules = option.getDepartmentRules();
+        for (TreeMapMapping rule : rules) {
             if (categoryName.contains(rule.getKeyword())) {
                 return rule.getDepartment();
             }
@@ -222,7 +222,7 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 绘制节点标签
      */
-    private void drawNodeLabel(SVGGraphics2D svgGenerator, JTreemapNode node, Color bgColor, TreemapOption option) {
+    private void drawNodeLabel(SVGGraphics2D svgGenerator, JTreeMapNode node, Color bgColor, TreeMapOption option) {
         Rectangle2D rect = node.getRect();
         if (rect.getWidth() < option.getMinLabelWidth() || rect.getHeight() < option.getMinLabelHeight()) {
             return; // 矩形太小不绘制标签
@@ -258,7 +258,7 @@ public class JTreemapRenderer extends JAbstractChartRenderer {
     /**
      * 添加图例
      */
-    private void addLegend(SVGGraphics2D svgGenerator, int width, int height, TreemapOption option) {
+    private void addLegend(SVGGraphics2D svgGenerator, int width, int height, TreeMapOption option) {
         int startX = option.getMarginLeft();
         int startY = height - option.getMarginBottom() + 10;
         int boxSize = option.getLegendBoxSize();
