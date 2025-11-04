@@ -34,7 +34,9 @@ import java.util.List;
  * @description
  */
 public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
+
     private static final Color BOX_FILL_COLOR = new Color(100, 149, 237);
+
     private static final Color OUTLIER_COLOR = Color.RED;
 
     @Override
@@ -52,9 +54,7 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
         return Math.min(width, height) / 10;
     }
 
-    private void drawAxes(SVGGraphics2D svg, int margin,
-                          int width, int height,
-                          int plotWidth, int plotHeight) {
+    private void drawAxes(SVGGraphics2D svg, int margin, int width, int height, int plotWidth, int plotHeight) {
         svg.setColor(AXIS_COLOR);
         svg.drawLine(margin, height - margin, width - margin, height - margin); // X轴
         svg.drawLine(margin, margin, margin, height - margin); // Y轴

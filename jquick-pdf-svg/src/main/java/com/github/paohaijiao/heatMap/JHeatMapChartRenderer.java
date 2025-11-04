@@ -39,20 +39,13 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
 
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
-        // Extract data from Option
         HeatmapDataExtractor extractor = new HeatmapDataExtractor(option);
-
-        // Draw title (using parent class method)
         drawTitle(svgGenerator, option, width);
-
-        // Calculate dimensions
         int margin = 50;
         int heatmapWidth = width - 2 * margin - 50; // Leave space for legend
         int heatmapHeight = height - 2 * margin;
         int cellWidth = heatmapWidth / extractor.getXLabels().size();
         int cellHeight = heatmapHeight / extractor.getYLabels().size();
-
-        // Draw x-axis labels
         svgGenerator.setFont(LABEL_FONT);
         for (int i = 0; i < extractor.getXLabels().size(); i++) {
             String label = extractor.getXLabels().get(i);
@@ -61,74 +54,42 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
                     margin + i * cellWidth + (cellWidth - labelWidth) / 2,
                     margin + heatmapHeight + 20);
         }
-
-        // Draw y-axis labels
         for (int i = 0; i < extractor.getYLabels().size(); i++) {
             String label = extractor.getYLabels().get(i);
             int labelWidth = svgGenerator.getFontMetrics().stringWidth(label);
-            svgGenerator.drawString(label,
-                    margin - labelWidth - 5,
-                    margin + i * cellHeight + cellHeight / 2 + 5);
+            svgGenerator.drawString(label, margin - labelWidth - 5, margin + i * cellHeight + cellHeight / 2 + 5);
         }
 
-        // Draw heatmap cells
         for (int i = 0; i < extractor.getXLabels().size(); i++) {
             for (int j = 0; j < extractor.getYLabels().size(); j++) {
                 double value = extractor.getValue(i, j);
                 Color color = calculateCellColor(value, extractor.getMinValue(), extractor.getMaxValue());
-
-                // Draw cell
                 svgGenerator.setColor(color);
-                svgGenerator.fillRect(
-                        margin + i * cellWidth,
-                        margin + j * cellHeight,
-                        cellWidth, cellHeight);
-
-                // Draw border
+                svgGenerator.fillRect(margin + i * cellWidth, margin + j * cellHeight, cellWidth, cellHeight);
                 svgGenerator.setColor(CELL_BORDER_COLOR);
-                svgGenerator.drawRect(
-                        margin + i * cellWidth,
-                        margin + j * cellHeight,
-                        cellWidth, cellHeight);
-
-                // Draw value
+                svgGenerator.drawRect(margin + i * cellWidth, margin + j * cellHeight, cellWidth, cellHeight);
                 if (cellWidth > 30 && cellHeight > 20) { // Only draw if cell is large enough
                     svgGenerator.setColor(AXIS_COLOR);
                     svgGenerator.setFont(VALUE_FONT);
                     String valueStr = String.format("%.1f", value);
                     int valueWidth = svgGenerator.getFontMetrics().stringWidth(valueStr);
-                    svgGenerator.drawString(valueStr,
-                            margin + i * cellWidth + (cellWidth - valueWidth) / 2,
-                            margin + j * cellHeight + cellHeight / 2 + 5);
+                    svgGenerator.drawString(valueStr, margin + i * cellWidth + (cellWidth - valueWidth) / 2, margin + j * cellHeight + cellHeight / 2 + 5);
                 }
             }
         }
-
-        // Draw legend
-        drawLegend(svgGenerator,
-                margin + heatmapWidth + 20,
-                margin,
-                30,
-                heatmapHeight,
-                extractor.getMinValue(),
-                extractor.getMaxValue());
+        drawLegend(svgGenerator, margin + heatmapWidth + 20, margin, 30, heatmapHeight, extractor.getMinValue(), extractor.getMaxValue());
     }
 
     private Color calculateCellColor(double value, double minValue, double maxValue) {
-        // Simple color gradient from blue (low) to red (high)
         float ratio = (float) ((value - minValue) / (maxValue - minValue));
-        ratio = Math.max(0, Math.min(1, ratio)); // Clamp between 0 and 1
-
+        ratio = Math.max(0, Math.min(1, ratio));
         int red = (int) (255 * ratio);
         int green = 0;
         int blue = (int) (255 * (1 - ratio));
-
         return new Color(red, green, blue, 128); // Semi-transparent
     }
 
-    private void drawLegend(SVGGraphics2D g2d, int x, int y, int width, int height,
-                            double minValue, double maxValue) {
-        // Draw gradient legend
+    private void drawLegend(SVGGraphics2D g2d, int x, int y, int width, int height, double minValue, double maxValue) {
         for (int i = 0; i < height; i++) {
             float ratio = 1 - (float) i / height;
             int red = (int) (255 * ratio);
@@ -137,12 +98,8 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
             g2d.setColor(new Color(red, green, blue));
             g2d.drawLine(x, y + i, x + width, y + i);
         }
-
-        // Draw legend border
         g2d.setColor(AXIS_COLOR);
         g2d.drawRect(x, y, width, height);
-
-        // Draw legend labels
         g2d.setFont(VALUE_FONT);
         g2d.drawString(String.format("%.1f", maxValue), x + width + 5, y + 10);
         g2d.drawString(String.format("%.1f", (maxValue + minValue) / 2), x + width + 5, y + height / 2 + 5);
@@ -158,26 +115,16 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
         private final String title;
 
         public HeatmapDataExtractor(JOption option) {
-            // Extract x-axis labels
-            this.xLabels = option.getxAxis() != null && !option.getxAxis().isEmpty() ?
-                    option.getxAxis().get(0).getData() : new ArrayList<>();
-
-            // Extract y-axis labels
-            this.yLabels = option.getyAxis() != null && !option.getyAxis().isEmpty() ?
-                    option.getyAxis().get(0).getData() : new ArrayList<>();
-
-            // Initialize data matrix
+            this.xLabels = option.getxAxis() != null && !option.getxAxis().isEmpty() ? option.getxAxis().get(0).getData() : new ArrayList<>();
+            this.yLabels = option.getyAxis() != null && !option.getyAxis().isEmpty() ? option.getyAxis().get(0).getData() : new ArrayList<>();
             this.data = new double[xLabels.size()][yLabels.size()];
             double tempMin = Double.MAX_VALUE;
             double tempMax = Double.MIN_VALUE;
-
-            // Extract heatmap data
             if (option.getSeries() != null) {
                 for (Object series : option.getSeries()) {
                     if (series instanceof JHeatmap) {
                         JHeatmap heatmap = (JHeatmap) series;
                         List<?> heatmapData = heatmap.getData();
-
                         for (Object item : heatmapData) {
                             if (item instanceof Object[]) {
                                 Object[] entry = (Object[]) item;
@@ -186,8 +133,7 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
                                     int yIndex = ((Number) entry[1]).intValue();
                                     double value = ((Number) entry[2]).doubleValue();
 
-                                    if (xIndex >= 0 && xIndex < xLabels.size() &&
-                                            yIndex >= 0 && yIndex < yLabels.size()) {
+                                    if (xIndex >= 0 && xIndex < xLabels.size() && yIndex >= 0 && yIndex < yLabels.size()) {
                                         data[xIndex][yIndex] = value;
                                         tempMin = Math.min(tempMin, value);
                                         tempMax = Math.max(tempMax, value);
@@ -198,11 +144,9 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
                     }
                 }
             }
-
             this.minValue = tempMin != Double.MAX_VALUE ? tempMin : 0;
             this.maxValue = tempMax != Double.MIN_VALUE ? tempMax : 1;
-            this.title = option.getTitle() != null ?
-                    option.getTitle().getText() : "";
+            this.title = option.getTitle() != null ? option.getTitle().getText() : "";
         }
 
         public List<String> getXLabels() {
