@@ -514,6 +514,7 @@ public class SvgImage extends Image {
             ImageData imageData = ImageDataFactory.create(pngBytes);
             return new PdfImageXObject(imageData);
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("Failed to convert SVG to Image", e);
         }
     }

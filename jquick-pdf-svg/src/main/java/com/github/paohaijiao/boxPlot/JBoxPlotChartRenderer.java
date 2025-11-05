@@ -60,9 +60,7 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
         svg.drawLine(margin, margin, margin, height - margin); // Y轴
     }
 
-    private void drawBoxplots(SVGGraphics2D svg, BoxplotDataExtractor extractor,
-                              int margin, int width, int height,
-                              int plotWidth, int plotHeight) {
+    private void drawBoxplots(SVGGraphics2D svg, BoxplotDataExtractor extractor, int margin, int width, int height, int plotWidth, int plotHeight) {
         int boxWidth = 30;
         int categoryCount = extractor.getCategories().size();
         int spacing = plotWidth / (categoryCount + 1);
@@ -70,28 +68,22 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
         for (int i = 0; i < categoryCount; i++) {
             double[] box = extractor.getBoxData(i);
             String category = extractor.getCategories().get(i);
-            // 计算坐标
             int yMin = scaleToPlot(box[0], height, margin, plotHeight, extractor.getValueRange());
             int yQ1 = scaleToPlot(box[1], height, margin, plotHeight, extractor.getValueRange());
             int yMedian = scaleToPlot(box[2], height, margin, plotHeight, extractor.getValueRange());
             int yQ3 = scaleToPlot(box[3], height, margin, plotHeight, extractor.getValueRange());
             int yMax = scaleToPlot(box[4], height, margin, plotHeight, extractor.getValueRange());
             int x = margin + (i + 1) * spacing - boxWidth / 2;
-            // 绘制须线
             svg.setColor(AXIS_COLOR);
             svg.drawLine(x + boxWidth / 2, yMin, x + boxWidth / 2, yMax);
             svg.drawLine(x, yMin, x + boxWidth, yMin);
             svg.drawLine(x, yMax, x + boxWidth, yMax);
-            // 绘制箱体
             svg.setColor(BOX_FILL_COLOR);
             svg.fillRect(x, yQ3, boxWidth, yQ1 - yQ3);
             svg.setColor(AXIS_COLOR);
             svg.drawRect(x, yQ3, boxWidth, yQ1 - yQ3);
-            // 绘制中位数
             svg.drawLine(x, yMedian, x + boxWidth, yMedian);
-            // 绘制类别标签
             svg.drawString(category, x, height - margin + 20);
-            // 绘制异常值（如果有）
             if (box.length > 5) {
                 svg.setColor(OUTLIER_COLOR);
                 for (int j = 5; j < box.length; j++) {
@@ -100,18 +92,14 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
                 }
             }
         }
-        // 绘制Y轴刻度
         drawYAxisTicks(svg, margin, height, plotHeight, extractor.getValueRange());
     }
 
-    private int scaleToPlot(double value, int height, int margin,
-                            int plotHeight, ValueRange valueRange) {
+    private int scaleToPlot(double value, int height, int margin,int plotHeight, ValueRange valueRange) {
         return (int) (height - margin - (value - valueRange.min) / valueRange.range * plotHeight);
     }
 
-    private void drawYAxisTicks(SVGGraphics2D svg, int margin,
-                                int height, int plotHeight,
-                                ValueRange valueRange) {
+    private void drawYAxisTicks(SVGGraphics2D svg, int margin, int height, int plotHeight, ValueRange valueRange) {
         int tickCount = 5;
         double tickStep = valueRange.range / (tickCount - 1);
         for (int i = 0; i < tickCount; i++) {

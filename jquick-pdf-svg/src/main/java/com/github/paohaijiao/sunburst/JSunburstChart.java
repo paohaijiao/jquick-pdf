@@ -1,3 +1,5 @@
+package com.github.paohaijiao.sunburst;
+
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +15,6 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.sunburst;
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,354 +32,401 @@ package com.github.paohaijiao.sunburst;
  */
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.data.JSunburstData;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
-import com.github.paohaijiao.series.SunburstSeries;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Arc2D;
-import java.awt.geom.Point2D;
+import java.awt.geom.Area;
+import java.io.IOException;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class JSunburstChart extends JAbstractChartRenderer {
+    private static final int SVG_WIDTH = 800;
+    private static final int SVG_HEIGHT = 800;
+    private static final int CENTER_X = SVG_WIDTH / 2;
+    private static final int CENTER_Y = SVG_HEIGHT / 2;
+    private static final int[] RADII = {60, 140, 220, 300, 360};
+    private static final Color NO_DATA_FILL = new Color(248, 249, 250);
+    private static final Color NO_DATA_STROKE = new Color(233, 236, 239);
 
-    private static class SunburstNode {
-        String name;
-        Color color;
-        Color borderColor;
-        List<SunburstNode> children = new ArrayList<>();
-        double value = 1;
-        double startAngle;
-        double endAngle;
-        int depth;
-        double radius;
-        double innerRadius;
-        SunburstNode parent;
+    private static final Color[] THEME_COLORS = {
+            new Color(255, 107, 107),   // #FF6B6B
+            new Color(255, 71, 87),     // #FF4757
+            new Color(78, 205, 196),    // #4ECDC4
+            new Color(38, 166, 154),    // #26A69A
+            new Color(255, 209, 102),   // #FFD166
+            new Color(255, 171, 0),     // #FFAB00
+            new Color(239, 83, 80),     // #EF5350
+            new Color(211, 47, 47),     // #D32F2F
+            new Color(236, 64, 122),    // #EC407A
+            new Color(194, 24, 91),     // #C2185B
+            new Color(77, 208, 225),    // #4DD0E1
+            new Color(0, 188, 212),     // #00BCD4
+            new Color(255, 138, 128),   // #FF8A80
+            new Color(255, 82, 82),     // #FF5252
+            new Color(255, 128, 171),   // #FF80AB
+            new Color(240, 98, 146)     // #F06292
+    };
+
+    @Override
+    public String renderToString(JOption option) throws IOException {
+        org.w3c.dom.Document document = org.apache.batik.anim.dom.SVGDOMImplementation.getDOMImplementation()
+                .createDocument("http://www.w3.org/2000/svg", "svg", null);
+
+        SVGGraphics2D svgGenerator = new SVGGraphics2D(document);
+        svgGenerator.setSVGCanvasSize(new Dimension(SVG_WIDTH, SVG_HEIGHT));
+
+        // 设置背景
+        svgGenerator.setColor(Color.WHITE);
+        svgGenerator.fillRect(0, 0, SVG_WIDTH, SVG_HEIGHT);
+
+        // 绘制图表
+        drawChart(svgGenerator, option, SVG_WIDTH, SVG_HEIGHT);
+
+        StringWriter writer = new StringWriter();
+        svgGenerator.stream(writer, true);
+        return writer.toString();
     }
 
     @Override
-    protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
-        int centerX = width / 2;
-        int centerY = height / 2;
-
-        // 解析数据并构建完整的树结构
-        SunburstNode root = buildTreeFromOption(option);
-
-        // 计算角度和半径
-        calculateTreeValues(root);
-        calculateTreeAngles(root, 0, 2 * Math.PI);
-
-        int maxRadius = Math.min(centerX, centerY) - 100;
-        calculateTreeRadii(root, 0, maxRadius, 3); // 3层深度
+    protected void drawChart(SVGGraphics2D g, JOption option, int width, int height) {
+        JSunburstData rootData = option.getSunburstData();
 
         // 绘制标题
-        drawTitle(svgGenerator, option, width);
+        drawTitle(g, option.getTitle().getText());
 
         // 绘制旭日图
-        drawSunburst(svgGenerator, root, centerX, centerY);
+        drawSunburst(g, rootData);
 
-        // 绘制标签
-        drawLabels(svgGenerator, root, centerX, centerY);
+        // 绘制图例
+        drawLegend(g, rootData);
+
+        // 绘制交互说明
+        drawInteractionInfo(g);
     }
 
-    private SunburstNode buildTreeFromOption(JOption option) {
-        SunburstNode root = new SunburstNode();
-        root.name = "root";
-        root.depth = 0;
-        root.value = 0;
+    /**
+     * 绘制旭日图核心方法
+     */
+    private void drawSunburst(SVGGraphics2D g, JSunburstData root) {
+        // 绘制中心圆
+        drawCenterCircle(g);
 
-        List<Map<String, Object>> seriesData = null;
-        if (option.getSeries() != null && !option.getSeries().isEmpty()) {
-            Object firstSeries = option.getSeries().get(0);
-            if (firstSeries instanceof SunburstSeries) {
-                seriesData = ((SunburstSeries) firstSeries).getData();
-            }
+        // 绘制环形背景
+        for (int depth = 0; depth < RADII.length - 1; depth++) {
+            drawRingBackground(g, depth);
         }
 
-        if (seriesData == null || seriesData.isEmpty()) {
-            seriesData = createCoffeeFlavorData();
-        }
-
-        List<Object> colors = option.getColor();
-        if (colors == null || colors.isEmpty()) {
-            colors = getHarmoniousColors();
-        }
-
-        // 构建多层树结构
-        int colorIndex = 0;
-        for (Map<String, Object> categoryData : seriesData) {
-            SunburstNode categoryNode = createNodeFromData(categoryData, 1, colors, colorIndex++);
-            categoryNode.parent = root;
-            root.children.add(categoryNode);
-            root.value += categoryNode.value;
-        }
-
-        return root;
+        // 递归绘制数据节点
+        drawDataNodes(g, root, 0, 360, 0);
     }
 
-    private SunburstNode createNodeFromData(Map<String, Object> data, int depth, List<Object> colors, int colorIndex) {
-        SunburstNode node = new SunburstNode();
-        node.name = (String) data.get("name");
-        node.value = getDoubleValue(data.get("value"));
-        node.depth = depth;
+    /**
+     * 绘制中心圆
+     */
+    private void drawCenterCircle(SVGGraphics2D g) {
+        g.setColor(new Color(240, 240, 240));
+        g.fillOval(CENTER_X - RADII[0], CENTER_Y - RADII[0], RADII[0] * 2, RADII[0] * 2);
+        g.setColor(Color.LIGHT_GRAY);
+        g.setStroke(new BasicStroke(1));
+        g.drawOval(CENTER_X - RADII[0], CENTER_Y - RADII[0], RADII[0] * 2, RADII[0] * 2);
 
-        // 设置颜色 - 根据深度设置不同的颜色策略
-        if (depth == 1) {
-            node.color = parseColor(colors.get(colorIndex % colors.size()));
-        } else if (depth == 2) {
-            // 第二层使用父节点颜色的变体
-            Color parentColor = parseColor(colors.get((colorIndex) % colors.size()));
-            node.color = adjustColor(parentColor, 0.7f, 1.2f);
-        } else {
-            // 第三层使用更浅的颜色
-            Color parentColor = parseColor(colors.get((colorIndex) % colors.size()));
-            node.color = adjustColor(parentColor, 0.5f, 1.4f);
-        }
-        node.borderColor = Color.WHITE;
-
-        // 递归创建子节点
-        List<Map<String, Object>> childrenData = (List<Map<String, Object>>) data.get("children");
-        if (childrenData != null && !childrenData.isEmpty()) {
-            for (Map<String, Object> childData : childrenData) {
-                SunburstNode childNode = createNodeFromData(childData, depth + 1, colors, colorIndex);
-                childNode.parent = node;
-                node.children.add(childNode);
-            }
-        }
-
-        return node;
+        g.setColor(Color.DARK_GRAY);
+        g.setFont(new Font("Arial", Font.BOLD, 14));
+        drawCenteredString(g, "总数据", CENTER_X, CENTER_Y);
     }
 
-    private void calculateTreeValues(SunburstNode node) {
-        if (node.children.isEmpty()) {
-            return;
-        }
+    /**
+     * 绘制环形背景
+     */
+    private void drawRingBackground(SVGGraphics2D g, int depth) {
+        int innerRadius = RADII[depth];
+        int outerRadius = RADII[depth + 1];
 
-        double total = 0;
-        for (SunburstNode child : node.children) {
-            calculateTreeValues(child);
-            total += child.value;
-        }
+        Area outerCircle = new Area(new Arc2D.Double(
+                CENTER_X - outerRadius, CENTER_Y - outerRadius,
+                outerRadius * 2, outerRadius * 2, 0, 360, Arc2D.PIE
+        ));
 
-        // 如果父节点没有值，使用子节点值的总和
-        if (node.value == 0) {
-            node.value = total;
-        }
+        Area innerCircle = new Area(new Arc2D.Double(
+                CENTER_X - innerRadius, CENTER_Y - innerRadius,
+                innerRadius * 2, innerRadius * 2, 0, 360, Arc2D.PIE
+        ));
+
+        outerCircle.subtract(innerCircle);
+
+        g.setColor(NO_DATA_FILL);
+        g.fill(outerCircle);
+        g.setColor(NO_DATA_STROKE);
+        g.setStroke(new BasicStroke(1));
+        g.draw(outerCircle);
     }
 
-    private void calculateTreeAngles(SunburstNode node, double startAngle, double endAngle) {
-        node.startAngle = startAngle;
-        node.endAngle = endAngle;
+    /**
+     * 递归绘制数据节点
+     */
+    private void drawDataNodes(SVGGraphics2D g, JSunburstData node, double startAngle, double endAngle, int depth) {
+        if (depth >= RADII.length - 1) return;
 
-        if (!node.children.isEmpty()) {
-            double total = 0;
-            for (SunburstNode child : node.children) {
-                total += child.value;
-            }
+        double angleRange = endAngle - startAngle;
+        double currentStart = startAngle;
 
-            double currentStart = startAngle;
-            for (SunburstNode child : node.children) {
-                double childSpan = (endAngle - startAngle) * (child.value / total);
-                calculateTreeAngles(child, currentStart, currentStart + childSpan);
-                currentStart += childSpan;
-            }
-        }
-    }
+        for (JSunburstData child : node.getChildren()) {
+            double childAngleRange = angleRange * child.getValue();
+            double childEndAngle = currentStart + childAngleRange;
 
-    private void calculateTreeRadii(SunburstNode node, double innerRadius, double outerRadius, int maxDepth) {
-        if (node.depth > maxDepth) {
-            return;
-        }
+            if (childAngleRange > 0.1) { // 避免过小的扇区
+                drawSector(g, child, depth, currentStart, childEndAngle);
 
-        node.innerRadius = innerRadius;
-        node.radius = outerRadius;
-
-        if (!node.children.isEmpty()) {
-            double layerHeight = (outerRadius - innerRadius) / (maxDepth - node.depth + 1);
-            double childInnerRadius = outerRadius;
-            double childOuterRadius = outerRadius + layerHeight;
-
-            for (SunburstNode child : node.children) {
-                calculateTreeRadii(child, childInnerRadius, childOuterRadius, maxDepth);
-            }
-        }
-    }
-
-    private void drawSunburst(SVGGraphics2D g, SunburstNode node, int centerX, int centerY) {
-        // 不绘制根节点
-        if (node.depth > 0) {
-            double startDeg = Math.toDegrees(node.startAngle);
-            double extentDeg = Math.toDegrees(node.endAngle - node.startAngle);
-
-            if (extentDeg > 0.5) { // 只绘制足够大的扇形
-                Arc2D arc = new Arc2D.Double(
-                        centerX - node.radius, centerY - node.radius,
-                        node.radius * 2, node.radius * 2,
-                        startDeg, extentDeg, Arc2D.PIE
-                );
-
-                g.setColor(node.color);
-                g.fill(arc);
-
-                g.setColor(node.borderColor);
-                g.setStroke(new BasicStroke(1.0f));
-                g.draw(arc);
-            }
-        }
-
-        for (SunburstNode child : node.children) {
-            drawSunburst(g, child, centerX, centerY);
-        }
-    }
-
-    private void drawLabels(SVGGraphics2D g, SunburstNode node, int centerX, int centerY) {
-        if (node.depth > 0 && node.name != null && (node.endAngle - node.startAngle) > 0.1) {
-            double midAngle = (node.startAngle + node.endAngle) / 2;
-            double labelRadius = node.innerRadius + (node.radius - node.innerRadius) * 0.5;
-
-            Point2D labelPoint = getPoint(centerX, centerY, labelRadius, midAngle);
-
-            Font font = new Font("微软雅黑", Font.PLAIN, 14 - node.depth * 2);
-            g.setFont(font);
-            g.setColor(Color.BLACK);
-
-            String label = node.name;
-            // 只显示足够空间的标签
-            if ((node.endAngle - node.startAngle) > 0.3) {
-                int x = (int) labelPoint.getX();
-                int y = (int) labelPoint.getY();
-
-                int textWidth = g.getFontMetrics().stringWidth(label);
-                if (midAngle > Math.PI / 2 && midAngle < 3 * Math.PI / 2) {
-                    x -= textWidth;
+                // 递归绘制子节点
+                if (!child.getChildren().isEmpty()) {
+                    drawDataNodes(g, child, currentStart, childEndAngle, depth + 1);
                 }
-
-                y += g.getFontMetrics().getHeight() / 4;
-                g.drawString(label, x, y);
             }
-        }
 
-        for (SunburstNode child : node.children) {
-            drawLabels(g, child, centerX, centerY);
+            currentStart = childEndAngle;
         }
     }
 
-    private static Point2D getPoint(int centerX, int centerY, double radius, double angle) {
-        return new Point2D.Double(
-                centerX + radius * Math.cos(angle),
-                centerY + radius * Math.sin(angle)
+    /**
+     * 绘制数据扇区
+     */
+    private void drawSector(SVGGraphics2D g, JSunburstData node, int depth, double startAngle, double endAngle) {
+        if (depth >= RADII.length - 1) return;
+
+        int innerRadius = RADII[depth];
+        int outerRadius = RADII[depth + 1];
+
+        // 创建扇形
+        Arc2D sector = new Arc2D.Double(
+                CENTER_X - outerRadius, CENTER_Y - outerRadius,
+                outerRadius * 2, outerRadius * 2,
+                startAngle, endAngle - startAngle, Arc2D.PIE
         );
-    }
 
-    private Color adjustColor(Color color, float saturationFactor, float brightnessFactor) {
-        float[] hsb = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
-        float newSaturation = Math.max(0, Math.min(1, hsb[1] * saturationFactor));
-        float newBrightness = Math.max(0, Math.min(1, hsb[2] * brightnessFactor));
-        return Color.getHSBColor(hsb[0], newSaturation, newBrightness);
-    }
+        // 如果有内半径，需要减去内圆
+        if (innerRadius > 0) {
+            Area sectorArea = new Area(sector);
+            Area innerCircle = new Area(new Arc2D.Double(
+                    CENTER_X - innerRadius, CENTER_Y - innerRadius,
+                    innerRadius * 2, innerRadius * 2,
+                    0, 360, Arc2D.PIE
+            ));
+            sectorArea.subtract(innerCircle);
 
-    // 咖啡风味数据 - 参考ECharts官方示例
-    private List<Map<String, Object>> createCoffeeFlavorData() {
-        List<Map<String, Object>> data = new ArrayList<>();
-
-        // 第一层: 主要风味类别
-        data.add(createCategory("花香", 10,
-                createSubCategory("Floral", 4),
-                createSubCategory("Tea", 6)
-        ));
-
-        data.add(createCategory("果香", 14,
-                createSubCategory("Berry", 5),
-                createSubCategory("Dried Fruit", 3),
-                createSubCategory("Other Fruit", 3),
-                createSubCategory("Citrus Fruit", 3)
-        ));
-
-        data.add(createCategory("酸味/发酵", 5,
-                createSubCategory("Sour", 2),
-                createSubCategory("Alcohol/Fermented", 3)
-        ));
-
-        data.add(createCategory("青草/植物", 12,
-                createSubCategory("Olive Oil", 3),
-                createSubCategory("Raw", 3),
-                createSubCategory("Green/Vegetative", 3),
-                createSubCategory("Beany", 3)
-        ));
-
-        data.add(createCategory("烘烤", 15,
-                createSubCategory("Pipe Tobacco", 4),
-                createSubCategory("Tobacco", 4),
-                createSubCategory("Burnt", 3),
-                createSubCategory("Cereal", 4)
-        ));
-
-        data.add(createCategory("香料", 9,
-                createSubCategory("Pungent", 3),
-                createSubCategory("Pepper", 3),
-                createSubCategory("Brown Spice", 3)
-        ));
-
-        data.add(createCategory("坚果/可可", 13,
-                createSubCategory("Nutty", 7),
-                createSubCategory("Cocoa", 6)
-        ));
-
-        data.add(createCategory("甜味", 17,
-                createSubCategory("Brown Sugar", 4),
-                createSubCategory("Vanilla", 4),
-                createSubCategory("Vanillin", 3),
-                createSubCategory("Overall Sweet", 3),
-                createSubCategory("Sweet Aromatics", 3)
-        ));
-
-        data.add(createCategory("其他", 5,
-                createSubCategory("Chemical", 2),
-                createSubCategory("Musty/Earthy", 3)
-        ));
-
-        return data;
-    }
-
-    private Map<String, Object> createCategory(String name, double value, Map<String, Object>... children) {
-        Map<String, Object> category = new java.util.HashMap<>();
-        category.put("name", name);
-        category.put("value", value);
-        category.put("children", java.util.Arrays.asList(children));
-        return category;
-    }
-
-    private Map<String, Object> createSubCategory(String name, double value) {
-        Map<String, Object> subCategory = new java.util.HashMap<>();
-        subCategory.put("name", name);
-        subCategory.put("value", value);
-        return subCategory;
-    }
-
-    private List<Object> getHarmoniousColors() {
-        return java.util.Arrays.asList(
-                "#c23531", "#2f4554", "#61a0a8", "#d48265", "#91c7ae",
-                "#749f83", "#ca8622", "#bda29a", "#6e7074", "#546570"
-        );
-    }
-
-    private double getDoubleValue(Object value) {
-        if (value instanceof Number) {
-            return ((Number) value).doubleValue();
+            // 设置扇区颜色
+            g.setColor(getColorForDepth(depth, node.getName()));
+            g.fill(sectorArea);
+            g.setColor(Color.WHITE);
+            g.setStroke(new BasicStroke(1.5f));
+            g.draw(sectorArea);
+        } else {
+            // 中心圆的情况
+            g.setColor(getColorForDepth(depth, node.getName()));
+            g.fill(sector);
+            g.setColor(Color.WHITE);
+            g.setStroke(new BasicStroke(1.5f));
+            g.draw(sector);
         }
-        return 1.0;
+
+        // 添加标签
+        double angleRange = endAngle - startAngle;
+        if (angleRange > 8) {
+            addSectorLabel(g, node, depth, startAngle, endAngle);
+        }
     }
 
-    private Color parseColor(Object colorObj) {
-        if (colorObj instanceof String) {
-            try {
-                return Color.decode((String) colorObj);
-            } catch (NumberFormatException e) {
-                return Color.GRAY;
+    /**
+     * 为扇区添加标签
+     */
+    private void addSectorLabel(SVGGraphics2D g, JSunburstData node, int depth, double startAngle, double endAngle) {
+        int innerRadius = RADII[depth];
+        int outerRadius = RADII[depth + 1];
+        double midRadius = (innerRadius + outerRadius) / 2.0;
+        double midAngle = (startAngle + endAngle) / 2.0;
+
+        // 计算标签位置
+        double rad = Math.toRadians(90 - midAngle); // 从12点方向开始
+        double x = CENTER_X + midRadius * Math.cos(rad);
+        double y = CENTER_Y - midRadius * Math.sin(rad);
+
+        // 设置标签样式
+        Color textColor = getTextColorForDepth(depth);
+        g.setColor(textColor);
+        g.setFont(new Font("Arial", Font.PLAIN, depth == 0 ? 12 : 10));
+
+        // 截断过长的标签文本
+        String displayText = node.getName();
+        if (displayText.length() > 8) {
+            displayText = displayText.substring(0, 8) + "...";
+        }
+
+        // 保存当前变换
+        AffineTransform originalTransform = g.getTransform();
+
+        // 应用旋转变换
+        AffineTransform transform = new AffineTransform();
+        transform.translate(x, y);
+
+        // 根据角度调整文本方向
+        if (midAngle > 90 && midAngle < 270) {
+            transform.rotate(Math.toRadians(midAngle + 180));
+        } else {
+            transform.rotate(Math.toRadians(midAngle));
+        }
+
+        g.setTransform(transform);
+
+        // 绘制主标签
+        FontMetrics fm = g.getFontMetrics();
+        int textWidth = fm.stringWidth(displayText);
+        g.drawString(displayText, -textWidth / 2, 0);
+
+        // 在外层显示百分比
+        if (depth >= 1) {
+            String percentText = String.format("%.1f%%", node.getValue() * 100);
+            g.setFont(new Font("Arial", Font.PLAIN, 9));
+            int percentWidth = g.getFontMetrics().stringWidth(percentText);
+            g.drawString(percentText, -percentWidth / 2, 12);
+        }
+
+        // 恢复原始变换
+        g.setTransform(originalTransform);
+    }
+
+    /**
+     * 绘制标题
+     */
+    private void drawTitle(SVGGraphics2D g, String titleText) {
+        g.setColor(Color.DARK_GRAY);
+        g.setFont(new Font("Arial", Font.BOLD, 24));
+        drawCenteredString(g, titleText, CENTER_X, 40);
+    }
+
+    /**
+     * 绘制图例
+     */
+    private void drawLegend(SVGGraphics2D g, JSunburstData root) {
+        int legendX = 50;
+        int legendY = 650;
+
+        // 图例标题
+        g.setColor(new Color(85, 85, 85));
+        g.setFont(new Font("Arial", Font.BOLD, 14));
+        g.drawString("数据分类图例", legendX, legendY - 10);
+
+        // 收集图例节点
+        List<JSunburstData> legendNodes = new ArrayList<>();
+        collectLegendNodes(root, legendNodes, 0, 2); // 只收集前3层
+
+        // 绘制图例项
+        int x = legendX, y = legendY;
+        g.setFont(new Font("Arial", Font.PLAIN, 11));
+        g.setColor(Color.DARK_GRAY);
+
+        for (int i = 0; i < legendNodes.size(); i++) {
+            if (i > 0 && i % 4 == 0) {
+                x = legendX;
+                y += 25;
             }
+
+            JSunburstData node = legendNodes.get(i);
+            Color itemColor = getColorForDepth(getNodeDepth(root, node, 0), node.getName());
+
+            // 图例颜色块
+            g.setColor(itemColor);
+            g.fillRect(x, y, 12, 12);
+            g.setColor(Color.LIGHT_GRAY);
+            g.setStroke(new BasicStroke(1));
+            g.drawRect(x, y, 12, 12);
+
+            // 图例文字
+            g.setColor(Color.DARK_GRAY);
+            String legendText = String.format("%s (%.1f%%)", node.getName(), node.getValue() * 100);
+            g.drawString(legendText, x + 18, y + 10);
+
+            x += 180;
         }
-        return Color.GRAY;
+
+        // 添加无数据图例
+        addNoDataLegendItem(g, x, y);
+    }
+
+    /**
+     * 添加无数据图例项
+     */
+    private void addNoDataLegendItem(SVGGraphics2D g, int x, int y) {
+        g.setColor(NO_DATA_FILL);
+        g.fillRect(x, y, 12, 12);
+        g.setColor(NO_DATA_STROKE);
+        g.setStroke(new BasicStroke(1));
+        g.drawRect(x, y, 12, 12);
+
+        g.setColor(Color.DARK_GRAY);
+        g.drawString("无数据区域", x + 18, y + 10);
+    }
+
+    /**
+     * 绘制交互说明
+     */
+    private void drawInteractionInfo(SVGGraphics2D g) {
+        g.setColor(new Color(119, 119, 119));
+        g.setFont(new Font("Arial", Font.PLAIN, 11));
+        g.drawString("提示：悬停查看详细信息", 600, 650);
+    }
+
+    /**
+     * 绘制居中文字
+     */
+    private void drawCenteredString(SVGGraphics2D g, String text, int x, int y) {
+        FontMetrics fm = g.getFontMetrics();
+        int textWidth = fm.stringWidth(text);
+        int textHeight = fm.getAscent();
+        g.drawString(text, x - textWidth / 2, y + textHeight / 2 - fm.getDescent());
+    }
+
+    // ========== 工具方法 ==========
+
+    /**
+     * 根据深度和节点信息获取颜色
+     */
+    private Color getColorForDepth(int depth, String name) {
+        int hash = Math.abs((depth * 31 + name.hashCode())) % THEME_COLORS.length;
+        return THEME_COLORS[hash];
+    }
+
+    /**
+     * 根据深度获取文字颜色
+     */
+    private Color getTextColorForDepth(int depth) {
+        return depth < 2 ? new Color(51, 51, 51) : Color.WHITE;
+    }
+
+    /**
+     * 收集图例节点
+     */
+    private void collectLegendNodes(JSunburstData node, List<JSunburstData> nodes, int depth, int maxDepth) {
+        if (depth > maxDepth) return;
+        for (JSunburstData child : node.getChildren()) {
+            nodes.add(child);
+            collectLegendNodes(child, nodes, depth + 1, maxDepth);
+        }
+    }
+
+    /**
+     * 获取节点深度
+     */
+    private int getNodeDepth(JSunburstData root, JSunburstData target, int currentDepth) {
+        if (root == target) return currentDepth;
+        for (JSunburstData child : root.getChildren()) {
+            int depth = getNodeDepth(child, target, currentDepth + 1);
+            if (depth != -1) return depth;
+        }
+        return -1;
     }
 }

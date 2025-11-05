@@ -18,6 +18,7 @@ package com.github.paohaijiao.factory;
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.bar.JBarChartsRenderer;
 import com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
+import com.github.paohaijiao.bubble.JBubbleChartRenderer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.heatMap.JHeatMapChartRenderer;
 import com.github.paohaijiao.k.JKChartsRenderer;
@@ -68,6 +69,8 @@ public class JChartRendererFactory {
                 return new JWordCloudRenderer();
             case TREEMAP:
                 return new JTreeMapRenderer();
+            case Bubble:
+                return new JBubbleChartRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }

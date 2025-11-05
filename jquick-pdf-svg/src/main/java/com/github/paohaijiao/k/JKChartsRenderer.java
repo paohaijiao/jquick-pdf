@@ -57,8 +57,7 @@ public class JKChartsRenderer extends JAbstractChartRenderer {
         // 设置轴标签字体
         svgGenerator.setFont(AXIS_LABEL_FONT);
         // 绘制X轴标签
-        if (option.getxAxis() != null && !option.getxAxis().isEmpty()
-                && option.getxAxis().get(0) instanceof JCategoryAxis) {
+        if (option.getxAxis() != null && !option.getxAxis().isEmpty() && option.getxAxis().get(0) instanceof JCategoryAxis) {
             JCategoryAxis xAxis = (JCategoryAxis) option.getxAxis().get(0);
             List<String> xData = xAxis.getData();
             if (xData != null && !xData.isEmpty()) {
@@ -67,16 +66,12 @@ public class JKChartsRenderer extends JAbstractChartRenderer {
                     if (i % 2 == 0) { // 每隔一个显示标签，避免拥挤
                         String label = xData.get(i);
                         int labelWidth = svgGenerator.getFontMetrics().stringWidth(label);
-                        svgGenerator.drawString(label,
-                                marginLeft + i * xStep - labelWidth / 2,
-                                height - marginBottom + 20);
+                        svgGenerator.drawString(label, marginLeft + i * xStep - labelWidth / 2, height - marginBottom + 20);
                     }
                 }
             }
         }
-
-        // 绘制Y轴标签
-        svgGenerator.drawString("价格", marginLeft - 40, marginTop + 20);
+        svgGenerator.drawString("价格", marginLeft - 40, marginTop + 20);// 绘制Y轴标签
     }
 
     private void drawCandlestickData(SVGGraphics2D svgGenerator, JOption option, int width, int height) {

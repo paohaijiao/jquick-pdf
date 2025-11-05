@@ -1,4 +1,3 @@
-
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,29 +13,30 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
+package com.github.paohaijiao.ele;
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.JTitle;
+import com.github.paohaijiao.adaptor.JAdaptor;
+import com.github.paohaijiao.config.JGraphConfig;
+import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.data.JGraphContainer;
 import com.github.paohaijiao.data.JSunburstData;
-import com.github.paohaijiao.sunburst.JSunburstChart;
+import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfXExecutor;
+import com.github.paohaijiao.resouce.JReader;
+import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
 import java.io.IOException;
 
-
 /**
- * @ClassName BarCharTest
- * @Description: Description
- * @Author: gou
- * @CreateDate: 2025/6/13 6:52
- * @UpdateUser: UpdateUser
- * @UpdateDate: 2025/6/13 6:52
- * @UpdateRemark:
- * @Version: 1.0
+ * packageName com.github.paohaijiao.ele
+ *
+ * @author Martin
+ * @version 1.0.0
+ * @since 2025/11/4
  */
-public class SunBirdTest {
-
-
+public class JSunburdTest {
     private static JSunburstData createTestData() { // 第一层：主分类
         JSunburstData root = new JSunburstData("总数据", 1.0);
         JSunburstData main1 = new JSunburstData("电子产品", 0.4);
@@ -76,50 +76,21 @@ public class SunBirdTest {
     }
 
     @Test
-    public void testBarChar1() throws IOException {
+    public void svg2() throws IOException {
+        JGraphContainer graphContainer=new JGraphContainer();
+        JSunburstData root = createTestData();
         JOption option = new JOption();
-
-        // 设置标题
-        JTitle title = new JTitle();
-        title.setText("咖啡风味分析");
-        option.setTitle(title);
-        option.setSunburstData(createTestData());
-        JSunburstChart chart = new JSunburstChart();
-        chart.render(option, "d://test//sunburst-demo.svg");
+        option.setSunburstData(root);
+        option.title("公司业务分布矩形树图（JTreemapRenderer）");
+        graphContainer.setType(JChartType.SUNBURST);
+        graphContainer.setOption(option);
+        JGraphConfig graphConfig=new JGraphConfig();
+        graphConfig.put("svg",graphContainer);
+        JPdfConfig config = new JPdfConfig();
+        config.setGraphConfig(graphConfig);
+        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
+        JAdaptor context = new JAdaptor(fileReader);
+        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
+        executor.execute(context.getRuleContent());
     }
-//    @Test
-//    public void testBarChar2() throws IOException {
-//        JOption option = new JOption();
-//        option.setTitle(new JTitle("专业旭日图示例", "多层次数据可视化"));
-//
-//        // 设置背景色
-//        option.setBackgroundColor("#f5f5f5");
-//
-//        // 设置颜色系列
-//        List<Object> colors = Arrays.asList(
-//                "#FF6B6B", "#FF4757", "#4ECDC4", "#26A69A",
-//                "#FFD166", "#FFAB00", "#EF5350", "#D32F2F"
-//        );
-//        option.setColor(colors);
-//
-//        // 创建系列数据（这里需要根据实际数据结构来设置）
-//        JSeries series = new JSeries();
-//        series.setName("旭日图数据");
-//        series.setType("sunburst");
-//
-//        List<JSeries> seriesList = new ArrayList<>();
-//        seriesList.add(series);
-//        option.setSeries(seriesList);
-//
-//        // 创建渲染器并生成图表
-//        ProfessionalSunburstGenerator generator = new ProfessionalSunburstGenerator();
-//
-//        // 生成到文件
-//        generator.render(option, "d://test//sunburst_chart.svg");
-//
-//        // 或者生成到字符串
-//        String svgContent = generator.renderToString(option);
-//        System.out.println("旭日图生成完成！");
-//
-//    }
 }

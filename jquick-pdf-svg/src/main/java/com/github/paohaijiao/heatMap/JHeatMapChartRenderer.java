@@ -50,9 +50,7 @@ public class JHeatMapChartRenderer extends JAbstractChartRenderer {
         for (int i = 0; i < extractor.getXLabels().size(); i++) {
             String label = extractor.getXLabels().get(i);
             int labelWidth = svgGenerator.getFontMetrics().stringWidth(label);
-            svgGenerator.drawString(label,
-                    margin + i * cellWidth + (cellWidth - labelWidth) / 2,
-                    margin + heatmapHeight + 20);
+            svgGenerator.drawString(label, margin + i * cellWidth + (cellWidth - labelWidth) / 2, margin + heatmapHeight + 20);
         }
         for (int i = 0; i < extractor.getYLabels().size(); i++) {
             String label = extractor.getYLabels().get(i);

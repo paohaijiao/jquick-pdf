@@ -27,9 +27,13 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 public abstract class JAbstractChartRenderer implements JChartRenderer {
+
     protected static final Color BACKGROUND_COLOR = Color.WHITE;
+
     protected static final Color AXIS_COLOR = Color.BLACK;
+
     protected static final Font TITLE_FONT = new Font("Microsoft YaHei", Font.BOLD, 18);
+
     protected static final Font LABEL_FONT = new Font("Microsoft YaHei", Font.PLAIN, 12);
 
     @Override

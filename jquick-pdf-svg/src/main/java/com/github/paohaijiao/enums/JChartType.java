@@ -28,6 +28,7 @@ public enum JChartType {
     SUNBURST("sunburst","旭日图"),
     WORDCLOUD("wordCloud","词云"),
     TREEMAP("treeMap","矩形树图"),
+    Bubble("Bubble","气泡图"),
     ;
     private String code;
 

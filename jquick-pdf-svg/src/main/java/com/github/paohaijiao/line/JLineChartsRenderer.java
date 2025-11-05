@@ -62,28 +62,22 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
                 for (int i = 0; i < xData.size(); i++) {
                     String label = xData.get(i);
                     int labelWidth = svgGenerator.getFontMetrics().stringWidth(label);
-                    svgGenerator.drawString(label,
-                            marginLeft + i * xStep - labelWidth / 2,
-                            height - marginBottom + 20);
+                    svgGenerator.drawString(label, marginLeft + i * xStep - labelWidth / 2, height - marginBottom + 20);
                 }
             }
         }
 
         // 绘制Y轴标签
-        if (option.getyAxis() != null && !option.getyAxis().isEmpty()
-                && option.getyAxis().get(0) instanceof JValueAxis) {
+        if (option.getyAxis() != null && !option.getyAxis().isEmpty() && option.getyAxis().get(0) instanceof JValueAxis) {
             JValueAxis yAxis = (JValueAxis) option.getyAxis().get(0);
             double maxValue = yAxis.getMax() != null ? (double) yAxis.getMax() : 250;
             int yStepCount = 5;
             double yStepValue = maxValue / yStepCount;
-
             for (int i = 0; i <= yStepCount; i++) {
                 double value = i * yStepValue;
                 String valueStr = String.format("%.1f", value);
                 int labelWidth = svgGenerator.getFontMetrics().stringWidth(valueStr);
-                svgGenerator.drawString(valueStr,
-                        marginLeft - labelWidth - 5,
-                        height - marginBottom - (int) (i * (chartHeight / (double) yStepCount) + 5));
+                svgGenerator.drawString(valueStr, marginLeft - labelWidth - 5, height - marginBottom - (int) (i * (chartHeight / (double) yStepCount) + 5));
             }
         }
     }
@@ -99,7 +93,6 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
         int marginBottom = 80;
         int chartWidth = width - marginLeft - marginRight;
         int chartHeight = height - marginTop - marginBottom;
-
         for (Object seriesObj : option.getSeries()) {
             if (seriesObj instanceof JLine) {
                 JLine line = (JLine) seriesObj;
@@ -120,12 +113,10 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
                     for (int i = 0; i < data.size() - 1; i++) {
                         Number yValue = (Number) data.get(i);
                         Number nextYValue = (Number) data.get(i + 1);
-
                         int x1 = marginLeft + i * xStep;
                         int y1 = height - marginBottom - (int) ((yValue.doubleValue() - minValue) / valueRange * chartHeight);
                         int x2 = marginLeft + (i + 1) * xStep;
                         int y2 = height - marginBottom - (int) ((nextYValue.doubleValue() - minValue) / valueRange * chartHeight);
-
                         svgGenerator.drawLine(x1, y1, x2, y2);
                     }
 
@@ -154,7 +145,6 @@ public class JLineChartsRenderer extends JAbstractChartRenderer {
             if (yAxis.getMin() != null) min = (double) yAxis.getMin();
             if (yAxis.getMax() != null) max = (double) yAxis.getMax();
         }
-
         // 如果Y轴没有配置范围，则从数据中计算
         if (min == Double.MAX_VALUE || max == Double.MIN_VALUE) {
             for (Object seriesObj : option.getSeries()) {

@@ -20,6 +20,7 @@ import com.github.paohaijiao.axis.JAxis;
 import com.github.paohaijiao.code.JEasing;
 import com.github.paohaijiao.code.JSymbol;
 import com.github.paohaijiao.code.JTrigger;
+import com.github.paohaijiao.data.JSunburstData;
 import com.github.paohaijiao.option.JNoDataLoadingOption;
 import com.github.paohaijiao.series.JParallel;
 import com.github.paohaijiao.series.JSeries;
@@ -194,8 +195,23 @@ public class JOption implements Serializable {
      * 雷达图
      */
     private JRadar radar;
-
+    /**
+     * 树图
+     */
     private TreeMapOption treemapOption;
+    /**
+     * 旭日图选项
+     */
+    private JSunburstData sunburstData;
+
+
+    public JSunburstData getSunburstData() {
+        return sunburstData;
+    }
+
+    public void setSunburstData(JSunburstData sunburstData) {
+        this.sunburstData = sunburstData;
+    }
 
 
     public TreeMapOption getTreemapOption() {

@@ -25,22 +25,28 @@ import java.awt.*;
 import java.util.List;
 
 public class JScatterChartsRenderer extends JAbstractChartRenderer {
+
     private static final Color SCATTER_COLOR = new Color(65, 105, 225); // 钢蓝色
+
     private static final Color AXIS_COLOR = Color.BLACK;
+
     private static final Font AXIS_LABEL_FONT = new Font("Microsoft YaHei", Font.PLAIN, 10);
+
     private static final Font TITLE_FONT = new Font("Microsoft YaHei", Font.BOLD, 14);
+
     private static final BasicStroke AXIS_STROKE = new BasicStroke(1.5f);
+
     private static final int MARGIN = 60;
+
     private static final double AXIS_PADDING_FACTOR = 0.1;
 
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
-
         svgGenerator.setPaint(BACKGROUND_COLOR);// 设置背景
         svgGenerator.fillRect(0, 0, width, height);
         drawTitle(svgGenerator, option, width);// 绘制标题
-        // 检查散点图数据
-        if (option.series() == null || option.series().isEmpty() || !(option.series().get(0) instanceof JScatter)) {
+
+        if (option.series() == null || option.series().isEmpty() || !(option.series().get(0) instanceof JScatter)) {// 检查散点图数据
             return;
         }
         JScatter scatter = (JScatter) option.series().get(0);
@@ -48,8 +54,7 @@ public class JScatterChartsRenderer extends JAbstractChartRenderer {
         if (dataList == null || dataList.isEmpty()) {
             return;
         }
-        // 计算数据范围
-        double[] ranges = calculateDataRanges(dataList);
+        double[] ranges = calculateDataRanges(dataList);// 计算数据范围
         double minX = ranges[0];
         double maxX = ranges[1];
         double minY = ranges[2];
@@ -79,40 +84,35 @@ public class JScatterChartsRenderer extends JAbstractChartRenderer {
         return new double[]{minX, maxX, minY, maxY};
     }
 
-    private void drawAxes(SVGGraphics2D svgGenerator, double minX, double maxX,
-                          double minY, double maxY, int width, int height) {
+    private void drawAxes(SVGGraphics2D svgGenerator, double minX, double maxX, double minY, double maxY, int width, int height) {
         int plotWidth = width - 2 * MARGIN;
         int plotHeight = height - 2 * MARGIN;
         // 设置轴样式
         svgGenerator.setPaint(AXIS_COLOR);
         svgGenerator.setStroke(AXIS_STROKE);
         svgGenerator.setFont(AXIS_LABEL_FONT);
-        // 绘制X轴
-        svgGenerator.drawLine(MARGIN, height - MARGIN, width - MARGIN, height - MARGIN);
-        // 绘制Y轴
-        svgGenerator.drawLine(MARGIN, MARGIN, MARGIN, height - MARGIN);
-        // 绘制X轴刻度
-        for (double x = Math.ceil(minX); x <= Math.floor(maxX); x++) {
+
+        svgGenerator.drawLine(MARGIN, height - MARGIN, width - MARGIN, height - MARGIN);// 绘制X轴
+
+        svgGenerator.drawLine(MARGIN, MARGIN, MARGIN, height - MARGIN);// 绘制Y轴
+
+        for (double x = Math.ceil(minX); x <= Math.floor(maxX); x++) {// 绘制X轴刻度
             int xPos = MARGIN + (int) ((x - minX) / (maxX - minX) * plotWidth);
             svgGenerator.drawLine(xPos, height - MARGIN, xPos, height - MARGIN + 5);
             svgGenerator.drawString(String.format("%.1f", x), xPos - 10, height - MARGIN + 20);
         }
-        // 绘制Y轴刻度
-        for (double y = Math.ceil(minY); y <= Math.floor(maxY); y++) {
+        for (double y = Math.ceil(minY); y <= Math.floor(maxY); y++) { // 绘制Y轴刻度
             int yPos = height - MARGIN - (int) ((y - minY) / (maxY - minY) * plotHeight);
             svgGenerator.drawLine(MARGIN - 5, yPos, MARGIN, yPos);
             svgGenerator.drawString(String.format("%.1f", y), MARGIN - 40, yPos + 5);
         }
     }
 
-    private void drawScatters(SVGGraphics2D svgGenerator, List<JData> dataList,
-                              double minX, double maxX, double minY, double maxY,
-                              int width, int height, double symbolSize) {
+    private void drawScatters(SVGGraphics2D svgGenerator, List<JData> dataList, double minX, double maxX, double minY, double maxY, int width, int height, double symbolSize) {
         int plotWidth = width - 2 * MARGIN;
         int plotHeight = height - 2 * MARGIN;
         int halfSize = (int) symbolSize / 2;
         svgGenerator.setPaint(SCATTER_COLOR);
-
         for (JData data : dataList) {
             List<Object> point = (List<Object>) data.value();
             double x = ((Number) point.get(0)).doubleValue();
