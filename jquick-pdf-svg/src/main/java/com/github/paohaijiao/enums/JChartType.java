@@ -15,19 +15,35 @@
  */
 package com.github.paohaijiao.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum JChartType {
+
     BAR("bar","条形图"),
+
     BOXPLOT("boxplot","盒须图"),
+
     HEATMAP("heatmap","热力图"),
+
     K("k","k线图"),
+
     LINE("line","折线图"),
+
     PIE("pie","饼状图"),
+
     RADAR("radar","雷达图"),
+
     RELATION("ration","关系图"),
+
     SCATTER("scatter","散点图"),
+
     SUNBURST("sunburst","旭日图"),
+
     WORDCLOUD("wordCloud","词云"),
+
     TREEMAP("treeMap","矩形树图"),
+
     Bubble("Bubble","气泡图"),
     ;
     private String code;
@@ -38,7 +54,7 @@ public enum JChartType {
         this.code = code;
         this.name = name;
     }
-    public JChartType codeOf(String code){
+    public static JChartType codeOf(String code){
         for (JChartType jChartType : values()) {
             if (jChartType.code.equals(code)) {
                 return jChartType;
