@@ -26,6 +26,8 @@
         <html2pdf.version>4.0.5</html2pdf.version>
         <slf4j-api.version>2.0.9</slf4j-api.version>
         <jfree.svg.version>5.0.3</jfree.svg.version>
+        <central.upload.connectTimeout>900000</central.upload.connectTimeout>
+        <central.upload.requestTimeout>900000</central.upload.requestTimeout>
     </properties>
     <dependencyManagement>
         <dependencies>
