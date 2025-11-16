@@ -9,3 +9,7 @@
 ### 新增功能
 - 新增 `日历活动统计` 
 - 新增 `日历Lunar` 
+- 新增 `Funnel`
+- 新增 `CorrectionMatrix`
+- 新增 `Gantt`
+- 新增 `Gauge`
