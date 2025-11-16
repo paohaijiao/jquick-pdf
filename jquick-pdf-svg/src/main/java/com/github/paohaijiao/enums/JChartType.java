@@ -52,6 +52,8 @@ public enum JChartType {
 
     Funnel("Funnel","漏斗图"),
 
+    CorrectionMatrix("CorrectionMatrix","相关矩阵"),
+
     ;
     private String code;
 

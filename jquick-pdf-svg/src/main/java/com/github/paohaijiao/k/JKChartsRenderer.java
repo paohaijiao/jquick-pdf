@@ -36,11 +36,11 @@ public class JKChartsRenderer extends JAbstractChartRenderer {
 
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
-        svgGenerator.setPaint(BACKGROUND_COLOR);// 设置背景
+        svgGenerator.setPaint(BACKGROUND_COLOR);
         svgGenerator.fillRect(0, 0, width, height);
-        drawTitle(svgGenerator, option, width);// 绘制标题
-        drawAxes(svgGenerator, option, width, height);// 绘制坐标轴
-        drawCandlestickData(svgGenerator, option, width, height); // 绘制K线数据
+        drawTitle(svgGenerator, option, width);
+        drawAxes(svgGenerator, option, width, height);
+        drawCandlestickData(svgGenerator, option, width, height);
     }
 
     private void drawAxes(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
@@ -52,18 +52,15 @@ public class JKChartsRenderer extends JAbstractChartRenderer {
         int chartHeight = height - marginTop - marginBottom;
         svgGenerator.setColor(AXIS_COLOR);// 绘制X轴
         svgGenerator.drawLine(marginLeft, height - marginBottom, width - marginRight, height - marginBottom);
-        // 绘制Y轴
         svgGenerator.drawLine(marginLeft, height - marginBottom, marginLeft, marginTop);
-        // 设置轴标签字体
         svgGenerator.setFont(AXIS_LABEL_FONT);
-        // 绘制X轴标签
         if (option.getxAxis() != null && !option.getxAxis().isEmpty() && option.getxAxis().get(0) instanceof JCategoryAxis) {
             JCategoryAxis xAxis = (JCategoryAxis) option.getxAxis().get(0);
             List<String> xData = xAxis.getData();
             if (xData != null && !xData.isEmpty()) {
                 int xStep = chartWidth / xData.size();
                 for (int i = 0; i < xData.size(); i++) {
-                    if (i % 2 == 0) { // 每隔一个显示标签，避免拥挤
+                    if (i % 2 == 0) {
                         String label = xData.get(i);
                         int labelWidth = svgGenerator.getFontMetrics().stringWidth(label);
                         svgGenerator.drawString(label, marginLeft + i * xStep - labelWidth / 2, height - marginBottom + 20);
@@ -129,14 +126,12 @@ public class JKChartsRenderer extends JAbstractChartRenderer {
     private double[] calculatePriceRange(List<?> data) {
         double min = Double.MAX_VALUE;
         double max = Double.MIN_VALUE;
-
         for (Object item : data) {
             if (item instanceof Object[]) {
                 Object[] values = (Object[]) item;
                 if (values.length >= 4) {
                     double low = ((Number) values[2]).doubleValue();
                     double high = ((Number) values[3]).doubleValue();
-
                     min = Math.min(min, low);
                     max = Math.max(max, high);
                 }

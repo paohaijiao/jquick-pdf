@@ -26,6 +26,7 @@ import com.github.paohaijiao.heatMap.JHeatMapChartRenderer;
 import com.github.paohaijiao.k.JKChartsRenderer;
 import com.github.paohaijiao.line.JLineChartsRenderer;
 import com.github.paohaijiao.lunar.JLunarCalendarRenderer;
+import com.github.paohaijiao.matrix.JCorrelationMatrixRenderer;
 import com.github.paohaijiao.pie.JPieChartsRenderer;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import com.github.paohaijiao.radar.JRadarChartsRenderer;
@@ -80,6 +81,9 @@ public class JChartRendererFactory {
                 return new JLunarCalendarRenderer();
             case Funnel:
                 return new JFunnelChartRenderer();
+            case CorrectionMatrix:
+                return new JCorrelationMatrixRenderer();
+
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }
