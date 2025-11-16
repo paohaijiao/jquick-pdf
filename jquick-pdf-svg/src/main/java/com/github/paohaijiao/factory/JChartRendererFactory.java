@@ -19,6 +19,7 @@ import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.bar.JBarChartsRenderer;
 import com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
 import com.github.paohaijiao.bubble.JBubbleChartRenderer;
+import com.github.paohaijiao.calendar.JCalendarChartRenderer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.heatMap.JHeatMapChartRenderer;
 import com.github.paohaijiao.k.JKChartsRenderer;
@@ -71,6 +72,8 @@ public class JChartRendererFactory {
                 return new JTreeMapRenderer();
             case Bubble:
                 return new JBubbleChartRenderer();
+            case Calendar:
+                return new JCalendarChartRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }

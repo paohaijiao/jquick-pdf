@@ -45,6 +45,8 @@ public enum JChartType {
     TREEMAP("treeMap","矩形树图"),
 
     Bubble("Bubble","气泡图"),
+
+    Calendar("Calendar","日历图"),
     ;
     private String code;
 

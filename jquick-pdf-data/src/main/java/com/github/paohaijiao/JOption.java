@@ -17,6 +17,7 @@
 package com.github.paohaijiao;
 
 import com.github.paohaijiao.axis.JAxis;
+import com.github.paohaijiao.calendar.JCalendarOption;
 import com.github.paohaijiao.code.JEasing;
 import com.github.paohaijiao.code.JSymbol;
 import com.github.paohaijiao.code.JTrigger;
@@ -203,6 +204,9 @@ public class JOption implements Serializable {
      * 旭日图选项
      */
     private JSunburstData sunburstData;
+
+
+    private JCalendarOption jCalendarOption;
 
 
     public JSunburstData getSunburstData() {
