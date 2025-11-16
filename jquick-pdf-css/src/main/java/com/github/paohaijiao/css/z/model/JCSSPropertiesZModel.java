@@ -59,6 +59,9 @@ public class JCSSPropertiesZModel extends JCSSPropertiesWModel {
         }
     }
 
+    public String getZIndex() {
+        return get(Z_INDEX);
+    }
 
     /**
      * Sets z-index stacking order
@@ -71,6 +74,10 @@ public class JCSSPropertiesZModel extends JCSSPropertiesWModel {
         } else {
             throw new IllegalArgumentException("Invalid z-index value: " + value);
         }
+    }
+
+    public String getZoom() {
+        return get(ZOOM);
     }
 
     /**
@@ -88,15 +95,12 @@ public class JCSSPropertiesZModel extends JCSSPropertiesWModel {
         }
     }
 
-
-    public String getZIndex() {
-        return get(Z_INDEX);
+    /**
+     * Convenience zoom method with float parameter
+     */
+    public void setZoom(float factor) {
+        put(ZOOM, String.valueOf(factor));
     }
-
-    public String getZoom() {
-        return get(ZOOM);
-    }
-
 
     /**
      * Convenience method for common z-index use case
@@ -110,13 +114,6 @@ public class JCSSPropertiesZModel extends JCSSPropertiesWModel {
      */
     public void sendToBack() {
         put(Z_INDEX, "-1");
-    }
-
-    /**
-     * Convenience zoom method with float parameter
-     */
-    public void setZoom(float factor) {
-        put(ZOOM, String.valueOf(factor));
     }
 
 }

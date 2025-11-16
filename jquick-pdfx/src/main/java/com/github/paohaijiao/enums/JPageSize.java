@@ -25,17 +25,17 @@ public enum JPageSize {
     A4("A4", PageSize.A4),
     A5("A5", PageSize.A5),
     A6("A6", PageSize.A6),
-    A7("A7",PageSize.A7),
+    A7("A7", PageSize.A7),
     A8("A8", PageSize.A8),
     A9("A9", PageSize.A9),
-    A10("A10",PageSize.A10),
+    A10("A10", PageSize.A10),
     B0("B0", PageSize.B0),
-    B1("B1",PageSize.B1),
-    B2("B2",PageSize.B2),
+    B1("B1", PageSize.B1),
+    B2("B2", PageSize.B2),
     B3("B3", PageSize.B3),
     B4("B4", PageSize.B4),
-    B5("B5",PageSize.B5),
-    B6("B6",PageSize.B6),
+    B5("B5", PageSize.B5),
+    B6("B6", PageSize.B6),
     B7("B7", PageSize.B7),
     B8("B8", PageSize.B8),
     B9("B9", PageSize.B9),
@@ -57,13 +57,6 @@ public enum JPageSize {
         this.pageSize = pageSize;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public PageSize getPageSize() {
-        return pageSize;
-    }
     public static JPageSize codeOf(String code) {
         for (JPageSize size : values()) {
             if (size.code.equalsIgnoreCase(code)) {
@@ -71,5 +64,13 @@ public enum JPageSize {
             }
         }
         throw new IllegalArgumentException("unknow pageType: " + code);
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public PageSize getPageSize() {
+        return pageSize;
     }
 }

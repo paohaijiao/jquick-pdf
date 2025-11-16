@@ -10,7 +10,8 @@ public class BubbleDataPoint {
     private Object category; // 分类（AQI等级）
     private String name;     // 数据点名称
 
-    public BubbleDataPoint() {}
+    public BubbleDataPoint() {
+    }
 
     public BubbleDataPoint(Object x, Number y, Number size) {
         this.x = x;
@@ -34,18 +35,43 @@ public class BubbleDataPoint {
     }
 
     // Getters and Setters
-    public Object getX() { return x; }
-    public void setX(Object x) { this.x = x; }
+    public Object getX() {
+        return x;
+    }
 
-    public Number getY() { return y; }
-    public void setY(Number y) { this.y = y; }
+    public void setX(Object x) {
+        this.x = x;
+    }
 
-    public Number getSize() { return size; }
-    public void setSize(Number size) { this.size = size; }
+    public Number getY() {
+        return y;
+    }
 
-    public Object getCategory() { return category; }
-    public void setCategory(Object category) { this.category = category; }
+    public void setY(Number y) {
+        this.y = y;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public Number getSize() {
+        return size;
+    }
+
+    public void setSize(Number size) {
+        this.size = size;
+    }
+
+    public Object getCategory() {
+        return category;
+    }
+
+    public void setCategory(Object category) {
+        this.category = category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

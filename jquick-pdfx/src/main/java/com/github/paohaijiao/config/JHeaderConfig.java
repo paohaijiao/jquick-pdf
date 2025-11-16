@@ -34,13 +34,13 @@ public class JHeaderConfig {
 
     private boolean enabled = true;
 
-    private String text="页眉";
+    private String text = "页眉";
 
-    private PdfFont font= JFontProviderFactory.defualtFont();
+    private PdfFont font = JFontProviderFactory.defualtFont();
 
     private float fontSize = 10;
 
-    private Color fontColor=new DeviceRgb(37, 98, 206);
+    private Color fontColor = new DeviceRgb(37, 98, 206);
 
     private float height = 30;
 

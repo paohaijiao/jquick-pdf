@@ -44,11 +44,12 @@ public class JCSSPropertiesBaseProvider {
             PdfXObject pdfXObject = new PdfImageXObject(ImageDataFactory.create(imageUrl));
             return pdfXObject;
         } catch (MalformedURLException e) {
-                e.printStackTrace();
+            e.printStackTrace();
         }
         return null;
 
     }
+
     protected static float parseFloatValue(String value) {
         if (value == null || value.isEmpty()) return 0;
         String numericPart = value.replaceAll("[^0-9.-]", "");
@@ -58,12 +59,15 @@ public class JCSSPropertiesBaseProvider {
             return 0;
         }
     }
+
     protected static Float[] parseLocation(String value) {
         return new Float[]{0f, 0F, 0f, 0f};
     }
+
     protected static Float stringToFloat(String value) {
         return Float.parseFloat(value);
     }
+
     protected static UnitValue parseUnitValue(String value) {
         if (value.endsWith("px")) {
             float pxValue = Float.parseFloat(value.substring(0, value.length() - 2));

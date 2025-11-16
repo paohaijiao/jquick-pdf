@@ -22,6 +22,7 @@ import com.github.paohaijiao.util.JStringUtils;
 import com.itextpdf.layout.element.IBlockElement;
 import com.itextpdf.layout.element.ILeafElement;
 import com.itextpdf.layout.element.Paragraph;
+
 /**
  * packageName com.paohaijiao.javelin.visitor
  *
@@ -31,20 +32,20 @@ import com.itextpdf.layout.element.Paragraph;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXParagraphVisitor extends JPdfXSpanVisitor  {
+public class JPdfXParagraphVisitor extends JPdfXSpanVisitor {
     @Override
     public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
         String text = "";
         Object value = null;
         if (ctx.elemValue() != null) {
-            value =visitElemValue(ctx.elemValue());
+            value = visitElemValue(ctx.elemValue());
             if (null != value && value instanceof String) {
                 text = (String) value;
             }
         }
         Paragraph h1 = new Paragraph(JStringUtils.trim(text));
         h1.setFont(JFontProviderFactory.defualtFont());
-        saveSub(h1,value);
+        saveSub(h1, value);
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
         if (ctx.styleEle() != null) {
             jStyleAttributes = visitStyleEle(ctx.styleEle());
@@ -53,9 +54,9 @@ public class JPdfXParagraphVisitor extends JPdfXSpanVisitor  {
         return h1;
     }
 
-    private void saveSub(Paragraph paragraph,Object object) {
-        if(null!=object&&object instanceof java.util.List) {
-            java.util.List<Object> list=(java.util.List<Object>) object;
+    private void saveSub(Paragraph paragraph, Object object) {
+        if (null != object && object instanceof java.util.List) {
+            java.util.List<Object> list = (java.util.List<Object>) object;
             list.forEach(e -> {
                 if (e instanceof String) {
                     paragraph.add((String) e);

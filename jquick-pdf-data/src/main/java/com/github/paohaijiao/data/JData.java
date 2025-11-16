@@ -50,24 +50,7 @@ public class JData extends JBasicData<JData> {
      */
     private Double smoothRadian;
 
-    private List<JData> children=new ArrayList<>();
-
-    public List<JData> getChildren() {
-        return children;
-    }
-
-    public JData addChild(JData jData) {
-           if (children != null) {
-                children.add(jData);
-           }
-           return this;
-    }
-    public JData children(List<JData> jData) {
-        if (jData != null) {
-            children.addAll(jData);
-        }
-        return this;
-    }
+    private List<JData> children = new ArrayList<>();
 
     /**
      * 构造函数
@@ -124,6 +107,24 @@ public class JData extends JBasicData<JData> {
      */
     public JData(Object value, Object symbol, Object symbolSize) {
         super(value, symbol, symbolSize);
+    }
+
+    public List<JData> getChildren() {
+        return children;
+    }
+
+    public JData addChild(JData jData) {
+        if (children != null) {
+            children.add(jData);
+        }
+        return this;
+    }
+
+    public JData children(List<JData> jData) {
+        if (jData != null) {
+            children.addAll(jData);
+        }
+        return this;
     }
 
     /**

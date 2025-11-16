@@ -51,6 +51,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
             "row", "column", "dense", "row dense", "column dense", "inherit", "initial", "unset"
     );
 
+    public String getGap() {
+        return get(GAP);
+    }
+
     /**
      * Sets the gap between grid items (shorthand for row-gap and column-gap)
      *
@@ -58,6 +62,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
      */
     public void setGap(String value) {
         put(GAP, value);
+    }
+
+    public String getGrid() {
+        return get(GRID);
     }
 
     /**
@@ -69,6 +77,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
         put(GRID, value);
     }
 
+    public String getGridArea() {
+        return get(GRID_AREA);
+    }
+
     /**
      * Sets the grid-area property
      *
@@ -78,6 +90,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
         put(GRID_AREA, value);
     }
 
+    public String getGridAutoColumns() {
+        return get(GRID_AUTO_COLUMNS);
+    }
+
     /**
      * Sets the grid-auto-columns property
      *
@@ -85,6 +101,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
      */
     public void setGridAutoColumns(String value) {
         put(GRID_AUTO_COLUMNS, value);
+    }
+
+    public String getGridAutoFlow() {
+        return get(GRID_AUTO_FLOW);
     }
 
     /**
@@ -100,6 +120,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
         }
     }
 
+    public String getGridAutoRows() {
+        return get(GRID_AUTO_ROWS);
+    }
+
     /**
      * Sets the grid-auto-rows property
      *
@@ -107,6 +131,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
      */
     public void setGridAutoRows(String value) {
         put(GRID_AUTO_ROWS, value);
+    }
+
+    public String getGridColumn() {
+        return get(GRID_COLUMN);
     }
 
     /**
@@ -118,6 +146,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
         put(GRID_COLUMN, value);
     }
 
+    public String getGridColumnEnd() {
+        return get(GRID_COLUMN_END);
+    }
+
     /**
      * Sets the grid-column-end property
      *
@@ -125,6 +157,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
      */
     public void setGridColumnEnd(String value) {
         put(GRID_COLUMN_END, value);
+    }
+
+    public String getGridColumnStart() {
+        return get(GRID_COLUMN_START);
     }
 
     /**
@@ -136,6 +172,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
         put(GRID_COLUMN_START, value);
     }
 
+    public String getGridRow() {
+        return get(GRID_ROW);
+    }
+
     /**
      * Sets the grid-row shorthand property
      *
@@ -143,6 +183,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
      */
     public void setGridRow(String value) {
         put(GRID_ROW, value);
+    }
+
+    public String getGridRowEnd() {
+        return get(GRID_ROW_END);
     }
 
     /**
@@ -154,6 +198,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
         put(GRID_ROW_END, value);
     }
 
+    public String getGridRowStart() {
+        return get(GRID_ROW_START);
+    }
+
     /**
      * Sets the grid-row-start property
      *
@@ -161,6 +209,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
      */
     public void setGridRowStart(String value) {
         put(GRID_ROW_START, value);
+    }
+
+    public String getGridTemplate() {
+        return get(GRID_TEMPLATE);
     }
 
     /**
@@ -172,6 +224,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
         put(GRID_TEMPLATE, value);
     }
 
+    public String getGridTemplateAreas() {
+        return get(GRID_TEMPLATE_AREAS);
+    }
+
     /**
      * Sets the grid-template-areas property
      *
@@ -179,6 +235,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
      */
     public void setGridTemplateAreas(String value) {
         put(GRID_TEMPLATE_AREAS, value);
+    }
+
+    public String getGridTemplateColumns() {
+        return get(GRID_TEMPLATE_COLUMNS);
     }
 
     /**
@@ -190,6 +250,10 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
         put(GRID_TEMPLATE_COLUMNS, value);
     }
 
+    public String getGridTemplateRows() {
+        return get(GRID_TEMPLATE_ROWS);
+    }
+
     /**
      * Sets the grid-template-rows property
      *
@@ -197,69 +261,5 @@ public class JCSSPropertiesGModel extends JCSSPropertiesFModel {
      */
     public void setGridTemplateRows(String value) {
         put(GRID_TEMPLATE_ROWS, value);
-    }
-
-    public String getGap() {
-        return get(GAP);
-    }
-
-    public String getGrid() {
-        return get(GRID);
-    }
-
-    public String getGridArea() {
-        return get(GRID_AREA);
-    }
-
-    public String getGridAutoColumns() {
-        return get(GRID_AUTO_COLUMNS);
-    }
-
-    public String getGridAutoFlow() {
-        return get(GRID_AUTO_FLOW);
-    }
-
-    public String getGridAutoRows() {
-        return get(GRID_AUTO_ROWS);
-    }
-
-    public String getGridColumn() {
-        return get(GRID_COLUMN);
-    }
-
-    public String getGridColumnEnd() {
-        return get(GRID_COLUMN_END);
-    }
-
-    public String getGridColumnStart() {
-        return get(GRID_COLUMN_START);
-    }
-
-    public String getGridRow() {
-        return get(GRID_ROW);
-    }
-
-    public String getGridRowEnd() {
-        return get(GRID_ROW_END);
-    }
-
-    public String getGridRowStart() {
-        return get(GRID_ROW_START);
-    }
-
-    public String getGridTemplate() {
-        return get(GRID_TEMPLATE);
-    }
-
-    public String getGridTemplateAreas() {
-        return get(GRID_TEMPLATE_AREAS);
-    }
-
-    public String getGridTemplateColumns() {
-        return get(GRID_TEMPLATE_COLUMNS);
-    }
-
-    public String getGridTemplateRows() {
-        return get(GRID_TEMPLATE_ROWS);
     }
 }

@@ -39,7 +39,7 @@ import java.util.Map;
  * 日历图表配置选项
  */
 @Data
-public class JCalendarOption  {
+public class JCalendarOption {
 
     private final String title;
 

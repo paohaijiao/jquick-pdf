@@ -88,7 +88,7 @@ public class JLunarTest {
         return specialDays;
     }
 
-    private JOption createData(){
+    private JOption createData() {
         LunarCalendarOption.CalendarDataConfig dataConfig = new LunarCalendarOption.CalendarDataConfig()
                 .setDayDataList(createDefaultDayData())
                 .setSpecialDays(createDefaultSpecialDays())
@@ -107,11 +107,11 @@ public class JLunarTest {
 
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         graphContainer.setType(JChartType.Lunar);
         graphContainer.setOption(createData());
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

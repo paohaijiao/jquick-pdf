@@ -50,180 +50,180 @@ public class JCSSPropertiesFModel extends JCSSPropertiesEModel {
     public static final String FONT_FACE = "@font-face";
     public static final String FONT_PALETTE_VALUES = "@font-palette-values";
 
-    public void setFilter(String filter) {
-        put(FILTER, filter);
-    }
-
     public String getFilter() {
         return get(FILTER);
     }
 
-    public void setFlex(String flex) {
-        put(FLEX, flex);
+    public void setFilter(String filter) {
+        put(FILTER, filter);
     }
 
     public String getFlex() {
         return get(FLEX);
     }
 
-    public void setFlexBasis(String flexBasis) {
-        put(FLEX_BASIS, flexBasis);
+    public void setFlex(String flex) {
+        put(FLEX, flex);
     }
 
     public String getFlexBasis() {
         return get(FLEX_BASIS);
     }
 
-    public void setFlexDirection(String flexDirection) {
-        put(FLEX_DIRECTION, flexDirection);
+    public void setFlexBasis(String flexBasis) {
+        put(FLEX_BASIS, flexBasis);
     }
 
     public String getFlexDirection() {
         return get(FLEX_DIRECTION);
     }
 
-    public void setFlexFlow(String flexFlow) {
-        put(FLEX_FLOW, flexFlow);
+    public void setFlexDirection(String flexDirection) {
+        put(FLEX_DIRECTION, flexDirection);
     }
 
     public String getFlexFlow() {
         return get(FLEX_FLOW);
     }
 
-    public void setFlexGrow(String flexGrow) {
-        put(FLEX_GROW, flexGrow);
+    public void setFlexFlow(String flexFlow) {
+        put(FLEX_FLOW, flexFlow);
     }
 
     public String getFlexGrow() {
         return get(FLEX_GROW);
     }
 
-    public void setFlexShrink(String flexShrink) {
-        put(FLEX_SHRINK, flexShrink);
+    public void setFlexGrow(String flexGrow) {
+        put(FLEX_GROW, flexGrow);
     }
 
     public String getFlexShrink() {
         return get(FLEX_SHRINK);
     }
 
-    public void setFlexWrap(String flexWrap) {
-        put(FLEX_WRAP, flexWrap);
+    public void setFlexShrink(String flexShrink) {
+        put(FLEX_SHRINK, flexShrink);
     }
 
     public String getFlexWrap() {
         return get(FLEX_WRAP);
     }
 
-    public void setFloat(String floatValue) {
-        put(FLOAT, floatValue);
+    public void setFlexWrap(String flexWrap) {
+        put(FLEX_WRAP, flexWrap);
     }
 
     public String getFloat() {
         return get(FLOAT);
     }
 
-    public void setFont(String font) {
-        put(FONT, font);
+    public void setFloat(String floatValue) {
+        put(FLOAT, floatValue);
     }
 
     public String getFont() {
         return get(FONT);
     }
 
-    public void setFontFamily(String fontFamily) {
-        put(FONT_FAMILY, fontFamily);
+    public void setFont(String font) {
+        put(FONT, font);
     }
 
     public String getFontFamily() {
         return get(FONT_FAMILY);
     }
 
-    public void setFontFeatureSettings(String fontFeatureSettings) {
-        put(FONT_FEATURE_SETTINGS, fontFeatureSettings);
+    public void setFontFamily(String fontFamily) {
+        put(FONT_FAMILY, fontFamily);
     }
 
     public String getFontFeatureSettings() {
         return get(FONT_FEATURE_SETTINGS);
     }
 
-    public void setFontKerning(String fontKerning) {
-        put(FONT_KERNING, fontKerning);
+    public void setFontFeatureSettings(String fontFeatureSettings) {
+        put(FONT_FEATURE_SETTINGS, fontFeatureSettings);
     }
 
     public String getFontKerning() {
         return get(FONT_KERNING);
     }
 
-    public void setFontSize(String fontSize) {
-        put(FONT_SIZE, fontSize);
+    public void setFontKerning(String fontKerning) {
+        put(FONT_KERNING, fontKerning);
     }
 
     public String getFontSize() {
         return get(FONT_SIZE);
     }
 
-    public void setFontSizeAdjust(String fontSizeAdjust) {
-        put(FONT_SIZE_ADJUST, fontSizeAdjust);
+    public void setFontSize(String fontSize) {
+        put(FONT_SIZE, fontSize);
     }
 
     public String getFontSizeAdjust() {
         return get(FONT_SIZE_ADJUST);
     }
 
-    public void setFontStretch(String fontStretch) {
-        put(FONT_STRETCH, fontStretch);
+    public void setFontSizeAdjust(String fontSizeAdjust) {
+        put(FONT_SIZE_ADJUST, fontSizeAdjust);
     }
 
     public String getFontStretch() {
         return get(FONT_STRETCH);
     }
 
-    public void setFontStyle(String fontStyle) {
-        put(FONT_STYLE, fontStyle);
+    public void setFontStretch(String fontStretch) {
+        put(FONT_STRETCH, fontStretch);
     }
 
     public String getFontStyle() {
         return get(FONT_STYLE);
     }
 
-    public void setFontVariant(String fontVariant) {
-        put(FONT_VARIANT, fontVariant);
+    public void setFontStyle(String fontStyle) {
+        put(FONT_STYLE, fontStyle);
     }
 
     public String getFontVariant() {
         return get(FONT_VARIANT);
     }
 
-    public void setFontVariantCaps(String fontVariantCaps) {
-        put(FONT_VARIANT_CAPS, fontVariantCaps);
+    public void setFontVariant(String fontVariant) {
+        put(FONT_VARIANT, fontVariant);
     }
 
     public String getFontVariantCaps() {
         return get(FONT_VARIANT_CAPS);
     }
 
-    public void setFontWeight(String fontWeight) {
-        put(FONT_WEIGHT, fontWeight);
+    public void setFontVariantCaps(String fontVariantCaps) {
+        put(FONT_VARIANT_CAPS, fontVariantCaps);
     }
 
     public String getFontWeight() {
         return get(FONT_WEIGHT);
     }
 
-    public void setFontFaceRule(String fontFaceValue) {
-        put(FONT_FACE, fontFaceValue);
+    public void setFontWeight(String fontWeight) {
+        put(FONT_WEIGHT, fontWeight);
     }
 
     public String getFontFaceRule() {
         return get(FONT_FACE);
     }
 
-    public void setFontPaletteValuesRule(String fontPaletteValues) {
-        put(FONT_PALETTE_VALUES, fontPaletteValues);
+    public void setFontFaceRule(String fontFaceValue) {
+        put(FONT_FACE, fontFaceValue);
     }
 
     public String getFontPaletteValuesRule() {
         return get(FONT_PALETTE_VALUES);
+    }
+
+    public void setFontPaletteValuesRule(String fontPaletteValues) {
+        put(FONT_PALETTE_VALUES, fontPaletteValues);
     }
 
 

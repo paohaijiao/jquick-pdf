@@ -23,6 +23,7 @@ import com.itextpdf.kernel.geom.AffineTransform;
 import com.itextpdf.layout.Style;
 import com.itextpdf.layout.element.BlockElement;
 import com.itextpdf.layout.properties.Property;
+
 /**
  * packageName com.github.paohaijiao.model.provider
  *
@@ -41,6 +42,7 @@ public class JCSSPropertiesZProvider extends JCSSPropertiesBaseProvider implemen
         applyZProperties(style, cssProperties);
         element.addStyle(style);
     }
+
     public Style applyZProperties(Style style, JCSSPropertiesZModel zModel) {
         if (zModel == null) {
             return style;
@@ -82,6 +84,7 @@ public class JCSSPropertiesZProvider extends JCSSPropertiesBaseProvider implemen
     public Style paparazziZoom(Style style, String value) {
         return setZoom(style, value);
     }
+
     public Style setZIndex(Style style, String value) {
         if (value.equals("auto") || value.matches("^-?\\d+$")) {
             if ("9999".equals(value)) {
@@ -92,6 +95,7 @@ public class JCSSPropertiesZProvider extends JCSSPropertiesBaseProvider implemen
         }
         return style;
     }
+
     public Style setZoom(Style style, String value) {
         if (value.equals("normal") || value.equals("reset") ||
                 value.matches("^\\d+(\\.\\d+)?$") ||

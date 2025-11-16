@@ -28,7 +28,7 @@ import org.w3c.dom.svg.SVGDocument;
  */
 public class JSvgUtil {
 
-    public static  float[] parseSvgDimensions(String svgContent) {
+    public static float[] parseSvgDimensions(String svgContent) {
         float[] dimensions = new float[]{100f, 100f}; // [宽度, 高度] 默认值
 
         try {
@@ -57,6 +57,7 @@ public class JSvgUtil {
         }
         return dimensions;
     }
+
     private static float parseSvgValue(String value) {
         return Float.parseFloat(value.replaceAll("[^0-9.]", ""));
     }

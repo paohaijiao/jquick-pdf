@@ -37,26 +37,28 @@ public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
 
     public JQuickPdfXExecutor() throws FileNotFoundException {
         this.context = new JContext();
-        this.config=new JPdfConfig();
-    }
-    public JQuickPdfXExecutor(JContext context) throws FileNotFoundException {
-        this.context = context;
-        this.config=new JPdfConfig();
-    }
-    public JQuickPdfXExecutor(JPdfConfig config) throws FileNotFoundException {
-        this.context = new JContext();
-        this.config= config;
+        this.config = new JPdfConfig();
     }
 
-    public JQuickPdfXExecutor(JContext context,JPdfConfig config) throws FileNotFoundException {
+    public JQuickPdfXExecutor(JContext context) throws FileNotFoundException {
+        this.context = context;
+        this.config = new JPdfConfig();
+    }
+
+    public JQuickPdfXExecutor(JPdfConfig config) throws FileNotFoundException {
+        this.context = new JContext();
+        this.config = config;
+    }
+
+    public JQuickPdfXExecutor(JContext context, JPdfConfig config) throws FileNotFoundException {
         this.context = context;
         this.config = config;
     }
 
     @Override
     protected Lexer createLexer(CharStream input) {
-        JConsole console=new JConsole();
-        console.debug("evalue:\n"+input.toString());
+        JConsole console = new JConsole();
+        console.debug("evalue:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 
@@ -71,9 +73,9 @@ public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
         JQuickPDFParser.DocumentContext tree = calcParser.document();
         JPdfXCommonVisitor visitor = null;
         try {
-            visitor = new JPdfXCommonVisitor(context,config);
+            visitor = new JPdfXCommonVisitor(context, config);
         } catch (FileNotFoundException e) {
-           e.printStackTrace();
+            e.printStackTrace();
         }
         Object response = visitor.visit(tree);
         return response;

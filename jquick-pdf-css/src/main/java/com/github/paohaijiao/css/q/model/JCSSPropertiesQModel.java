@@ -36,6 +36,14 @@ public class JCSSPropertiesQModel extends JCSSPropertiesPModel {
             "none", "auto", "initial", "inherit"
     );
 
+    /**
+     * Gets the current quotes value
+     *
+     * @return The current quotes value
+     */
+    public String getQuotes() {
+        return get(QUOTES);
+    }
 
     /**
      * Sets how quotation marks are rendered
@@ -49,15 +57,6 @@ public class JCSSPropertiesQModel extends JCSSPropertiesPModel {
         } else {
             throw new IllegalArgumentException("Invalid quotes value: " + value);
         }
-    }
-
-    /**
-     * Gets the current quotes value
-     *
-     * @return The current quotes value
-     */
-    public String getQuotes() {
-        return get(QUOTES);
     }
 
     /**

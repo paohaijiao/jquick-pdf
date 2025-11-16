@@ -31,7 +31,7 @@ public class HeaderTextEvent implements IEventHandler {
     private String text;
     private PdfFont font;
 
-    public HeaderTextEvent(String text,PdfFont font) {
+    public HeaderTextEvent(String text, PdfFont font) {
         this.text = text;
         this.font = font;
     }

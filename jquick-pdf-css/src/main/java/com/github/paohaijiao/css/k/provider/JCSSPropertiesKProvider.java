@@ -35,11 +35,6 @@ import java.util.Map;
  * @description
  */
 public class JCSSPropertiesKProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style=new Style();
-        element.addStyle(style);
-    }
     public static String createStyleSheetContent(JCSSPropertiesKModel cssModel) {
         StringBuilder styleSheetContent = new StringBuilder();
 
@@ -84,6 +79,12 @@ public class JCSSPropertiesKProvider extends JCSSPropertiesBaseProvider implemen
         }
 
         return style.toString();
+    }
+
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        element.addStyle(style);
     }
 
 

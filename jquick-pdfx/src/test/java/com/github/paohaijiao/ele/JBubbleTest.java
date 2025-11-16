@@ -45,7 +45,7 @@ public class JBubbleTest {
 
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
 
 
         JTitle title = new JTitle();
@@ -64,8 +64,8 @@ public class JBubbleTest {
         option.title("公司业务分布矩形树图（JTreemapRenderer）");
         graphContainer.setType(JChartType.Bubble);
         graphContainer.setOption(option);
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

@@ -41,91 +41,91 @@ public class JStyleFontModel extends HashMap<String, String> {
     public static final String TEXT_ALIGN = "text-align";
     public static final String TEXT_SHADOW = "text-shadow";
 
-    public void setFontWeight(String fontWeight) {
-        put(FONT_WEIGHT, fontWeight);
-    }
-
     public String getFontWeight() {
         return get(FONT_WEIGHT);
     }
 
-    public void setFontStyle(String fontStyle) {
-        put(FONT_STYLE, fontStyle);
+    public void setFontWeight(String fontWeight) {
+        put(FONT_WEIGHT, fontWeight);
     }
 
     public String getFontStyle() {
         return get(FONT_STYLE);
     }
 
-    public void setFontFamily(String fontFamily) {
-        put(FONT_FAMILY, fontFamily);
+    public void setFontStyle(String fontStyle) {
+        put(FONT_STYLE, fontStyle);
     }
 
     public String getFontFamily() {
         return get(FONT_FAMILY);
     }
 
-    public void setFontVariant(String fontVariant) {
-        put(FONT_VARIANT, fontVariant);
+    public void setFontFamily(String fontFamily) {
+        put(FONT_FAMILY, fontFamily);
     }
 
     public String getFontVariant() {
         return get(FONT_VARIANT);
     }
 
-    public void setLineHeight(String lineHeight) {
-        put(LINE_HEIGHT, lineHeight);
+    public void setFontVariant(String fontVariant) {
+        put(FONT_VARIANT, fontVariant);
     }
 
     public String getLineHeight() {
         return get(LINE_HEIGHT);
     }
 
-    public void setLetterSpacing(String letterSpacing) {
-        put(LETTER_SPACING, letterSpacing);
+    public void setLineHeight(String lineHeight) {
+        put(LINE_HEIGHT, lineHeight);
     }
 
     public String getLetterSpacing() {
         return get(LETTER_SPACING);
     }
 
-    public void setTextDecoration(String textDecoration) {
-        put(TEXT_DECORATION, textDecoration);
+    public void setLetterSpacing(String letterSpacing) {
+        put(LETTER_SPACING, letterSpacing);
     }
 
     public String getTextDecoration() {
         return get(TEXT_DECORATION);
     }
 
-    public void setTextTransform(String textTransform) {
-        put(TEXT_TRANSFORM, textTransform);
+    public void setTextDecoration(String textDecoration) {
+        put(TEXT_DECORATION, textDecoration);
     }
 
     public String getTextTransform() {
         return get(TEXT_TRANSFORM);
     }
 
-    public void setColor(String color) {
-        put(COLOR, color);
+    public void setTextTransform(String textTransform) {
+        put(TEXT_TRANSFORM, textTransform);
     }
 
     public String getColor() {
         return get(COLOR);
     }
 
-    public void setTextAlign(String textAlign) {
-        put(TEXT_ALIGN, textAlign);
+    public void setColor(String color) {
+        put(COLOR, color);
     }
 
     public String getTextAlign() {
         return get(TEXT_ALIGN);
     }
 
-    public void setTextShadow(String textShadow) {
-        put(TEXT_SHADOW, textShadow);
+    public void setTextAlign(String textAlign) {
+        put(TEXT_ALIGN, textAlign);
     }
 
     public String getTextShadow() {
         return get(TEXT_SHADOW);
+    }
+
+    public void setTextShadow(String textShadow) {
+        put(TEXT_SHADOW, textShadow);
     }
 }

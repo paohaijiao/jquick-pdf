@@ -37,17 +37,17 @@ public class JPdfXComboBoxFieldVisitor extends JPdfXCheckBoxVisitor {
 
     @Override
     public JHtmlRenderModel visitComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx) {
-        String style="";
-        String value="";
-        if(ctx.styleEle()!=null){
-            style=ctx.styleEle().getText();
+        String style = "";
+        String value = "";
+        if (ctx.styleEle() != null) {
+            style = ctx.styleEle().getText();
         }
-        if(ctx.value()!=null){
-            value=ctx.value().getText();
+        if (ctx.value() != null) {
+            value = ctx.value().getText();
         }
-        String html = String.format("<select %s><option  selected>%s</option></select>",style, JStringUtils.trim(value));
-        List<IElement> iElements= HtmlConverter.convertToElements( html,proper);
-        JHtmlRenderModel jHtmlRenderModel=new JHtmlRenderModel();
+        String html = String.format("<select %s><option  selected>%s</option></select>", style, JStringUtils.trim(value));
+        List<IElement> iElements = HtmlConverter.convertToElements(html, proper);
+        JHtmlRenderModel jHtmlRenderModel = new JHtmlRenderModel();
         jHtmlRenderModel.setList(iElements);
         return jHtmlRenderModel;
     }

@@ -55,10 +55,10 @@ public class FunelTest {
                                 ))
                 ))
                 .colors(
-                     new Color(12, 168, 223),
-                    new Color(255, 153, 77),
-                    new Color(80, 112, 221),
-                    new Color(182, 214, 52)
+                        new Color(12, 168, 223),
+                        new Color(255, 153, 77),
+                        new Color(80, 112, 221),
+                        new Color(182, 214, 52)
                 );
 
         JFunnelChartRenderer renderer = new JFunnelChartRenderer();

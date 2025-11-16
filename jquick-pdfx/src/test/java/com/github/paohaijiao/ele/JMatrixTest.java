@@ -39,7 +39,7 @@ import java.io.IOException;
 public class JMatrixTest {
 
 
-    private JOption createData(){
+    private JOption createData() {
         try {
             double[][] correlationData = {
                     {1.00, -0.20, 0.03, -0.62, -0.54, -0.21, 0.63, 0.30},
@@ -67,11 +67,11 @@ public class JMatrixTest {
 
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         graphContainer.setType(JChartType.CorrectionMatrix);
         graphContainer.setOption(createData());
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

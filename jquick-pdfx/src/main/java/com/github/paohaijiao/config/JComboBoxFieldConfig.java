@@ -29,7 +29,7 @@ import java.util.Map;
  * @since 2025/7/20
  */
 @Data
-public class JComboBoxFieldConfig<T extends List> extends HashMap<String,  T> {
+public class JComboBoxFieldConfig<T extends List> extends HashMap<String, T> {
 
     @Override
     public T put(String key, T value) {

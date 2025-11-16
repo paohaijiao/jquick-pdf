@@ -77,15 +77,15 @@ public class JSunburdTest {
 
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         JSunburstData root = createTestData();
         JOption option = new JOption();
         option.setSunburstData(root);
         option.title("公司业务分布矩形树图（JTreemapRenderer）");
         graphContainer.setType(JChartType.SUNBURST);
         graphContainer.setOption(option);
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

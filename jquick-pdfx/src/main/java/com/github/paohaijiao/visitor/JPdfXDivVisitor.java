@@ -47,23 +47,23 @@ public class JPdfXDivVisitor extends JPdfXSvgVisitor {
             p.setFont(JFontProviderFactory.defualtFont());
             div.add(p);
         }
-        if (null != ctx.element()&& !ctx.element().isEmpty()) {
+        if (null != ctx.element() && !ctx.element().isEmpty()) {
             for (JQuickPDFParser.ElementContext styleContext : ctx.element()) {
-                Object object=visitElement(styleContext);
-                if (null!=object &&object instanceof Image) {
-                    Image image=(Image)object;
+                Object object = visitElement(styleContext);
+                if (null != object && object instanceof Image) {
+                    Image image = (Image) object;
                     div.add(image);
                 }
-                if (null!=object && object instanceof IBlockElement) {
-                    IBlockElement blockElement=(IBlockElement)object;
+                if (null != object && object instanceof IBlockElement) {
+                    IBlockElement blockElement = (IBlockElement) object;
                     doc.add(blockElement);
                 }
-                if (null!=object && object instanceof AreaBreak) {
-                    AreaBreak areaBreak=(AreaBreak)object;
+                if (null != object && object instanceof AreaBreak) {
+                    AreaBreak areaBreak = (AreaBreak) object;
                     doc.add(areaBreak);
                 }
-                if (null!=object && object instanceof String) {
-                    Paragraph paragraph=new Paragraph((String)object);
+                if (null != object && object instanceof String) {
+                    Paragraph paragraph = new Paragraph((String) object);
                     paragraph.setFont(JFontProviderFactory.defualtFont());
                     doc.add(paragraph);
                 }

@@ -55,176 +55,176 @@ public abstract class JBaseRenderer implements JStyleRenderer {
     public abstract void applyStyles(Document doc, IElement element, JStyleAttributes styles);
 
 
-    public void  applyBlockElement(Document doc, IElement element, JStyleAttributes styles){
+    public void applyBlockElement(Document doc, IElement element, JStyleAttributes styles) {
         JStyleBlockAttributes divStyles = new JStyleBlockAttributes();
         divStyles.putAll(styles);
         BlockElement<?> block = (BlockElement<?>) element;
-        if(divStyles.getMarginLeft() != null){//marginLeft:1px
+        if (divStyles.getMarginLeft() != null) {//marginLeft:1px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getMarginLeft());
-            if(unitValue != null){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getMarginLeft());
+            if (unitValue != null) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMarginLeft(f);
             }
         }
-        if(divStyles.getMarginRight() != null){//marginRight:500px
+        if (divStyles.getMarginRight() != null) {//marginRight:500px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getMarginRight());
-            if(unitValue != null){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getMarginRight());
+            if (unitValue != null) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMarginRight(f);
             }
         }
-        if(divStyles.getMarginTop() != null){//marginTop:500px
+        if (divStyles.getMarginTop() != null) {//marginTop:500px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getMarginTop());
-            if(unitValue != null){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getMarginTop());
+            if (unitValue != null) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMarginTop(f);
             }
         }
-        if(divStyles.getMarginBottom() != null){//marginBottom:500px
+        if (divStyles.getMarginBottom() != null) {//marginBottom:500px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getMarginBottom());
-            if(unitValue != null){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getMarginBottom());
+            if (unitValue != null) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMarginBottom(f);
             }
         }
-        if(divStyles.getCommonMargin() != null){//commonMargin:100px
+        if (divStyles.getCommonMargin() != null) {//commonMargin:100px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getCommonMargin());
-            if(unitValue != null){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getCommonMargin());
+            if (unitValue != null) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMargin(f);
             }
 
         }
-        if(divStyles.getMargins() != null){//margins:'20px 30px 40px 50px'
+        if (divStyles.getMargins() != null) {//margins:'20px 30px 40px 50px'
             JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
-            JMarginModel marginModel= executor.execute(divStyles.getMargins());
-            if(null!=marginModel){
-                block.setMargins(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            JMarginModel marginModel = executor.execute(divStyles.getMargins());
+            if (null != marginModel) {
+                block.setMargins(JUnitConverter.toFloat(marginModel.getFirst()), JUnitConverter.toFloat(marginModel.getSecond()), JUnitConverter.toFloat(marginModel.getThird()), JUnitConverter.toFloat(marginModel.getFourth()));
             }
         }
-        if(divStyles.getPaddingLeft() != null){//paddingLeft:50px
+        if (divStyles.getPaddingLeft() != null) {//paddingLeft:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getPaddingLeft());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getPaddingLeft());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setPaddingLeft(f);
             }
         }
 
-        if(divStyles.getPaddingRight() != null){//paddingRight:50px
+        if (divStyles.getPaddingRight() != null) {//paddingRight:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getPaddingRight());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getPaddingRight());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setPaddingRight(f);
             }
 
         }
-        if(divStyles.getPaddingTop() != null){//paddingTop:50px
+        if (divStyles.getPaddingTop() != null) {//paddingTop:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getPaddingTop());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getPaddingTop());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setPaddingTop(f);
             }
         }
-        if(divStyles.getPaddingBottom() != null){//paddingBottom:50px
+        if (divStyles.getPaddingBottom() != null) {//paddingBottom:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getPaddingBottom());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getPaddingBottom());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setPaddingBottom(f);
             }
 
         }
-        if(divStyles.getCommonPadding() != null){//commonPadding:50px
+        if (divStyles.getCommonPadding() != null) {//commonPadding:50px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getCommonPadding());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getCommonPadding());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setPadding(f);
             }
 
         }
-        if(divStyles.getPaddings() != null){//paddings:'50px 50px 60px 70px'
+        if (divStyles.getPaddings() != null) {//paddings:'50px 50px 60px 70px'
             JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
-            JMarginModel marginModel= executor.execute(divStyles.getPaddings());
-            if(null!=marginModel){
-                block.setPaddings(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            JMarginModel marginModel = executor.execute(divStyles.getPaddings());
+            if (null != marginModel) {
+                block.setPaddings(JUnitConverter.toFloat(marginModel.getFirst()), JUnitConverter.toFloat(marginModel.getSecond()), JUnitConverter.toFloat(marginModel.getThird()), JUnitConverter.toFloat(marginModel.getFourth()));
             }
         }
-        if(divStyles.getVerticalAlignment() != null){//verticalAlignment:top
-            JVerticalAlignment verticalAlignment=JVerticalAlignment.codeOf(divStyles.getVerticalAlignment());
-            if(null!=verticalAlignment){
+        if (divStyles.getVerticalAlignment() != null) {//verticalAlignment:top
+            JVerticalAlignment verticalAlignment = JVerticalAlignment.codeOf(divStyles.getVerticalAlignment());
+            if (null != verticalAlignment) {
                 block.setVerticalAlignment(verticalAlignment.getType());
             }
         }
-        if(divStyles.getSpacingRatio() != null){//spacingRatio:30
+        if (divStyles.getSpacingRatio() != null) {//spacingRatio:30
             block.setSpacingRatio(Float.parseFloat(divStyles.getSpacingRatio()));
         }
-        if(divStyles.getKeepTogether() != null){//keepTogether:true
+        if (divStyles.getKeepTogether() != null) {//keepTogether:true
             block.setKeepTogether(Boolean.parseBoolean(divStyles.getKeepTogether()));
         }
-        if(divStyles.getKeepWithNext() != null){//keepWithNext:true
+        if (divStyles.getKeepWithNext() != null) {//keepWithNext:true
             block.setKeepWithNext(Boolean.parseBoolean(divStyles.getKeepWithNext()));
         }
-        if(divStyles.getAngleInRadians() != null){//angleInRadians:30
+        if (divStyles.getAngleInRadians() != null) {//angleInRadians:30
             block.setRotationAngle(Float.parseFloat(divStyles.getAngleInRadians()));
         }
-        if(divStyles.getWidth() != null){//width:300px
+        if (divStyles.getWidth() != null) {//width:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getWidth());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getWidth());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setWidth(f);
             }
         }
-        if(divStyles.getHeight() != null){//height:300px
+        if (divStyles.getHeight() != null) {//height:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getHeight());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getHeight());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setHeight(f);
             }
 
         }
-        if(divStyles.getMaxHeight() != null){//maxHeight:300px
+        if (divStyles.getMaxHeight() != null) {//maxHeight:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getMaxHeight());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getMaxHeight());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMaxHeight(f);
             }
 
         }
-        if(divStyles.getMinHeight() != null){//minHeight:300px
+        if (divStyles.getMinHeight() != null) {//minHeight:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getMinHeight());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getMinHeight());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMinHeight(f);
             }
 
         }
-        if(divStyles.getMinWidth() != null){//minWidth:300px
+        if (divStyles.getMinWidth() != null) {//minWidth:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getMinWidth());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getMinWidth());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMinWidth(f);
             }
 
         }
-        if(divStyles.getMaxWidth() != null){//maxWidth:300px
+        if (divStyles.getMaxWidth() != null) {//maxWidth:300px
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
-            UnitValue unitValue= executor.execute(divStyles.getMaxWidth());
-            if(null!=unitValue){
-                float f=JUnitConverter.toFloat(unitValue);
+            UnitValue unitValue = executor.execute(divStyles.getMaxWidth());
+            if (null != unitValue) {
+                float f = JUnitConverter.toFloat(unitValue);
                 block.setMaxWidth(f);
             }
 
@@ -232,26 +232,26 @@ public abstract class JBaseRenderer implements JStyleRenderer {
         this.applyElementProperty(doc, element, styles);
     }
 
-    public void  applyElementProperty(Document doc, IElement element, JStyleAttributes styles){
+    public void applyElementProperty(Document doc, IElement element, JStyleAttributes styles) {
         JStyleElementPropertyAttributes elementPropertyAttributes = new JStyleElementPropertyAttributes();
         elementPropertyAttributes.putAll(styles);
         ElementPropertyContainer<?> block = (ElementPropertyContainer<?>) element;
-        if(null!=elementPropertyAttributes.getRelativePosition()){//relativePosition:'30px 30px 30px 30px'
+        if (null != elementPropertyAttributes.getRelativePosition()) {//relativePosition:'30px 30px 30px 30px'
             JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
-            JMarginModel marginModel= executor.execute(elementPropertyAttributes.getRelativePosition());
-            if(null!=marginModel){
-                block.setRelativePosition(JUnitConverter.toFloat(marginModel.getFirst()),JUnitConverter.toFloat(marginModel.getSecond()),JUnitConverter.toFloat(marginModel.getThird()),JUnitConverter.toFloat(marginModel.getFourth()));
+            JMarginModel marginModel = executor.execute(elementPropertyAttributes.getRelativePosition());
+            if (null != marginModel) {
+                block.setRelativePosition(JUnitConverter.toFloat(marginModel.getFirst()), JUnitConverter.toFloat(marginModel.getSecond()), JUnitConverter.toFloat(marginModel.getThird()), JUnitConverter.toFloat(marginModel.getFourth()));
             }
         }
-        if(null!=elementPropertyAttributes.getFixedPosition()){
+        if (null != elementPropertyAttributes.getFixedPosition()) {
 //            JQuickPdfMarginExecutor executor = new JQuickPdfMarginExecutor();
 //            JMarginModel marginModel= executor.execute(elementPropertyAttributes.getFixedPosition());
 //            block.setFixedPosition(0,0,0,0);
         }
-        if(null!=elementPropertyAttributes.getFont()){//font:HELVETICA
+        if (null != elementPropertyAttributes.getFont()) {//font:HELVETICA
             try {
-                JFontEnum jFontEnum=JFontEnum.codeOf(elementPropertyAttributes.getFont());
-                if(null!=jFontEnum){
+                JFontEnum jFontEnum = JFontEnum.codeOf(elementPropertyAttributes.getFont());
+                if (null != jFontEnum) {
                     PdfFont font = PdfFontFactory.createFont(jFontEnum.getFontName());
                     block.setFont(font);
                 }
@@ -260,213 +260,213 @@ public abstract class JBaseRenderer implements JStyleRenderer {
             }
 
         }
-        if(null!=elementPropertyAttributes.getFontFamilyNames()){//fontFamilyNames:Helvetica
-            String[] array=elementPropertyAttributes.getFontFamilyNames().split(",");
-            if(null!=array&&array.length>0){
+        if (null != elementPropertyAttributes.getFontFamilyNames()) {//fontFamilyNames:Helvetica
+            String[] array = elementPropertyAttributes.getFontFamilyNames().split(",");
+            if (null != array && array.length > 0) {
                 block.setFontFamily(Arrays.asList(array));
             }
         }
-        if(null!=elementPropertyAttributes.getFontColor()){//fontColor:red
-            JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
-            Color color=executor.execute(elementPropertyAttributes.getFontColor());
-            if(null!=color){
+        if (null != elementPropertyAttributes.getFontColor()) {//fontColor:red
+            JQuickPdfColorExecutor executor = new JQuickPdfColorExecutor();
+            Color color = executor.execute(elementPropertyAttributes.getFontColor());
+            if (null != color) {
                 block.setFontColor(color);
             }
         }
-        if(null!=elementPropertyAttributes.getOpacity()){//opacity:0.5
+        if (null != elementPropertyAttributes.getOpacity()) {//opacity:0.5
             block.setOpacity(Float.parseFloat(elementPropertyAttributes.getOpacity()));
         }
-        if(null!=elementPropertyAttributes.getFontSize()){//fontSize:34
+        if (null != elementPropertyAttributes.getFontSize()) {//fontSize:34
             block.setFontSize(Float.parseFloat(elementPropertyAttributes.getFontSize()));
         }
-        if(null!=elementPropertyAttributes.getTextAlignment()){//textAlignment:left
-            JTextAlignment jTextAlignme= JTextAlignment.codeOf(elementPropertyAttributes.getTextAlignment());
-            if(null!=jTextAlignme){
+        if (null != elementPropertyAttributes.getTextAlignment()) {//textAlignment:left
+            JTextAlignment jTextAlignme = JTextAlignment.codeOf(elementPropertyAttributes.getTextAlignment());
+            if (null != jTextAlignme) {
                 block.setTextAlignment(jTextAlignme.getType());
             }
         }
-        if(null!=elementPropertyAttributes.getCharacterSpacing()){//characterSpacing:30
+        if (null != elementPropertyAttributes.getCharacterSpacing()) {//characterSpacing:30
             block.setCharacterSpacing(Float.parseFloat(elementPropertyAttributes.getCharacterSpacing()));
         }
-        if(null!=elementPropertyAttributes.getWordSpacing()){//wordSpacing:30
+        if (null != elementPropertyAttributes.getWordSpacing()) {//wordSpacing:30
             block.setWordSpacing(Float.parseFloat(elementPropertyAttributes.getWordSpacing()));
         }
-        if(null!=elementPropertyAttributes.getFontKerning()){//fontKerning:yes
-            JFontKerning fontKerning= JFontKerning.codeOf(elementPropertyAttributes.getFontKerning());
-            if(null!=fontKerning){
+        if (null != elementPropertyAttributes.getFontKerning()) {//fontKerning:yes
+            JFontKerning fontKerning = JFontKerning.codeOf(elementPropertyAttributes.getFontKerning());
+            if (null != fontKerning) {
                 block.setFontKerning(fontKerning.getType());
             }
         }
-        if(null!=elementPropertyAttributes.getBackgroundColor()){//backgroundColor:red
-            JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
-            Color color=executor.execute(elementPropertyAttributes.getBackgroundColor());
-            if(color!=null){
+        if (null != elementPropertyAttributes.getBackgroundColor()) {//backgroundColor:red
+            JQuickPdfColorExecutor executor = new JQuickPdfColorExecutor();
+            Color color = executor.execute(elementPropertyAttributes.getBackgroundColor());
+            if (color != null) {
                 block.setBackgroundColor(color);
             }
         }
-        if(null!=elementPropertyAttributes.getBackgroundImage()){//backgroundImage:'D:/pdf/image/封底-02.png' no effect
-            try{
+        if (null != elementPropertyAttributes.getBackgroundImage()) {//backgroundImage:'D:/pdf/image/封底-02.png' no effect
+            try {
                 ImageData imageData = ImageDataFactory.create(elementPropertyAttributes.getBackgroundImage());
-                if(null!=imageData){
+                if (null != imageData) {
                     PdfImageXObject xObject = new PdfImageXObject(imageData);
                     BackgroundImage background = new BackgroundImage.Builder()
                             .setImage(xObject)
                             .build();
                     block.setBackgroundImage(background);
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
 
-
         }
-        if(null!=elementPropertyAttributes.getBorder()){//border:'solid 32px red'
-            Border border=buildBorder(elementPropertyAttributes.getBorder());
-            if(null!=border){
+        if (null != elementPropertyAttributes.getBorder()) {//border:'solid 32px red'
+            Border border = buildBorder(elementPropertyAttributes.getBorder());
+            if (null != border) {
                 block.setBorder(border);
             }
         }
 
-        if(null!=elementPropertyAttributes.getBorderTop()){//borderTop:'solid 32px red'
-            Border border=buildBorder(elementPropertyAttributes.getBorderTop());
-            if(null!=border){
+        if (null != elementPropertyAttributes.getBorderTop()) {//borderTop:'solid 32px red'
+            Border border = buildBorder(elementPropertyAttributes.getBorderTop());
+            if (null != border) {
                 block.setBorderTop(border);
             }
 
         }
-        if(null!=elementPropertyAttributes.getBorderRight()){//borderRight:'solid 32px red'
-            Border border= buildBorder(elementPropertyAttributes.getBorderRight());
-            if(null!=border){
+        if (null != elementPropertyAttributes.getBorderRight()) {//borderRight:'solid 32px red'
+            Border border = buildBorder(elementPropertyAttributes.getBorderRight());
+            if (null != border) {
                 block.setBorderRight(border);
             }
 
         }
-        if(null!=elementPropertyAttributes.getBorderLeft()){//borderLeft:'solid 32px red'
-            Border border=buildBorder(elementPropertyAttributes.getBorderLeft());
-            if(null!=border){
+        if (null != elementPropertyAttributes.getBorderLeft()) {//borderLeft:'solid 32px red'
+            Border border = buildBorder(elementPropertyAttributes.getBorderLeft());
+            if (null != border) {
                 block.setBorderLeft(border);
             }
 
         }
-        if(null!=elementPropertyAttributes.getBorderBottom()){//borderBottom:'solid 32px red'
-            Border border=buildBorder(elementPropertyAttributes.getBorderBottom());
-            if(null!=border){
+        if (null != elementPropertyAttributes.getBorderBottom()) {//borderBottom:'solid 32px red'
+            Border border = buildBorder(elementPropertyAttributes.getBorderBottom());
+            if (null != border) {
                 block.setBorderBottom(border);
             }
 
         }
-        if(null!=elementPropertyAttributes.getBorderRadius()){//borderRadius:'32px 24px'
-            String[] array=elementPropertyAttributes.getBorderRadius().split(" ");
-            if(null!=array&&2==array.length){
-                JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
-                UnitValue first=executor.execute(array[0]);
-                UnitValue second=executor.execute(array[1]);
-                BorderRadius radius=new BorderRadius(first,second);
+        if (null != elementPropertyAttributes.getBorderRadius()) {//borderRadius:'32px 24px'
+            String[] array = elementPropertyAttributes.getBorderRadius().split(" ");
+            if (null != array && 2 == array.length) {
+                JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+                UnitValue first = executor.execute(array[0]);
+                UnitValue second = executor.execute(array[1]);
+                BorderRadius radius = new BorderRadius(first, second);
                 block.setBorderRadius(radius);
             }
         }
-        if(null!=elementPropertyAttributes.getBorderBottomLeftRadius()){//borderBottomLeftRadius:'32px 24px'
-            String[] array=elementPropertyAttributes.getBorderBottomLeftRadius().split(" ");
-            if(null!=array&&2==array.length){
-                JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
-                UnitValue first=executor.execute(array[0]);
-                UnitValue second=executor.execute(array[1]);
-                BorderRadius radius=new BorderRadius(first,second);
+        if (null != elementPropertyAttributes.getBorderBottomLeftRadius()) {//borderBottomLeftRadius:'32px 24px'
+            String[] array = elementPropertyAttributes.getBorderBottomLeftRadius().split(" ");
+            if (null != array && 2 == array.length) {
+                JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+                UnitValue first = executor.execute(array[0]);
+                UnitValue second = executor.execute(array[1]);
+                BorderRadius radius = new BorderRadius(first, second);
                 block.setBorderBottomLeftRadius(radius);
             }
         }
-        if(null!=elementPropertyAttributes.getBorderBottomRightRadius()){//borderBottomRightRadius:'32px 24px'
-            String[] array=elementPropertyAttributes.getBorderBottomRightRadius().split(" ");
-            if(null!=array&&2==array.length){
-                JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
-                UnitValue first=executor.execute(array[0]);
-                UnitValue second=executor.execute(array[1]);
-                BorderRadius radius=new BorderRadius(first,second);
+        if (null != elementPropertyAttributes.getBorderBottomRightRadius()) {//borderBottomRightRadius:'32px 24px'
+            String[] array = elementPropertyAttributes.getBorderBottomRightRadius().split(" ");
+            if (null != array && 2 == array.length) {
+                JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+                UnitValue first = executor.execute(array[0]);
+                UnitValue second = executor.execute(array[1]);
+                BorderRadius radius = new BorderRadius(first, second);
                 block.setBorderBottomRightRadius(radius);
             }
 
         }
-        if(null!=elementPropertyAttributes.getBorderTopRightRadius()){//borderTopRightRadius:'32px 24px'
-            String[] array=elementPropertyAttributes.getBorderTopRightRadius().split(" ");
-            if(null!=array&&2==array.length){
-                JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
-                UnitValue first=executor.execute(array[0]);
-                UnitValue second=executor.execute(array[1]);
-                BorderRadius radius=new BorderRadius(first,second);
+        if (null != elementPropertyAttributes.getBorderTopRightRadius()) {//borderTopRightRadius:'32px 24px'
+            String[] array = elementPropertyAttributes.getBorderTopRightRadius().split(" ");
+            if (null != array && 2 == array.length) {
+                JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+                UnitValue first = executor.execute(array[0]);
+                UnitValue second = executor.execute(array[1]);
+                BorderRadius radius = new BorderRadius(first, second);
                 block.setBorderTopRightRadius(radius);
             }
         }
-        if(null!=elementPropertyAttributes.getBorderTopLeftRadius()){//borderTopLeftRadius:'32px 24px'
-            String[] array=elementPropertyAttributes.getBorderTopLeftRadius().split(" ");
-            if(null!=array&&2==array.length){
-                JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
-                UnitValue first=executor.execute(array[0]);
-                UnitValue second=executor.execute(array[1]);
-                BorderRadius radius=new BorderRadius(first,second);
+        if (null != elementPropertyAttributes.getBorderTopLeftRadius()) {//borderTopLeftRadius:'32px 24px'
+            String[] array = elementPropertyAttributes.getBorderTopLeftRadius().split(" ");
+            if (null != array && 2 == array.length) {
+                JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+                UnitValue first = executor.execute(array[0]);
+                UnitValue second = executor.execute(array[1]);
+                BorderRadius radius = new BorderRadius(first, second);
                 block.setBorderTopLeftRadius(radius);
             }
         }
-        if(null!=elementPropertyAttributes.getSplitCharacters()){//splitCharacters:24
+        if (null != elementPropertyAttributes.getSplitCharacters()) {//splitCharacters:24
             block.setCharacterSpacing(Float.parseFloat(elementPropertyAttributes.getSplitCharacters()));
         }
-        if(null!=elementPropertyAttributes.getTextRenderingMode()){//textRenderingMode:24textRenderingMode:24
+        if (null != elementPropertyAttributes.getTextRenderingMode()) {//textRenderingMode:24textRenderingMode:24
             block.setTextRenderingMode(Integer.parseInt(elementPropertyAttributes.getTextRenderingMode()));
         }
-        if(null!=elementPropertyAttributes.getStrokeColor()){//strokeColor:red
-            JQuickPdfColorExecutor executor=new JQuickPdfColorExecutor();
-            Color color=executor.execute(elementPropertyAttributes.getStrokeColor());
+        if (null != elementPropertyAttributes.getStrokeColor()) {//strokeColor:red
+            JQuickPdfColorExecutor executor = new JQuickPdfColorExecutor();
+            Color color = executor.execute(elementPropertyAttributes.getStrokeColor());
             block.setStrokeColor(color);
         }
 
-        if(null!=elementPropertyAttributes.getStrokeWidth()){//strokeWidth:24
+        if (null != elementPropertyAttributes.getStrokeWidth()) {//strokeWidth:24
             block.setStrokeWidth(Float.parseFloat(elementPropertyAttributes.getStrokeWidth()));
         }
-        if(null!=elementPropertyAttributes.getBold()){//bold:true
-            if(Boolean.parseBoolean(elementPropertyAttributes.getBold())){
+        if (null != elementPropertyAttributes.getBold()) {//bold:true
+            if (Boolean.parseBoolean(elementPropertyAttributes.getBold())) {
                 block.setBold();
             }
         }
-        if(null!=elementPropertyAttributes.getItalic()){//italic:true
-            if(Boolean.parseBoolean(elementPropertyAttributes.getItalic())){
+        if (null != elementPropertyAttributes.getItalic()) {//italic:true
+            if (Boolean.parseBoolean(elementPropertyAttributes.getItalic())) {
                 block.setItalic();
             }
         }
 
-        if(null!=elementPropertyAttributes.getLineThrough()){//lineThrough:true
-            if(Boolean.parseBoolean(elementPropertyAttributes.getLineThrough())){
+        if (null != elementPropertyAttributes.getLineThrough()) {//lineThrough:true
+            if (Boolean.parseBoolean(elementPropertyAttributes.getLineThrough())) {
                 block.setLineThrough();
             }
         }
-        if(null!=elementPropertyAttributes.getUnderline()){//underline:true
-            if(Boolean.parseBoolean(elementPropertyAttributes.getUnderline())){
+        if (null != elementPropertyAttributes.getUnderline()) {//underline:true
+            if (Boolean.parseBoolean(elementPropertyAttributes.getUnderline())) {
                 block.setUnderline();
             }
         }
-        if(null!=elementPropertyAttributes.getBaseDirection()){//baseDirection:'no_bidi'
-             JBaseDirection jBaseDirection= JBaseDirection.codeOf(elementPropertyAttributes.getBaseDirection());
-                if(null!=jBaseDirection){
-                    block.setBaseDirection(jBaseDirection.getType());
-                }
+        if (null != elementPropertyAttributes.getBaseDirection()) {//baseDirection:'no_bidi'
+            JBaseDirection jBaseDirection = JBaseDirection.codeOf(elementPropertyAttributes.getBaseDirection());
+            if (null != jBaseDirection) {
+                block.setBaseDirection(jBaseDirection.getType());
+            }
 
         }
-        if(null!=elementPropertyAttributes.getHyphenation()){
+        if (null != elementPropertyAttributes.getHyphenation()) {
 //            block.setHyphenation()
         }
-        if(null!=elementPropertyAttributes.getFontScript()){//fontScript:common
-            JUnicodeScript script=JUnicodeScript.codeOf(elementPropertyAttributes.getFontScript());
-            if(null!=script){
+        if (null != elementPropertyAttributes.getFontScript()) {//fontScript:common
+            JUnicodeScript script = JUnicodeScript.codeOf(elementPropertyAttributes.getFontScript());
+            if (null != script) {
                 block.setFontScript(script.getType());
             }
 
         }
-        if(null!=elementPropertyAttributes.getDestination()){//destination:hello
+        if (null != elementPropertyAttributes.getDestination()) {//destination:hello
             block.setDestination(elementPropertyAttributes.getDestination());
         }
     }
-    private Border buildBorder(String border){
+
+    private Border buildBorder(String border) {
         JBorderModel borderModel = getBorder(border);
-        if(null!=borderModel&&null!=borderModel.getBorder()){
+        if (null != borderModel && null != borderModel.getBorder()) {
             JBorder jBorder = borderModel.getBorder();
             Float width = borderModel.getWidth();
             Color color = borderModel.getColor();
@@ -475,8 +475,8 @@ public abstract class JBaseRenderer implements JStyleRenderer {
                 Constructor<?> constructor;
                 Object borderInstance;
                 if (width != null && color != null) {
-                    constructor = borderClass.getConstructor( Color.class,float.class);
-                    borderInstance = constructor.newInstance(color,width);
+                    constructor = borderClass.getConstructor(Color.class, float.class);
+                    borderInstance = constructor.newInstance(color, width);
                 } else if (width != null) {
                     constructor = borderClass.getConstructor(float.class);
                     borderInstance = constructor.newInstance(width);
@@ -493,25 +493,26 @@ public abstract class JBaseRenderer implements JStyleRenderer {
         return null;
 
     }
-    private JBorderModel getBorder(String border){
-        String[] array=border.split(" ");
-        JBorderModel model=new JBorderModel();
-        if (null!=array&&array.length>0){
+
+    private JBorderModel getBorder(String border) {
+        String[] array = border.split(" ");
+        JBorderModel model = new JBorderModel();
+        if (null != array && array.length > 0) {
             for (int i = 0; i < array.length; i++) {
-                String content=array[i];
-                JQuickPdfBorderExecutor borderExecutor=new JQuickPdfBorderExecutor();
-                JBorder jBorder=borderExecutor.execute(content);
-                if(null!=jBorder){
+                String content = array[i];
+                JQuickPdfBorderExecutor borderExecutor = new JQuickPdfBorderExecutor();
+                JBorder jBorder = borderExecutor.execute(content);
+                if (null != jBorder) {
                     model.setBorder(jBorder);
                 }
-                JQuickPdfColorExecutor colorExecutor=new JQuickPdfColorExecutor();
-                Color color=colorExecutor.execute(content);
-                if(null!=color){
+                JQuickPdfColorExecutor colorExecutor = new JQuickPdfColorExecutor();
+                Color color = colorExecutor.execute(content);
+                if (null != color) {
                     model.setColor(color);
                 }
-                JQuickPdfUnitExecutor unitExecutor=new JQuickPdfUnitExecutor();
-                UnitValue unit=unitExecutor.execute(content);
-                if(null!=unit){
+                JQuickPdfUnitExecutor unitExecutor = new JQuickPdfUnitExecutor();
+                UnitValue unit = unitExecutor.execute(content);
+                if (null != unit) {
                     model.setWidth(unit.getValue());
                 }
             }
@@ -519,10 +520,6 @@ public abstract class JBaseRenderer implements JStyleRenderer {
         }
         return model;
     }
-
-
-
-
 
 
 }

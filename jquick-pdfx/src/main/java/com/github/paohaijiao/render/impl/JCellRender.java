@@ -26,10 +26,10 @@ import com.itextpdf.layout.element.IElement;
  * @version 1.0.0
  * @since 2025/7/17
  */
-public class JCellRender extends JBaseRenderer{
+public class JCellRender extends JBaseRenderer {
 
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyBlockElement(doc,element, styles);
+        super.applyBlockElement(doc, element, styles);
     }
 }

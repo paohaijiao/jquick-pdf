@@ -45,7 +45,7 @@ public class JGaugeTest {
 
             JGuageOption option = JGuageOption.builder().scoreMeter(scoreConfig).build();
             JGuageRenderer renderer = new JGuageRenderer();
-            JOption option1=new JOption();
+            JOption option1 = new JOption();
             option1.setGuageOption(option);
             renderer.render(option1, "d://test//score_meter_improved.svg");
             System.out.println("SVG生成成功！");

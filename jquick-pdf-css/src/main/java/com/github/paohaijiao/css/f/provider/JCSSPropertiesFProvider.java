@@ -35,12 +35,7 @@ import com.itextpdf.layout.properties.UnitValue;
  */
 public class JCSSPropertiesFProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
 
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style = new Style();
-        element.addStyle(style);
-    }
-    public static Style convertToStyle(BlockElement<?> element, JCSSPropertiesCoreModel cssModel,  Style style) {
+    public static Style convertToStyle(BlockElement<?> element, JCSSPropertiesCoreModel cssModel, Style style) {
 
         // Filter property
         if (cssModel.getFilter() != null) {
@@ -146,6 +141,12 @@ public class JCSSPropertiesFProvider extends JCSSPropertiesBaseProvider implemen
         // rather than as style properties
 
         return style;
+    }
+
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        element.addStyle(style);
     }
 
 }

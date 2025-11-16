@@ -35,19 +35,6 @@ import com.itextpdf.layout.element.BlockElement;
  */
 public class JCSSPropertiesCProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
 
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssModel) {
-        Style style=new Style();
-        if (cssModel == null) {
-            return ;
-        }
-        applyBasicProperties(element,cssModel, style);
-        applyColumnProperties(element,cssModel, style);
-        applyContentProperties(element,cssModel, style);
-        applyOtherProperties(element,cssModel, style);
-        element.addStyle(style);
-    }
-
     private static void applyBasicProperties(BlockElement<?> element, JCSSPropertiesCModel cssModel, Style style) {
         if (cssModel.getColor() != null) {
             Color textColor = parseColor(cssModel.getColor());
@@ -101,6 +88,18 @@ public class JCSSPropertiesCProvider extends JCSSPropertiesBaseProvider implemen
         }
     }
 
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssModel) {
+        Style style = new Style();
+        if (cssModel == null) {
+            return;
+        }
+        applyBasicProperties(element, cssModel, style);
+        applyColumnProperties(element, cssModel, style);
+        applyContentProperties(element, cssModel, style);
+        applyOtherProperties(element, cssModel, style);
+        element.addStyle(style);
+    }
 
 
 }

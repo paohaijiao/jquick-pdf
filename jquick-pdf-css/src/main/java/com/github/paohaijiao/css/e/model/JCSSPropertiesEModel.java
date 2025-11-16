@@ -29,12 +29,12 @@ import com.github.paohaijiao.css.d.model.JCSSPropertiesDModel;
 public class JCSSPropertiesEModel extends JCSSPropertiesDModel {
     public static final String EMPTYCELLS = "empty-cells";
 
-    public void setEmptycells(String emptycells) {
-        put(EMPTYCELLS, emptycells);
-    }
-
     public String getEmptycells() {
         return get(EMPTYCELLS);
+    }
+
+    public void setEmptycells(String emptycells) {
+        put(EMPTYCELLS, emptycells);
     }
 
 }

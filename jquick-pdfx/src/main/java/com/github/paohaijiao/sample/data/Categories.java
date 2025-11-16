@@ -42,6 +42,40 @@ public class Categories {
     private int unlockedItems;
     private List<ItemsBean> items;
 
+    public static List<Categories> getDatas() {
+        List<Categories> list = new LinkedList<>();
+        list.add(getData());
+        list.add(getData());
+        list.add(getData());
+        list.add(getData());
+        list.add(getData());
+        return list;
+
+    }
+
+    public static Categories getData() {
+        Categories bloodPressureCategory = new Categories();
+        CategoriesManualSetter.setCategoryData(bloodPressureCategory,
+                2427, "jxy", "降血压类", 8,
+                "http://files.dev.1genehealth.com/gene/d93b59fd9c74a6fc3ee69a26fa6c08e6.png",
+                19, 19);
+        List<Categories.ItemsBean> items = new ArrayList<>();
+        Categories.ItemsBean metoprolol = new Categories.ItemsBean();
+        CategoriesManualSetter.setItemData(metoprolol,
+                "jxymtle", "美托洛尔", 4, "3A", "谨慎使用",
+                "CYP2D6酶活性减弱，药物代谢速率减慢，毒副风险较高，遵医嘱减少本药药物剂量使用。",
+                2, 50, 711);
+        items.add(metoprolol);
+        Categories.ItemsBean nifedipine = new Categories.ItemsBean();
+        CategoriesManualSetter.setItemData(nifedipine,
+                "jxyxbdp", "硝苯地平", 1, "2A", "酌情使用",
+                "对该药物的应答性较差，治疗效果可能较差，建议使用时监测药物疗效，酌情考虑是否增加药物剂量。",
+                6, 50, 706);
+        items.add(nifedipine);
+        bloodPressureCategory.setItems(items);
+        return bloodPressureCategory;
+    }
+
     public int getCategoryId() {
         return categoryId;
     }
@@ -285,38 +319,5 @@ public class Categories {
         public void setState(Object state) {
             this.state = state;
         }
-    }
-
-    public static List<Categories> getDatas(){
-        List<Categories> list = new LinkedList<>();
-        list.add(getData());
-        list.add(getData());
-        list.add(getData());
-        list.add(getData());
-        list.add(getData());
-        return list;
-
-    }
-    public static Categories getData(){
-        Categories bloodPressureCategory = new Categories();
-        CategoriesManualSetter.setCategoryData(bloodPressureCategory,
-                2427, "jxy", "降血压类", 8,
-                "http://files.dev.1genehealth.com/gene/d93b59fd9c74a6fc3ee69a26fa6c08e6.png",
-                19, 19);
-        List<Categories.ItemsBean> items = new ArrayList<>();
-        Categories.ItemsBean metoprolol = new Categories.ItemsBean();
-        CategoriesManualSetter.setItemData(metoprolol,
-                "jxymtle", "美托洛尔", 4, "3A", "谨慎使用",
-                "CYP2D6酶活性减弱，药物代谢速率减慢，毒副风险较高，遵医嘱减少本药药物剂量使用。",
-                2, 50, 711);
-        items.add(metoprolol);
-        Categories.ItemsBean nifedipine = new Categories.ItemsBean();
-        CategoriesManualSetter.setItemData(nifedipine,
-                "jxyxbdp", "硝苯地平", 1, "2A", "酌情使用",
-                "对该药物的应答性较差，治疗效果可能较差，建议使用时监测药物疗效，酌情考虑是否增加药物剂量。",
-                6, 50, 706);
-        items.add(nifedipine);
-        bloodPressureCategory.setItems(items);
-        return bloodPressureCategory;
     }
 }

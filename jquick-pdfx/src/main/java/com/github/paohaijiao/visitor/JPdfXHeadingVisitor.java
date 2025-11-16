@@ -40,50 +40,7 @@ import java.util.List;
  */
 public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
 
-    @Override
-    public Paragraph visitHeading(JQuickPDFParser.HeadingContext ctx) {
-        Integer number = 1;//default h1
-        if (ctx.number() != null && !ctx.number().isEmpty()) {
-            String numberTxt = ctx.number().get(0).getText();
-            number = Integer.parseInt(numberTxt.toString());
-        }
-        List<Object> value = null;
-        String text="";
-        if (null != ctx.elemValue()) {
-            value = visitElemValue(ctx.elemValue());
-        }
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
-        }
-        Paragraph paragraph = new Paragraph(trim(text));
-        paragraph.setFont(JFontProviderFactory.defualtFont());
-        createHeading(paragraph,number);
-        saveSub(paragraph,value);
-        super.buildStyle(paragraph, style);
-        return paragraph;
-    }
-
-    private void saveSub(Paragraph paragraph, List<Object> list) {
-            list.forEach(e -> {
-                if (e instanceof String) {
-                    paragraph.add((String) e);
-                }
-                if (e instanceof ILeafElement) {
-                    paragraph.add((ILeafElement) e);
-                }
-                if (e instanceof IBlockElement) {
-                    paragraph.add((IBlockElement) e);
-                }
-                if (e instanceof TabStop) {
-                    TabStop tabStop = (TabStop) e;
-                    paragraph.addTabStops(Arrays.asList(tabStop));
-                }
-            });
-    }
-    private static Paragraph createHeading(Paragraph heading, int level)  {
+    private static Paragraph createHeading(Paragraph heading, int level) {
         heading.setFont(JFontProviderFactory.defualtFont());
         switch (level) {
             case 1: // H1
@@ -143,6 +100,50 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
                 heading.setMarginBottom(5);
         }
         return heading;
+    }
+
+    @Override
+    public Paragraph visitHeading(JQuickPDFParser.HeadingContext ctx) {
+        Integer number = 1;//default h1
+        if (ctx.number() != null && !ctx.number().isEmpty()) {
+            String numberTxt = ctx.number().get(0).getText();
+            number = Integer.parseInt(numberTxt.toString());
+        }
+        List<Object> value = null;
+        String text = "";
+        if (null != ctx.elemValue()) {
+            value = visitElemValue(ctx.elemValue());
+        }
+        JStyleAttributes style = new JStyleAttributes();
+        if (null != ctx.styleEle()) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
+        }
+        Paragraph paragraph = new Paragraph(trim(text));
+        paragraph.setFont(JFontProviderFactory.defualtFont());
+        createHeading(paragraph, number);
+        saveSub(paragraph, value);
+        super.buildStyle(paragraph, style);
+        return paragraph;
+    }
+
+    private void saveSub(Paragraph paragraph, List<Object> list) {
+        list.forEach(e -> {
+            if (e instanceof String) {
+                paragraph.add((String) e);
+            }
+            if (e instanceof ILeafElement) {
+                paragraph.add((ILeafElement) e);
+            }
+            if (e instanceof IBlockElement) {
+                paragraph.add((IBlockElement) e);
+            }
+            if (e instanceof TabStop) {
+                TabStop tabStop = (TabStop) e;
+                paragraph.addTabStops(Arrays.asList(tabStop));
+            }
+        });
     }
 
 

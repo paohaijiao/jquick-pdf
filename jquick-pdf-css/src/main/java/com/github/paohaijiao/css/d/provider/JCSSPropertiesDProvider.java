@@ -33,19 +33,13 @@ import com.itextpdf.layout.properties.Property;
  * @description
  */
 public class JCSSPropertiesDProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style = new Style();
-        convertToStyle(element,cssProperties,style);
-        element.addStyle(style);
-    }
     /**
      * Converts JCSSPropertiesDModel properties to iText Style
      *
      * @param model the CSS properties model
      * @return iText Style object with configured properties
      */
-    public static Style convertToStyle(BlockElement<?> element, JCSSPropertiesCoreModel model,  Style style) {
+    public static Style convertToStyle(BlockElement<?> element, JCSSPropertiesCoreModel model, Style style) {
         if (model.getDirection() != null) {
             switch (model.getDirection().toLowerCase()) {
                 case "ltr":
@@ -84,6 +78,13 @@ public class JCSSPropertiesDProvider extends JCSSPropertiesBaseProvider implemen
         }
 
         return style;
+    }
+
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        convertToStyle(element, cssProperties, style);
+        element.addStyle(style);
     }
 
 }

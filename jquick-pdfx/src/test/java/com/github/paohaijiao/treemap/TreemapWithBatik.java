@@ -1,4 +1,5 @@
 package com.github.paohaijiao.treemap;
+
 import com.github.paohaijiao.model.TreemapNode;
 import org.apache.batik.anim.dom.SVGDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
@@ -297,13 +298,13 @@ public class TreemapWithBatik {
 
                 int textWidth = label.length() * 6;
                 if (textWidth < rect.getWidth() - 10) {
-                    svgGenerator.drawString(label, (float)(centerX - textWidth / 2), (float)(centerY + 4));
+                    svgGenerator.drawString(label, (float) (centerX - textWidth / 2), (float) (centerY + 4));
                 } else if (rect.getWidth() > 30) {
                     if (label.length() > 8) {
                         label = label.substring(0, 6) + "...";
                         textWidth = label.length() * 6;
                         if (textWidth < rect.getWidth() - 5) {
-                            svgGenerator.drawString(label, (float)(centerX - textWidth / 2), (float)(centerY + 4));
+                            svgGenerator.drawString(label, (float) (centerX - textWidth / 2), (float) (centerY + 4));
                         }
                     }
                 }

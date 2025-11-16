@@ -41,7 +41,7 @@ public class ReportComponent {
         } else {
             element = new Paragraph("------------------------------------------------");
         }
-        AbstractIdentifiableElement abstractIdentifiableElement=null;
+        AbstractIdentifiableElement abstractIdentifiableElement = null;
         element.setProperty(Property.OVERFLOW_X, OverflowPropertyValue.HIDDEN);
         element.setTextAlignment(TextAlignment.RIGHT);
         element.setMarginRight(20);
@@ -76,23 +76,23 @@ public class ReportComponent {
         return new Paragraph(text).addStyle(ReportStyle.getSignStyle());
     }
 
-    public static Text getSecondTitle(String context){
+    public static Text getSecondTitle(String context) {
         return new Text(context).addStyle(ReportStyle.getSecondTitleStyle());
     }
 
-    public static Text getThirdTitle(String context){
+    public static Text getThirdTitle(String context) {
         return new Text(context).addStyle(ReportStyle.getThirdTitleStyle());
     }
 
-    public static Paragraph getHeaderLineText(String context){
+    public static Paragraph getHeaderLineText(String context) {
         return new Paragraph(context).setTextAlignment(TextAlignment.CENTER).setFontSize(12).setMarginTop(-20);
     }
 
-    public static Paragraph getTitleParagraph(Text context){
+    public static Paragraph getTitleParagraph(Text context) {
         return new Paragraph(context).setMargin(0);
     }
 
-    public static PdfAction getCatalogPageAction(PdfDocument pdf){
+    public static PdfAction getCatalogPageAction(PdfDocument pdf) {
         PdfDestination dest = PdfExplicitDestination.createXYZ(pdf.getPage(6), 60, -10, 1);
         return PdfAction.createGoTo(dest);
     }

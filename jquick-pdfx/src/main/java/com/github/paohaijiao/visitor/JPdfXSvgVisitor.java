@@ -42,12 +42,12 @@ public class JPdfXSvgVisitor extends JPdfXTreeVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        SvgImage svgImage=null;
-        if(ctx.variable()!=null){
-            Object var=  visitVariable(ctx.variable());
-            JAssert.notNull(var,"the variable not  null");
-            svgImage=new SvgImage(var.toString());
-        }else if(ctx.addressOf()!=null) {
+        SvgImage svgImage = null;
+        if (ctx.variable() != null) {
+            Object var = visitVariable(ctx.variable());
+            JAssert.notNull(var, "the variable not  null");
+            svgImage = new SvgImage(var.toString());
+        } else if (ctx.addressOf() != null) {
             String identify = ctx.addressOf().IDENTIFIER().getText();
             JGraphConfig graphConfig = this.config.getGraphConfig();
             JAssert.notNull(graphConfig, "the graph config not  null");

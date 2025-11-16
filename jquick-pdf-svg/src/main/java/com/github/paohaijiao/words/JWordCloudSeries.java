@@ -21,6 +21,7 @@ import com.github.paohaijiao.series.JSeries;
 import com.github.paohaijiao.style.JItemStyle;
 
 import java.util.List;
+
 /**
  * packageName com.github.paohaijiao.words
  *
@@ -37,6 +38,7 @@ public class JWordCloudSeries extends JSeries<JWordCloudSeries> {
     private Integer rotationRange = 90;
     private Boolean drawOutOfBound = false;
     private JItemStyle textStyle;
+
     public JWordCloudSeries() {
         this.type(JSeriesType.wordCloud);
     }
@@ -115,6 +117,7 @@ public class JWordCloudSeries extends JSeries<JWordCloudSeries> {
         }
         return textStyle;
     }
+
     public JWordCloudSeries textStyle(JItemStyle textStyle) {
         this.textStyle = textStyle;
         return this;

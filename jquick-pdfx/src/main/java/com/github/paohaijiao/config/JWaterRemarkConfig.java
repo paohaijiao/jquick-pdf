@@ -29,13 +29,13 @@ import lombok.Data;
 @Data
 public class JWaterRemarkConfig {
 
-    private Boolean enabled=false;
+    private Boolean enabled = false;
 
-    private String watermarkText="水印";
+    private String watermarkText = "水印";
 
-    private PdfFont font= JFontProviderFactory.defualtFont();
+    private PdfFont font = JFontProviderFactory.defualtFont();
 
 
-    private Float fillOpacity=0.3f;
+    private Float fillOpacity = 0.3f;
 
 }

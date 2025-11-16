@@ -33,47 +33,46 @@ import java.util.List;
 @Data
 public class JPdfConfig {
 
-    private String workspace="d://test";
+    private String workspace = "d://test";
 
 //    private String templateFile="//template.pdf";
 
-    private String outputFile="//hello.pdf";
+    private String outputFile = "//hello.pdf";
 
-    private PageSize defaultPageSize=PageSize.A4;
+    private PageSize defaultPageSize = PageSize.A4;
 
-    private List<Integer> margins= Arrays.asList(0, 0, 0, 0);
+    private List<Integer> margins = Arrays.asList(0, 0, 0, 0);
 
-    private Boolean reverse=true;
+    private Boolean reverse = true;
 
-    private JCatalogConfig catalogConfig=new JCatalogConfig();
+    private JCatalogConfig catalogConfig = new JCatalogConfig();
 
-    private JDocConfig doc=new JDocConfig();
+    private JDocConfig doc = new JDocConfig();
 
 
-    private JPageConfig pageConfig= new JPageConfig();
+    private JPageConfig pageConfig = new JPageConfig();
 
-    private JHeaderConfig headerConfig=new JHeaderConfig();
+    private JHeaderConfig headerConfig = new JHeaderConfig();
 
-    private JFooterConfig footerConfig=new JFooterConfig();
+    private JFooterConfig footerConfig = new JFooterConfig();
 
-    private JWaterRemarkConfig watermarkConfig=new JWaterRemarkConfig();
+    private JWaterRemarkConfig watermarkConfig = new JWaterRemarkConfig();
 
-    private JFontConfig fontConfig=new JFontConfig();
+    private JFontConfig fontConfig = new JFontConfig();
 
-    private JSecurityConfig securityConfig=new JSecurityConfig();
+    private JSecurityConfig securityConfig = new JSecurityConfig();
 
-    private JGraphConfig graphConfig=new JGraphConfig();
+    private JGraphConfig graphConfig = new JGraphConfig();
 
-    private JComboBoxFieldConfig comboBoxFieldConfig=new JComboBoxFieldConfig();
+    private JComboBoxFieldConfig comboBoxFieldConfig = new JComboBoxFieldConfig();
 
     private JTreeNodeConfig treeConfig = new JTreeNodeConfig();
 
     private JTemplateConfig templateConfig = new JTemplateConfig();
 
 
-
     public String getOutputFilePath() {
-        return this.workspace+outputFile;
+        return this.workspace + outputFile;
     }
 
 }

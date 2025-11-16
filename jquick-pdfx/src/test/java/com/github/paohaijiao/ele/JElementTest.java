@@ -30,6 +30,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void heading() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/heading.txt");
@@ -37,6 +38,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void list() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/list.txt");
@@ -44,6 +46,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void table() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/table.txt");
@@ -51,6 +54,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void image() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/image.txt");
@@ -58,6 +62,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void svg1() throws IOException {
         JContext params = new JContext();
@@ -136,9 +141,10 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(params);
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         JOption option = new JOption();
         option.title().text("股票K线图(含数据)");
         option.tooltip().trigger(JTrigger.axis);
@@ -164,8 +170,8 @@ public class JElementTest {
         option.series(candlestick);
         graphContainer.setOption(option);
         graphContainer.setType(JChartType.K);
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
@@ -173,6 +179,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void div() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/div.txt");
@@ -180,6 +187,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void span() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/span.txt");
@@ -187,6 +195,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void areaBreak() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/areaBreak.txt");
@@ -194,6 +203,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void button() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/button.txt");
@@ -201,6 +211,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void checkbox() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/checkbox.txt");
@@ -208,6 +219,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void comboxFiled() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/comboxFiled.txt");
@@ -215,6 +227,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void htmlPageBreak() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/htmlPageBreak.txt");
@@ -230,6 +243,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void tab() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/tab.txt");
@@ -237,6 +251,7 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void textArea() throws IOException {
         JReader fileReader = new JReSourceFileReader("sample/textArea.txt");
@@ -244,9 +259,10 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
     }
+
     @Test
     public void tree1() throws IOException {
-        JContext context=new JContext();
+        JContext context = new JContext();
         TreeNode root = new TreeNode("Root");
         TreeNode child1 = new TreeNode("Documents");
         TreeNode child2 = new TreeNode("Images");
@@ -261,9 +277,10 @@ public class JElementTest {
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(context);
         executor.execute(adaptor.getRuleContent());
     }
+
     @Test
     public void tree2() throws IOException {
-        JPdfConfig config=new JPdfConfig();
+        JPdfConfig config = new JPdfConfig();
         TreeNode root = new TreeNode("Root");
         TreeNode child1 = new TreeNode("Documents");
         TreeNode child2 = new TreeNode("Images");
@@ -272,17 +289,18 @@ public class JElementTest {
         root.addChild(child1);
         root.addChild(child2);
         root.addChild(child3);
-        JTreeNodeConfig treeNodeConfig=config.getTreeConfig();
+        JTreeNodeConfig treeNodeConfig = config.getTreeConfig();
         treeNodeConfig.put("tree", root);
         JReader fileReader = new JReSourceFileReader("sample/tree2.txt");
         JAdaptor adaptor = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());
     }
+
     @Test
     public void template() throws IOException {
-        JPdfConfig config=new JPdfConfig();
-        JTemplateConfig templateConfig=config.getTemplateConfig();
+        JPdfConfig config = new JPdfConfig();
+        JTemplateConfig templateConfig = config.getTemplateConfig();
         templateConfig.put("html", "<h1>Hello World</h1><p>This is a test PDF generated from HTML</p>");
         JReader fileReader = new JReSourceFileReader("sample/template.txt");
         JAdaptor adaptor = new JAdaptor(fileReader);
@@ -292,8 +310,8 @@ public class JElementTest {
 
     @Test
     public void report() throws IOException {
-        JPdfConfig config=new JPdfConfig();
-        JTemplateConfig templateConfig=config.getTemplateConfig();
+        JPdfConfig config = new JPdfConfig();
+        JTemplateConfig templateConfig = config.getTemplateConfig();
         templateConfig.put("html", "  <div style=\"marginBottom:15px\">\n" +
                 "    <h2 style=\"color:#3498db;  fontSize:13; marginBottom:10px\">企业资质认证</h2>\n" +
                 "    <div style=\"display:flex; marginTop:12px; gap:8px\">\n" +
@@ -387,13 +405,11 @@ public class JElementTest {
                 "                    综合信用评分: 85/100 | 评级: AA\n" +
                 "                </text>\n" +
                 "            </svg>";
-        JContext param=new JContext();
+        JContext param = new JContext();
         param.put("svg", svg);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(param,config);
+        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(param, config);
         executor.execute(adaptor.getRuleContent());
     }
-
-
 
 
 }

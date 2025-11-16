@@ -34,13 +34,6 @@ import com.itextpdf.layout.properties.UnitValue;
  * @description
  */
 public class JCSSPropertiesSProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style = new Style();
-        applyProperties(cssProperties, style);
-        applyScrollMarginProperties(cssProperties, style);
-        element.addStyle(style);
-    }
     public static Style applyProperties(JCSSPropertiesSModel cssModel, Style style) {
         if (cssModel == null || style == null) {
             return style;
@@ -247,6 +240,13 @@ public class JCSSPropertiesSProvider extends JCSSPropertiesBaseProvider implemen
         }
     }
 
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        applyProperties(cssProperties, style);
+        applyScrollMarginProperties(cssProperties, style);
+        element.addStyle(style);
+    }
 
 
 }

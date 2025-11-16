@@ -33,24 +33,10 @@ import com.itextpdf.layout.properties.VerticalAlignment;
  * @date 2025/7/1
  * @description
  */
-public class JCSSPropertiesVProvider  extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style = new Style();
-        String verticalAlign = cssProperties.getVerticalAlign();
-        if (verticalAlign != null) {
-            setVerticalAlign(style, verticalAlign);
-        }
-        String visibility = cssProperties.getVisibility();
-        if (visibility != null) {
-            setVisibility(style, visibility);
-        }
-        element.addStyle(style);
-    }
-
-
+public class JCSSPropertiesVProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
     /**
      * Sets vertical-align property in iText Style
+     *
      * @param style The iText Style to modify
      * @param value The vertical-align value
      */
@@ -89,6 +75,7 @@ public class JCSSPropertiesVProvider  extends JCSSPropertiesBaseProvider impleme
 
     /**
      * Sets visibility property in iText Style
+     *
      * @param style The iText Style to modify
      * @param value The visibility value
      */
@@ -114,6 +101,7 @@ public class JCSSPropertiesVProvider  extends JCSSPropertiesBaseProvider impleme
 
     /**
      * Parses length values into points (iText's default unit)
+     *
      * @param value The length value string (e.g., "10px", "2em", "50%")
      * @return The value in points
      */
@@ -136,6 +124,19 @@ public class JCSSPropertiesVProvider  extends JCSSPropertiesBaseProvider impleme
         }
     }
 
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        String verticalAlign = cssProperties.getVerticalAlign();
+        if (verticalAlign != null) {
+            setVerticalAlign(style, verticalAlign);
+        }
+        String visibility = cssProperties.getVisibility();
+        if (visibility != null) {
+            setVisibility(style, visibility);
+        }
+        element.addStyle(style);
+    }
 
 
 }

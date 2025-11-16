@@ -43,12 +43,12 @@ public class JPdfXLineSeparaterVisitor extends JPdfXInputFieldVisitor {
         }
         String value = "";
         if (null != ctx.IDENTIFIER()) {
-            value =ctx.IDENTIFIER().getText();
+            value = ctx.IDENTIFIER().getText();
         }
         line.setFont(JFontProviderFactory.defualtFont());
         super.buildStyle(line, style);
         return line;
-   }
+    }
 
 
 }

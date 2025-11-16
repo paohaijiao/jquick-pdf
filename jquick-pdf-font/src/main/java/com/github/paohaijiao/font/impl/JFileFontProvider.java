@@ -35,7 +35,7 @@ public class JFileFontProvider implements JFontProvider {
     private final String fontPath;
     private final JPdfEncoding encoding;
 
-    public JFileFontProvider(String fontName,String fontPath, JPdfEncoding encoding) {
+    public JFileFontProvider(String fontName, String fontPath, JPdfEncoding encoding) {
         this.fontName = fontName;
         this.fontPath = fontPath;
         this.encoding = encoding;

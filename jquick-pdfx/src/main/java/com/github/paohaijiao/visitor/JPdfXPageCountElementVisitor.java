@@ -16,7 +16,6 @@
 package com.github.paohaijiao.visitor;
 
 
-
 /**
  * packageName com.paohaijiao.javelin.visitor
  *
@@ -27,7 +26,6 @@ package com.github.paohaijiao.visitor;
  * @description
  */
 public class JPdfXPageCountElementVisitor extends JPdfXListBoxVisitor {
-
 
 
 }

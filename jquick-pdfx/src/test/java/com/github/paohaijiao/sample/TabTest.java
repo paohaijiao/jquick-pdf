@@ -14,15 +14,16 @@ import com.itextpdf.layout.element.Paragraph;
 import java.io.FileNotFoundException;
 
 public class TabTest {
-    static String path="d://test//outline_tabs.pdf";
+    static String path = "d://test//outline_tabs.pdf";
+
     public static void main(String[] args) throws FileNotFoundException {
         try (PdfDocument pdfDoc = new PdfDocument(new PdfWriter(path));
              Document document = new Document(pdfDoc)) {
-             pdfDoc.addNewPage();
+            pdfDoc.addNewPage();
             PageSize pageSize = pdfDoc.getDefaultPageSize();
             int tabHeight = 30;
-            int tabWidth = (int)pageSize.getWidth() / 3;
-            int height=(int)pageSize.getHeight() - tabHeight;
+            int tabWidth = (int) pageSize.getWidth() / 3;
+            int height = (int) pageSize.getHeight() - tabHeight;
             PdfAnnotation tab1 = new PdfStampAnnotation(new Rectangle(0, height, tabWidth, tabHeight))
                     .setContents("Tab 1")
                     .setColor(ColorConstants.LIGHT_GRAY)

@@ -84,133 +84,145 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
     private static final List<String> VALID_MASK_REPEATS = Arrays.asList(
             "repeat-x", "repeat-y", "repeat", "space", "round", "no-repeat"
     );
-
-    public void setMargin(String value) {
-        put(MARGIN, value);
-    }
+    private static final List<String> VALID_MASK_TYPES = Arrays.asList(
+            "luminance", "alpha"
+    );
+    private static final List<String> VALID_BLEND_MODES = Arrays.asList(
+            "normal", "multiply", "screen", "overlay", "darken", "lighten",
+            "color-dodge", "color-burn", "hard-light", "soft-light", "difference",
+            "exclusion", "hue", "saturation", "color", "luminosity"
+    );
 
     public String getMargin() {
         return get(MARGIN);
     }
 
-    public void setMarginBlock(String value) {
-        put(MARGIN_BLOCK, value);
+    public void setMargin(String value) {
+        put(MARGIN, value);
     }
 
     public String getMarginBlock() {
         return get(MARGIN_BLOCK);
     }
 
-    public void setMarginBlockEnd(String value) {
-        put(MARGIN_BLOCK_END, value);
+    public void setMarginBlock(String value) {
+        put(MARGIN_BLOCK, value);
     }
 
     public String getMarginBlockEnd() {
         return get(MARGIN_BLOCK_END);
     }
 
-    public void setMarginBlockStart(String value) {
-        put(MARGIN_BLOCK_START, value);
+    public void setMarginBlockEnd(String value) {
+        put(MARGIN_BLOCK_END, value);
     }
 
     public String getMarginBlockStart() {
         return get(MARGIN_BLOCK_START);
     }
 
-    public void setMarginBottom(String value) {
-        put(MARGIN_BOTTOM, value);
+    public void setMarginBlockStart(String value) {
+        put(MARGIN_BLOCK_START, value);
     }
 
     public String getMarginBottom() {
         return get(MARGIN_BOTTOM);
     }
 
-    public void setMarginInline(String value) {
-        put(MARGIN_INLINE, value);
+    public void setMarginBottom(String value) {
+        put(MARGIN_BOTTOM, value);
     }
 
     public String getMarginInline() {
         return get(MARGIN_INLINE);
     }
 
-    public void setMarginInlineEnd(String value) {
-        put(MARGIN_INLINE_END, value);
+    public void setMarginInline(String value) {
+        put(MARGIN_INLINE, value);
     }
 
     public String getMarginInlineEnd() {
         return get(MARGIN_INLINE_END);
     }
 
-    public void setMarginInlineStart(String value) {
-        put(MARGIN_INLINE_START, value);
+    public void setMarginInlineEnd(String value) {
+        put(MARGIN_INLINE_END, value);
     }
 
     public String getMarginInlineStart() {
         return get(MARGIN_INLINE_START);
     }
 
-    public void setMarginLeft(String value) {
-        put(MARGIN_LEFT, value);
+    public void setMarginInlineStart(String value) {
+        put(MARGIN_INLINE_START, value);
     }
 
     public String getMarginLeft() {
         return get(MARGIN_LEFT);
     }
 
-    public void setMarginRight(String value) {
-        put(MARGIN_RIGHT, value);
+    public void setMarginLeft(String value) {
+        put(MARGIN_LEFT, value);
     }
 
     public String getMarginRight() {
         return get(MARGIN_RIGHT);
     }
 
-    public void setMarginTop(String value) {
-        put(MARGIN_TOP, value);
+    public void setMarginRight(String value) {
+        put(MARGIN_RIGHT, value);
     }
 
     public String getMarginTop() {
         return get(MARGIN_TOP);
     }
 
-    public void setMarker(String value) {
-        put(MARKER, value);
+    public void setMarginTop(String value) {
+        put(MARGIN_TOP, value);
     }
 
     public String getMarker() {
         return get(MARKER);
     }
 
-    public void setMarkerEnd(String value) {
-        put(MARKER_END, value);
+    public void setMarker(String value) {
+        put(MARKER, value);
     }
 
     public String getMarkerEnd() {
         return get(MARKER_END);
     }
 
-    public void setMarkerMid(String value) {
-        put(MARKER_MID, value);
+    public void setMarkerEnd(String value) {
+        put(MARKER_END, value);
     }
 
     public String getMarkerMid() {
         return get(MARKER_MID);
     }
 
-    public void setMarkerStart(String value) {
-        put(MARKER_START, value);
+    public void setMarkerMid(String value) {
+        put(MARKER_MID, value);
     }
 
     public String getMarkerStart() {
         return get(MARKER_START);
     }
 
-    public void setMask(String value) {
-        put(MASK, value);
+    public void setMarkerStart(String value) {
+        put(MARKER_START, value);
     }
 
     public String getMask() {
         return get(MASK);
+    }
+
+    public void setMask(String value) {
+        put(MASK, value);
+    }
+
+    public String getMaskClip() {
+        return get(MASK_CLIP);
     }
 
     public void setMaskClip(String value) {
@@ -221,8 +233,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         }
     }
 
-    public String getMaskClip() {
-        return get(MASK_CLIP);
+    public String getMaskComposite() {
+        return get(MASK_COMPOSITE);
     }
 
     public void setMaskComposite(String value) {
@@ -233,16 +245,16 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         }
     }
 
-    public String getMaskComposite() {
-        return get(MASK_COMPOSITE);
+    public String getMaskImage() {
+        return get(MASK_IMAGE);
     }
 
     public void setMaskImage(String value) {
         put(MASK_IMAGE, value);
     }
 
-    public String getMaskImage() {
-        return get(MASK_IMAGE);
+    public String getMaskMode() {
+        return get(MASK_MODE);
     }
 
     public void setMaskMode(String value) {
@@ -253,8 +265,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         }
     }
 
-    public String getMaskMode() {
-        return get(MASK_MODE);
+    public String getMaskOrigin() {
+        return get(MASK_ORIGIN);
     }
 
     public void setMaskOrigin(String value) {
@@ -265,16 +277,16 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         }
     }
 
-    public String getMaskOrigin() {
-        return get(MASK_ORIGIN);
+    public String getMaskPosition() {
+        return get(MASK_POSITION);
     }
 
     public void setMaskPosition(String value) {
         put(MASK_POSITION, value);
     }
 
-    public String getMaskPosition() {
-        return get(MASK_POSITION);
+    public String getMaskRepeat() {
+        return get(MASK_REPEAT);
     }
 
     public void setMaskRepeat(String value) {
@@ -285,28 +297,17 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         }
     }
 
-    public String getMaskRepeat() {
-        return get(MASK_REPEAT);
+    public String getMaskSize() {
+        return get(MASK_SIZE);
     }
 
     public void setMaskSize(String value) {
         put(MASK_SIZE, value);
     }
 
-    public String getMaskSize() {
-        return get(MASK_SIZE);
+    public String getMaskType() {
+        return get(MASK_TYPE);
     }
-
-    private static final List<String> VALID_MASK_TYPES = Arrays.asList(
-            "luminance", "alpha"
-    );
-
-    private static final List<String> VALID_BLEND_MODES = Arrays.asList(
-            "normal", "multiply", "screen", "overlay", "darken", "lighten",
-            "color-dodge", "color-burn", "hard-light", "soft-light", "difference",
-            "exclusion", "hue", "saturation", "color", "luminosity"
-    );
-
 
     /**
      * Sets mask type for SVG masks
@@ -322,8 +323,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         }
     }
 
-    public String getMaskType() {
-        return get(MASK_TYPE);
+    public String getMaxBlockSize() {
+        return get(MAX_BLOCK_SIZE);
     }
 
     /**
@@ -336,8 +337,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         put(MAX_BLOCK_SIZE, value);
     }
 
-    public String getMaxBlockSize() {
-        return get(MAX_BLOCK_SIZE);
+    public String getMaxHeight() {
+        return get(MAX_HEIGHT);
     }
 
     /**
@@ -350,8 +351,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         put(MAX_HEIGHT, value);
     }
 
-    public String getMaxHeight() {
-        return get(MAX_HEIGHT);
+    public String getMaxInlineSize() {
+        return get(MAX_INLINE_SIZE);
     }
 
     /**
@@ -364,8 +365,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         put(MAX_INLINE_SIZE, value);
     }
 
-    public String getMaxInlineSize() {
-        return get(MAX_INLINE_SIZE);
+    public String getMaxWidth() {
+        return get(MAX_WIDTH);
     }
 
     /**
@@ -376,10 +377,6 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
      */
     public void setMaxWidth(String value) {
         put(MAX_WIDTH, value);
-    }
-
-    public String getMaxWidth() {
-        return get(MAX_WIDTH);
     }
 
     /**
@@ -398,6 +395,10 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         return get(MEDIA + " " + query);
     }
 
+    public String getMinBlockSize() {
+        return get(MIN_BLOCK_SIZE);
+    }
+
     /**
      * Sets minimum size in block dimension
      *
@@ -408,8 +409,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         put(MIN_BLOCK_SIZE, value);
     }
 
-    public String getMinBlockSize() {
-        return get(MIN_BLOCK_SIZE);
+    public String getMinInlineSize() {
+        return get(MIN_INLINE_SIZE);
     }
 
     /**
@@ -422,8 +423,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         put(MIN_INLINE_SIZE, value);
     }
 
-    public String getMinInlineSize() {
-        return get(MIN_INLINE_SIZE);
+    public String getMinHeight() {
+        return get(MIN_HEIGHT);
     }
 
     /**
@@ -436,8 +437,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         put(MIN_HEIGHT, value);
     }
 
-    public String getMinHeight() {
-        return get(MIN_HEIGHT);
+    public String getMinWidth() {
+        return get(MIN_WIDTH);
     }
 
     /**
@@ -450,8 +451,8 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         put(MIN_WIDTH, value);
     }
 
-    public String getMinWidth() {
-        return get(MIN_WIDTH);
+    public String getMixBlendMode() {
+        return get(MIX_BLEND_MODE);
     }
 
     /**
@@ -466,10 +467,6 @@ public class JCSSPropertiesMModel extends JCSSPropertiesLModel {
         } else {
             throw new IllegalArgumentException("Invalid mix-blend-mode value: " + value);
         }
-    }
-
-    public String getMixBlendMode() {
-        return get(MIX_BLEND_MODE);
     }
 
 

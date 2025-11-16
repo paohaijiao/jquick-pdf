@@ -38,6 +38,24 @@ import java.net.MalformedURLException;
  */
 public class JPdfXImageVisitor extends JPdfXListVisitor {
 
+    public static Image buildImage() {
+        Image image = null;
+        try {
+            image = new Image(ImageDataFactory.create("path/to/image.jpg"));
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
+        image.setWidth(200); // 宽度
+        image.setHeight(100); // 高度
+        image.setAutoScale(true); // 自动缩放
+        image.setRotationAngle(Math.PI / 4); // 旋转45度
+        image.setOpacity(0.8f); // 透明度
+        // image.setBorder(new SolidBorder(Color.BLUE, 2)); // 边框
+        image.setHorizontalAlignment(HorizontalAlignment.CENTER); // 对齐方式
+        image.setMargins(10, 0, 10, 0); // 边距
+        return image;
+    }
+
     @Override
     public Image visitImage(JQuickPDFParser.ImageContext ctx) {
         try {
@@ -69,32 +87,13 @@ public class JPdfXImageVisitor extends JPdfXListVisitor {
             if (null != value) {
                 image.getAccessibilityProperties().setActualText(value);
             }
-           // image.setMargins(-50, -60, -60, -60);
+            // image.setMargins(-50, -60, -60, -60);
             super.buildStyle(image, style);
             return image;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
-    }
-
-
-    public static Image buildImage() {
-        Image image = null;
-        try {
-            image = new Image(ImageDataFactory.create("path/to/image.jpg"));
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
-        }
-        image.setWidth(200); // 宽度
-        image.setHeight(100); // 高度
-        image.setAutoScale(true); // 自动缩放
-        image.setRotationAngle(Math.PI / 4); // 旋转45度
-        image.setOpacity(0.8f); // 透明度
-        // image.setBorder(new SolidBorder(Color.BLUE, 2)); // 边框
-        image.setHorizontalAlignment(HorizontalAlignment.CENTER); // 对齐方式
-        image.setMargins(10, 0, 10, 0); // 边距
-        return image;
     }
 
 }

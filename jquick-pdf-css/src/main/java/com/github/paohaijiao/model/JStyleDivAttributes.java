@@ -23,20 +23,19 @@ public class JStyleDivAttributes extends JStyleBlockAttributes {
 
     public static final String fillAreaOnSplit = "fillAreaOnSplit";
 
-
+    public String getFillArea() {
+        return get(JStyleDivAttributes.fillArea);
+    }
 
     public void setFillArea(String fillArea) {
         put(JStyleDivAttributes.fillArea, fillArea);
     }
 
-    public void setFillAreaOnSplit(String fillAreaOnSplit) {
-        put(JStyleDivAttributes.fillAreaOnSplit, fillAreaOnSplit);
-    }
-
-    public String getFillArea() {
-        return get(JStyleDivAttributes.fillArea);
-    }
     public String getFillAreaOnSplit() {
         return get(JStyleDivAttributes.fillAreaOnSplit);
+    }
+
+    public void setFillAreaOnSplit(String fillAreaOnSplit) {
+        put(JStyleDivAttributes.fillAreaOnSplit, fillAreaOnSplit);
     }
 }

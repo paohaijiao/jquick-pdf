@@ -42,7 +42,7 @@ import java.util.Map;
  */
 public class JCalendarTest {
 
-    private JOption createData(){
+    private JOption createData() {
         Map<LocalDate, Integer> data = new HashMap<>();
         LocalDate startDate = LocalDate.of(2024, 1, 1);
         for (int i = 0; i < 365; i++) {
@@ -50,7 +50,7 @@ public class JCalendarTest {
             int value = (int) (Math.random() * 15);
             data.put(date, value);
         }
-        JOption option=new JOption();
+        JOption option = new JOption();
         JCalendarOption calendarOption = new JCalendarOption("2024年活动日历", "类似GitHub贡献图", 2024, data,
                 new Color(235, 237, 240),
                 new Color(32, 125, 222),
@@ -65,11 +65,11 @@ public class JCalendarTest {
 
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         graphContainer.setType(JChartType.Calendar);
         graphContainer.setOption(createData());
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

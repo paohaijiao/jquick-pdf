@@ -72,6 +72,10 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
             "visible", "painted", "fill", "stroke", "all"
     );
 
+    public String getPadding() {
+        return get(PADDING);
+    }
+
     /**
      * Sets padding shorthand property (1-4 values)
      *
@@ -81,8 +85,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING, value);
     }
 
-    public String getPadding() {
-        return get(PADDING);
+    public String getPaddingBlock() {
+        return get(PADDING_BLOCK);
     }
 
     /**
@@ -94,8 +98,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_BLOCK, value);
     }
 
-    public String getPaddingBlock() {
-        return get(PADDING_BLOCK);
+    public String getPaddingBlockEnd() {
+        return get(PADDING_BLOCK_END);
     }
 
     /**
@@ -107,8 +111,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_BLOCK_END, value);
     }
 
-    public String getPaddingBlockEnd() {
-        return get(PADDING_BLOCK_END);
+    public String getPaddingBlockStart() {
+        return get(PADDING_BLOCK_START);
     }
 
     /**
@@ -120,8 +124,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_BLOCK_START, value);
     }
 
-    public String getPaddingBlockStart() {
-        return get(PADDING_BLOCK_START);
+    public String getPaddingBottom() {
+        return get(PADDING_BOTTOM);
     }
 
     /**
@@ -133,8 +137,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_BOTTOM, value);
     }
 
-    public String getPaddingBottom() {
-        return get(PADDING_BOTTOM);
+    public String getPaddingInline() {
+        return get(PADDING_INLINE);
     }
 
     /**
@@ -146,8 +150,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_INLINE, value);
     }
 
-    public String getPaddingInline() {
-        return get(PADDING_INLINE);
+    public String getPaddingInlineEnd() {
+        return get(PADDING_INLINE_END);
     }
 
     /**
@@ -159,8 +163,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_INLINE_END, value);
     }
 
-    public String getPaddingInlineEnd() {
-        return get(PADDING_INLINE_END);
+    public String getPaddingInlineStart() {
+        return get(PADDING_INLINE_START);
     }
 
     /**
@@ -172,8 +176,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_INLINE_START, value);
     }
 
-    public String getPaddingInlineStart() {
-        return get(PADDING_INLINE_START);
+    public String getPaddingLeft() {
+        return get(PADDING_LEFT);
     }
 
     /**
@@ -185,8 +189,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_LEFT, value);
     }
 
-    public String getPaddingLeft() {
-        return get(PADDING_LEFT);
+    public String getPaddingRight() {
+        return get(PADDING_RIGHT);
     }
 
     /**
@@ -198,8 +202,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PADDING_RIGHT, value);
     }
 
-    public String getPaddingRight() {
-        return get(PADDING_RIGHT);
+    public String getPaddingTop() {
+        return get(PADDING_TOP);
     }
 
     /**
@@ -210,11 +214,6 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
     public void setPaddingTop(String value) {
         put(PADDING_TOP, value);
     }
-
-    public String getPaddingTop() {
-        return get(PADDING_TOP);
-    }
-
 
     /**
      * Defines page rule for print styling
@@ -231,6 +230,10 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         return get(PAGE + (pageSelector != null ? " " + pageSelector : ""));
     }
 
+    public String getPageBreakAfter() {
+        return get(PAGE_BREAK_AFTER);
+    }
+
     /**
      * Sets page break behavior after element
      *
@@ -245,8 +248,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         }
     }
 
-    public String getPageBreakAfter() {
-        return get(PAGE_BREAK_AFTER);
+    public String getPageBreakBefore() {
+        return get(PAGE_BREAK_BEFORE);
     }
 
     /**
@@ -263,8 +266,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         }
     }
 
-    public String getPageBreakBefore() {
-        return get(PAGE_BREAK_BEFORE);
+    public String getPageBreakInside() {
+        return get(PAGE_BREAK_INSIDE);
     }
 
     /**
@@ -281,10 +284,9 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         }
     }
 
-    public String getPageBreakInside() {
-        return get(PAGE_BREAK_INSIDE);
+    public String getPaintOrder() {
+        return get(PAINT_ORDER);
     }
-
 
     /**
      * Sets painting order of fill, stroke, and markers
@@ -300,8 +302,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         }
     }
 
-    public String getPaintOrder() {
-        return get(PAINT_ORDER);
+    public String getPerspective() {
+        return get(PERSPECTIVE);
     }
 
     /**
@@ -313,8 +315,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PERSPECTIVE, value);
     }
 
-    public String getPerspective() {
-        return get(PERSPECTIVE);
+    public String getPerspectiveOrigin() {
+        return get(PERSPECTIVE_ORIGIN);
     }
 
     /**
@@ -326,8 +328,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PERSPECTIVE_ORIGIN, value);
     }
 
-    public String getPerspectiveOrigin() {
-        return get(PERSPECTIVE_ORIGIN);
+    public String getPlaceContent() {
+        return get(PLACE_CONTENT);
     }
 
     /**
@@ -339,8 +341,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PLACE_CONTENT, value);
     }
 
-    public String getPlaceContent() {
-        return get(PLACE_CONTENT);
+    public String getPlaceItems() {
+        return get(PLACE_ITEMS);
     }
 
     /**
@@ -352,8 +354,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PLACE_ITEMS, value);
     }
 
-    public String getPlaceItems() {
-        return get(PLACE_ITEMS);
+    public String getPlaceSelf() {
+        return get(PLACE_SELF);
     }
 
     /**
@@ -365,8 +367,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         put(PLACE_SELF, value);
     }
 
-    public String getPlaceSelf() {
-        return get(PLACE_SELF);
+    public String getPointerEvents() {
+        return get(POINTER_EVENTS);
     }
 
     /**
@@ -383,8 +385,8 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         }
     }
 
-    public String getPointerEvents() {
-        return get(POINTER_EVENTS);
+    public String getPosition() {
+        return get(POSITION);
     }
 
     /**
@@ -399,10 +401,6 @@ public class JCSSPropertiesPModel extends JCSSPropertiesOModel {
         } else {
             throw new IllegalArgumentException("Invalid position value: " + value);
         }
-    }
-
-    public String getPosition() {
-        return get(POSITION);
     }
 
     /**

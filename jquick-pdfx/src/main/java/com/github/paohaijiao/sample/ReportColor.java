@@ -33,7 +33,7 @@ public class ReportColor {
     }
 
     public static Color getGreenColor() {
-        return new DeviceRgb(29,190,190);
+        return new DeviceRgb(29, 190, 190);
     }
 
     public static Color getOrangeColor() {

@@ -188,6 +188,7 @@ public abstract class JBasicData<T> implements Serializable {
     public Object value() {
         return this.value;
     }
+
     public String category() {
         return this.category;
     }
@@ -201,6 +202,7 @@ public abstract class JBasicData<T> implements Serializable {
         this.value = value;
         return (T) this;
     }
+
     public T category(String category) {
         this.category = category;
         return (T) this;

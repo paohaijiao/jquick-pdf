@@ -61,9 +61,9 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         list.setSymbolIndent(15);
         list.setTextAlignment(TextAlignment.JUSTIFIED);
         super.buildStyle(list, style);
-        if(null!=ctx.listItem()&&!ctx.listItem().isEmpty()){
-            for (JQuickPDFParser.ListItemContext listItemContext:ctx.listItem()){
-                ListItem item=visitListItem(listItemContext);
+        if (null != ctx.listItem() && !ctx.listItem().isEmpty()) {
+            for (JQuickPDFParser.ListItemContext listItemContext : ctx.listItem()) {
+                ListItem item = visitListItem(listItemContext);
                 list.add(item);
             }
         }
@@ -73,14 +73,16 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
 //        this.buildExtraStyle(list,newStyle);
         return list;
     }
-    private void buildDefaultListStyle( List list){
+
+    private void buildDefaultListStyle(List list) {
         list.setFont(JFontProviderFactory.defualtFont());
         list.setMarginLeft(20);
         list.setSymbolIndent(15);
         list.setTextAlignment(TextAlignment.JUSTIFIED);
     }
+
     private void buildExtraStyle(List list, JStyleListAttributes style) {
-        if(style.getImage()!=null){
+        if (style.getImage() != null) {
             list.setListSymbol(style.getImage());
         }
     }
@@ -97,30 +99,32 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
         java.util.List<Object> subelem = null;
         System.out.println(ctx.elemValue().getText());
         if (ctx.elemValue() != null) {
-            subelem =  visitElemValue(ctx.elemValue());
+            subelem = visitElemValue(ctx.elemValue());
         }
         ListItem item = new ListItem();
-        saveSub(item,subelem);
+        saveSub(item, subelem);
         buildDefaultListItemStyle(item);
         super.buildStyle(item, style);
         return item;
     }
-    private void buildDefaultListItemStyle( ListItem listItem){
+
+    private void buildDefaultListItemStyle(ListItem listItem) {
         listItem.setFontColor(ReportColor.getThemeColor());
         listItem.setFontSize(11);
     }
-    private void saveSub(ListItem listItem,java.util.List<Object> list) {
-            list.forEach(e -> {
-                if (e instanceof IBlockElement) {
-                    listItem.add((IBlockElement) e);
-                }
-                if (e instanceof String) {
-                    Paragraph paragraph = new Paragraph((String) e);
-                    paragraph.setFont(JFontProviderFactory.defualtFont());
-                    listItem.add(paragraph);
-                }
 
-            });
+    private void saveSub(ListItem listItem, java.util.List<Object> list) {
+        list.forEach(e -> {
+            if (e instanceof IBlockElement) {
+                listItem.add((IBlockElement) e);
+            }
+            if (e instanceof String) {
+                Paragraph paragraph = new Paragraph((String) e);
+                paragraph.setFont(JFontProviderFactory.defualtFont());
+                listItem.add(paragraph);
+            }
+
+        });
     }
 
 }

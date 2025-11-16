@@ -352,7 +352,7 @@ public class ReportPainting {
                 pdfCanvas.beginText().setFontAndSize(font, 11);
                 pdfCanvas.setFillColor(ColorConstants.BLACK);
                 pdfCanvas.moveText(pageSize.getWidth() / 2 - 48, yOffset - 5);
-                pdfCanvas.showText( "需求量").stroke();
+                pdfCanvas.showText("需求量").stroke();
                 pdfCanvas.setFillColor(ReportColor.getThemeColor());
                 pdfCanvas.showText("正常");
                 pdfCanvas.endText();
@@ -361,7 +361,7 @@ public class ReportPainting {
                 pdfCanvas.beginText().setFontAndSize(font, 11);
                 pdfCanvas.setFillColor(ColorConstants.BLACK);
                 pdfCanvas.moveText(pageSize.getWidth() / 2 - 48, yOffset - 235);
-                pdfCanvas.showText(  "需求量").stroke();
+                pdfCanvas.showText("需求量").stroke();
                 pdfCanvas.setFillColor(ReportColor.getOrangeColor());
                 pdfCanvas.showText("稍高");
                 pdfCanvas.endText();

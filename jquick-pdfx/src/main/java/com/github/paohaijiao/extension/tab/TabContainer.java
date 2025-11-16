@@ -33,7 +33,7 @@ import java.util.List;
  * @since 2025/7/20
  */
 @Getter
-public class TabContainer  extends Div {
+public class TabContainer extends Div {
     private List<TabPage> tabs;
     private int activeTabIndex;
     private Color tabBackgroundColor = new DeviceRgb(240, 240, 240);

@@ -71,6 +71,9 @@ public class JCSSPropertiesVModel extends JCSSPropertiesUModel {
         }
     }
 
+    public String getVerticalAlign() {
+        return get(VERTICAL_ALIGN);
+    }
 
     /**
      * Sets vertical alignment of an inline or table-cell element
@@ -85,6 +88,10 @@ public class JCSSPropertiesVModel extends JCSSPropertiesUModel {
         }
     }
 
+    public String getVisibility() {
+        return get(VISIBILITY);
+    }
+
     /**
      * Sets element visibility
      *
@@ -96,15 +103,6 @@ public class JCSSPropertiesVModel extends JCSSPropertiesUModel {
         } else {
             throw new IllegalArgumentException("Invalid visibility value: " + value);
         }
-    }
-
-
-    public String getVerticalAlign() {
-        return get(VERTICAL_ALIGN);
-    }
-
-    public String getVisibility() {
-        return get(VISIBILITY);
     }
 
     // Helper method (reused from previous implementations)

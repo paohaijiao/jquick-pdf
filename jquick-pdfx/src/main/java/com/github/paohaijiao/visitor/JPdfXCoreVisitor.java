@@ -56,7 +56,7 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 
     protected PdfDocument pdf;
 
-    protected JPdfConfig config=new JPdfConfig();
+    protected JPdfConfig config = new JPdfConfig();
 
     protected JStyleAlignModel align = new JStyleAlignModel();
 
@@ -71,14 +71,22 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected Document doc;
     protected Properties properties = new Properties();
     protected Set<Integer> pageSet = new HashSet<>();
-    protected ConverterProperties proper=new ConverterProperties();
+    protected ConverterProperties proper = new ConverterProperties();
 
-
-    protected void buildStyle(IElement ele, JStyleAttributes style) {
-        JStyleHandler.applyStyles(doc,ele, style);
+    public static String trim(String str) {
+        if (null == str || "".equals(str)) {
+            return str;
+        }
+        String newStr = str.replaceAll("^['\"]|['\"]$", "");
+        newStr = newStr.replaceAll("'", "");
+        return newStr;
     }
 
-    protected FontProvider getFontProvider(){
+    protected void buildStyle(IElement ele, JStyleAttributes style) {
+        JStyleHandler.applyStyles(doc, ele, style);
+    }
+
+    protected FontProvider getFontProvider() {
         FontProvider fontProvider = new FontProvider();
         try {
             String fontPath = "fonts/simhei.ttf";
@@ -99,11 +107,13 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         }
         return fontProvider;
     }
-    protected void save(JPdfConfig config)  {
+
+    protected void save(JPdfConfig config) {
 
     }
-    protected void configure(JPdfConfig config)  {
-        try{
+
+    protected void configure(JPdfConfig config) {
+        try {
             PdfWriter writer = new PdfWriter(config.getOutputFilePath());
             PdfDocument pdf = new PdfDocument(writer);
             pdf = new PdfDocument(writer);
@@ -124,18 +134,18 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
             if (config.getFontConfig().getDefaultFont() != null) {
                 doc.setFont(config.getFontConfig().getDefaultFont());
             }
-            if (null!=config.getHeaderConfig()&&config.getHeaderConfig().isEnabled() ) {
+            if (null != config.getHeaderConfig() && config.getHeaderConfig().isEnabled()) {
                 pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
                         new JHeaderHandler(config.getHeaderConfig()));
             }
-            if (null!=config.getFooterConfig()&&config.getFooterConfig().isEnabled() ) {
+            if (null != config.getFooterConfig() && config.getFooterConfig().isEnabled()) {
                 pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
-                        new JFooterHandler( config.getFooterConfig()));
+                        new JFooterHandler(config.getFooterConfig()));
             }
-            if (config.getCatalogConfig() != null&&config.getCatalogConfig().isEnabled()) {
-                pdf.addEventHandler(PdfDocumentEvent.START_PAGE, new JTocEventHandler(pdf,config.getCatalogConfig()));
+            if (config.getCatalogConfig() != null && config.getCatalogConfig().isEnabled()) {
+                pdf.addEventHandler(PdfDocumentEvent.START_PAGE, new JTocEventHandler(pdf, config.getCatalogConfig()));
             }
-            if (config.getWatermarkConfig() != null&&config.getWatermarkConfig().getEnabled()) {
+            if (config.getWatermarkConfig() != null && config.getWatermarkConfig().getEnabled()) {
                 pdf.addEventHandler(PdfDocumentEvent.START_PAGE, new JPdfXWatermarkEventHandler(config.getWatermarkConfig()));
             }
 
@@ -146,18 +156,10 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 //            }
             this.pdf = pdf;
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-    }
-    public static String trim(String str) {
-        if(null==str || "".equals(str)) {
-            return str;
-        }
-        String newStr = str.replaceAll("^['\"]|['\"]$", "");
-        newStr = newStr.replaceAll("'", "");
-        return newStr;
     }
 
 

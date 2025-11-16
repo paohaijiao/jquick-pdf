@@ -34,25 +34,12 @@ import com.itextpdf.layout.properties.JustifyContent;
  */
 public class JCSSPropertiesJProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
     /**
-     * Applies all justify properties from JCSSPropertiesJModel to an iText Style
-     *
-     * @param element The Style object to modify
-     * @param  cssProperties JCSSPropertiesJModel containing the properties
-     */
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style=new Style();
-        applyJustifyContent(element,cssProperties,style);
-        applyJustifyItems(element,cssProperties,style);
-        element.addStyle(style);
-    }
-    /**
      * Converts justify-content CSS property to iText Style
      *
      * @param style The Style object to modify
-     * @param css The justify-content value
+     * @param css   The justify-content value
      */
-    public static void applyJustifyContent(BlockElement<?> element, JCSSPropertiesCoreModel css,Style style) {
+    public static void applyJustifyContent(BlockElement<?> element, JCSSPropertiesCoreModel css, Style style) {
         if (css.getJustifyContent() == null) return;
         JustifyContent justifyContent = null;
         switch (css.getJustifyContent()) {
@@ -99,9 +86,9 @@ public class JCSSPropertiesJProvider extends JCSSPropertiesBaseProvider implemen
      * Converts justify-items CSS property to iText Style
      *
      * @param style The Style object to modify
-     * @param css The justify-items value
+     * @param css   The justify-items value
      */
-    public static void applyJustifyItems(BlockElement<?> element, JCSSPropertiesCoreModel css,Style style) {
+    public static void applyJustifyItems(BlockElement<?> element, JCSSPropertiesCoreModel css, Style style) {
         if (css.getJustifyItems() == null) return;
 
         //  JustifyItems justifyItems = null;
@@ -145,9 +132,9 @@ public class JCSSPropertiesJProvider extends JCSSPropertiesBaseProvider implemen
      * Converts justify-self CSS property to iText Style
      *
      * @param style The Style object to modify
-     * @param css The justify-self value
+     * @param css   The justify-self value
      */
-    public static void applyJustifySelf(BlockElement<?> element, JCSSPropertiesCoreModel css,Style style) {
+    public static void applyJustifySelf(BlockElement<?> element, JCSSPropertiesCoreModel css, Style style) {
         if (css.getJustifySelf() == null) return;
         switch (css.getJustifySelf()) {
             case "flex-start":
@@ -187,7 +174,19 @@ public class JCSSPropertiesJProvider extends JCSSPropertiesBaseProvider implemen
 //        }
     }
 
-
+    /**
+     * Applies all justify properties from JCSSPropertiesJModel to an iText Style
+     *
+     * @param element       The Style object to modify
+     * @param cssProperties JCSSPropertiesJModel containing the properties
+     */
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        applyJustifyContent(element, cssProperties, style);
+        applyJustifyItems(element, cssProperties, style);
+        element.addStyle(style);
+    }
 
 
 }

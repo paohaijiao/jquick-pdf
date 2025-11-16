@@ -40,7 +40,7 @@ import java.util.Collections;
  * @since 2025/11/4
  */
 public class JFulnnelTest {
-    private JOption createData(){
+    private JOption createData() {
         JFunnelOption option = JFunnelOption.createDefaultFunnel();
         JFunnelOption customOption = option
                 .title(new Title().text("销售漏斗").subtext("2024年数据"))
@@ -76,11 +76,11 @@ public class JFulnnelTest {
 
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         graphContainer.setType(JChartType.Funnel);
         graphContainer.setOption(createData());
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

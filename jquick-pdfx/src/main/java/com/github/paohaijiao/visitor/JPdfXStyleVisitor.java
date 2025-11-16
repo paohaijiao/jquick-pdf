@@ -51,8 +51,8 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         } else if (null != ctx.STRING()) {
             String string = ctx.STRING().getText();
             String value = JStringUtils.trim(string);
-            JQuickPdfStyleExecutor executor=new JQuickPdfStyleExecutor();
-            JStyleAttributes styleAttributes=executor.execute(value);
+            JQuickPdfStyleExecutor executor = new JQuickPdfStyleExecutor();
+            JStyleAttributes styleAttributes = executor.execute(value);
             return styleAttributes;
         }
         return new JStyleAttributes();
@@ -71,9 +71,9 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             String str = ctx.getText();
             value = visitValue(ctx.value());
         }
-       // JAssert.notNull(value, "value is null");
+        // JAssert.notNull(value, "value is null");
         JStyleAttributes attr = new JStyleAttributes();
-        attr.put(key, null==value?"":value.toString());
+        attr.put(key, null == value ? "" : value.toString());
         return attr;
     }
 
@@ -88,38 +88,39 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         }
         return data;
     }
+
     @Override
     public Color visitColor(JQuickPDFParser.ColorContext ctx) {
         if (ctx == null) {
             return null; // or return a default color
         }
         if (ctx.getText().startsWith("#")) {
-            DeviceRgb  rgb=JColorEnums.convertHexToRgb(ctx.getText());
+            DeviceRgb rgb = JColorEnums.convertHexToRgb(ctx.getText());
             return rgb;
-        } else if (null!= ctx.RGB_COLOR()) {
+        } else if (null != ctx.RGB_COLOR()) {
             String[] numbers = ctx.RGB_COLOR().getText().trim().replace("rgb(", "").replace(")", "").split(",");
             int r = Integer.parseInt(numbers[0].trim());
             int g = Integer.parseInt(numbers[1].trim());
             int b = Integer.parseInt(numbers[2].trim());
-            Color  rgb=JColorEnums.colorOf(r,g,b);
+            Color rgb = JColorEnums.colorOf(r, g, b);
             return rgb;
-        }else if (null!= ctx.CMYK_COLOR()) {
+        } else if (null != ctx.CMYK_COLOR()) {
             String[] numbers = ctx.CMYK_COLOR().getText().trim().replace("cmyk(", "").replace(")", "").split(",");
-            BigDecimal c=new BigDecimal(numbers[0]);
-            BigDecimal m=new BigDecimal(numbers[1]);
-            BigDecimal y=new BigDecimal(numbers[2]);
-            BigDecimal k=new BigDecimal(numbers[3]);
-            Color rgb=JColorEnums.colorOfPercent(c.floatValue(),m.floatValue(),y.floatValue(), k.floatValue());
+            BigDecimal c = new BigDecimal(numbers[0]);
+            BigDecimal m = new BigDecimal(numbers[1]);
+            BigDecimal y = new BigDecimal(numbers[2]);
+            BigDecimal k = new BigDecimal(numbers[3]);
+            Color rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
             return rgb;
-        }else if (null!= ctx.CMYK_PERCENT()) {
-            String[] numbers = ctx.CMYK_PERCENT().getText().trim().replace("cmyk(", "").replace(")", "").replace("%","").split(",");
-            BigDecimal c=new BigDecimal(numbers[0]);
-            BigDecimal m=new BigDecimal(numbers[1]);
-            BigDecimal y=new BigDecimal(numbers[2]);
-            BigDecimal k=new BigDecimal(numbers[3]);
-            Color rgb=JColorEnums.colorOfPercent(c.floatValue(),m.floatValue(),y.floatValue(), k.floatValue());
+        } else if (null != ctx.CMYK_PERCENT()) {
+            String[] numbers = ctx.CMYK_PERCENT().getText().trim().replace("cmyk(", "").replace(")", "").replace("%", "").split(",");
+            BigDecimal c = new BigDecimal(numbers[0]);
+            BigDecimal m = new BigDecimal(numbers[1]);
+            BigDecimal y = new BigDecimal(numbers[2]);
+            BigDecimal k = new BigDecimal(numbers[3]);
+            Color rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
             return rgb;
-        }else if (null!= ctx.COLORENUM()) {
+        } else if (null != ctx.COLORENUM()) {
             String color = ctx.COLORENUM().getText().trim();
             return JColorEnums.colorOf(color);
         }
@@ -128,38 +129,40 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
 
     @Override
     public UnitValue visitUnit(JQuickPDFParser.UnitContext ctx) {
-        if(null!=ctx.NUMBERUNIT()){
-            String unit=ctx.NUMBERUNIT().getText();
+        if (null != ctx.NUMBERUNIT()) {
+            String unit = ctx.NUMBERUNIT().getText();
             Pattern pattern = Pattern.compile("\\d+\\.?\\d*");
             Matcher matcher = pattern.matcher(ctx.NUMBERUNIT().getText());
-            Float f=0F;
+            Float f = 0F;
             if (matcher.find()) {
-                f= Float.parseFloat(matcher.group());
+                f = Float.parseFloat(matcher.group());
             }
-            String code=unit.replaceAll("[0-9.]","").trim();
-            UnitValue unitValue= JUnitConverter.create(f,code);
+            String code = unit.replaceAll("[0-9.]", "").trim();
+            UnitValue unitValue = JUnitConverter.create(f, code);
             return unitValue;
         }
         return null;
     }
+
     @Override
     public JBorder visitBorderType(JQuickPDFParser.BorderTypeContext ctx) {
-        if(null!=ctx.BORDERTYPE()){
-            String border=ctx.BORDERTYPE().getText();
+        if (null != ctx.BORDERTYPE()) {
+            String border = ctx.BORDERTYPE().getText();
             return JBorder.codeOf(border);
         }
         return null;
     }
+
     @Override
     public JMarginModel visitMarginValue(JQuickPDFParser.MarginValueContext ctx) {
-        if(ctx.NUMBERUNIT() != null&&ctx.NUMBERUNIT().size()==4) {
-            JQuickPdfUnitExecutor executor=new JQuickPdfUnitExecutor();
-            String txt=ctx.NUMBERUNIT().get(0).getText();
-            UnitValue first=executor.execute(ctx.NUMBERUNIT().get(0).getText());
-            UnitValue second=executor.execute(ctx.NUMBERUNIT().get(1).getText());
-            UnitValue third=executor.execute(ctx.NUMBERUNIT().get(2).getText());
-            UnitValue four=executor.execute(ctx.NUMBERUNIT().get(3).getText());
-            JMarginModel m=new JMarginModel();
+        if (ctx.NUMBERUNIT() != null && ctx.NUMBERUNIT().size() == 4) {
+            JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
+            String txt = ctx.NUMBERUNIT().get(0).getText();
+            UnitValue first = executor.execute(ctx.NUMBERUNIT().get(0).getText());
+            UnitValue second = executor.execute(ctx.NUMBERUNIT().get(1).getText());
+            UnitValue third = executor.execute(ctx.NUMBERUNIT().get(2).getText());
+            UnitValue four = executor.execute(ctx.NUMBERUNIT().get(3).getText());
+            JMarginModel m = new JMarginModel();
             m.setFirst(first);
             m.setSecond(second);
             m.setThird(third);
@@ -168,10 +171,6 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         }
         return null;
     }
-
-
-
-
 
 
 }

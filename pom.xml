@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
@@ -77,11 +77,11 @@
                 <artifactId>commons</artifactId>
                 <version>${itext.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>com.itextpdf</groupId>-->
-<!--                <artifactId>itext7-core</artifactId>-->
-<!--                <version>${itext.version}</version>-->
-<!--            </dependency>-->
+            <!--            <dependency>-->
+            <!--                <groupId>com.itextpdf</groupId>-->
+            <!--                <artifactId>itext7-core</artifactId>-->
+            <!--                <version>${itext.version}</version>-->
+            <!--            </dependency>-->
             <dependency>
                 <groupId>com.itextpdf</groupId>
                 <artifactId>kernel</artifactId>
@@ -131,7 +131,7 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.xmlgraphics</groupId>
-                <artifactId> batik-util</artifactId>
+                <artifactId>batik-util</artifactId>
                 <version>${batik.version}</version>
             </dependency>
             <dependency>
@@ -144,7 +144,7 @@
     </dependencyManagement>
     <name>jquick-pdf</name>
     <description>
-                 jquick-pdf is an enterprise-grade PDF generation framework built on top of iText 7 Core,
+        jquick-pdf is an enterprise-grade PDF generation framework built on top of iText 7 Core,
         designed to simplify complex document generation while maintaining full access to iText's
         powerful features
     </description>

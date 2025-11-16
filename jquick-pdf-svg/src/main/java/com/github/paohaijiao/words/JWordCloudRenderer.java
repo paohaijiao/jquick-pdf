@@ -26,6 +26,7 @@ import java.util.Random;
 
 /**
  * packageName com.github.paohaijiao.words
+ *
  * @author Martin
  * @version 1.0.0
  * @since 2025/8/7
@@ -110,11 +111,11 @@ public class JWordCloudRenderer extends JAbstractChartRenderer {
                     (random.nextInt(rotationRange / rotationStep) * rotationStep - rotationRange / 2) : 0;
             Point position = grid.findPosition(wordWidth, wordHeight);
             if (position != null) {
-                svgGenerator.translate(position.x + wordWidth/2, position.y + wordHeight/2);
+                svgGenerator.translate(position.x + wordWidth / 2, position.y + wordHeight / 2);
                 svgGenerator.rotate(Math.toRadians(rotation));
-                svgGenerator.drawString(word, -wordWidth/2, wordHeight/2);
+                svgGenerator.drawString(word, -wordWidth / 2, wordHeight / 2);
                 svgGenerator.rotate(-Math.toRadians(rotation));
-                svgGenerator.translate(-(position.x + wordWidth/2), -(position.y + wordHeight/2));
+                svgGenerator.translate(-(position.x + wordWidth / 2), -(position.y + wordHeight / 2));
             }
         }
     }
@@ -168,6 +169,7 @@ public class JWordCloudRenderer extends JAbstractChartRenderer {
             }
             return null;
         }
+
         private boolean isAreaAvailable(int startX, int startY, int width, int height) {
             if (startX + width > cols || startY + height > rows) {
                 return false;
@@ -182,6 +184,7 @@ public class JWordCloudRenderer extends JAbstractChartRenderer {
             }
             return true;
         }
+
         private void markAreaUsed(int startX, int startY, int width, int height) {
             for (int x = startX; x < startX + width; x++) {
                 for (int y = startY; y < startY + height; y++) {

@@ -31,6 +31,7 @@ public enum JFontKerning {
         this.code = code;
         this.type = type;
     }
+
     public static JFontKerning codeOf(String code) {
         for (JFontKerning type : values()) {
             if (type.code.equalsIgnoreCase(code)) {

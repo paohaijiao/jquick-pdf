@@ -36,8 +36,7 @@ import java.util.List;
  * @version 1.0.0
  * @since 2025/7/20
  */
-public class TabContainerRenderer extends com.itextpdf.layout.renderer.DivRenderer
-{
+public class TabContainerRenderer extends com.itextpdf.layout.renderer.DivRenderer {
     public TabContainerRenderer(TabContainer modelElement) {
         super(modelElement);
     }
@@ -63,7 +62,7 @@ public class TabContainerRenderer extends com.itextpdf.layout.renderer.DivRender
         canvas.setStrokeColor(tabContainer.getTabBorderColor());
         canvas.setLineWidth(1);
         canvas.rectangle(startX, startY - tabContainer.getTabHeight() - 1,
-                area.getWidth(), area.getHeight() -  tabContainer.getTabHeight());
+                area.getWidth(), area.getHeight() - tabContainer.getTabHeight());
         canvas.stroke();
         canvas.restoreState();
         if (!tabs.isEmpty()) {
@@ -83,8 +82,8 @@ public class TabContainerRenderer extends com.itextpdf.layout.renderer.DivRender
     private void drawTabBar(DrawContext drawContext, List<TabPage> tabs,
                             float startX, float startY, TabContainer tabContainer) {
         PdfCanvas canvas = drawContext.getCanvas();
-        PdfFont font=JFontProviderFactory.getFont(JFontProviderFactory.DEFAULT_FONT);
-        canvas.setFontAndSize(font,32);
+        PdfFont font = JFontProviderFactory.getFont(JFontProviderFactory.DEFAULT_FONT);
+        canvas.setFontAndSize(font, 32);
         float tabWidth = (getOccupiedAreaBBox().getWidth() - 2) / tabs.size();
         float tabX = startX + 1;
         for (int i = 0; i < tabs.size(); i++) {

@@ -32,7 +32,7 @@ import com.itextpdf.layout.element.Tab;
 public class JPdfXTabVisitor extends JPdfXPageCountElementVisitor {
 
     @Override
-     public Tab visitTab(JQuickPDFParser.TabContext ctx) {
+    public Tab visitTab(JQuickPDFParser.TabContext ctx) {
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
@@ -44,7 +44,7 @@ public class JPdfXTabVisitor extends JPdfXPageCountElementVisitor {
         super.buildStyle(tab, style);
 
         return tab;
-   }
+    }
 
 
 }

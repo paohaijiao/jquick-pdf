@@ -55,7 +55,7 @@ public class JPdfXTreeVisitor extends JPdfXImageVisitor {
             TreeNode treeNode = treeConfig.drawTree(identify);
             tree = new TreeElement(treeNode);
         }
-        if(tree!=null){
+        if (tree != null) {
             tree.setFont(JFontProviderFactory.defualtFont());
         }
         super.buildStyle(tree, style);

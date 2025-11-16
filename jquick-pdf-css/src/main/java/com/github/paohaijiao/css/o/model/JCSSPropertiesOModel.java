@@ -83,6 +83,9 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
             "auto", "contain", "none"
     );
 
+    public String getObjectFit() {
+        return get(OBJECT_FIT);
+    }
 
     public void setObjectFit(String value) {
         if (VALID_OBJECT_FIT_VALUES.contains(value)) {
@@ -92,64 +95,64 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getObjectFit() {
-        return get(OBJECT_FIT);
+    public String getObjectPosition() {
+        return get(OBJECT_POSITION);
     }
 
     public void setObjectPosition(String value) {
         put(OBJECT_POSITION, value);
     }
 
-    public String getObjectPosition() {
-        return get(OBJECT_POSITION);
+    public String getOffset() {
+        return get(OFFSET);
     }
 
     public void setOffset(String value) {
         put(OFFSET, value);
     }
 
-    public String getOffset() {
-        return get(OFFSET);
+    public String getOffsetAnchor() {
+        return get(OFFSET_ANCHOR);
     }
 
     public void setOffsetAnchor(String value) {
         put(OFFSET_ANCHOR, value);
     }
 
-    public String getOffsetAnchor() {
-        return get(OFFSET_ANCHOR);
+    public String getOffsetDistance() {
+        return get(OFFSET_DISTANCE);
     }
 
     public void setOffsetDistance(String value) {
         put(OFFSET_DISTANCE, value);
     }
 
-    public String getOffsetDistance() {
-        return get(OFFSET_DISTANCE);
+    public String getOffsetPath() {
+        return get(OFFSET_PATH);
     }
 
     public void setOffsetPath(String value) {
         put(OFFSET_PATH, value);
     }
 
-    public String getOffsetPath() {
-        return get(OFFSET_PATH);
+    public String getOffsetPosition() {
+        return get(OFFSET_POSITION);
     }
 
     public void setOffsetPosition(String value) {
         put(OFFSET_POSITION, value);
     }
 
-    public String getOffsetPosition() {
-        return get(OFFSET_POSITION);
+    public String getOffsetRotate() {
+        return get(OFFSET_ROTATE);
     }
 
     public void setOffsetRotate(String value) {
         put(OFFSET_ROTATE, value);
     }
 
-    public String getOffsetRotate() {
-        return get(OFFSET_ROTATE);
+    public String getOpacity() {
+        return get(OPACITY);
     }
 
     public void setOpacity(String value) {
@@ -160,16 +163,16 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOpacity() {
-        return get(OPACITY);
+    public String getOrder() {
+        return get(ORDER);
     }
 
     public void setOrder(String value) {
         put(ORDER, value);
     }
 
-    public String getOrder() {
-        return get(ORDER);
+    public String getOrphans() {
+        return get(ORPHANS);
     }
 
     public void setOrphans(String value) {
@@ -180,32 +183,32 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOrphans() {
-        return get(ORPHANS);
+    public String getOutline() {
+        return get(OUTLINE);
     }
 
     public void setOutline(String value) {
         put(OUTLINE, value);
     }
 
-    public String getOutline() {
-        return get(OUTLINE);
+    public String getOutlineColor() {
+        return get(OUTLINE_COLOR);
     }
 
     public void setOutlineColor(String value) {
         put(OUTLINE_COLOR, value);
     }
 
-    public String getOutlineColor() {
-        return get(OUTLINE_COLOR);
+    public String getOutlineOffset() {
+        return get(OUTLINE_OFFSET);
     }
 
     public void setOutlineOffset(String value) {
         put(OUTLINE_OFFSET, value);
     }
 
-    public String getOutlineOffset() {
-        return get(OUTLINE_OFFSET);
+    public String getOutlineStyle() {
+        return get(OUTLINE_STYLE);
     }
 
     public void setOutlineStyle(String value) {
@@ -216,16 +219,16 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOutlineStyle() {
-        return get(OUTLINE_STYLE);
+    public String getOutlineWidth() {
+        return get(OUTLINE_WIDTH);
     }
 
     public void setOutlineWidth(String value) {
         put(OUTLINE_WIDTH, value);
     }
 
-    public String getOutlineWidth() {
-        return get(OUTLINE_WIDTH);
+    public String getOverflow() {
+        return get(OVERFLOW);
     }
 
     // Overflow Properties
@@ -237,16 +240,16 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOverflow() {
-        return get(OVERFLOW);
+    public String getOverflowAnchor() {
+        return get(OVERFLOW_ANCHOR);
     }
 
     public void setOverflowAnchor(String value) {
         put(OVERFLOW_ANCHOR, value);
     }
 
-    public String getOverflowAnchor() {
-        return get(OVERFLOW_ANCHOR);
+    public String getOverflowWrap() {
+        return get(OVERFLOW_WRAP);
     }
 
     public void setOverflowWrap(String value) {
@@ -257,8 +260,8 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOverflowWrap() {
-        return get(OVERFLOW_WRAP);
+    public String getOverflowX() {
+        return get(OVERFLOW_X);
     }
 
     public void setOverflowX(String value) {
@@ -269,8 +272,8 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOverflowX() {
-        return get(OVERFLOW_X);
+    public String getOverflowY() {
+        return get(OVERFLOW_Y);
     }
 
     public void setOverflowY(String value) {
@@ -281,8 +284,8 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOverflowY() {
-        return get(OVERFLOW_Y);
+    public String getOverscrollBehavior() {
+        return get(OVERSCROLL_BEHAVIOR);
     }
 
     // Overscroll Properties
@@ -294,8 +297,8 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOverscrollBehavior() {
-        return get(OVERSCROLL_BEHAVIOR);
+    public String getOverscrollBehaviorBlock() {
+        return get(OVERSCROLL_BEHAVIOR_BLOCK);
     }
 
     public void setOverscrollBehaviorBlock(String value) {
@@ -306,8 +309,8 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOverscrollBehaviorBlock() {
-        return get(OVERSCROLL_BEHAVIOR_BLOCK);
+    public String getOverscrollBehaviorInline() {
+        return get(OVERSCROLL_BEHAVIOR_INLINE);
     }
 
     public void setOverscrollBehaviorInline(String value) {
@@ -318,8 +321,8 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
-    public String getOverscrollBehaviorInline() {
-        return get(OVERSCROLL_BEHAVIOR_INLINE);
+    public String getOverscrollBehaviorX() {
+        return get(OVERSCROLL_BEHAVIOR_X);
     }
 
     public void setOverscrollBehaviorX(String value) {
@@ -328,10 +331,6 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         } else {
             throw new IllegalArgumentException("Invalid overscroll-behavior-x value: " + value);
         }
-    }
-
-    public String getOverscrollBehaviorX() {
-        return get(OVERSCROLL_BEHAVIOR_X);
     }
 
     private boolean isValidNumber(String value, double min, double max) {
@@ -352,6 +351,10 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         }
     }
 
+    public String getOverscrollBehaviorY() {
+        return get(OVERSCROLL_BEHAVIOR_Y);
+    }
+
     /**
      * Sets overscroll behavior for y-axis
      *
@@ -364,10 +367,6 @@ public class JCSSPropertiesOModel extends JCSSPropertiesNModel {
         } else {
             throw new IllegalArgumentException("Invalid overscroll-behavior-y value: " + value);
         }
-    }
-
-    public String getOverscrollBehaviorY() {
-        return get(OVERSCROLL_BEHAVIOR_Y);
     }
 
 }

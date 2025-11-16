@@ -192,6 +192,7 @@ public class JCSSPropertiesBorderProvider extends JCSSPropertiesBaseProvider {
 
         }
     }
+
     private float convertToFloat(String value) {
         if (value == null) return 0f;
         try {

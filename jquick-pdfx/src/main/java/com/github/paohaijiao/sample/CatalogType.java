@@ -15,8 +15,7 @@
  */
 package com.github.paohaijiao.sample;
 
-public enum CatalogType
-{
+public enum CatalogType {
 
     /**
      * 目录类别 1-需要注意 2-正常项目

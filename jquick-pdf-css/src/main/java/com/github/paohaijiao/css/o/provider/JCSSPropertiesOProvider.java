@@ -23,8 +23,6 @@ import com.itextpdf.layout.Style;
 import com.itextpdf.layout.element.BlockElement;
 
 
-
-
 /**
  * packageName com.github.paohaijiao.model.provider
  *
@@ -35,17 +33,6 @@ import com.itextpdf.layout.element.BlockElement;
  * @description
  */
 public class JCSSPropertiesOProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProps) {
-        Style style = new Style();
-        applyObjectProperties(cssProps, style);
-        applyOpacityAndOrder(cssProps, style);
-        applyOutlineProperties(cssProps, style);
-        applyOverflowProperties(cssProps, style);
-        element.addStyle(style);
-    }
-
-
     private static void applyObjectProperties(JCSSPropertiesOModel cssProps, Style style) {
         if (cssProps.getObjectFit() != null) {
             String objectFit = cssProps.getObjectFit();
@@ -142,7 +129,6 @@ public class JCSSPropertiesOProvider extends JCSSPropertiesBaseProvider implemen
         }
     }
 
-
     private static float parseLength(String lengthValue) {
         // Implement CSS length parsing (px, pt, em, etc.)
         try {
@@ -150,6 +136,16 @@ public class JCSSPropertiesOProvider extends JCSSPropertiesBaseProvider implemen
         } catch (NumberFormatException e) {
             return 0;
         }
+    }
+
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProps) {
+        Style style = new Style();
+        applyObjectProperties(cssProps, style);
+        applyOpacityAndOrder(cssProps, style);
+        applyOutlineProperties(cssProps, style);
+        applyOverflowProperties(cssProps, style);
+        element.addStyle(style);
     }
 
 

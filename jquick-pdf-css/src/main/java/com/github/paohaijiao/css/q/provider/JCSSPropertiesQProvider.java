@@ -35,16 +35,9 @@ import java.util.List;
  * @description
  */
 public class JCSSPropertiesQProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style = new Style();
-
-        String quotes = cssProperties.getQuotes();
-        if (quotes != null && !quotes.isEmpty()) {
-            applyQuotesProperty(style, quotes);
-        }
-        element.addStyle(style);
-    }
+    private static final List<String> VALID_QUOTES_VALUES = Arrays.asList(
+            "none", "auto", "initial", "inherit"
+    );
 
     private static void applyQuotesProperty(Style style, String quotesValue) {
         // iText doesn't directly support the quotes property in its Style class,
@@ -100,9 +93,16 @@ public class JCSSPropertiesQProvider extends JCSSPropertiesBaseProvider implemen
         return cleanedParts;
     }
 
-    private static final List<String> VALID_QUOTES_VALUES = Arrays.asList(
-            "none", "auto", "initial", "inherit"
-    );
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+
+        String quotes = cssProperties.getQuotes();
+        if (quotes != null && !quotes.isEmpty()) {
+            applyQuotesProperty(style, quotes);
+        }
+        element.addStyle(style);
+    }
 
 
 }

@@ -40,7 +40,7 @@ import com.itextpdf.layout.properties.Property;
  */
 public class JCSSPropertiesAProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
 
-    public  void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
         Style style = new Style();
         if (cssProperties.getAccentColor() != null) {
             //style.setProperty(Property.ACCENT_COLOR, cssProperties.getAccentColor());

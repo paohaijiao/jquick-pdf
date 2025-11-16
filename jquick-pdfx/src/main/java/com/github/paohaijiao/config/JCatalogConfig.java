@@ -29,6 +29,6 @@ public class JCatalogConfig {
 
     private boolean enabled = true;
 
-    private Integer startPage=1;
+    private Integer startPage = 1;
 
 }

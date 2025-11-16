@@ -123,6 +123,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void color4() throws IOException {
         String input = "cmyk(100,50,0,25)\n" +
@@ -135,6 +136,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void colo5() throws IOException {
         String input = "cmyk(100%,50%,0%,25%)\n" +
@@ -147,6 +149,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void colo6() throws IOException {
         String input = "red";
@@ -158,6 +161,7 @@ public class JValueTest {
         Object key = (Color) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void defaulUnit() throws IOException {
         String input = "2";
@@ -169,6 +173,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void px() throws IOException {
         String input = "2.9px";
@@ -180,6 +185,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void pt() throws IOException {
         String input = "2pt";
@@ -191,6 +197,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void mm() throws IOException {
         String input = "2mm";
@@ -202,6 +209,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void cm() throws IOException {
         String input = "2cm";
@@ -213,6 +221,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void in() throws IOException {
         String input = "2in";
@@ -224,6 +233,7 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
     public void perce() throws IOException {
         String input = "2 %";
@@ -235,8 +245,9 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
+
     @Test
-    public void per () throws IOException {
+    public void per() throws IOException {
         String input = "2in";
         JQuickPDFLexer lexer = new JQuickPDFLexer(CharStreams.fromString(input));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
@@ -246,7 +257,6 @@ public class JValueTest {
         Object key = (Object) visitor.visit(tree);
         System.out.println(key);
     }
-
 
 
     @Test

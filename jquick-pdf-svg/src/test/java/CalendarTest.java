@@ -46,7 +46,7 @@ public class CalendarTest {
             int value = (int) (Math.random() * 15);
             data.put(date, value);
         }
-        JOption option=new JOption();
+        JOption option = new JOption();
         JCalendarOption calendarOption = new JCalendarOption("2024年活动日历", "类似GitHub贡献图", 2024, data,
                 new Color(235, 237, 240),
                 new Color(32, 125, 222),

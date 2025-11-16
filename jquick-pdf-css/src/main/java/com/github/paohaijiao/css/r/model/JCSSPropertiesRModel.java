@@ -44,6 +44,14 @@ public class JCSSPropertiesRModel extends JCSSPropertiesQModel {
             "none", "x", "y", "z", "initial", "inherit"
     );
 
+    /**
+     * Gets the current resize value
+     *
+     * @return The current resize value
+     */
+    public String getResize() {
+        return get(RESIZE);
+    }
 
     /**
      * Sets whether an element is resizable and in which directions
@@ -60,12 +68,12 @@ public class JCSSPropertiesRModel extends JCSSPropertiesQModel {
     }
 
     /**
-     * Gets the current resize value
+     * Gets the current right value
      *
-     * @return The current resize value
+     * @return The current right value
      */
-    public String getResize() {
-        return get(RESIZE);
+    public String getRight() {
+        return get(RIGHT);
     }
 
     /**
@@ -78,14 +86,13 @@ public class JCSSPropertiesRModel extends JCSSPropertiesQModel {
     }
 
     /**
-     * Gets the current right value
+     * Gets the current rotate value
      *
-     * @return The current right value
+     * @return The current rotate value
      */
-    public String getRight() {
-        return get(RIGHT);
+    public String getRotate() {
+        return get(ROTATE);
     }
-
 
     /**
      * Sets the rotation of an element
@@ -101,28 +108,9 @@ public class JCSSPropertiesRModel extends JCSSPropertiesQModel {
         }
     }
 
-    /**
-     * Gets the current rotate value
-     *
-     * @return The current rotate value
-     */
-    public String getRotate() {
-        return get(ROTATE);
-    }
-
     // Helper method to validate angle values
     private boolean isValidAngleValue(String value) {
         return value != null && (value.endsWith("deg") || value.endsWith("rad") || value.endsWith("grad") || value.endsWith("turn"));
-    }
-
-
-    /**
-     * Sets the size of the gap between rows in a grid or flex layout
-     *
-     * @param value Length (e.g., "10px", "1em"), normal, initial, or inherit
-     */
-    public void setRowGap(String value) {
-        put(ROW_GAP, value);
     }
 
     /**
@@ -132,6 +120,15 @@ public class JCSSPropertiesRModel extends JCSSPropertiesQModel {
      */
     public String getRowGap() {
         return get(ROW_GAP);
+    }
+
+    /**
+     * Sets the size of the gap between rows in a grid or flex layout
+     *
+     * @param value Length (e.g., "10px", "1em"), normal, initial, or inherit
+     */
+    public void setRowGap(String value) {
+        put(ROW_GAP, value);
     }
 
 }

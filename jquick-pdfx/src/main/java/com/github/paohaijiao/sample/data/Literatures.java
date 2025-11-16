@@ -39,6 +39,42 @@ public class Literatures {
     private Object editLogs;
     private Object tags;
 
+    public static List<Literatures> getData() {
+        List<Literatures> literaturesList = new ArrayList<>();
+
+        // 第一篇文献
+        Literatures literature1 = new Literatures();
+        literature1.set_id(null);
+        literature1.setTitle("Effect of CYP2D6*10 genotype on propafenone pharmacodynamics in Chinese patients with ventricular arrhythmia.");
+        literature1.setJournal("Acta Pharmacol Sin");
+        literature1.setSerialNumber("2002 Nov;23(11)");
+        literature1.setPage("1040-4");
+        literature1.setAuthor("Cai WM, Xu J, Chen B");
+        literature1.setAttachment("");
+        literature1.setEnabled(true);
+        literature1.set__v(0);
+        literature1.setEditLogs(null);
+        literature1.setTags(null);
+        literaturesList.add(literature1);
+
+        // 第二篇文献
+        Literatures literature2 = new Literatures();
+        literature2.set_id(null);
+        literature2.setTitle("Influence of CYP2D6*10B genotype on pharmacokinetics of propafenone enantiomers in Chinese subjects.");
+        literature2.setJournal("Acta Pharmacol Sin");
+        literature2.setSerialNumber("2003 Dec;24(12)");
+        literature2.setPage("1277-80");
+        literature2.setAuthor("Chen B, Cai WM");
+        literature2.setAttachment("");
+        literature2.setEnabled(true);
+        literature2.set__v(0);
+        literature2.setEditLogs(null);
+        literature2.setTags(null);
+        literaturesList.add(literature2);
+
+        return literaturesList;
+    }
+
     public Object get_id() {
         return _id;
     }
@@ -125,41 +161,5 @@ public class Literatures {
 
     public void setTags(Object tags) {
         this.tags = tags;
-    }
-
-    public static List<Literatures> getData() {
-        List<Literatures> literaturesList = new ArrayList<>();
-
-        // 第一篇文献
-        Literatures literature1 = new Literatures();
-        literature1.set_id(null);
-        literature1.setTitle("Effect of CYP2D6*10 genotype on propafenone pharmacodynamics in Chinese patients with ventricular arrhythmia.");
-        literature1.setJournal("Acta Pharmacol Sin");
-        literature1.setSerialNumber("2002 Nov;23(11)");
-        literature1.setPage("1040-4");
-        literature1.setAuthor("Cai WM, Xu J, Chen B");
-        literature1.setAttachment("");
-        literature1.setEnabled(true);
-        literature1.set__v(0);
-        literature1.setEditLogs(null);
-        literature1.setTags(null);
-        literaturesList.add(literature1);
-
-        // 第二篇文献
-        Literatures literature2 = new Literatures();
-        literature2.set_id(null);
-        literature2.setTitle("Influence of CYP2D6*10B genotype on pharmacokinetics of propafenone enantiomers in Chinese subjects.");
-        literature2.setJournal("Acta Pharmacol Sin");
-        literature2.setSerialNumber("2003 Dec;24(12)");
-        literature2.setPage("1277-80");
-        literature2.setAuthor("Chen B, Cai WM");
-        literature2.setAttachment("");
-        literature2.setEnabled(true);
-        literature2.set__v(0);
-        literature2.setEditLogs(null);
-        literature2.setTags(null);
-        literaturesList.add(literature2);
-
-        return literaturesList;
     }
 }

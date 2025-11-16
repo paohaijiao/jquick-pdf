@@ -16,7 +16,6 @@
 package com.github.paohaijiao.guage;
 
 
-
 /**
  * 图表配置选项
  */
@@ -44,15 +43,25 @@ public class JGuageOption {
         return new JOptionBuilder();
     }
 
-    public String title() { return title; }
+    public String title() {
+        return title;
+    }
 
-    public String subtext() { return subtext; }
+    public String subtext() {
+        return subtext;
+    }
 
-    public Integer width() { return width; }
+    public Integer width() {
+        return width;
+    }
 
-    public Integer height() { return height; }
+    public Integer height() {
+        return height;
+    }
 
-    public GuageConfig scoreMeter() { return scoreMeter; }
+    public GuageConfig scoreMeter() {
+        return scoreMeter;
+    }
 
     public static class JOptionBuilder {
 

@@ -38,24 +38,24 @@ public class JPdfXCheckBoxVisitor extends JPdfXButtonVisitor {
 
     @Override
     public JHtmlRenderModel visitCheckbox(JQuickPDFParser.CheckboxContext ctx) {
-        String style="";
-        String value="";
-        String checkStatus="";
-        if(ctx.styleEle()!=null){
-            style=ctx.styleEle().getText();
+        String style = "";
+        String value = "";
+        String checkStatus = "";
+        if (ctx.styleEle() != null) {
+            style = ctx.styleEle().getText();
         }
-        if(ctx.checkboxStatus()!=null){
-            checkStatus="checked";
+        if (ctx.checkboxStatus() != null) {
+            checkStatus = "checked";
         }
-        if(ctx.value()!=null){
-            value=ctx.value().getText();
+        if (ctx.value() != null) {
+            value = ctx.value().getText();
         }
-        String checkbox=String.format("<input type=\"checkbox\" id=\"checkBoxItem\" %s  %s>" +
-                "<label for=\"checkBoxItem\">%s</label><br>\n",style, checkStatus,JStringUtils.trim(value));
-        JConsole console=new JConsole();
+        String checkbox = String.format("<input type=\"checkbox\" id=\"checkBoxItem\" %s  %s>" +
+                "<label for=\"checkBoxItem\">%s</label><br>\n", style, checkStatus, JStringUtils.trim(value));
+        JConsole console = new JConsole();
         console.info(checkbox);
-        List<IElement> iElements= HtmlConverter.convertToElements( checkbox,proper);
-        JHtmlRenderModel jHtmlRenderModel=new JHtmlRenderModel();
+        List<IElement> iElements = HtmlConverter.convertToElements(checkbox, proper);
+        JHtmlRenderModel jHtmlRenderModel = new JHtmlRenderModel();
         jHtmlRenderModel.setList(iElements);
         //areaBreak.setFont(JFontProviderFactory.defualtFont());
         return jHtmlRenderModel;

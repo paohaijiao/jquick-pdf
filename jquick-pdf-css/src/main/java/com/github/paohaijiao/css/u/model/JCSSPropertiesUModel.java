@@ -68,6 +68,9 @@ public class JCSSPropertiesUModel extends JCSSPropertiesTModel {
         }
     }
 
+    public String getUnicodeBidi() {
+        return get(UNICODE_BIDI);
+    }
 
     /**
      * Sets the unicode-bidi property for text direction handling
@@ -82,6 +85,10 @@ public class JCSSPropertiesUModel extends JCSSPropertiesTModel {
         }
     }
 
+    public String getUserSelect() {
+        return get(USER_SELECT);
+    }
+
     /**
      * Controls text selection behavior
      *
@@ -93,14 +100,5 @@ public class JCSSPropertiesUModel extends JCSSPropertiesTModel {
         } else {
             throw new IllegalArgumentException("Invalid user-select value: " + value);
         }
-    }
-
-
-    public String getUnicodeBidi() {
-        return get(UNICODE_BIDI);
-    }
-
-    public String getUserSelect() {
-        return get(USER_SELECT);
     }
 }

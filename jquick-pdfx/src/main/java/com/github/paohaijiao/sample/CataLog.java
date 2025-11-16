@@ -27,8 +27,7 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class CataLog
-{
+public class CataLog {
     private Integer index;
     private String categoryName;
     private String name;

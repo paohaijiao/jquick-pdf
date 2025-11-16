@@ -73,12 +73,28 @@ public class MyPdf {
     @Getter
     protected Integer part = 0;
     protected String fontPath;
-    protected ConverterProperties proper=new ConverterProperties();
+    protected ConverterProperties proper = new ConverterProperties();
     protected Map<CatalogType, java.util.List<CataLog>> cataLogsMap = new LinkedHashMap<>();
     protected Properties properties = new Properties();
     protected Set<Integer> pageSet = new HashSet<>();
 
-    private FontProvider getFontProvider(){
+    public static void main(String[] args) {
+        MyPdf proxy = new MyPdf();
+        String prefix = "d://test//";
+        proxy.initPdf(prefix);
+        proxy.addIndex();
+        proxy.addHello();
+        proxy.addExaminee();
+        proxy.addDetectionContent();
+        proxy.addResultSummary();
+        proxy.addContext();
+        proxy.addThanks();
+        proxy.addBackCover();
+        proxy.addCatalog();
+        proxy.addPageNumber();
+    }
+
+    private FontProvider getFontProvider() {
         FontProvider fontProvider = new FontProvider();
         try {
             // Load the font from resources
@@ -103,7 +119,8 @@ public class MyPdf {
         }
         return fontProvider;
     }
-    public  void initPdf(String outPath) {
+
+    public void initPdf(String outPath) {
         this.outPath = outPath;
         String inPath = outPath;
         if (part <= 0 || part > 20) {
@@ -128,21 +145,6 @@ public class MyPdf {
         proper.setFontProvider(fontProvider);
     }
 
-    public static void main(String[] args) {
-        MyPdf proxy = new MyPdf();
-        String prefix = "d://test//";
-        proxy.initPdf(prefix);
-        proxy.addIndex();
-        proxy.addHello();
-        proxy.addExaminee();
-        proxy.addDetectionContent();
-        proxy.addResultSummary();
-        proxy.addContext();
-        proxy.addThanks();
-        proxy.addBackCover();
-        proxy.addCatalog();
-        proxy.addPageNumber();
-    }
     public void addIndex() {
         Image indexImage = new Image(ImageDataFactory.create(MyPdf.class.getClassLoader().getResource("image/征信中心.png")));
         indexImage.setMargins(-50, -60, -60, -60);
@@ -154,8 +156,9 @@ public class MyPdf {
         pdf.addNewPage(2).flush();//todo
         doc.add(introductionImage);
         doc.add(honorImage);
-        return ;
+        return;
     }
+
     public void addHello() {
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));//todo
         Div div = new Div();
@@ -189,6 +192,7 @@ public class MyPdf {
 
         doc.add(div);
     }
+
     public void addExaminee() {
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         Div div1 = new Div();
@@ -202,17 +206,17 @@ public class MyPdf {
         div2.addStyle(ReportStyle.getDefaultTableOuter().setBorder(new SolidBorder(ReportColor.getThemeColor(), 0.7f)));
         Table table = new Table(3).useAllAvailableWidth();
         table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("姓 名：" + "paohaijiao")));
-        table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("性 别： " +"男")));
+        table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("性 别： " + "男")));
         table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("年 龄：" + 34)));
         table.startNewRow();
         table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("样本编号：" + "NO00001")));
         table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("样本类型：口腔粘膜细胞")));
         table.startNewRow();
         table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("样本检测结果：合格")));
-        table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("报告日期：20250101" )));
+        table.addCell(ReportComponent.getDefaultCell().add(ReportComponent.getSignParagraph("报告日期：20250101")));
         div2.add(table);
         doc.add(div2);
-        return ;
+        return;
     }
 
 
@@ -227,7 +231,7 @@ public class MyPdf {
 
         Paragraph p2 = new Paragraph();
         p2.setFontSize(11);
-        p2.add("检测套餐："  + "\n");
+        p2.add("检测套餐：" + "\n");
         p2.add("检测方法：高通量基因分型技术\n");
         p2.add("检测形式：对受检者基因组中与各项检测项目密切相关的基因信息进行DNA分型检测。\n");
         div1.add(p2);
@@ -261,7 +265,7 @@ public class MyPdf {
         doc.add(p3);
         doc.add(div2);
 
-        return ;
+        return;
     }
 
     public void addResultSummary() {
@@ -276,8 +280,8 @@ public class MyPdf {
         int count = 0;
         StringBuilder categoryContent = new StringBuilder();
         for (int i = 0; i < size; i++) {
-                categoryContent.append("项目").append("、");
-                count++;
+            categoryContent.append("项目").append("、");
+            count++;
 
         }
         p1.add(new Text(categoryContent.substring(0, categoryContent.length() - 1)).addStyle(ReportStyle.getThirdTitleStyle()));
@@ -292,7 +296,7 @@ public class MyPdf {
         t1.addCell(ReportComponent.getDefaultCell(2, 1).setWidth(65).setPaddingBottom(30).add(goodTipImage.addStyle(ReportStyle.getLargeIconStyle())));
         t1.addCell(ReportComponent.getDefaultCell().add(new Paragraph("优势标签").addStyle(ReportStyle.getThirdTitleStyle())));
         // 优势标签
-        int goodSize =3;
+        int goodSize = 3;
         if (goodSize <= 0) {
             t1.addCell(ReportComponent.getDefaultCell().add(new Paragraph("暂无优势项目")));
         } else {
@@ -364,19 +368,19 @@ public class MyPdf {
         doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         Image image88 = new Image(ImageDataFactory.create(MyPdf.class.getClassLoader().getResource("image/成人纸质报告8.8-10.png")));
         doc.add(image88);
-        return ;
+        return;
     }
 
     public void addContext() {
         java.util.List<Categories.ItemsBean> gaoLevel = new LinkedList<>();
-        java.util.List<Categories> categories= Categories.getDatas();
+        java.util.List<Categories> categories = Categories.getDatas();
         java.util.Set<Categories> normalLecel = new LinkedHashSet<>();
         for (Categories category : categories) {
             java.util.List<Categories.ItemsBean> items = category.getItems();
             for (Categories.ItemsBean item : items) {
                 if (true) {
-                    Random random=new Random();
-                    int i=random.nextInt(5);
+                    Random random = new Random();
+                    int i = random.nextInt(5);
                     if (i >= 3) {
                         gaoLevel.add(item);
                     } else if (i < 3) {
@@ -410,7 +414,7 @@ public class MyPdf {
 
         }
 
-       return ;
+        return;
     }
 
     /**
@@ -421,7 +425,7 @@ public class MyPdf {
     private void addBodyText(Categories.ItemsBean itemsBean, ReportExtraParam extraParam) {
         float score = itemsBean.getScore();
         String title = "降血压类";
-        java.util.List<GeneDesc> geneDesc =GeneDesc.getDatas();
+        java.util.List<GeneDesc> geneDesc = GeneDesc.getDatas();
         java.util.List<Content> contents = this.handlerContents(itemsBean);
         java.util.List<Literatures> literatures = Literatures.getData();
         HeaderTextEvent headerTextEvent = new HeaderTextEvent(title, font);
@@ -493,7 +497,7 @@ public class MyPdf {
             p2.addTabStops(new TabStop(20, TabAlignment.LEFT));
             p2.add("您的基因风险指数为");
             p2.add(new Text(score + "").setFontColor(color));
-            p2.add("，" +"xsasasswq");
+            p2.add("，" + "xsasasswq");
             p2.add(new Text("xsa123").setFontColor(color));
             switch (index) {
                 case 0:
@@ -507,7 +511,7 @@ public class MyPdf {
                     p2.add("。在相同外界条件下，您患" + "xsaxsa" + "的风险比正常人群稍高。建议您尽可能规避相关高危因素、调整生活习惯，改变不利的生活方式，定期进行体检和相关筛查，认真对待相关急慢性疾病（如发生）的治疗和医疗干预。");
                     break;
                 case 4:
-                    p2.add("。在相同外界条件下，您患" +"xsaxsaxsa" + "的风险高于正常人群。建议您尽可能规避" + itemsBean.getName() + "相关高危因素、调整生活习惯，改变不利的生活方式，定期进行体检和相关筛查，认真对待相关急慢性疾病（如发生）的治疗和医疗干预。");
+                    p2.add("。在相同外界条件下，您患" + "xsaxsaxsa" + "的风险高于正常人群。建议您尽可能规避" + itemsBean.getName() + "相关高危因素、调整生活习惯，改变不利的生活方式，定期进行体检和相关筛查，认真对待相关急慢性疾病（如发生）的治疗和医疗干预。");
                     break;
                 default:
                     break;
@@ -614,15 +618,15 @@ public class MyPdf {
         Paragraph titleParagraph = ReportComponent.getTitleParagraph(new Text("参考文献（部分）").addStyle(ReportStyle.getSecondTitleStyle()));
         literatureDiv.add(titleParagraph);
         literatureDiv.setKeepTogether(true);
-        for (int j=0;j<3;j++) {
+        for (int j = 0; j < 3; j++) {
             Paragraph segment = new Paragraph();
             segment.setFixedLeading(14);
             segment.setFontSize(9f).setFontColor(new DeviceRgb(85, 85, 85));
             segment.add(new Text("[" + (number++) + "]"));
             segment.add(new Text("literature" + ". "));
             segment.add(new Text("title" + ". "));
-            segment.add(new Text(  "Journal. "));
-            segment.add(new Text( "getSerialNumber. "));
+            segment.add(new Text("Journal. "));
+            segment.add(new Text("getSerialNumber. "));
             literatureDiv.add(segment);
         }
         doc.add(literatureDiv);
@@ -660,9 +664,9 @@ public class MyPdf {
     }
 
     private java.util.List<Content> handlerContents(Categories.ItemsBean itemsBean) {
-        java.util.List<Content> contents =  Content.getDatas();
+        java.util.List<Content> contents = Content.getDatas();
         int size = contents.size();
-        java.util.List<Content> result =  Content.getDatas();
+        java.util.List<Content> result = Content.getDatas();
         if (size > 6) {
             java.util.List<Content> contentsBeans = contents.subList(2, 6);
             result.add(contents.get(0));
@@ -697,7 +701,7 @@ public class MyPdf {
             element.add(new Text(itemsBean.getLabel()).setFontColor(colors[itemsBean.getIndex()]));
             doc.add(element);
         }
-        which = "gxtz".equals(categoryCode) || "jfss".equals(categoryCode) ;
+        which = "gxtz".equals(categoryCode) || "jfss".equals(categoryCode);
         if (which) {
             Paragraph element = new Paragraph();
             element.setTextAlignment(TextAlignment.CENTER);
@@ -741,7 +745,7 @@ public class MyPdf {
         }
 
 
-        return ;
+        return;
     }
 
     public void addBackCover() {
@@ -753,7 +757,7 @@ public class MyPdf {
         backCoverImage.setMarginLeft(-70);
         backCoverImage.setMarginTop(-80);
         doc.add(backCoverImage);
-        return ;
+        return;
     }
 
     public void addCatalog() {
@@ -772,7 +776,7 @@ public class MyPdf {
         for (int i = startNum; i < startNum + pageSize; i++) {
             pdf.removePage(startNum);
         }
-        return ;
+        return;
     }
 
     private Div getCataLogDiv(int offPage) {
@@ -837,9 +841,10 @@ public class MyPdf {
         }
         return "blue";
     }
+
     protected String getInPath() {
         int index = outPath.lastIndexOf("/");
-        int index2 = outPath.lastIndexOf("/", index-1);
+        int index2 = outPath.lastIndexOf("/", index - 1);
         String prefix = outPath.substring(0, index2);
         String fileName = outPath.substring(index);
         String name = fileName.split("\\.")[0];
@@ -853,6 +858,7 @@ public class MyPdf {
         }
         return pre + name + "_temp.pdf";
     }
+
     public void addPageNumber() {
         Integer catalogSize = Integer.parseInt(properties.getProperty(ReportConstant.CATALOG_SIZE));
         pdf.close();
@@ -893,7 +899,7 @@ public class MyPdf {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ;
+        return;
     }
 
 }

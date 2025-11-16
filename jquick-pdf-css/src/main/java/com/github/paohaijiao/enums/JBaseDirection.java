@@ -33,6 +33,7 @@ public enum JBaseDirection {
         this.code = code;
         this.type = type;
     }
+
     public static JBaseDirection codeOf(String code) {
         for (JBaseDirection type : values()) {
             if (type.code.equals(code)) {

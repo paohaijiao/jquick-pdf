@@ -41,10 +41,12 @@ public class JCalendarChartRenderer extends JAbstractChartRenderer {
     protected int getDefaultWidth() {
         return 1200;
     }
+
     @Override
     protected int getDefaultHeight() {
         return 300;
     }
+
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
         JCalendarOption calendarOption = option.getJCalendarOption();

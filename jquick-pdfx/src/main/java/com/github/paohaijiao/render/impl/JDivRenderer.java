@@ -33,7 +33,7 @@ import com.itextpdf.layout.element.IElement;
 public class JDivRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyBlockElement(doc,element, styles);
+        super.applyBlockElement(doc, element, styles);
         JStyleDivAttributes divStyles = new JStyleDivAttributes();
         divStyles.putAll(styles);
         Div div = (Div) element;
@@ -44,8 +44,6 @@ public class JDivRenderer extends JBaseRenderer {
             div.setFillAvailableAreaOnSplit(Boolean.parseBoolean(divStyles.getFillAreaOnSplit()));
         }
     }
-
-
 
 
 }

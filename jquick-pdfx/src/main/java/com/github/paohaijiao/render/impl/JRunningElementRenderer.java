@@ -31,10 +31,8 @@ import com.itextpdf.layout.element.IElement;
 public class JRunningElementRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyBlockElement(doc,element, styles);
+        super.applyBlockElement(doc, element, styles);
     }
-
-
 
 
 }

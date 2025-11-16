@@ -37,7 +37,7 @@ public class JGanttChartRenderer extends JAbstractChartRenderer {
 
     @Override
     protected void drawChart(SVGGraphics2D g2d, JOption option, int width, int height) {
-        JGanttOption ganttOption=option.getGanttOption();
+        JGanttOption ganttOption = option.getGanttOption();
         Color backgroundColor = ganttOption.getChartStyle() != null && ganttOption.getChartStyle().getBackgroundColor() != null ? ganttOption.getChartStyle().getBackgroundColor() : Color.WHITE;
         g2d.setColor(backgroundColor);
         g2d.fillRect(0, 0, width, height);
@@ -114,12 +114,12 @@ public class JGanttChartRenderer extends JAbstractChartRenderer {
             int y = startY + flight.getRow() * rowHeight + 1;
             int barHeight = rowHeight - 2;
             int startMinute = (flight.getStartHour() - 21) * 60 + flight.getStartMinute();
-            int barX = startX + (int)(startMinute * minuteWidth);
-            int barWidth = (int)(flight.getDuration() * minuteWidth);
+            int barX = startX + (int) (startMinute * minuteWidth);
+            int barWidth = (int) (flight.getDuration() * minuteWidth);
             g2d.setColor(plannedTimeColor);
             g2d.fillRect(barX, y, barWidth, barHeight);
             double actualRatio = flight.getActualUsageRatio() > 0 ? flight.getActualUsageRatio() : 0.7;
-            int actualWidth = Math.min(barWidth, (int)(flight.getDuration() * minuteWidth * actualRatio));
+            int actualWidth = Math.min(barWidth, (int) (flight.getDuration() * minuteWidth * actualRatio));
             g2d.setColor(actualTimeColor);
             g2d.fillRect(barX, y, actualWidth, barHeight);
             g2d.setColor(new Color(60, 60, 65));
@@ -141,8 +141,8 @@ public class JGanttChartRenderer extends JAbstractChartRenderer {
             int y = startY + flight.getRow() * rowHeight + 1;
             int barHeight = rowHeight - 2;
             int startMinute = (flight.getStartHour() - 21) * 60 + flight.getStartMinute();
-            int barX = startX + (int)(startMinute * minuteWidth);
-            int barWidth = (int)(flight.getDuration() * minuteWidth);
+            int barX = startX + (int) (startMinute * minuteWidth);
+            int barWidth = (int) (flight.getDuration() * minuteWidth);
             if (barWidth > 50) {
                 FontMetrics fm = g2d.getFontMetrics();
                 int textWidth = fm.stringWidth(flight.getFlightNo());

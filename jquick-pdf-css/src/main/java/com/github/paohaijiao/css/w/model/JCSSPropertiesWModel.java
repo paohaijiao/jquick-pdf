@@ -120,6 +120,9 @@ public class JCSSPropertiesWModel extends JCSSPropertiesVModel {
         }
     }
 
+    public String getWhiteSpace() {
+        return get(WHITE_SPACE);
+    }
 
     public void setWhiteSpace(String value) {
         if (VALID_WHITE_SPACE_VALUES.contains(value)) {
@@ -127,6 +130,10 @@ public class JCSSPropertiesWModel extends JCSSPropertiesVModel {
         } else {
             throw new IllegalArgumentException("Invalid white-space value: " + value);
         }
+    }
+
+    public String getWidows() {
+        return get(WIDOWS);
     }
 
     public void setWidows(int value) {
@@ -137,12 +144,20 @@ public class JCSSPropertiesWModel extends JCSSPropertiesVModel {
         }
     }
 
+    public String getWidth() {
+        return get(WIDTH);
+    }
+
     public void setWidth(String value) {
         if (isValidSizeValue(value)) {
             put(WIDTH, value);
         } else {
             throw new IllegalArgumentException("Invalid width value: " + value);
         }
+    }
+
+    public String getWordBreak() {
+        return get(WORD_BREAK);
     }
 
     public void setWordBreak(String value) {
@@ -153,8 +168,16 @@ public class JCSSPropertiesWModel extends JCSSPropertiesVModel {
         }
     }
 
+    public String getWordSpacing() {
+        return get(WORD_SPACING);
+    }
+
     public void setWordSpacing(String value) {
         put(WORD_SPACING, value);
+    }
+
+    public String getWordWrap() {
+        return get(WORD_WRAP);
     }
 
     public void setWordWrap(String value) {
@@ -165,41 +188,16 @@ public class JCSSPropertiesWModel extends JCSSPropertiesVModel {
         }
     }
 
+    public String getWritingMode() {
+        return get(WRITING_MODE);
+    }
+
     public void setWritingMode(String value) {
         if (VALID_WRITING_MODE_VALUES.contains(value)) {
             put(WRITING_MODE, value);
         } else {
             throw new IllegalArgumentException("Invalid writing-mode value: " + value);
         }
-    }
-
-
-    public String getWhiteSpace() {
-        return get(WHITE_SPACE);
-    }
-
-    public String getWidows() {
-        return get(WIDOWS);
-    }
-
-    public String getWidth() {
-        return get(WIDTH);
-    }
-
-    public String getWordBreak() {
-        return get(WORD_BREAK);
-    }
-
-    public String getWordSpacing() {
-        return get(WORD_SPACING);
-    }
-
-    public String getWordWrap() {
-        return get(WORD_WRAP);
-    }
-
-    public String getWritingMode() {
-        return get(WRITING_MODE);
     }
 
     private boolean isValidSizeValue(String value) {

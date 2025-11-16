@@ -57,21 +57,11 @@ public class JCSSPropertiesMProvider extends JCSSPropertiesBaseProvider implemen
         BLEND_MODE_MAP.put("color", BlendMode.COLOR);
         BLEND_MODE_MAP.put("luminosity", BlendMode.LUMINOSITY);
     }
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        com.itextpdf.layout.Style style = new com.itextpdf.layout.Style();
-        applyMarginProperties(element,style, cssProperties);
-        applyMaskProperties(element,style, cssProperties);
-        applySizeProperties(element,style, cssProperties);
-        applyBlendMode(element,style, cssProperties);
-        element.addStyle(style);
-    }
 
-
-    private static void applyMarginProperties(BlockElement<?> element,Style style, JCSSPropertiesMModel css) {
+    private static void applyMarginProperties(BlockElement<?> element, Style style, JCSSPropertiesMModel css) {
         if (css.getMargin() != null) {
-            Float commonMargin= stringToFloat(css.getMargin());
-            element.setMargins(commonMargin,commonMargin,commonMargin,commonMargin);
+            Float commonMargin = stringToFloat(css.getMargin());
+            element.setMargins(commonMargin, commonMargin, commonMargin, commonMargin);
         }
         if (css.getMarginTop() != null) {
             element.setMarginTop(stringToFloat(css.getMarginTop()));
@@ -86,20 +76,20 @@ public class JCSSPropertiesMProvider extends JCSSPropertiesBaseProvider implemen
             element.setMarginLeft(stringToFloat(css.getMarginLeft()));
         }
         if (css.getMarginBlockStart() != null) {
-             style.setMarginTop(parseFloatValue(css.getMarginBlockStart()));
+            style.setMarginTop(parseFloatValue(css.getMarginBlockStart()));
         }
         if (css.getMarginBlockEnd() != null) {
-             style.setMarginBottom(parseFloatValue(css.getMarginBlockEnd()));
+            style.setMarginBottom(parseFloatValue(css.getMarginBlockEnd()));
         }
         if (css.getMarginInlineStart() != null) {
-              style.setMarginLeft(parseFloatValue(css.getMarginInlineStart()));
+            style.setMarginLeft(parseFloatValue(css.getMarginInlineStart()));
         }
         if (css.getMarginInlineEnd() != null) {
-             style.setMarginRight(parseFloatValue(css.getMarginInlineEnd()));
+            style.setMarginRight(parseFloatValue(css.getMarginInlineEnd()));
         }
     }
 
-    private static void applyMaskProperties(BlockElement<?> element,Style style, JCSSPropertiesMModel css) {
+    private static void applyMaskProperties(BlockElement<?> element, Style style, JCSSPropertiesMModel css) {
         // iText has limited support for masking, but we can implement some features
         if (css.getMaskImage() != null) {
             // Create a background image with masking properties
@@ -113,36 +103,36 @@ public class JCSSPropertiesMProvider extends JCSSPropertiesBaseProvider implemen
         }
     }
 
-    private static void applySizeProperties(BlockElement<?> element,Style style, JCSSPropertiesMModel css) {
+    private static void applySizeProperties(BlockElement<?> element, Style style, JCSSPropertiesMModel css) {
         if (css.getMaxWidth() != null) {
-              style.setMaxWidth(parseUnitValue(css.getMaxWidth()));
+            style.setMaxWidth(parseUnitValue(css.getMaxWidth()));
         }
         if (css.getMaxHeight() != null) {
-                style.setMaxHeight(parseUnitValue(css.getMaxHeight()));
+            style.setMaxHeight(parseUnitValue(css.getMaxHeight()));
         }
         if (css.getMinWidth() != null) {
-               style.setMinWidth(parseUnitValue(css.getMinWidth()));
+            style.setMinWidth(parseUnitValue(css.getMinWidth()));
         }
         if (css.getMinHeight() != null) {
-               style.setMinHeight(parseUnitValue(css.getMinHeight()));
+            style.setMinHeight(parseUnitValue(css.getMinHeight()));
         }
 
         // Block and inline sizes (map to width/height as needed)
         if (css.getMaxBlockSize() != null) {
-              style.setMaxHeight(parseUnitValue(css.getMaxBlockSize()));
+            style.setMaxHeight(parseUnitValue(css.getMaxBlockSize()));
         }
         if (css.getMinBlockSize() != null) {
-              style.setMinHeight(parseUnitValue(css.getMinBlockSize()));
+            style.setMinHeight(parseUnitValue(css.getMinBlockSize()));
         }
         if (css.getMaxInlineSize() != null) {
-              style.setMaxWidth(parseUnitValue(css.getMaxInlineSize()));
+            style.setMaxWidth(parseUnitValue(css.getMaxInlineSize()));
         }
         if (css.getMinInlineSize() != null) {
-              style.setMinWidth(parseUnitValue(css.getMinInlineSize()));
+            style.setMinWidth(parseUnitValue(css.getMinInlineSize()));
         }
     }
 
-    private static void applyBlendMode(BlockElement<?> element,Style style, JCSSPropertiesMModel css) {
+    private static void applyBlendMode(BlockElement<?> element, Style style, JCSSPropertiesMModel css) {
         if (css.getMixBlendMode() != null) {
             BlendMode blendMode = BLEND_MODE_MAP.get(css.getMixBlendMode().toLowerCase());
             if (blendMode != null) {
@@ -150,7 +140,6 @@ public class JCSSPropertiesMProvider extends JCSSPropertiesBaseProvider implemen
             }
         }
     }
-
 
     private static BackgroundRepeat parseBackgroundRepeat(String value) {
         if (value == null) return null;
@@ -187,6 +176,25 @@ public class JCSSPropertiesMProvider extends JCSSPropertiesBaseProvider implemen
         }
         return null;
         //return new BackgroundPosition().setPositionX(parsePositionValue(value));
+    }
+
+    private static UnitValue parseBackgroundSizeValue(String value) {
+        if (value.equals("auto")) {
+            return null; // auto is the default
+        } else if (value.endsWith("%")) {
+            float percent = Float.parseFloat(value.substring(0, value.length() - 1));
+            return UnitValue.createPercentValue(percent);
+        } else if (value.endsWith("px")) {
+            float px = Float.parseFloat(value.substring(0, value.length() - 2));
+            return UnitValue.createPointValue(px);
+        } else {
+            try {
+                float val = Float.parseFloat(value);
+                return UnitValue.createPointValue(val);
+            } catch (NumberFormatException e) {
+                return null;
+            }
+        }
     }
 
 //    private static BackgroundPosition.PositionValue parsePositionValue(String value) {
@@ -231,23 +239,14 @@ public class JCSSPropertiesMProvider extends JCSSPropertiesBaseProvider implemen
 //        return new BackgroundSize().setBackgroundSizeToValues(parseBackgroundSizeValue(value));
 //    }
 
-    private static UnitValue parseBackgroundSizeValue(String value) {
-        if (value.equals("auto")) {
-            return null; // auto is the default
-        } else if (value.endsWith("%")) {
-            float percent = Float.parseFloat(value.substring(0, value.length() - 1));
-            return UnitValue.createPercentValue(percent);
-        } else if (value.endsWith("px")) {
-            float px = Float.parseFloat(value.substring(0, value.length() - 2));
-            return UnitValue.createPointValue(px);
-        } else {
-            try {
-                float val = Float.parseFloat(value);
-                return UnitValue.createPointValue(val);
-            } catch (NumberFormatException e) {
-                return null;
-            }
-        }
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        com.itextpdf.layout.Style style = new com.itextpdf.layout.Style();
+        applyMarginProperties(element, style, cssProperties);
+        applyMaskProperties(element, style, cssProperties);
+        applySizeProperties(element, style, cssProperties);
+        applyBlendMode(element, style, cssProperties);
+        element.addStyle(style);
     }
 
 

@@ -35,23 +35,18 @@ import java.util.List;
  * @date 2025/7/1
  * @description
  */
-public class JCSSPropertiesGProvider  extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
+public class JCSSPropertiesGProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
     private static final List<String> VALID_GRID_AUTO_FLOW_VALUES = Arrays.asList(
             "row", "column", "dense", "row dense", "column dense", "inherit", "initial", "unset"
     );
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style = new Style();
-        convertToStyle(element,cssProperties,style);
-        element.addStyle(style);
-    }
+
     /**
      * Converts JCSSPropertiesGModel properties to iText Style
      *
      * @param cssModel The model containing CSS grid properties
      * @return iText Style with all applicable grid properties set
      */
-    public static void convertToStyle(BlockElement<?> element, JCSSPropertiesCoreModel cssModel,Style style) {
+    public static void convertToStyle(BlockElement<?> element, JCSSPropertiesCoreModel cssModel, Style style) {
         if (cssModel.getGap() != null) {
             setGap(style, cssModel.getGap());
         }
@@ -157,6 +152,12 @@ public class JCSSPropertiesGProvider  extends JCSSPropertiesBaseProvider impleme
         }
     }
 
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        convertToStyle(element, cssProperties, style);
+        element.addStyle(style);
+    }
 
 
 }

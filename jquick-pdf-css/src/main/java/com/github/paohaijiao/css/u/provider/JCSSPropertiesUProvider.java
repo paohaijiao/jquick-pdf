@@ -41,14 +41,7 @@ public class JCSSPropertiesUProvider extends JCSSPropertiesBaseProvider implemen
 
     private static final int USER_SELECT_PROPERTY = PROPERTY_ID_GENERATOR.getAndIncrement();
 
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style = new Style();
-        convertToStyle(cssProperties, style);
-        element.addStyle(style);
-    }
-
-    public static Style convertToStyle(JCSSPropertiesUModel cssModel,Style style) {
+    public static Style convertToStyle(JCSSPropertiesUModel cssModel, Style style) {
         if (cssModel.getUnicodeBidi() != null) {
             setUnicodeBidi(style, cssModel.getUnicodeBidi());
         }
@@ -82,6 +75,12 @@ public class JCSSPropertiesUProvider extends JCSSPropertiesBaseProvider implemen
         return (String) style.getProperty(USER_SELECT_PROPERTY);
     }
 
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        convertToStyle(cssProperties, style);
+        element.addStyle(style);
+    }
 
 
 }

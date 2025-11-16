@@ -33,15 +33,6 @@ import com.itextpdf.layout.element.BlockElement;
  * @description
  */
 public class JCSSPropertiesPProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssModel) {
-        Style style = new Style();
-        applyPaddingProperties(style, cssModel);
-        applyPageProperties(style, cssModel);
-        applyVisualProperties(style, cssModel);
-        element.addStyle(style);
-    }
-
     private static void applyPaddingProperties(Style style, JCSSPropertiesPModel cssModel) {
         String padding = cssModel.getPadding();
         if (padding != null) {
@@ -249,8 +240,14 @@ public class JCSSPropertiesPProvider extends JCSSPropertiesBaseProvider implemen
         }
     }
 
-
-
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssModel) {
+        Style style = new Style();
+        applyPaddingProperties(style, cssModel);
+        applyPageProperties(style, cssModel);
+        applyVisualProperties(style, cssModel);
+        element.addStyle(style);
+    }
 
 
 //    private static com.itextpdf.layout.properties.Alignment convertAlignment(String cssValue) {

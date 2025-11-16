@@ -89,6 +89,7 @@ public class JTreeMapTest {
         CATEGORY_COLORS.put("SEO优化", new Color(142, 36, 166));
         CATEGORY_COLORS.put("邮件营销", new Color(194, 87, 212));
     }
+
     public static JTreeMapNode createTestData() {
         JTreeMapNode root = new JTreeMapNode("公司业务", 1000);
         JTreeMapNode tech = new JTreeMapNode("技术部", 350);
@@ -193,9 +194,10 @@ public class JTreeMapTest {
 
         return root;
     }
+
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         JTreeMapNode root = createTestData();
         TreeMapOption treemapOption = new TreeMapOption();
         treemapOption.setRoot(root);
@@ -222,8 +224,8 @@ public class JTreeMapTest {
         option.title("公司业务分布矩形树图（JTreemapRenderer）");
         graphContainer.setType(JChartType.TREEMAP);
         graphContainer.setOption(option);
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

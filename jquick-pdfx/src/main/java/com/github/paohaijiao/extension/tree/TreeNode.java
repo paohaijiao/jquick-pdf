@@ -41,6 +41,7 @@ public class TreeNode {
         this.text = text;
         this.children = new ArrayList<>();
     }
+
     public void addChild(TreeNode child) {
         child.parent = this;
         this.children.add(child);

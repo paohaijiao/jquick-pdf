@@ -27,56 +27,52 @@ import com.itextpdf.layout.element.Paragraph;
  * @date 2025/6/14
  * @description
  */
-public class JPdfXElementVisitor extends JPdfXTemplateVisitor  {
+public class JPdfXElementVisitor extends JPdfXTemplateVisitor {
 
 
     @Override
     public Object visitElement(JQuickPDFParser.ElementContext ctx) {
-        String text=ctx.getText();
+        String text = ctx.getText();
         if (ctx.paragraph() != null) {
-            Paragraph paragraph= visitParagraph(ctx.paragraph());
+            Paragraph paragraph = visitParagraph(ctx.paragraph());
             return paragraph;
         } else if (ctx.heading() != null) {
             return visitHeading(ctx.heading());
         } else if (ctx.list() != null) {
             return visitList(ctx.list());
         } else if (ctx.table() != null) {
-            return  visitTable(ctx.table());
+            return visitTable(ctx.table());
         } else if (ctx.image() != null) {
-            return  visitImage(ctx.image());
+            return visitImage(ctx.image());
         } else if (ctx.svg() != null) {
             return visitSvg(ctx.svg());
         } else if (ctx.div() != null) {
-            return   visitDiv(ctx.div());
+            return visitDiv(ctx.div());
         } else if (ctx.template() != null) {
             return visitTemplate(ctx.template());
-        }else if (ctx.span() != null) {
+        } else if (ctx.span() != null) {
             return visitSpan(ctx.span());
-        }
-        else if (ctx.areaBreak() != null) {
+        } else if (ctx.areaBreak() != null) {
             return visitAreaBreak(ctx.areaBreak());
-        }else if(ctx.button()!=null){
+        } else if (ctx.button() != null) {
             return visitButton(ctx.button());
-        }else if(ctx.tab()!=null){
+        } else if (ctx.tab() != null) {
             return visitTab(ctx.tab());
-        }else if(ctx.checkbox()!=null){
+        } else if (ctx.checkbox() != null) {
             return visitCheckbox(ctx.checkbox());
-        }else if(ctx.comboBoxField()!=null){
+        } else if (ctx.comboBoxField() != null) {
             return visitComboBoxField(ctx.comboBoxField());
-        }
-        else if(ctx.htmlPageBreak()!=null){
+        } else if (ctx.htmlPageBreak() != null) {
             return visitHtmlPageBreak(ctx.htmlPageBreak());
-        }
-        else if(ctx.lineSeparator()!=null){
+        } else if (ctx.lineSeparator() != null) {
             return visitLineSeparator(ctx.lineSeparator());
-        } else if(ctx.tab()!=null){
+        } else if (ctx.tab() != null) {
             return visitTab(ctx.tab());
-        }
-        else if(ctx.textArea()!=null){
+        } else if (ctx.textArea() != null) {
             return visitTextArea(ctx.textArea());
-        }else if(ctx.tree()!=null){
+        } else if (ctx.tree() != null) {
             return visitTree(ctx.tree());
-        }else if(ctx.value()!=null){
+        } else if (ctx.value() != null) {
             return visitValue(ctx.value());
         }
         return null;

@@ -26,10 +26,10 @@ import com.itextpdf.layout.element.IElement;
  * @version 1.0.0
  * @since 2025/7/17
  */
-public class JPageTargetCountRender extends JBaseRenderer{
+public class JPageTargetCountRender extends JBaseRenderer {
 
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyElementProperty(doc,element, styles);
+        super.applyElementProperty(doc, element, styles);
     }
 }

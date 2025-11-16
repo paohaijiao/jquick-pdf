@@ -20,6 +20,7 @@ import com.github.paohaijiao.font.JFontProvider;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.layout.font.FontProvider;
+
 /**
  * packageName com.github.paohaijiao.font.impl
  *
@@ -34,15 +35,15 @@ public class JDefaultFontProvider implements JFontProvider {
     private final String fontPath;
     private final JPdfEncoding encoding;
 
-    public JDefaultFontProvider(String fontName,String fontPath, JPdfEncoding encoding) {
+    public JDefaultFontProvider(String fontName, String fontPath, JPdfEncoding encoding) {
         this.fontName = fontName;
         this.fontPath = fontPath;
         this.encoding = encoding;
     }
 
     @Override
-    public PdfFont getFont()  {
-        try{
+    public PdfFont getFont() {
+        try {
             FontProvider fontProvider = new FontProvider();
             fontProvider.addFont(fontPath, encoding.getEncoding());
             PdfFont font = PdfFontFactory.createFont(fontPath, encoding.getEncoding());

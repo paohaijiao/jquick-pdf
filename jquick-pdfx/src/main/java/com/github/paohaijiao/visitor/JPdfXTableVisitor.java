@@ -61,7 +61,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        if(null!=ctx.row()&&!ctx.row().isEmpty()){
+        if (null != ctx.row() && !ctx.row().isEmpty()) {
             JQuickPDFParser.RowContext tempRowContext = ctx.row(0);
             JRowModel tempItem = visitRow(tempRowContext);
             Table table = new Table(tempItem.getColumnList().size())
@@ -74,7 +74,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
                 JRowModel item = visitRow(rowContext);
                 for (JColumnModel column : item.getColumnList()) {
                     List<Object> value = column.getObject();
-                    if(th.equals(column.getType())){
+                    if (th.equals(column.getType())) {
                         Cell headerCell = new Cell();
                         saveSub(headerCell, value);
                         headerCell.setBackgroundColor(HEADER_COLOR);
@@ -88,7 +88,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
                         super.buildStyle(headerCell, column.getStyle());
                         table.addHeaderCell(headerCell);
                     }
-                    if(td.equals(column.getType())){
+                    if (td.equals(column.getType())) {
                         DeviceRgb rowColor = (i % 2 == 0) ? EVEN_ROW_COLOR : null;
                         Cell cell = new Cell();
                         saveSub(cell, value);
@@ -152,7 +152,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         }
         List<Object> value = null;
         if (null != ctx.elemValue()) {
-            value =visitElemValue(ctx.elemValue());
+            value = visitElemValue(ctx.elemValue());
         }
         JColumnModel model = new JColumnModel();
         model.setStyle(style);
@@ -171,7 +171,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         }
         List<Object> value = null;
         if (null != ctx.elemValue()) {
-            value =visitElemValue(ctx.elemValue());
+            value = visitElemValue(ctx.elemValue());
         }
         JColumnModel model = new JColumnModel();
         model.setStyle(style);
@@ -180,7 +180,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         return model;
     }
 
-    private Style buildStyle(Cell cell){
+    private Style buildStyle(Cell cell) {
         Style deFaultStyle = new Style();
         deFaultStyle.setPadding(10);
         deFaultStyle.setBorder(Border.NO_BORDER);
@@ -188,15 +188,17 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         cell.addStyle(deFaultStyle);
         return deFaultStyle;
     }
-    private Style buildParagraphStyle(Paragraph paragraph){
+
+    private Style buildParagraphStyle(Paragraph paragraph) {
         Style deFaultStyle = new Style();
         deFaultStyle.setFontSize(11);
         paragraph.addStyle(deFaultStyle);
         return deFaultStyle;
     }
-    private void saveSub(Cell cell,Object object) {
-        if(null!=object&&object instanceof java.util.List) {
-            java.util.List<Object> list=(java.util.List<Object>) object;
+
+    private void saveSub(Cell cell, Object object) {
+        if (null != object && object instanceof java.util.List) {
+            java.util.List<Object> list = (java.util.List<Object>) object;
             list.forEach(e -> {
                 if (e instanceof IBlockElement) {
                     cell.add((IBlockElement) e);
@@ -208,7 +210,7 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
                     cell.add((Paragraph) e);
                 }
                 if (e instanceof String) {
-                    Paragraph paragraph = new Paragraph((String)e);
+                    Paragraph paragraph = new Paragraph((String) e);
                     paragraph.setFont(JFontProviderFactory.defualtFont());
                     cell.add(paragraph);
                 }

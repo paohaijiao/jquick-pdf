@@ -56,18 +56,20 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     public JPdfXCommonVisitor() throws FileNotFoundException {
         this.context = new JContext();
-        this.config=new JPdfConfig();
-    }
-    public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
-        this.context = context;
-        this.config=new JPdfConfig();
-    }
-    public JPdfXCommonVisitor(JPdfConfig config) throws FileNotFoundException {
-        this.context = new JContext();
-        this.config= config;
+        this.config = new JPdfConfig();
     }
 
-    public JPdfXCommonVisitor(JContext context,JPdfConfig config) throws FileNotFoundException {
+    public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
+        this.context = context;
+        this.config = new JPdfConfig();
+    }
+
+    public JPdfXCommonVisitor(JPdfConfig config) throws FileNotFoundException {
+        this.context = new JContext();
+        this.config = config;
+    }
+
+    public JPdfXCommonVisitor(JContext context, JPdfConfig config) throws FileNotFoundException {
         this.context = context;
         this.config = config;
     }
@@ -105,23 +107,23 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
     public Void visitBody(JQuickPDFParser.BodyContext ctx) {
         if (ctx.element() != null && !ctx.element().isEmpty()) {
             for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
-                Object object=visitElement(elementContext);
+                Object object = visitElement(elementContext);
                 if (object instanceof Image) {
-                    Image image=(Image)object;
+                    Image image = (Image) object;
                     doc.add(image);
                 }
                 if (object instanceof IBlockElement) {
-                    IBlockElement blockElement=(IBlockElement)object;
+                    IBlockElement blockElement = (IBlockElement) object;
                     doc.add(blockElement);
                 }
                 if (object instanceof AreaBreak) {
-                    AreaBreak areaBreak=(AreaBreak)object;
+                    AreaBreak areaBreak = (AreaBreak) object;
                     doc.add(areaBreak);
                 }
                 if (object instanceof JHtmlRenderModel) {
-                    JHtmlRenderModel areaBreak=(JHtmlRenderModel)object;
-                    if(areaBreak.getList()!=null){
-                        areaBreak.getList().forEach(e->{
+                    JHtmlRenderModel areaBreak = (JHtmlRenderModel) object;
+                    if (areaBreak.getList() != null) {
+                        areaBreak.getList().forEach(e -> {
                             saveSub(e);
                         });
                     }
@@ -130,20 +132,22 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         }
         return null;
     }
-    private void saveSub(  Object object){
+
+    private void saveSub(Object object) {
         if (object instanceof Image) {
-            Image image=(Image)object;
+            Image image = (Image) object;
             doc.add(image);
         }
         if (object instanceof IBlockElement) {
-            IBlockElement blockElement=(IBlockElement)object;
+            IBlockElement blockElement = (IBlockElement) object;
             doc.add(blockElement);
         }
         if (object instanceof AreaBreak) {
-            AreaBreak areaBreak=(AreaBreak)object;
+            AreaBreak areaBreak = (AreaBreak) object;
             doc.add(areaBreak);
         }
     }
+
     public void addCatalog() {
         CatalogMoveEvent catalogMoveEvent = new CatalogMoveEvent(properties);
         pdf.addEventHandler(PdfDocumentEvent.END_PAGE, catalogMoveEvent);
@@ -159,8 +163,9 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         for (int i = startNum; i < startNum + pageSize; i++) {
             pdf.removePage(startNum);
         }
-        return ;
+        return;
     }
+
     private Div getCataLogDiv(int offPage) {
         Div div1 = new Div();
         Table tableCatalog = new Table(4).useAllAvailableWidth();
@@ -191,6 +196,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         div1.add(tableCatalog);
         return div1;
     }
+
     private void addCatalogDetail(int offPage, Table tableCatalog, java.util.List<CataLog> values) {
         for (CataLog cataLog : values) {
             tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph(cataLog.getName())));
@@ -202,6 +208,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
             tableCatalog.startNewRow();
         }
     }
+
     public void addPageNumber() {
         Integer catalogSize = Integer.parseInt(properties.getProperty(ReportConstant.CATALOG_SIZE));
         pdf.close();
@@ -240,6 +247,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ;
+        return;
     }
 }

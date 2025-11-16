@@ -54,6 +54,9 @@ public class JCSSPropertiesJModel extends JCSSPropertiesIModel {
             "baseline", "first baseline", "last baseline", "safe", "unsafe"
     );
 
+    public String getJustifyContent() {
+        return get(JUSTIFY_CONTENT);
+    }
 
     /**
      * Sets main axis alignment (for Flexbox/Grid)
@@ -69,8 +72,8 @@ public class JCSSPropertiesJModel extends JCSSPropertiesIModel {
         }
     }
 
-    public String getJustifyContent() {
-        return get(JUSTIFY_CONTENT);
+    public String getJustifyItems() {
+        return get(JUSTIFY_ITEMS);
     }
 
     /**
@@ -87,8 +90,8 @@ public class JCSSPropertiesJModel extends JCSSPropertiesIModel {
         }
     }
 
-    public String getJustifyItems() {
-        return get(JUSTIFY_ITEMS);
+    public String getJustifySelf() {
+        return get(JUSTIFY_SELF);
     }
 
     /**
@@ -104,11 +107,6 @@ public class JCSSPropertiesJModel extends JCSSPropertiesIModel {
             throw new IllegalArgumentException("Invalid justify-self value: " + value);
         }
     }
-
-    public String getJustifySelf() {
-        return get(JUSTIFY_SELF);
-    }
-
 
     private boolean isValidJustifyValue(String value, List<String> validValues) {
         if (value == null) return false;

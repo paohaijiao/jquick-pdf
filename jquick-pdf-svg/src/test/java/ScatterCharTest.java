@@ -65,7 +65,7 @@ public class ScatterCharTest {
 
     @Test
     public void testBarChar1() throws IOException {
-        JData[] data= new JData[]{
+        JData[] data = new JData[]{
                 new JData().value(new Double[]{10.0, 8.04}),
                 new JData().value(new Double[]{8.07, 6.95}),
                 new JData().value(new Double[]{13.0, 7.58}),

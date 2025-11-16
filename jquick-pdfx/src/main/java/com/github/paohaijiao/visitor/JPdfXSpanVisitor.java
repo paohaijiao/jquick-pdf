@@ -37,10 +37,10 @@ public class JPdfXSpanVisitor extends JPdfXLayOutVisitor {
     public Text visitSpan(JQuickPDFParser.SpanContext ctx) {
         String value = "";
         if (null != ctx.value()) {
-           Object val = visitValue(ctx.value());
-           if(null!=val&&val instanceof String){
-               value=val.toString();
-           }
+            Object val = visitValue(ctx.value());
+            if (null != val && val instanceof String) {
+                value = val.toString();
+            }
         }
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
@@ -48,18 +48,17 @@ public class JPdfXSpanVisitor extends JPdfXLayOutVisitor {
         } else {
             style = new JStyleAttributes();
         }
-        if(ctx.lbr()!=null){
-            value="\n"+value;
+        if (ctx.lbr() != null) {
+            value = "\n" + value;
         }
-        if(ctx.rbr()!=null){
-            value=value+"\n";
+        if (ctx.rbr() != null) {
+            value = value + "\n";
         }
-        Text text=new Text(JStringUtils.trim(value));
+        Text text = new Text(JStringUtils.trim(value));
         text.setFont(JFontProviderFactory.defualtFont());
         super.buildStyle(text, style);
         return text;
     }
-
 
 
 }

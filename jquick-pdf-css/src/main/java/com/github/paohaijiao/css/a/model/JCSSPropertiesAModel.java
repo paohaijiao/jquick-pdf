@@ -43,123 +43,123 @@ public class JCSSPropertiesAModel extends HashMap<String, String> {
     public static final String ANIMATION_TIMING_FUNCTION = "animation-timing-function";
     public static final String ASPECT_RATIO = "aspect-ratio";
 
-    public void setAccentColor(String accentColor) {
-        put(ACCENT_COLOR, accentColor);
-    }
-
     public String getAccentColor() {
         return get(ACCENT_COLOR);
     }
 
-    public void setAlignContent(String alignContent) {
-        put(ALIGN_CONTENT, alignContent);
+    public void setAccentColor(String accentColor) {
+        put(ACCENT_COLOR, accentColor);
     }
 
     public String getAlignContent() {
         return get(ALIGN_CONTENT);
     }
 
-    public void setAlignItems(String alignItems) {
-        put(ALIGN_ITEMS, alignItems);
+    public void setAlignContent(String alignContent) {
+        put(ALIGN_CONTENT, alignContent);
     }
 
     public String getAlignItems() {
         return get(ALIGN_ITEMS);
     }
 
-    public void setAlignSelf(String alignSelf) {
-        put(ALIGN_SELF, alignSelf);
+    public void setAlignItems(String alignItems) {
+        put(ALIGN_ITEMS, alignItems);
     }
 
     public String getAlignSelf() {
         return get(ALIGN_SELF);
     }
 
-    public void setAll(String all) {
-        put(ALL, all);
+    public void setAlignSelf(String alignSelf) {
+        put(ALIGN_SELF, alignSelf);
     }
 
     public String getAll() {
         return get(ALL);
     }
 
-    public void setAnimation(String animation) {
-        put(ANIMATION, animation);
+    public void setAll(String all) {
+        put(ALL, all);
     }
 
     public String getAnimation() {
         return get(ANIMATION);
     }
 
-    public void setAnimationDelay(String animationDelay) {
-        put(ANIMATION_DELAY, animationDelay);
+    public void setAnimation(String animation) {
+        put(ANIMATION, animation);
     }
 
     public String getAnimationDelay() {
         return get(ANIMATION_DELAY);
     }
 
-    public void setAnimationDirection(String animationDirection) {
-        put(ANIMATION_DIRECTION, animationDirection);
+    public void setAnimationDelay(String animationDelay) {
+        put(ANIMATION_DELAY, animationDelay);
     }
 
     public String getAnimationDirection() {
         return get(ANIMATION_DIRECTION);
     }
 
-    public void setAnimationDuration(String animationDuration) {
-        put(ANIMATION_DURATION, animationDuration);
+    public void setAnimationDirection(String animationDirection) {
+        put(ANIMATION_DIRECTION, animationDirection);
     }
 
     public String getAnimationDuration() {
         return get(ANIMATION_DURATION);
     }
 
-    public void setAnimationFillMode(String animationFillMode) {
-        put(ANIMATION_FILL_MODE, animationFillMode);
+    public void setAnimationDuration(String animationDuration) {
+        put(ANIMATION_DURATION, animationDuration);
     }
 
     public String getAnimationFillMode() {
         return get(ANIMATION_FILL_MODE);
     }
 
-    public void setAnimationIterationCount(String animationIterationCount) {
-        put(ANIMATION_ITERATION_COUNT, animationIterationCount);
+    public void setAnimationFillMode(String animationFillMode) {
+        put(ANIMATION_FILL_MODE, animationFillMode);
     }
 
     public String getAnimationIterationCount() {
         return get(ANIMATION_ITERATION_COUNT);
     }
 
-    public void setAnimationName(String animationName) {
-        put(ANIMATION_NAME, animationName);
+    public void setAnimationIterationCount(String animationIterationCount) {
+        put(ANIMATION_ITERATION_COUNT, animationIterationCount);
     }
 
     public String getAnimationName() {
         return get(ANIMATION_NAME);
     }
 
-    public void setAnimationPlayState(String animationPlayState) {
-        put(ANIMATION_PLAY_STATE, animationPlayState);
+    public void setAnimationName(String animationName) {
+        put(ANIMATION_NAME, animationName);
     }
 
     public String getAnimationPlayState() {
         return get(ANIMATION_PLAY_STATE);
     }
 
-    public void setAnimationTimingFunction(String animationTimingFunction) {
-        put(ANIMATION_TIMING_FUNCTION, animationTimingFunction);
+    public void setAnimationPlayState(String animationPlayState) {
+        put(ANIMATION_PLAY_STATE, animationPlayState);
     }
 
     public String getAnimationTimingFunction() {
         return get(ANIMATION_TIMING_FUNCTION);
     }
 
-    public void setAspectRatio(String aspectRatio) {
-        put(ASPECT_RATIO, aspectRatio);
+    public void setAnimationTimingFunction(String animationTimingFunction) {
+        put(ANIMATION_TIMING_FUNCTION, animationTimingFunction);
     }
 
     public String getAspectRatio() {
         return get(ASPECT_RATIO);
+    }
+
+    public void setAspectRatio(String aspectRatio) {
+        put(ASPECT_RATIO, aspectRatio);
     }
 }

@@ -42,8 +42,8 @@ public class JQuickPdfUnitExecutor extends JAbstractAntlrExecutor<String, UnitVa
 
     @Override
     protected Lexer createLexer(CharStream input) {
-        JConsole console=new JConsole();
-        console.debug("unit:\n"+input.toString());
+        JConsole console = new JConsole();
+        console.debug("unit:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 

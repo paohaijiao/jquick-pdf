@@ -41,7 +41,7 @@ import java.util.Arrays;
 public class JGanttTest {
 
 
-    private JOption createData(){
+    private JOption createData() {
         try {
             JGanttOption option = new JGanttOption();
             option.setTitle(new JGanttOption.Title("Gantt of Airport Flight", "航班调度甘特图"));
@@ -80,11 +80,11 @@ public class JGanttTest {
 
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         graphContainer.setType(JChartType.Gantt);
         graphContainer.setOption(createData());
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

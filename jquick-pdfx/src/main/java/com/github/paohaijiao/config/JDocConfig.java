@@ -31,8 +31,8 @@ import java.util.List;
  */
 @Data
 public class JDocConfig {
-    private List<Integer> margins= Arrays.asList(50, 60, 50, 60);
-    private PdfFont font= JFontProviderFactory.defualtFont();
-    private float fontSize= 10.5f;
-    private float characterSpacing= 0.1f;
+    private List<Integer> margins = Arrays.asList(50, 60, 50, 60);
+    private PdfFont font = JFontProviderFactory.defualtFont();
+    private float fontSize = 10.5f;
+    private float characterSpacing = 0.1f;
 }

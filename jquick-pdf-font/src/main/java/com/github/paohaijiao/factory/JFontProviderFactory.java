@@ -39,25 +39,25 @@ public class JFontProviderFactory {
 
     private static final Map<String, JFontProvider> fontProviders = new HashMap<>();
 
-    static{
-        fontProviders.put(DEFAULT_FONT,new JDefaultFontProvider(DEFAULT_FONT,"fonts/simhei.ttf", JPdfEncoding.IDENTITY_H));
+    static {
+        fontProviders.put(DEFAULT_FONT, new JDefaultFontProvider(DEFAULT_FONT, "fonts/simhei.ttf", JPdfEncoding.IDENTITY_H));
     }
+
     public static PdfFont defualtFont() {
-        if(!fontProviders.containsKey(DEFAULT_FONT)){
+        if (!fontProviders.containsKey(DEFAULT_FONT)) {
             throw new IllegalArgumentException("Unknown font provider for font: " + DEFAULT_FONT);
         }
-        JFontProvider provider =fontProviders.get(DEFAULT_FONT);
+        JFontProvider provider = fontProviders.get(DEFAULT_FONT);
         return provider.getFont();
     }
+
     public static PdfFont getFont(String font) {
-        if(!fontProviders.containsKey(font)){
+        if (!fontProviders.containsKey(font)) {
             throw new IllegalArgumentException("Unknown font provider for font: " + font);
         }
-        JFontProvider provider =fontProviders.get(font);
+        JFontProvider provider = fontProviders.get(font);
         return provider.getFont();
     }
-
-
 
 
 //

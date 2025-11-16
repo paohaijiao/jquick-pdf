@@ -1,4 +1,5 @@
 # JQuickPDF Documentation
+
 - [1. Overview](#1-overview)
 - [2. Installation](#2-installation)
 - [3. Basic Syntax](#3-basic-syntax)
@@ -45,12 +46,16 @@
     - [7.5 textArea](#75-textarea)
     - [7.6 tree](#76-tree)
     - [7.7 tree](#77-tree)
+
 ## Overview
+
 ```string
     jQuickPDF is a lightweight Java library for generating PDF documents from HTML-like 
 templates with support for dynamic content and rich styling.
 ```
+
 ## Installation
+
 ```xml
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
@@ -58,7 +63,9 @@ templates with support for dynamic content and rich styling.
     <version>1.0.0</version>
 </dependency>
 ```
+
 ## Basic Syntax
+
 ```html
 <!DOCTYPE html>
 <pdf>
@@ -67,91 +74,96 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
+
 ## Elements STYLE
 
 ### BlockElement Styles
-| Property              | Example Value            | Description                                                                 |
-|-----------------------|--------------------------|-----------------------------------------------------------------------------|
-| marginLeft            | `"1px"`                  | Left margin value                                                           |
-| marginRight           | `"500px"`                | Right margin value                                                          |
-| marginTop             | `"500px"`                | Top margin value                                                            |
-| marginBottom          | `"500px"`                | Bottom margin value                                                         |
-| commonMargin          | `"100px"`                | Uniform margin for all sides                                                |
-| margins               | `"'20px 30px 40px 50px'"`   | Margins for top, right, bottom, left                                        |
-| paddingLeft           | `"50px"`                 | Left padding value                                                          |
-| paddingRight          | `"50px"`                 | Right padding value                                                         |
-| paddingTop            | `"50px"`                 | Top padding value                                                           |
-| paddingBottom         | `"50px"`                 | Bottom padding value                                                        |
-| commonPadding         | `"50px"`                 | Uniform padding for all sides                                               |
-| paddings              | `"50px 50px 60px 70px"`  | Paddings for top, right, bottom, left                                       |
-| verticalAlignment     | `"top"`                  | Vertical alignment (top/middle/bottom)                                      |
-| spacingRatio          | `"30"`                   | Spacing ratio between elements                                              |
-| keepTogether          | `"true"`                 | Whether to keep element together                                            |
-| keepWithNext          | `"true"`                 | Whether to keep element with next element                                   |
-| angleInRadians        | `"30"`                   | Rotation angle in radians                                                   |
-| width                 | `"300px"`                | Element width                                                               |
-| height                | `"300px"`                | Element height                                                              |
-| maxHeight             | `"300px"`                | Maximum element height                                                      |
-| minHeight             | `"300px"`                | Minimum element height                                                      |
-| minWidth              | `"300px"`                | Minimum element width                                                       |
-| maxWidth              | `"300px"`                | Maximum element width                                                       |
+
+| Property          | Example Value             | Description                               |
+|-------------------|---------------------------|-------------------------------------------|
+| marginLeft        | `"1px"`                   | Left margin value                         |
+| marginRight       | `"500px"`                 | Right margin value                        |
+| marginTop         | `"500px"`                 | Top margin value                          |
+| marginBottom      | `"500px"`                 | Bottom margin value                       |
+| commonMargin      | `"100px"`                 | Uniform margin for all sides              |
+| margins           | `"'20px 30px 40px 50px'"` | Margins for top, right, bottom, left      |
+| paddingLeft       | `"50px"`                  | Left padding value                        |
+| paddingRight      | `"50px"`                  | Right padding value                       |
+| paddingTop        | `"50px"`                  | Top padding value                         |
+| paddingBottom     | `"50px"`                  | Bottom padding value                      |
+| commonPadding     | `"50px"`                  | Uniform padding for all sides             |
+| paddings          | `"50px 50px 60px 70px"`   | Paddings for top, right, bottom, left     |
+| verticalAlignment | `"top"`                   | Vertical alignment (top/middle/bottom)    |
+| spacingRatio      | `"30"`                    | Spacing ratio between elements            |
+| keepTogether      | `"true"`                  | Whether to keep element together          |
+| keepWithNext      | `"true"`                  | Whether to keep element with next element |
+| angleInRadians    | `"30"`                    | Rotation angle in radians                 |
+| width             | `"300px"`                 | Element width                             |
+| height            | `"300px"`                 | Element height                            |
+| maxHeight         | `"300px"`                 | Maximum element height                    |
+| minHeight         | `"300px"`                 | Minimum element height                    |
+| minWidth          | `"300px"`                 | Minimum element width                     |
+| maxWidth          | `"300px"`                 | Maximum element width                     |
 
 ## ElementProperty Styles
-| Property                  | Example Value             | Description                                                    |
-|---------------------------|---------------------------|----------------------------------------------------------------|
-| relativePosition          | `"30px 30px 30px 30px"`   | Relative position values                                       |
-| font                      | `"HELVETICA"`             | Font type:the specific value you can refer JFontEnum           |
-| fontFamilyNames           | `"Helvetica"`             | Font family names (comma-separated)                            |
-| fontColor                 | `"red"`                   | Font color: the value refer JColorEnums  class                 |
-| opacity                   | `"0.5"`                   | Element opacity                                                |
-| fontSize                  | `"34"`                    | Font size                                                      |
-| textAlignment             | `"left"`                  | Text alignment the specific value you can refer JTextAlignment |
-| characterSpacing          | `"30"`                    | Character spacing                                              |
-| wordSpacing               | `"30"`                    | Word spacing                                                   |
-| fontKerning               | `"yes"`                   | Font kerning setting                                           |
-| backgroundColor           | `"red"`                   | Background color  the value refer JColorEnums  class                                               |
-| backgroundImage           | `"D:/pdf/image.png"`      | Background image path                                          |
-| border                    | `"solid 32px red"`        | Border style (type width color)                                |
-| borderTop                 | `"solid 32px red"`        | Top border style                                               |
-| borderRight               | `"solid 32px red"`        | Right border style                                             |
-| borderLeft                | `"solid 32px red"`        | Left border style                                              |
-| borderBottom              | `"solid 32px red"`        | Bottom border style                                            |
-| borderRadius              | `"32px 24px"`             | Border radius values                                           |
-| borderBottomLeftRadius    | `"32px 24px"`             | Bottom-left border radius                                      |
-| borderBottomRightRadius   | `"32px 24px"`             | Bottom-right border radius                                     |
-| borderTopRightRadius      | `"32px 24px"`             | Top-right border radius                                        |
-| borderTopLeftRadius       | `"32px 24px"`             | Top-left border radius                                         |
-| splitCharacters           | `"24"`                    | Character spacing (same as characterSpacing)                   |
-| textRenderingMode         | `"24"`                    | Text rendering mode                                            |
-| strokeColor               | `"red"`                   | Stroke color                                                   |
-| strokeWidth               | `"24"`                    | Stroke width                                                   |
-| bold                      | `"true"`                  | Whether text is bold                                           |
-| italic                    | `"true"`                  | Whether text is italic                                         |
-| lineThrough               | `"true"`                  | Whether text has line-through                                  |
-| underline                 | `"true"`                  | Whether text is underlined                                     |
-| baseDirection             | `"no_bidi"`               | Text base direction                                            |
-| fontScript                | `"common"`                | Font script type                                               |
-| destination               | `"hello"`                 | Element destination/anchor name                                |
+
+| Property                | Example Value           | Description                                                    |
+|-------------------------|-------------------------|----------------------------------------------------------------|
+| relativePosition        | `"30px 30px 30px 30px"` | Relative position values                                       |
+| font                    | `"HELVETICA"`           | Font type:the specific value you can refer JFontEnum           |
+| fontFamilyNames         | `"Helvetica"`           | Font family names (comma-separated)                            |
+| fontColor               | `"red"`                 | Font color: the value refer JColorEnums  class                 |
+| opacity                 | `"0.5"`                 | Element opacity                                                |
+| fontSize                | `"34"`                  | Font size                                                      |
+| textAlignment           | `"left"`                | Text alignment the specific value you can refer JTextAlignment |
+| characterSpacing        | `"30"`                  | Character spacing                                              |
+| wordSpacing             | `"30"`                  | Word spacing                                                   |
+| fontKerning             | `"yes"`                 | Font kerning setting                                           |
+| backgroundColor         | `"red"`                 | Background color  the value refer JColorEnums  class           |
+| backgroundImage         | `"D:/pdf/image.png"`    | Background image path                                          |
+| border                  | `"solid 32px red"`      | Border style (type width color)                                |
+| borderTop               | `"solid 32px red"`      | Top border style                                               |
+| borderRight             | `"solid 32px red"`      | Right border style                                             |
+| borderLeft              | `"solid 32px red"`      | Left border style                                              |
+| borderBottom            | `"solid 32px red"`      | Bottom border style                                            |
+| borderRadius            | `"32px 24px"`           | Border radius values                                           |
+| borderBottomLeftRadius  | `"32px 24px"`           | Bottom-left border radius                                      |
+| borderBottomRightRadius | `"32px 24px"`           | Bottom-right border radius                                     |
+| borderTopRightRadius    | `"32px 24px"`           | Top-right border radius                                        |
+| borderTopLeftRadius     | `"32px 24px"`           | Top-left border radius                                         |
+| splitCharacters         | `"24"`                  | Character spacing (same as characterSpacing)                   |
+| textRenderingMode       | `"24"`                  | Text rendering mode                                            |
+| strokeColor             | `"red"`                 | Stroke color                                                   |
+| strokeWidth             | `"24"`                  | Stroke width                                                   |
+| bold                    | `"true"`                | Whether text is bold                                           |
+| italic                  | `"true"`                | Whether text is italic                                         |
+| lineThrough             | `"true"`                | Whether text has line-through                                  |
+| underline               | `"true"`                | Whether text is underlined                                     |
+| baseDirection           | `"no_bidi"`             | Text base direction                                            |
+| fontScript              | `"common"`              | Font script type                                               |
+| destination             | `"hello"`               | Element destination/anchor name                                |
 
 ## Content Elements
 
 ### Text Elements
 
-| Element    | Description                     | Style Attributes      | Values                          |
-|------------|---------------------------------|-----------------------|---------------------------------|
-| `<p>`      | Paragraph block (Paragraph)     | ElementProperty style | `text-align="justify"`         |
-| `<h1>-<h6>`| Headings (Paragraph with style) | ElementProperty style | `font-size="24pt"`            |
-| `<span>`   | Inline text container (Chunk)   | ElementProperty style | `font-style="italic"`         |
-| `<br>`     | Line break (Newline)            | ElementProperty style | `<br type="after">`           |
-| `<tab>`     | tab                             | ElementProperty style | `<br type="after">`           |
+| Element     | Description                     | Style Attributes      | Values                 |
+|-------------|---------------------------------|-----------------------|------------------------|
+| `<p>`       | Paragraph block (Paragraph)     | ElementProperty style | `text-align="justify"` |
+| `<h1>-<h6>` | Headings (Paragraph with style) | ElementProperty style | `font-size="24pt"`     |
+| `<span>`    | Inline text container (Chunk)   | ElementProperty style | `font-style="italic"`  |
+| `<br>`      | Line break (Newline)            | ElementProperty style | `<br type="after">`    |
+| `<tab>`     | tab                             | ElementProperty style | `<br type="after">`    |
 
 #### 1. paragraph
+
 ```java
      JReader fileReader = new JReSourceFileReader("sample/paragraph.txt");
      JAdaptor context = new JAdaptor(fileReader);
      JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
      executor.execute(context.getRuleContent());
 ```
+
 ```html
 <pdf>
 <body>
@@ -170,7 +182,9 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
+
 #### 2.h1-h6
+
 ```html
 <pdf>
 <body>
@@ -195,7 +209,9 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
+
 #### 3.span
+
 ```html
 <pdf>
 <body>
@@ -205,7 +221,9 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
+
 #### 4.tab
+
 ```html
 <pdf>
 <body>
@@ -218,14 +236,17 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
+
 ### Layout Elements
 
-| Element         | Description                          | Style Attributes                | Values                          |
-|-----------------|-------------------------------------|---------------------------------|---------------------------------|
-| `<div>`         | Block container (Div)               | ElementProperty style and Block | `width="100%"`                 |
-| `<areaBreak>`   | Section break (AreaBreak)           | ElementProperty                 | `type="nextPage"`              |
-| `<htmlPageBreak>`| Explicit page break (NewPage)       | ElementProperty                 | `<htmlPageBreak/>`             |
+| Element           | Description                   | Style Attributes                | Values             |
+|-------------------|-------------------------------|---------------------------------|--------------------|
+| `<div>`           | Block container (Div)         | ElementProperty style and Block | `width="100%"`     |
+| `<areaBreak>`     | Section break (AreaBreak)     | ElementProperty                 | `type="nextPage"`  |
+| `<htmlPageBreak>` | Explicit page break (NewPage) | ElementProperty                 | `<htmlPageBreak/>` |
+
 #### 1.div
+
 ```html
 <pdf>
 <body>
@@ -233,7 +254,9 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
-####  2.areaBreak
+
+#### 2.areaBreak
+
 ```html
 <pdf>
 <body>
@@ -247,7 +270,9 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
-####  3.htmlPageBreak
+
+#### 3.htmlPageBreak
+
 ```html
 <pdf>
 <body>
@@ -258,12 +283,13 @@ templates with support for dynamic content and rich styling.
 
 ### List Elements
 
-| Element  | Description                          | Style Attributes                | Values                          |
-|----------|-------------------------------------|---------------------------------|---------------------------------|
-| `<list>` | Ordered/Unordered list (List)       | ElementProperty style and Block | `list-style="circle"`       |
-| `<li>`   | List item (ListItem)                | ElementProperty                 | `margin-left="15px"`          |
+| Element  | Description                   | Style Attributes                | Values                |
+|----------|-------------------------------|---------------------------------|-----------------------|
+| `<list>` | Ordered/Unordered list (List) | ElementProperty style and Block | `list-style="circle"` |
+| `<li>`   | List item (ListItem)          | ElementProperty                 | `margin-left="15px"`  |
 
-####  1.list
+#### 1.list
+
 ```html
 <pdf>
 <body>
@@ -280,14 +306,15 @@ templates with support for dynamic content and rich styling.
 
 ### Table Elements
 
-| Element | Description                          | Style Attributes                | Values                          |
-|---------|-------------------------------------|---------------------------------|---------------------------------|
-| `<table>` | Table container (Table)            | ElementProperty style and Block | `border="1px"`                |
-| `<tr>`  | Table row (TableRow)                | ElementProperty                 | `height="30px"`               |
-| `<td>`  | Table data cell (TableCell)         | ElementProperty                 | `colspan="2"`                 |
-| `<th>`  | Table header cell (TableCell)       | ElementProperty                 | `font-weight="bold"`          |
+| Element   | Description                   | Style Attributes                | Values               |
+|-----------|-------------------------------|---------------------------------|----------------------|
+| `<table>` | Table container (Table)       | ElementProperty style and Block | `border="1px"`       |
+| `<tr>`    | Table row (TableRow)          | ElementProperty                 | `height="30px"`      |
+| `<td>`    | Table data cell (TableCell)   | ElementProperty                 | `colspan="2"`        |
+| `<th>`    | Table header cell (TableCell) | ElementProperty                 | `font-weight="bold"` |
 
-####  1.table
+#### 1.table
+
 ```html
 <pdf>
 <body>
@@ -304,16 +331,18 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
+
 ### Form Elements
 
-| Element           | Description                          | Attributes | Values            |
-|-------------------|-------------------------------------|------------|-------------------|
-| `<button>`        | Push button (PushbuttonField)       | N/A        | N/A               |
-| `<checkbox>`      | Checkbox (CheckboxField)            | N/A        |  N/A        |
-| `<inputField>`    | Text input (TextField)              | N/A        |  N/A       |
-| `<comboBoxField>` | Dropdown selector (ComboBoxField)   | N/A        |  N/A       |
+| Element           | Description                       | Attributes | Values |
+|-------------------|-----------------------------------|------------|--------|
+| `<button>`        | Push button (PushbuttonField)     | N/A        | N/A    |
+| `<checkbox>`      | Checkbox (CheckboxField)          | N/A        | N/A    |
+| `<inputField>`    | Text input (TextField)            | N/A        | N/A    |
+| `<comboBoxField>` | Dropdown selector (ComboBoxField) | N/A        | N/A    |
 
-####  1.button
+#### 1.button
+
 ```html
 <pdf>
 <body>
@@ -321,7 +350,9 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
-####  2.checkbox
+
+#### 2.checkbox
+
 ```html
 <pdf>
 <body>
@@ -329,7 +360,9 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
-####  3.inputField
+
+#### 3.inputField
+
 ```html
 <pdf>
 <body>
@@ -337,7 +370,9 @@ templates with support for dynamic content and rich styling.
 </body>
 </pdf>
 ```
-####  4.comboBoxField
+
+#### 4.comboBoxField
+
 ```html
 <pdf>
 <body>
@@ -348,25 +383,30 @@ templates with support for dynamic content and rich styling.
 
 ### Media Elements
 
-| Element  | Description                          | STYLE Attributes       | Values                         |
-|----------|-------------------------------------|------------------------|--------------------------------|
-| `<image>` | Embedded image (Image)             | ElementProperty style  | `src="logo.png" width="200px"` |
-| `<svg>`   | Vector graphics (PdfTemplate)      | ElementProperty style  | N/A                            |
+| Element   | Description                   | STYLE Attributes      | Values                         |
+|-----------|-------------------------------|-----------------------|--------------------------------|
+| `<image>` | Embedded image (Image)        | ElementProperty style | `src="logo.png" width="200px"` |
+| `<svg>`   | Vector graphics (PdfTemplate) | ElementProperty style | N/A                            |
+
 # ChartType Enum Values
-| Enum Value  | Description/Notes                     |
-|-------------|---------------------------------------|
-| BAR         | Represents a bar chart                |
-| BOXPLOT     | Represents a box plot chart           |
-| HEATMAP     | Represents a heatmap chart            |
-| K           | Represents a K-line chart (candlestick) |
-| LINE        | Represents a line chart               |
-| PIE         | Represents a pie chart                |
-| RADAR       | Represents a radar chart              |
-| RELATION    | Represents a relation chart           |
-| SCATTER     | Represents a scatter plot             |
-| SUNBURST    | Represents a sunburst chart           |
+
+| Enum Value | Description/Notes                       |
+|------------|-----------------------------------------|
+| BAR        | Represents a bar chart                  |
+| BOXPLOT    | Represents a box plot chart             |
+| HEATMAP    | Represents a heatmap chart              |
+| K          | Represents a K-line chart (candlestick) |
+| LINE       | Represents a line chart                 |
+| PIE        | Represents a pie chart                  |
+| RADAR      | Represents a radar chart                |
+| RELATION   | Represents a relation chart             |
+| SCATTER    | Represents a scatter plot               |
+| SUNBURST   | Represents a sunburst chart             |
+
 #### sample java code
+
 ##### 1.BAR CHART
+
 ```java
      JOption option = new JOption();
         option.title().text("销售数据").subtext("2023年度");
@@ -379,7 +419,9 @@ templates with support for dynamic content and rich styling.
         bar.name("销量").data(5, 20, 36, 10, 10, 20);
         option.series(bar);
 ```
+
 ##### 2.BOXPLOT CHART
+
 ```java
         JOption option = new JOption();
         option.title().text("销售数据分布");
@@ -391,7 +433,9 @@ templates with support for dynamic content and rich styling.
                 new Object[]{11, 16, 21, 27, 33}
         ));
 ```
+
 ##### 3.BOXPLOT CHART
+
 ```java
  JOption option = new JOption();
         option.title("2023年月度温度分布热力图");
@@ -430,7 +474,9 @@ JHeatmap heatmap = new JHeatmap();
         );
         option.series(heatmap);
 ```
+
 ##### 4.K CHART
+
 ```java
  JOption option = new JOption();
         option.title().text("股票K线图(含数据)");
@@ -456,7 +502,9 @@ JCandlestick candlestick = new JCandlestick();
         );
         option.series(candlestick);
 ```
+
 ##### 5.LINE CHART
+
 ```java
 JOption option = new JOption();
 option.title().text("销售数据折线图");
@@ -469,7 +517,9 @@ JLine line = new JLine();
 line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
 option.series(line);
 ```
+
 ##### 6.PIE CHART
+
 ```java
  JOption option = new JOption();
         option.title().text("销售占比").subtext("2023年度");
@@ -485,7 +535,9 @@ JPie pie = new JPie("销售占比");
         );
                 option.series(pie);
 ```
+
 ##### 7.RADAR CHART
+
 ```java
    // 创建图表选项
 JOption option = new JOption();
@@ -522,7 +574,9 @@ JRadarSeries actualSeries = new JRadarSeries();
 
         option.series(budgetSeries, actualSeries);
 ```
+
 ##### 8.RELATION CHART
+
 ```java
         JGsonOption option = new JGsonOption();
         option.title("Relationship Chart Test");
@@ -578,7 +632,9 @@ JRadarSeries actualSeries = new JRadarSeries();
         option.series(graph);
         option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
 ```
-#####  9.scatter
+
+##### 9.scatter
+
 ```java
         JData[] data= new JData[]{
         new JData().value(new Double[]{10.0, 8.04}),
@@ -615,7 +671,9 @@ JScatter scatter = new JScatter();
         option.series(scatter);
 
 ```
-####  1.image
+
+#### 1.image
+
 ```html
 <html>
 <body>
@@ -625,7 +683,9 @@ JScatter scatter = new JScatter();
 </body>
 </html>
 ```
-####  2.svg
+
+#### 2.svg
+
 ```java
 JContext params = new JContext();
 String svg = "<?xml version=\"1.0\"?>\n" +
@@ -703,6 +763,7 @@ JAdaptor context = new JAdaptor(fileReader);
 JQuickPdfXExecutor executor = new JQuickPdfXExecutor(params);
 executor.execute(context.getRuleContent());
 ```
+
 ```html
 <pdf>
 <body>
@@ -710,7 +771,9 @@ executor.execute(context.getRuleContent());
 </body>
 </pdf>
 ```
-####  3.svg for java render
+
+#### 3.svg for java render
+
 ```java
    JGraphContainer graphContainer=new JGraphContainer();
         JOption option = new JOption();
@@ -748,6 +811,7 @@ executor.execute(context.getRuleContent());
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(context.getRuleContent());
 ```
+
 ```html
 <pdf>
 <body>
@@ -758,16 +822,18 @@ executor.execute(context.getRuleContent());
 
 ## Special Elements
 
-| Element              | Description                          | Attributes | Values            |
-|----------------------|-------------------------------------|------------|-------------------|
-| `<pageCountElement>` | Page numbering (PageNumber)         | N/A        | N/A               |
-| `<template>`         | Reusable content (PdfTemplate)      | N/A        | N/A               |
-| `${variable}`        | Data binding (MergeField)           | N/A        | N/A               |
-| `<link>`         | Hyperlink (PdfAction)                | N/A        | N/A               |
-| `<listBoxField>` | Multi-select list (ListField)        | N/A        | N/A `             |
-| `<textArea>`     | Multi-line text input (TextAreaField)| N/A        | N/A               |
-| `<tree>`         | Hierarchical data (PdfOutline)       | N/A        | N/A               |
-####  1.pageCountElement  ( remove from version1.4)
+| Element              | Description                           | Attributes | Values |
+|----------------------|---------------------------------------|------------|--------|
+| `<pageCountElement>` | Page numbering (PageNumber)           | N/A        | N/A    |
+| `<template>`         | Reusable content (PdfTemplate)        | N/A        | N/A    |
+| `${variable}`        | Data binding (MergeField)             | N/A        | N/A    |
+| `<link>`             | Hyperlink (PdfAction)                 | N/A        | N/A    |
+| `<listBoxField>`     | Multi-select list (ListField)         | N/A        | N/A `  |
+| `<textArea>`         | Multi-line text input (TextAreaField) | N/A        | N/A    |
+| `<tree>`             | Hierarchical data (PdfOutline)        | N/A        | N/A    |
+
+#### 1.pageCountElement  ( remove from version1.4)
+
 ```html
 <pdf>
 <body>
@@ -792,7 +858,9 @@ executor.execute(context.getRuleContent());
 </body>
 </pdf>
 ```
-####  2.template
+
+#### 2.template
+
 ```java
         JPdfConfig config=new JPdfConfig();
 JTemplateConfig templateConfig=config.getTemplateConfig();
@@ -802,6 +870,7 @@ JAdaptor adaptor = new JAdaptor(fileReader);
 JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());
 ```
+
 ```html
 <pdf>
 <body>
@@ -809,7 +878,9 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </pdf>
 ```
-####  3.link --> ( remove from version1.4)
+
+#### 3.link --> ( remove from version1.4)
+
 ```html
 <pdf>
 <body>
@@ -819,7 +890,9 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </pdf>
 ```
-####  4.listBoxField  ( remove from version1.4)
+
+#### 4.listBoxField  ( remove from version1.4)
+
 ```html
 <pdf>
 <body>
@@ -828,7 +901,9 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </pdf>
 ```
-####  5.textArea
+
+#### 5.textArea
+
 ```html
 <pdf>
 <body>
@@ -838,7 +913,9 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </pdf>
 ```
-####  6.tree
+
+#### 6.tree
+
 ```java
 JContext context=new JContext();
 TreeNode root = new TreeNode("Root");
@@ -855,6 +932,7 @@ JAdaptor adaptor = new JAdaptor(fileReader);
 JQuickPdfXExecutor executor = new JQuickPdfXExecutor(context);
 executor.execute(adaptor.getRuleContent());
 ```
+
 ```html
 <pdf>
 <body>
@@ -863,8 +941,8 @@ executor.execute(adaptor.getRuleContent());
 </pdf>
 ```
 
+#### 7.tree
 
-####  7.tree
 ```java
    JPdfConfig config=new JPdfConfig();
 TreeNode root = new TreeNode("Root");
@@ -882,6 +960,7 @@ JAdaptor adaptor = new JAdaptor(fileReader);
 JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());
 ```
+
 ```html
 <pdf>
 <body>
@@ -889,7 +968,9 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
 </body>
 </pdf>
 ```
-####  8 demo
+
+#### 8 demo
+
 ```java
    JPdfConfig config=new JPdfConfig();
         JTemplateConfig templateConfig=config.getTemplateConfig();
@@ -991,10 +1072,13 @@ JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(param,config);
         executor.execute(adaptor.getRuleContent());
 ```
+
 ![Demo](./pay/demo.png)
+
 # **Generating Power with Love (and Caffeine) ☕**
 
-Thank you for using this open-source project! It is completely free and will be maintained continuously, but the developers do need your support.
+Thank you for using this open-source project! It is completely free and will be maintained continuously, but the
+developers do need your support.
 
 ---
 
@@ -1004,6 +1088,7 @@ Thank you for using this open-source project! It is completely free and will be 
    If this project has saved you time or money, please consider supporting me with a small donation.
 
 2. **Where Your Donation Goes**
+
 - Server costs to keep the project running.
 - Feature development to add more value.
 - Documentation optimization for a better user experience.
@@ -1011,9 +1096,8 @@ Thank you for using this open-source project! It is completely free and will be 
 3. **Every Cent Counts**  
    Even a donation of just 1 cent motivates me to debug late into the night!
 
-
-
 ## **Why Donate?**
+
 ✔️ Keep the project **free and ad-free** forever.  
 ✔️ Support timely responses to issues and community inquiries.  
 ✔️ Enable planned features for the future.
@@ -1023,12 +1107,16 @@ Thank you for being a partner in making the open-source world better!
 --- 
 
 ### **Additional Notes**
+
 - The project is maintained with love and caffeine.
 - Your support ensures its sustainability and growth.
+
 ---
 
 ## **🌟 Support Now**
-Feel free to leave a message via [email](mailto:goudingcheng@gmail.com) when sponsoring. Your name will be included in the **"Special Thanks"** list in the project's README file!
+
+Feel free to leave a message via [email](mailto:goudingcheng@gmail.com) when sponsoring. Your name will be included in
+the **"Special Thanks"** list in the project's README file!
 ![OCBC Pay Now](./pay/paynow.jpg)
 ![Touch n Go ](./pay/tngGo.jpg)
 ---

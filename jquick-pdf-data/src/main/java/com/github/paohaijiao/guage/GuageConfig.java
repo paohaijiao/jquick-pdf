@@ -57,21 +57,37 @@ public class GuageConfig {
         return new ScoreMeterConfigBuilder();
     }
 
-    public int score() { return score; }
+    public int score() {
+        return score;
+    }
 
-    public Color pointerColor() { return pointerColor; }
+    public Color pointerColor() {
+        return pointerColor;
+    }
 
-    public Color backgroundColor() { return backgroundColor; }
+    public Color backgroundColor() {
+        return backgroundColor;
+    }
 
-    public Color scaleColor() { return scaleColor; }
+    public Color scaleColor() {
+        return scaleColor;
+    }
 
-    public Color textColor() { return textColor; }
+    public Color textColor() {
+        return textColor;
+    }
 
-    public String title() { return title; }
+    public String title() {
+        return title;
+    }
 
-    public Font titleFont() { return titleFont; }
+    public Font titleFont() {
+        return titleFont;
+    }
 
-    public Font scoreFont() { return scoreFont; }
+    public Font scoreFont() {
+        return scoreFont;
+    }
 
     public static class ScoreMeterConfigBuilder {
 

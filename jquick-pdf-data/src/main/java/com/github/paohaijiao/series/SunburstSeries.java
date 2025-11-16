@@ -51,14 +51,6 @@ public class SunburstSeries extends JSeries<SunburstSeries> {
     private JEmphasis emphasis;
 
 
-    public JEmphasis getEmphasis() {
-        return emphasis;
-    }
-
-    public void setEmphasis(JEmphasis emphasis) {
-        this.emphasis = emphasis;
-    }
-
     public SunburstSeries() {
         this.type(JSeriesType.SUNBURST);
     }
@@ -66,6 +58,14 @@ public class SunburstSeries extends JSeries<SunburstSeries> {
     public SunburstSeries(String name) {
         super(name);
         this.type(JSeriesType.SUNBURST);
+    }
+
+    public JEmphasis getEmphasis() {
+        return emphasis;
+    }
+
+    public void setEmphasis(JEmphasis emphasis) {
+        this.emphasis = emphasis;
     }
 
     public Object[] radius() {
@@ -114,6 +114,7 @@ public class SunburstSeries extends JSeries<SunburstSeries> {
         this.levels = levels;
         return this;
     }
+
     public void setLevels(List<Map<String, Object>> levels) {
         this.levels = levels;
     }

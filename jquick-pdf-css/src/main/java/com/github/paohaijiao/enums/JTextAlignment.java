@@ -34,6 +34,7 @@ public enum JTextAlignment {
         this.code = code;
         this.type = type;
     }
+
     public static JTextAlignment codeOf(String code) {
         for (JTextAlignment type : values()) {
             if (type.code.equals(code)) {

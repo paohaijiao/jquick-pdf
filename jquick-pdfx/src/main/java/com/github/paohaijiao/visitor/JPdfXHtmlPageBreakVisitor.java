@@ -35,7 +35,7 @@ import org.apache.commons.lang3.StringUtils;
 public class JPdfXHtmlPageBreakVisitor extends JPdfXComboBoxFieldVisitor {
     @Override
     public HtmlPageBreak visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx) {
-        HtmlPageBreak htmlPageBreak=new HtmlPageBreak(HtmlPageBreakType.ALWAYS);
+        HtmlPageBreak htmlPageBreak = new HtmlPageBreak(HtmlPageBreakType.ALWAYS);
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
@@ -44,12 +44,12 @@ public class JPdfXHtmlPageBreakVisitor extends JPdfXComboBoxFieldVisitor {
         }
         String value = null;
         if (null != ctx.IDENTIFIER()) {
-            value =ctx.IDENTIFIER().getText();
+            value = ctx.IDENTIFIER().getText();
         }
-        if(StringUtils.isNotEmpty(value)){
-            JHtmlPageBreakTypeEnums enums=JHtmlPageBreakTypeEnums.codeOf(value);
-            if(enums!=null){
-                htmlPageBreak=new HtmlPageBreak(enums.getType());
+        if (StringUtils.isNotEmpty(value)) {
+            JHtmlPageBreakTypeEnums enums = JHtmlPageBreakTypeEnums.codeOf(value);
+            if (enums != null) {
+                htmlPageBreak = new HtmlPageBreak(enums.getType());
             }
         }
         htmlPageBreak.setFont(JFontProviderFactory.defualtFont());

@@ -239,7 +239,6 @@ public class JOption implements Serializable {
     }
 
 
-
     public List<JVisualMap> visualMap() {
         if (this.visualMap == null) {
             this.visualMap = new ArrayList<JVisualMap>();
@@ -1117,7 +1116,6 @@ public class JOption implements Serializable {
     public void setyAxis(List<JAxis> yAxis) {
         this.yAxis = yAxis;
     }
-
 
 
 }

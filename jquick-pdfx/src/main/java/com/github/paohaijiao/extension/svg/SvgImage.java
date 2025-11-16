@@ -63,7 +63,7 @@ public class SvgImage extends Image {
     public SvgImage(String svgContent) {
         super(convertSvgToXObject(svgContent, -1, -1));
         this.svgContent = svgContent;
-        float[] diemonsions=JSvgUtil.parseSvgDimensions(svgContent);
+        float[] diemonsions = JSvgUtil.parseSvgDimensions(svgContent);
         this.explicitWidth = diemonsions[0];
         this.explicitHeight = diemonsions[1];
         this.setProperty(19, true); // Mark as reusable
@@ -119,15 +119,14 @@ public class SvgImage extends Image {
     /**
      * Creates a new SvgImage from a URL with explicit dimensions.
      *
-     * @param svgUrl  the URL of the SVG file
-     * @param width   the desired width in points
-     * @param height  the desired height in points
+     * @param svgUrl the URL of the SVG file
+     * @param width  the desired width in points
+     * @param height the desired height in points
      * @throws IOException if reading the URL fails
      */
     public SvgImage(URL svgUrl, float width, float height) throws IOException {
         this(svgUrl.openStream(), width, height);
     }
-
 
 
     /**
@@ -143,6 +142,66 @@ public class SvgImage extends Image {
         return result.toString("UTF-8");
     }
 
+    private static ImageData checkImageType(ImageData image) {
+        if (image instanceof WmfImageData) {
+            throw new PdfException("Cannot create layout image by WmfImage instance. First convert the image into FormXObject and then use the corresponding layout image constructor.");
+        } else {
+            return image;
+        }
+    }
+
+    private static ImageData createImageDataFromSvg(String svgContent, float width, float height) {
+        PdfImageXObject xObject = convertSvgToXObject(svgContent, width, height);
+        return ImageDataFactory.create(xObject.getImageBytes());
+    }
+
+    /**
+     * Converts SVG content to a PdfXObject.
+     *
+     * @param svgContent the SVG content
+     * @param width      desired width (or -1 to use SVG's native width)
+     * @param height     desired height (or -1 to use SVG's native height)
+     * @return the created PdfXObject
+     */
+    private static PdfImageXObject convertSvgToXObject(String svgContent, float width, float height) {
+        try {
+            String parser = XMLResourceDescriptor.getXMLParserClassName();
+            SAXSVGDocumentFactory factory = new SAXSVGDocumentFactory(parser);
+            SVGDocument svgDocument = factory.createSVGDocument(null, new StringReader(svgContent));
+
+            PNGTranscoder transcoder = new PNGTranscoder();
+
+            // Calculate dimensions
+            float[] dimensions = JSvgUtil.parseSvgDimensions(svgContent);
+            float svgWidth = dimensions[0];
+            float svgHeight = dimensions[1];
+
+            // Apply explicit dimensions if provided
+            float finalWidth = width > 0 ? width : svgWidth;
+            float finalHeight = height > 0 ? height : svgHeight;
+
+            // Maintain aspect ratio if only one dimension is specified
+            if (width > 0 && height <= 0) {
+                finalHeight = svgHeight * (width / svgWidth);
+            } else if (height > 0 && width <= 0) {
+                finalWidth = svgWidth * (height / svgHeight);
+            }
+
+            transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, finalWidth);
+            transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, finalHeight);
+
+            ByteArrayOutputStream pngOutputStream = new ByteArrayOutputStream();
+            TranscoderOutput output = new TranscoderOutput(pngOutputStream);
+            transcoder.transcode(new TranscoderInput(svgDocument), output);
+
+            byte[] pngBytes = pngOutputStream.toByteArray();
+            ImageData imageData = ImageDataFactory.create(pngBytes);
+            return new PdfImageXObject(imageData);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to convert SVG to Image", e);
+        }
+    }
 
     @Override
     public PdfXObject getXObject() {
@@ -433,14 +492,6 @@ public class SvgImage extends Image {
         return new ImageRenderer(this);
     }
 
-    private static ImageData checkImageType(ImageData image) {
-        if (image instanceof WmfImageData) {
-            throw new PdfException("Cannot create layout image by WmfImage instance. First convert the image into FormXObject and then use the corresponding layout image constructor.");
-        } else {
-            return image;
-        }
-    }
-
     /**
      * Gets the original SVG content.
      *
@@ -466,56 +517,5 @@ public class SvgImage extends Image {
      */
     public float getExplicitHeight() {
         return explicitHeight;
-    }
-    private static ImageData createImageDataFromSvg(String svgContent, float width, float height) {
-        PdfImageXObject xObject = convertSvgToXObject(svgContent, width, height);
-        return ImageDataFactory.create(xObject.getImageBytes());
-    }
-    /**
-     * Converts SVG content to a PdfXObject.
-     *
-     * @param svgContent the SVG content
-     * @param width      desired width (or -1 to use SVG's native width)
-     * @param height     desired height (or -1 to use SVG's native height)
-     * @return the created PdfXObject
-     */
-    private static PdfImageXObject  convertSvgToXObject(String svgContent, float width, float height) {
-        try {
-            String parser = XMLResourceDescriptor.getXMLParserClassName();
-            SAXSVGDocumentFactory factory = new SAXSVGDocumentFactory(parser);
-            SVGDocument svgDocument = factory.createSVGDocument(null, new StringReader(svgContent));
-
-            PNGTranscoder transcoder = new PNGTranscoder();
-
-            // Calculate dimensions
-            float[] dimensions = JSvgUtil.parseSvgDimensions(svgContent);
-            float svgWidth = dimensions[0];
-            float svgHeight = dimensions[1];
-
-            // Apply explicit dimensions if provided
-            float finalWidth = width > 0 ? width : svgWidth;
-            float finalHeight = height > 0 ? height : svgHeight;
-
-            // Maintain aspect ratio if only one dimension is specified
-            if (width > 0 && height <= 0) {
-                finalHeight = svgHeight * (width / svgWidth);
-            } else if (height > 0 && width <= 0) {
-                finalWidth = svgWidth * (height / svgHeight);
-            }
-
-            transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, finalWidth);
-            transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, finalHeight);
-
-            ByteArrayOutputStream pngOutputStream = new ByteArrayOutputStream();
-            TranscoderOutput output = new TranscoderOutput(pngOutputStream);
-            transcoder.transcode(new TranscoderInput(svgDocument), output);
-
-            byte[] pngBytes = pngOutputStream.toByteArray();
-            ImageData imageData = ImageDataFactory.create(pngBytes);
-            return new PdfImageXObject(imageData);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException("Failed to convert SVG to Image", e);
-        }
     }
 }

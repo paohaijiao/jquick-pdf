@@ -22,5 +22,5 @@ import java.net.MalformedURLException;
 
 public interface JCSSPropertiesProvider {
 
-    public  void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) throws MalformedURLException;
-    }
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) throws MalformedURLException;
+}

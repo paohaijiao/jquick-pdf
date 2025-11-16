@@ -115,79 +115,118 @@ public class LunarCalendarOption extends JOption {
         private Color gradientEndColor = new Color(230, 240, 250);
 
         // Getters and Setters
-        public Color getBackgroundColor() { return backgroundColor; }
+        public Color getBackgroundColor() {
+            return backgroundColor;
+        }
+
         public ColorConfig setBackgroundColor(Color backgroundColor) {
             this.backgroundColor = backgroundColor;
             return this;
         }
 
-        public Color getGridColor() { return gridColor; }
+        public Color getGridColor() {
+            return gridColor;
+        }
+
         public ColorConfig setGridColor(Color gridColor) {
             this.gridColor = gridColor;
             return this;
         }
 
-        public Color getTextColor() { return textColor; }
+        public Color getTextColor() {
+            return textColor;
+        }
+
         public ColorConfig setTextColor(Color textColor) {
             this.textColor = textColor;
             return this;
         }
 
-        public Color getSpecialDayColor() { return specialDayColor; }
+        public Color getSpecialDayColor() {
+            return specialDayColor;
+        }
+
         public ColorConfig setSpecialDayColor(Color specialDayColor) {
             this.specialDayColor = specialDayColor;
             return this;
         }
 
-        public Color getTitleColor() { return titleColor; }
+        public Color getTitleColor() {
+            return titleColor;
+        }
+
         public ColorConfig setTitleColor(Color titleColor) {
             this.titleColor = titleColor;
             return this;
         }
 
-        public Color getSolarDateColor() { return solarDateColor; }
+        public Color getSolarDateColor() {
+            return solarDateColor;
+        }
+
         public ColorConfig setSolarDateColor(Color solarDateColor) {
             this.solarDateColor = solarDateColor;
             return this;
         }
 
-        public Color getLunarDateColor() { return lunarDateColor; }
+        public Color getLunarDateColor() {
+            return lunarDateColor;
+        }
+
         public ColorConfig setLunarDateColor(Color lunarDateColor) {
             this.lunarDateColor = lunarDateColor;
             return this;
         }
 
-        public Color getWeekendColor() { return weekendColor; }
+        public Color getWeekendColor() {
+            return weekendColor;
+        }
+
         public ColorConfig setWeekendColor(Color weekendColor) {
             this.weekendColor = weekendColor;
             return this;
         }
 
-        public boolean isUseCustomCellColors() { return useCustomCellColors; }
+        public boolean isUseCustomCellColors() {
+            return useCustomCellColors;
+        }
+
         public ColorConfig setUseCustomCellColors(boolean useCustomCellColors) {
             this.useCustomCellColors = useCustomCellColors;
             return this;
         }
 
-        public Color[] getCustomCellColors() { return customCellColors; }
+        public Color[] getCustomCellColors() {
+            return customCellColors;
+        }
+
         public ColorConfig setCustomCellColors(Color[] customCellColors) {
             this.customCellColors = customCellColors;
             return this;
         }
 
-        public boolean isUseGradientBackground() { return useGradientBackground; }
+        public boolean isUseGradientBackground() {
+            return useGradientBackground;
+        }
+
         public ColorConfig setUseGradientBackground(boolean useGradientBackground) {
             this.useGradientBackground = useGradientBackground;
             return this;
         }
 
-        public Color getGradientStartColor() { return gradientStartColor; }
+        public Color getGradientStartColor() {
+            return gradientStartColor;
+        }
+
         public ColorConfig setGradientStartColor(Color gradientStartColor) {
             this.gradientStartColor = gradientStartColor;
             return this;
         }
 
-        public Color getGradientEndColor() { return gradientEndColor; }
+        public Color getGradientEndColor() {
+            return gradientEndColor;
+        }
+
         public ColorConfig setGradientEndColor(Color gradientEndColor) {
             this.gradientEndColor = gradientEndColor;
             return this;
@@ -203,36 +242,6 @@ public class LunarCalendarOption extends JOption {
         private String[] weekDays = {"一", "二", "三", "四", "五", "六", "日"};
         private int rows = 5;
         private int cols = 7;
-
-        public List<DayData> getDayDataList() { return dayDataList; }
-        public CalendarDataConfig setDayDataList(List<DayData> dayDataList) {
-            this.dayDataList = dayDataList;
-            return this;
-        }
-
-        public List<SpecialDay> getSpecialDays() { return specialDays; }
-        public CalendarDataConfig setSpecialDays(List<SpecialDay> specialDays) {
-            this.specialDays = specialDays;
-            return this;
-        }
-
-        public String[] getWeekDays() { return weekDays; }
-        public CalendarDataConfig setWeekDays(String[] weekDays) {
-            this.weekDays = weekDays;
-            return this;
-        }
-
-        public int getRows() { return rows; }
-        public CalendarDataConfig setRows(int rows) {
-            this.rows = rows;
-            return this;
-        }
-
-        public int getCols() { return cols; }
-        public CalendarDataConfig setCols(int cols) {
-            this.cols = cols;
-            return this;
-        }
 
         private static List<DayData> createDefaultDayData() {
             List<DayData> defaultData = new ArrayList<>();
@@ -281,6 +290,51 @@ public class LunarCalendarOption extends JOption {
             specialDays.add(new SpecialDay("清明", 3, 0)); // 第4行第1列
             return specialDays;
         }
+
+        public List<DayData> getDayDataList() {
+            return dayDataList;
+        }
+
+        public CalendarDataConfig setDayDataList(List<DayData> dayDataList) {
+            this.dayDataList = dayDataList;
+            return this;
+        }
+
+        public List<SpecialDay> getSpecialDays() {
+            return specialDays;
+        }
+
+        public CalendarDataConfig setSpecialDays(List<SpecialDay> specialDays) {
+            this.specialDays = specialDays;
+            return this;
+        }
+
+        public String[] getWeekDays() {
+            return weekDays;
+        }
+
+        public CalendarDataConfig setWeekDays(String[] weekDays) {
+            this.weekDays = weekDays;
+            return this;
+        }
+
+        public int getRows() {
+            return rows;
+        }
+
+        public CalendarDataConfig setRows(int rows) {
+            this.rows = rows;
+            return this;
+        }
+
+        public int getCols() {
+            return cols;
+        }
+
+        public CalendarDataConfig setCols(int cols) {
+            this.cols = cols;
+            return this;
+        }
     }
 
     /**
@@ -299,10 +353,21 @@ public class LunarCalendarOption extends JOption {
             this.col = col;
         }
 
-        public int getSolarDay() { return solarDay; }
-        public String getLunarDay() { return lunarDay; }
-        public int getRow() { return row; }
-        public int getCol() { return col; }
+        public int getSolarDay() {
+            return solarDay;
+        }
+
+        public String getLunarDay() {
+            return lunarDay;
+        }
+
+        public int getRow() {
+            return row;
+        }
+
+        public int getCol() {
+            return col;
+        }
     }
 
     /**
@@ -319,8 +384,16 @@ public class LunarCalendarOption extends JOption {
             this.col = col;
         }
 
-        public String getName() { return name; }
-        public int getRow() { return row; }
-        public int getCol() { return col; }
+        public String getName() {
+            return name;
+        }
+
+        public int getRow() {
+            return row;
+        }
+
+        public int getCol() {
+            return col;
+        }
     }
 }

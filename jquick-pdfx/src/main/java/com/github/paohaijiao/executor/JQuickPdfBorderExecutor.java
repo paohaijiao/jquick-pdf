@@ -42,8 +42,8 @@ public class JQuickPdfBorderExecutor extends JAbstractAntlrExecutor<String, JBor
 
     @Override
     protected Lexer createLexer(CharStream input) {
-        JConsole console=new JConsole();
-        console.debug("style:\n"+input.toString());
+        JConsole console = new JConsole();
+        console.debug("style:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 
@@ -56,7 +56,7 @@ public class JQuickPdfBorderExecutor extends JAbstractAntlrExecutor<String, JBor
     protected JBorder parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
         JQuickPDFParser.BorderTypeContext tree = calcParser.borderType();
-        JPdfXStyleVisitor visitor  = new JPdfXStyleVisitor();
+        JPdfXStyleVisitor visitor = new JPdfXStyleVisitor();
         JBorder response = visitor.visitBorderType(tree);
         return response;
     }

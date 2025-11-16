@@ -60,6 +60,17 @@ public class BarChartConfigBuilder extends EChartConfigBuilder {
                 .build();
     }
 
+    public static void main(String[] args) {
+        List<String> categories = Arrays.asList("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+        List<SeriesData> series = Arrays.asList(
+                new SeriesData("2022", Arrays.asList(15, 25, 36, 10, 10, 20)),
+                new SeriesData("2023", Arrays.asList(20, 30, 25, 15, 12, 25))
+        );
+
+        Map<String, Object> config = buildBarChart("年度销售对比", categories, series);
+        System.out.println(config);
+    }
+
     public static class SeriesData {
         private String name;
         private List<Number> data;
@@ -77,16 +88,5 @@ public class BarChartConfigBuilder extends EChartConfigBuilder {
         public List<Number> getData() {
             return data;
         }
-    }
-
-    public static void main(String[] args) {
-        List<String> categories = Arrays.asList("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
-        List<SeriesData> series = Arrays.asList(
-                new SeriesData("2022", Arrays.asList(15, 25, 36, 10, 10, 20)),
-                new SeriesData("2023", Arrays.asList(20, 30, 25, 15, 12, 25))
-        );
-
-        Map<String, Object> config = buildBarChart("年度销售对比", categories, series);
-        System.out.println(config);
     }
 }

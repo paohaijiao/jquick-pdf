@@ -38,7 +38,8 @@ public class JCorrelationMatrixOption {
 
     private Tooltip tooltip;
 
-    public JCorrelationMatrixOption() {}
+    public JCorrelationMatrixOption() {
+    }
 
     public JCorrelationMatrixOption(Title title, Grid grid, Legend legend, XAxis xAxis, YAxis yAxis, Dataset dataset, Tooltip tooltip) {
         this.title = title;
@@ -48,6 +49,10 @@ public class JCorrelationMatrixOption {
         this.yAxis = yAxis;
         this.dataset = dataset;
         this.tooltip = tooltip;
+    }
+
+    public static JOptionCollectionMatrixBuilder builder() {
+        return new JOptionCollectionMatrixBuilder();
     }
 
     public Title title() {
@@ -113,10 +118,6 @@ public class JCorrelationMatrixOption {
         return this;
     }
 
-    public static JOptionCollectionMatrixBuilder builder() {
-        return new JOptionCollectionMatrixBuilder();
-    }
-
     /**
      * 标题配置
      */
@@ -128,7 +129,8 @@ public class JCorrelationMatrixOption {
 
         private String textStyle;
 
-        public Title() {}
+        public Title() {
+        }
 
         public Title(String text, String subtext, String textStyle) {
             this.text = text;
@@ -179,7 +181,8 @@ public class JCorrelationMatrixOption {
 
         private boolean containLabel;
 
-        public Grid() {}
+        public Grid() {
+        }
 
         public Grid(int left, int right, int top, int bottom, boolean containLabel) {
             this.left = left;
@@ -243,7 +246,8 @@ public class JCorrelationMatrixOption {
         private String position;
         private String orient;
 
-        public Legend() {}
+        public Legend() {
+        }
 
         public Legend(String[] data, String position, String orient) {
             this.data = data;
@@ -291,7 +295,8 @@ public class JCorrelationMatrixOption {
 
         private boolean boundaryGap;
 
-        public XAxis() {}
+        public XAxis() {
+        }
 
         public XAxis(String type, String[] data, String name, boolean boundaryGap) {
             this.type = type;
@@ -344,7 +349,8 @@ public class JCorrelationMatrixOption {
         private String type;
         private String name;
 
-        public YAxis() {}
+        public YAxis() {
+        }
 
         public YAxis(String type, String name) {
             this.type = type;
@@ -381,7 +387,8 @@ public class JCorrelationMatrixOption {
 
         private String[] dimensions;
 
-        public Dataset() {}
+        public Dataset() {
+        }
 
         public Dataset(String source, double[][] sourceArray, String[] dimensions) {
             this.source = source;
@@ -424,7 +431,8 @@ public class JCorrelationMatrixOption {
         private String trigger;
         private String formatter;
 
-        public Tooltip() {}
+        public Tooltip() {
+        }
 
         public Tooltip(String trigger, String formatter) {
             this.trigger = trigger;

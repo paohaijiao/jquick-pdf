@@ -20,54 +20,55 @@ import lombok.Getter;
 @Getter
 public enum JChartType {
 
-    BAR("bar","条形图"),
+    BAR("bar", "条形图"),
 
-    BOXPLOT("boxplot","盒须图"),
+    BOXPLOT("boxplot", "盒须图"),
 
-    HEATMAP("heatmap","热力图"),
+    HEATMAP("heatmap", "热力图"),
 
-    K("k","k线图"),
+    K("k", "k线图"),
 
-    LINE("line","折线图"),
+    LINE("line", "折线图"),
 
-    PIE("pie","饼状图"),
+    PIE("pie", "饼状图"),
 
-    RADAR("radar","雷达图"),
+    RADAR("radar", "雷达图"),
 
-    RELATION("ration","关系图"),
+    RELATION("ration", "关系图"),
 
-    SCATTER("scatter","散点图"),
+    SCATTER("scatter", "散点图"),
 
-    SUNBURST("sunburst","旭日图"),
+    SUNBURST("sunburst", "旭日图"),
 
-    WORDCLOUD("wordCloud","词云"),
+    WORDCLOUD("wordCloud", "词云"),
 
-    TREEMAP("treeMap","矩形树图"),
+    TREEMAP("treeMap", "矩形树图"),
 
-    Bubble("Bubble","气泡图"),
+    Bubble("Bubble", "气泡图"),
 
-    Calendar("Calendar","日历图"),
+    Calendar("Calendar", "日历图"),
 
-    Lunar("Lunar","日历"),
+    Lunar("Lunar", "日历"),
 
-    Funnel("Funnel","漏斗图"),
+    Funnel("Funnel", "漏斗图"),
 
-    CorrectionMatrix("CorrectionMatrix","相关矩阵"),
+    CorrectionMatrix("CorrectionMatrix", "相关矩阵"),
 
-    Gantt("gantt","甘特图"),
+    Gantt("gantt", "甘特图"),
     @Deprecated
-    Guage("Guage","仪表盘"),
+    Guage("Guage", "仪表盘"),
 
     ;
     private String code;
 
     private String name;
 
-    JChartType(String code,String name) {
+    JChartType(String code, String name) {
         this.code = code;
         this.name = name;
     }
-    public static JChartType codeOf(String code){
+
+    public static JChartType codeOf(String code) {
         for (JChartType jChartType : values()) {
             if (jChartType.code.equals(code)) {
                 return jChartType;

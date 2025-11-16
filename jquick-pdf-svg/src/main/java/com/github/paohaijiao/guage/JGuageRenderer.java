@@ -14,6 +14,7 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.guage;
+
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.svggen.SVGGraphics2D;
@@ -94,7 +95,7 @@ public class JGuageRenderer extends JAbstractChartRenderer {
             if (value == 0) {
                 g2d.drawString(label, labelX, labelY - 5);
             } else if (value == 50) {
-                g2d.drawString(label, labelX - textWidth/2, labelY + 15);
+                g2d.drawString(label, labelX - textWidth / 2, labelY + 15);
             } else if (value == 100) {
                 g2d.drawString(label, labelX - textWidth, labelY - 5);
             } else if (value < 50) {
@@ -138,11 +139,11 @@ public class JGuageRenderer extends JAbstractChartRenderer {
         String title = config.title();
         FontMetrics titleFm = g2d.getFontMetrics();
         int titleWidth = titleFm.stringWidth(title);
-        g2d.drawString(title, 436 - titleWidth/2, 175);
+        g2d.drawString(title, 436 - titleWidth / 2, 175);
         g2d.setFont(config.scoreFont());
         String score = String.valueOf(config.score());
         FontMetrics scoreFm = g2d.getFontMetrics();
         int scoreWidth = scoreFm.stringWidth(score);
-        g2d.drawString(score, 436 - scoreWidth/2, 205);
+        g2d.drawString(score, 436 - scoreWidth / 2, 205);
     }
 }

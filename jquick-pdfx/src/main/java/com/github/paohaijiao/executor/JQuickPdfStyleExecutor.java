@@ -42,8 +42,8 @@ public class JQuickPdfStyleExecutor extends JAbstractAntlrExecutor<String, JStyl
 
     @Override
     protected Lexer createLexer(CharStream input) {
-        JConsole console=new JConsole();
-        console.debug("style:\n"+input.toString());
+        JConsole console = new JConsole();
+        console.debug("style:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 
@@ -56,7 +56,7 @@ public class JQuickPdfStyleExecutor extends JAbstractAntlrExecutor<String, JStyl
     protected JStyleAttributes parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
         JQuickPDFParser.StyleContext tree = calcParser.style();
-        JPdfXStyleVisitor visitor =  new JPdfXStyleVisitor();
+        JPdfXStyleVisitor visitor = new JPdfXStyleVisitor();
         JStyleAttributes response = visitor.visitStyle(tree);
         return response;
     }

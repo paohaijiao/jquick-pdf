@@ -74,11 +74,11 @@ public class JLunarCalendarRenderer extends JAbstractChartRenderer {
                 int x = startX + col * cellSize;
                 int y = startY + row * cellHeight;
                 g2d.drawRect(x, y, cellSize, cellHeight);
-                LunarCalendarOption.ColorConfig colorConfig=option.getColorConfig();
-                if(null==colorConfig.getBackgroundColor()){
+                LunarCalendarOption.ColorConfig colorConfig = option.getColorConfig();
+                if (null == colorConfig.getBackgroundColor()) {
                     Color bgColor = getDayBackgroundColor(row, col, colors);
                     g2d.setColor(bgColor);
-                }else{
+                } else {
                     g2d.setColor(colorConfig.getBackgroundColor());
                 }
 

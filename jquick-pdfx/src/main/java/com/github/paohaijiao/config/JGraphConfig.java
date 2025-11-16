@@ -30,7 +30,7 @@ import java.util.Map;
  * @since 2025/7/20
  */
 @Data
-public class JGraphConfig <T extends JGraphContainer> extends HashMap<String,  T> {
+public class JGraphConfig<T extends JGraphContainer> extends HashMap<String, T> {
 
     @Override
     public T put(String key, T value) {
@@ -133,14 +133,14 @@ public class JGraphConfig <T extends JGraphContainer> extends HashMap<String,  T
     }
 
     public String drawGraph(String key) {
-        if(!containsKey(key)) {
+        if (!containsKey(key)) {
             throw new IllegalArgumentException("graph " + key + " not exists");
-        }else{
-            T t=this.get(key);
-            if(null==t){
+        } else {
+            T t = this.get(key);
+            if (null == t) {
                 throw new IllegalArgumentException("No graph found for key: " + key);
             }
-            String svgContent = JChartRendererFactory.renderChart(t.getType(),t.getOption());
+            String svgContent = JChartRendererFactory.renderChart(t.getType(), t.getOption());
             return svgContent;
         }
     }

@@ -835,21 +835,21 @@ public abstract class JStyle<T> implements Serializable {
     }
 
     /**
-     * 设置curveness
-     *
-     * @param curveness
-     */
-    public void setCurveness(Double curveness) {
-        this.curveness = curveness;
-    }
-
-    /**
      * 获取curveness
      *
      * @return
      */
     public Double getCurveness() {
         return curveness;
+    }
+
+    /**
+     * 设置curveness
+     *
+     * @param curveness
+     */
+    public void setCurveness(Double curveness) {
+        this.curveness = curveness;
     }
 
     /**

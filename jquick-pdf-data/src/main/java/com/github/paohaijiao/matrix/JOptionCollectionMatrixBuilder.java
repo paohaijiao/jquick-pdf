@@ -38,7 +38,8 @@ public class JOptionCollectionMatrixBuilder {
 
     private JCorrelationMatrixOption.Tooltip tooltip;
 
-    public JOptionCollectionMatrixBuilder() {}
+    public JOptionCollectionMatrixBuilder() {
+    }
 
     public JOptionCollectionMatrixBuilder title(JCorrelationMatrixOption.Title title) {
         this.title = title;

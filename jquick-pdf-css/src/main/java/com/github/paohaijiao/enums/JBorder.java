@@ -24,7 +24,7 @@ public enum JBorder {
     solid("solid", SolidBorder.class),
     //dashed("dashed", BeveledBorder.class),
     //border3d("border3d", Border3D.class),
-    dashedBorder("dashed",  DashedBorder.class),
+    dashedBorder("dashed", DashedBorder.class),
     dottedBorder("dotted", DottedBorder.class),
     doubleBorder("double", DoubleBorder.class),
     fixedDashedBorder("fixedDashed", FixedDashedBorder.class),
@@ -44,6 +44,7 @@ public enum JBorder {
         this.code = code;
         this.clazz = clazz;
     }
+
     public static JBorder codeOf(String code) {
         for (JBorder type : values()) {
             if (type.code.equals(code)) {

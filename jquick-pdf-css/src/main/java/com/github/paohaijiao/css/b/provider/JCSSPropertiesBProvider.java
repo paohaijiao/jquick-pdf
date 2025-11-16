@@ -51,63 +51,6 @@ public class JCSSPropertiesBProvider extends JCSSPropertiesBaseProvider implemen
     public static final String HIDDEN = "hidden";
 
     public static final String INHERIT = "inherit";
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) throws MalformedURLException {
-        Style style = new Style();
-        if (cssProperties.getBackdropFilter() != null) {
-            buildBackdropFilter(style,cssProperties);
-        }
-        if (cssProperties.getBackdropFilter() != null) {
-            buildBackfaceVisibility(style,cssProperties);
-        }
-        applyProperties(element,cssProperties);
-        if (cssProperties.getBlockSize() != null) {
-        }
-        if (cssProperties.getBottom() != null) {
-
-        }
-        if (cssProperties.getBoxDecorationBreak() != null) {
-
-        }
-        if (cssProperties.getBoxReflect() != null) {
-
-        }
-        if (cssProperties.getBoxShadow() != null) {
-
-        }
-        if (cssProperties.getBoxSizing() != null) {
-
-        }
-        if (cssProperties.getBreakBefore() != null) {
-
-        }
-        if (cssProperties.getBreakAfter() != null) {
-
-        }
-        if (cssProperties.getBreakInside() != null) {
-
-        }
-        element.addStyle(style);
-    }
-    public void buildBackdropFilter(Style style,JCSSPropertiesCoreModel cssProperties){
-        String filter = cssProperties.getBackdropFilter();
-        if (filter.contains("blur")) {
-            Matcher matcher = Pattern.compile("blur\\((\\d+)px\\)").matcher(filter);
-            if (matcher.find()) {
-                int blurRadius = Integer.parseInt(matcher.group(1));
-                style.setOpacity(0.9f - (blurRadius * 0.02f));
-            }
-        } else if (filter.contains("brightness")) {
-            Matcher matcher = Pattern.compile("blur\\((\\d+)px\\)").matcher(filter);
-            if (matcher.find()) {
-                int blurRadius = Integer.parseInt(matcher.group(1));
-                style.setOpacity(0.9f - (blurRadius * 0.02f));
-            }
-        }
-    }
-    public void buildBackfaceVisibility(Style style, JCSSPropertiesCoreModel cssProperties) {
-    }
-
 
     public static void applyProperties(BlockElement<?> element, JCSSPropertiesBModel cssProperties) throws MalformedURLException {
         Style style = new Style();
@@ -204,16 +147,73 @@ public class JCSSPropertiesBProvider extends JCSSPropertiesBaseProvider implemen
 
     }
 
-
     private static BorderRadius parseBorderRadius(String borderRadiusValue) {
         // Implement parsing of border-radius property
         return new BorderRadius(UnitValue.createPointValue(0));
     }
 
-
     private static BackgroundPosition parseBackgroundPosition(String positionValue) {
         return null;
         // return new BackgroundPosition().setPositionX(50).setPositionY(50).setUnitX(BackgroundPosition.Unit.PERCENTAGE).setUnitY(BackgroundPosition.Unit.PERCENTAGE);
+    }
+
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) throws MalformedURLException {
+        Style style = new Style();
+        if (cssProperties.getBackdropFilter() != null) {
+            buildBackdropFilter(style, cssProperties);
+        }
+        if (cssProperties.getBackdropFilter() != null) {
+            buildBackfaceVisibility(style, cssProperties);
+        }
+        applyProperties(element, cssProperties);
+        if (cssProperties.getBlockSize() != null) {
+        }
+        if (cssProperties.getBottom() != null) {
+
+        }
+        if (cssProperties.getBoxDecorationBreak() != null) {
+
+        }
+        if (cssProperties.getBoxReflect() != null) {
+
+        }
+        if (cssProperties.getBoxShadow() != null) {
+
+        }
+        if (cssProperties.getBoxSizing() != null) {
+
+        }
+        if (cssProperties.getBreakBefore() != null) {
+
+        }
+        if (cssProperties.getBreakAfter() != null) {
+
+        }
+        if (cssProperties.getBreakInside() != null) {
+
+        }
+        element.addStyle(style);
+    }
+
+    public void buildBackdropFilter(Style style, JCSSPropertiesCoreModel cssProperties) {
+        String filter = cssProperties.getBackdropFilter();
+        if (filter.contains("blur")) {
+            Matcher matcher = Pattern.compile("blur\\((\\d+)px\\)").matcher(filter);
+            if (matcher.find()) {
+                int blurRadius = Integer.parseInt(matcher.group(1));
+                style.setOpacity(0.9f - (blurRadius * 0.02f));
+            }
+        } else if (filter.contains("brightness")) {
+            Matcher matcher = Pattern.compile("blur\\((\\d+)px\\)").matcher(filter);
+            if (matcher.find()) {
+                int blurRadius = Integer.parseInt(matcher.group(1));
+                style.setOpacity(0.9f - (blurRadius * 0.02f));
+            }
+        }
+    }
+
+    public void buildBackfaceVisibility(Style style, JCSSPropertiesCoreModel cssProperties) {
     }
 
 

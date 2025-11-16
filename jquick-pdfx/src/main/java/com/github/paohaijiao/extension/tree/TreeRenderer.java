@@ -33,8 +33,7 @@ import com.itextpdf.layout.renderer.IRenderer;
  * @version 1.0.0
  * @since 2025/7/20
  */
-public class TreeRenderer extends com.itextpdf.layout.renderer.DivRenderer
-{
+public class TreeRenderer extends com.itextpdf.layout.renderer.DivRenderer {
     public TreeRenderer(TreeElement modelElement) {
         super(modelElement);
     }
@@ -123,13 +122,13 @@ public class TreeRenderer extends com.itextpdf.layout.renderer.DivRenderer
             canvas.setLineCapStyle(PdfCanvasConstants.LineCapStyle.ROUND);
             canvas.setLineJoinStyle(PdfCanvasConstants.LineJoinStyle.ROUND);
             if (node.isExpanded()) {
-                canvas.moveTo(arrowX - arrowSize/2, arrowY - arrowSize/3);
-                canvas.lineTo(arrowX, arrowY + arrowSize/3);
-                canvas.lineTo(arrowX + arrowSize/2, arrowY - arrowSize/3);
+                canvas.moveTo(arrowX - arrowSize / 2, arrowY - arrowSize / 3);
+                canvas.lineTo(arrowX, arrowY + arrowSize / 3);
+                canvas.lineTo(arrowX + arrowSize / 2, arrowY - arrowSize / 3);
             } else {
-                canvas.moveTo(arrowX - arrowSize/3, arrowY - arrowSize/2);
-                canvas.lineTo(arrowX + arrowSize/3, arrowY);
-                canvas.lineTo(arrowX - arrowSize/3, arrowY + arrowSize/2);
+                canvas.moveTo(arrowX - arrowSize / 3, arrowY - arrowSize / 2);
+                canvas.lineTo(arrowX + arrowSize / 3, arrowY);
+                canvas.lineTo(arrowX - arrowSize / 3, arrowY + arrowSize / 2);
             }
             canvas.stroke();
             canvas.restoreState();
@@ -146,7 +145,7 @@ public class TreeRenderer extends com.itextpdf.layout.renderer.DivRenderer
         canvas.roundRectangle(x, y, width, height, treeElement.getCheckboxCornerRadius());
         canvas.stroke();
         if (isSelected) {
-            DeviceRgb color=new DeviceRgb(
+            DeviceRgb color = new DeviceRgb(
                     treeElement.getCheckboxSelectedColor().getColorValue()[0],
                     treeElement.getCheckboxSelectedColor().getColorValue()[1],
                     treeElement.getCheckboxSelectedColor().getColorValue()[2]
@@ -159,8 +158,8 @@ public class TreeRenderer extends com.itextpdf.layout.renderer.DivRenderer
             canvas.setLineWidth(1.5f);
             canvas.setLineCapStyle(PdfCanvasConstants.LineCapStyle.ROUND);
             float padding = width * 0.15f;
-            canvas.moveTo(x + padding, y + height/2);
-            canvas.lineTo(x + width/2, y + height - padding);
+            canvas.moveTo(x + padding, y + height / 2);
+            canvas.lineTo(x + width / 2, y + height - padding);
             canvas.lineTo(x + width - padding, y + padding);
             canvas.stroke();
         }

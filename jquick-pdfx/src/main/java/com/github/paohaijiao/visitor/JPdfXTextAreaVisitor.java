@@ -35,7 +35,7 @@ public class JPdfXTextAreaVisitor extends JPdfXTabVisitor {
 
     @Override
     public TextArea visitTextArea(JQuickPDFParser.TextAreaContext ctx) {
-    JStyleAttributes style = new JStyleAttributes();
+        JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
         } else {
@@ -43,7 +43,7 @@ public class JPdfXTextAreaVisitor extends JPdfXTabVisitor {
         }
         String value = "";
         if (null != ctx.value()) {
-            value =ctx.value().getText();
+            value = ctx.value().getText();
         }
         TextArea textArea = new TextArea(JStringUtils.trim(value));
         Paragraph paragraph = new Paragraph();
@@ -53,7 +53,7 @@ public class JPdfXTextAreaVisitor extends JPdfXTabVisitor {
         textArea.setFont(JFontProviderFactory.defualtFont());
         super.buildStyle(textArea, style);
         return textArea;
-   }
+    }
 
 
 }

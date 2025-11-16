@@ -41,8 +41,8 @@ public class JQuickPdfColorExecutor extends JAbstractAntlrExecutor<String, Color
 
     @Override
     protected Lexer createLexer(CharStream input) {
-        JConsole console=new JConsole();
-        console.debug("color:\n"+input.toString());
+        JConsole console = new JConsole();
+        console.debug("color:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 
@@ -55,8 +55,8 @@ public class JQuickPdfColorExecutor extends JAbstractAntlrExecutor<String, Color
     protected Color parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
         JQuickPDFParser.ColorContext tree = calcParser.color();
-        JPdfXStyleVisitor visitor  = new JPdfXStyleVisitor();
-        Color color = (Color)visitor.visit(tree);
+        JPdfXStyleVisitor visitor = new JPdfXStyleVisitor();
+        Color color = (Color) visitor.visit(tree);
         return color;
     }
 }

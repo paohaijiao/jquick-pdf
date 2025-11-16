@@ -37,15 +37,15 @@ public class JPdfXTemplateVisitor extends JPdfXTextAreaVisitor {
 
     @Override
     public JHtmlRenderModel visitTemplate(JQuickPDFParser.TemplateContext ctx) {
-        String value="";
-        if(ctx.IDENTIFIER()!=null){
-            value=ctx.IDENTIFIER().getText();
+        String value = "";
+        if (ctx.IDENTIFIER() != null) {
+            value = ctx.IDENTIFIER().getText();
         }
-        JTemplateConfig templateConfig=this.config.getTemplateConfig();
-        JAssert.notNull(templateConfig,"template not found");
-        String html=templateConfig.get(value);
-        List<IElement> iElements= HtmlConverter.convertToElements( html,proper);
-        JHtmlRenderModel jHtmlRenderModel=new JHtmlRenderModel();
+        JTemplateConfig templateConfig = this.config.getTemplateConfig();
+        JAssert.notNull(templateConfig, "template not found");
+        String html = templateConfig.get(value);
+        List<IElement> iElements = HtmlConverter.convertToElements(html, proper);
+        JHtmlRenderModel jHtmlRenderModel = new JHtmlRenderModel();
         jHtmlRenderModel.setList(iElements);
         return jHtmlRenderModel;
     }

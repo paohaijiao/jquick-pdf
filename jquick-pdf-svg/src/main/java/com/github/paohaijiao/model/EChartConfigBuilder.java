@@ -31,6 +31,18 @@ import java.util.Map;
  * @Version: 1.0
  */
 public class EChartConfigBuilder {
+    protected static Map<String, Object> mapOf(Object... args) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        for (int i = 0; i < args.length; i += 2) {
+            map.put(args[i].toString(), args[i + 1]);
+        }
+        return map;
+    }
+
+    protected static List<Object> listOf(Object... items) {
+        return Arrays.asList(items);
+    }
+
     public static class EChartConfig {
         private Map<String, Object> options = new LinkedHashMap<>();
 
@@ -47,17 +59,5 @@ public class EChartConfigBuilder {
         public String toString() {
             return options.toString();
         }
-    }
-
-    protected static Map<String, Object> mapOf(Object... args) {
-        Map<String, Object> map = new LinkedHashMap<>();
-        for (int i = 0; i < args.length; i += 2) {
-            map.put(args[i].toString(), args[i + 1]);
-        }
-        return map;
-    }
-
-    protected static List<Object> listOf(Object... items) {
-        return Arrays.asList(items);
     }
 }

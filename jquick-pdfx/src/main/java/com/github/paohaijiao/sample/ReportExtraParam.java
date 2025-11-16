@@ -19,6 +19,7 @@ import lombok.Data;
 
 /**
  * packageName com.github.paohaijiao.sample
+ *
  * @author Martin
  * @version 1.0.0
  * @since 2025/7/13

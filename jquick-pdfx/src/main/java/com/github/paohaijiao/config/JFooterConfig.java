@@ -35,15 +35,16 @@ public class JFooterConfig {
 
     private boolean enabled = true;
 
-    private PdfFont font= JFontProviderFactory.defualtFont();
+    private PdfFont font = JFontProviderFactory.defualtFont();
 
     private float fontSize = 10;
 
-    private Color fontColor=new DeviceRgb(37, 98, 206);
+    private Color fontColor = new DeviceRgb(37, 98, 206);
 
     private float height = 30;
 
-    private Color backgroundColor= JColorEnums.WHITE.getColor();;
+    private Color backgroundColor = JColorEnums.WHITE.getColor();
+    ;
 
     private TextAlignment alignment = TextAlignment.CENTER;
 

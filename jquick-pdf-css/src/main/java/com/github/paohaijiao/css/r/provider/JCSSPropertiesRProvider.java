@@ -31,24 +31,7 @@ import com.itextpdf.layout.element.BlockElement;
  * @date 2025/7/1
  * @description
  */
-public class JCSSPropertiesRProvider  extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel model) {
-        Style style = new Style();
-        if (model.getResize() != null) {
-            applyResize(style, model.getResize());
-        }
-        if (model.getRight() != null) {
-            applyRight(style, model.getRight());
-        }
-        if (model.getRotate() != null) {
-            applyRotate(style, model.getRotate());
-        }
-        if (model.getRowGap() != null) {
-            applyRowGap(style, model.getRowGap());
-        }
-        element.addStyle(style);
-    }
+public class JCSSPropertiesRProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
     public static Style applyResize(Style style, String value) {
         // This would be a no-op in PDF rendering, but we can store it for potential HTML export
         //  style.setProperty(Property.RESIZE, value);
@@ -109,6 +92,24 @@ public class JCSSPropertiesRProvider  extends JCSSPropertiesBaseProvider impleme
             //  style.setProperty(Property.ROW_GAP, UnitValue.createPointValue(4));
         }
         return style;
+    }
+
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel model) {
+        Style style = new Style();
+        if (model.getResize() != null) {
+            applyResize(style, model.getResize());
+        }
+        if (model.getRight() != null) {
+            applyRight(style, model.getRight());
+        }
+        if (model.getRotate() != null) {
+            applyRotate(style, model.getRotate());
+        }
+        if (model.getRowGap() != null) {
+            applyRowGap(style, model.getRowGap());
+        }
+        element.addStyle(style);
     }
 
 

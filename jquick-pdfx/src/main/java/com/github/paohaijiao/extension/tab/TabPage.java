@@ -38,13 +38,15 @@ public class TabPage {
     private List<IBlockElement> contents;
     private boolean active;
     private PdfFont font;
+
     public TabPage(String title) {
         this.title = title;
         this.contents = new ArrayList<>();
         this.active = false;
-        this.font= JFontProviderFactory.getFont(JFontProviderFactory.DEFAULT_FONT);
+        this.font = JFontProviderFactory.getFont(JFontProviderFactory.DEFAULT_FONT);
     }
-    public TabPage(String title,PdfFont font) {
+
+    public TabPage(String title, PdfFont font) {
         this.title = title;
         this.contents = new ArrayList<>();
         this.active = false;

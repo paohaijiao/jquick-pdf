@@ -30,11 +30,12 @@ import java.util.HashMap;
 public class JStyleAreaBreakAttributes extends HashMap<String, String> {
     public static final String pageSize = "pageSize";
 
-    public String getPageSize(){
+    public String getPageSize() {
         return get(pageSize);
     }
-    public void setPageSize(String pageSize){
-        put(pageSize,pageSize);
+
+    public void setPageSize(String pageSize) {
+        put(pageSize, pageSize);
     }
 
 }

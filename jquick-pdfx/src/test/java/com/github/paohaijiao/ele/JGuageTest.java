@@ -41,8 +41,8 @@ import java.io.IOException;
 public class JGuageTest {
 
 
-    private JOption createData(){
-       GuageConfig scoreConfig = GuageConfig.builder()
+    private JOption createData() {
+        GuageConfig scoreConfig = GuageConfig.builder()
                 .score(75)
                 .pointerColor(new Color(220, 80, 80))
                 .backgroundColor(new Color(240, 240, 245))
@@ -50,18 +50,18 @@ public class JGuageTest {
                 .build();
 
         JGuageOption option = JGuageOption.builder().scoreMeter(scoreConfig).build();
-        JOption option1=new JOption();
+        JOption option1 = new JOption();
         option1.setGuageOption(option);
         return option1;
     }
 
     @Test
     public void svg2() throws IOException {
-        JGraphContainer graphContainer=new JGraphContainer();
+        JGraphContainer graphContainer = new JGraphContainer();
         graphContainer.setType(JChartType.Guage);
         graphContainer.setOption(createData());
-        JGraphConfig graphConfig=new JGraphConfig();
-        graphConfig.put("svg",graphContainer);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");

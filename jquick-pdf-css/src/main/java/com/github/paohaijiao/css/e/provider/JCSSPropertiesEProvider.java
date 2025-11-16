@@ -34,7 +34,6 @@ import com.itextpdf.layout.element.BlockElement;
 public class JCSSPropertiesEProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
 
 
-
     /**
      * Converts JCSSPropertiesEModel properties to iText Style
      *

@@ -26,24 +26,22 @@ import com.itextpdf.layout.properties.UnitValue;
  */
 public class JUnitConverter {
 
+    public static final float A4_WIDTH_PT = 595f;
+    public static final float A4_HEIGHT_PT = 842f;
     private static final float PT_PER_INCH = 72f;    // 1 inch = 72 points
-
     private static final float PX_PER_INCH = 96f;    // 96 pixels per inch
-
     private static final float MM_PER_INCH = 25.4f;  // 1 inch = 25.4 mm
-
     private static final float CM_PER_INCH = 2.54f;
 
-    public static final float A4_WIDTH_PT = 595f;
-
-    public static final float A4_HEIGHT_PT = 842f;
     // 1 inch = 2.54 cm
     public static float toFloat(UnitValue unitValue) {
         return toFloat(unitValue, "pt");
     }
+
     public static float toFloat(UnitValue unitValue, String targetUnit) {
         return toFloat(unitValue, targetUnit, A4_WIDTH_PT);
     }
+
     public static float toFloat(UnitValue unitValue, String targetUnit, Float referenceValue) {
         if (unitValue == null) {
             throw new IllegalArgumentException("UnitValue不能为空");
@@ -84,6 +82,7 @@ public class JUnitConverter {
                 throw new IllegalArgumentException("不支持的目标单位: " + targetUnit);
         }
     }
+
     public static UnitValue create(float value, String unit) {
         if (unit == null || unit.isEmpty()) {
             throw new IllegalArgumentException("单位不能为空");
@@ -105,34 +104,43 @@ public class JUnitConverter {
                 throw new IllegalArgumentException("不支持的单位: " + unit);
         }
     }
+
     public static float pxToPt(float px) {
         return px * (PT_PER_INCH / PX_PER_INCH); // px * (72/96) = px * 0.75
     }
+
     public static float mmToPt(float mm) {
 
         return inchToPt(mm / MM_PER_INCH);
 
     }
+
     public static float cmToPt(float cm) {
 
         return inchToPt(cm / CM_PER_INCH);
     }
+
     public static float inchToPt(float inch) {
         return inch * PT_PER_INCH;
     }
+
     public static float ptToPx(float pt) {
 
         return pt * (PX_PER_INCH / PT_PER_INCH);
     }
+
     public static float ptToMm(float pt) {
         return ptToInch(pt) * MM_PER_INCH;
     }
+
     public static float ptToCm(float pt) {
         return ptToInch(pt) * CM_PER_INCH;
     }
+
     public static float ptToInch(float pt) {
         return pt / PT_PER_INCH;
     }
+
     public static UnitValue px(float value) {
         return create(value, "px");
     }

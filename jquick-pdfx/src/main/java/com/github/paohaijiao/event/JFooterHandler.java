@@ -35,7 +35,7 @@ import com.itextpdf.layout.properties.TextAlignment;
 public class JFooterHandler implements IEventHandler {
     private final JFooterConfig footerConfig;
 
-    public JFooterHandler( JFooterConfig footerConfig) {
+    public JFooterHandler(JFooterConfig footerConfig) {
         this.footerConfig = footerConfig;
     }
 

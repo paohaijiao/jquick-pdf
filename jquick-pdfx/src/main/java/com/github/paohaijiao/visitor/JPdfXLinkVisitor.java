@@ -27,6 +27,4 @@ package com.github.paohaijiao.visitor;
 public class JPdfXLinkVisitor extends JPdfXLineSeparaterVisitor {
 
 
-
-
 }

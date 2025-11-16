@@ -32,15 +32,9 @@ import com.itextpdf.layout.properties.UnitValue;
  * @date 2025/7/1
  * @description
  */
-public class JCSSPropertiesIProvider  extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
+public class JCSSPropertiesIProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
 
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        Style style=new Style();
-        convertToStyle(element,cssProperties,style);
-        element.addStyle(style);
-    }
-    public static Style convertToStyle(BlockElement<?> element, JCSSPropertiesCoreModel css,Style style) {
+    public static Style convertToStyle(BlockElement<?> element, JCSSPropertiesCoreModel css, Style style) {
         // Image rendering
         if (css.getImageRendering() != null) {
             // iText doesn't have direct support for image-rendering, but we can set as property
@@ -163,6 +157,13 @@ public class JCSSPropertiesIProvider  extends JCSSPropertiesBaseProvider impleme
 //        }
 //        return UnitValue.parseUnitValue(value);
         return null;
+    }
+
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        Style style = new Style();
+        convertToStyle(element, cssProperties, style);
+        element.addStyle(style);
     }
 
 }

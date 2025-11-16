@@ -135,7 +135,7 @@ public enum JUnicodeScript {
     SHARADA("sharada", Character.UnicodeScript.SHARADA),
     TAKRI("takri", Character.UnicodeScript.TAKRI),
     MIAO("miao", Character.UnicodeScript.MIAO),
-//    CAUCASIAN_ALBANIAN("caucasian_albanian", Character.UnicodeScript.CAUCASIAN_ALBANIAN),
+    //    CAUCASIAN_ALBANIAN("caucasian_albanian", Character.UnicodeScript.CAUCASIAN_ALBANIAN),
 //    BASSA_VAH("bassa_vah", Character.UnicodeScript.BASSA_VAH),
 //    DUPLOYAN("duployan", Character.UnicodeScript.DUPLOYAN),
 //    ELBASAN("elbasan", Character.UnicodeScript.ELBASAN),
@@ -199,6 +199,7 @@ public enum JUnicodeScript {
         this.code = code;
         this.type = type;
     }
+
     public static JUnicodeScript codeOf(String code) {
         for (JUnicodeScript type : values()) {
             if (type.code.equals(code)) {

@@ -66,16 +66,18 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
     private static final List<String> VALID_SCROLL_BEHAVIOR_VALUES = Arrays.asList(
             "auto", "smooth", "initial", "inherit"
     );
-
-
-    /**
-     * Sets the scale transformation of an element
-     *
-     * @param value Scale value (e.g., "1.5", "2 0.5", "1.2 1.2 1.2")
-     */
-    public void setScale(String value) {
-        put(SCALE, value);
-    }
+    private static final List<String> VALID_SCROLL_SNAP_ALIGN_VALUES = Arrays.asList(
+            "none", "start", "end", "center", "initial", "inherit"
+    );
+    private static final List<String> VALID_SCROLL_SNAP_STOP_VALUES = Arrays.asList(
+            "normal", "always", "initial", "inherit"
+    );
+    private static final List<String> VALID_SCROLL_SNAP_TYPE_VALUES = Arrays.asList(
+            "none", "x", "y", "block", "inline", "both", "mandatory", "proximity", "initial", "inherit"
+    );
+    private static final List<String> VALID_SCROLLBAR_COLOR_VALUES = Arrays.asList(
+            "auto", "dark", "light", "initial", "inherit"
+    );
 
     /**
      * Gets the current scale value
@@ -86,6 +88,14 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         return get(SCALE);
     }
 
+    /**
+     * Sets the scale transformation of an element
+     *
+     * @param value Scale value (e.g., "1.5", "2 0.5", "1.2 1.2 1.2")
+     */
+    public void setScale(String value) {
+        put(SCALE, value);
+    }
 
     /**
      * Defines a scope rule for CSS scoping
@@ -108,6 +118,14 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         return get(SCOPE + (scopeSelector != null ? " " + scopeSelector : ""));
     }
 
+    /**
+     * Gets the current scroll behavior value
+     *
+     * @return The current scroll behavior value
+     */
+    public String getScrollBehavior() {
+        return get(SCROLL_BEHAVIOR);
+    }
 
     /**
      * Sets the scrolling behavior for a scrollable element
@@ -123,15 +141,9 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         }
     }
 
-    /**
-     * Gets the current scroll behavior value
-     *
-     * @return The current scroll behavior value
-     */
-    public String getScrollBehavior() {
-        return get(SCROLL_BEHAVIOR);
+    public String getScrollMargin() {
+        return get(SCROLL_MARGIN);
     }
-
 
     /**
      * Sets the scroll margin shorthand (1-4 values)
@@ -142,8 +154,8 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         put(SCROLL_MARGIN, value);
     }
 
-    public String getScrollMargin() {
-        return get(SCROLL_MARGIN);
+    public String getScrollMarginBlock() {
+        return get(SCROLL_MARGIN_BLOCK);
     }
 
     /**
@@ -155,10 +167,9 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         put(SCROLL_MARGIN_BLOCK, value);
     }
 
-    public String getScrollMarginBlock() {
-        return get(SCROLL_MARGIN_BLOCK);
+    public String getScrollPadding() {
+        return get(SCROLL_PADDING);
     }
-
 
     /**
      * Sets the scroll padding shorthand (1-4 values)
@@ -169,8 +180,8 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         put(SCROLL_PADDING, value);
     }
 
-    public String getScrollPadding() {
-        return get(SCROLL_PADDING);
+    public String getScrollPaddingBlock() {
+        return get(SCROLL_PADDING_BLOCK);
     }
 
     /**
@@ -182,178 +193,159 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         put(SCROLL_PADDING_BLOCK, value);
     }
 
-    public String getScrollPaddingBlock() {
-        return get(SCROLL_PADDING_BLOCK);
-    }
-
     private boolean isValidLengthValue(String value) {
         if (value == null) return false;
         return value.equals("auto") || value.equals("initial") || value.equals("inherit") ||
                 value.matches("^-?\\d+(\\.\\d+)?(px|em|rem|%|vw|vh|vmin|vmax|cm|mm|in|pt|pc)$");
     }
 
-
-    public void setScrollMarginBlockEnd(String value) {
-        put(SCROLL_MARGIN_BLOCK_END, value);
-    }
-
     public String getScrollMarginBlockEnd() {
         return get(SCROLL_MARGIN_BLOCK_END);
     }
 
-    public void setScrollMarginBlockStart(String value) {
-        put(SCROLL_MARGIN_BLOCK_START, value);
+    public void setScrollMarginBlockEnd(String value) {
+        put(SCROLL_MARGIN_BLOCK_END, value);
     }
 
     public String getScrollMarginBlockStart() {
         return get(SCROLL_MARGIN_BLOCK_START);
     }
 
-    public void setScrollMarginBottom(String value) {
-        put(SCROLL_MARGIN_BOTTOM, value);
+    public void setScrollMarginBlockStart(String value) {
+        put(SCROLL_MARGIN_BLOCK_START, value);
     }
 
     public String getScrollMarginBottom() {
         return get(SCROLL_MARGIN_BOTTOM);
     }
 
-    public void setScrollMarginInline(String value) {
-        put(SCROLL_MARGIN_INLINE, value);
+    public void setScrollMarginBottom(String value) {
+        put(SCROLL_MARGIN_BOTTOM, value);
     }
 
     public String getScrollMarginInline() {
         return get(SCROLL_MARGIN_INLINE);
     }
 
-    public void setScrollMarginInlineEnd(String value) {
-        put(SCROLL_MARGIN_INLINE_END, value);
+    public void setScrollMarginInline(String value) {
+        put(SCROLL_MARGIN_INLINE, value);
     }
 
     public String getScrollMarginInlineEnd() {
         return get(SCROLL_MARGIN_INLINE_END);
     }
 
-    public void setScrollMarginInlineStart(String value) {
-        put(SCROLL_MARGIN_INLINE_START, value);
+    public void setScrollMarginInlineEnd(String value) {
+        put(SCROLL_MARGIN_INLINE_END, value);
     }
 
     public String getScrollMarginInlineStart() {
         return get(SCROLL_MARGIN_INLINE_START);
     }
 
-    public void setScrollMarginLeft(String value) {
-        put(SCROLL_MARGIN_LEFT, value);
+    public void setScrollMarginInlineStart(String value) {
+        put(SCROLL_MARGIN_INLINE_START, value);
     }
 
     public String getScrollMarginLeft() {
         return get(SCROLL_MARGIN_LEFT);
     }
 
-    public void setScrollMarginRight(String value) {
-        put(SCROLL_MARGIN_RIGHT, value);
+    public void setScrollMarginLeft(String value) {
+        put(SCROLL_MARGIN_LEFT, value);
     }
 
     public String getScrollMarginRight() {
         return get(SCROLL_MARGIN_RIGHT);
     }
 
-    public void setScrollMarginTop(String value) {
-        put(SCROLL_MARGIN_TOP, value);
+    public void setScrollMarginRight(String value) {
+        put(SCROLL_MARGIN_RIGHT, value);
     }
 
     public String getScrollMarginTop() {
         return get(SCROLL_MARGIN_TOP);
     }
 
-
-    public void setScrollPaddingBlockEnd(String value) {
-        put(SCROLL_PADDING_BLOCK_END, value);
+    public void setScrollMarginTop(String value) {
+        put(SCROLL_MARGIN_TOP, value);
     }
 
     public String getScrollPaddingBlockEnd() {
         return get(SCROLL_PADDING_BLOCK_END);
     }
 
-    public void setScrollPaddingBlockStart(String value) {
-        put(SCROLL_PADDING_BLOCK_START, value);
+    public void setScrollPaddingBlockEnd(String value) {
+        put(SCROLL_PADDING_BLOCK_END, value);
     }
 
     public String getScrollPaddingBlockStart() {
         return get(SCROLL_PADDING_BLOCK_START);
     }
 
-    public void setScrollPaddingBottom(String value) {
-        put(SCROLL_PADDING_BOTTOM, value);
+    public void setScrollPaddingBlockStart(String value) {
+        put(SCROLL_PADDING_BLOCK_START, value);
     }
 
     public String getScrollPaddingBottom() {
         return get(SCROLL_PADDING_BOTTOM);
     }
 
-    public void setScrollPaddingInline(String value) {
-        put(SCROLL_PADDING_INLINE, value);
+    public void setScrollPaddingBottom(String value) {
+        put(SCROLL_PADDING_BOTTOM, value);
     }
 
     public String getScrollPaddingInline() {
         return get(SCROLL_PADDING_INLINE);
     }
 
-    public void setScrollPaddingInlineEnd(String value) {
-        put(SCROLL_PADDING_INLINE_END, value);
+    public void setScrollPaddingInline(String value) {
+        put(SCROLL_PADDING_INLINE, value);
     }
 
     public String getScrollPaddingInlineEnd() {
         return get(SCROLL_PADDING_INLINE_END);
     }
 
-    public void setScrollPaddingInlineStart(String value) {
-        put(SCROLL_PADDING_INLINE_START, value);
+    public void setScrollPaddingInlineEnd(String value) {
+        put(SCROLL_PADDING_INLINE_END, value);
     }
 
     public String getScrollPaddingInlineStart() {
         return get(SCROLL_PADDING_INLINE_START);
     }
 
-    public void setScrollPaddingLeft(String value) {
-        put(SCROLL_PADDING_LEFT, value);
+    public void setScrollPaddingInlineStart(String value) {
+        put(SCROLL_PADDING_INLINE_START, value);
     }
 
     public String getScrollPaddingLeft() {
         return get(SCROLL_PADDING_LEFT);
     }
 
-    public void setScrollPaddingRight(String value) {
-        put(SCROLL_PADDING_RIGHT, value);
+    public void setScrollPaddingLeft(String value) {
+        put(SCROLL_PADDING_LEFT, value);
     }
 
     public String getScrollPaddingRight() {
         return get(SCROLL_PADDING_RIGHT);
     }
 
-    public void setScrollPaddingTop(String value) {
-        put(SCROLL_PADDING_TOP, value);
+    public void setScrollPaddingRight(String value) {
+        put(SCROLL_PADDING_RIGHT, value);
     }
 
     public String getScrollPaddingTop() {
         return get(SCROLL_PADDING_TOP);
     }
 
-    private static final List<String> VALID_SCROLL_SNAP_ALIGN_VALUES = Arrays.asList(
-            "none", "start", "end", "center", "initial", "inherit"
-    );
+    public void setScrollPaddingTop(String value) {
+        put(SCROLL_PADDING_TOP, value);
+    }
 
-    private static final List<String> VALID_SCROLL_SNAP_STOP_VALUES = Arrays.asList(
-            "normal", "always", "initial", "inherit"
-    );
-
-    private static final List<String> VALID_SCROLL_SNAP_TYPE_VALUES = Arrays.asList(
-            "none", "x", "y", "block", "inline", "both", "mandatory", "proximity", "initial", "inherit"
-    );
-
-    private static final List<String> VALID_SCROLLBAR_COLOR_VALUES = Arrays.asList(
-            "auto", "dark", "light", "initial", "inherit"
-    );
-
+    public String getScrollSnapAlign() {
+        return get(SCROLL_SNAP_ALIGN);
+    }
 
     /**
      * Sets the scroll snap alignment for an element
@@ -369,8 +361,8 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         }
     }
 
-    public String getScrollSnapAlign() {
-        return get(SCROLL_SNAP_ALIGN);
+    public String getScrollSnapStop() {
+        return get(SCROLL_SNAP_STOP);
     }
 
     /**
@@ -387,8 +379,8 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         }
     }
 
-    public String getScrollSnapStop() {
-        return get(SCROLL_SNAP_STOP);
+    public String getScrollSnapType() {
+        return get(SCROLL_SNAP_TYPE);
     }
 
     /**
@@ -406,10 +398,9 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         }
     }
 
-    public String getScrollSnapType() {
-        return get(SCROLL_SNAP_TYPE);
+    public String getScrollbarColor() {
+        return get(SCROLLBAR_COLOR);
     }
-
 
     /**
      * Sets the scrollbar color
@@ -426,10 +417,9 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
         }
     }
 
-    public String getScrollbarColor() {
-        return get(SCROLLBAR_COLOR);
+    public String getShapeOutside() {
+        return get(SHAPE_OUTSIDE);
     }
-
 
     /**
      * Sets the shape around which inline content should wrap
@@ -439,10 +429,6 @@ public class JCSSPropertiesSModel extends JCSSPropertiesRModel {
      */
     public void setShapeOutside(String value) {
         put(SHAPE_OUTSIDE, value);
-    }
-
-    public String getShapeOutside() {
-        return get(SHAPE_OUTSIDE);
     }
 
     /**

@@ -22,7 +22,6 @@ import com.itextpdf.layout.Style;
 import com.itextpdf.layout.element.BlockElement;
 
 
-
 /**
  * packageName com.github.paohaijiao.model.provider
  *
@@ -34,12 +33,6 @@ import com.itextpdf.layout.element.BlockElement;
  */
 public class JCSSPropertiesLProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
 
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        com.itextpdf.layout.Style style=new com.itextpdf.layout.Style();
-        applyProperties(element,cssProperties,style);
-        element.addStyle(style);
-    }
     public static void applyProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProps, Style style) {
         if (cssProps.getLeft() != null) {
         }
@@ -103,6 +96,13 @@ public class JCSSPropertiesLProvider extends JCSSPropertiesBaseProvider implemen
             // iText supports: DISC, CIRCLE, SQUARE, DECIMAL,
             // LOWER_LATIN, UPPER_LATIN, LOWER_ROMAN, UPPER_ROMAN, etc.
         }
+    }
+
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        com.itextpdf.layout.Style style = new com.itextpdf.layout.Style();
+        applyProperties(element, cssProperties, style);
+        element.addStyle(style);
     }
 
 

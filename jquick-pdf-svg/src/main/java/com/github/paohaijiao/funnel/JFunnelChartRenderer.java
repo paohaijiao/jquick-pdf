@@ -50,7 +50,7 @@ public class JFunnelChartRenderer extends JAbstractChartRenderer {
 
     @Override
     protected void drawChart(SVGGraphics2D g2d, JOption joption, int width, int height) {
-        JFunnelOption option=joption.getFunnelOption();
+        JFunnelOption option = joption.getFunnelOption();
         drawTitle(g2d, joption, width);
         drawTriangleFunnel(g2d, option, width, height);
         drawLegend(g2d, option, width, height);

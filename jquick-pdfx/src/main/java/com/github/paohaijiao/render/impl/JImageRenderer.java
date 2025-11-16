@@ -31,6 +31,6 @@ import com.itextpdf.layout.element.IElement;
 public class JImageRenderer extends JBaseRenderer {
     @Override
     public void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        super.applyElementProperty(doc,element, styles);
+        super.applyElementProperty(doc, element, styles);
     }
 }

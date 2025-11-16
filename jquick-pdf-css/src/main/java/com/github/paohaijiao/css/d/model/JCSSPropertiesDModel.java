@@ -30,19 +30,19 @@ public class JCSSPropertiesDModel extends JCSSPropertiesCModel {
     public static final String DIRECTION = "direction";
     public static final String DISPLAY = "display";
 
-    public void setDirection(String direction) {
-        put(DIRECTION, direction);
-    }
-
     public String getDirection() {
         return get(DIRECTION);
     }
 
-    public void setDisplay(String display) {
-        put(DISPLAY, display);
+    public void setDirection(String direction) {
+        put(DIRECTION, direction);
     }
 
     public String getDisplay() {
         return get(DISPLAY);
+    }
+
+    public void setDisplay(String display) {
+        put(DISPLAY, display);
     }
 }

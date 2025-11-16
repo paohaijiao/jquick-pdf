@@ -146,15 +146,15 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
             double size = calculateBubbleSize(sizeValue.doubleValue(), minSize, maxSize); // 计算气泡大小
             Color bubbleColor = getBubbleColor(category, yValue.doubleValue());// 设置气泡颜色
             g2d.setColor(bubbleColor);// 绘制气泡
-            g2d.fill(new Ellipse2D.Double(xPos - size/2, yPos - size/2, size, size));
+            g2d.fill(new Ellipse2D.Double(xPos - size / 2, yPos - size / 2, size, size));
             g2d.setColor(getBubbleBorderColor(bubbleColor));// 绘制气泡边框
             g2d.setStroke(new BasicStroke(1.5f));
-            g2d.draw(new Ellipse2D.Double(xPos - size/2, yPos - size/2, size, size));
+            g2d.draw(new Ellipse2D.Double(xPos - size / 2, yPos - size / 2, size, size));
             g2d.setColor(Color.BLACK);// 在气泡中显示数值
             g2d.setFont(new Font("Microsoft YaHei", Font.PLAIN, 10));
             String sizeText = String.format("%.0f", sizeValue.doubleValue());
             int textWidth = g2d.getFontMetrics().stringWidth(sizeText);
-            g2d.drawString(sizeText, (float)(xPos - textWidth/2), (float)(yPos + 4));
+            g2d.drawString(sizeText, (float) (xPos - textWidth / 2), (float) (yPos + 4));
         }
     }
 
@@ -276,6 +276,7 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
         }
         return dataPoints;
     }
+
     private double getMinYValue(List<Map<String, Object>> dataPoints) {
         return dataPoints.stream()
                 .map(point -> (Number) point.get("y"))
@@ -321,11 +322,16 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
         if (category != null) {
             String categoryStr = category.toString();
             switch (categoryStr) {
-                case "优": return new Color(102, 194, 165, 180);
-                case "良": return new Color(252, 194, 91, 180);
-                case "轻度污染": return new Color(246, 138, 89, 180);
-                case "中度污染": return new Color(232, 96, 85, 180);
-                case "重度污染": return new Color(158, 42, 95, 180);
+                case "优":
+                    return new Color(102, 194, 165, 180);
+                case "良":
+                    return new Color(252, 194, 91, 180);
+                case "轻度污染":
+                    return new Color(246, 138, 89, 180);
+                case "中度污染":
+                    return new Color(232, 96, 85, 180);
+                case "重度污染":
+                    return new Color(158, 42, 95, 180);
             }
         }
         if (yValue <= 50) return new Color(102, 194, 165, 180);

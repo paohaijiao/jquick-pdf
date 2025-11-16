@@ -31,5 +31,5 @@ import java.util.List;
 @Data
 public class JHtmlRenderModel {
 
-    List<IElement> list=new ArrayList<IElement>();
+    List<IElement> list = new ArrayList<IElement>();
 }

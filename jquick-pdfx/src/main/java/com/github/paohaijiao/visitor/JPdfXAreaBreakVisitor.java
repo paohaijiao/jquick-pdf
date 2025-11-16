@@ -37,21 +37,21 @@ public class JPdfXAreaBreakVisitor extends JPdfXDivVisitor {
     @Override
     public AreaBreak visitAreaBreak(JQuickPDFParser.AreaBreakContext ctx) {
         JStyleAttributes style = new JStyleAttributes();
-        String breakType=null;
+        String breakType = null;
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        if(ctx.IDENTIFIER()!=null){
-            breakType=ctx.IDENTIFIER().getText();
+        if (ctx.IDENTIFIER() != null) {
+            breakType = ctx.IDENTIFIER().getText();
         }
-        AreaBreak areaBreak=new AreaBreak();
+        AreaBreak areaBreak = new AreaBreak();
         areaBreak.setFont(JFontProviderFactory.defualtFont());
-        if(null!=breakType){
-            JAreaBreakEnums breakEnums=JAreaBreakEnums.codeOf(breakType);
-            if(breakEnums!=null){
-                areaBreak=new AreaBreak(breakEnums.getType());
+        if (null != breakType) {
+            JAreaBreakEnums breakEnums = JAreaBreakEnums.codeOf(breakType);
+            if (breakEnums != null) {
+                areaBreak = new AreaBreak(breakEnums.getType());
             }
         }
         super.buildStyle(areaBreak, style);
@@ -62,9 +62,9 @@ public class JPdfXAreaBreakVisitor extends JPdfXDivVisitor {
     private void buildStyle(AreaBreak areaBreak, JStyleAttributes style) {
         JStyleAreaBreakAttributes attr = new JStyleAreaBreakAttributes();
         attr.putAll(style);
-        if(null!=attr.getPageSize()){
-            JPageSize pageSize= JPageSize.codeOf(attr.getPageSize());
-            if(null!=pageSize){
+        if (null != attr.getPageSize()) {
+            JPageSize pageSize = JPageSize.codeOf(attr.getPageSize());
+            if (null != pageSize) {
                 areaBreak.setPageSize(pageSize.getPageSize());
             }
 

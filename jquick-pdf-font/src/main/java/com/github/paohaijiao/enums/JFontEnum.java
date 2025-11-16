@@ -40,9 +40,10 @@ public enum JFontEnum {
     JFontEnum(String fontName) {
         this.fontName = fontName;
     }
-    public static JFontEnum codeOf(String code){
-        for(JFontEnum fontEnum : JFontEnum.values()){
-            if(fontEnum.getFontName().equalsIgnoreCase(code)){
+
+    public static JFontEnum codeOf(String code) {
+        for (JFontEnum fontEnum : JFontEnum.values()) {
+            if (fontEnum.getFontName().equalsIgnoreCase(code)) {
                 return fontEnum;
             }
         }

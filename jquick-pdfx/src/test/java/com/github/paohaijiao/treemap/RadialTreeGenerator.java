@@ -14,29 +14,8 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+
 public class RadialTreeGenerator {
-    static class TreeNode {
-        String name;
-        List<TreeNode> children = new ArrayList<>();
-        int value;
-        Point2D position;
-        double angle;
-        double radius;
-
-        TreeNode(String name) {
-            this.name = name;
-        }
-
-        TreeNode(String name, int value) {
-            this.name = name;
-            this.value = value;
-        }
-
-        void addChild(TreeNode child) {
-            children.add(child);
-        }
-    }
-
     // 创建示例树结构
     private static TreeNode createSampleTree() {
         TreeNode root = new TreeNode("Root");
@@ -224,6 +203,28 @@ public class RadialTreeGenerator {
             System.out.println("SVG文件已生成: radial_tree.svg");
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    static class TreeNode {
+        String name;
+        List<TreeNode> children = new ArrayList<>();
+        int value;
+        Point2D position;
+        double angle;
+        double radius;
+
+        TreeNode(String name) {
+            this.name = name;
+        }
+
+        TreeNode(String name, int value) {
+            this.name = name;
+            this.value = value;
+        }
+
+        void addChild(TreeNode child) {
+            children.add(child);
         }
     }
 }

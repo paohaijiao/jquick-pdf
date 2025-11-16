@@ -76,6 +76,7 @@ public class JTocGenerator implements IEventHandler {
             lastOutlines.set(i, null);
         }
     }
+
     static class Heading {
         String text;
         int level;

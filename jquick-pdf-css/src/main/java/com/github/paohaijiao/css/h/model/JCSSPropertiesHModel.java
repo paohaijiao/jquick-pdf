@@ -34,6 +34,10 @@ public class JCSSPropertiesHModel extends JCSSPropertiesGModel {
     public static final String HYPHENS = "hyphens";
     public static final String HYPHENATE_CHARACTER = "hyphenate-character";
 
+    public String getHangingPunctuation() {
+        return get(HANGING_PUNCTUATION);
+    }
+
     /**
      * @param value none | first | last | allow-end | force-end
      */
@@ -45,8 +49,8 @@ public class JCSSPropertiesHModel extends JCSSPropertiesGModel {
         }
     }
 
-    public String getHangingPunctuation() {
-        return get(HANGING_PUNCTUATION);
+    public String getHeight() {
+        return get(HEIGHT);
     }
 
     /**
@@ -56,8 +60,8 @@ public class JCSSPropertiesHModel extends JCSSPropertiesGModel {
         put(HEIGHT, value);
     }
 
-    public String getHeight() {
-        return get(HEIGHT);
+    public String getHyphens() {
+        return get(HYPHENS);
     }
 
     public void setHyphens(String value) {
@@ -68,10 +72,9 @@ public class JCSSPropertiesHModel extends JCSSPropertiesGModel {
         }
     }
 
-    public String getHyphens() {
-        return get(HYPHENS);
+    public String getHyphenateCharacter() {
+        return get(HYPHENATE_CHARACTER);
     }
-
 
     public void setHyphenateCharacter(String value) {
         if ("auto".equals(value) || (value != null && value.length() == 1)) {
@@ -79,10 +82,6 @@ public class JCSSPropertiesHModel extends JCSSPropertiesGModel {
         } else {
             throw new IllegalArgumentException("hyphenate-character must be a single character or 'auto'");
         }
-    }
-
-    public String getHyphenateCharacter() {
-        return get(HYPHENATE_CHARACTER);
     }
 
     private boolean isValidHangingPunctuation(String value) {

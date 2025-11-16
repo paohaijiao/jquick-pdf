@@ -42,8 +42,8 @@ public class JQuickPdfMarginExecutor extends JAbstractAntlrExecutor<String, JMar
 
     @Override
     protected Lexer createLexer(CharStream input) {
-        JConsole console=new JConsole();
-        console.debug("style:\n"+input.toString());
+        JConsole console = new JConsole();
+        console.debug("style:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 
@@ -56,7 +56,7 @@ public class JQuickPdfMarginExecutor extends JAbstractAntlrExecutor<String, JMar
     protected JMarginModel parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
         JQuickPDFParser.MarginValueContext tree = calcParser.marginValue();
-        JPdfXStyleVisitor visitor  = new JPdfXStyleVisitor();
+        JPdfXStyleVisitor visitor = new JPdfXStyleVisitor();
         JMarginModel response = visitor.visitMarginValue(tree);
         return response;
     }

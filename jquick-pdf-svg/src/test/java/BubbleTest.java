@@ -41,8 +41,6 @@ import java.util.Map;
 public class BubbleTest {
 
 
-
-
     @Test
     public void testBarChar1() throws IOException {
         JTitle title = new JTitle();

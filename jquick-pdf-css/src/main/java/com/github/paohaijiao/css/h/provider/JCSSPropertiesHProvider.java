@@ -35,26 +35,6 @@ import java.util.Arrays;
  * @description
  */
 public class JCSSPropertiesHProvider extends JCSSPropertiesBaseProvider implements JCSSPropertiesProvider {
-    @Override
-    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
-        if(null==cssProperties){
-          return;
-        }
-        Style style=new Style();
-        if(null!=cssProperties.getHeight()){
-            style.setProperty(Property.HEIGHT, cssProperties.getHeight());
-        }
-        if(null!=cssProperties.getHangingPunctuation()){
-            applyHangingPunctuation(style, cssProperties.getHangingPunctuation());
-        }
-        if(null!=cssProperties.getHyphens()){
-            applyHyphens(style, cssProperties.getHyphens());
-        }
-        if(null!=cssProperties.getHyphenateCharacter()){
-            applyHyphens(style, cssProperties.getHyphenateCharacter());
-        }
-        element.addStyle(style);
-    }
     public static Style applyHangingPunctuation(Style style, String value) {
         if (isValidHangingPunctuation(value)) {
             // style.setProperty(Property.HANGING_PUNCTUATION, value);
@@ -87,6 +67,26 @@ public class JCSSPropertiesHProvider extends JCSSPropertiesBaseProvider implemen
                 .contains(value);
     }
 
+    @Override
+    public void applyCssProperties(BlockElement<?> element, JCSSPropertiesCoreModel cssProperties) {
+        if (null == cssProperties) {
+            return;
+        }
+        Style style = new Style();
+        if (null != cssProperties.getHeight()) {
+            style.setProperty(Property.HEIGHT, cssProperties.getHeight());
+        }
+        if (null != cssProperties.getHangingPunctuation()) {
+            applyHangingPunctuation(style, cssProperties.getHangingPunctuation());
+        }
+        if (null != cssProperties.getHyphens()) {
+            applyHyphens(style, cssProperties.getHyphens());
+        }
+        if (null != cssProperties.getHyphenateCharacter()) {
+            applyHyphens(style, cssProperties.getHyphenateCharacter());
+        }
+        element.addStyle(style);
+    }
 
 
 }

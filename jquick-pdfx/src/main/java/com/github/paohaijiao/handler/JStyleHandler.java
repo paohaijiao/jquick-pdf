@@ -32,9 +32,9 @@ import com.itextpdf.layout.element.IElement;
  */
 public class JStyleHandler {
 
-    public static void applyStyles(Document doc,IElement element, JStyleAttributes styles) {
-        if (doc==null||element == null || styles == null) return;
+    public static void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
+        if (doc == null || element == null || styles == null) return;
         JStyleRenderer renderer = JStyleRendererFactory.getRenderer(element);
-        renderer.applyStyles(doc,element, styles);
+        renderer.applyStyles(doc, element, styles);
     }
 }

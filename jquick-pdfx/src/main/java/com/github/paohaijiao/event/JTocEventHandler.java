@@ -25,11 +25,11 @@ import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.navigation.PdfDestination;
 import com.itextpdf.kernel.pdf.navigation.PdfExplicitDestination;
 
-public class JTocEventHandler implements IEventHandler{
+public class JTocEventHandler implements IEventHandler {
 
     private PdfOutline rootOutline;
 
-    private JCatalogConfig  config;
+    private JCatalogConfig config;
 
     public JTocEventHandler(PdfDocument pdfDoc, JCatalogConfig pdfConfig) {
         this.rootOutline = pdfDoc.getOutlines(false);
@@ -46,6 +46,6 @@ public class JTocEventHandler implements IEventHandler{
             PdfOutline outline = rootOutline.addOutline("重要章节");
             outline.addDestination(dest);
         }
-        config.setStartPage(config.getStartPage()+1);
+        config.setStartPage(config.getStartPage() + 1);
     }
 }

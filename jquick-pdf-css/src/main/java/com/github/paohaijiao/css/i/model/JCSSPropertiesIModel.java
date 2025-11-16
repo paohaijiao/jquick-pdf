@@ -49,6 +49,10 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
     private static final List<String> VALID_ISOLATION =
             Arrays.asList("auto", "isolate");
 
+    public String getImageRendering() {
+        return get(IMAGE_RENDERING);
+    }
+
     /**
      * @param value auto | smooth | high-quality | crisp-edges | pixelated
      */
@@ -60,8 +64,8 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         }
     }
 
-    public String getImageRendering() {
-        return get(IMAGE_RENDERING);
+    public String getInitialLetter() {
+        return get(INITIAL_LETTER);
     }
 
     /**
@@ -71,8 +75,8 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         put(INITIAL_LETTER, value);
     }
 
-    public String getInitialLetter() {
-        return get(INITIAL_LETTER);
+    public String getInlineSize() {
+        return get(INLINE_SIZE);
     }
 
     /**
@@ -82,14 +86,9 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         put(INLINE_SIZE, value);
     }
 
-    public String getInlineSize() {
-        return get(INLINE_SIZE);
+    public String getInset() {
+        return get(INSET);
     }
-
-    public void setInsetBlock(String value) {
-        put(INSET_BLOCK, value);
-    }
-
 
     /**
      * @param value ：<length> | <percentage> | auto
@@ -102,20 +101,12 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         put(INSET, value);
     }
 
-    public String getInset() {
-        return get(INSET);
-    }
-
-
     public String getInsetBlock() {
         return get(INSET_BLOCK);
     }
 
-    /**
-     * @param value ：<length> | <percentage> | auto
-     */
-    public void setInsetBlockEnd(String value) {
-        put(INSET_BLOCK_END, value);
+    public void setInsetBlock(String value) {
+        put(INSET_BLOCK, value);
     }
 
     public String getInsetBlockEnd() {
@@ -125,12 +116,23 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
     /**
      * @param value ：<length> | <percentage> | auto
      */
-    public void setInsetBlockStart(String value) {
-        put(INSET_BLOCK_START, value);
+    public void setInsetBlockEnd(String value) {
+        put(INSET_BLOCK_END, value);
     }
 
     public String getInsetBlockStart() {
         return get(INSET_BLOCK_START);
+    }
+
+    /**
+     * @param value ：<length> | <percentage> | auto
+     */
+    public void setInsetBlockStart(String value) {
+        put(INSET_BLOCK_START, value);
+    }
+
+    public String getInsetInline() {
+        return get(INSET_INLINE);
     }
 
     /**
@@ -142,8 +144,8 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         put(INSET_INLINE, value);
     }
 
-    public String getInsetInline() {
-        return get(INSET_INLINE);
+    public String getInsetInlineEnd() {
+        return get(INSET_INLINE_END);
     }
 
     /**
@@ -154,8 +156,8 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         put(INSET_INLINE_END, value);
     }
 
-    public String getInsetInlineEnd() {
-        return get(INSET_INLINE_END);
+    public String getInsetInlineStart() {
+        return get(INSET_INLINE_START);
     }
 
     /**
@@ -166,8 +168,8 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         put(INSET_INLINE_START, value);
     }
 
-    public String getInsetInlineStart() {
-        return get(INSET_INLINE_START);
+    public String getIsolation() {
+        return get(ISOLATION);
     }
 
     /**
@@ -181,8 +183,8 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         }
     }
 
-    public String getIsolation() {
-        return get(ISOLATION);
+    public String getImportRule() {
+        return get(IMPORT);
     }
 
     /**
@@ -194,10 +196,6 @@ public class JCSSPropertiesIModel extends JCSSPropertiesHModel {
         } else {
             throw new IllegalArgumentException("Invalid @import rule format");
         }
-    }
-
-    public String getImportRule() {
-        return get(IMPORT);
     }
 
 }

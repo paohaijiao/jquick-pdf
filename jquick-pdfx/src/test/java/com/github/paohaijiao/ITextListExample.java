@@ -1,4 +1,5 @@
 package com.github.paohaijiao;
+
 import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -10,6 +11,7 @@ import com.itextpdf.layout.properties.ListNumberingType;
 
 import java.io.File;
 import java.io.IOException;
+
 public class ITextListExample {
     public static void main(String[] args) throws IOException {
         PdfDocument pdf = new PdfDocument(new PdfWriter(new File("d://test//itext_list_example.pdf")));
@@ -20,11 +22,11 @@ public class ITextListExample {
         List unorderedList = new List()
                 .setSymbolIndent(12)
                 .setListSymbol("\u2022"); // 使用圆点作为项目符号
-        ListItem list1= new ListItem("第一项");
+        ListItem list1 = new ListItem("第一项");
         list1.setFont(JFontProviderFactory.defualtFont());
-        ListItem list2= new ListItem("第二项");
+        ListItem list2 = new ListItem("第二项");
         list2.setFont(JFontProviderFactory.defualtFont());
-        ListItem list3= new ListItem("第三项");
+        ListItem list3 = new ListItem("第三项");
         list3.setFont(JFontProviderFactory.defualtFont());
         unorderedList.add(list1);
         unorderedList.add(list2);

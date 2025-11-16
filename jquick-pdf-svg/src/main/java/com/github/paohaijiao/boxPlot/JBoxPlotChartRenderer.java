@@ -95,7 +95,7 @@ public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
         drawYAxisTicks(svg, margin, height, plotHeight, extractor.getValueRange());
     }
 
-    private int scaleToPlot(double value, int height, int margin,int plotHeight, ValueRange valueRange) {
+    private int scaleToPlot(double value, int height, int margin, int plotHeight, ValueRange valueRange) {
         return (int) (height - margin - (value - valueRange.min) / valueRange.range * plotHeight);
     }
 

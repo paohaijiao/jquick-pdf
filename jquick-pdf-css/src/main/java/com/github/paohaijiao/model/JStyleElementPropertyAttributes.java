@@ -21,9 +21,6 @@ import java.util.HashMap;
 public class JStyleElementPropertyAttributes extends HashMap<String, String> {
 
 
-
-
-
     public static final String relativePosition = "relativePosition";
 
     public static final String fixedPosition = "fixedPosition";
@@ -39,10 +36,6 @@ public class JStyleElementPropertyAttributes extends HashMap<String, String> {
     public static final String fontSize = "fontSize";
 
     public static final String textAlignment = "textAlignment";
-
-
-
-
 
 
     public static final String characterSpacing = "characterSpacing";
@@ -105,277 +98,277 @@ public class JStyleElementPropertyAttributes extends HashMap<String, String> {
         return get(relativePosition);
     }
 
-    public String getFixedPosition() {
-        return get(fixedPosition);
-    }
-
-    public String getFont() {
-        return get(font);
-    }
-
-    public String getFontFamilyNames() {
-        return get(fontFamilyNames);
-    }
-
-    public String getFontColor() {
-        return get(fontColor);
-    }
-
-    public String getOpacity() {
-        return get(opacity);
-    }
-
-    public String getFontSize() {
-        return get(fontSize);
-    }
-
-    public String getTextAlignment() {
-        return get(textAlignment);
-    }
-
-    public String getCharacterSpacing() {
-        return get(characterSpacing);
-    }
-
-    public String getWordSpacing() {
-        return get(wordSpacing);
-    }
-
-    public String getFontKerning() {
-        return get(fontKerning);
-    }
-
-    public String getBackgroundColor() {
-        return get(backgroundColor);
-    }
-
-    public String getBackgroundImage() {
-        return get(backgroundImage);
-    }
-
-    public String getBorder() {
-        return get(border);
-    }
-
-    public String getBorderTop() {
-        return get(borderTop);
-    }
-
-    public String getBorderRight() {
-        return get(borderRight);
-    }
-
-    public String getBorderBottom() {
-        return get(borderBottom);
-    }
-
-    public String getBorderLeft() {
-        return get(borderLeft);
-    }
-
-    public String getBorderRadius() {
-        return get(borderRadius);
-    }
-
-    public String getBorderBottomLeftRadius() {
-        return get(borderBottomLeftRadius);
-    }
-
-    public String getBorderBottomRightRadius() {
-        return get(borderBottomRightRadius);
-    }
-
-    public String getBorderTopLeftRadius() {
-        return get(borderTopLeftRadius);
-    }
-
-    public String getBorderTopRightRadius() {
-        return get(borderTopRightRadius);
-    }
-
-    public String getSplitCharacters() {
-        return get(splitCharacters);
-    }
-
-    public String getTextRenderingMode() {
-        return get(textRenderingMode);
-    }
-
-    public String getStrokeColor() {
-        return get(strokeColor);
-    }
-
-    public String getStrokeWidth() {
-        return get(strokeWidth);
-    }
-
-    public String getBold() {
-        return get(bold);
-    }
-
-    public String getItalic() {
-        return get(italic);
-    }
-
-    public String getLineThrough() {
-        return get(lineThrough);
-    }
-
-    public String getUnderline() {
-        return get(underline);
-    }
-
-    public String getBaseDirection() {
-        return get(baseDirection);
-    }
-
-    public String getHyphenation() {
-        return get(hyphenation);
-    }
-
-    public String getFontScript() {
-        return get(fontScript);
-    }
-
-    public String getDestination() {
-        return get(destination);
-    }
-
     // Setter methods
     public void setRelativePosition(String value) {
         put(relativePosition, value);
+    }
+
+    public String getFixedPosition() {
+        return get(fixedPosition);
     }
 
     public void setFixedPosition(String value) {
         put(fixedPosition, value);
     }
 
+    public String getFont() {
+        return get(font);
+    }
+
     public void setFont(String value) {
         put(font, value);
+    }
+
+    public String getFontFamilyNames() {
+        return get(fontFamilyNames);
     }
 
     public void setFontFamilyNames(String value) {
         put(fontFamilyNames, value);
     }
 
+    public String getFontColor() {
+        return get(fontColor);
+    }
+
     public void setFontColor(String value) {
         put(fontColor, value);
+    }
+
+    public String getOpacity() {
+        return get(opacity);
     }
 
     public void setOpacity(String value) {
         put(opacity, value);
     }
 
+    public String getFontSize() {
+        return get(fontSize);
+    }
+
     public void setFontSize(String value) {
         put(fontSize, value);
+    }
+
+    public String getTextAlignment() {
+        return get(textAlignment);
     }
 
     public void setTextAlignment(String value) {
         put(textAlignment, value);
     }
 
+    public String getCharacterSpacing() {
+        return get(characterSpacing);
+    }
+
     public void setCharacterSpacing(String value) {
         put(characterSpacing, value);
+    }
+
+    public String getWordSpacing() {
+        return get(wordSpacing);
     }
 
     public void setWordSpacing(String value) {
         put(wordSpacing, value);
     }
 
+    public String getFontKerning() {
+        return get(fontKerning);
+    }
+
     public void setFontKerning(String value) {
         put(fontKerning, value);
+    }
+
+    public String getBackgroundColor() {
+        return get(backgroundColor);
     }
 
     public void setBackgroundColor(String value) {
         put(backgroundColor, value);
     }
 
+    public String getBackgroundImage() {
+        return get(backgroundImage);
+    }
+
     public void setBackgroundImage(String value) {
         put(backgroundImage, value);
+    }
+
+    public String getBorder() {
+        return get(border);
     }
 
     public void setBorder(String value) {
         put(border, value);
     }
 
+    public String getBorderTop() {
+        return get(borderTop);
+    }
+
     public void setBorderTop(String value) {
         put(borderTop, value);
+    }
+
+    public String getBorderRight() {
+        return get(borderRight);
     }
 
     public void setBorderRight(String value) {
         put(borderRight, value);
     }
 
+    public String getBorderBottom() {
+        return get(borderBottom);
+    }
+
     public void setBorderBottom(String value) {
         put(borderBottom, value);
+    }
+
+    public String getBorderLeft() {
+        return get(borderLeft);
     }
 
     public void setBorderLeft(String value) {
         put(borderLeft, value);
     }
 
+    public String getBorderRadius() {
+        return get(borderRadius);
+    }
+
     public void setBorderRadius(String value) {
         put(borderRadius, value);
+    }
+
+    public String getBorderBottomLeftRadius() {
+        return get(borderBottomLeftRadius);
     }
 
     public void setBorderBottomLeftRadius(String value) {
         put(borderBottomLeftRadius, value);
     }
 
+    public String getBorderBottomRightRadius() {
+        return get(borderBottomRightRadius);
+    }
+
     public void setBorderBottomRightRadius(String value) {
         put(borderBottomRightRadius, value);
+    }
+
+    public String getBorderTopLeftRadius() {
+        return get(borderTopLeftRadius);
     }
 
     public void setBorderTopLeftRadius(String value) {
         put(borderTopLeftRadius, value);
     }
 
+    public String getBorderTopRightRadius() {
+        return get(borderTopRightRadius);
+    }
+
     public void setBorderTopRightRadius(String value) {
         put(borderTopRightRadius, value);
+    }
+
+    public String getSplitCharacters() {
+        return get(splitCharacters);
     }
 
     public void setSplitCharacters(String value) {
         put(splitCharacters, value);
     }
 
+    public String getTextRenderingMode() {
+        return get(textRenderingMode);
+    }
+
     public void setTextRenderingMode(String value) {
         put(textRenderingMode, value);
+    }
+
+    public String getStrokeColor() {
+        return get(strokeColor);
     }
 
     public void setStrokeColor(String value) {
         put(strokeColor, value);
     }
 
+    public String getStrokeWidth() {
+        return get(strokeWidth);
+    }
+
     public void setStrokeWidth(String value) {
         put(strokeWidth, value);
+    }
+
+    public String getBold() {
+        return get(bold);
     }
 
     public void setBold(String value) {
         put(bold, value);
     }
 
+    public String getItalic() {
+        return get(italic);
+    }
+
     public void setItalic(String value) {
         put(italic, value);
+    }
+
+    public String getLineThrough() {
+        return get(lineThrough);
     }
 
     public void setLineThrough(String value) {
         put(lineThrough, value);
     }
 
+    public String getUnderline() {
+        return get(underline);
+    }
+
     public void setUnderline(String value) {
         put(underline, value);
+    }
+
+    public String getBaseDirection() {
+        return get(baseDirection);
     }
 
     public void setBaseDirection(String value) {
         put(baseDirection, value);
     }
 
+    public String getHyphenation() {
+        return get(hyphenation);
+    }
+
     public void setHyphenation(String value) {
         put(hyphenation, value);
     }
 
+    public String getFontScript() {
+        return get(fontScript);
+    }
+
     public void setFontScript(String value) {
         put(fontScript, value);
+    }
+
+    public String getDestination() {
+        return get(destination);
     }
 
     public void setDestination(String value) {

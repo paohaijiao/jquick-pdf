@@ -81,6 +81,7 @@ public class LunarTest {
         specialDays.add(new LunarCalendarOption.SpecialDay("清明", 3, 0)); // 第4行第1列
         return specialDays;
     }
+
     @Test
     public void testBarChar1() throws IOException {
         LunarCalendarOption.CalendarDataConfig dataConfig = new LunarCalendarOption.CalendarDataConfig()

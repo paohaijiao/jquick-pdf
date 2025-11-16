@@ -67,6 +67,10 @@ public class JCSSPropertiesLModel extends JCSSPropertiesKModel {
         return get(LAYER + (layerName != null ? " " + layerName : ""));
     }
 
+    public String getLeft() {
+        return get(LEFT);
+    }
+
     /**
      * Sets left position property
      *
@@ -76,8 +80,8 @@ public class JCSSPropertiesLModel extends JCSSPropertiesKModel {
         put(LEFT, value);
     }
 
-    public String getLeft() {
-        return get(LEFT);
+    public String getLetterSpacing() {
+        return get(LETTER_SPACING);
     }
 
     /**
@@ -89,8 +93,8 @@ public class JCSSPropertiesLModel extends JCSSPropertiesKModel {
         put(LETTER_SPACING, value);
     }
 
-    public String getLetterSpacing() {
-        return get(LETTER_SPACING);
+    public String getLineHeight() {
+        return get(LINE_HEIGHT);
     }
 
     /**
@@ -102,8 +106,8 @@ public class JCSSPropertiesLModel extends JCSSPropertiesKModel {
         put(LINE_HEIGHT, value);
     }
 
-    public String getLineHeight() {
-        return get(LINE_HEIGHT);
+    public String getListStyle() {
+        return get(LIST_STYLE);
     }
 
     /**
@@ -115,8 +119,8 @@ public class JCSSPropertiesLModel extends JCSSPropertiesKModel {
         put(LIST_STYLE, value);
     }
 
-    public String getListStyle() {
-        return get(LIST_STYLE);
+    public String getListStyleImage() {
+        return get(LIST_STYLE_IMAGE);
     }
 
     /**
@@ -128,8 +132,8 @@ public class JCSSPropertiesLModel extends JCSSPropertiesKModel {
         put(LIST_STYLE_IMAGE, value);
     }
 
-    public String getListStyleImage() {
-        return get(LIST_STYLE_IMAGE);
+    public String getListStylePosition() {
+        return get(LIST_STYLE_POSITION);
     }
 
     /**
@@ -146,8 +150,8 @@ public class JCSSPropertiesLModel extends JCSSPropertiesKModel {
         }
     }
 
-    public String getListStylePosition() {
-        return get(LIST_STYLE_POSITION);
+    public String getListStyleType() {
+        return get(LIST_STYLE_TYPE);
     }
 
     /**
@@ -162,10 +166,6 @@ public class JCSSPropertiesLModel extends JCSSPropertiesKModel {
         } else {
             throw new IllegalArgumentException("Invalid list-style-type value: " + value);
         }
-    }
-
-    public String getListStyleType() {
-        return get(LIST_STYLE_TYPE);
     }
 
 }

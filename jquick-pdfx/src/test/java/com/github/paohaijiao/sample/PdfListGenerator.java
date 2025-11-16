@@ -15,14 +15,15 @@ import com.itextpdf.layout.properties.VerticalAlignment;
 
 import java.io.File;
 import java.io.IOException;
+
 public class PdfListGenerator {
 
+    public static final String DEST = "d://test//list_example.pdf";
     private static final DeviceRgb HEADER_COLOR = new DeviceRgb(66, 133, 244); // 蓝色表头
     private static final DeviceRgb HEADER_TEXT_COLOR = new DeviceRgb(255, 255, 255); // 白色文字
     private static final DeviceRgb EVEN_ROW_COLOR = new DeviceRgb(245, 245, 245); // 浅灰色偶数行
     private static final DeviceRgb TEXT_COLOR = new DeviceRgb(51, 51, 51); // 深灰色文字
     private static final DeviceRgb BORDER_COLOR = new DeviceRgb(221, 221, 221); // 浅灰色边框
-    public static final String DEST = "d://test//list_example.pdf";
 
     public static void main(String[] args) throws IOException {
         File file = new File(DEST);
