@@ -23,6 +23,7 @@ import com.github.paohaijiao.code.JSymbol;
 import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.data.JSunburstData;
 import com.github.paohaijiao.funnel.JFunnelOption;
+import com.github.paohaijiao.gant.JGanttOption;
 import com.github.paohaijiao.matrix.JCorrelationMatrixOption;
 import com.github.paohaijiao.option.JNoDataLoadingOption;
 import com.github.paohaijiao.series.JParallel;
@@ -213,6 +214,8 @@ public class JOption implements Serializable {
     private JFunnelOption funnelOption;
 
     private JCorrelationMatrixOption correlationMatrixOption;
+
+    private JGanttOption ganttOption;
 
 
     public JSunburstData getSunburstData() {

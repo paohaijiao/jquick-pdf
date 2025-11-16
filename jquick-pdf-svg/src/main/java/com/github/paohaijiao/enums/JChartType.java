@@ -54,6 +54,8 @@ public enum JChartType {
 
     CorrectionMatrix("CorrectionMatrix","相关矩阵"),
 
+    Gantt("gantt","甘特图"),
+
     ;
     private String code;
 

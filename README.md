@@ -352,24 +352,25 @@
 | `<image>` | 嵌入图片(Image)        | ElementProperty style  | `src="logo.png" width="200px"` |
 | `<svg>`   | 矢量图形(PdfTemplate)  | ElementProperty style  | N/A                            |
 # ChartType Enum Values
-| Enum Value   | Description/Notes |
-|--------------|-------------------|
-| BAR          | 柱状图               |
-| BOXPLOT      | 箱线图               |
-| HEATMAP      | 热力图               |
-| K            | K线图(蜡烛图)          |
-| LINE         | 折线图               |
-| PIE          | 饼图                |
-| RADAR        | 雷达图               |
-| RELATION     | 关系图               |
-| SCATTER      | 散点图               |
-| SUNBURST     | 旭日图(1.5.1)        |
-| Treemap      | 矩形树图(1.5.1)       |
-| Bubble       | 气泡图(1.5.1)        |
-| Calendar       | 日历活动图(1.5.3)      |
-| Lunar       | 日历(1.5.3)         |
-| Funnel       | 漏斗图(1.5.3)        |
-| CorrectionMatrix       | 相关系数矩阵(1.5.3)     |
+| Enum Value       | Description/Notes |
+|------------------|-------------------|
+| BAR              | 柱状图               |
+| BOXPLOT          | 箱线图               |
+| HEATMAP          | 热力图               |
+| K                | K线图(蜡烛图)          |
+| LINE             | 折线图               |
+| PIE              | 饼图                |
+| RADAR            | 雷达图               |
+| RELATION         | 关系图               |
+| SCATTER          | 散点图               |
+| SUNBURST         | 旭日图(1.5.1)        |
+| Treemap          | 矩形树图(1.5.1)       |
+| Bubble           | 气泡图(1.5.1)        |
+| Calendar         | 日历活动图(1.5.3)      |
+| Lunar            | 日历(1.5.3)         |
+| Funnel           | 漏斗图(1.5.3)        |
+| CorrectionMatrix | 相关系数矩阵(1.5.3)     |
+| Gantt             | 甘特图(1.5.3)        |
 #### sample java code
 ##### 1. 柱状图
 ```java
