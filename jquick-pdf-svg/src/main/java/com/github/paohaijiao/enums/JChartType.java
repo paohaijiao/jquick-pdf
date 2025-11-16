@@ -47,6 +47,9 @@ public enum JChartType {
     Bubble("Bubble","气泡图"),
 
     Calendar("Calendar","日历图"),
+
+    Lunar("Lunar","日历"),
+
     ;
     private String code;
 
