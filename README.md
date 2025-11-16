@@ -366,7 +366,8 @@
 | SUNBURST     | 旭日图(1.5.1)        |
 | Treemap      | 矩形树图(1.5.1)       |
 | Bubble       | 气泡图(1.5.1)        |
-| Calendar       | 日历图(1.5.3)        |
+| Calendar       | 日历活动图(1.5.3)      |
+| Lunar       | 日历(1.5.3)         |
 #### sample java code
 ##### 1. 柱状图
 ```java
