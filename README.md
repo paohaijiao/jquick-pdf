@@ -48,7 +48,7 @@
     - [7.7 树形结构（示例2）](#77-树形结构示例2)
 ## 概述
 ```string
-      jQuickPDF 是一个轻量级的 Java 库，用于从类似 HTML 的模板生成 PDF 文档，支持动态内容和丰富的样式。
+      jQuickPDF 是一个轻量级的 Java 库，用于从类似 HTML 的模板生成 PDF 文档，支持动态内容和丰富的样式以及常用的chart图标。
 ```
 ## 安装
 ```xml
@@ -351,18 +351,20 @@
 | `<image>` | 嵌入图片(Image)        | ElementProperty style  | `src="logo.png" width="200px"` |
 | `<svg>`   | 矢量图形(PdfTemplate)  | ElementProperty style  | N/A                            |
 # ChartType Enum Values
-| Enum Value  | Description/Notes |
-|-------------|-------------------|
-| BAR         | 柱状图               |
-| BOXPLOT     | 箱线图               |
-| HEATMAP     | 热力图               |
-| K           | K线图(蜡烛图)          |
-| LINE        | 折线图               |
-| PIE         | 饼图                |
-| RADAR       | 雷达图               |
-| RELATION    | 关系图               |
-| SCATTER     | 散点图               |
-| SUNBURST    | 旭日图               |
+| Enum Value   | Description/Notes |
+|--------------|-------------------|
+| BAR          | 柱状图               |
+| BOXPLOT      | 箱线图               |
+| HEATMAP      | 热力图               |
+| K            | K线图(蜡烛图)          |
+| LINE         | 折线图               |
+| PIE          | 饼图                |
+| RADAR        | 雷达图               |
+| RELATION     | 关系图               |
+| SCATTER      | 散点图               |
+| SUNBURST     | 旭日图(1.5.1)        |
+| Treemap      | 矩形树图(1.5.1)              |
+| Bubble       | 气泡图(1.5.1)               |
 #### sample java code
 ##### 1. 柱状图
 ```java
