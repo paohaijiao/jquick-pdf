@@ -50,6 +50,8 @@ public enum JChartType {
 
     Lunar("Lunar","日历"),
 
+    Funnel("Funnel","漏斗图"),
+
     ;
     private String code;
 

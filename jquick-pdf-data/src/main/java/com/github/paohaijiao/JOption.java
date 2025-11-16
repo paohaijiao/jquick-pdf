@@ -22,6 +22,7 @@ import com.github.paohaijiao.code.JEasing;
 import com.github.paohaijiao.code.JSymbol;
 import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.data.JSunburstData;
+import com.github.paohaijiao.funnel.JFunnelOption;
 import com.github.paohaijiao.option.JNoDataLoadingOption;
 import com.github.paohaijiao.series.JParallel;
 import com.github.paohaijiao.series.JSeries;
@@ -207,6 +208,8 @@ public class JOption implements Serializable {
 
 
     private JCalendarOption jCalendarOption;
+
+    private JFunnelOption funnelOption;
 
 
     public JSunburstData getSunburstData() {
