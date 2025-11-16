@@ -24,7 +24,6 @@ import com.github.paohaijiao.bubble.ValueAxis;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
-import com.github.paohaijiao.data.JSunburstData;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.resouce.JReader;

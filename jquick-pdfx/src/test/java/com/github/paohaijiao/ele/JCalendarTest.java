@@ -25,9 +25,6 @@ import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
-import com.github.paohaijiao.treemap.JTreeMapNode;
-import com.github.paohaijiao.treemap.TreeMapMapping;
-import com.github.paohaijiao.treemap.TreeMapOption;
 import org.junit.Test;
 
 import java.awt.*;

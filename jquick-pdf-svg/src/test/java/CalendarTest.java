@@ -15,14 +15,9 @@
  */
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.axis.JCategoryAxis;
-import com.github.paohaijiao.axis.JValueAxis;
-import com.github.paohaijiao.bar.JBarChartsRenderer;
 import com.github.paohaijiao.calendar.JCalendarChartRenderer;
 import com.github.paohaijiao.calendar.JCalendarOption;
-import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.provider.JChartRenderer;
-import com.github.paohaijiao.series.JBar;
 import org.junit.Test;
 
 import java.awt.*;

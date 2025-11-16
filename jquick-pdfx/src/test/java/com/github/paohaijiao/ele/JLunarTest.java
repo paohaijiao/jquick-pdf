@@ -18,7 +18,6 @@ package com.github.paohaijiao.ele;
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JTitle;
 import com.github.paohaijiao.adaptor.JAdaptor;
-import com.github.paohaijiao.calendar.JCalendarOption;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
@@ -31,10 +30,7 @@ import org.junit.Test;
 
 import java.awt.*;
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * packageName com.github.paohaijiao.ele

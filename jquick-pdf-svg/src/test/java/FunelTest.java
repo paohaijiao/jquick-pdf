@@ -17,6 +17,7 @@
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.funnel.*;
 import org.junit.Test;
+
 import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;

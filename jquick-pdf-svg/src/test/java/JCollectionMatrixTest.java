@@ -15,8 +15,8 @@
  */
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.matrix.JCorrelationMatrixRenderer;
 import com.github.paohaijiao.matrix.JCorrelationMatrixOption;
+import com.github.paohaijiao.matrix.JCorrelationMatrixRenderer;
 import org.junit.Test;
 
 import javax.xml.parsers.ParserConfigurationException;

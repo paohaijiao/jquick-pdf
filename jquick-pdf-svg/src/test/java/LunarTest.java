@@ -15,8 +15,8 @@
  */
 
 import com.github.paohaijiao.JTitle;
-import com.github.paohaijiao.lunar.LunarCalendarOption;
 import com.github.paohaijiao.lunar.JLunarCalendarRenderer;
+import com.github.paohaijiao.lunar.LunarCalendarOption;
 import org.junit.Test;
 
 import java.awt.*;

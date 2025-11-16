@@ -17,7 +17,6 @@ package com.github.paohaijiao.series;
 
 
 import com.github.paohaijiao.code.JSeriesType;
-import com.github.paohaijiao.series.JSeries;
 import com.github.paohaijiao.style.itemstyle.JEmphasis;
 
 import java.util.List;

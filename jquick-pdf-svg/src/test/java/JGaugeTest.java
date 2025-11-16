@@ -15,8 +15,8 @@
  */
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.guage.JGuageOption;
 import com.github.paohaijiao.guage.GuageConfig;
+import com.github.paohaijiao.guage.JGuageOption;
 import com.github.paohaijiao.guage.JGuageRenderer;
 import org.junit.Test;
 

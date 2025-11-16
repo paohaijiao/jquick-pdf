@@ -17,7 +17,10 @@
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JTitle;
-import com.github.paohaijiao.bubble.*;
+import com.github.paohaijiao.bubble.CategoryAxis;
+import com.github.paohaijiao.bubble.JBubbleChartRenderer;
+import com.github.paohaijiao.bubble.ScatterSeries;
+import com.github.paohaijiao.bubble.ValueAxis;
 import org.junit.Test;
 
 import java.io.IOException;

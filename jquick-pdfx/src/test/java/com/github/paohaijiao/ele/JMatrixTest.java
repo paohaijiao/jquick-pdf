@@ -16,22 +16,18 @@
 package com.github.paohaijiao.ele;
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.JTitle;
 import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
-import com.github.paohaijiao.lunar.LunarCalendarOption;
 import com.github.paohaijiao.matrix.JCorrelationMatrixOption;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
-import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
  * packageName com.github.paohaijiao.ele

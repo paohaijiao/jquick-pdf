@@ -20,10 +20,10 @@ import com.github.paohaijiao.axis.JAxis;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import com.github.paohaijiao.series.JSeries;
 import org.apache.batik.svggen.SVGGraphics2D;
+
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
-import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
