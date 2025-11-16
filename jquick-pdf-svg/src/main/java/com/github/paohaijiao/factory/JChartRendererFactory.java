@@ -23,6 +23,7 @@ import com.github.paohaijiao.calendar.JCalendarChartRenderer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.funnel.JFunnelChartRenderer;
 import com.github.paohaijiao.gantt.JGanttChartRenderer;
+import com.github.paohaijiao.guage.JGuageRenderer;
 import com.github.paohaijiao.heatMap.JHeatMapChartRenderer;
 import com.github.paohaijiao.k.JKChartsRenderer;
 import com.github.paohaijiao.line.JLineChartsRenderer;
@@ -86,6 +87,8 @@ public class JChartRendererFactory {
                 return new JCorrelationMatrixRenderer();
             case Gantt:
                 return new JGanttChartRenderer();
+            case Guage:
+                return new JGuageRenderer();
 
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);

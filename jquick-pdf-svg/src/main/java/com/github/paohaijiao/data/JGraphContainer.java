@@ -27,6 +27,7 @@ import lombok.Data;
  * @since 2025/7/20
  */
 @Data
+
 public class JGraphContainer {
 
     private JChartType type;

@@ -370,7 +370,8 @@
 | Lunar            | 日历(1.5.3)         |
 | Funnel           | 漏斗图(1.5.3)        |
 | CorrectionMatrix | 相关系数矩阵(1.5.3)     |
-| Gantt             | 甘特图(1.5.3)        |
+| Gantt            | 甘特图(1.5.3)        |
+| Gauge             | 仪表盘(1.5.3)        |
 #### sample java code
 ##### 1. 柱状图
 ```java

@@ -55,6 +55,8 @@ public enum JChartType {
     CorrectionMatrix("CorrectionMatrix","相关矩阵"),
 
     Gantt("gantt","甘特图"),
+    @Deprecated
+    Guage("Guage","仪表盘"),
 
     ;
     private String code;

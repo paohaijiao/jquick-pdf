@@ -24,6 +24,7 @@ import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.data.JSunburstData;
 import com.github.paohaijiao.funnel.JFunnelOption;
 import com.github.paohaijiao.gant.JGanttOption;
+import com.github.paohaijiao.guage.JGuageOption;
 import com.github.paohaijiao.matrix.JCorrelationMatrixOption;
 import com.github.paohaijiao.option.JNoDataLoadingOption;
 import com.github.paohaijiao.series.JParallel;
@@ -216,6 +217,8 @@ public class JOption implements Serializable {
     private JCorrelationMatrixOption correlationMatrixOption;
 
     private JGanttOption ganttOption;
+
+    private JGuageOption guageOption;
 
 
     public JSunburstData getSunburstData() {
