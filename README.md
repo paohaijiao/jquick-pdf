@@ -1,11 +1,13 @@
 # JQuickPDF 文档
 
 简体中文 | [EN](./README-EN.md)
+## 项目状态
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=social&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
 [![GitHub forks](https://img.shields.io/github/forks/paohaijiao/jquick-pdf.svg?style=social&label=Forks)](https://github.com/paohaijiao/jquick-pdf)
 [![GitHub watchers](https://img.shields.io/github/watchers/paohaijiao/jquick-pdf.svg?style=social&label=Watchers)](https://github.com/paohaijiao/jquick-pdf)
 [![GitHub issues](https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg)](https://github.com/paohaijiao/jquick-pdf/issues)
 [![GitHub license](https://img.shields.io/github/license/paohaijiao/jquick-pdf.svg)](https://github.com/paohaijiao/jquick-pdf/blob/master/LICENSE)
+## 目录
 - [1. 概述](#1-概述)
 - [2. 安装](#2-安装)
 - [3. 基本语法](#3-基本语法)
