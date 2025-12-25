@@ -1,5 +1,4 @@
 # JQuickPDF 文档
-
 简体中文 | [EN](./README-EN.md)
 ## 项目状态
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=social&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
