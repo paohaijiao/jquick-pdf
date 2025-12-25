@@ -1,5 +1,4 @@
 # JQuickPDF Documentation
-
 - [1. Overview](#1-overview)
 - [2. Installation](#2-installation)
 - [3. Basic Syntax](#3-basic-syntax)
