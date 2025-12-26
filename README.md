@@ -1,92 +1,78 @@
-# JQuickPDF 文档
+# 📄 JQuickPDF – 轻量级 Java PDF 生成库
+
 简体中文 | [EN](./README-EN.md)
-## 项目状态
-[![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=social&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
-[![GitHub forks](https://img.shields.io/github/forks/paohaijiao/jquick-pdf.svg?style=social&label=Forks)](https://github.com/paohaijiao/jquick-pdf)
-[![GitHub watchers](https://img.shields.io/github/watchers/paohaijiao/jquick-pdf.svg?style=social&label=Watchers)](https://github.com/paohaijiao/jquick-pdf)
-[![GitHub issues](https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg)](https://github.com/paohaijiao/jquick-pdf/issues)
-[![GitHub license](https://img.shields.io/github/license/paohaijiao/jquick-pdf.svg)](https://github.com/paohaijiao/jquick-pdf/blob/master/LICENSE)
-## 目录
-- [1. 概述](#1-概述)
-- [2. 安装](#2-安装)
-- [3. 基本语法](#3-基本语法)
-- [4. 元素样式](#4-元素样式)
-    - [4.1 块元素样式](#41-块元素样式)
-    - [4.2 元素属性样式](#42-元素属性样式)
-- [5. 内容元素](#5-内容元素)
-    - [5.1 文本元素](#51-文本元素)
-        - [5.1.1 段落](#511-段落)
-        - [5.1.2 标题（h1-h6）](#512-标题h1-h6)
-        - [5.1.3 行内文本](#513-行内文本)
-        - [5.1.4 制表符](#514-制表符)
-    - [5.2 布局元素](#52-布局元素)
-        - [5.2.1 容器](#521-容器)
-        - [5.2.2 区域分隔](#522-区域分隔)
-        - [5.2.3 HTML 分页符](#523-html-分页符)
-    - [5.3 列表元素](#53-列表元素)
-        - [5.3.1 列表](#531-列表)
-    - [5.4 表格元素](#54-表格元素)
-        - [5.4.1 表格](#541-表格)
-    - [5.5 表单元素](#55-表单元素)
-        - [5.5.1 按钮](#551-按钮)
-        - [5.5.2 复选框](#552-复选框)
-        - [5.5.3 输入框](#553-输入框)
-        - [5.5.4 下拉选择框](#554-下拉选择框)
-    - [5.6 媒体元素](#56-媒体元素)
-        - [5.6.1 图片](#561-图片)
-        - [5.6.2 矢量图形](#562-矢量图形)
-- [6. 图表类型枚举值](#6-图表类型枚举值)
-    - [6.1 柱状图（示例代码）](#61-柱状图示例代码)
-    - [6.2 箱线图（示例代码）](#62-箱线图示例代码)
-    - [6.3 热力图（示例代码）](#63-热力图示例代码)
-    - [6.4 K线图（示例代码）](#64-k线图示例代码)
-    - [6.5 折线图（示例代码）](#65-折线图示例代码)
-    - [6.6 饼图（示例代码）](#66-饼图示例代码)
-    - [6.7 雷达图（示例代码）](#67-雷达图示例代码)
-    - [6.8 关系图（示例代码）](#68-关系图示例代码)
-    - [6.9 散点图（示例代码）](#69-散点图示例代码)
-- [7. 特殊元素](#7-特殊元素)
-    - [7.1 页码元素](#71-页码元素)
-    - [7.2 模板](#72-模板)
-    - [7.3 链接](#73-链接)
-    - [7.4 列表框](#74-列表框)
-    - [7.5 文本区域](#75-文本区域)
-    - [7.6 树形结构（示例1）](#76-树形结构示例1)
-    - [7.7 树形结构（示例2）](#77-树形结构示例2)
 
-## 概述
+> 一个基于类 HTML 模板的轻量级 Java PDF 库，支持动态内容、丰富样式与多种图表。
 
-```string
-      jQuickPDF 是一个轻量级的 Java 库，用于从类似 HTML 的模板生成 PDF 文档，支持动态内容和丰富的
-   样式以及常用的chart图表。
+---
+
+## 🚀 项目状态
+
+[![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
+[![GitHub forks](https://img.shields.io/github/forks/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Forks)](https://github.com/paohaijiao/jquick-pdf)
+[![GitHub issues](https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Issues)](https://github.com/paohaijiao/jquick-pdf/issues)
+[![GitHub license](https://img.shields.io/github/license/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=License)](https://github.com/paohaijiao/jquick-pdf/blob/master/LICENSE)
+
+---
+
+## 📖 目录
+
+- [✨ 概述](#-概述)
+- [📦 安装](#-安装)
+- [📝 基础语法](#-基础语法)
+- [🎨 元素样式](#-元素样式)
+    - [块元素样式](#块元素样式)
+    - [元素属性样式](#元素属性样式)
+- [🧩 内容元素](#-内容元素)
+    - [文本元素](#文本元素)
+    - [布局元素](#布局元素)
+    - [列表元素](#列表元素)
+    - [表格元素](#表格元素)
+    - [表单元素](#表单元素)
+    - [媒体元素](#媒体元素)
+- [📊 图表类型](#-图表类型)
+- [🔧 特殊元素](#-特殊元素)
+- [💌 捐赠支持](#-捐赠支持)
+
+---
+
+## ✨ 概述
+
+JQuickPDF 是一个轻量级的 Java 库，用于从类似 HTML 的模板生成 PDF 文档。支持动态数据绑定、丰富的样式控制以及多种常见图表类型。
+
+```java
+// 示例代码片段
+JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
+executor.execute(templateContent);
 ```
 
-## 安装
+## 📦 安装
 
 ```xml
-
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
     <artifactId>jquick-pdf</artifactId>
 </dependency>
 ```
 
-## 基础语法
+## 📝 基础语法
 
 ```html
 
 <pdf>
     <body>
-    <!-- Content goes here -->
+    <!-- 内容写在这里 -->
+    <h1>Hello JQuickPDF</h1>
+    <p>这是一个示例段落。</p>
     </body>
 </pdf>
 ```
 
-## Elements STYLE
+## 🎨 元素样式
 
-### BlockElement Styles
+### 块元素样式
 
-| Property          | Example Value             | Description               |
+| 属性                | 示例值             | 说明               |
 |-------------------|---------------------------|---------------------------|
 | marginLeft        | `"1px"`                   | 左边距值                      |
 | marginRight       | `"500px"`                 | 右边距值                      |
@@ -112,7 +98,7 @@
 | minWidth          | `"300px"`                 | 元素最小宽度                    |
 | maxWidth          | `"300px"`                 | 元素最大宽度                    |
 
-## ElementProperty Styles
+## 元素属性样式
 
 | Property                | Example Value           | Description                 |
 |-------------------------|-------------------------|-----------------------------|
@@ -150,9 +136,9 @@
 | fontScript              | `"common"`              | 字体脚本类型                      |
 | destination             | `"hello"`               | 元素目标/锚点名称                   |
 
-## Content Elements
+## 🧩 内容元素
 
-### Text Elements
+### 文本元素
 
 | Element     | Description    | Style Attributes      | Values                 |
 |-------------|----------------|-----------------------|------------------------|
@@ -297,7 +283,7 @@ execute(context.getRuleContent());
 </pdf>
 ```
 
-### List Elements
+### 列表元素
 
 | Element  | Description    | Style Attributes                | Values                |
 |----------|----------------|---------------------------------|-----------------------|
@@ -410,7 +396,8 @@ execute(context.getRuleContent());
 | `<image>` | 嵌入图片(Image)       | ElementProperty style | `src="logo.png" width="200px"` |
 | `<svg>`   | 矢量图形(PdfTemplate) | ElementProperty style | N/A                            |
 
-# ChartType Enum Values
+# 📊 图表类型
+JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF 中：
 
 | Enum Value       | Description/Notes |
 |------------------|-------------------|
