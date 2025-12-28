@@ -783,16 +783,12 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
           JSunburstData("膨化食品", 0.5));
         main3Sub2.addChild(new 
           JSunburstData("糖果", 0.5));
-        // 构建树结构
         main1.addChild(main1Sub1);
         main1.addChild(main1Sub2);
-
         main2.addChild(main2Sub1);
         main2.addChild(main2Sub2);
-
         main3.addChild(main3Sub1);
         main3.addChild(main3Sub2);
-
         root.addChild(main1);
         root.addChild(main2);
         root.addChild(main3);
