@@ -37,6 +37,6 @@ public class BoxPlotTest {
                 new Object[]{11, 16, 21, 27, 33}
         ));
         JBoxPlotChartRenderer jBarChartsRenderer = new JBoxPlotChartRenderer();
-        jBarChartsRenderer.render(option, "D://test//boxchart-output.svg");
+        jBarChartsRenderer.render(option, "D://test//boxchart.svg");
     }
 }

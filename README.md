@@ -245,7 +245,11 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 | Gantt            | 甘特图(1.5.3)        |
 | Gauge            | 仪表盘(1.5.3)        |
 | WordsCloud            | 词云(1.5.3)         |
-
+```string 
+// ============================================================================
+# 1.柱状图  BAR chart
+// ============================================================================
+```
 <table style="width: 100%; border: none; border-collapse: collapse;">
   <tr>
     <td style="width: 48%; vertical-align: middle; padding-right: 2%; border: none;">
@@ -275,33 +279,40 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 
 ```string 
 // ============================================================================
-# 柱状图  BAR chart
+# 2.箱线图  BOXPLOT chart
 // ============================================================================
-    // 1. 创建图表配置
-    JOption option = new JOption();
-    option.title().text("销售数据").subtext("2023年度");
-    option.tooltip().trigger(JTrigger.axis);
-    // 2. 配置坐标轴
-    JCategoryAxis xAxis = new JCategoryAxis();
-    xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
-    option.xAxis(xAxis);
-    option.yAxis(new JValueAxis());
-    // 3. 配置数据系列
-    JBar bar = new JBar();
-    bar.name("销量").data(5, 20, 36, 10, 10, 20);
-    option.series(bar);
+```
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 48%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>箱线图数据</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+          <code class="language-java">// 1. 创建图表配置
+             JOption option = new JOption();
+             option.title().text("销售数据分布");
+             option.xAxis(new JCategoryAxis().data("一季度", "二季度", "三季度", "四季度"));
+             option.series(new JBoxplot().data(
+                   new Object[]{10, 15, 20, 25, 30},
+                   new Object[]{12, 18, 22, 28, 35},
+                   new Object[]{8, 14, 19, 26, 32},
+                   ew Object[]{11, 16, 21, 27, 33}
+                ));
+          </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/boxchart.svg" alt="箱线图数据" style="width: 100%; max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">箱线图数据</div>
+    </td>
+  </tr>
+</table>
+
+
+```string 
 // ============================================================================
 # 箱线图  BOXPLOT chart
 // ============================================================================
-     JOption option = new JOption();
-     option.title().text("销售数据分布");
-     option.xAxis(new JCategoryAxis().data("一季度", "二季度", "三季度", "四季度"));
-     option.series(new JBoxplot().data(
-           new Object[]{10, 15, 20, 25, 30},
-           new Object[]{12, 18, 22, 28, 35},
-           new Object[]{8, 14, 19, 26, 32},
-           ew Object[]{11, 16, 21, 27, 33}
-        ));
+
 // ============================================================================
 # HEATMAP  热力图 chart
 // ============================================================================
