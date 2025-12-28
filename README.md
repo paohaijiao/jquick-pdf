@@ -245,33 +245,35 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 | Gantt            | 甘特图(1.5.3)        |
 | Gauge            | 仪表盘(1.5.3)        |
 | WordsCloud            | 词云(1.5.3)         |
-<div style="display: flex; align-items: flex-start; gap: 20px; width: 100%;">
-      <!-- 左侧代码区域 -->
-      <div style="flex: 1;">
-            ```java
-            // ============================================================================
-            # 柱状图  BAR chart
-            // ============================================================================
-                // 1. 创建图表配置
-                JOption option = new JOption();
-                option.title().text("销售数据").subtext("2023年度");
-                option.tooltip().trigger(JTrigger.axis);
-                // 2. 配置坐标轴
-                JCategoryAxis xAxis = new JCategoryAxis();
-                xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
-                option.xAxis(xAxis);
-                option.yAxis(new JValueAxis());
-                // 3. 配置数据系列
-                JBar bar = new JBar();
-                bar.name("销量").data(5, 20, 36, 10, 10, 20);
-                option.series(bar);
-            ```
-      </div>
-      <div style="flex: 1;">
-        <img src="./images/bubble.svg" alt="BAR chart" style="width: 100%; height: auto;" />
-        <p style="text-align: center; color: #666; margin-top: 8px;">2023年度销售数据柱状图</p>
-      </div>
+<div style="display: flex; align-items: flex-start; gap: 24px; width: 100%; margin: 20px 0;">
+  <!-- 左侧：代码区域（单独对应柱状图代码） -->
+  <div style="flex: 1; background: #f5f5f5; padding: 16px; border-radius: 8px; font-family: monospace; line-height: 1.5;">
+      ```java
+      // ============================================================================
+      # 柱状图  BAR chart
+      // ============================================================================
+      // 1. 创建图表配置
+      JOption option = new JOption();
+      option.title().text("销售数据").subtext("2023年度");
+      option.tooltip().trigger(JTrigger.axis);
+      
+      // 2. 配置坐标轴
+      JCategoryAxis xAxis = new JCategoryAxis();
+      xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+      option.xAxis(xAxis);
+      option.yAxis(new JValueAxis());
+      
+      // 3. 配置数据系列
+      JBar bar = new JBar();
+      bar.name("销量").data(5, 20, 36, 10, 10, 20);
+      option.series(bar);
+      ```
+  </div>
+  <div style="flex: 1; background: #f5f5f5; padding: 16px; border-radius: 8px; text-align: center;">
+      <h4 style="margin-top: 0;">2023年度销售数据柱状图</h4><img src="./images/bubble.svg" alt="销售数据柱状图" style="width: 100%; height: auto; max-height: 300px;" />
+  </div>
 </div>
+
 ```string 
 // ============================================================================
 # 柱状图  BAR chart
