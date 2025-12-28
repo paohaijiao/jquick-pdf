@@ -553,10 +553,9 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 // ============================================================================
 # 气泡图(1.5.1)  Bubble chart
 // ============================================================================
-    JTitle title = new JTitle();
+        JTitle title = new JTitle();
         title.setText("空气质量指数 (AQI) 监测气泡图");
         title.setSubtext("图表说明：本气泡图展示了空气质量指数(AQI)的时间变化趋势。X轴表示日期，Y轴表示AQI数值，气泡大小反映PM2.5浓度，气泡颜色表示AQI等级。");
-//        title.set
         JOption option = new JOption()
                 .title(title)
                 .legend("优", "良", "轻度污染", "中度污染", "重度污染")
@@ -586,7 +585,62 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
         }
         series.data(data.toArray());
         option.series(series);
+// ============================================================================
+# 日历(1.5.3)  Lunar chart
+// ============================================================================
+        Map<LocalDate, Integer> data = new HashMap<>();
+        LocalDate startDate = LocalDate.of(2024, 1, 1);
+        for (int i = 0; i < 365; i++) {
+            LocalDate date = startDate.plusDays(i);
+            int value = (int) (Math.random() * 15);
+            data.put(date, value);
+        }
+        JOption option = new JOption();
+        JCalendarOption calendarOption = new JCalendarOption("2024年活动日历", "类似GitHub贡献图", 2024, data,
+                new Color(235, 237, 240),
+                new Color(32, 125, 222),
+                new Color(232, 235, 240),
+                new Color(84, 85, 90),
+                20,
+                80
+        );
+        option.setJCalendarOption(calendarOption);
+// ============================================================================
+# 漏斗图(1.5.3)  Funnel chart
+// ============================================================================
+        JFunnelOption option = JFunnelOption.createDefaultFunnel();
+        JFunnelOption customOption = option
+        .title(new Title().text("销售漏斗").subtext("2024年数据"))
+        .funnel(new Funnel()
+               .width(600)
+               .topY(80)
+               .bottomY(200)
+               .gap(2)
+               .borderColor(Color.GRAY)
+        )
+        .series(Collections.singletonList(
+              new Series()
+                  .name("sales")
+                  .type("funnel")
+                  .data(Arrays.asList(
+                        new DataItem("展现", 10000),
+                        new DataItem("点击", 5000),
+                        new DataItem("咨询", 2000),
+                        new DataItem("订单", 500)
+                  ))
+                ))
+                .colors(
+                        new Color(12, 168, 223),
+                        new Color(255, 153, 77),
+                        new Color(80, 112, 221),
+                        new Color(182, 214, 52)
+                );
+        JFunnelChartRenderer renderer = new JFunnelChartRenderer();
+        JOption jOption = new JOption();
+        jOption.setFunnelOption(customOption);
 ```
+```
+
 
 #### 8 样例
 
