@@ -245,55 +245,19 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 | Gantt            | 甘特图(1.5.3)        |
 | Gauge            | 仪表盘(1.5.3)        |
 | WordsCloud            | 词云(1.5.3)         |
-<div style="
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  width: 100%;
-  max-width: 1200px; /* 可选：限制整体最大宽度，避免过宽 */
-  margin: 20px 0;
-  box-sizing: border-box; /* 防止内边距撑大宽度 */
-  flex-wrap: nowrap; /* 强制禁止折行，确保左右布局 */
-">
-  <!-- 左侧：代码区域 -->
-  <div style="
-    flex: 1;
-    background: #f5f5f5;
-    padding: 16px;
-    border-radius: 8px;
-    font-family: monospace;
-    line-height: 1.5;
-    min-width: 0; /* 解决flex子元素内容溢出问题 */
-    box-sizing: border-box;
-  ">
-```java
-      // ============================================================================\n
-      # 柱状图  BAR chart\n
-      // ============================================================================\n
-      // 1. 创建图表配置\n
-      JOption option = new JOption();\n
-      option.title().text(\"销售数据\").subtext(\"2023年度\");\n
-      option.tooltip().trigger(JTrigger.axis);\n
-      \n
-      // 2. 配置坐标轴\n
-      JCategoryAxis xAxis = new JCategoryAxis();\n
-      xAxis.data(\"衬衫\", \"羊毛衫\", \"雪纺衫\", \"裤子\", \"高跟鞋\", \"袜子\");\n
-      option.xAxis(xAxis);\n
-      option.yAxis(new JValueAxis());\n
-      \n
-      // 3. 配置数据系列\n
-      JBar bar = new JBar();\n
-      bar.name(\"销量\").data(5, 20, 36, 10, 10, 20);\n
-      option.series(bar);\n
-```
-</div>
-<div style="flex: 1;background: #f5f5f5;padding: 16px;border-radius: 8px;text-align: center;box-sizing: border-box;min-width: 0;"><h4 style="margin-top: 0; margin-bottom: 12px;">2023年度销售数据柱状图</h4><!-- 核心：固定图片最大宽高，同时保持比例 --><imgsrc="./images/bubble.svg"alt="销售数据柱状图"style="width: 100%;max-width: 400px; /* 限制图片最大宽度 /
-height: auto;
-max-height: 300px; / 限制图片最大高度 /
-object-fit: contain; / 保持图片比例，不拉伸变形 /
-display: block; / 消除图片底部空白 /
-margin: 0 auto; / 居中显示 */"/>
-</div>
+
+<div style="display: flex; align-items: center; gap: 20px;">
+  <div style="flex: 1;">
+    **这里是左边的文本**  
+    可以有多行内容  
+    支持 Markdown 语法
+    - 列表项1
+    - 列表项2
+  </div>
+  <div style="flex: 1; text-align: center;">
+        <img src="./images/bubble.svg" alt="销售数据柱状图" style="width: 100%;max-width: 400px;" /> 
+        <div style="font-size: 0.9em; color: #666;">图片说明文字</div>
+  </div>
 </div>
 ```string 
 // ============================================================================
