@@ -286,7 +286,8 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
           // 1. 创建图表配置
            JOption option = new JOption();
            option.title().text("销售数据分布");
-           option.xAxis(new JCategoryAxis().data("一季度", "二季度", "三季度", "四季度"));
+           option.xAxis(new JCategoryAxis().data("一季度", 
+           "二季度", "三季度", "四季度"));
            option.series(new JBoxplot().data(
               new Object[]{10, 15, 20, 25, 30},
               new Object[]{12, 18, 22, 28, 35},
