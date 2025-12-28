@@ -282,16 +282,17 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
     <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
       <strong>箱线图数据</strong><br>
       <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
-          <code class="language-java">// 1. 创建图表配置
-             JOption option = new JOption();
-             option.title().text("销售数据分布");
-             option.xAxis(new JCategoryAxis().data("一季度", "二季度", "三季度", "四季度"));
-             option.series(new JBoxplot().data(
-                   new Object[]{10, 15, 20, 25, 30},
-                   new Object[]{12, 18, 22, 28, 35},
-                   new Object[]{8, 14, 19, 26, 32},
-                   ew Object[]{11, 16, 21, 27, 33}
-                ));
+          <code class="language-java">
+          // 1. 创建图表配置
+           JOption option = new JOption();
+           option.title().text("销售数据分布");
+           option.xAxis(new JCategoryAxis().data("一季度", "二季度", "三季度", "四季度"));
+           option.series(new JBoxplot().data(
+              new Object[]{10, 15, 20, 25, 30},
+              new Object[]{12, 18, 22, 28, 35},
+              new Object[]{8, 14, 19, 26, 32},
+              new Object[]{11, 16, 21, 27, 33}
+           ));
           </code>
       </pre>
     </td>
