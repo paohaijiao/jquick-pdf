@@ -15,14 +15,15 @@
 
 ---
 
-## 📖 目录
+## 📖 目录导航
 
-- [✨ 概述](#-概述)
-- [📦 安装](#-安装)
-- [📝 基础语法](#-基础语法)
-- [🎨 元素样式](#-元素样式)
+- [✨ 核心特性](#-核心特性)
+- [📦 快速开始](#-快速开始)
+    - [安装](#安装)
+    - [基础用法](#基础用法)
+- [🎨 样式系统](#-样式系统)
     - [块元素样式](#块元素样式)
-    - [元素属性样式](#元素属性样式)
+    - [属性样式](#属性样式)
 - [🧩 内容元素](#-内容元素)
     - [文本元素](#文本元素)
     - [布局元素](#布局元素)
@@ -30,35 +31,40 @@
     - [表格元素](#表格元素)
     - [表单元素](#表单元素)
     - [媒体元素](#媒体元素)
-- [📊 图表类型](#-图表类型)
+- [📊 图表支持](#-图表支持)
 - [🔧 特殊元素](#-特殊元素)
-- [💌 捐赠支持](#-捐赠支持)
+- [💌 支持项目](#-支持项目)
 
 ---
-
-## ✨ 概述
+## ✨ 核心特性
 
 JQuickPDF 是一个轻量级的 Java 库，用于从类似 HTML 的模板生成 PDF 文档。支持动态数据绑定、丰富的样式控制以及多种常见图表类型。
 
+### 🌟 主要特点
+- ✅ 类 HTML 模板语法，上手简单
+- ✅ 支持动态数据绑定
+- ✅ 丰富的样式控制
+- ✅ 多种图表类型支持
+- ✅ 轻量级，无冗余依赖
+
 ```java
-// 示例代码片段
 JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
 executor.execute(templateContent);
 ```
 
-## 📦 安装
+## 📦 📦 快速开始
 
 ```xml
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
     <artifactId>jquick-pdf</artifactId>
+    <version>最新版本</version>
 </dependency>
 ```
 
 ## 📝 基础语法
-
+创建简单的 PDF 模板：
 ```html
-
 <pdf>
     <body>
     <!-- 内容写在这里 -->
@@ -68,332 +74,152 @@ executor.execute(templateContent);
 </pdf>
 ```
 
-## 🎨 元素样式
-
-### 块元素样式
-
-| 属性                | 示例值             | 说明               |
-|-------------------|---------------------------|---------------------------|
-| marginLeft        | `"1px"`                   | 左边距值                      |
-| marginRight       | `"500px"`                 | 右边距值                      |
-| marginTop         | `"500px"`                 | 上边距值                      |
-| marginBottom      | `"500px"`                 | 下边距值                      |
-| commonMargin      | `"100px"`                 | 所有边统一的边距                  |
-| margins           | `"'20px 30px 40px 50px'"` | 上、右、下、左边距                 |
-| paddingLeft       | `"50px"`                  | 左内边距值                     |
-| paddingRight      | `"50px"`                  | 右内边距值                     |
-| paddingTop        | `"50px"`                  | 上内边距值                     |
-| paddingBottom     | `"50px"`                  | 下内边距值                     |
-| commonPadding     | `"50px"`                  | 所有边统一的内边距                 |
-| paddings          | `"50px 50px 60px 70px"`   | 上、右、下、左内边距                |
-| verticalAlignment | `"top"`                   | 垂直对齐方式(top/middle/bottom) |
-| spacingRatio      | `"30"`                    | 元素之间的间距比例                 |
-| keepTogether      | `"true"`                  | 是否保持元素在一起                 |
-| keepWithNext      | `"true"`                  | 是否与下一个元素保持在一起             |
-| angleInRadians    | `"30"`                    | 旋转角度(弧度)                  |
-| width             | `"300px"`                 | 元素宽度                      |
-| height            | `"300px"`                 | 元素高度                      |
-| maxHeight         | `"300px"`                 | 元素最大高度                    |
-| minHeight         | `"300px"`                 | 元素最小高度                    |
-| minWidth          | `"300px"`                 | 元素最小宽度                    |
-| maxWidth          | `"300px"`                 | 元素最大宽度                    |
-
-## 元素属性样式
-
-| Property                | Example Value           | Description                 |
-|-------------------------|-------------------------|-----------------------------|
-| relativePosition        | `"30px 30px 30px 30px"` | 相对位置值                       |
-| font                    | `"HELVETICA"`           | 字体类型:具体值可参考 JFontEnum       |
-| fontFamilyNames         | `"Helvetica"`           | 字体家族名称(逗号分隔)                |
-| fontColor               | `"red"`                 | 字体颜色:值参考 JColorEnums 类      |
-| opacity                 | `"0.5"`                 | 元素透明度                       |
-| fontSize                | `"34"`                  | 字体大小                        |
-| textAlignment           | `"left"`                | 文本对齐方式，具体值参考 JTextAlignment |
-| characterSpacing        | `"30"`                  | 字符间距                        |
-| wordSpacing             | `"30"`                  | 单词间距                        |
-| fontKerning             | `"yes"`                 | 字体字距调整设置                    |
-| backgroundColor         | `"red"`                 | 背景颜色，值参考 JColorEnums 类      |
-| backgroundImage         | `"D:/pdf/image.png"`    | 背景图片路径                      |
-| border                  | `"solid 32px red"`      | 边框样式(类型 宽度 颜色)              |
-| borderTop               | `"solid 32px red"`      | 上边框样式                       |
-| borderRight             | `"solid 32px red"`      | 右边框样式                       |
-| borderLeft              | `"solid 32px red"`      | 左边框样式                       |
-| borderBottom            | `"solid 32px red"`      | 下边框样式                       |
-| borderRadius            | `"32px 24px"`           | 边框圆角值                       |
-| borderBottomLeftRadius  | `"32px 24px"`           | 左下边框圆角                      |
-| borderBottomRightRadius | `"32px 24px"`           | 右下边框圆角                      |
-| borderTopRightRadius    | `"32px 24px"`           | 右上边框圆角                      |
-| borderTopLeftRadius     | `"32px 24px"`           | 左上边框圆角                      |
-| splitCharacters         | `"24"`                  | 字符间距(同 characterSpacing)    |
-| textRenderingMode       | `"24"`                  | 文本渲染模式                      |
-| strokeColor             | `"red"`                 | 描边颜色                        |
-| strokeWidth             | `"24"`                  | 描边宽度                        |
-| bold                    | `"true"`                | 文本是否加粗                      |
-| italic                  | `"true"`                | 文本是否斜体                      |
-| lineThrough             | `"true"`                | 文本是否有删除线                    |
-| underline               | `"true"`                | 文本是否有下划线                    |
-| baseDirection           | `"no_bidi"`             | 文本基础方向                      |
-| fontScript              | `"common"`              | 字体脚本类型                      |
-| destination             | `"hello"`               | 元素目标/锚点名称                   |
-
-## 🧩 内容元素
-
-### 文本元素
-
-| Element     | Description    | Style Attributes      | Values                 |
-|-------------|----------------|-----------------------|------------------------|
-| `<p>`       | 段落块(Paragraph) | ElementProperty style | `text-align="justify"` |
-| `<h1>-<h6>` | 标题(带样式的段落)     | ElementProperty style | `font-size="24pt"`     |
-| `<span>`    | 内联文本容器(Chunk)  | ElementProperty style | `font-style="italic"`  |
-| `<br>`      | 换行(Newline)    | ElementProperty style | `<br type="after">`    |
-| `<tab>`     | 制表符	           | ElementProperty style | `<br type="after">`    |
-
-#### 1. 段落
-
-```java
-     JReader fileReader = new JReSourceFileReader("sample/paragraph.txt");
-JAdaptor context = new JAdaptor(fileReader);
-JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
-     executor.
-
-execute(context.getRuleContent());
+### 语法规则
+```string
+<element style="属性名1:值1; 属性名2:值2; ...">
+    内容
+</element>
 ```
+#### 元素
+##### 文本元素
+| Element | Description | 示例代码 |
+|---------|-------------|----------|
+| `<p>` | 段落块(Paragraph) | `<p style="text-align:justify">'段落内容'</p>` |
+| `<h1>-<h6>` | 标题(带样式的段落) | `<h1 style="font-size:24pt">'标题内容'</h1>` |
+| `<span>` | 内联文本容器(Chunk) | `<span style="fontColor:blue">'内联文本'</span>` |
+| `<br>` | 换行(Newline) | `<br type="after">` |
+| `<tab>` | 制表符 | `<p><tab/><tab/><span>'制表符后的文本'</span></p>` |
 
-```html
+##### 布局元素
+| Element | Description | 示例代码 |
+|---------|-------------|----------|
+| `<div>` | 块容器(Div) | `<div style="width:100%">'块容器内容'</div>` |
+| `<areaBreak>` | 分节符(AreaBreak) | `<areaBreak></areaBreak>` |
+| `<htmlPageBreak>` | 显式分页符(NewPage) | `<htmlPageBreak style="font-color:blue">next_area</htmlPageBreak>` |
+| `<lineSeparator>` | 分隔线 | `<lineSeparator style="strokeColor:red"></lineSeparator>` |
 
-<pdf>
-    <body>
-    <p>
-        '这是 is Paragraph......................................................................'
-    </p>
-    <p>
-        <tab>
-        </tab>
-        <tab>
-        </tab>
-        <tab>
-        </tab>
-        <span> '这种 is Paragraph1......................................................................'</span>
-    </p>
-    </body>
-</pdf>
-```
+##### 列表与表格元素
+| Element | Description | 示例代码 |
+|---------|-------------|----------|
+| `<list>` | 有序/无序列表(List) | `<list style="symbol:hahaha"><li>'选项1'</li></list>` |
+| `<li>` | 列表项(ListItem) | `<li style="fontColor:red">'选项1'</li>` |
+| `<table>` | 表格容器(Table) | `<table><tr><td>'数据'</td></tr></table>` |
+| `<tr>` | 表格行(TableRow) | `<tr style="height:30px"></tr>` |
+| `<td>` | 表格数据单元格(TableCell) | `<td style="fontColor:red">'数据'</td>` |
+| `<th>` | 表格标题单元格(TableCell) | `<th style="font-weight:bold">'标题'</th>` |
 
-#### 2.标题h1-h6
+##### 表单元素
+| Element | Description | 示例代码 |
+|---------|-------------|----------|
+| `<button>` | 按钮(PushbuttonField) | `<button style="fontColor:blue">'提交'</button>` |
+| `<checkbox>` | 复选框(CheckboxField) | `<checkbox style="font-color:blue" checked>'提交'</checkbox>` |
+| `<inputField>` | 文本输入框(TextField) | `<inputField style="font-color:blue">'你好中国'</inputField>` |
+| `<comboBoxField>` | 下拉选择框(ComboBoxField) | `<comboBoxField style="font-color:blue" checked>'提交'</comboBoxField>` |
+| `<textArea>` | 多行文本输入框(TextAreaField) | `<p><textArea>'你好中国'</textArea></p>` |
 
-```html
+##### 媒体元素
+| Element | Description | 示例代码 |
+|---------|-------------|----------|
+| `<image>` | 嵌入图片(Image) | `<image src="logo.png" style="width:200px;height:150px"></image>` |
+| `<svg>` | 矢量图形(PdfTemplate) | `<svg>${svg}</svg>` 或 `<svg>&{svg}</svg>` |
 
-<pdf>
-    <body>
-    <h1>
-        '这是 is h1......................................................................'
-    </h1>
-    <h2>
-        '这是 is h2......................................................................'
-    </h2>
-    <h3>
-        '这是 is h3......................................................................'
-    </h3>
-    <h4>
-        '这是 is h4......................................................................'
-    </h4>
-    <h5>
-        '这是 is h5......................................................................'
-    </h5>
-    <h6>
-        '这是 is h6......................................................................'
-    </h6>
-    </body>
-</pdf>
-```
+##### 特殊元素
+| Element | Description | 示例代码 |
+|---------|-------------|----------|
+| `<template>` | 可重用模板内容 | `<template>&html</template>` |
+| `<tree>` | 树形结构数据 | `<tree>${tree}</tree>` 或 `<tree>tree</tree>` |
+| `${variable}` | 数据绑定占位符 | `<p>姓名: ${name}</p>` |
+| `<textArea>` | 多行文本输入框(TextAreaField) | `<p><textArea>'多行文本'</textArea></p>` |
 
-#### 3.span内联文本
 
-```html
+#### 📋 完整属性表格（含示例代码）
 
-<pdf>
-    <body>
-    <p>
-        <span style="fontColor:blue">'你好中国'</span>
-    </p>
-    </body>
-</pdf>
-```
+| 属性 | 示例值 | 说明 | 示例代码 |
+|------|--------|------|----------|
+| **边距属性** | | | |
+| `marginLeft` | `"1px"` | 左边距值 | `<div style="marginLeft:1px">内容</div>` |
+| `marginRight` | `"500px"` | 右边距值 | `<div style="marginRight:500px">内容</div>` |
+| `marginTop` | `"500px"` | 上边距值 | `<div style="marginTop:500px">内容</div>` |
+| `marginBottom` | `"500px"` | 下边距值 | `<div style="marginBottom:500px">内容</div>` |
+| `commonMargin` | `"100px"` | 所有边统一的边距 | `<div style="commonMargin:100px">内容</div>` |
+| `margins` | `"'20px 30px 40px 50px'"` | 上、右、下、左边距 | `<div style="margins:'20px 30px 40px 50px'">内容</div>` |
+| **内边距属性** | | | |
+| `paddingLeft` | `"50px"` | 左内边距值 | `<div style="paddingLeft:50px">内容</div>` |
+| `paddingRight` | `"50px"` | 右内边距值 | `<div style="paddingRight:50px">内容</div>` |
+| `paddingTop` | `"50px"` | 上内边距值 | `<div style="paddingTop:50px">内容</div>` |
+| `paddingBottom` | `"50px"` | 下内边距值 | `<div style="paddingBottom:50px">内容</div>` |
+| `commonPadding` | `"50px"` | 所有边统一的内边距 | `<div style="commonPadding:50px">内容</div>` |
+| `paddings` | `"50px 50px 60px 70px"` | 上、右、下、左内边距 | `<div style="paddings:50px 50px 60px 70px">内容</div>` |
+| **对齐与布局属性** | | | |
+| `verticalAlignment` | `"top"` | 垂直对齐方式(top/middle/bottom) | `<div style="verticalAlignment:top">内容</div>` |
+| `spacingRatio` | `"30"` | 元素之间的间距比例 | `<div style="spacingRatio:30">内容</div>` |
+| `keepTogether` | `"true"` | 是否保持元素在一起 | `<div style="keepTogether:true">内容</div>` |
+| `keepWithNext` | `"true"` | 是否与下一个元素保持在一起 | `<div style="keepWithNext:true">内容</div>` |
+| **尺寸属性** | | | |
+| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
+| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
+| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
+| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
+| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
+| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
+| **其他属性** | | | |
+| `angleInRadians` | `"30"` | 旋转角度(弧度) | `<div style="angleInRadians:30">内容</div>` |
+#### 📐 尺寸属性表格（含示例代码）
 
-#### 4.tab制表符
+| 属性 | 示例值 | 说明 | 示例代码 |
+|------|--------|------|----------|
+| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
+| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
+| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
+| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
+| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
+| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
 
-```html
+#### 属性样式
+## 🎨 属性样式表格（含示例代码）
 
-<pdf>
-    <body>
-    <p style="fontColor:red">
-        <tab>/tab>
-            <tab>/tab>
-                <tab>/tab>
-                    <span>'你好中国'</span>
-    </p>
-    </body>
-</pdf>
-```
-
-### 布局元素
-
-| Element           | Description     | Style Attributes                | Values             |
-|-------------------|-----------------|---------------------------------|--------------------|
-| `<div>`           | 块容器(Div)        | ElementProperty style and Block | `width="100%"`     |
-| `<areaBreak>`     | 分节符(AreaBreak)  | ElementProperty                 | `type="nextPage"`  |
-| `<htmlPageBreak>` | 显式分页符(NewPage)	 | ElementProperty                 | `<htmlPageBreak/>` |
-
-#### 1. div块容器
-
-```html
-
-<pdf>
-    <body>
-    <div style="fontColor:red">'你好中国'</div>
-    </body>
-</pdf>
-```
-
-#### 2. areaBreak分节符
-
-```html
-
-<pdf>
-    <body>
-    <p>
-        <span style="fontColor:blue">'你好中国'</span>
-    </p>
-    <areaBreak></areaBreak>
-    <p>
-        <span style="fontColor:blue">'你好中国'</span>
-    </p>
-    </body>
-</pdf>
-```
-
-#### 3.htmlPageBreak分页符
-
-```html
-
-<pdf>
-    <body>
-    <htmlPageBreak style="font-color:blue">next_area</htmlPageBreak>
-    </body>
-</pdf>
-```
-
-### 列表元素
-
-| Element  | Description    | Style Attributes                | Values                |
-|----------|----------------|---------------------------------|-----------------------|
-| `<list>` | 有序/无序列表(List)	 | ElementProperty style and Block | `list-style="circle"` |
-| `<li>`   | 列表项(ListItem)  | ElementProperty                 | `margin-left="15px"`  |
-
-#### 1.列表
-
-```html
-
-<pdf>
-    <body>
-    <list style="symbol:hahaha">
-        <li style="fontColor:red">'选项1'</li>
-        <li style="fontColor:red">'选项2'</li>
-        <li style="fontColor:red">'选项3'</li>
-        <li style="fontColor:red">'选项4'</li>
-        <li style="fontColor:red">'选项5'</li>
-    </list>
-    </body>
-</pdf>
-```
-
-### 表格元素
-
-| Element   | Description        | Style Attributes                | Values               |
-|-----------|--------------------|---------------------------------|----------------------|
-| `<table>` | 表格容器(Table)        | ElementProperty style and Block | `border="1px"`       |
-| `<tr>`    | 表格行(TableRow)      | ElementProperty                 | `height="30px"`      |
-| `<td>`    | 表格数据单元格(TableCell) | ElementProperty                 | `colspan="2"`        |
-| `<th>`    | 表格标题单元格(TableCell) | ElementProperty                 | `font-weight="bold"` |
-
-#### 1.表格
-
-```html
-
-<pdf>
-    <body>
-    <table>
-        <tr>
-            <td style="fontColor:red">'中国'</td>
-            <td style="fontColor:red">'四川'</td>
-        </tr>
-        <tr>
-            <td style="fontColor:red">'你好'</td>
-            <td style="fontColor:red">'世界'</td>
-        </tr>
-    </table>
-    </body>
-</pdf>
-```
-
-### 表单元素
-
-| Element           | Description          | Attributes | Values |
-|-------------------|----------------------|------------|--------|
-| `<button>`        | 按钮(PushbuttonField)  | N/A        | N/A    |
-| `<checkbox>`      | 复选框(CheckboxField)   | N/A        | N/A    |
-| `<inputField>`    | 文本输入框(TextField)     | N/A        | N/A    |
-| `<comboBoxField>` | 下拉选择框(ComboBoxField) | N/A        | N/A    |
-
-#### 1.按钮
-
-```html
-
-<pdf>
-    <body>
-    <button style="fontColor:blue">'提交'</button>
-    </body>
-</pdf>
-```
-
-#### 2.复选框
-
-```html
-
-<pdf>
-    <body>
-    <checkbox style="font-color:blue" checked>'提交'</checkbox>
-    </body>
-</pdf>
-```
-#### 3.文本输入框
-
-```html
-
-<pdf>
-    <body>
-    <inputField style="font-color:blue">'你好中国'</inputField>
-    </body>
-</pdf>
-```
-
-#### 4.下拉选择框
-
-```html
-
-<pdf>
-    <body>
-    <comboBoxField style="font-color:blue" checked>'提交'</comboBoxField>
-    </body>
-</pdf>
-```
-
-### 媒体元素
-
-| Element   | Description       | STYLE Attributes      | Values                         |
-|-----------|-------------------|-----------------------|--------------------------------|
-| `<image>` | 嵌入图片(Image)       | ElementProperty style | `src="logo.png" width="200px"` |
-| `<svg>`   | 矢量图形(PdfTemplate) | ElementProperty style | N/A                            |
+| Property | 示例值 | 说明 | 示例代码 |
+|----------|--------|------|----------|
+| **位置与布局** | | | |
+| `relativePosition` | `"30px 30px 30px 30px"` | 相对位置值(左 上 右 下) | `<div style="relativePosition:'30px 30px 30px 30px'">内容</div>` |
+| **字体属性** | | | |
+| `font` | `"HELVETICA"` | 字体类型，参考 JFontEnum | `<span style="font:HELVETICA">文本</span>` |
+| `fontFamilyNames` | `"Helvetica"` | 字体家族名称(逗号分隔) | `<p style="fontFamilyNames:Helvetica,Arial">文本</p>` |
+| `fontColor` | `"red"` | 字体颜色，参考 JColorEnums 类 | `<span style="fontColor:red">红色文本</span>` |
+| `fontSize` | `"34"` | 字体大小 | `<p style="fontSize:34">大号文本</p>` |
+| `fontKerning` | `"yes"` | 字体字距调整设置 | `<p style="fontKerning:yes">调整字距文本</p>` |
+| `fontScript` | `"common"` | 字体脚本类型 | `<p style="fontScript:common">文本</p>` |
+| **文本样式** | | | |
+| `textAlignment` | `"left"` | 文本对齐方式，参考 JTextAlignment | `<div style="textAlignment:left">左对齐文本</div>` |
+| `characterSpacing` | `"30"` | 字符间距 | `<p style="characterSpacing:30">文本</p>` |
+| `wordSpacing` | `"30"` | 单词间距 | `<p style="wordSpacing:30">文本</p>` |
+| `splitCharacters` | `"24"` | 字符间距(同 characterSpacing) | `<p style="splitCharacters:24">文本</p>` |
+| `textRenderingMode` | `"24"` | 文本渲染模式 | `<p style="textRenderingMode:24">文本</p>` |
+| `baseDirection` | `"no_bidi"` | 文本基础方向 | `<p style="baseDirection:no_bidi">文本</p>` |
+| **文本装饰** | | | |
+| `bold` | `"true"` | 文本是否加粗 | `<span style="bold:true">粗体文本</span>` |
+| `italic` | `"true"` | 文本是否斜体 | `<span style="italic:true">斜体文本</span>` |
+| `lineThrough` | `"true"` | 文本是否有删除线 | `<span style="lineThrough:true">删除线文本</span>` |
+| `underline` | `"true"` | 文本是否有下划线 | `<span style="underline:true">下划线文本</span>` |
+| **背景与边框** | | | |
+| `backgroundColor` | `"red"` | 背景颜色，参考 JColorEnums 类 | `<div style="backgroundColor:red">内容</div>` |
+| `backgroundImage` | `"D:/pdf/image.png"` | 背景图片路径 | `<div style="backgroundImage:'D:/pdf/image.png'">内容</div>` |
+| `border` | `"solid 32px red"` | 边框样式(类型 宽度 颜色) | `<div style="border:'solid 32px red'">内容</div>` |
+| `borderTop` | `"solid 32px red"` | 上边框样式 | `<div style="borderTop:'solid 32px red'">内容</div>` |
+| `borderRight` | `"solid 32px red"` | 右边框样式 | `<div style="borderRight:'solid 32px red'">内容</div>` |
+| `borderLeft` | `"solid 32px red"` | 左边框样式 | `<div style="borderLeft:'solid 32px red'">内容</div>` |
+| `borderBottom` | `"solid 32px red"` | 下边框样式 | `<div style="borderBottom:'solid 32px red'">内容</div>` |
+| `borderRadius` | `"32px 24px"` | 边框圆角值 | `<div style="borderRadius:'32px 24px'">内容</div>` |
+| `borderBottomLeftRadius` | `"32px 24px"` | 左下边框圆角 | `<div style="borderBottomLeftRadius:'32px 24px'">内容</div>` |
+| `borderBottomRightRadius` | `"32px 24px"` | 右下边框圆角 | `<div style="borderBottomRightRadius:'32px 24px'">内容</div>` |
+| `borderTopRightRadius` | `"32px 24px"` | 右上边框圆角 | `<div style="borderTopRightRadius:'32px 24px'">内容</div>` |
+| `borderTopLeftRadius` | `"32px 24px"` | 左上边框圆角 | `<div style="borderTopLeftRadius:'32px 24px'">内容</div>` |
+| **效果与描边** | | | |
+| `opacity` | `"0.5"` | 元素透明度 | `<div style="opacity:0.5">半透明内容</div>` |
+| `strokeColor` | `"red"` | 描边颜色 | `<div style="strokeColor:red">内容</div>` |
+| `strokeWidth` | `"24"` | 描边宽度 | `<div style="strokeWidth:24">内容</div>` |
+| **锚点与目标** | | | |
+| `destination` | `"hello"` | 元素目标/锚点名称 | `<div style="destination:hello">内容</div>` |
 
 # 📊 图表类型
 JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF 中：
