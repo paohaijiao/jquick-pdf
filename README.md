@@ -279,6 +279,12 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
   </tr>
 </table>
 
+```string 
+// ============================================================================
+# 箱线图  BOXPLOT chart
+// ============================================================================
+```
+
 <table style="width: 100%; border: none; border-collapse: collapse;">
   <tr>
     <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
@@ -307,48 +313,106 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 </table>
 
 
-```string 
-// ============================================================================
-# 箱线图  BOXPLOT chart
-// ============================================================================
 
+```string 
 // ============================================================================
 # HEATMAP  热力图 chart
 // ============================================================================
-     JOption option = new JOption();
-     option.title("2023年月度温度分布热力图");
-     option.xAxis(new JCategoryAxis()
-     .data("1月", "2月", "3月", "4月", "5月", "6月","7月", "8月", "9月", "10月", "11月", "12月"));
-     option.yAxis(new JCategoryAxis()
-     .data("凌晨(0-6)", "早晨(6-9)", "上午(9-12)","中午(12-14)", "下午(14-18)", "晚上(18-24)"));
-     JHeatmap heatmap = new JHeatmap();
-     heatmap.data(
-                new Object[]{0, 0, -5.2}, new Object[]{0, 1, -3.8}, new Object[]{0, 2, 1.5},
-                new Object[]{0, 3, 4.2}, new Object[]{0, 4, 2.8}, new Object[]{0, 5, -2.1},
-                new Object[]{1, 0, -3.5}, new Object[]{1, 1, -1.2}, new Object[]{1, 2, 3.0},
-                new Object[]{1, 3, 6.5}, new Object[]{1, 4, 4.2}, new Object[]{1, 5, 0.5},
-                new Object[]{2, 0, 0.8}, new Object[]{2, 1, 3.5}, new Object[]{2, 2, 8.2},
-                new Object[]{2, 3, 12.0}, new Object[]{2, 4, 9.5}, new Object[]{2, 5, 4.2},
-                new Object[]{3, 0, 5.2}, new Object[]{3, 1, 8.0}, new Object[]{3, 2, 12.5},
-                new Object[]{3, 3, 16.8}, new Object[]{3, 4, 14.2}, new Object[]{3, 5, 9.5},
-                new Object[]{4, 0, 10.5}, new Object[]{4, 1, 13.2}, new Object[]{4, 2, 17.8},
-                new Object[]{4, 3, 21.5}, new Object[]{4, 4, 19.0}, new Object[]{4, 5, 14.8},
-                new Object[]{5, 0, 15.2}, new Object[]{5, 1, 18.5}, new Object[]{5, 2, 22.0},
-                new Object[]{5, 3, 26.5}, new Object[]{5, 4, 24.2}, new Object[]{5, 5, 19.8},
-                new Object[]{6, 0, 18.5}, new Object[]{6, 1, 22.0}, new Object[]{6, 2, 26.5},
-                new Object[]{6, 3, 30.2}, new Object[]{6, 4, 28.5}, new Object[]{6, 5, 23.8},
-                new Object[]{7, 0, 17.8}, new Object[]{7, 1, 21.5}, new Object[]{7, 2, 25.2},
-                new Object[]{7, 3, 29.0}, new Object[]{7, 4, 27.5}, new Object[]{7, 5, 22.8},
-                new Object[]{8, 0, 13.5}, new Object[]{8, 1, 16.2}, new Object[]{8, 2, 20.0},
-                new Object[]{8, 3, 24.5}, new Object[]{8, 4, 22.0}, new Object[]{8, 5, 17.5},
-                new Object[]{9, 0, 8.2}, new Object[]{9, 1, 11.5}, new Object[]{9, 2, 15.0},
-                new Object[]{9, 3, 18.8}, new Object[]{9, 4, 16.5}, new Object[]{9, 5, 12.0},
-                new Object[]{10, 0, 2.5}, new Object[]{10, 1, 5.0}, new Object[]{10, 2, 9.2},
-                new Object[]{10, 3, 12.5}, new Object[]{10, 4, 10.0}, new Object[]{10, 5, 5.5},
-                new Object[]{11, 0, -2.8}, new Object[]{11, 1, -0.5}, new Object[]{11, 2, 3.5},
-                new Object[]{11, 3, 6.8}, new Object[]{11, 4, 4.2}, new Object[]{11, 5, 0.0}
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>热力图数据</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+          <code class="language-java">
+          // 1. 创建图表配置
+           JOption option = new JOption();
+           option.title().text("销售数据分布");
+           option.xAxis(new JCategoryAxis().data("一季度", 
+           "二季度", "三季度", "四季度"));
+           option.series(new JBoxplot().data(
+              new Object[]{10, 15, 20, 25, 30},
+              new Object[]{12, 18, 22, 28, 35},
+              new Object[]{8, 14, 19, 26, 32},
+              new Object[]{11, 16, 21, 27, 33}
+           ));
+          JOption option = new JOption();
+          option.title("2023年月度温度分布热力图");
+          option.xAxis(new JCategoryAxis()
+          .data("1月", "2月", "3月", "4月", "5月", "6月",
+          "7月", "8月", "9月", "10月", "11月", "12月"));
+          option.yAxis(new JCategoryAxis()
+          .data("凌晨(0-6)", "早晨(6-9)", "上午(9-12)",
+          "中午(12-14)", "下午(14-18)", "晚上(18-24)"));
+          JHeatmap heatmap = new JHeatmap();
+          heatmap.data(
+          new Object[]{0, 0, -5.2}, new Object[]{0, 1, -3.8}
+          , new Object[]{0, 2, 1.5},
+          new Object[]{0, 3, 4.2}, new Object[]{0, 4, 2.8}, 
+          new Object[]{0, 5, -2.1},
+          new Object[]{1, 0, -3.5}, new Object[]{1, 1, -1.2}
+          , new Object[]{1, 2, 3.0},
+          new Object[]{1, 3, 6.5}, new Object[]{1, 4, 4.2},
+          new Object[]{1, 5, 0.5},
+          new Object[]{2, 0, 0.8}, new Object[]{2, 1, 3.5},
+          new Object[]{2, 2, 8.2},
+          new Object[]{2, 3, 12.0}, new Object[]{2, 4, 9.5},
+          new Object[]{2, 5, 4.2},
+          new Object[]{3, 0, 5.2}, new Object[]{3, 1, 8.0},
+          new Object[]{3, 2, 12.5},
+          new Object[]{3, 3, 16.8}, new Object[]{3, 4, 14.2},
+          new Object[]{3, 5, 9.5},
+          new Object[]{4, 0, 10.5}, new Object[]{4, 1, 13.2}, 
+          new Object[]{4, 2, 17.8},
+          new Object[]{4, 3, 21.5}, new Object[]{4, 4, 19.0},
+          new Object[]{4, 5, 14.8},
+          new Object[]{5, 0, 15.2}, new Object[]{5, 1, 18.5},
+          new Object[]{5, 2, 22.0},
+          new Object[]{5, 3, 26.5}, new Object[]{5, 4, 24.2},
+          new Object[]{5, 5, 19.8},
+          new Object[]{6, 0, 18.5}, new Object[]{6, 1, 22.0},
+          new Object[]{6, 2, 26.5},
+          new Object[]{6, 3, 30.2}, new Object[]{6, 4, 28.5},
+          new Object[]{6, 5, 23.8},
+          new Object[]{7, 0, 17.8}, new Object[]{7, 1, 21.5},
+          new Object[]{7, 2, 25.2},
+          new Object[]{7, 3, 29.0}, new Object[]{7, 4, 27.5},
+          new Object[]{7, 5, 22.8},
+          new Object[]{8, 0, 13.5}, new Object[]{8, 1, 16.2},
+          new Object[]{8, 2, 20.0},
+          new Object[]{8, 3, 24.5}, new Object[]{8, 4, 22.0},
+          new Object[]{8, 5, 17.5},
+          new Object[]{9, 0, 8.2}, new Object[]{9, 1, 11.5},
+          new Object[]{9, 2, 15.0},
+          new Object[]{9, 3, 18.8}, new Object[]{9, 4, 16.5},
+          new Object[]{9, 5, 12.0},
+          new Object[]{10, 0, 2.5}, new Object[]{10, 1, 5.0},
+          new Object[]{10, 2, 9.2},
+          new Object[]{10, 3, 12.5}, new Object[]{10, 4, 10.0},
+          new Object[]{10, 5, 5.5},
+          new Object[]{11, 0, -2.8}, new Object[]{11, 1, -0.5},
+          new Object[]{11, 2, 3.5},
+          new Object[]{11, 3, 6.8}, new Object[]{11, 4, 4.2},
+          new Object[]{11, 5, 0.0}
         );
     option.series(heatmap);
+          </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/heatmap.svg" alt="热力图数据" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">热力图数据</div>
+    </td>
+  </tr>
+</table>
+
+
+```string 
+
+
+
+     
 // ============================================================================
 # K线图(蜡烛图)  K chart
 // ============================================================================
