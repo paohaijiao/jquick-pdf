@@ -98,6 +98,6 @@ public class LunarTest {
 //        title.setSubtext("自定义月份");
         LunarCalendarOption option = LunarCalendarOption.of("2024", "三月", colorConfig, title, dataConfig);
         JLunarCalendarRenderer renderer = new JLunarCalendarRenderer();
-        renderer.render(option, "d://test//lunar_calendar.svg");
+        renderer.render(option, "d://test//lunar.svg");
     }
 }
