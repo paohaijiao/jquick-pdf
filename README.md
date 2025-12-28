@@ -528,27 +528,21 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
   </tr>
 </table>
 
+
+
 ```string 
-// ============================================================================
-# 饼图  PIE chart
-// ============================================================================
-        JOption option = new JOption();
-        option.title().text("销售占比").subtext("2023年度");
-        option.tooltip().trigger(JTrigger.item);
-        JPie pie = new JPie("销售占比");
-        pie.data(
-                new JData().name("衬衫").value(35),
-                new JData().name("羊毛衫").value(20),
-                new JData().name("雪纺衫").value(15),
-                new JData().name("裤子").value(18),
-                new JData().name("高跟鞋").value(8),
-                new JData().name("袜子").value(4)
-        );
-        option.series(pie);
 // ============================================================================
 # 雷达图  RADAR chart
 // ============================================================================
-        // 创建图表选项
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>雷达图(RADAR chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+              // 创建图表选项
         JOption option = new JOption();
         option.title().text("雷达图示例")
                 .subtext("预算 vs 开销对比")
@@ -559,22 +553,40 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
         // 设置雷达图指标
         JRadar radar = new JRadar();
         radar.indicator(
-                new JRadar.Indicator().name("销售").max(6500),
-                new JRadar.Indicator().name("管理").max(16000),
-                new JRadar.Indicator().name("信息技术").max(30000),
-                new JRadar.Indicator().name("客服").max(38000),
-                new JRadar.Indicator().name("研发").max(52000),
-                new JRadar.Indicator().name("市场").max(25000)
+        new JRadar.Indicator().name("销售")
+        .max(6500),
+        new JRadar.Indicator().name("管理")
+        .max(16000),
+        new JRadar.Indicator().name("信息技术")
+        .max(30000),
+        new JRadar.Indicator().name("客服")
+        .max(38000),
+        new JRadar.Indicator().name("研发")
+        .max(52000),
+        new JRadar.Indicator().name("市场")
+        .max(25000)
         );
         option.radar(radar);
         // 添加雷达图系列数据
         JRadarSeries budgetSeries = new JRadarSeries();
-        budgetSeries.name("预算").type(JSeriesType.radar).data(4300, 10000, 28000, 35000, 50000, 19000);
+        budgetSeries.name("预算").type(JSeriesType.radar)
+        .data(4300, 10000, 28000, 35000, 50000, 19000);
         JRadarSeries actualSeries = new JRadarSeries();
         actualSeries.name("实际开销")
-                .type(JSeriesType.radar)
-                .data(5000, 14000, 28000, 31000, 42000, 21000);
+        .type(JSeriesType.radar)
+        .data(5000, 14000, 28000, 31000, 42000, 21000);
         option.series(budgetSeries, actualSeries);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/radar_chart.svg" alt="雷达图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">雷达图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
 // ============================================================================
 # 关系图  RELATION chart
 // ============================================================================
