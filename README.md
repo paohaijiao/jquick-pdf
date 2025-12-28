@@ -1057,32 +1057,48 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 </table>
 
 ```string 
-
-// ============================================================================
-
-// ============================================================================
-       
 // ============================================================================
 # 相关系数矩阵(1.5.3)  CorrectionMatrix chart
 // ============================================================================
-        double[][] correlationData = {
-                    {1.00, -0.20, 0.03, -0.62, -0.54, -0.21, 0.63, 0.30},
-                    {-0.20, 1.00, 0.36, -0.61, -0.26, 0.05, 0.16, 0.41},
-                    {0.03, 0.36, 1.00, -0.74, -0.94, 0.71, -0.90, -0.66},
-                    {-0.62, -0.61, -0.74, 1.00, 0.37, -0.66, 0.54, -0.66},
-                    {-0.54, -0.26, -0.94, 0.37, 1.00, -0.05, -0.46, 0.71},
-                    {-0.21, 0.05, 0.71, -0.66, -0.05, 1.00, -0.84, -0.40},
-                    {0.63, 0.16, -0.90, 0.54, -0.46, -0.84, 1.00, -0.55},
-                    {0.30, 0.41, -0.66, -0.66, 0.71, -0.40, -0.55, 1.00}
-            };
-        String[] dimensions = {"销售额", "广告费", "促销费", "竞品价", "季节指数", "GDP", "人口", "天气"};
-        JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
-        .title("销售因素相关系数矩阵", "各因素之间的相关性分析")
-        .dataset(correlationData)
-        .build();
-        option.dataset().dimensions(dimensions);
-        JOption jOption = new JOption();
-        jOption.setCorrelationMatrixOption(option);
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>相关系数矩阵(CorrectionMatrix chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+double[][] correlationData = {
+{1.00, -0.20, 0.03, -0.62, -0.54, -0.21, 0.63, 0.30},
+{-0.20, 1.00, 0.36, -0.61, -0.26, 0.05, 0.16, 0.41},
+{0.03, 0.36, 1.00, -0.74, -0.94, 0.71, -0.90, -0.66},
+{-0.62, -0.61, -0.74, 1.00, 0.37, -0.66, 0.54, -0.66},
+{-0.54, -0.26, -0.94, 0.37, 1.00, -0.05, -0.46, 0.71},
+{-0.21, 0.05, 0.71, -0.66, -0.05, 1.00, -0.84, -0.40},
+{0.63, 0.16, -0.90, 0.54, -0.46, -0.84, 1.00, -0.55},
+{0.30, 0.41, -0.66, -0.66, 0.71, -0.40, -0.55, 1.00}
+};
+String[] dimensions = {"销售额", "广告费", "促销费",
+"竞品价", "季节指数", "GDP", "人口", "天气"};
+JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
+.title("销售因素相关系数矩阵", "各因素之间的相关性分析")
+.dataset(correlationData)
+.build();
+option.dataset().dimensions(dimensions);
+JOption jOption = new JOption();
+jOption.setCorrelationMatrixOption(option);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/Matrix.svg" alt="相关系数矩阵" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">相关系数矩阵</div>
+    </td>
+  </tr>
+</table>
+
+```string
+       
 // ============================================================================
 # 甘特图(1.5.3)  Gantt chart
 // ============================================================================
