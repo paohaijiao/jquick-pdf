@@ -43,28 +43,28 @@ public class WordsCloudTest {
     @Test
     public void testBarChar1() throws IOException {
         JOption option = new JOption()
-                .title(new JTitle().text("热门编程语言"))
-                .series(Arrays.asList(
-                        new JWordCloudSeries("语言热度")
-                                .data(Arrays.asList(
-                                        new JData("Java", 100),
-                                        new JData("Python", 85),
-                                        new JData("JavaScript", 75),
-                                        new JData("C++", 60),
-                                        new JData("Go", 50),
-                                        new JData("Rust", 45),
-                                        new JData("Kotlin", 40),
-                                        new JData("Swift", 35),
-                                        new JData("TypeScript", 30),
-                                        new JData("Scala", 25)
-                                ))
-                                .minFontSize(20)
-                                .maxFontSize(60)
-                                .gridSize(10)
-                                .rotationStep(15)
-                                .rotationRange(90)
-                                .textStyle(new JItemStyle().color(Color.BLUE))
-                ));
+        .title(new JTitle().text("热门编程语言"))
+        .series(Arrays.asList(
+           new JWordCloudSeries("语言热度")
+               .data(Arrays.asList(
+                   new JData("Java", 100),
+                   new JData("Python", 85),
+                   new JData("JavaScript", 75),
+                   new JData("C++", 60),
+                   new JData("Go", 50),
+                   new JData("Rust", 45),
+                   new JData("Kotlin", 40),
+                   new JData("Swift", 35),
+                   new JData("TypeScript", 30),
+                   new JData("Scala", 25)
+           ))
+        .minFontSize(20)
+        .maxFontSize(60)
+        .gridSize(10)
+        .rotationStep(15)
+        .rotationRange(90)
+        .textStyle(new JItemStyle().color(Color.BLUE))
+        ));
 
         JWordCloudRenderer renderer = new JWordCloudRenderer();
         renderer.render(option, "d://test//wordcloud.svg");
