@@ -981,7 +981,8 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
               new LunarCalendarOption.CalendarDataConfig()
        .setDayDataList(createDefaultDayData())
        .setSpecialDays(createDefaultSpecialDays())
-       .setWeekDays(new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"})
+       .setWeekDays(new String[]{"Mon", "Tue", 
+        "Wed", "Thu", "Fri", "Sat", "Sun"})
        .setRows(5)
        .setCols(7);
         LunarCalendarOption.ColorConfig colorConfig = 
@@ -1000,41 +1001,67 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
   </tr>
 </table>
 
-```string 
 
+```string 
 // ============================================================================
 # 漏斗图(1.5.3)  Funnel chart
 // ============================================================================
-        JFunnelOption option = JFunnelOption.createDefaultFunnel();
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>日历(Lunar chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JFunnelOption option = JFunnelOption
+        .createDefaultFunnel();
         JFunnelOption customOption = option
-        .title(new Title().text("销售漏斗").subtext("2024年数据"))
+        .title(new Title().text("销售漏斗")
+        .subtext("2024年数据"))
         .funnel(new Funnel()
-               .width(600)
-               .topY(80)
-               .bottomY(200)
-               .gap(2)
-               .borderColor(Color.GRAY)
+        .width(600)
+        .topY(80)
+        .bottomY(200)
+        .gap(2)
+        .borderColor(Color.GRAY)
         )
         .series(Collections.singletonList(
-              new Series()
-                  .name("sales")
-                  .type("funnel")
-                  .data(Arrays.asList(
-                        new DataItem("展现", 10000),
-                        new DataItem("点击", 5000),
-                        new DataItem("咨询", 2000),
-                        new DataItem("订单", 500)
-                  ))
-                ))
-                .colors(
-                        new Color(12, 168, 223),
-                        new Color(255, 153, 77),
-                        new Color(80, 112, 221),
-                        new Color(182, 214, 52)
-                );
+        new Series()
+        .name("sales")
+        .type("funnel")
+        .data(Arrays.asList(
+             new DataItem("展现", 10000),
+             new DataItem("点击", 5000),
+             new DataItem("咨询", 2000),
+             new DataItem("订单", 500)
+        ))
+        ))
+        .colors(
+             new Color(12, 168, 223),
+             new Color(255, 153, 77),
+             new Color(80, 112, 221),
+             new Color(182, 214, 52)
+        );
         JFunnelChartRenderer renderer = new JFunnelChartRenderer();
         JOption jOption = new JOption();
         jOption.setFunnelOption(customOption);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/funnel.svg" alt="漏斗图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">漏斗图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+
+// ============================================================================
+
+// ============================================================================
+       
 // ============================================================================
 # 相关系数矩阵(1.5.3)  CorrectionMatrix chart
 // ============================================================================
