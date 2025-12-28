@@ -246,7 +246,8 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 | Gauge            | 仪表盘(1.5.3)        |
 | WordsCloud            | 词云(1.5.3)         |
 
-<div style="display: flex; align-items: center; gap: 20px;">
+<div style="display: flex; align-items: center; gap: 20px; width: 100%; max-width: 1200px; margin: 0 auto;">
+  <!-- 左侧文本列 -->
   <div style="flex: 1;">
     **这里是左边的文本**  
     可以有多行内容  
@@ -254,11 +255,15 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
     - 列表项1
     - 列表项2
   </div>
+  <!-- 右侧图片列 -->
   <div style="flex: 1; text-align: center;">
-        <img src="./images/bubble.svg" alt="销售数据柱状图" style="width: 100%;max-width: 400px;" /> 
-        <div style="font-size: 0.9em; color: #666;">图片说明文字</div>
+    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/9d91eba9beb84acdb29d8829b43ee53d.png~tplv-a9rns2rl98-image.png?rcl=202512281413294A0D35F5B6A1DFAD47A6&rk3s=8e244e95&rrcfp=dafada99&x-expires=2083126409&x-signature=BoV21z3K24Xd7o%2Bz%2F%2FGfl%2BQnSDI%3D" 
+         alt="销售数据柱状图" 
+         style="width: 100%; max-width: 400px; height: auto;" />
+    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">图片说明文字</div>
   </div>
 </div>
+
 ```string 
 // ============================================================================
 # 柱状图  BAR chart
