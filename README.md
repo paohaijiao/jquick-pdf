@@ -244,6 +244,7 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 | CorrectionMatrix | 相关系数矩阵(1.5.3)     |
 | Gantt            | 甘特图(1.5.3)        |
 | Gauge            | 仪表盘(1.5.3)        |
+| WordsCloud            | 词云(1.5.3)         |
 ```string 
 // ============================================================================
 # 柱状图  BAR chart
@@ -704,6 +705,32 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
         JGuageRenderer renderer = new JGuageRenderer();
         JOption option1 = new JOption();
         option1.setGuageOption(option);
+// ============================================================================
+# 词云(1.5.3)  WordsCloud chart
+// ============================================================================
+   JOption option = new JOption()
+        .title(new JTitle().text("热门编程语言"))
+        .series(Arrays.asList(
+           new JWordCloudSeries("语言热度")
+               .data(Arrays.asList(
+                   new JData("Java", 100),
+                   new JData("Python", 85),
+                   new JData("JavaScript", 75),
+                   new JData("C++", 60),
+                   new JData("Go", 50),
+                   new JData("Rust", 45),
+                   new JData("Kotlin", 40),
+                   new JData("Swift", 35),
+                   new JData("TypeScript", 30),
+                   new JData("Scala", 25)
+           ))
+        .minFontSize(20)
+        .maxFontSize(60)
+        .gridSize(10)
+        .rotationStep(15)
+        .rotationRange(90)
+        .textStyle(new JItemStyle().color(Color.BLUE))
+        ));
 ```
 
 
