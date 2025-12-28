@@ -279,7 +279,7 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 
 <table style="width: 100%; border: none; border-collapse: collapse;">
   <tr>
-    <td style="width: 48%; vertical-align: middle; padding-right: 2%; border: none;">
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
       <strong>箱线图数据</strong><br>
       <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
           <code class="language-java">// 1. 创建图表配置
