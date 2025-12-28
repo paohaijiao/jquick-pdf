@@ -117,7 +117,7 @@ public class SunBirdTest {
         root.addChild(main3);
         option.setSunburstData(root);
         JSunburstChart chart = new JSunburstChart();
-        chart.render(option, "d://test//sunburst-demo.svg");
+        chart.render(option, "d://test//sunburst.svg");
     }
 //    @Test
 //    public void testBarChar2() throws IOException {
