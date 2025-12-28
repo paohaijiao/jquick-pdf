@@ -590,6 +590,94 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 // ============================================================================
 # 关系图  RELATION chart
 // ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>关系图(RELATION chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+         JGsonOption option = new JGsonOption();
+        option.title("Relationship Chart Test");
+        // 创建图系列
+        JGraph graph = new JGraph();
+        graph.name("关系图");
+        graph.layout(JLayout.force); // 使用力导向布局
+        graph.force().repulsion(100); // 设置排斥力
+        graph.draggable(true); // 节点可拖动
+        // 添加节点 - 修正了ID问题
+        List<JNode> nodes = new ArrayList<>();
+        nodes.add(new JNode("1", "Node A")
+        .symbolSize(30).category(0));//id 1
+        nodes.add(new JNode("2", "Node B")
+        .symbolSize(25).category(1));
+        nodes.add(new JNode("3", "Node C")
+        .symbolSize(20).category(2));
+        nodes.add(new JNode("4", "Node D")
+        .symbolSize(15).category(0));
+        nodes.add(new JNode("5", "Node E")
+        .symbolSize(35).category(1));
+        nodes.add(new JNode("6", "Node F")
+        .symbolSize(20).category(3));
+        nodes.add(new JNode("7", "Node G")
+        .symbolSize(25).category(2));
+        nodes.add(new JNode("8", "Node H")
+        .symbolSize(15).category(4));
+        nodes.add(new JNode("9", "Node I")
+        .symbolSize(30).category(3));
+        nodes.add(new JNode("10", "Node J")
+        .symbolSize(20).category(0));
+        graph.setData(nodes);
+        // 添加连接
+        List<JLink> links = new ArrayList<>();
+        links.add(new JLink("1", "2"));
+        links.add(new JLink("1", "3"));
+        links.add(new JLink("2", "4"));
+        links.add(new JLink("3", "5"));
+        links.add(new JLink("4", "6"));
+        links.add(new JLink("5", "7"));
+        links.add(new JLink("6", "8"));
+        links.add(new JLink("7", "9"));
+        links.add(new JLink("8", "10"));
+        links.add(new JLink("9", "1"));
+        links.add(new JLink("10", "2"));
+        links.add(new JLink("3", "6"));
+        links.add(new JLink("4", "7"));
+        links.add(new JLink("5", "8"));
+        graph.setLinks(links);
+        // 添加类别
+        List<JCategory> categories =
+        new ArrayList<>();
+        categories.add(new JCategory()
+        .name("Category 1"));
+        categories.add(new JCategory()
+        .name("Category 2"));
+        categories.add(new JCategory()
+        .name("Category 3"));
+        categories.add(new JCategory()
+        .name("Category 4"));
+        categories.add(new JCategory()
+        .name("Category 5"));
+        graph.setCategories(categories);
+        option.series(graph);
+        option.legend().data("Category 1",
+        "Category 2", "Category 3", "Category 4",
+        "Category 5");
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/relation_chart.svg" alt="关系图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">关系图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 关系图  RELATION chart
+// ============================================================================
         JGsonOption option = new JGsonOption();
         option.title("Relationship Chart Test");
         // 创建图系列
