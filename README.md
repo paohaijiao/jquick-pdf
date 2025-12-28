@@ -249,7 +249,7 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 <table style="width: 100%; border: none; border-collapse: collapse;">
   <tr>
     <td style="width: 48%; vertical-align: middle; padding-right: 2%; border: none;">
-      <strong>这里是左边的文本</strong><br>
+      <strong>柱状图数据</strong><br>
       <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
           <code class="language-java">// 1. 创建图表配置
           JOption option = new JOption();
@@ -267,10 +267,8 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
       </pre>
     </td>
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
-      <img src="./images/bubble.svg" 
-           alt="销售数据柱状图" 
-           style="width: 100%; max-width: 400px !important; height: auto;">
-      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">图片说明文字</div>
+      <img src="./images/barchart.svg"alt="销售数据柱状图" style="width: 100%; max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">柱状图数据</div>
     </td>
   </tr>
 </table>
