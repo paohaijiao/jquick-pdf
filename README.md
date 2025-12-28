@@ -456,20 +456,42 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
   </tr>
 </table>
 
+
 ```string 
 // ============================================================================
 # 折线图  Line chart
 // ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>折线图(Line chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
         JOption option = new JOption();
         option.title().text("销售数据折线图");
         option.tooltip().trigger(JTrigger.axis);
         JCategoryAxis xAxis = new JCategoryAxis();
-        xAxis.data("1月", "2月", "3月", "4月", "5月", "6月", "7月");
+        xAxis.data("1月", "2月", "3月", "4月", 
+        "5月", "6月", "7月");
         option.xAxis(xAxis);
         option.yAxis(new JValueAxis());
         JLine line = new JLine();
-        line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
+        line.name("销售额").data(120, 132, 101,
+        134, 90, 230, 210);
         option.series(line);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/line_chart.svg" alt="折线图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">折线图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
 // ============================================================================
 # 饼图  PIE chart
 // ============================================================================
