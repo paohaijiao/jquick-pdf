@@ -523,6 +523,33 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
         root.addChild(main2);
         root.addChild(main3);
         option.setSunburstData(root);
+// ============================================================================
+# 矩形树图(1.5.1)  Treemap chart
+// ============================================================================
+        JTreeMapNode root = createTestData();
+        TreeMapOption treemapOption = new TreeMapOption();
+        treemapOption.setRoot(root);
+        treemapOption.setDepartmentColors(DEPARTMENT_COLORS);
+        treemapOption.setCategoryColors(CATEGORY_COLORS);
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("开发", "技术部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("项目", "技术部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("服务", "技术部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("会计", "财务部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("预算", "财务部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("税务", "财务部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("审计", "财务部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("销售", "销售部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("区域", "销售部"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("招聘", "人力资源"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("培训", "人力资源"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("薪酬", "人力资源"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("员工", "人力资源"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("营销", "市场营销"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("品牌", "市场营销"));
+        treemapOption.getDepartmentRules().add(new TreeMapMapping("公关", "市场营销"));
+        JOption option = new JOption();
+        option.setTreemapOption(treemapOption);
+        option.title("公司业务分布矩形树图（JTreemapRenderer）");
 ```
 
 #### 8 样例
