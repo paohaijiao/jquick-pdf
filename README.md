@@ -410,34 +410,51 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 
 ```string 
 
-
-
-     
+```string 
 // ============================================================================
 # K线图(蜡烛图)  K chart
 // ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>K线图(蜡烛图)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+          <code class="language-java">
         JOption option = new JOption();
         option.title().text("股票K线图(含数据)");
         option.tooltip().trigger(JTrigger.axis);
         JCategoryAxis xAxis = new JCategoryAxis();
-        xAxis.data("01/01", "01/02", "01/03", "01/04", "01/05","01/06", "01/07", "01/08", "01/09", "01/10");
+        xAxis.data("01/01", "01/02", "01/03", "01/04", 
+        "01/05","01/06", "01/07", "01/08", "01/09",
+        "01/10");
         option.xAxis(xAxis);
         option.yAxis(new JValueAxis());
         JCandlestick candlestick = new JCandlestick();
         candlestick.name("股价")
-                .data(
-                        new Object[]{105.2, 108.5, 104.8, 109.1},
-                        new Object[]{108.6, 107.8, 106.5, 109.5},
-                        new Object[]{107.9, 105.3, 104.2, 108.0},
-                        new Object[]{105.4, 106.1, 104.5, 107.2},
-                        new Object[]{106.2, 104.8, 103.0, 107.5},
-                        new Object[]{104.9, 107.3, 104.0, 108.2},
-                        new Object[]{107.4, 109.1, 106.5, 110.2},
-                        new Object[]{109.2, 108.8, 107.0, 110.5},
-                        new Object[]{108.9, 110.3, 108.2, 111.0},
-                        new Object[]{110.4, 112.1, 109.5, 112.8}
-                );
+        .data(
+             new Object[]{105.2, 108.5, 104.8, 109.1},
+             new Object[]{108.6, 107.8, 106.5, 109.5},
+             new Object[]{107.9, 105.3, 104.2, 108.0},
+             new Object[]{105.4, 106.1, 104.5, 107.2},
+             new Object[]{106.2, 104.8, 103.0, 107.5},
+             new Object[]{104.9, 107.3, 104.0, 108.2},
+             new Object[]{107.4, 109.1, 106.5, 110.2},
+             new Object[]{109.2, 108.8, 107.0, 110.5},
+             new Object[]{108.9, 110.3, 108.2, 111.0},
+             new Object[]{110.4, 112.1, 109.5, 112.8}
+        );
         option.series(candlestick);
+          </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/k_chart.svg" alt="K线图(蜡烛图)" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">K线图(蜡烛图)</div>
+    </td>
+  </tr>
+</table>
 // ============================================================================
 # 折线图  Line chart
 // ============================================================================
