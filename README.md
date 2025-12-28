@@ -929,6 +929,45 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 // ============================================================================
 # 日历(1.5.3)  Lunar chart
 // ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>日历贡献图(Calendar chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        Map<LocalDate, Integer> data = new HashMap<>();
+        LocalDate startDate = LocalDate.of(2024, 1, 1);
+        for (int i = 0; i < 365; i++) {
+            LocalDate date = startDate.plusDays(i);
+            int value = (int) (Math.random() * 15);
+            data.put(date, value);
+        }
+        JOption option = new JOption();
+        JCalendarOption calendarOption = new JCalendarOption(
+          "2024年活动日历", "类似GitHub贡献图", 2024, data,
+                new Color(235, 237, 240),
+                new Color(32, 125, 222),
+                new Color(232, 235, 240),
+                new Color(84, 85, 90),
+                20,
+                80
+        );
+        option.setJCalendarOption(calendarOption);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/calendar.svg" alt="日历贡献图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">日历贡献图</div>
+    </td>
+  </tr>
+</table>
+```string 
+// ============================================================================
+# 日历(1.5.3)  Lunar chart
+// ============================================================================
         Map<LocalDate, Integer> data = new HashMap<>();
         LocalDate startDate = LocalDate.of(2024, 1, 1);
         for (int i = 0; i < 365; i++) {

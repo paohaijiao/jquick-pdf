@@ -57,7 +57,7 @@ public class CalendarTest {
         );
         option.setJCalendarOption(calendarOption);
         JChartRenderer renderer = new JCalendarChartRenderer();
-        renderer.render(option, "d://test//calendar-2024.svg");
+        renderer.render(option, "d://test//calendar.svg");
         System.out.println("日历图表已生成: calendar-2024.svg");
         String svgContent = renderer.renderToString(option);
         System.out.println("SVG内容长度: " + svgContent.length());
