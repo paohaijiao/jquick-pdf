@@ -1,6 +1,6 @@
 # 📄 JQuickPDF – 轻量级 Java PDF 生成库
 
-简体中文 | [EN](./README-EN.md)
+简体中文 | [ENGLISH](./README-EN.md)
 
 > 一个基于类 HTML 模板的轻量级 Java PDF 库，支持动态内容、丰富样式与多种图表。
 
@@ -245,6 +245,54 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 | Gantt            | 甘特图(1.5.3)        |
 | Gauge            | 仪表盘(1.5.3)        |
 | WordsCloud            | 词云(1.5.3)         |
+## 📈 如何使用
+### 📉 原生方式
+  ```string
+    将svg xml 字符串传入 变量
+  ```
+#### 定义java代码
+  ```java
+      JContext params = new JContext();
+      String svg = "<?xml  xxxx ></svg>";
+      params.put("svg", svg);
+      JReader fileReader = new JReSourceFileReader("sample/svg1.txt");
+      JAdaptor context = new JAdaptor(fileReader);
+      JQuickPdfXExecutor executor = new JQuickPdfXExecutor(params);
+      executor.execute(context.getRuleContent());
+  ```
+#### 模板代码
+```html
+<pdf>
+<body>
+<svg>${svg}</svg>
+</body>
+</pdf>
+```
+### 📉 java 加载方式
+```string
+  将相关图形的JOption传入 JPdfConfig 渲染
+```
+### 📉 java code
+```java
+        JGraphContainer graphContainer = new JGraphContainer();
+        JOption option = new JOption();
+        graphContainer.setOption(option);
+        graphContainer.setType(JChartType.K);
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);
+        JPdfConfig config = new JPdfConfig();
+        config.setGraphConfig(graphConfig);
+        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
+        JAdaptor context = new JAdaptor(fileReader);
+        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
+```
+```html
+<pdf>
+  <body>
+  <svg>&{svg}</svg>
+  </body>
+</pdf>
+```
 ```string 
 // ============================================================================
 # 1.柱状图  BAR chart
