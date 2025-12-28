@@ -78,12 +78,44 @@ public class SunBirdTest {
     @Test
     public void testBarChar1() throws IOException {
         JOption option = new JOption();
-
         // 设置标题
         JTitle title = new JTitle();
         title.setText("咖啡风味分析");
         option.setTitle(title);
-        option.setSunburstData(createTestData());
+        JSunburstData root = new JSunburstData("总数据", 1.0);
+        JSunburstData main1 = new JSunburstData("电子产品", 0.4);
+        JSunburstData main2 = new JSunburstData("服装", 0.3);
+        JSunburstData main3 = new JSunburstData("食品", 0.3);
+        // 第二层：子分类
+        JSunburstData main1Sub1 = new JSunburstData("手机", 0.6);
+        JSunburstData main1Sub2 = new JSunburstData("电脑", 0.4);
+        JSunburstData main2Sub1 = new JSunburstData("男装", 0.5);
+        JSunburstData main2Sub2 = new JSunburstData("女装", 0.5);
+        JSunburstData main3Sub1 = new JSunburstData("生鲜", 0.4);
+        JSunburstData main3Sub2 = new JSunburstData("零食", 0.6);
+        // 第三层：孙分类
+        main1Sub1.addChild(new JSunburstData("智能手机", 0.7));
+        main1Sub1.addChild(new JSunburstData("功能手机", 0.3));
+        main1Sub2.addChild(new JSunburstData("笔记本电脑", 0.6));
+        main1Sub2.addChild(new JSunburstData("台式电脑", 0.4));
+        main2Sub1.addChild(new JSunburstData("衬衫", 0.4));
+        main2Sub1.addChild(new JSunburstData("裤子", 0.6));
+        main3Sub2.addChild(new JSunburstData("膨化食品", 0.5));
+        main3Sub2.addChild(new JSunburstData("糖果", 0.5));
+        // 构建树结构
+        main1.addChild(main1Sub1);
+        main1.addChild(main1Sub2);
+
+        main2.addChild(main2Sub1);
+        main2.addChild(main2Sub2);
+
+        main3.addChild(main3Sub1);
+        main3.addChild(main3Sub2);
+
+        root.addChild(main1);
+        root.addChild(main2);
+        root.addChild(main3);
+        option.setSunburstData(root);
         JSunburstChart chart = new JSunburstChart();
         chart.render(option, "d://test//sunburst-demo.svg");
     }

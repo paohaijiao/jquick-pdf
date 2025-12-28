@@ -276,16 +276,14 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 // ============================================================================
 # HEATMAP  热力图 chart
 // ============================================================================
-        JOption option = new JOption();
-        option.title("2023年月度温度分布热力图");
-        option.xAxis(new JCategoryAxis()
-                .data("1月", "2月", "3月", "4月", "5月", "6月",
-                        "7月", "8月", "9月", "10月", "11月", "12月"));
-        option.yAxis(new JCategoryAxis()
-                .data("凌晨(0-6)", "早晨(6-9)", "上午(9-12)",
-                        "中午(12-14)", "下午(14-18)", "晚上(18-24)"));
-        JHeatmap heatmap = new JHeatmap();
-        heatmap.data(
+     JOption option = new JOption();
+     option.title("2023年月度温度分布热力图");
+     option.xAxis(new JCategoryAxis()
+     .data("1月", "2月", "3月", "4月", "5月", "6月","7月", "8月", "9月", "10月", "11月", "12月"));
+     option.yAxis(new JCategoryAxis()
+     .data("凌晨(0-6)", "早晨(6-9)", "上午(9-12)","中午(12-14)", "下午(14-18)", "晚上(18-24)"));
+     JHeatmap heatmap = new JHeatmap();
+     heatmap.data(
                 new Object[]{0, 0, -5.2}, new Object[]{0, 1, -3.8}, new Object[]{0, 2, 1.5},
                 new Object[]{0, 3, 4.2}, new Object[]{0, 4, 2.8}, new Object[]{0, 5, -2.1},
                 new Object[]{1, 0, -3.5}, new Object[]{1, 1, -1.2}, new Object[]{1, 2, 3.0},
@@ -311,7 +309,7 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
                 new Object[]{11, 0, -2.8}, new Object[]{11, 1, -0.5}, new Object[]{11, 2, 3.5},
                 new Object[]{11, 3, 6.8}, new Object[]{11, 4, 4.2}, new Object[]{11, 5, 0.0}
         );
-      option.series(heatmap);
+    option.series(heatmap);
 // ============================================================================
 # K线图(蜡烛图)  K chart
 // ============================================================================
@@ -350,6 +348,181 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
         JLine line = new JLine();
         line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
         option.series(line);
+// ============================================================================
+# 饼图  PIE chart
+// ============================================================================
+        JOption option = new JOption();
+        option.title().text("销售占比").subtext("2023年度");
+        option.tooltip().trigger(JTrigger.item);
+        JPie pie = new JPie("销售占比");
+        pie.data(
+                new JData().name("衬衫").value(35),
+                new JData().name("羊毛衫").value(20),
+                new JData().name("雪纺衫").value(15),
+                new JData().name("裤子").value(18),
+                new JData().name("高跟鞋").value(8),
+                new JData().name("袜子").value(4)
+        );
+        option.series(pie);
+// ============================================================================
+# 雷达图  RADAR chart
+// ============================================================================
+        // 创建图表选项
+        JOption option = new JOption();
+        option.title().text("雷达图示例")
+                .subtext("预算 vs 开销对比")
+                .left("center")
+                .textStyle(new JTextStyle().color("#333"));
+        // 设置提示框
+        option.tooltip().trigger(JTrigger.item);
+        // 设置雷达图指标
+        JRadar radar = new JRadar();
+        radar.indicator(
+                new JRadar.Indicator().name("销售").max(6500),
+                new JRadar.Indicator().name("管理").max(16000),
+                new JRadar.Indicator().name("信息技术").max(30000),
+                new JRadar.Indicator().name("客服").max(38000),
+                new JRadar.Indicator().name("研发").max(52000),
+                new JRadar.Indicator().name("市场").max(25000)
+        );
+        option.radar(radar);
+        // 添加雷达图系列数据
+        JRadarSeries budgetSeries = new JRadarSeries();
+        budgetSeries.name("预算").type(JSeriesType.radar).data(4300, 10000, 28000, 35000, 50000, 19000);
+        JRadarSeries actualSeries = new JRadarSeries();
+        actualSeries.name("实际开销")
+                .type(JSeriesType.radar)
+                .data(5000, 14000, 28000, 31000, 42000, 21000);
+        option.series(budgetSeries, actualSeries);
+// ============================================================================
+# 关系图  RELATION chart
+// ============================================================================
+        JGsonOption option = new JGsonOption();
+        option.title("Relationship Chart Test");
+        // 创建图系列
+        JGraph graph = new JGraph();
+        graph.name("关系图");
+        graph.layout(JLayout.force); // 使用力导向布局
+        graph.force().repulsion(100); // 设置排斥力
+        graph.draggable(true); // 节点可拖动
+        // 添加节点 - 修正了ID问题
+        List<JNode> nodes = new ArrayList<>();
+        nodes.add(new JNode("1", "Node A").symbolSize(30).category(0));//id 1
+        nodes.add(new JNode("2", "Node B").symbolSize(25).category(1));
+        nodes.add(new JNode("3", "Node C").symbolSize(20).category(2));
+        nodes.add(new JNode("4", "Node D").symbolSize(15).category(0));
+        nodes.add(new JNode("5", "Node E").symbolSize(35).category(1));
+        nodes.add(new JNode("6", "Node F").symbolSize(20).category(3));
+        nodes.add(new JNode("7", "Node G").symbolSize(25).category(2));
+        nodes.add(new JNode("8", "Node H").symbolSize(15).category(4));
+        nodes.add(new JNode("9", "Node I").symbolSize(30).category(3));
+        nodes.add(new JNode("10", "Node J").symbolSize(20).category(0));
+        graph.setData(nodes);
+        // 添加连接
+        List<JLink> links = new ArrayList<>();
+        links.add(new JLink("1", "2"));
+        links.add(new JLink("1", "3"));
+        links.add(new JLink("2", "4"));
+        links.add(new JLink("3", "5"));
+        links.add(new JLink("4", "6"));
+        links.add(new JLink("5", "7"));
+        links.add(new JLink("6", "8"));
+        links.add(new JLink("7", "9"));
+        links.add(new JLink("8", "10"));
+        links.add(new JLink("9", "1"));
+        links.add(new JLink("10", "2"));
+        links.add(new JLink("3", "6"));
+        links.add(new JLink("4", "7"));
+        links.add(new JLink("5", "8"));
+        graph.setLinks(links);
+        // 添加类别
+        List<JCategory> categories = new ArrayList<>();
+        categories.add(new JCategory().name("Category 1"));
+        categories.add(new JCategory().name("Category 2"));
+        categories.add(new JCategory().name("Category 3"));
+        categories.add(new JCategory().name("Category 4"));
+        categories.add(new JCategory().name("Category 5"));
+        graph.setCategories(categories);
+        option.series(graph);
+        option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
+// ============================================================================
+# 散点图  SCATTER chart
+// ============================================================================
+        JData[] data = new JData[]{
+                new JData().value(new Double[]{10.0, 8.04}),
+                new JData().value(new Double[]{8.07, 6.95}),
+                new JData().value(new Double[]{13.0, 7.58}),
+                new JData().value(new Double[]{9.05, 8.81}),
+                new JData().value(new Double[]{11.0, 8.33}),
+                new JData().value(new Double[]{14.0, 7.66}),
+                new JData().value(new Double[]{13.4, 6.81}),
+                new JData().value(new Double[]{10.0, 6.33}),
+                new JData().value(new Double[]{14.0, 8.96}),
+                new JData().value(new Double[]{12.5, 6.82}),
+                new JData().value(new Double[]{9.15, 7.2}),
+                new JData().value(new Double[]{11.5, 7.2}),
+                new JData().value(new Double[]{3.03, 4.23}),
+                new JData().value(new Double[]{12.2, 7.83}),
+                new JData().value(new Double[]{2.02, 4.47}),
+                new JData().value(new Double[]{1.05, 3.33}),
+                new JData().value(new Double[]{4.05, 4.96}),
+                new JData().value(new Double[]{6.03, 7.24}),
+                new JData().value(new Double[]{12.0, 6.26}),
+                new JData().value(new Double[]{12.0, 8.84}),
+                new JData().value(new Double[]{7.08, 5.82}),
+                new JData().value(new Double[]{5.02, 5.68})
+        };
+        JOption option = new JOption();
+        option.title().text("散点图示例");
+        option.tooltip().trigger(JTrigger.axis);
+        option.xAxis(new JValueAxis().scale(true));
+        option.yAxis(new JValueAxis().scale(true));
+        JScatter scatter = new JScatter();
+        scatter.symbolSize(20)
+                .data(data);
+        option.series(scatter);
+// ============================================================================
+# 旭日图(1.5.1)  SUNBURST chart
+// ============================================================================
+        JOption option = new JOption();
+        // 设置标题
+        JTitle title = new JTitle();
+        title.setText("咖啡风味分析");
+        option.setTitle(title);
+        JSunburstData root = new JSunburstData("总数据", 1.0);
+        JSunburstData main1 = new JSunburstData("电子产品", 0.4);
+        JSunburstData main2 = new JSunburstData("服装", 0.3);
+        JSunburstData main3 = new JSunburstData("食品", 0.3);
+        // 第二层：子分类
+        JSunburstData main1Sub1 = new JSunburstData("手机", 0.6);
+        JSunburstData main1Sub2 = new JSunburstData("电脑", 0.4);
+        JSunburstData main2Sub1 = new JSunburstData("男装", 0.5);
+        JSunburstData main2Sub2 = new JSunburstData("女装", 0.5);
+        JSunburstData main3Sub1 = new JSunburstData("生鲜", 0.4);
+        JSunburstData main3Sub2 = new JSunburstData("零食", 0.6);
+        // 第三层：孙分类
+        main1Sub1.addChild(new JSunburstData("智能手机", 0.7));
+        main1Sub1.addChild(new JSunburstData("功能手机", 0.3));
+        main1Sub2.addChild(new JSunburstData("笔记本电脑", 0.6));
+        main1Sub2.addChild(new JSunburstData("台式电脑", 0.4));
+        main2Sub1.addChild(new JSunburstData("衬衫", 0.4));
+        main2Sub1.addChild(new JSunburstData("裤子", 0.6));
+        main3Sub2.addChild(new JSunburstData("膨化食品", 0.5));
+        main3Sub2.addChild(new JSunburstData("糖果", 0.5));
+        // 构建树结构
+        main1.addChild(main1Sub1);
+        main1.addChild(main1Sub2);
+
+        main2.addChild(main2Sub1);
+        main2.addChild(main2Sub2);
+
+        main3.addChild(main3Sub1);
+        main3.addChild(main3Sub2);
+
+        root.addChild(main1);
+        root.addChild(main2);
+        root.addChild(main3);
+        option.setSunburstData(root);
 ```
 
 #### 8 样例
