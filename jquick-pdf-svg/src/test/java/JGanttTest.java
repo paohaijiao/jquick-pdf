@@ -65,7 +65,7 @@ public class JGanttTest {
             JChartRenderer renderer = new JGanttChartRenderer();
             JOption jOption = new JOption();
             jOption.setGanttOption(option);
-            renderer.render(jOption, "d://test//airport_gantt_engineered.svg");
+            renderer.render(jOption, "d://test//gantt.svg");
             System.out.println("工程化后的SVG文件已生成: airport_gantt_engineered.svg");
         } catch (Exception e) {
             e.printStackTrace();

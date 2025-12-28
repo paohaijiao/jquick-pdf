@@ -1097,6 +1097,74 @@ jOption.setCorrelationMatrixOption(option);
   </tr>
 </table>
 
+```string 
+// ============================================================================
+# 甘特图(1.5.3)  Gantt chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>甘特图(Gantt chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JGanttOption option = new JGanttOption();
+        option.setTitle(
+        new JGanttOption.Title(
+        "Gantt of Airport Flight", "航班调度甘特图")
+        );
+        option.setFlightData(
+        Arrays.asList(
+        new JGanttOption.FlightData
+            ("Y3683", "681", "X", 21, 0, 360, 0, 0.7),
+        new JGanttOption.FlightData
+            ("EKXAD", "682I", "W", 21, 0, 360, 1, 0.7),
+        new JGanttOption.FlightData
+            ("Y4682", "682O", "W", 21, 0, 360, 2, 0.7),
+        new JGanttOption.FlightData
+            ("Y4393", "682", "X", 21, 0, 360, 3, 0.7),
+        new JGanttOption.FlightData
+            ("Y2238", "683", "X", 21, 0, 360, 4, 0.7),
+        new JGanttOption.FlightData
+            ("Y8192", "684", "W", 21, 0, 240, 5, 0.7),
+        new JGanttOption.FlightData
+            ("Y3887", "685", "X", 21, 0, 360, 6, 0.7),
+        new JGanttOption.FlightData
+            ("Y3086", "690", "X", 21, 0, 360, 7, 0.7),
+        new JGanttOption.FlightData
+            ("Y7421", "691", "X", 21, 0, 120, 8, 0.7),
+        new JGanttOption.FlightData
+            ("Y4619", "692", "X", 21, 0, 300, 9, 0.7)
+        ));
+        option.setChartStyle(new JGanttOption.ChartStyle(
+                    Color.WHITE,
+                    new Color(146, 154, 186),
+                    new Color(54, 140, 108),
+                    new Color(80, 112, 221),
+                    new Color(221, 179, 11),
+                    new Font("微软雅黑", Font.BOLD, 18),
+                    new Font("微软雅黑", Font.PLAIN, 12),
+                    872,
+                    282
+        ));
+        option.setTimeRange(
+            new JGanttOption.TimeRange(21, 3, 
+            new String[]{"21:00", "22:00", "23:00", "00:00", 
+         "01:00", "02:00", "03:00"}));
+        JChartRenderer renderer = new JGanttChartRenderer();
+        JOption jOption = new JOption();
+        jOption.setGanttOption(option);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/gantt.svg" alt="甘特图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">甘特图</div>
+    </td>
+  </tr>
+</table>
+
 ```string
        
 // ============================================================================
