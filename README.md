@@ -1246,118 +1246,286 @@ jOption.setCorrelationMatrixOption(option);
   </tr>
 </table>
 
-#### 8 样例
+### 如何利用jquick pdf 生成一个信用报告
+#### 定义一个模板
+```xml
+<pdf>
+<body>
+  <div style="textAlignment:center; marginBottom:5px; paddings:5px 5px 60px 70px; background:#3E6B9D; color:white; borderRadius:4px; position:relative">
+    <h1 style="textAlignment:center;color:white; marginBottom:8px; fontSize:20; fontWeight:bold">'企业信用评级报告'</h1>
+    <p style="textAlignment:center;color:rgba(255,255,255,0.9); fontSize:11; margin:2px">'报告编号: CR-2023-08975 | 评估日期: 2023年11月15日'</p>
+    <p style="textAlignment:center;color:rgba(255,255,255,0.9); fontSize:11; margin:2px">'评估机构: 四川省企业信用评估中心'</p>
+  </div>
+  <div style="marginBottom:3px;borderRadius:4px;">
+    <div style="padding:12px">
+      <h2 style="color:#2c3e50; marginTop:0; marginBottom:8px; fontSize:14; fontWeight:bold">'四川省泡海椒科技有限公司'</h2>
+      <table style="width:600px;verticalAlignment:center; fontSize:10">
+        <tr>
+          <td style="backgroundColor:#f8f9fa;padding:5px; textAlign:left;width:150px;">'统一信用代码'</td>
+          <td style="backgroundColor:#f8f9fa;padding:5px;width:150px;  ">'91110108MA01XX1234'</td>
+          <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left;width:150px;">'成立日期'</td>
+          <td style="padding:5px; width:150px;">'2018年5月20日'</td>
+        </tr>
+        <tr>
+          <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; ">'注册资本'</td>
+          <td style="padding:5px; ">'1000万元人民币'</td>
+          <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; ">'法定代表人'</td>
+          <td style="padding:5px;">'泡海椒'</td>
+        </tr>
+        <tr>
+          <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; ">'所属行业'</td>
+          <td style="padding:5px; ">'软件和信息技术服务业'</td>
+          <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; ">'企业规模'</td>
+          <td style="padding:5px; ">'中型（150-200人）'</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <template>&html</template>
+  <div style="margin-bottom:15px">
+    <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'历年财务数据（单位：万元）'</h2>
+    <table style="width:600px; fontSize:10; marginTop:8px">
+      <tr>
+        <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'财务指标'</th>
+        <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'2020年'</th>
+        <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'2021年'</th>
+        <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'2022年'</th>
+        <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'2023年'</th>
+        <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'增长率'</th>
+      </tr>
+      <tr>
+        <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; border:1px solid #dee2e6; fontWeight:bold">'营业收入'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'8,560'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'12,340'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'18,920'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'25,680'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6; color:#4CAF50; fontWeight:bold">'+44.2%'</td>
+      </tr>
+      <tr>
+        <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; border:1px solid #dee2e6; fontWeight:bold">'净利润'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'1,240'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'2,150'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'3,890'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'5,420'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6; color:#4CAF50; fontWeight:bold">'+63.8%'</td>
+      </tr>
+      <tr>
+        <td style="backgroundColor:#f8f9fa; padding:5px; B:left; border:1px solid #dee2e6; fontWeight:bold">'总资产'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'15,800'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'22,450'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'31,200'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'42,800'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6; color:#4CAF50; fontWeight:bold">'+39.5%'</td>
+      </tr>
+      <tr>
+        <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; border:1px solid #dee2e6; fontWeight:bold">'净资产'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'9,200'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'13,800'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'19,500'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'26,400'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6; color:#4CAF50; fontWeight:bold">'+42.1%'</td>
+      </tr>
+      <tr>
+        <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; border:1px solid #dee2e6; fontWeight:bold">'毛利率'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'42.5%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'45.8%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'48.2%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'51.6%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #dee2e6; color:#4CAF50; fontWeight:bold">'+9.1%'</td>
+      </tr>
+    </table>
+  </div>
 
+  <div style="margin-bottom:15px">
+    <h2 style="color:#3498db; border-bottom:1px solid #3498db; padding-bottom:4px; font-size:13px; margin-bottom:10px">'关键经营指标'</h2>
+    <list style="list-style-type:none; padding-left:0; font-size:11px">
+      <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #4CAF50; border-radius:0 4px 4px 0">
+        '营收增长率:连续三年保持40%以上增长，2023年达到25,680万元'
+      </li>
+      <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #2196F3; border-radius:0 4px 4px 0">
+        ' 利润率提升:净利率从14.5%提升至21.1%，盈利能力显著增强'
+      </li>
+      <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #FF9800; border-radius:0 4px 4px 0">
+        ' 研发投入:研发费用年均增长38.9%，占营收比例达13.3%'
+      </li>
+      <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #9C27B0; border-radius:0 4px 4px 0">
+        ' 人才结构:技术研发人员占比42%，硕士以上学历占35%'
+      </li>
+      <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #E91E63; border-radius:0 4px 4px 0">
+        ' 客户质量:服务15家上市公司，客户续约率92%，大客户满意度4.8/5.0'
+      </li>
+      <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #009688; border-radius:0 4px 4px 0">
+        ' 资产质量:资产负债率维持在38%左右，流动比率2.8，偿债能力良好'
+      </li>
+    </list>
+  </div>
+
+  <div style="margin-bottom:15px">
+    <h2 style="color:#3498db; border-bottom:1px solid #3498db; padding-bottom:4px; font-size:13px; margin-bottom:10px">'信用评级雷达图'</h2>
+    <div style="display:flex; justify-content:space-between; margin-top:10px">
+        <svg>${svg}</svg>
+    </div>
+    <div style="display:flex; justify-content:space-between; margin-top:10px">
+      <div style="width:400px">
+        <div style="backgroundColor:#f8f9fa; padding:15px; borderRadius:4px; height:230px; overflow-y:auto">
+          <h3 style="color:#2c3e50; margin-top:0; fontSize:12; marginBottom:8px">'评级指标说明'</h3>
+          <list style="list-style-type:none; padding-left:0; font-size:10px">
+            <li style="margin-bottom:6px; padding-left:16px; position:relative">
+              <span style="position:absolute; left:0; width:8px; height:8px; background-color:#3498db; border-radius:50%; top:4px"></span>
+              <span style="font-weight:bold; color:#2c3e50">'财务状况(90分):' </span>
+              '营收稳定增长'
+            </li>
+            <li style="margin-bottom:6px; padding-left:16px; position:relative">
+              <span style="position:absolute; left:0; width:8px; height:8px; background-color:#2ecc71; border-radius:50%; top:4px"></span>
+              <span style="font-weight:bold; color:#2c3e50">'经营能力(95分):' </span>
+             ' 客户留存率高'
+            </li>
+            <li style="margin-bottom:6px; padding-left:16px; position:relative">
+              <span style="position:absolute; left:0; width:8px; height:8px; background-color:#e74c3c; border-radius:50%; top:4px"></span>
+              <span style="font-weight:bold; color:#2c3e50">'偿债能力(85分):' </span>
+              '负债率合理'
+            </li>
+            <li style="margin-bottom:6px; padding-left:16px; position:relative">
+              <span style="position:absolute; left:0; width:8px; height:8px; background-color:#f39c12; border-radius:50%; top:4px"></span>
+              <span style="font-weight:bold; color:#2c3e50">'发展潜力(92分):' </span>
+              '研发投入增加'
+            </li>
+          </list>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom:15px; background:linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding:15px; border-radius:4px; border-left:4px solid #2196F3; position:relative">
+    <h2 style="color:#1565c0; margin-top:0; font-size:13px; margin-bottom:8px">'综合评价'</h2>
+    <p style="line-height:1.5; text-align:justify; margin-bottom:8px; font-size:11px">
+      '四川省泡海椒科技有限公司作为国家级高新技术企业和专精特新"小巨人"企业，在云计算和大数据领域表现出色。'
+      '公司财务状况健康，经营能力突出，技术创新能力强，具备良好的发展潜力。信用评级为AAA级，展望稳定。'
+    </p>
+    <div style="position:absolute; bottom:10px; right:15px; text-align:center">
+      <div style="font-size:8px; color:#d32f2f; margin-top:2px">'认证通过'</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:15px; padding-top:12px; border-top:1px solid #dee2e6; color:#6c757d; font-size:9px; position:relative">
+    <p>'本报告依据公开信息和专业评估模型生成，仅供参考 | 报告生成时间: 2025年09月06日'</p>
+    <p>'© 2023 企业信用评估中心 版权所有 | 认证编号: CE-2023-001'</p>
+    <div style="position:absolute; bottom:5px; right:10px; opacity:0.1">
+    </div>
+  </div>
+</body>
+</pdf>
+```
+#### 定义一个内嵌的html 组件(html 变量)
+<div style="marginBottom:15px">
+    <h2 style="color:#3498db;  fontSize:13; marginBottom:10px">企业资质认证</h2>
+    <div style="display:flex; marginTop:12px; gap:8px">
+      <div style="width:20%; background:linear-gradient(135deg, #4CAF50 0%, #81C784 100%); color:white; padding:10px; border-radius:5px; text-align:center">
+        <div style="font-size:18px; font-weight:bold; margin-bottom:3px">AAA</div>
+        <div style="font-size:10px">信用等级</div>
+      </div>
+      <div style="width:20%; background:linear-gradient(135deg, #FF9800 0%, #F57C00 100%); color:white; padding:10px; border-radius:5px; text-align:center">
+        <div style="font-size:18px; font-weight:bold; margin-bottom:3px">高新</div>
+        <div style="font-size:10px">高新技术企业</div>
+      </div>
+      <div style="width:20%; background:linear-gradient(135deg, #1976D2 0%, #0D47A1 100%); color:white; padding:10px; border-radius:5px; text-align:center">
+        <div style="font-size:18px; font-weight:bold; margin-bottom:3px">专精特新</div>
+        <div style="font-size:10px">小巨人企业</div>
+      </div>
+      <div style="width:20%; background:linear-gradient(135deg, #9C27B0 0%, #BA68C8 100%); color:white; padding:10px; border-radius:5px; text-align:center">
+        <div style="font-size:18px; font-weight:bold; margin-bottom:3px">水电</div>
+        <div style="font-size:10px">双软认证企业</div>
+      </div>
+    </div>
+  </div>
+
+#### 定义一个雷达图背景svg(也可以使用java 加载方式)
+```xml
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="450" viewBox="0 0 500 450">
+                <!-- 雷达图背景 -->
+                <g transform="translate(250, 200)">
+                    <!-- 绘制5层同心六边形 -->
+                    <polygon points="0,-150 129.9,-75 129.9,75 0,150 -129.9,75 -129.9,-75" 
+                             fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                    <polygon points="0,-120 103.9,-60 103.9,60 0,120 -103.9,60 -103.9,-60" 
+                             fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                    <polygon points="0,-90 77.9,-45 77.9,45 0,90 -77.9,45 -77.9,-45" 
+                             fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                    <polygon points="0,-60 51.9,-30 51.9,30 0,60 -51.9,30 -51.9,-30" 
+                             fill="none" stroke="#e0e0e0" stroke-width="1"/>
+                    <polygon points="0,-30 25.9,-15 25.9,15 0,30 -25.9,15 -25.9,-15" 
+                             fill="none" stroke="#e0e0e0" stroke-width="1"/>
+
+                    <!-- 坐标轴 -->
+                    <line x1="0" y1="0" x2="0" y2="-160" stroke="#95a5a6" stroke-width="1.5"/>
+                    <line x1="0" y1="0" x2="129.9" y2="-75" stroke="#95a5a6" stroke-width="1.5"/>
+                    <line x1="0" y1="0" x2="129.9" y2="75" stroke="#95a5a6" stroke-width="1.5"/>
+                    <line x1="0" y1="0" x2="0" y2="160" stroke="#95a5a6" stroke-width="1.5"/>
+                    <line x1="0" y1="0" x2="-129.9" y2="75" stroke="#95a5a6" stroke-width="1.5"/>
+                    <line x1="0" y1="0" x2="-129.9" y2="-75" stroke="#95a5a6" stroke-width="1.5"/>
+                    
+                    <!-- 维度标签 -->
+                    <text x="0" y="-180" text-anchor="middle" font-size="12" fill="#2c3e50">偿债能力</text>
+                    <text x="145" y="-75" text-anchor="start" font-size="12" fill="#2c3e50">盈利能力</text>
+                    <text x="145" y="85" text-anchor="start" font-size="12" fill="#2c3e50">运营能力</text>
+                    <text x="0" y="190" text-anchor="middle" font-size="12" fill="#2c3e50">成长能力</text>
+                    <text x="-145" y="85" text-anchor="end" font-size="12" fill="#2c3e50">现金流</text>
+                    <text x="-145" y="-75" text-anchor="end" font-size="12" fill="#2c3e50">信用历史</text>
+                    
+                    <!-- 刻度标签 -->
+                    <text x="5" y="-150" text-anchor="start" font-size="10" fill="#7f8c8d">100</text>
+                    <text x="5" y="-120" text-anchor="start" font-size="10" fill="#7f8c8d">80</text>
+                    <text x="5" y="-90" text-anchor="start" font-size="10" fill="#7f8c8d">60</text>
+                    <text x="5" y="-60" text-anchor="start" font-size="10" fill="#7f8c8d">40</text>
+                    <text x="5" y="-30" text-anchor="start" font-size="10" fill="#7f8c8d">20</text>
+                    
+                    <!-- 当前企业数据 -->
+                    <polygon points="0,-135 116.9,-67.5 103.9,60 0,120 -103.9,67.5 -116.9,-67.5" 
+                             fill="#3498db" fill-opacity="0.2" stroke="#3498db" stroke-width="2"/>
+                    
+                    <!-- 数据点 -->
+                    <circle cx="0" cy="-135" r="4" fill="#ffffff" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="116.9" cy="-67.5" r="4" fill="#ffffff" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="103.9" cy="60" r="4" fill="#ffffff" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="0" cy="120" r="4" fill="#ffffff" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="-103.9" cy="67.5" r="4" fill="#ffffff" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="-116.9" cy="-67.5" r="4" fill="#ffffff" stroke="#3498db" stroke-width="2"/>
+                    
+                    <!-- 数据值标签 -->
+                    <text x="0" y="-145" text-anchor="middle" font-size="10" fill="#3498db">90</text>
+                    <text x="127" y="-67.5" text-anchor="start" font-size="10" fill="#3498db">85</text>
+                    <text x="114" y="70" text-anchor="start" font-size="10" fill="#3498db">80</text>
+                    <text x="0" y="140" text-anchor="middle" font-size="10" fill="#3498db">75</text>
+                    <text x="-114" y="77" text-anchor="end" font-size="10" fill="#3498db">88</text>
+                    <text x="-127" y="-67.5" text-anchor="end" font-size="10" fill="#3498db">92</text>
+                </g>
+                
+                <!-- 标题 -->
+                <text x="250" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#2c3e50">
+                    科技有限公司信用评级
+                </text>
+                
+                <!-- 评级说明 -->
+                <text x="250" y="380" text-anchor="middle" font-size="12" fill="#2c3e50">
+                    综合信用评分: 85/100 | 评级: AA
+                </text>
+            </svg>
+```
+#### pdf 渲染
 ```java
-   JPdfConfig config = new JPdfConfig();
+JPdfConfig config = new JPdfConfig();
 JTemplateConfig templateConfig = config.getTemplateConfig();
-        templateConfig.
-
-put("html","  <div style=\"marginBottom:15px\">\n"+
-            "    <h2 style=\"color:#3498db;  fontSize:13; marginBottom:10px\">企业资质认证</h2>\n"+
-            "    <div style=\"display:flex; marginTop:12px; gap:8px\">\n"+
-            "      <div style=\"width:20%; background:linear-gradient(135deg, #4CAF50 0%, #81C784 100%); color:white; padding:10px; border-radius:5px; text-align:center\">\n"+
-            "        <div style=\"font-size:18px; font-weight:bold; margin-bottom:3px\">AAA</div>\n"+
-            "        <div style=\"font-size:10px\">信用等级</div>\n"+
-            "      </div>\n"+
-            "      <div style=\"width:20%; background:linear-gradient(135deg, #FF9800 0%, #F57C00 100%); color:white; padding:10px; border-radius:5px; text-align:center\">\n"+
-            "        <div style=\"font-size:18px; font-weight:bold; margin-bottom:3px\">高新</div>\n"+
-            "        <div style=\"font-size:10px\">高新技术企业</div>\n"+
-            "      </div>\n"+
-            "      <div style=\"width:20%; background:linear-gradient(135deg, #1976D2 0%, #0D47A1 100%); color:white; padding:10px; border-radius:5px; text-align:center\">\n"+
-            "        <div style=\"font-size:18px; font-weight:bold; margin-bottom:3px\">专精特新</div>\n"+
-            "        <div style=\"font-size:10px\">小巨人企业</div>\n"+
-            "      </div>\n"+
-            "      <div style=\"width:20%; background:linear-gradient(135deg, #9C27B0 0%, #BA68C8 100%); color:white; padding:10px; border-radius:5px; text-align:center\">\n"+
-            "        <div style=\"font-size:18px; font-weight:bold; margin-bottom:3px\">水电</div>\n"+
-            "        <div style=\"font-size:10px\">双软认证企业</div>\n"+
-            "      </div>\n"+
-            "    </div>\n"+
-            "  </div>");
-        config.
-
-setTemplateConfig(templateConfig);
-
+        templateConfig.put("html", html);
+        System.out.println(html);
+        config.setTemplateConfig(templateConfig);
 JReader fileReader = new JReSourceFileReader("report.txt");
 JAdaptor adaptor = new JAdaptor(fileReader);
-String svg = "  <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"500\" height=\"450\" viewBox=\"0 0 500 450\">\n" +
-        "                <!-- 雷达图背景 -->\n" +
-        "                <g transform=\"translate(250, 200)\">\n" +
-        "                    <!-- 绘制5层同心六边形 -->\n" +
-        "                    <polygon points=\"0,-150 129.9,-75 129.9,75 0,150 -129.9,75 -129.9,-75\" \n" +
-        "                             fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"1\"/>\n" +
-        "                    <polygon points=\"0,-120 103.9,-60 103.9,60 0,120 -103.9,60 -103.9,-60\" \n" +
-        "                             fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"1\"/>\n" +
-        "                    <polygon points=\"0,-90 77.9,-45 77.9,45 0,90 -77.9,45 -77.9,-45\" \n" +
-        "                             fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"1\"/>\n" +
-        "                    <polygon points=\"0,-60 51.9,-30 51.9,30 0,60 -51.9,30 -51.9,-30\" \n" +
-        "                             fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"1\"/>\n" +
-        "                    <polygon points=\"0,-30 25.9,-15 25.9,15 0,30 -25.9,15 -25.9,-15\" \n" +
-        "                             fill=\"none\" stroke=\"#e0e0e0\" stroke-width=\"1\"/>\n" +
-        "                    \n" +
-        "                    <!-- 坐标轴 -->\n" +
-        "                    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"-160\" stroke=\"#95a5a6\" stroke-width=\"1.5\"/>\n" +
-        "                    <line x1=\"0\" y1=\"0\" x2=\"129.9\" y2=\"-75\" stroke=\"#95a5a6\" stroke-width=\"1.5\"/>\n" +
-        "                    <line x1=\"0\" y1=\"0\" x2=\"129.9\" y2=\"75\" stroke=\"#95a5a6\" stroke-width=\"1.5\"/>\n" +
-        "                    <line x1=\"0\" y1=\"0\" x2=\"0\" y2=\"160\" stroke=\"#95a5a6\" stroke-width=\"1.5\"/>\n" +
-        "                    <line x1=\"0\" y1=\"0\" x2=\"-129.9\" y2=\"75\" stroke=\"#95a5a6\" stroke-width=\"1.5\"/>\n" +
-        "                    <line x1=\"0\" y1=\"0\" x2=\"-129.9\" y2=\"-75\" stroke=\"#95a5a6\" stroke-width=\"1.5\"/>\n" +
-        "                    \n" +
-        "                    <!-- 维度标签 -->\n" +
-        "                    <text x=\"0\" y=\"-180\" text-anchor=\"middle\" font-size=\"12\" fill=\"#2c3e50\">偿债能力</text>\n" +
-        "                    <text x=\"145\" y=\"-75\" text-anchor=\"start\" font-size=\"12\" fill=\"#2c3e50\">盈利能力</text>\n" +
-        "                    <text x=\"145\" y=\"85\" text-anchor=\"start\" font-size=\"12\" fill=\"#2c3e50\">运营能力</text>\n" +
-        "                    <text x=\"0\" y=\"190\" text-anchor=\"middle\" font-size=\"12\" fill=\"#2c3e50\">成长能力</text>\n" +
-        "                    <text x=\"-145\" y=\"85\" text-anchor=\"end\" font-size=\"12\" fill=\"#2c3e50\">现金流</text>\n" +
-        "                    <text x=\"-145\" y=\"-75\" text-anchor=\"end\" font-size=\"12\" fill=\"#2c3e50\">信用历史</text>\n" +
-        "                    \n" +
-        "                    <!-- 刻度标签 -->\n" +
-        "                    <text x=\"5\" y=\"-150\" text-anchor=\"start\" font-size=\"10\" fill=\"#7f8c8d\">100</text>\n" +
-        "                    <text x=\"5\" y=\"-120\" text-anchor=\"start\" font-size=\"10\" fill=\"#7f8c8d\">80</text>\n" +
-        "                    <text x=\"5\" y=\"-90\" text-anchor=\"start\" font-size=\"10\" fill=\"#7f8c8d\">60</text>\n" +
-        "                    <text x=\"5\" y=\"-60\" text-anchor=\"start\" font-size=\"10\" fill=\"#7f8c8d\">40</text>\n" +
-        "                    <text x=\"5\" y=\"-30\" text-anchor=\"start\" font-size=\"10\" fill=\"#7f8c8d\">20</text>\n" +
-        "                    \n" +
-        "                    <!-- 当前企业数据 -->\n" +
-        "                    <polygon points=\"0,-135 116.9,-67.5 103.9,60 0,120 -103.9,67.5 -116.9,-67.5\" \n" +
-        "                             fill=\"#3498db\" fill-opacity=\"0.2\" stroke=\"#3498db\" stroke-width=\"2\"/>\n" +
-        "                    \n" +
-        "                    <!-- 数据点 -->\n" +
-        "                    <circle cx=\"0\" cy=\"-135\" r=\"4\" fill=\"#ffffff\" stroke=\"#3498db\" stroke-width=\"2\"/>\n" +
-        "                    <circle cx=\"116.9\" cy=\"-67.5\" r=\"4\" fill=\"#ffffff\" stroke=\"#3498db\" stroke-width=\"2\"/>\n" +
-        "                    <circle cx=\"103.9\" cy=\"60\" r=\"4\" fill=\"#ffffff\" stroke=\"#3498db\" stroke-width=\"2\"/>\n" +
-        "                    <circle cx=\"0\" cy=\"120\" r=\"4\" fill=\"#ffffff\" stroke=\"#3498db\" stroke-width=\"2\"/>\n" +
-        "                    <circle cx=\"-103.9\" cy=\"67.5\" r=\"4\" fill=\"#ffffff\" stroke=\"#3498db\" stroke-width=\"2\"/>\n" +
-        "                    <circle cx=\"-116.9\" cy=\"-67.5\" r=\"4\" fill=\"#ffffff\" stroke=\"#3498db\" stroke-width=\"2\"/>\n" +
-        "                    \n" +
-        "                    <!-- 数据值标签 -->\n" +
-        "                    <text x=\"0\" y=\"-145\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3498db\">90</text>\n" +
-        "                    <text x=\"127\" y=\"-67.5\" text-anchor=\"start\" font-size=\"10\" fill=\"#3498db\">85</text>\n" +
-        "                    <text x=\"114\" y=\"70\" text-anchor=\"start\" font-size=\"10\" fill=\"#3498db\">80</text>\n" +
-        "                    <text x=\"0\" y=\"140\" text-anchor=\"middle\" font-size=\"10\" fill=\"#3498db\">75</text>\n" +
-        "                    <text x=\"-114\" y=\"77\" text-anchor=\"end\" font-size=\"10\" fill=\"#3498db\">88</text>\n" +
-        "                    <text x=\"-127\" y=\"-67.5\" text-anchor=\"end\" font-size=\"10\" fill=\"#3498db\">92</text>\n" +
-        "                </g>\n" +
-        "                \n" +
-        "                <!-- 标题 -->\n" +
-        "                <text x=\"250\" y=\"30\" text-anchor=\"middle\" font-size=\"16\" font-weight=\"bold\" fill=\"#2c3e50\">\n" +
-        "                    科技有限公司信用评级\n" +
-        "                </text>\n" +
-        "                \n" +
-        "                <!-- 评级说明 -->\n" +
-        "                <text x=\"250\" y=\"380\" text-anchor=\"middle\" font-size=\"12\" fill=\"#2c3e50\">\n" +
-        "                    综合信用评分: 85/100 | 评级: AA\n" +
-        "                </text>\n" +
-        "            </svg>";
+
 JContext param = new JContext();
-        param.
-
-put("svg",svg);
-
+ param.put("svg", svg);
 JQuickPdfXExecutor executor = new JQuickPdfXExecutor(param, config);
-        executor.
-
-execute(adaptor.getRuleContent());
+executor.execute(adaptor.getRuleContent());
+ 
 ```
 
 ![Demo](./pay/demo.png)
