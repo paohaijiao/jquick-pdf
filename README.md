@@ -691,6 +691,19 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
         JChartRenderer renderer = new JGanttChartRenderer();
         JOption jOption = new JOption();
         jOption.setGanttOption(option);
+// ============================================================================
+# 仪表盘(1.5.3)  Gauge chart
+// ============================================================================
+        GuageConfig scoreConfig = GuageConfig.builder()
+        .score(75)  // 设置分数为75
+        .pointerColor(new Color(220, 80, 80))  // 红色指针
+        .backgroundColor(new Color(240, 240, 245))  // 浅灰色背景
+        .title("PERFORMANCE")
+        .build();
+        JGuageOption option = JGuageOption.builder().scoreMeter(scoreConfig).build();
+        JGuageRenderer renderer = new JGuageRenderer();
+        JOption option1 = new JOption();
+        option1.setGuageOption(option);
 ```
 
 
