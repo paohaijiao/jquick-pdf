@@ -50,7 +50,7 @@ public class PieCharTest {
         );
         option.series(pie);
         JPieChartsRenderer renderer = new JPieChartsRenderer();
-        renderer.render(option, "d://test//accurate-pie-chart.svg");
+        renderer.render(option, "d://test//pie-chart.svg");
     }
 
 }
