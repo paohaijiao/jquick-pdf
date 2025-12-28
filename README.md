@@ -282,6 +282,7 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 # 2.箱线图  BOXPLOT chart
 // ============================================================================
 ```
+
 <table style="width: 100%; border: none; border-collapse: collapse;">
   <tr>
     <td style="width: 48%; vertical-align: middle; padding-right: 2%; border: none;">
