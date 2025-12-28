@@ -206,7 +206,7 @@ public class JTreemapRendererExample {
             option.setTreemapOption(treemapOption);
             option.title("公司业务分布矩形树图（JTreemapRenderer）");
             JTreeMapRenderer renderer = new JTreeMapRenderer();
-            String outputPath = "d://test//jtreemap_renderer_output.svg";
+            String outputPath = "d://test//treemap.svg";
             renderer.render(option, outputPath);
             System.out.println("JTreemapRenderer 树形图生成成功！");
             System.out.println("文件保存位置: " + outputPath);

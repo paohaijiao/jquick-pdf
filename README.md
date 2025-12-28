@@ -805,72 +805,68 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 
 
 ```string 
-        JOption option = new JOption();
-        // 设置标题
-        JTitle title = new JTitle();
-        title.setText("咖啡风味分析");
-        option.setTitle(title);
-        JSunburstData root = new JSunburstData("总数据", 1.0);
-        JSunburstData main1 = new JSunburstData("电子产品", 0.4);
-        JSunburstData main2 = new JSunburstData("服装", 0.3);
-        JSunburstData main3 = new JSunburstData("食品", 0.3);
-        // 第二层：子分类
-        JSunburstData main1Sub1 = new JSunburstData("手机", 0.6);
-        JSunburstData main1Sub2 = new JSunburstData("电脑", 0.4);
-        JSunburstData main2Sub1 = new JSunburstData("男装", 0.5);
-        JSunburstData main2Sub2 = new JSunburstData("女装", 0.5);
-        JSunburstData main3Sub1 = new JSunburstData("生鲜", 0.4);
-        JSunburstData main3Sub2 = new JSunburstData("零食", 0.6);
-        // 第三层：孙分类
-        main1Sub1.addChild(new JSunburstData("智能手机", 0.7));
-        main1Sub1.addChild(new JSunburstData("功能手机", 0.3));
-        main1Sub2.addChild(new JSunburstData("笔记本电脑", 0.6));
-        main1Sub2.addChild(new JSunburstData("台式电脑", 0.4));
-        main2Sub1.addChild(new JSunburstData("衬衫", 0.4));
-        main2Sub1.addChild(new JSunburstData("裤子", 0.6));
-        main3Sub2.addChild(new JSunburstData("膨化食品", 0.5));
-        main3Sub2.addChild(new JSunburstData("糖果", 0.5));
-        // 构建树结构
-        main1.addChild(main1Sub1);
-        main1.addChild(main1Sub2);
-
-        main2.addChild(main2Sub1);
-        main2.addChild(main2Sub2);
-
-        main3.addChild(main3Sub1);
-        main3.addChild(main3Sub2);
-
-        root.addChild(main1);
-        root.addChild(main2);
-        root.addChild(main3);
-        option.setSunburstData(root);
 // ============================================================================
 # 矩形树图(1.5.1)  Treemap chart
 // ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>矩形树图(Treemap chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
         JTreeMapNode root = createTestData();
         TreeMapOption treemapOption = new TreeMapOption();
         treemapOption.setRoot(root);
         treemapOption.setDepartmentColors(DEPARTMENT_COLORS);
         treemapOption.setCategoryColors(CATEGORY_COLORS);
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("开发", "技术部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("项目", "技术部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("服务", "技术部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("会计", "财务部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("预算", "财务部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("税务", "财务部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("审计", "财务部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("销售", "销售部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("区域", "销售部"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("招聘", "人力资源"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("培训", "人力资源"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("薪酬", "人力资源"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("员工", "人力资源"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("营销", "市场营销"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("品牌", "市场营销"));
-        treemapOption.getDepartmentRules().add(new TreeMapMapping("公关", "市场营销"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("开发", "技术部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("项目", "技术部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("服务", "技术部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("会计", "财务部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("预算", "财务部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("税务", "财务部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("审计", "财务部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("销售", "销售部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("区域", "销售部"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("招聘", "人力资源"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("培训", "人力资源"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("薪酬", "人力资源"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("员工", "人力资源"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("营销", "市场营销"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("品牌", "市场营销"));
+        treemapOption.getDepartmentRules()
+        .add(new TreeMapMapping("公关", "市场营销"));
         JOption option = new JOption();
         option.setTreemapOption(treemapOption);
         option.title("公司业务分布矩形树图（JTreemapRenderer）");
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/treemap.svg" alt="矩形树图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">矩形树图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
 // ============================================================================
 # 气泡图(1.5.1)  Bubble chart
 // ============================================================================
