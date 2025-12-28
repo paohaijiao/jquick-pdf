@@ -76,8 +76,6 @@ public class BubbleTest {
         series.data(data.toArray());
         option.series(series);
         JBubbleChartRenderer renderer = new JBubbleChartRenderer();
-        renderer.render(option, "aqi_bubble_chart.svg");
-        System.out.println("AQI气泡图已生成: aqi_bubble_chart.svg");
-        renderer.render(option, "d://test//bubble-demo.svg");
+        renderer.render(option, "d://test//bubble.svg");
     }
 }

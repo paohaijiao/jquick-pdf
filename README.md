@@ -870,18 +870,30 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 // ============================================================================
 # 气泡图(1.5.1)  Bubble chart
 // ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>气泡图(Bubble chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
         JTitle title = new JTitle();
         title.setText("空气质量指数 (AQI) 监测气泡图");
-        title.setSubtext("图表说明：本气泡图展示了空气质量指数(AQI)的时间变化趋势。X轴表示日期，Y轴表示AQI数值，气泡大小反映PM2.5浓度，气泡颜色表示AQI等级。");
+        title.setSubtext("图表说明：本气泡图展示了空气质量指数(AQI)的
+        时间变化趋势。X轴表示日期，Y轴表示AQI数值，气泡大小反映PM2.5浓度，
+        气泡颜色表示AQI等级。");
         JOption option = new JOption()
-                .title(title)
-                .legend("优", "良", "轻度污染", "中度污染", "重度污染")
-                .xAxis(new CategoryAxis().name("日期"))
-                .yAxis(new ValueAxis().name("AQI数值"));
+        .title(title)
+        .legend("优", "良", "轻度污染", "中度污染", "重度污染")
+        .xAxis(new CategoryAxis().name("日期"))
+        .yAxis(new ValueAxis().name("AQI数值"));
         ScatterSeries series = new ScatterSeries("空气质量监测");
         List<Map<String, Object>> data = new ArrayList<>();
         Random random = new Random(42); // 固定种子以便重现
-        String[] dates = {"01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10", "01-11", "01-12", "01-13", "01-14", "01-15"};
+        String[] dates = {"01-01", "01-02", "01-03", "01-04",
+        "01-05", "01-06", "01-07", "01-08", "01-09", "01-10",
+        "01-11", "01-12", "01-13", "01-14", "01-15"};
         for (int i = 0; i < dates.length; i++) {
             int aqi = 20 + random.nextInt(180); // AQI 20-200
             double pm25 = 10 + random.nextDouble() * 150; // PM2.5 10-160
@@ -891,7 +903,8 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
             else if (aqi <= 150) category = "轻度污染";
             else if (aqi <= 200) category = "中度污染";
             else category = "重度污染";
-            String name = String.format("日期:%s, AQI:%d, PM2.5:%.1f", dates[i], aqi, pm25);
+            String name = String.format("日期:%s, AQI:%d, 
+            PM2.5:%.1f", dates[i], aqi, pm25);
             Map<String, Object> dataPoint = new HashMap<>();
             dataPoint.put("x", dates[i]);
             dataPoint.put("y", aqi);
@@ -902,6 +915,17 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
         }
         series.data(data.toArray());
         option.series(series);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/bubble.svg" alt="气泡图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">气泡图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
 // ============================================================================
 # 日历(1.5.3)  Lunar chart
 // ============================================================================
