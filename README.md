@@ -261,6 +261,95 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
     JBar bar = new JBar();
     bar.name("销量").data(5, 20, 36, 10, 10, 20);
     option.series(bar);
+// ============================================================================
+# 箱线图  BOXPLOT chart
+// ============================================================================
+     JOption option = new JOption();
+     option.title().text("销售数据分布");
+     option.xAxis(new JCategoryAxis().data("一季度", "二季度", "三季度", "四季度"));
+     option.series(new JBoxplot().data(
+           new Object[]{10, 15, 20, 25, 30},
+           new Object[]{12, 18, 22, 28, 35},
+           new Object[]{8, 14, 19, 26, 32},
+           ew Object[]{11, 16, 21, 27, 33}
+        ));
+// ============================================================================
+# HEATMAP  热力图 chart
+// ============================================================================
+        JOption option = new JOption();
+        option.title("2023年月度温度分布热力图");
+        option.xAxis(new JCategoryAxis()
+                .data("1月", "2月", "3月", "4月", "5月", "6月",
+                        "7月", "8月", "9月", "10月", "11月", "12月"));
+        option.yAxis(new JCategoryAxis()
+                .data("凌晨(0-6)", "早晨(6-9)", "上午(9-12)",
+                        "中午(12-14)", "下午(14-18)", "晚上(18-24)"));
+        JHeatmap heatmap = new JHeatmap();
+        heatmap.data(
+                new Object[]{0, 0, -5.2}, new Object[]{0, 1, -3.8}, new Object[]{0, 2, 1.5},
+                new Object[]{0, 3, 4.2}, new Object[]{0, 4, 2.8}, new Object[]{0, 5, -2.1},
+                new Object[]{1, 0, -3.5}, new Object[]{1, 1, -1.2}, new Object[]{1, 2, 3.0},
+                new Object[]{1, 3, 6.5}, new Object[]{1, 4, 4.2}, new Object[]{1, 5, 0.5},
+                new Object[]{2, 0, 0.8}, new Object[]{2, 1, 3.5}, new Object[]{2, 2, 8.2},
+                new Object[]{2, 3, 12.0}, new Object[]{2, 4, 9.5}, new Object[]{2, 5, 4.2},
+                new Object[]{3, 0, 5.2}, new Object[]{3, 1, 8.0}, new Object[]{3, 2, 12.5},
+                new Object[]{3, 3, 16.8}, new Object[]{3, 4, 14.2}, new Object[]{3, 5, 9.5},
+                new Object[]{4, 0, 10.5}, new Object[]{4, 1, 13.2}, new Object[]{4, 2, 17.8},
+                new Object[]{4, 3, 21.5}, new Object[]{4, 4, 19.0}, new Object[]{4, 5, 14.8},
+                new Object[]{5, 0, 15.2}, new Object[]{5, 1, 18.5}, new Object[]{5, 2, 22.0},
+                new Object[]{5, 3, 26.5}, new Object[]{5, 4, 24.2}, new Object[]{5, 5, 19.8},
+                new Object[]{6, 0, 18.5}, new Object[]{6, 1, 22.0}, new Object[]{6, 2, 26.5},
+                new Object[]{6, 3, 30.2}, new Object[]{6, 4, 28.5}, new Object[]{6, 5, 23.8},
+                new Object[]{7, 0, 17.8}, new Object[]{7, 1, 21.5}, new Object[]{7, 2, 25.2},
+                new Object[]{7, 3, 29.0}, new Object[]{7, 4, 27.5}, new Object[]{7, 5, 22.8},
+                new Object[]{8, 0, 13.5}, new Object[]{8, 1, 16.2}, new Object[]{8, 2, 20.0},
+                new Object[]{8, 3, 24.5}, new Object[]{8, 4, 22.0}, new Object[]{8, 5, 17.5},
+                new Object[]{9, 0, 8.2}, new Object[]{9, 1, 11.5}, new Object[]{9, 2, 15.0},
+                new Object[]{9, 3, 18.8}, new Object[]{9, 4, 16.5}, new Object[]{9, 5, 12.0},
+                new Object[]{10, 0, 2.5}, new Object[]{10, 1, 5.0}, new Object[]{10, 2, 9.2},
+                new Object[]{10, 3, 12.5}, new Object[]{10, 4, 10.0}, new Object[]{10, 5, 5.5},
+                new Object[]{11, 0, -2.8}, new Object[]{11, 1, -0.5}, new Object[]{11, 2, 3.5},
+                new Object[]{11, 3, 6.8}, new Object[]{11, 4, 4.2}, new Object[]{11, 5, 0.0}
+        );
+      option.series(heatmap);
+// ============================================================================
+# K线图(蜡烛图)  K chart
+// ============================================================================
+        JOption option = new JOption();
+        option.title().text("股票K线图(含数据)");
+        option.tooltip().trigger(JTrigger.axis);
+        JCategoryAxis xAxis = new JCategoryAxis();
+        xAxis.data("01/01", "01/02", "01/03", "01/04", "01/05","01/06", "01/07", "01/08", "01/09", "01/10");
+        option.xAxis(xAxis);
+        option.yAxis(new JValueAxis());
+        JCandlestick candlestick = new JCandlestick();
+        candlestick.name("股价")
+                .data(
+                        new Object[]{105.2, 108.5, 104.8, 109.1},
+                        new Object[]{108.6, 107.8, 106.5, 109.5},
+                        new Object[]{107.9, 105.3, 104.2, 108.0},
+                        new Object[]{105.4, 106.1, 104.5, 107.2},
+                        new Object[]{106.2, 104.8, 103.0, 107.5},
+                        new Object[]{104.9, 107.3, 104.0, 108.2},
+                        new Object[]{107.4, 109.1, 106.5, 110.2},
+                        new Object[]{109.2, 108.8, 107.0, 110.5},
+                        new Object[]{108.9, 110.3, 108.2, 111.0},
+                        new Object[]{110.4, 112.1, 109.5, 112.8}
+                );
+        option.series(candlestick);
+// ============================================================================
+# 折线图  Line chart
+// ============================================================================
+        JOption option = new JOption();
+        option.title().text("销售数据折线图");
+        option.tooltip().trigger(JTrigger.axis);
+        JCategoryAxis xAxis = new JCategoryAxis();
+        xAxis.data("1月", "2月", "3月", "4月", "5月", "6月", "7月");
+        option.xAxis(xAxis);
+        option.yAxis(new JValueAxis());
+        JLine line = new JLine();
+        line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
+        option.series(line);
 ```
 
 #### 8 样例
