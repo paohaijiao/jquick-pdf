@@ -246,21 +246,22 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 | Gauge            | 仪表盘(1.5.3)        |
 | WordsCloud            | 词云(1.5.3)         |
 
-<div style="display: flex; align-items: center; gap: 20px; width: 100%; max-width: 1200px; margin: 0 auto;">
-  <!-- 左侧文本列 -->
-  <div style="flex: 1;">
+<div dir="auto" style="display: flex; align-items: center; gap: 20px; width: 100%; max-width: 1200px;">
+  <div dir="auto" style="flex: 1;">
     **这里是左边的文本**  
     可以有多行内容  
     支持 Markdown 语法
     - 列表项1
     - 列表项2
   </div>
-  <!-- 右侧图片列 -->
-  <div style="flex: 1; text-align: center;">
-    <img src="https://p3-flow-imagex-sign.byteimg.com/tos-cn-i-a9rns2rl98/9d91eba9beb84acdb29d8829b43ee53d.png~tplv-a9rns2rl98-image.png?rcl=202512281413294A0D35F5B6A1DFAD47A6&rk3s=8e244e95&rrcfp=dafada99&x-expires=2083126409&x-signature=BoV21z3K24Xd7o%2Bz%2F%2FGfl%2BQnSDI%3D" 
-         alt="销售数据柱状图" 
-         style="width: 100%; max-width: 400px; height: auto;" />
-    <div style="font-size: 0.9em; color: #666; margin-top: 10px;">图片说明文字</div>
+
+  <div dir="auto" style="flex: 1; text-align: center;">
+    <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/8912905c874be3260fa2b137145bbeb5ced267ba061ccc38263cc0ac7fb0feae/68747470733a2f2f70332d666c6f772d696d616765782d7369676e2e62797465696d672e636f6d2f746f732d636e2d692d6139726e7332726c39382f39643931656261396265623834616364623239643838323962343365653533642e706e677e74706c762d6139726e7332726c39382d696d6167652e706e673f72636c3d3230323531323238313431333239344130443335463542364131444641443437413626726b33733d38653234346539352672726366703d646166616461393926782d657870697265733d3230383331323634303926782d7369676e61747572653d426f5632317a334b32345864376f2532427a25324625324647666c253242516e534449253344">
+      <img src="https://camo.githubusercontent.com/8912905c874be3260fa2b137145bbeb5ced267ba061ccc38263cc0ac7fb0feae/68747470733a2f2f70332d666c6f772d696d616765782d7369676e2e62797465696d672e636f6d2f746f732d636e2d692d6139726e7332726c39382f39643931656261396265623834616364623239643838323962343365653533642e706e677e74706c762d6139726e7332726c39382d696d6167652e706e673f72636c3d3230323531323238313431333239344130443335463542364131444641443437413626726b33733d38653234346539352672726366703d646166616461393926782d657870697265733d3230383331323634303926782d7369676e61747572653d426f5632317a334b32345864376f2532427a25324625324647666c253242516e534449253344" 
+           alt="销售数据柱状图" 
+           style="width: 100%; max-width: 400px; height: auto;">
+    </a>
+    <div dir="auto" style="font-size: 0.9em; color: #666; margin-top: 10px;">图片说明文字</div>
   </div>
 </div>
 
