@@ -248,17 +248,26 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 
 <table style="width: 100%; border: none; border-collapse: collapse;">
   <tr>
-    <!-- 左侧文本列 -->
     <td style="width: 48%; vertical-align: middle; padding-right: 2%; border: none;">
       <strong>这里是左边的文本</strong><br>
-      可以有多行内容<br>
-      支持 Markdown 语法<br>
-      - 列表项1<br>
-      - 列表项2
+```string 
+    // 1. 创建图表配置
+    JOption option = new JOption();
+    option.title().text("销售数据").subtext("2023年度");
+    option.tooltip().trigger(JTrigger.axis);
+    // 2. 配置坐标轴
+    JCategoryAxis xAxis = new JCategoryAxis();
+    xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+    option.xAxis(xAxis);
+    option.yAxis(new JValueAxis());
+    // 3. 配置数据系列
+    JBar bar = new JBar();
+    bar.name("销量").data(5, 20, 36, 10, 10, 20);
+    option.series(bar);
+```
     </td>
-    <!-- 右侧图片列 -->
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
-      <img src="https://camo.githubusercontent.com/8912905c874be3260fa2b137145bbeb5ced267ba061ccc38263cc0ac7fb0feae/68747470733a2f2f70332d666c6f772d696d616765782d7369676e2e62797465696d672e636f6d2f746f732d636e2d692d6139726e7332726c39382f39643931656261396265623834616364623239643838323962343365653533642e706e677e74706c762d6139726e7332726c39382d696d6167652e706e673f72636c3d3230323531323238313431333239344130443335463542364131444641443437413626726b33733d38653234346539352672726366703d646166616461393926782d657870697265733d3230383331323634303926782d7369676e61747572653d426f5632317a334b32345864376f2532427a25324625324647666c253242516e534449253344" 
+      <img src="./images/bubble.svg" 
            alt="销售数据柱状图" 
            style="width: 100%; max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">图片说明文字</div>
