@@ -101,7 +101,7 @@ public class ScatterCharTest {
 
 
         JScatterChartsRenderer renderer = new JScatterChartsRenderer();
-        renderer.render(option, "d://test//final-scatter.svg");
+        renderer.render(option, "d://test//scatter.svg");
         System.out.println("雷达图SVG已生成: radar_chart.svg");
         System.out.println("散点图SVG已生成: final-scatter.svg");
     }
