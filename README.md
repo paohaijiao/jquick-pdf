@@ -296,7 +296,7 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
       </pre>
     </td>
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
-      <img src="./images/boxchart.svg" alt="箱线图数据" style="width: 100%; max-width: 400px !important; height: auto;">
+      <img src="./images/boxchart.svg" alt="箱线图数据" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">箱线图数据</div>
     </td>
   </tr>
