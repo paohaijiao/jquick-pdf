@@ -246,21 +246,17 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
 | Gauge            | 仪表盘(1.5.3)        |
 ```string 
 // ============================================================================
-//  CASE CATEGORY: Bar Chart 
-// Description: 柱状图
+# 柱状图  BAR chart
 // ============================================================================
-# 柱状图
- // 1. 创建图表配置
+    // 1. 创建图表配置
     JOption option = new JOption();
     option.title().text("销售数据").subtext("2023年度");
     option.tooltip().trigger(JTrigger.axis);
-    
     // 2. 配置坐标轴
     JCategoryAxis xAxis = new JCategoryAxis();
     xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
     option.xAxis(xAxis);
     option.yAxis(new JValueAxis());
-    
     // 3. 配置数据系列
     JBar bar = new JBar();
     bar.name("销量").data(5, 20, 36, 10, 10, 20);
