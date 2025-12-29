@@ -1,4 +1,4 @@
-# 📄 JQuickPDF – 轻量级 Java PDF 生成库
+# 📄 JQuickPDF - Lightweight Java PDF Generator Library
 
 [简体中文](./README.md) | ENGLISH
 
