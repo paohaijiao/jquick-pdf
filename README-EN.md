@@ -2,7 +2,7 @@
 
 [简体中文](./README.md) | ENGLISH
 
-> 一个基于类 HTML 模板的轻量级 Java PDF 库，支持动态内容、丰富样式与多种图表。
+> A lightweight Java PDF library based on HTML templates, supporting dynamic content, rich styles, and various charts.
 
 ---
 
@@ -15,44 +15,43 @@
 
 ---
 
-## 📖 目录导航
-
-- [✨ 核心特性](#-核心特性)
-- [📦 快速开始](#-快速开始)
-    - [安装](#安装)
-    - [基础用法](#基础用法)
-- [🎨 样式系统](#-样式系统)
-    - [块元素样式](#块元素样式)
-    - [属性样式](#属性样式)
-- [🧩 内容元素](#-内容元素)
-    - [文本元素](#文本元素)
-    - [布局元素](#布局元素)
-    - [列表元素](#列表元素)
-    - [表格元素](#表格元素)
-    - [表单元素](#表单元素)
-    - [媒体元素](#媒体元素)
-- [📊 图表支持](#-图表支持)
-- [🔧 特殊元素](#-特殊元素)
-- [💌 支持项目](#-支持项目)
+### 📖 Table of Contents
+- [✨ Core Features](#-core-features)
+- [📦 Quick Start](#-quick-start)
+  - [Installation](#installation)
+  - [Basic Usage](#basic-usage)
+- [🎨 Style System](#-style-system)
+  - [Block Element Styles](#block-element-styles)
+  - [Property Styles](#property-styles)
+- [🧩 Content Elements](#-content-elements)
+  - [Text Elements](#text-elements)
+  - [Layout Elements](#layout-elements)
+  - [List Elements](#list-elements)
+  - [Table Elements](#table-elements)
+  - [Form Elements](#form-elements)
+  - [Media Elements](#media-elements)
+- [📊 Chart Support](#-chart-support)
+- [🔧 Special Elements](#-special-elements)
+- [💌 Support the Project](#-support-the-project)
 
 ---
-## ✨ 核心特性
+## ✨ Core Features
 
-JQuickPDF 是一个轻量级的 Java 库，用于从类似 HTML 的模板生成 PDF 文档。支持动态数据绑定、丰富的样式控制以及多种常见图表类型。
+JQuickPDF is a lightweight Java library used to generate PDF documents from HTML like templates. Support dynamic data binding, rich style control, and multiple common chart types.
 
-### 🌟 主要特点
-- ✅ 类 HTML 模板语法，上手简单
-- ✅ 支持动态数据绑定
-- ✅ 丰富的样式控制
-- ✅ 多种图表类型支持
-- ✅ 轻量级，无冗余依赖
+### 🌟 Key Features
+- ✅ HTML-like template syntax, easy to get started
+- ✅ Support for dynamic data binding
+- ✅ Rich style control
+- ✅ Support for multiple chart types
+- ✅ Lightweight with no redundant dependencies
 
 ```java
 JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
 executor.execute(templateContent);
 ```
 
-## 📦 📦 快速开始
+## 📦 📦 Quick Start
 
 ```xml
 <dependency>
@@ -62,194 +61,196 @@ executor.execute(templateContent);
 </dependency>
 ```
 
-## 📝 基础语法
-创建简单的 PDF 模板：
+## 📝 Basic Grammar
+Create a simple PDF template:
 ```html
 <pdf>
-    <body>
-    <!-- 内容写在这里 -->
+  <body>
+    <!-- Write content here -->
     <h1>Hello JQuickPDF</h1>
-    <p>这是一个示例段落。</p>
-    </body>
+    <p>This is a sample paragraph.</p>
+  </body>
 </pdf>
 ```
 
-### 语法规则
+### Syntax Rules
 ```string
-<element style="属性名1:值1; 属性名2:值2; ...">
-    内容
+<element style="property1:value1; property2:value2; ...">
+    Content
 </element>
 ```
-#### 元素
-##### 文本元素
-| Element | Description | 示例代码 |
-|---------|-------------|----------|
-| `<p>` | 段落块(Paragraph) | `<p style="text-align:justify">'段落内容'</p>` |
-| `<h1>-<h6>` | 标题(带样式的段落) | `<h1 style="font-size:24pt">'标题内容'</h1>` |
-| `<span>` | 内联文本容器(Chunk) | `<span style="fontColor:blue">'内联文本'</span>` |
-| `<br>` | 换行(Newline) | `<br type="after">` |
-| `<tab>` | 制表符 | `<p><tab/><tab/><span>'制表符后的文本'</span></p>` |
+#### Elements
+##### Text Elements
+| Element | Description | Example Code |
+|---------|-------------|--------------|
+| `<p>` | Paragraph block (Paragraph) | `<p style="text-align:justify">'Paragraph content'</p>` |
+| `<h1>-<h6>` | Heading (styled paragraph) | `<h1 style="font-size:24pt">'Heading content'</h1>` |
+| `<span>` | Inline text container (Chunk) | `<span style="fontColor:blue">'Inline text'</span>` |
+| `<br>` | Line break (Newline) | `<br type="after">` |
+| `<tab>` | Tab character | `<p><tab/><tab/><span>'Text after tabs'</span></p>` |
 
-##### 布局元素
-| Element | Description | 示例代码 |
-|---------|-------------|----------|
-| `<div>` | 块容器(Div) | `<div style="width:100%">'块容器内容'</div>` |
-| `<areaBreak>` | 分节符(AreaBreak) | `<areaBreak></areaBreak>` |
-| `<htmlPageBreak>` | 显式分页符(NewPage) | `<htmlPageBreak style="font-color:blue">next_area</htmlPageBreak>` |
-| `<lineSeparator>` | 分隔线 | `<lineSeparator style="strokeColor:red"></lineSeparator>` |
+##### Layout Elements
+| Element | Description | Example Code |
+|---------|-------------|--------------|
+| `<div>` | Block container (Div) | `<div style="width:100%">'Block container content'</div>` |
+| `<areaBreak>` | Section break (AreaBreak) | `<areaBreak></areaBreak>` |
+| `<htmlPageBreak>` | Explicit page break (NewPage) | `<htmlPageBreak style="font-color:blue">next_area</htmlPageBreak>` |
+| `<lineSeparator>` | Line separator | `<lineSeparator style="strokeColor:red"></lineSeparator>` |
 
-##### 列表与表格元素
-| Element | Description | 示例代码 |
-|---------|-------------|----------|
-| `<list>` | 有序/无序列表(List) | `<list style="symbol:hahaha"><li>'选项1'</li></list>` |
-| `<li>` | 列表项(ListItem) | `<li style="fontColor:red">'选项1'</li>` |
-| `<table>` | 表格容器(Table) | `<table><tr><td>'数据'</td></tr></table>` |
-| `<tr>` | 表格行(TableRow) | `<tr style="height:30px"></tr>` |
-| `<td>` | 表格数据单元格(TableCell) | `<td style="fontColor:red">'数据'</td>` |
-| `<th>` | 表格标题单元格(TableCell) | `<th style="font-weight:bold">'标题'</th>` |
+##### List and Table Elements
+| Element | Description | Example Code |
+|---------|-------------|--------------|
+| `<list>` | Ordered/unordered list (List) | `<list style="symbol:hahaha"><li>'Option 1'</li></list>` |
+| `<li>` | List item (ListItem) | `<li style="fontColor:red">'Option 1'</li>` |
+| `<table>` | Table container (Table) | `<table><tr><td>'Data'</td></tr></table>` |
+| `<tr>` | Table row (TableRow) | `<tr style="height:30px"></tr>` |
+| `<td>` | Table data cell (TableCell) | `<td style="fontColor:red">'Data'</td>` |
+| `<th>` | Table header cell (TableCell) | `<th style="font-weight:bold">'Header'</th>` |
 
-##### 表单元素
-| Element | Description | 示例代码 |
-|---------|-------------|----------|
-| `<button>` | 按钮(PushbuttonField) | `<button style="fontColor:blue">'提交'</button>` |
-| `<checkbox>` | 复选框(CheckboxField) | `<checkbox style="font-color:blue" checked>'提交'</checkbox>` |
-| `<inputField>` | 文本输入框(TextField) | `<inputField style="font-color:blue">'你好中国'</inputField>` |
-| `<comboBoxField>` | 下拉选择框(ComboBoxField) | `<comboBoxField style="font-color:blue" checked>'提交'</comboBoxField>` |
-| `<textArea>` | 多行文本输入框(TextAreaField) | `<p><textArea>'你好中国'</textArea></p>` |
+##### Form Elements
+| Element | Description | Example Code |
+|---------|-------------|--------------|
+| `<button>` | Button (PushbuttonField) | `<button style="fontColor:blue">'Submit'</button>` |
+| `<checkbox>` | Checkbox (CheckboxField) | `<checkbox style="font-color:blue" checked>'Submit'</checkbox>` |
+| `<inputField>` | Text input field (TextField) | `<inputField style="font-color:blue">'Hello China'</inputField>` |
+| `<comboBoxField>` | Combo box (ComboBoxField) | `<comboBoxField style="font-color:blue" checked>'Submit'</comboBoxField>` |
+| `<textArea>` | Multi-line text input field (TextAreaField) | `<p><textArea>'Hello China'</textArea></p>` |
 
-##### 媒体元素
-| Element | Description | 示例代码 |
-|---------|-------------|----------|
-| `<image>` | 嵌入图片(Image) | `<image src="logo.png" style="width:200px;height:150px"></image>` |
-| `<svg>` | 矢量图形(PdfTemplate) | `<svg>${svg}</svg>` 或 `<svg>&{svg}</svg>` |
+##### Media Elements
+| Element | Description | Example Code |
+|---------|-------------|--------------|
+| `<image>` | Embedded image (Image) | `<image src="logo.png" style="width:200px;height:150px"></image>` |
+| `<svg>` | Vector graphic (PdfTemplate) | `<svg>${svg}</svg>` or `<svg>&{svg}</svg>` |
 
-##### 特殊元素
-| Element | Description | 示例代码 |
-|---------|-------------|----------|
-| `<template>` | 可重用模板内容 | `<template>&html</template>` |
-| `<tree>` | 树形结构数据 | `<tree>${tree}</tree>` 或 `<tree>tree</tree>` |
-| `${variable}` | 数据绑定占位符 | `<p>姓名: ${name}</p>` |
-| `<textArea>` | 多行文本输入框(TextAreaField) | `<p><textArea>'多行文本'</textArea></p>` |
+##### Special Elements
+| Element | Description | Example Code |
+|---------|-------------|--------------|
+| `<template>` | Reusable template content | `<template>&html</template>` |
+| `<tree>` | Tree-structured data | `<tree>${tree}</tree>` or `<tree>tree</tree>` |
+| `${variable}` | Data binding placeholder | `<p>Name: ${name}</p>` |
+| `<textArea>` | Multi-line text input field (TextAreaField) | `<p><textArea>'Multi-line text'</textArea></p>` |
 
 
-#### 📋 完整属性表格（含示例代码）
+#### 📋 Complete Property Table (Including Example Code)
 
-| 属性 | 示例值 | 说明 | 示例代码 |
-|------|--------|------|----------|
-| **边距属性** | | | |
-| `marginLeft` | `"1px"` | 左边距值 | `<div style="marginLeft:1px">内容</div>` |
-| `marginRight` | `"500px"` | 右边距值 | `<div style="marginRight:500px">内容</div>` |
-| `marginTop` | `"500px"` | 上边距值 | `<div style="marginTop:500px">内容</div>` |
-| `marginBottom` | `"500px"` | 下边距值 | `<div style="marginBottom:500px">内容</div>` |
-| `commonMargin` | `"100px"` | 所有边统一的边距 | `<div style="commonMargin:100px">内容</div>` |
-| `margins` | `"'20px 30px 40px 50px'"` | 上、右、下、左边距 | `<div style="margins:'20px 30px 40px 50px'">内容</div>` |
-| **内边距属性** | | | |
-| `paddingLeft` | `"50px"` | 左内边距值 | `<div style="paddingLeft:50px">内容</div>` |
-| `paddingRight` | `"50px"` | 右内边距值 | `<div style="paddingRight:50px">内容</div>` |
-| `paddingTop` | `"50px"` | 上内边距值 | `<div style="paddingTop:50px">内容</div>` |
-| `paddingBottom` | `"50px"` | 下内边距值 | `<div style="paddingBottom:50px">内容</div>` |
-| `commonPadding` | `"50px"` | 所有边统一的内边距 | `<div style="commonPadding:50px">内容</div>` |
-| `paddings` | `"50px 50px 60px 70px"` | 上、右、下、左内边距 | `<div style="paddings:50px 50px 60px 70px">内容</div>` |
-| **对齐与布局属性** | | | |
-| `verticalAlignment` | `"top"` | 垂直对齐方式(top/middle/bottom) | `<div style="verticalAlignment:top">内容</div>` |
-| `spacingRatio` | `"30"` | 元素之间的间距比例 | `<div style="spacingRatio:30">内容</div>` |
-| `keepTogether` | `"true"` | 是否保持元素在一起 | `<div style="keepTogether:true">内容</div>` |
-| `keepWithNext` | `"true"` | 是否与下一个元素保持在一起 | `<div style="keepWithNext:true">内容</div>` |
-| **尺寸属性** | | | |
-| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
-| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
-| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
-| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
-| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
-| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
-| **其他属性** | | | |
-| `angleInRadians` | `"30"` | 旋转角度(弧度) | `<div style="angleInRadians:30">内容</div>` |
-#### 📐 尺寸属性表格（含示例代码）
+| Property | Example Value | Description | Example Code |
+|----------|---------------|-------------|--------------|
+| **Margin Properties** | | | |
+| `marginLeft` | `"1px"` | Left margin value | `<div style="marginLeft:1px">Content</div>` |
+| `marginRight` | `"500px"` | Right margin value | `<div style="marginRight:500px">Content</div>` |
+| `marginTop` | `"500px"` | Top margin value | `<div style="marginTop:500px">Content</div>` |
+| `marginBottom` | `"500px"` | Bottom margin value | `<div style="marginBottom:500px">Content</div>` |
+| `commonMargin` | `"100px"` | Uniform margin for all sides | `<div style="commonMargin:100px">Content</div>` |
+| `margins` | `"'20px 30px 40px 50px'"` | Top, right, bottom, left margins (clockwise) | `<div style="margins:'20px 30px 40px 50px'">Content</div>` |
+| **Padding Properties** | | | |
+| `paddingLeft` | `"50px"` | Left padding value | `<div style="paddingLeft:50px">Content</div>` |
+| `paddingRight` | `"50px"` | Right padding value | `<div style="paddingRight:50px">Content</div>` |
+| `paddingTop` | `"50px"` | Top padding value | `<div style="paddingTop:50px">Content</div>` |
+| `paddingBottom` | `"50px"` | Bottom padding value | `<div style="paddingBottom:50px">Content</div>` |
+| `commonPadding` | `"50px"` | Uniform padding for all sides | `<div style="commonPadding:50px">Content</div>` |
+| `paddings` | `"50px 50px 60px 70px"` | Top, right, bottom, left padding (clockwise) | `<div style="paddings:50px 50px 60px 70px">Content</div>` |
+| **Alignment & Layout Properties** | | | |
+| `verticalAlignment` | `"top"` | Vertical alignment (top/middle/bottom) | `<div style="verticalAlignment:top">Content</div>` |
+| `spacingRatio` | `"30"` | Spacing ratio between elements | `<div style="spacingRatio:30">Content</div>` |
+| `keepTogether` | `"true"` | Whether to keep elements together | `<div style="keepTogether:true">Content</div>` |
+| `keepWithNext` | `"true"` | Whether to keep with the next element | `<div style="keepWithNext:true">Content</div>` |
+| **Dimension Properties** | | | |
+| `width` | `"300px"` | Element width | `<div style="width:300px">Content</div>` |
+| `height` | `"300px"` | Element height | `<div style="height:300px">Content</div>` |
+| `maxHeight` | `"300px"` | Maximum element height | `<div style="maxHeight:300px">Content</div>` |
+| `minHeight` | `"300px"` | Minimum element height | `<div style="minHeight:300px">Content</div>` |
+| `minWidth` | `"300px"` | Minimum element width | `<div style="minWidth:300px">Content</div>` |
+| `maxWidth` | `"300px"` | Maximum element width | `<div style="maxWidth:300px">Content</div>` |
+| **Other Properties** | | | |
+| `angleInRadians` | `"30"` | Rotation angle (in radians) | `<div style="angleInRadians:30">Content</div>` |
 
-| 属性 | 示例值 | 说明 | 示例代码 |
-|------|--------|------|----------|
-| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
-| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
-| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
-| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
-| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
-| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
+#### 📐 Dimension Properties Table (Including Example Code)
 
-#### 属性样式
-## 🎨 属性样式表格（含示例代码）
+| Property | Example Value | Description | Example Code |
+|----------|---------------|-------------|--------------|
+| `width` | `"300px"` | Element width | `<div style="width:300px">Content</div>` |
+| `height` | `"300px"` | Element height | `<div style="height:300px">Content</div>` |
+| `maxHeight` | `"300px"` | Maximum element height | `<div style="maxHeight:300px">Content</div>` |
+| `minHeight` | `"300px"` | Minimum element height | `<div style="minHeight:300px">Content</div>` |
+| `minWidth` | `"300px"` | Minimum element width | `<div style="minWidth:300px">Content</div>` |
+| `maxWidth` | `"300px"` | Maximum element width | `<div style="maxWidth:300px">Content</div>` |
 
-| Property | 示例值 | 说明 | 示例代码 |
-|----------|--------|------|----------|
-| **位置与布局** | | | |
-| `relativePosition` | `"30px 30px 30px 30px"` | 相对位置值(左 上 右 下) | `<div style="relativePosition:'30px 30px 30px 30px'">内容</div>` |
-| **字体属性** | | | |
-| `font` | `"HELVETICA"` | 字体类型，参考 JFontEnum | `<span style="font:HELVETICA">文本</span>` |
-| `fontFamilyNames` | `"Helvetica"` | 字体家族名称(逗号分隔) | `<p style="fontFamilyNames:Helvetica,Arial">文本</p>` |
-| `fontColor` | `"red"` | 字体颜色，参考 JColorEnums 类 | `<span style="fontColor:red">红色文本</span>` |
-| `fontSize` | `"34"` | 字体大小 | `<p style="fontSize:34">大号文本</p>` |
-| `fontKerning` | `"yes"` | 字体字距调整设置 | `<p style="fontKerning:yes">调整字距文本</p>` |
-| `fontScript` | `"common"` | 字体脚本类型 | `<p style="fontScript:common">文本</p>` |
-| **文本样式** | | | |
-| `textAlignment` | `"left"` | 文本对齐方式，参考 JTextAlignment | `<div style="textAlignment:left">左对齐文本</div>` |
-| `characterSpacing` | `"30"` | 字符间距 | `<p style="characterSpacing:30">文本</p>` |
-| `wordSpacing` | `"30"` | 单词间距 | `<p style="wordSpacing:30">文本</p>` |
-| `splitCharacters` | `"24"` | 字符间距(同 characterSpacing) | `<p style="splitCharacters:24">文本</p>` |
-| `textRenderingMode` | `"24"` | 文本渲染模式 | `<p style="textRenderingMode:24">文本</p>` |
-| `baseDirection` | `"no_bidi"` | 文本基础方向 | `<p style="baseDirection:no_bidi">文本</p>` |
-| **文本装饰** | | | |
-| `bold` | `"true"` | 文本是否加粗 | `<span style="bold:true">粗体文本</span>` |
-| `italic` | `"true"` | 文本是否斜体 | `<span style="italic:true">斜体文本</span>` |
-| `lineThrough` | `"true"` | 文本是否有删除线 | `<span style="lineThrough:true">删除线文本</span>` |
-| `underline` | `"true"` | 文本是否有下划线 | `<span style="underline:true">下划线文本</span>` |
-| **背景与边框** | | | |
-| `backgroundColor` | `"red"` | 背景颜色，参考 JColorEnums 类 | `<div style="backgroundColor:red">内容</div>` |
-| `backgroundImage` | `"D:/pdf/image.png"` | 背景图片路径 | `<div style="backgroundImage:'D:/pdf/image.png'">内容</div>` |
-| `border` | `"solid 32px red"` | 边框样式(类型 宽度 颜色) | `<div style="border:'solid 32px red'">内容</div>` |
-| `borderTop` | `"solid 32px red"` | 上边框样式 | `<div style="borderTop:'solid 32px red'">内容</div>` |
-| `borderRight` | `"solid 32px red"` | 右边框样式 | `<div style="borderRight:'solid 32px red'">内容</div>` |
-| `borderLeft` | `"solid 32px red"` | 左边框样式 | `<div style="borderLeft:'solid 32px red'">内容</div>` |
-| `borderBottom` | `"solid 32px red"` | 下边框样式 | `<div style="borderBottom:'solid 32px red'">内容</div>` |
-| `borderRadius` | `"32px 24px"` | 边框圆角值 | `<div style="borderRadius:'32px 24px'">内容</div>` |
-| `borderBottomLeftRadius` | `"32px 24px"` | 左下边框圆角 | `<div style="borderBottomLeftRadius:'32px 24px'">内容</div>` |
-| `borderBottomRightRadius` | `"32px 24px"` | 右下边框圆角 | `<div style="borderBottomRightRadius:'32px 24px'">内容</div>` |
-| `borderTopRightRadius` | `"32px 24px"` | 右上边框圆角 | `<div style="borderTopRightRadius:'32px 24px'">内容</div>` |
-| `borderTopLeftRadius` | `"32px 24px"` | 左上边框圆角 | `<div style="borderTopLeftRadius:'32px 24px'">内容</div>` |
-| **效果与描边** | | | |
-| `opacity` | `"0.5"` | 元素透明度 | `<div style="opacity:0.5">半透明内容</div>` |
-| `strokeColor` | `"red"` | 描边颜色 | `<div style="strokeColor:red">内容</div>` |
-| `strokeWidth` | `"24"` | 描边宽度 | `<div style="strokeWidth:24">内容</div>` |
-| **锚点与目标** | | | |
-| `destination` | `"hello"` | 元素目标/锚点名称 | `<div style="destination:hello">内容</div>` |
+#### Property Styles
+## 🎨 Property Styles Table (Including Example Code)
 
-# 📊 图表类型
-JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF 中：
+| Property | Example Value | Description | Example Code |
+|----------|---------------|-------------|--------------|
+| **Position & Layout** | | | |
+| `relativePosition` | `"30px 30px 30px 30px"` | Relative position value (left, top, right, bottom) | `<div style="relativePosition:'30px 30px 30px 30px'">Content</div>` |
+| **Font Properties** | | | |
+| `font` | `"HELVETICA"` | Font type, refer to JFontEnum | `<span style="font:HELVETICA">Text</span>` |
+| `fontFamilyNames` | `"Helvetica"` | Font family names (comma-separated) | `<p style="fontFamilyNames:Helvetica,Arial">Text</p>` |
+| `fontColor` | `"red"` | Font color, refer to JColorEnums class | `<span style="fontColor:red">Red text</span>` |
+| `fontSize` | `"34"` | Font size | `<p style="fontSize:34">Large text</p>` |
+| `fontKerning` | `"yes"` | Font kerning setting | `<p style="fontKerning:yes">Text with adjusted kerning</p>` |
+| `fontScript` | `"common"` | Font script type | `<p style="fontScript:common">Text</p>` |
+| **Text Styles** | | | |
+| `textAlignment` | `"left"` | Text alignment, refer to JTextAlignment | `<div style="textAlignment:left">Left-aligned text</div>` |
+| `characterSpacing` | `"30"` | Character spacing | `<p style="characterSpacing:30">Text</p>` |
+| `wordSpacing` | `"30"` | Word spacing | `<p style="wordSpacing:30">Text</p>` |
+| `splitCharacters` | `"24"` | Character spacing (same as characterSpacing) | `<p style="splitCharacters:24">Text</p>` |
+| `textRenderingMode` | `"24"` | Text rendering mode | `<p style="textRenderingMode:24">Text</p>` |
+| `baseDirection` | `"no_bidi"` | Text base direction | `<p style="baseDirection:no_bidi">Text</p>` |
+| **Text Decoration** | | | |
+| `bold` | `"true"` | Whether text is bold | `<span style="bold:true">Bold text</span>` |
+| `italic` | `"true"` | Whether text is italic | `<span style="italic:true">Italic text</span>` |
+| `lineThrough` | `"true"` | Whether text has strikethrough | `<span style="lineThrough:true">Strikethrough text</span>` |
+| `underline` | `"true"` | Whether text has underline | `<span style="underline:true">Underlined text</span>` |
+| **Background & Border** | | | |
+| `backgroundColor` | `"red"` | Background color, refer to JColorEnums class | `<div style="backgroundColor:red">Content</div>` |
+| `backgroundImage` | `"D:/pdf/image.png"` | Background image path | `<div style="backgroundImage:'D:/pdf/image.png'">Content</div>` |
+| `border` | `"solid 32px red"` | Border style (type, width, color) | `<div style="border:'solid 32px red'">Content</div>` |
+| `borderTop` | `"solid 32px red"` | Top border style | `<div style="borderTop:'solid 32px red'">Content</div>` |
+| `borderRight` | `"solid 32px red"` | Right border style | `<div style="borderRight:'solid 32px red'">Content</div>` |
+| `borderLeft` | `"solid 32px red"` | Left border style | `<div style="borderLeft:'solid 32px red'">Content</div>` |
+| `borderBottom` | `"solid 32px red"` | Bottom border style | `<div style="borderBottom:'solid 32px red'">Content</div>` |
+| `borderRadius` | `"32px 24px"` | Border radius value | `<div style="borderRadius:'32px 24px'">Content</div>` |
+| `borderBottomLeftRadius` | `"32px 24px"` | Bottom-left border radius | `<div style="borderBottomLeftRadius:'32px 24px'">Content</div>` |
+| `borderBottomRightRadius` | `"32px 24px"` | Bottom-right border radius | `<div style="borderBottomRightRadius:'32px 24px'">Content</div>` |
+| `borderTopRightRadius` | `"32px 24px"` | Top-right border radius | `<div style="borderTopRightRadius:'32px 24px'">Content</div>` |
+| `borderTopLeftRadius` | `"32px 24px"` | Top-left border radius | `<div style="borderTopLeftRadius:'32px 24px'">Content</div>` |
+| **Effects & Stroke** | | | |
+| `opacity` | `"0.5"` | Element opacity | `<div style="opacity:0.5">Semi-transparent content</div>` |
+| `strokeColor` | `"red"` | Stroke color | `<div style="strokeColor:red">Content</div>` |
+| `strokeWidth` | `"24"` | Stroke width | `<div style="strokeWidth:24">Content</div>` |
+| **Anchor & Target** | | | |
+| `destination` | `"hello"` | Element target/anchor name | `<div style="destination:hello">Content</div>` |
+
+# 📊 Chart Types
+JQuickPDF supports multiple chart types, which can be configured via Java code and embedded into PDFs:
 
 | Enum Value       | Description/Notes |
 |------------------|-------------------|
-| BAR              | 柱状图               |
-| BOXPLOT          | 箱线图               |
-| HEATMAP          | 热力图               |
-| K                | K线图(蜡烛图)          |
-| LINE             | 折线图               |
-| PIE              | 饼图                |
-| RADAR            | 雷达图               |
-| RELATION         | 关系图               |
-| SCATTER          | 散点图               |
-| SUNBURST         | 旭日图(1.5.1)        |
-| Treemap          | 矩形树图(1.5.1)       |
-| Bubble           | 气泡图(1.5.1)        |
-| Calendar         | 日历活动图(1.5.3)      |
-| Lunar            | 日历(1.5.3)         |
-| Funnel           | 漏斗图(1.5.3)        |
-| CorrectionMatrix | 相关系数矩阵(1.5.3)     |
-| Gantt            | 甘特图(1.5.3)        |
-| Gauge            | 仪表盘(1.5.3)        |
-| WordsCloud            | 词云(1.5.3)         |
-## 📈 如何使用
-### 📉 1.原生方式
+| BAR              | Bar chart               |
+| BOXPLOT          | Box plot               |
+| HEATMAP          | Heatmap               |
+| K                | K-line chart (Candlestick chart)          |
+| LINE             | Line chart               |
+| PIE              | Pie chart                |
+| RADAR            | Radar chart               |
+| RELATION         | Relationship chart               |
+| SCATTER          | Scatter chart               |
+| SUNBURST         | Sunburst chart (1.5.1)        |
+| Treemap          | Treemap chart (1.5.1)       |
+| Bubble           | Bubble chart (1.5.1)        |
+| Calendar         | Calendar activity chart (1.5.3)      |
+| Lunar            | Lunar calendar (1.5.3)         |
+| Funnel           | Funnel chart (1.5.3)        |
+| CorrectionMatrix | Correlation matrix (1.5.3)     |
+| Gantt            | Gantt chart (1.5.3)        |
+| Gauge            | Gauge chart (1.5.3)        |
+| WordsCloud       | Word cloud (1.5.3)         |
+
+## 📈 How to use
+### 📉 1.Native way
 ```string
-#    将svg xml 字符串传入 变量
-#1.定义java代码
+# Pass SVG XML String to Variable
+#1. Define Java Code
       JContext params = new JContext();
       String svg = "<?xml  xxxx ></svg>";
       params.put("svg", svg);
@@ -257,17 +258,17 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
       JAdaptor context = new JAdaptor(fileReader);
       JQuickPdfXExecutor executor = new JQuickPdfXExecutor(params);
       executor.execute(context.getRuleContent());
-#2.定义模板代码
+#2. Define Template Code
   <pdf>
     <body>
       <svg>${svg}</svg>
     </body>
   </pdf>
 ```
-### 🍩 2.java 加载方式
+### 🍩 2.Java implements
 ```string
-#.将相关图形的JOption传入 JPdfConfig 渲染
-#1.定义java代码
+# Pass JOption of Related Graphics to JPdfConfig for Rendering
+#1. Define Java Code
         JGraphContainer graphContainer = new JGraphContainer();
         JOption option = new JOption();
         graphContainer.setOption(option);
@@ -279,7 +280,7 @@ JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF �
         JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
-#2.定义模板代码
+#2. Define Template Code
     <pdf>
         <body>
           <svg>&{svg}</svg>
@@ -1288,8 +1289,8 @@ jOption.setCorrelationMatrixOption(option);
   </tr>
 </table>
 
-### 如何利用jquick pdf 生成一个信用报告
-#### 定义一个模板
+### How to Generate a Credit Report Using JQuickPDF
+#### Define a Template
 ```xml
 <pdf>
 <body>
