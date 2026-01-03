@@ -22,6 +22,7 @@ public class GeoJsonRendererSimple {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final float lineWidth = 0.005f;
+    private String backgroundColor ="#4CAF50";
     public static void main(String[] args) {
         try {
             GeoJsonRendererSimple renderer = new GeoJsonRendererSimple();
@@ -70,7 +71,7 @@ public class GeoJsonRendererSimple {
             JsonNode geometry = feature.get("geometry");
             JsonNode properties = feature.get("properties");
             String type = geometry.get("type").asText();
-            String color = "#4CAF50"; // 默认颜色
+            String color = backgroundColor; // 默认颜色
             if (properties != null && properties.has("color")) {
                 color = properties.get("color").asText();
             }
