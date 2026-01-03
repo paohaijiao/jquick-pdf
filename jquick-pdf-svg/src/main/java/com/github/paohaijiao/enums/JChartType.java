@@ -58,6 +58,8 @@ public enum JChartType {
     @Deprecated
     Guage("Guage", "仪表盘"),
 
+    Geo("Geo", "地图"),
+
     ;
     private String code;
 

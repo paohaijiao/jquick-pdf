@@ -13,26 +13,25 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.map;
+package com.github.paohaijiao.geo;
 
 import lombok.Data;
 
 /**
- * packageName com.github.paohaijiao.map
+ * packageName com.github.paohaijiao.geo
  *
  * @author Martin
  * @version 1.0.0
  * @since 2026/1/3
  */
 @Data
-public class Bounds {
+public class GeoOption {
 
-    double minX, minY, maxX, maxY;
+    private String geoJsonContent;
 
-    public Bounds(double minX, double minY, double maxX, double maxY) {
-        this.minX = minX;
-        this.minY = minY;
-        this.maxX = maxX;
-        this.maxY = maxY;
-    }
+    private float padding = 0.005f;
+
+    private String backgroundColor ="#4CAF50";
+
+    private String title = "地图";
 }

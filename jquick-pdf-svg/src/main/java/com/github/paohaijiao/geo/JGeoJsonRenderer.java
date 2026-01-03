@@ -1,108 +1,41 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
+ */
+package com.github.paohaijiao.geo;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.paohaijiao.map.Bounds;
-import com.github.paohaijiao.map.GeometryData;
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.geo.model.Bounds;
+import com.github.paohaijiao.geo.model.GeometryData;
+import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.svggen.SVGGraphics2D;
-import org.apache.batik.transcoder.TranscoderInput;
-import org.apache.batik.transcoder.TranscoderOutput;
-import org.apache.batik.transcoder.image.PNGTranscoder;
-import org.w3c.dom.Document;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Path2D;
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * GeoJSON 渲染器（不使用 JTS，纯 Jackson 解析）
+ * GeoJSON 渲染器（基于 JAbstractChartRenderer 设计模式）
  */
-public class GeoJsonRendererSimple {
+public class JGeoJsonRenderer extends JAbstractChartRenderer {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private final float lineWidth = 0.005f;
-    private String backgroundColor ="#4CAF50";
-    public static void main(String[] args) {
-        try {
-            GeoJsonRendererSimple renderer = new GeoJsonRendererSimple();
-            String geoJsonContent = readFile("d://sample//test.geojson");
-            String svgContent = renderer.renderGeoJsonToSvg(geoJsonContent, 1200, 800, 0.0);
-            saveToFile("d://test//output.svg", svgContent);
-            System.out.println("SVG 文件已保存: output.svg");
-            renderer.convertSvgToPng("d://test//output.svg", "d://test//output.png", 1200, 800);
-            System.out.println("PNG 文件已保存: output.png");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
-    /**
-     * 工具方法：读取文件
-     */
-    private static String readFile(String filePath) throws IOException {
-        StringBuilder content = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                content.append(line).append("\n");
-            }
-        }
-        return content.toString();
-    }
-
-    /**
-     * 工具方法：保存文件
-     */
-    private static void saveToFile(String filePath, String content) throws IOException {
-        try (FileWriter writer = new FileWriter(filePath)) {
-            writer.write(content);
-        }
-    }
-
-    /**
-     * 将 GeoJSON 渲染为 SVG 字符串
-     */
-    public String renderGeoJsonToSvg(String geoJsonString, int width, int height, double padding) throws Exception {
-        JsonNode root = objectMapper.readTree(geoJsonString);
-        JsonNode features = root.get("features");
-        List<GeometryData> geometries = new ArrayList<>();
-        for (JsonNode feature : features) {
-            JsonNode geometry = feature.get("geometry");
-            JsonNode properties = feature.get("properties");
-            String type = geometry.get("type").asText();
-            String color = backgroundColor; // 默认颜色
-            if (properties != null && properties.has("color")) {
-                color = properties.get("color").asText();
-            }
-            String name = "未命名区域"; // 默认名称
-            if (properties != null && properties.has("name")) {
-                name = properties.get("name").asText();
-            }
-            JsonNode coordinates = geometry.get("coordinates");
-            geometries.add(new GeometryData(type, color, name, coordinates));
-        }
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = dbf.newDocumentBuilder();
-        Document document = db.newDocument();
-        SVGGraphics2D svgGenerator = new SVGGraphics2D(document);
-        svgGenerator.setSVGCanvasSize(new Dimension(width, height));
-        svgGenerator.setColor(Color.WHITE);
-        svgGenerator.fillRect(0, 0, width, height);
-        Bounds bounds = calculateBounds(geometries, padding);
-        System.out.printf("地图边界: minX=%.6f, minY=%.6f, maxX=%.6f, maxY=%.6f%n", bounds.getMinX(), bounds.getMinY(), bounds.getMaxX(), bounds.getMaxY());
-        setupViewport(svgGenerator, bounds, width, height);
-        for (GeometryData geom : geometries) {
-            drawGeometry(svgGenerator, geom);
-        }
-        drawTitle(svgGenerator, width, height, "河北省行政区划图");
-        Writer writer = new StringWriter();
-        svgGenerator.stream(writer, true);
-        svgGenerator.dispose();
-        return writer.toString();
-    }
 
     /**
      * 计算所有几何对象的边界
@@ -181,20 +114,20 @@ public class GeoJsonRendererSimple {
     /**
      * 绘制几何对象
      */
-    private void drawGeometry(SVGGraphics2D g2d, GeometryData geom) {
+    private void drawGeometry(SVGGraphics2D g2d, JOption option, GeometryData geom) {
         Color color = parseColor(geom.getColor());
         switch (geom.getType()) {
             case "Polygon":
-                drawPolygon(g2d, geom.getCoordinates().get(0), color, geom.getName());
+                drawPolygon(g2d, option, geom.getCoordinates().get(0), color, geom.getName());
                 break;
             case "MultiPolygon":
-                drawMultiPolygon(g2d, geom.getCoordinates(), color, geom.getName());
+                drawMultiPolygon(g2d, option, geom.getCoordinates(), color, geom.getName());
                 break;
             case "LineString":
-                drawLineString(g2d, geom.getCoordinates(), color, geom.getName());
+                drawLineString(g2d, option, geom.getCoordinates(), color, geom.getName());
                 break;
             case "Point":
-                drawPoint(g2d, geom.getCoordinates(), color, geom.getName());
+                drawPoint(g2d, option, geom.getCoordinates(), color, geom.getName());
                 break;
         }
     }
@@ -202,7 +135,7 @@ public class GeoJsonRendererSimple {
     /**
      * 绘制多边形
      */
-    private void drawPolygon(SVGGraphics2D g2d, JsonNode coordinates, Color fillColor, String name) {
+    private void drawPolygon(SVGGraphics2D g2d, JOption option, JsonNode coordinates, Color fillColor, String name) {
         Path2D path = new Path2D.Double();
         int size = coordinates.size();
         if (size > 0) {
@@ -220,7 +153,7 @@ public class GeoJsonRendererSimple {
         g2d.setColor(fillColor);
         g2d.fill(path);
         g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(lineWidth));
+        g2d.setStroke(new BasicStroke(option.getGeoOption().getPadding()));
         g2d.draw(path);
         if (name != null && !name.isEmpty() && size > 0) {
             double centerX = 0;
@@ -238,7 +171,7 @@ public class GeoJsonRendererSimple {
     /**
      * 绘制多个多边形（MultiPolygon）
      */
-    private void drawMultiPolygon(SVGGraphics2D g2d, JsonNode coordinates, Color fillColor, String name) {
+    private void drawMultiPolygon(SVGGraphics2D g2d, JOption option, JsonNode coordinates, Color fillColor, String name) {
         AffineTransform originalTransform = g2d.getTransform();
         double totalCenterX = 0;
         double totalCenterY = 0;
@@ -255,7 +188,7 @@ public class GeoJsonRendererSimple {
         double centerX = totalPoints > 0 ? totalCenterX / totalPoints : 0;
         double centerY = totalPoints > 0 ? totalCenterY / totalPoints : 0;
         for (JsonNode polygon : coordinates) {
-            drawPolygon(g2d, polygon.get(0), fillColor, null);
+            drawPolygon(g2d, option, polygon.get(0), fillColor, null);
         }
         if (name != null && !name.isEmpty()) {
             drawLabel(g2d, name, centerX, centerY, Color.BLACK);
@@ -266,7 +199,7 @@ public class GeoJsonRendererSimple {
     /**
      * 绘制线
      */
-    private void drawLineString(SVGGraphics2D g2d, JsonNode coordinates, Color color, String name) {
+    private void drawLineString(SVGGraphics2D g2d, JOption option, JsonNode coordinates, Color color, String name) {
         Path2D path = new Path2D.Double();
         int size = coordinates.size();
         if (size > 0) {
@@ -281,21 +214,21 @@ public class GeoJsonRendererSimple {
         }
 
         g2d.setColor(color);
-        g2d.setStroke(new BasicStroke(lineWidth));
+        g2d.setStroke(new BasicStroke(option.getGeoOption().getPadding()));
         g2d.draw(path);
     }
 
     /**
      * 绘制点
      */
-    private void drawPoint(SVGGraphics2D g2d, JsonNode coordinates, Color color, String name) {
+    private void drawPoint(SVGGraphics2D g2d, JOption option, JsonNode coordinates, Color color, String name) {
         double x = coordinates.get(0).asDouble();
         double y = coordinates.get(1).asDouble();
         double radius = 0.2; // 小点
         g2d.setColor(color);
         g2d.fillOval((int) (x - radius), (int) (y - radius), (int) (radius * 2), (int) (radius * 2));
         g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(lineWidth));
+        g2d.setStroke(new BasicStroke(option.getGeoOption().getPadding()));
         g2d.drawOval((int) (x - radius), (int) (y - radius), (int) (radius * 2), (int) (radius * 2));
     }
 
@@ -360,10 +293,10 @@ public class GeoJsonRendererSimple {
         for (JsonNode coord : coordinates) {
             double x = coord.get(0).asDouble();
             double y = coord.get(1).asDouble();
-            bounds.setMinX(Math.min(bounds.getMinX(), x)); ;
-            bounds.setMinY( Math.min(bounds.getMinY(), y));
+            bounds.setMinX(Math.min(bounds.getMinX(), x));
+            bounds.setMinY(Math.min(bounds.getMinY(), y));
             bounds.setMaxX(Math.max(bounds.getMaxX(), x));
-            bounds.setMaxY(Math.max(bounds.getMaxY(), y));;
+            bounds.setMaxY(Math.max(bounds.getMaxY(), y));
         }
     }
 
@@ -371,40 +304,57 @@ public class GeoJsonRendererSimple {
         for (JsonNode coord : coordinates) {
             double x = coord.get(0).asDouble();
             double y = coord.get(1).asDouble();
-            bounds.setMinX(Math.min(bounds.getMinX(), x)); ;
-            bounds.setMinY( Math.min(bounds.getMinY(), y));
+            bounds.setMinX(Math.min(bounds.getMinX(), x));
+            bounds.setMinY(Math.min(bounds.getMinY(), y));
             bounds.setMaxX(Math.max(bounds.getMaxX(), x));
-            bounds.setMaxY(Math.max(bounds.getMaxY(), y));;
+            bounds.setMaxY(Math.max(bounds.getMaxY(), y));
         }
     }
 
     private void processPointCoordinates(JsonNode coordinates, Bounds bounds) {
         double x = coordinates.get(0).asDouble();
         double y = coordinates.get(1).asDouble();
-        bounds.setMinX(Math.min(bounds.getMinX(), x)); ;
-        bounds.setMinY( Math.min(bounds.getMinY(), y));
+        bounds.setMinX(Math.min(bounds.getMinX(), x));
+        bounds.setMinY(Math.min(bounds.getMinY(), y));
         bounds.setMaxX(Math.max(bounds.getMaxX(), x));
-        bounds.setMaxY(Math.max(bounds.getMaxY(), y));;
+        bounds.setMaxY(Math.max(bounds.getMaxY(), y));
     }
 
-    /**
-     * 将 SVG 转换为 PNG
-     */
-    public void convertSvgToPng(String svgFilePath, String pngFilePath, int width, int height) throws Exception {
-        File svgFile = new File(svgFilePath);
-        File pngFile = new File(pngFilePath);
-        PNGTranscoder transcoder = new PNGTranscoder();
-        transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, (float) width);
-        transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, (float) height);
-        try (FileInputStream fis = new FileInputStream(svgFile);
-             FileOutputStream fos = new FileOutputStream(pngFile)) {
-            TranscoderInput input = new TranscoderInput(fis);
-            TranscoderOutput output = new TranscoderOutput(fos);
-            transcoder.transcode(input, output);
+
+    @Override
+    protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
+        try {
+            JsonNode root = objectMapper.readTree(option.getGeoOption().getGeoJsonContent());
+            JsonNode features = root.get("features");
+            List<GeometryData> geometries = new ArrayList<>();
+            for (JsonNode feature : features) {
+                JsonNode geometry = feature.get("geometry");
+                JsonNode properties = feature.get("properties");
+                String type = geometry.get("type").asText();
+                String color = option.getGeoOption().getBackgroundColor();
+                if (properties != null && properties.has("color")) {
+                    color = properties.get("color").asText();
+                }
+                String name = "未命名区域"; // 默认名称
+                if (properties != null && properties.has("name")) {
+                    name = properties.get("name").asText();
+                }
+                JsonNode coordinates = geometry.get("coordinates");
+                geometries.add(new GeometryData(type, color, name, coordinates));
+            }
+            svgGenerator.setSVGCanvasSize(new Dimension(width, height));
+            svgGenerator.setColor(Color.WHITE);
+            svgGenerator.fillRect(0, 0, width, height);
+            Bounds bounds = calculateBounds(geometries, option.getGeoOption().getPadding());
+            System.out.printf("地图边界: minX=%.6f, minY=%.6f, maxX=%.6f, maxY=%.6f%n", bounds.getMinX(), bounds.getMinY(), bounds.getMaxX(), bounds.getMaxY());
+            setupViewport(svgGenerator, bounds, width, height);
+            for (GeometryData geom : geometries) {
+                drawGeometry(svgGenerator, option, geom);
+            }
+            drawTitle(svgGenerator, width, height, option.getGeoOption().getTitle());
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
+
     }
-
-
-
-
 }

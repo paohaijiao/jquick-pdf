@@ -23,6 +23,7 @@ import com.github.paohaijiao.calendar.JCalendarChartRenderer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.funnel.JFunnelChartRenderer;
 import com.github.paohaijiao.gantt.JGanttChartRenderer;
+import com.github.paohaijiao.geo.JGeoJsonRenderer;
 import com.github.paohaijiao.guage.JGuageRenderer;
 import com.github.paohaijiao.heatMap.JHeatMapChartRenderer;
 import com.github.paohaijiao.k.JKChartsRenderer;
@@ -89,7 +90,8 @@ public class JChartRendererFactory {
                 return new JGanttChartRenderer();
             case Guage:
                 return new JGuageRenderer();
-
+            case Geo:
+                return new JGeoJsonRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }

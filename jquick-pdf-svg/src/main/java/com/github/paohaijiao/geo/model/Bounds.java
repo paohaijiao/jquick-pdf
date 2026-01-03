@@ -13,9 +13,8 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.map;
+package com.github.paohaijiao.geo.model;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Data;
 
 /**
@@ -26,15 +25,14 @@ import lombok.Data;
  * @since 2026/1/3
  */
 @Data
-public class GeometryData {
-    String type;
-    String color;
-    String name;
-    JsonNode coordinates;
-    public GeometryData(String type, String color, String name, JsonNode coordinates) {
-        this.type = type;
-        this.color = color;
-        this.name = name;
-        this.coordinates = coordinates;
+public class Bounds {
+
+    double minX, minY, maxX, maxY;
+
+    public Bounds(double minX, double minY, double maxX, double maxY) {
+        this.minX = minX;
+        this.minY = minY;
+        this.maxX = maxX;
+        this.maxY = maxY;
     }
 }
