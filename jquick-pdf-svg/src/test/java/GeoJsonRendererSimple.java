@@ -1,5 +1,7 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.paohaijiao.map.Bounds;
+import com.github.paohaijiao.map.GeometryData;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
@@ -90,7 +92,7 @@ public class GeoJsonRendererSimple {
         svgGenerator.setColor(Color.WHITE);
         svgGenerator.fillRect(0, 0, width, height);
         Bounds bounds = calculateBounds(geometries, padding);
-        System.out.printf("地图边界: minX=%.6f, minY=%.6f, maxX=%.6f, maxY=%.6f%n", bounds.minX, bounds.minY, bounds.maxX, bounds.maxY);
+        System.out.printf("地图边界: minX=%.6f, minY=%.6f, maxX=%.6f, maxY=%.6f%n", bounds.getMinX(), bounds.getMinY(), bounds.getMaxX(), bounds.getMaxY());
         setupViewport(svgGenerator, bounds, width, height);
         for (GeometryData geom : geometries) {
             drawGeometry(svgGenerator, geom);
@@ -107,7 +109,7 @@ public class GeoJsonRendererSimple {
      */
     private Bounds calculateBounds(List<GeometryData> geometries, double padding) {
         if (geometries.isEmpty()) {
-            return new Bounds(110, 35, 120, 45); // 河北省大致范围
+            return new Bounds(110, 35, 120, 45);
         }
         double minX = Double.MAX_VALUE;
         double minY = Double.MAX_VALUE;
@@ -115,10 +117,10 @@ public class GeoJsonRendererSimple {
         double maxY = Double.MIN_VALUE;
         for (GeometryData geom : geometries) {
             Bounds geomBounds = getGeometryBounds(geom);
-            minX = Math.min(minX, geomBounds.minX);
-            minY = Math.min(minY, geomBounds.minY);
-            maxX = Math.max(maxX, geomBounds.maxX);
-            maxY = Math.max(maxY, geomBounds.maxY);
+            minX = Math.min(minX, geomBounds.getMinX());
+            minY = Math.min(minY, geomBounds.getMinY());
+            maxX = Math.max(maxX, geomBounds.getMaxX());
+            maxY = Math.max(maxY, geomBounds.getMaxY());
         }
         double width = maxX - minX;
         double height = maxY - minY;
@@ -133,23 +135,21 @@ public class GeoJsonRendererSimple {
      * 获取单个几何对象的边界
      */
     private Bounds getGeometryBounds(GeometryData geom) {
-        Bounds bounds = new Bounds(Double.MAX_VALUE, Double.MAX_VALUE,
-                Double.MIN_VALUE, Double.MIN_VALUE);
-
-        switch (geom.type) {
+        Bounds bounds = new Bounds(Double.MAX_VALUE, Double.MAX_VALUE, Double.MIN_VALUE, Double.MIN_VALUE);
+        switch (geom.getType()) {
             case "Polygon":
-                processPolygonCoordinates(geom.coordinates.get(0), bounds);
+                processPolygonCoordinates(geom.getCoordinates().get(0), bounds);
                 break;
             case "MultiPolygon":
-                for (JsonNode polygon : geom.coordinates) {
+                for (JsonNode polygon : geom.getCoordinates()) {
                     processPolygonCoordinates(polygon.get(0), bounds);
                 }
                 break;
             case "LineString":
-                processLineCoordinates(geom.coordinates, bounds);
+                processLineCoordinates(geom.getCoordinates(), bounds);
                 break;
             case "Point":
-                processPointCoordinates(geom.coordinates, bounds);
+                processPointCoordinates(geom.getCoordinates(), bounds);
                 break;
         }
 
@@ -160,17 +160,17 @@ public class GeoJsonRendererSimple {
      * 设置视图变换
      */
     private void setupViewport(SVGGraphics2D g2d, Bounds bounds, int width, int height) {
-        double scaleX = width / (bounds.maxX - bounds.minX);
-        double scaleY = height / (bounds.maxY - bounds.minY);
+        double scaleX = width / (bounds.getMaxX() - bounds.getMinX());
+        double scaleY = height / (bounds.getMaxY() - bounds.getMinY());
         double scale = Math.min(scaleX, scaleY);
-        double scaledWidth = (bounds.maxX - bounds.minX) * scale;
-        double scaledHeight = (bounds.maxY - bounds.minY) * scale;
+        double scaledWidth = (bounds.getMaxX() - bounds.getMinX()) * scale;
+        double scaledHeight = (bounds.getMaxY() - bounds.getMinY()) * scale;
         double offsetX = (width - scaledWidth) / 2;
         double offsetY = (height - scaledHeight) / 2;
         AffineTransform transform = new AffineTransform();
         transform.translate(offsetX, offsetY);
         transform.scale(scale, scale);
-        transform.translate(-bounds.minX, -bounds.minY);
+        transform.translate(-bounds.getMinX(), -bounds.getMinY());
         AffineTransform flipTransform = new AffineTransform();
         flipTransform.translate(0, height);
         flipTransform.scale(1, -1);
@@ -182,19 +182,19 @@ public class GeoJsonRendererSimple {
      * 绘制几何对象
      */
     private void drawGeometry(SVGGraphics2D g2d, GeometryData geom) {
-        Color color = parseColor(geom.color);
-        switch (geom.type) {
+        Color color = parseColor(geom.getColor());
+        switch (geom.getType()) {
             case "Polygon":
-                drawPolygon(g2d, geom.coordinates.get(0), color, geom.name);
+                drawPolygon(g2d, geom.getCoordinates().get(0), color, geom.getName());
                 break;
             case "MultiPolygon":
-                drawMultiPolygon(g2d, geom.coordinates, color, geom.name);
+                drawMultiPolygon(g2d, geom.getCoordinates(), color, geom.getName());
                 break;
             case "LineString":
-                drawLineString(g2d, geom.coordinates, color, geom.name);
+                drawLineString(g2d, geom.getCoordinates(), color, geom.getName());
                 break;
             case "Point":
-                drawPoint(g2d, geom.coordinates, color, geom.name);
+                drawPoint(g2d, geom.getCoordinates(), color, geom.getName());
                 break;
         }
     }
@@ -214,7 +214,6 @@ public class GeoJsonRendererSimple {
                 y = coordinates.get(i).get(1).asDouble();
                 path.lineTo(x, y);
             }
-
             path.closePath();
         }
 
@@ -294,21 +293,10 @@ public class GeoJsonRendererSimple {
         double y = coordinates.get(1).asDouble();
         double radius = 0.2; // 小点
         g2d.setColor(color);
-        g2d.fillOval(
-                (int) (x - radius),
-                (int) (y - radius),
-                (int) (radius * 2),
-                (int) (radius * 2)
-        );
-
+        g2d.fillOval((int) (x - radius), (int) (y - radius), (int) (radius * 2), (int) (radius * 2));
         g2d.setColor(Color.BLACK);
         g2d.setStroke(new BasicStroke(lineWidth));
-        g2d.drawOval(
-                (int) (x - radius),
-                (int) (y - radius),
-                (int) (radius * 2),
-                (int) (radius * 2)
-        );
+        g2d.drawOval((int) (x - radius), (int) (y - radius), (int) (radius * 2), (int) (radius * 2));
     }
 
     /**
@@ -325,15 +313,9 @@ public class GeoJsonRendererSimple {
         FontMetrics fm = g2d.getFontMetrics();
         int textWidth = fm.stringWidth(text);
         g2d.setColor(new Color(255, 255, 255, 200)); // 半透明白色背景
-        g2d.fillRect((int) destPoint.getX() - textWidth / 2 - 2,
-                (int) destPoint.getY() - fm.getHeight() / 2,
-                textWidth + 4,
-                fm.getHeight());
-
+        g2d.fillRect((int) destPoint.getX() - textWidth / 2 - 2, (int) destPoint.getY() - fm.getHeight() / 2, textWidth + 4, fm.getHeight());
         g2d.setColor(color);
-        g2d.drawString(text,
-                (float) destPoint.getX() - textWidth / 2,
-                (float) destPoint.getY() + fm.getHeight() / 4);
+        g2d.drawString(text, (float) destPoint.getX() - textWidth / 2, (float) destPoint.getY() + fm.getHeight() / 4);
         g2d.setTransform(originalTransform);
     }
 
@@ -368,11 +350,7 @@ public class GeoJsonRendererSimple {
         } catch (Exception e) {
             System.err.println("解析颜色失败: " + colorStr + ", 使用默认颜色");
         }
-        return new Color(
-                (int) (Math.random() * 200) + 55,
-                (int) (Math.random() * 200) + 55,
-                (int) (Math.random() * 200) + 55
-        );
+        return new Color((int) (Math.random() * 200) + 55, (int) (Math.random() * 200) + 55, (int) (Math.random() * 200) + 55);
     }
 
     /**
@@ -382,10 +360,10 @@ public class GeoJsonRendererSimple {
         for (JsonNode coord : coordinates) {
             double x = coord.get(0).asDouble();
             double y = coord.get(1).asDouble();
-            bounds.minX = Math.min(bounds.minX, x);
-            bounds.minY = Math.min(bounds.minY, y);
-            bounds.maxX = Math.max(bounds.maxX, x);
-            bounds.maxY = Math.max(bounds.maxY, y);
+            bounds.setMinX(Math.min(bounds.getMinX(), x)); ;
+            bounds.setMinY( Math.min(bounds.getMinY(), y));
+            bounds.setMaxX(Math.max(bounds.getMaxX(), x));
+            bounds.setMaxY(Math.max(bounds.getMaxY(), y));;
         }
     }
 
@@ -393,20 +371,20 @@ public class GeoJsonRendererSimple {
         for (JsonNode coord : coordinates) {
             double x = coord.get(0).asDouble();
             double y = coord.get(1).asDouble();
-            bounds.minX = Math.min(bounds.minX, x);
-            bounds.minY = Math.min(bounds.minY, y);
-            bounds.maxX = Math.max(bounds.maxX, x);
-            bounds.maxY = Math.max(bounds.maxY, y);
+            bounds.setMinX(Math.min(bounds.getMinX(), x)); ;
+            bounds.setMinY( Math.min(bounds.getMinY(), y));
+            bounds.setMaxX(Math.max(bounds.getMaxX(), x));
+            bounds.setMaxY(Math.max(bounds.getMaxY(), y));;
         }
     }
 
     private void processPointCoordinates(JsonNode coordinates, Bounds bounds) {
         double x = coordinates.get(0).asDouble();
         double y = coordinates.get(1).asDouble();
-        bounds.minX = Math.min(bounds.minX, x);
-        bounds.minY = Math.min(bounds.minY, y);
-        bounds.maxX = Math.max(bounds.maxX, x);
-        bounds.maxY = Math.max(bounds.maxY, y);
+        bounds.setMinX(Math.min(bounds.getMinX(), x)); ;
+        bounds.setMinY( Math.min(bounds.getMinY(), y));
+        bounds.setMaxX(Math.max(bounds.getMaxX(), x));
+        bounds.setMaxY(Math.max(bounds.getMaxY(), y));;
     }
 
     /**
@@ -415,48 +393,18 @@ public class GeoJsonRendererSimple {
     public void convertSvgToPng(String svgFilePath, String pngFilePath, int width, int height) throws Exception {
         File svgFile = new File(svgFilePath);
         File pngFile = new File(pngFilePath);
-
         PNGTranscoder transcoder = new PNGTranscoder();
         transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, (float) width);
         transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, (float) height);
-
         try (FileInputStream fis = new FileInputStream(svgFile);
              FileOutputStream fos = new FileOutputStream(pngFile)) {
-
             TranscoderInput input = new TranscoderInput(fis);
             TranscoderOutput output = new TranscoderOutput(fos);
             transcoder.transcode(input, output);
         }
     }
 
-    /**
-     * 辅助类：几何数据
-     */
-    private static class GeometryData {
-        String type;
-        String color;
-        String name;
-        JsonNode coordinates;
 
-        GeometryData(String type, String color, String name, JsonNode coordinates) {
-            this.type = type;
-            this.color = color;
-            this.name = name;
-            this.coordinates = coordinates;
-        }
-    }
 
-    /**
-     * 辅助类：边界
-     */
-    private static class Bounds {
-        double minX, minY, maxX, maxY;
 
-        Bounds(double minX, double minY, double maxX, double maxY) {
-            this.minX = minX;
-            this.minY = minY;
-            this.maxX = maxX;
-            this.maxY = maxY;
-        }
-    }
 }
