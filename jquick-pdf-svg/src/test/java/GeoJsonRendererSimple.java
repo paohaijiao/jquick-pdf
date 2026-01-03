@@ -21,12 +21,12 @@ import java.util.List;
 public class GeoJsonRendererSimple {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-
+    private final float lineWidth = 0.005f;
     public static void main(String[] args) {
         try {
             GeoJsonRendererSimple renderer = new GeoJsonRendererSimple();
             String geoJsonContent = readFile("d://sample//test.geojson");
-            String svgContent = renderer.renderGeoJsonToSvg(geoJsonContent, 1200, 800);
+            String svgContent = renderer.renderGeoJsonToSvg(geoJsonContent, 1200, 800, 0.0);
             saveToFile("d://test//output.svg", svgContent);
             System.out.println("SVG 文件已保存: output.svg");
             renderer.convertSvgToPng("d://test//output.svg", "d://test//output.png", 1200, 800);
@@ -62,7 +62,7 @@ public class GeoJsonRendererSimple {
     /**
      * 将 GeoJSON 渲染为 SVG 字符串
      */
-    public String renderGeoJsonToSvg(String geoJsonString, int width, int height) throws Exception {
+    public String renderGeoJsonToSvg(String geoJsonString, int width, int height, double padding) throws Exception {
         JsonNode root = objectMapper.readTree(geoJsonString);
         JsonNode features = root.get("features");
         List<GeometryData> geometries = new ArrayList<>();
@@ -88,7 +88,7 @@ public class GeoJsonRendererSimple {
         svgGenerator.setSVGCanvasSize(new Dimension(width, height));
         svgGenerator.setColor(Color.WHITE);
         svgGenerator.fillRect(0, 0, width, height);
-        Bounds bounds = calculateBounds(geometries);
+        Bounds bounds = calculateBounds(geometries, padding);
         System.out.printf("地图边界: minX=%.6f, minY=%.6f, maxX=%.6f, maxY=%.6f%n", bounds.minX, bounds.minY, bounds.maxX, bounds.maxY);
         setupViewport(svgGenerator, bounds, width, height);
         for (GeometryData geom : geometries) {
@@ -104,16 +104,14 @@ public class GeoJsonRendererSimple {
     /**
      * 计算所有几何对象的边界
      */
-    private Bounds calculateBounds(List<GeometryData> geometries) {
+    private Bounds calculateBounds(List<GeometryData> geometries, double padding) {
         if (geometries.isEmpty()) {
             return new Bounds(110, 35, 120, 45); // 河北省大致范围
         }
-
         double minX = Double.MAX_VALUE;
         double minY = Double.MAX_VALUE;
         double maxX = Double.MIN_VALUE;
         double maxY = Double.MIN_VALUE;
-
         for (GeometryData geom : geometries) {
             Bounds geomBounds = getGeometryBounds(geom);
             minX = Math.min(minX, geomBounds.minX);
@@ -121,15 +119,12 @@ public class GeoJsonRendererSimple {
             maxX = Math.max(maxX, geomBounds.maxX);
             maxY = Math.max(maxY, geomBounds.maxY);
         }
-        double padding = 0.05; // 5% 边距
         double width = maxX - minX;
         double height = maxY - minY;
-
         minX -= width * padding;
         maxX += width * padding;
         minY -= height * padding;
         maxY += height * padding;
-
         return new Bounds(minX, minY, maxX, maxY);
     }
 
@@ -213,7 +208,6 @@ public class GeoJsonRendererSimple {
             double x = coordinates.get(0).get(0).asDouble();
             double y = coordinates.get(0).get(1).asDouble();
             path.moveTo(x, y);
-
             for (int i = 1; i < size; i++) {
                 x = coordinates.get(i).get(0).asDouble();
                 y = coordinates.get(i).get(1).asDouble();
@@ -225,9 +219,8 @@ public class GeoJsonRendererSimple {
 
         g2d.setColor(fillColor);
         g2d.fill(path);
-
         g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(0.2f));
+        g2d.setStroke(new BasicStroke(lineWidth));
         g2d.draw(path);
         if (name != null && !name.isEmpty() && size > 0) {
             double centerX = 0;
@@ -288,7 +281,7 @@ public class GeoJsonRendererSimple {
         }
 
         g2d.setColor(color);
-        g2d.setStroke(new BasicStroke(1.0f));
+        g2d.setStroke(new BasicStroke(lineWidth));
         g2d.draw(path);
     }
 
@@ -308,7 +301,7 @@ public class GeoJsonRendererSimple {
         );
 
         g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(0.1f));
+        g2d.setStroke(new BasicStroke(lineWidth));
         g2d.drawOval(
                 (int) (x - radius),
                 (int) (y - radius),
@@ -374,7 +367,6 @@ public class GeoJsonRendererSimple {
         } catch (Exception e) {
             System.err.println("解析颜色失败: " + colorStr + ", 使用默认颜色");
         }
-        // 随机生成一个颜色
         return new Color(
                 (int) (Math.random() * 200) + 55,
                 (int) (Math.random() * 200) + 55,
