@@ -245,7 +245,7 @@ JQuickPDF supports multiple chart types, which can be configured via Java code a
 | Gantt            | Gantt chart (1.5.3)        |
 | Gauge            | Gauge chart (1.5.3)        |
 | WordsCloud       | Word cloud (1.5.3)         |
-
+| GEO Json         | 地图(1.5.4)        |
 ## 📈 How to use
 ### 📉 1.Native way
 ```string
@@ -1285,6 +1285,31 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/wordcloud.svg" alt="词云" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">词云</div>
+    </td>
+  </tr>
+</table>
+
+
+```string 
+// ============================================================================
+# 地图 (1.5.4)  GEO Json chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>地图(GEO Json chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JOption jOption = new JOption();
+        String geoJsonContent = readFile("d://sample//test.geojson");
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/geo.svg" alt="地图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">地图</div>
     </td>
   </tr>
 </table>

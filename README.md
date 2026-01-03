@@ -225,26 +225,27 @@ executor.execute(templateContent);
 JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF 中：
 
 | Enum Value       | Description/Notes |
-|------------------|-------------------|
-| BAR              | 柱状图               |
-| BOXPLOT          | 箱线图               |
-| HEATMAP          | 热力图               |
-| K                | K线图(蜡烛图)          |
-| LINE             | 折线图               |
-| PIE              | 饼图                |
-| RADAR            | 雷达图               |
-| RELATION         | 关系图               |
-| SCATTER          | 散点图               |
-| SUNBURST         | 旭日图(1.5.1)        |
-| Treemap          | 矩形树图(1.5.1)       |
-| Bubble           | 气泡图(1.5.1)        |
-| Calendar         | 日历活动图(1.5.3)      |
-| Lunar            | 日历(1.5.3)         |
-| Funnel           | 漏斗图(1.5.3)        |
-| CorrectionMatrix | 相关系数矩阵(1.5.3)     |
-| Gantt            | 甘特图(1.5.3)        |
-| Gauge            | 仪表盘(1.5.3)        |
-| WordsCloud            | 词云(1.5.3)         |
+|------------------|------------------|
+| BAR              | 柱状图              |
+| BOXPLOT          | 箱线图              |
+| HEATMAP          | 热力图              |
+| K                | K线图(蜡烛图)         |
+| LINE             | 折线图              |
+| PIE              | 饼图               |
+| RADAR            | 雷达图              |
+| RELATION         | 关系图              |
+| SCATTER          | 散点图              |
+| SUNBURST         | 旭日图(1.5.1)       |
+| Treemap          | 矩形树图(1.5.1)      |
+| Bubble           | 气泡图(1.5.1)       |
+| Calendar         | 日历活动图(1.5.3)     |
+| Lunar            | 日历(1.5.3)        |
+| Funnel           | 漏斗图(1.5.3)       |
+| CorrectionMatrix | 相关系数矩阵(1.5.3)    |
+| Gantt            | 甘特图(1.5.3)       |
+| Gauge            | 仪表盘(1.5.3)       |
+| WordsCloud       | 词云(1.5.3)        |
+| GEO Json         | 地图(1.5.4)        |
 ## 📈 如何使用
 ### 📉 1.原生方式
 ```string
@@ -1284,6 +1285,30 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/wordcloud.svg" alt="词云" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">词云</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 地图 (1.5.4)  GEO Json chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>地图(GEO Json chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JOption jOption = new JOption();
+        String geoJsonContent = readFile("d://sample//test.geojson");
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/geo.svg" alt="地图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">地图</div>
     </td>
   </tr>
 </table>
