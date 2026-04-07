@@ -2,9 +2,8 @@
 
 [简体中文](./README.md) | [ENGLISH](./README-EN.md)
 
-> JQuickPDF 是一个纯 Java 库，专门用于将 XHTML 和 CSS 渲染为 PDF，  
+> JQuickPDF 是一个纯 Java 库，专门用于将类HTML和CSS 语言渲染为 PDF，  
 > **完全不依赖任何浏览器或外部渲染引擎**。
-
 ## ✅ 核心特点
 - 🚀 **纯 Java 实现**  
   无需安装浏览器、WebKit 或任何本地库
