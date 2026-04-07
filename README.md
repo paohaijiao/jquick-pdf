@@ -1,13 +1,22 @@
-# 📄 JQuickPDF –  最轻量、最纯粹的Java PDF 生成库
+# 📄 JQuickPDF – 最轻量、最纯粹的 Java PDF 生成库
 
-简体中文 | [ENGLISH](./README-EN.md)
+[简体中文](./README.md) | [ENGLISH](./README-EN.md)
 
-> JQuickPDF是一个纯Java库，专门用于将XHTML和CSS渲染为PDF，完全不依赖任何浏览器或外部渲染引擎。
-核心特点：
-✅ 纯Java实现：无需安装浏览器、WebKit或任何本地库
-✅ CSS 支持：支持大部分CSS样式，包括边框、内边距、浮动等
-✅ 模板友好：可与Thymeleaf、FreeMarker等模板引擎配合使用，生成动态内容
-✅ 开源免费：基于Apache协议
+> JQuickPDF 是一个纯 Java 库，专门用于将 XHTML 和 CSS 渲染为 PDF，  
+> **完全不依赖任何浏览器或外部渲染引擎**。
+
+## ✅ 核心特点
+- 🚀 **纯 Java 实现**  
+  无需安装浏览器、WebKit 或任何本地库
+
+- 🎨 **CSS 支持**  
+  支持大部分 CSS 样式，包括边框、内边距、浮动等
+
+- 📝 **模板友好**  
+  可与 Thymeleaf、FreeMarker 等模板引擎配合使用，生成动态内容
+
+- 💰 **开源免费**  
+  基于 Apache 协议
 ---
 
 ## 🚀 项目状态
