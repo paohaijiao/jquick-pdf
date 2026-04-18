@@ -1415,7 +1415,6 @@ jOption.setCorrelationMatrixOption(option);
         lineA.setValues(productA);
         lineA.setLineColor(new Color(66, 133, 244));
         lineA.setLineWidth(2.5f);
-
         JMultiLineChartData.LineData lineB = new JMultiLineChartData
         .LineData();
         lineB.setName("产品B");
@@ -1423,7 +1422,6 @@ jOption.setCorrelationMatrixOption(option);
         lineB.setValues(productB);
         lineB.setLineColor(new Color(234, 67, 53));
         lineB.setLineWidth(2.5f);
-
         JMultiLineChartData.LineData lineC = new JMultiLineChartData
         .LineData();
         lineC.setName("产品C");
@@ -1431,7 +1429,6 @@ jOption.setCorrelationMatrixOption(option);
         lineC.setValues(productC);
         lineC.setLineColor(new Color(52, 168, 83));
         lineC.setLineWidth(2.5f);
-
         JMultiLineChartData.LineData lineD = new JMultiLineChartData
         .LineData();
         lineD.setName("产品D");
