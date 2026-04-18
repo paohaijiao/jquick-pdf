@@ -18,6 +18,32 @@
   基于 Apache 协议
 ---
 
+
+| 图标类型             | 备注                 |
+|------------------|--------------------|
+| BAR              | 柱状图                |
+| BOXPLOT          | 箱线图                |
+| HEATMAP          | 热力图                |
+| K                | K线图(蜡烛图)           |
+| LINE             | 折线图                |
+| PIE              | 饼图                 |
+| RADAR            | 雷达图                |
+| RELATION         | 关系图                |
+| SCATTER          | 散点图                |
+| SUNBURST         | 旭日图(1.5.1)         |
+| Treemap          | 矩形树图(1.5.1)        |
+| Bubble           | 气泡图(1.5.1)         |
+| Calendar         | 日历活动图(1.5.3)       |
+| Lunar            | 日历(1.5.3)          |
+| Funnel           | 漏斗图(1.5.3)         |
+| CorrectionMatrix | 相关系数矩阵(1.5.3)      |
+| Gantt            | 甘特图(1.5.3)         |
+| Gauge            | 仪表盘(1.5.3)         |
+| WordsCloud       | 词云(1.5.3)          |
+| GEO Json         | 地图(1.5.4)          |
+| Line Bar         | 组合图形<折线条形图>(1.5.5) |
+| Multiple Line    | 多重折线图(1.5.6)       |
+
 ## 🚀 项目状态
 
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
