@@ -31,14 +31,14 @@ import java.util.List;
  * 完全自适应布局，根据数据量自动调整所有元素位置和大小
  */
 @Data
-public class JComboChartRenderer extends JAbstractChartRenderer {
+public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
 
 
     private final LayoutParams layoutParams;
 
     private JComboLineBarChartData config;
 
-    public JComboChartRenderer() {
+    public JComboLineBarChartRenderer() {
         this.layoutParams = new LayoutParams();
     }
     @Override

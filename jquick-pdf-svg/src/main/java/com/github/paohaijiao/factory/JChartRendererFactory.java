@@ -20,6 +20,7 @@ import com.github.paohaijiao.bar.JBarChartsRenderer;
 import com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
 import com.github.paohaijiao.bubble.JBubbleChartRenderer;
 import com.github.paohaijiao.calendar.JCalendarChartRenderer;
+import com.github.paohaijiao.combol.JComboLineBarChartRenderer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.funnel.JFunnelChartRenderer;
 import com.github.paohaijiao.gantt.JGanttChartRenderer;
@@ -92,6 +93,8 @@ public class JChartRendererFactory {
                 return new JGuageRenderer();
             case Geo:
                 return new JGeoJsonRenderer();
+            case LineBar:
+                return new JComboLineBarChartRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }

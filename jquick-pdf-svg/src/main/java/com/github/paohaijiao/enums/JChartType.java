@@ -60,6 +60,8 @@ public enum JChartType {
 
     Geo("Geo", "地图"),
 
+    LineBar("LineBar", "折线条形图"),
+
     ;
     private String code;
 

@@ -15,7 +15,7 @@ package com.github.paohaijiao;/*
  */
 
 import com.github.paohaijiao.combol.JComboLineBarChartData;
-import com.github.paohaijiao.combol.JComboChartRenderer;
+import com.github.paohaijiao.combol.JComboLineBarChartRenderer;
 import org.junit.Test;
 
 import java.awt.*;
@@ -52,7 +52,7 @@ public class CombolTest {
                 .lineLegendText("利润率")
                 .footerText("数据来源：财务系统")
                 .build();
-        JComboChartRenderer customRenderer = new JComboChartRenderer();
+        JComboLineBarChartRenderer customRenderer = new JComboLineBarChartRenderer();
         jOption.setData(config);
         customRenderer.render(jOption, "d://test/custom_chart.svg");
     }
@@ -62,7 +62,7 @@ public class CombolTest {
         List<Double> salesData = Arrays.asList(45.0, 38.0, 52.0, 48.0, 62.0, 58.0, 72.0, 78.0, 65.0, 70.0, 82.0, 88.0);
         List<Double> profitData =Arrays.asList(12.0, 10.0, 15.0, 14.0, 18.0, 17.0, 22.0, 25.0, 20.0, 21.0, 26.0, 28.0);
         List<String> months =Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
-        JComboLineBarChartData config = JComboLineBarChartData.builder()
+        JComboLineBarChartData data = JComboLineBarChartData.builder()
                 .width(1000)                    // 宽度1000像素
                 .height(600)                    // 高度600像素
                 .title("2024年度销售数据分析", "全年12个月数据趋势")
@@ -80,8 +80,8 @@ public class CombolTest {
                 .showLineLabels(true)
                 .autoCalculateMax(true)
                 .build();
-        jOption.setData(config);
-        JComboChartRenderer customRenderer = new JComboChartRenderer();
+        jOption.setData(data);
+        JComboLineBarChartRenderer customRenderer = new JComboLineBarChartRenderer();
         customRenderer.render(jOption, "d://test/custom12_chart.svg");
     }
     @Test
@@ -114,7 +114,7 @@ public class CombolTest {
                 .autoCalculateMax(true)
                 .build();
 
-        JComboChartRenderer renderer = new JComboChartRenderer();
+        JComboLineBarChartRenderer renderer = new JComboLineBarChartRenderer();
         JOption option = new JOption();
         option.setData(config);
         renderer.render(option, "d://test/beautiful_12_months_chart.svg");

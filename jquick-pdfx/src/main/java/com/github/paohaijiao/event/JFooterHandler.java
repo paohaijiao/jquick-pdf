@@ -47,7 +47,6 @@ public class JFooterHandler implements IEventHandler {
         PdfCanvas canvas = new PdfCanvas(page.newContentStreamBefore(),
                 page.getResources(),
                 docEvent.getDocument());
-
         if (footerConfig.isEnabled()) {
             drawFooter(canvas, pageSize, docEvent);
         }

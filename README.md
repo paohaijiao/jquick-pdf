@@ -8,13 +8,10 @@
 ## ✅ 核心特点
 - 🚀 **纯 Java 实现**  
   无需安装浏览器、WebKit 或任何本地库
-
 - 🎨 **CSS 支持**  
   支持大部分 CSS 样式，包括边框、内边距、浮动等
-
 - 📝 **模板友好**  
   可与 Thymeleaf、FreeMarker 等模板引擎配合使用，生成动态内容
-
 - 💰 **开源免费**  
   基于 Apache 协议
 ---
@@ -59,7 +56,6 @@ JQuickPDF 是一个轻量级的 Java 库，用于从类似 HTML 的模板生成 
 - ✅ 丰富的样式控制
 - ✅ 多种图表类型支持
 - ✅ 轻量级，无冗余依赖
-
 ```java
 JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
 executor.execute(templateContent);
@@ -237,28 +233,29 @@ executor.execute(templateContent);
 # 📊 图表类型
 JQuickPDF 支持多种图表类型，可通过 Java 代码配置并嵌入 PDF 中：
 
-| Enum Value       | Description/Notes |
-|------------------|------------------|
-| BAR              | 柱状图              |
-| BOXPLOT          | 箱线图              |
-| HEATMAP          | 热力图              |
-| K                | K线图(蜡烛图)         |
-| LINE             | 折线图              |
-| PIE              | 饼图               |
-| RADAR            | 雷达图              |
-| RELATION         | 关系图              |
-| SCATTER          | 散点图              |
-| SUNBURST         | 旭日图(1.5.1)       |
-| Treemap          | 矩形树图(1.5.1)      |
-| Bubble           | 气泡图(1.5.1)       |
-| Calendar         | 日历活动图(1.5.3)     |
-| Lunar            | 日历(1.5.3)        |
-| Funnel           | 漏斗图(1.5.3)       |
-| CorrectionMatrix | 相关系数矩阵(1.5.3)    |
-| Gantt            | 甘特图(1.5.3)       |
-| Gauge            | 仪表盘(1.5.3)       |
-| WordsCloud       | 词云(1.5.3)        |
-| GEO Json         | 地图(1.5.4)        |
+| Enum Value       | Description/Notes  |
+|------------------|--------------------|
+| BAR              | 柱状图                |
+| BOXPLOT          | 箱线图                |
+| HEATMAP          | 热力图                |
+| K                | K线图(蜡烛图)           |
+| LINE             | 折线图                |
+| PIE              | 饼图                 |
+| RADAR            | 雷达图                |
+| RELATION         | 关系图                |
+| SCATTER          | 散点图                |
+| SUNBURST         | 旭日图(1.5.1)         |
+| Treemap          | 矩形树图(1.5.1)        |
+| Bubble           | 气泡图(1.5.1)         |
+| Calendar         | 日历活动图(1.5.3)       |
+| Lunar            | 日历(1.5.3)          |
+| Funnel           | 漏斗图(1.5.3)         |
+| CorrectionMatrix | 相关系数矩阵(1.5.3)      |
+| Gantt            | 甘特图(1.5.3)         |
+| Gauge            | 仪表盘(1.5.3)         |
+| WordsCloud       | 词云(1.5.3)          |
+| GEO Json         | 地图(1.5.4)          |
+| line bar         | 组合图形<折线条形图>(1.5.5) |
 ## 📈 如何使用
 ### 📉 1.原生方式
 ```string
@@ -1322,6 +1319,55 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/geo.svg" alt="地图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">地图</div>
+    </td>
+  </tr>
+</table>
+
+
+```string 
+// ============================================================================
+# 组合图形<折线条形图> (1.5.5)  LineBar chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>组合图形(折线条形图 LineBar chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JOption jOption = new JOption();
+        List<Double> salesData = Arrays.asList(45.0, 38.0, 52.0,
+        48.0, 62.0, 58.0, 72.0, 78.0, 65.0, 70.0, 82.0, 88.0);
+        List<Double> profitData =Arrays.asList(12.0, 10.0, 15.0,
+        14.0, 18.0, 17.0, 22.0, 25.0, 20.0, 21.0, 26.0, 28.0);
+        List<String> months =Arrays.asList("1月", "2月", "3月",
+        "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+        JComboLineBarChartData data = JComboLineBarChartData.builder()
+                .width(1000)                    // 宽度1000像素
+                .height(600)                    // 高度600像素
+                .title("2024年度销售数据分析", "全年12个月数据趋势")
+                .barData(salesData)
+                .lineData(profitData)
+                .xAxisLabels(months)
+                .leftAxisTitle("销售额（万元）")
+                .rightAxisTitle("利润率（%）")
+                .barLegendText("月销售额（万元）")
+                .lineLegendText("利润率趋势")
+                .footerText("数据来源：2024年度财务报告")
+                .barColor(new Color(52, 152, 219))   // 蓝色
+                .lineColor(new Color(231, 76, 60))   // 红色
+                .showBarLabels(true)
+                .showLineLabels(true)
+                .autoCalculateMax(true)
+                .build();
+        jOption.setData(data);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/linebar.svg" alt="折线条形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">折线条形图</div>
     </td>
   </tr>
 </table>
