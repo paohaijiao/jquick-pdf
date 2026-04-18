@@ -1,6 +1,6 @@
 # 📄 JQuickPDF – 最轻量、最纯粹的 Java PDF 生成库
 
-[简体中文](./README.md) | [ENGLISH](./README-EN.md)
+[简体中文] | [ENGLISH](./README-EN.md)
 
 > JQuickPDF 是一个纯 Java 库，专门用于将类似HTML和Css样式的语法渲染为 PDF，  
 > **完全不依赖任何浏览器或外部渲染引擎**。
