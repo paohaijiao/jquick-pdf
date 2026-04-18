@@ -1464,7 +1464,7 @@ jOption.setCorrelationMatrixOption(option);
       </pre>
     </td>
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
-      <img src="./images/multiple-line.svg" alt="多重折线图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <img src="./images/multipleLine.svg" alt="多重折线图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">多重折线图</div>
     </td>
   </tr>
