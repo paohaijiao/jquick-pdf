@@ -29,7 +29,6 @@ import java.util.List;
  * 多折线图数据配置类
  */
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class JMultiLineChartData implements JGraphData {
@@ -67,60 +66,44 @@ public class JMultiLineChartData implements JGraphData {
     /**
      * 颜色配置
      */
-    @Builder.Default
     private Color chartAreaColor = new Color(248, 249, 250);  // 图表区域背景色
 
-    @Builder.Default
     private Color axisColor = Color.BLACK;                     // 坐标轴颜色
 
-    @Builder.Default
     private Color gridColor = new Color(200, 200, 200);        // 网格线颜色
 
-    @Builder.Default
     private Color textColor = Color.BLACK;                     // 文字颜色
 
-    @Builder.Default
     private Color footerColor = new Color(128, 128, 128);      // 底部说明颜色
 
 
     /**
      * 字体配置
      */
-    @Builder.Default
     private Font titleFont = new Font("Microsoft YaHei", Font.BOLD, 18);
 
-    @Builder.Default
     private Font subtitleFont = new Font("Microsoft YaHei", Font.PLAIN, 12);
 
-    @Builder.Default
     private Font axisFont = new Font("Microsoft YaHei", Font.PLAIN, 12);
 
-    @Builder.Default
     private Font axisTitleFont = new Font("Microsoft YaHei", Font.PLAIN, 12);
 
-    @Builder.Default
     private Font legendFont = new Font("Microsoft YaHei", Font.PLAIN, 12);
 
-    @Builder.Default
     private Font dataLabelFont = new Font("Microsoft YaHei", Font.PLAIN, 11);
 
-    @Builder.Default
     private Font footerFont = new Font("Microsoft YaHei", Font.ITALIC, 10);
 
 
     /**
      * 数据点配置
      */
-    @Builder.Default
     private int pointRadius = 5;                // 数据点半径
 
-    @Builder.Default
     private int innerPointRadius = 2;           // 内点半径
 
-    @Builder.Default
     private boolean showInnerPoint = true;      // 是否显示内点
 
-    @Builder.Default
     private boolean showDataLabels = false;     // 是否显示数据标签
 
     /**
@@ -132,7 +115,6 @@ public class JMultiLineChartData implements JGraphData {
     /**
      * 格式化配置
      */
-    @Builder.Default
     private boolean valueWithPercent = false;   // 数值是否带百分号
 
     /**
@@ -142,12 +124,7 @@ public class JMultiLineChartData implements JGraphData {
 
     private boolean autoCalculateMax = true;    // 是否自动计算最大值
 
-    /**
-     * 构建器辅助方法 - 创建默认配置
-     */
-    public static JMultiLineChartDataBuilder builder() {
-        return new JMultiLineChartDataBuilder();
-    }
+
 
     /**
      * 更新最大值

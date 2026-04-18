@@ -62,6 +62,8 @@ public enum JChartType {
 
     LineBar("LineBar", "折线条形图"),
 
+    MultipleLine("MultipleLine", "多重折线图"),
+
     ;
     private String code;
 
