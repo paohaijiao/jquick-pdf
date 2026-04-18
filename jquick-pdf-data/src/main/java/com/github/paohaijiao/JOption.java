@@ -25,6 +25,7 @@ import com.github.paohaijiao.data.JSunburstData;
 import com.github.paohaijiao.funnel.JFunnelOption;
 import com.github.paohaijiao.gant.JGanttOption;
 import com.github.paohaijiao.geo.GeoOption;
+import com.github.paohaijiao.graph.JGraphData;
 import com.github.paohaijiao.guage.JGuageOption;
 import com.github.paohaijiao.matrix.JCorrelationMatrixOption;
 import com.github.paohaijiao.option.JNoDataLoadingOption;
@@ -222,6 +223,8 @@ public class JOption implements Serializable {
     private JGuageOption guageOption;
 
     private GeoOption geoOption;
+
+    private JGraphData data;
 
 
     public JSunburstData getSunburstData() {

@@ -1,4 +1,4 @@
-/*
+package com.github.paohaijiao;/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,15 +14,16 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.github.paohaijiao.JOption;
+
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JValueAxis;
-import com.github.paohaijiao.bar.JBarChartsRenderer;
 import com.github.paohaijiao.code.JTrigger;
-import com.github.paohaijiao.series.JBar;
+import com.github.paohaijiao.line.JLineChartsRenderer;
+import com.github.paohaijiao.series.JLine;
 import org.junit.Test;
 
 import java.io.IOException;
+
 
 /**
  * @ClassName BarCharTest
@@ -34,22 +35,21 @@ import java.io.IOException;
  * @UpdateRemark:
  * @Version: 1.0
  */
-public class BarCharTest {
+public class LineCharTest {
     @Test
     public void testBarChar1() throws IOException {
         JOption option = new JOption();
-        option.title().text("销售数据").subtext("2023年度");
+        option.title().text("销售数据折线图");
         option.tooltip().trigger(JTrigger.axis);
         JCategoryAxis xAxis = new JCategoryAxis();
-        xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+        xAxis.data("1月", "2月", "3月", "4月", "5月", "6月", "7月");
         option.xAxis(xAxis);
         option.yAxis(new JValueAxis());
-        JBar bar = new JBar();
-        bar.name("销量").data(5, 20, 36, 10, 10, 20);
-        option.series(bar);
-        JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
-        jBarChartsRenderer.render(option, "D://test//barchart.svg");
-        String str = jBarChartsRenderer.renderToString(option);
-        System.out.println(str);
+        JLine line = new JLine();
+        line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
+        option.series(line);
+        JLineChartsRenderer renderer = new JLineChartsRenderer();
+        renderer.render(option, "D://test//line_chart.svg");
     }
+
 }

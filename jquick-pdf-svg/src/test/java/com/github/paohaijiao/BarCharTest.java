@@ -1,4 +1,4 @@
-/*
+package com.github.paohaijiao;/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,11 +14,11 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.axis.JCategoryAxis;
+import com.github.paohaijiao.axis.JValueAxis;
+import com.github.paohaijiao.bar.JBarChartsRenderer;
 import com.github.paohaijiao.code.JTrigger;
-import com.github.paohaijiao.data.JData;
-import com.github.paohaijiao.pie.JPieChartsRenderer;
-import com.github.paohaijiao.series.JPie;
+import com.github.paohaijiao.series.JBar;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -33,24 +33,22 @@ import java.io.IOException;
  * @UpdateRemark:
  * @Version: 1.0
  */
-public class PieCharTest {
+public class BarCharTest {
     @Test
     public void testBarChar1() throws IOException {
         JOption option = new JOption();
-        option.title().text("销售占比").subtext("2023年度");
-        option.tooltip().trigger(JTrigger.item);
-        JPie pie = new JPie("销售占比");
-        pie.data(
-                new JData().name("衬衫").value(35),
-                new JData().name("羊毛衫").value(20),
-                new JData().name("雪纺衫").value(15),
-                new JData().name("裤子").value(18),
-                new JData().name("高跟鞋").value(8),
-                new JData().name("袜子").value(4)
-        );
-        option.series(pie);
-        JPieChartsRenderer renderer = new JPieChartsRenderer();
-        renderer.render(option, "d://test//pie-chart.svg");
+        option.title().text("销售数据").subtext("2023年度");
+        option.tooltip().trigger(JTrigger.axis);
+        JCategoryAxis xAxis = new JCategoryAxis();
+        xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+        option.xAxis(xAxis);
+        option.yAxis(new JValueAxis());
+        JBar bar = new JBar();
+        bar.name("销量").data(5, 20, 36, 10, 10, 20);
+        option.series(bar);
+        JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
+        jBarChartsRenderer.render(option, "D://test//barchart.svg");
+        String str = jBarChartsRenderer.renderToString(option);
+        System.out.println(str);
     }
-
 }

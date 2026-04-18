@@ -58,6 +58,10 @@
             <groupId>org.n52.jackson</groupId>
             <artifactId>jackson-datatype-jts</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.github.paohaijiao</groupId>
+            <artifactId>javelin-core</artifactId>
+        </dependency>
         <!--https://gitee.com/zheng_yongtao/jyeontu-vue-demo/blob/master/src/utils/%E7%9C%81%E4%BB%BD%E6%95%B0%E6%8D%AE/json(%E7%9C%81%E4%BB%BD)/hebei.json#-->
     </dependencies>
     <description>

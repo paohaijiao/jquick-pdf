@@ -1,4 +1,4 @@
-/*
+package com.github.paohaijiao;/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,6 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.matrix.JCorrelationMatrixOption;
 import com.github.paohaijiao.matrix.JCorrelationMatrixRenderer;
 import org.junit.Test;

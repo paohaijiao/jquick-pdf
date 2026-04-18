@@ -1,4 +1,4 @@
-/*
+package com.github.paohaijiao;/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,17 +14,13 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-
-import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.axis.JCategoryAxis;
-import com.github.paohaijiao.axis.JValueAxis;
 import com.github.paohaijiao.code.JTrigger;
-import com.github.paohaijiao.line.JLineChartsRenderer;
-import com.github.paohaijiao.series.JLine;
+import com.github.paohaijiao.data.JData;
+import com.github.paohaijiao.pie.JPieChartsRenderer;
+import com.github.paohaijiao.series.JPie;
 import org.junit.Test;
 
 import java.io.IOException;
-
 
 /**
  * @ClassName BarCharTest
@@ -36,21 +32,24 @@ import java.io.IOException;
  * @UpdateRemark:
  * @Version: 1.0
  */
-public class LineCharTest {
+public class PieCharTest {
     @Test
     public void testBarChar1() throws IOException {
         JOption option = new JOption();
-        option.title().text("销售数据折线图");
-        option.tooltip().trigger(JTrigger.axis);
-        JCategoryAxis xAxis = new JCategoryAxis();
-        xAxis.data("1月", "2月", "3月", "4月", "5月", "6月", "7月");
-        option.xAxis(xAxis);
-        option.yAxis(new JValueAxis());
-        JLine line = new JLine();
-        line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
-        option.series(line);
-        JLineChartsRenderer renderer = new JLineChartsRenderer();
-        renderer.render(option, "D://test//line_chart.svg");
+        option.title().text("销售占比").subtext("2023年度");
+        option.tooltip().trigger(JTrigger.item);
+        JPie pie = new JPie("销售占比");
+        pie.data(
+                new JData().name("衬衫").value(35),
+                new JData().name("羊毛衫").value(20),
+                new JData().name("雪纺衫").value(15),
+                new JData().name("裤子").value(18),
+                new JData().name("高跟鞋").value(8),
+                new JData().name("袜子").value(4)
+        );
+        option.series(pie);
+        JPieChartsRenderer renderer = new JPieChartsRenderer();
+        renderer.render(option, "d://test//pie-chart.svg");
     }
 
 }

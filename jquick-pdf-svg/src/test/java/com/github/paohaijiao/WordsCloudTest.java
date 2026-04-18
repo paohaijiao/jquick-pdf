@@ -1,4 +1,4 @@
-
+package com.github.paohaijiao;
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,6 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.JTitle;
 import com.github.paohaijiao.data.JData;
 import com.github.paohaijiao.style.JItemStyle;
 import com.github.paohaijiao.words.JWordCloudRenderer;
