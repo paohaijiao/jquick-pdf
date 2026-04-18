@@ -44,7 +44,7 @@
 | GEO Json         | 地图(1.5.4)          |
 | Line Bar         | 组合图形<折线条形图>(1.5.5) |
 | Multiple Line    | 多重折线图(1.5.6)       |
-
+| Multiple Bar    | 多重条形图(1.5.7)       |
 ## 🚀 项目状态
 
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
@@ -263,30 +263,7 @@ Create a simple PDF template:
 # 📊 Chart Types
 JQuickPDF supports multiple chart types, which can be configured via Java code and embedded into PDFs:
 
-| Enum Value       | Description/Notes                |
-|------------------|----------------------------------|
-| BAR              | Bar chart                        |
-| BOXPLOT          | Box plot                         |
-| HEATMAP          | Heatmap                          |
-| K                | K-line chart (Candlestick chart) |
-| LINE             | Line chart                       |
-| PIE              | Pie chart                        |
-| RADAR            | Radar chart                      |
-| RELATION         | Relationship chart               |
-| SCATTER          | Scatter chart                    |
-| SUNBURST         | Sunburst chart (1.5.1)           |
-| Treemap          | Treemap chart (1.5.1)            |
-| Bubble           | Bubble chart (1.5.1)             |
-| Calendar         | Calendar activity chart (1.5.3)  |
-| Lunar            | Lunar calendar (1.5.3)           |
-| Funnel           | Funnel chart (1.5.3)             |
-| CorrectionMatrix | Correlation matrix (1.5.3)       |
-| Gantt            | Gantt chart (1.5.3)              |
-| Gauge            | Gauge chart (1.5.3)              |
-| WordsCloud       | Word cloud (1.5.3)               |
-| GEO Json         | MAP(1.5.4)                       |
-| Line Bar         | Combol<LineBar>(1.5.5)           |
-| Mutiple Line         | Mutiple Line(1.5.6)              |
+
 ## 📈 How to use
 ### 📉 1.Native way
 ```string
@@ -1490,6 +1467,67 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/multipleLine.svg" alt="多重折线图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">多重折线图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 多重条形图(1.5.7)  Mutiple Bar Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>多重条形图(多重条形图 Mutiple Bar Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+       JMultiBarChartData regionalData = new JMultiBarChartData();
+        regionalData.setTitleText("2024年上半年各区域业绩对比（万元）");
+        regionalData.setSubtitleText("华东、华南、华北、西部四区表现");
+        regionalData.setXAxisLabels(Arrays.asList("1月", "2月", 
+       "3月", "4月", "5月", "6月"));
+        regionalData.setXAxisTitle("月份");
+        regionalData.setYAxisTitle("业绩（万元）");
+        // 华东区域
+        JMultiBarChartData.BarData eastChina = new JMultiBarChartData
+       .BarData();
+        eastChina.setLegendText("华东");
+        eastChina.setBarColor(JMultiBarChartRenderer.COLOR_A);
+        eastChina.setValues(Arrays.asList(120.5, 135.2, 148.0, 
+        162.5, 175.3, 190.8));
+        // 华南区域
+        JMultiBarChartData.BarData southChina = new JMultiBarChartData
+        .BarData();
+        southChina.setLegendText("华南");
+        southChina.setBarColor(JMultiBarChartRenderer.COLOR_B);
+        southChina.setValues(Arrays.asList(98.3, 112.6, 128.4, 145.2, 
+        158.7, 172.5));
+        // 华北区域
+        JMultiBarChartData.BarData northChina = new JMultiBarChartData
+        .BarData();
+        northChina.setLegendText("华北");
+        northChina.setBarColor(JMultiBarChartRenderer.COLOR_C);
+        northChina.setValues(Arrays.asList(85.6, 92.3, 105.8, 118.4, 
+        132.6, 148.2));
+        // 西部区域
+        JMultiBarChartData.BarData westChina = new JMultiBarChartData
+        .BarData();
+        westChina.setLegendText("西部");
+        westChina.setBarColor(new Color(80, 180, 120));
+        westChina.setValues(Arrays.asList(52.4, 61.8, 73.5, 85.2,
+        96.8, 108.5));
+        regionalData.setBarDataList(Arrays.asList(eastChina, southChina, 
+          northChina, westChina));
+        JOption option = new JOption();
+        option.setData(regionalData);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/fourBar.svg" alt="多重条形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">多重条形图</div>
     </td>
   </tr>
 </table>

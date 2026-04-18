@@ -21,6 +21,7 @@ import com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
 import com.github.paohaijiao.bubble.JBubbleChartRenderer;
 import com.github.paohaijiao.calendar.JCalendarChartRenderer;
 import com.github.paohaijiao.combol.JComboLineBarChartRenderer;
+import com.github.paohaijiao.combol.JMultiBarChartRenderer;
 import com.github.paohaijiao.combol.JMultiLineChartRenderer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.funnel.JFunnelChartRenderer;
@@ -98,7 +99,8 @@ public class JChartRendererFactory {
                 return new JComboLineBarChartRenderer();
             case MultipleLine:
                 return new JMultiLineChartRenderer();
-
+            case MultipleBar:
+                return new JMultiBarChartRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }
