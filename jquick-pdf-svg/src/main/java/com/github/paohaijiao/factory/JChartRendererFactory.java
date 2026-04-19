@@ -107,6 +107,8 @@ public class JChartRendererFactory {
                 return new JHorizontalMultiBarChartRenderer();
             case DoubleRadar:
                 return new JDoubleRadarChartRenderer();
+            case LineRadar:
+                return new JLineScatterChartRenderer();
 
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);

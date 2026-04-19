@@ -74,6 +74,8 @@ public enum JChartType {
 
     DoubleRadar("DoubleRadar", "双雷达图"),
 
+    LineRadar("LineRadar", "折线雷达图"),
+
     ;
     private String code;
 

@@ -49,6 +49,7 @@
 | HorizontalBar    | 横向条形图(1.5.9)       |
 | MutipleHorizontalBar    | 多重横向条形图(1.5.10)    |
 | DoubleRadar          | 双雷达图(1.5.11)       |
+| LineRadar          | 折线雷达图(1.5.12)      |
 
 ## 🚀 项目状态
 
@@ -1743,6 +1744,64 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/twoRadar.svg" alt="双雷达图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">双雷达图</div>
+    </td>
+  </tr>
+</table>
+
+
+
+```string 
+// ============================================================================
+# 折线雷达图(1.5.11)  LineRadar Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>折线雷达图(折线雷达图 LineRadar Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        List<String> categories = Arrays.asList(
+                "1月", "2月", "3月", "4月", "5月", "6月",
+                "7月", "8月", "9月", "10月", "11月", "12月"
+        );
+        List<Double> lineValues = Arrays.asList(
+                100.0, 120.0, 140.0, 160.0, 70.0, 200.0,
+                290.0, 240.0, 130.0, 330.0, 100.0, 320.0
+        );
+        List<Double> scatterValues = Arrays.asList(
+                85.0,
+                145.0,
+                20.0,
+                195.0,
+                155.0,
+                400.0,
+                180.0,
+                210.0,
+                40.0,
+                245.0,
+                275.0,
+                450.0
+        );
+        JLineScatterChartData data = new JLineScatterChartData();
+        data.setTitleText("计划销售额 vs 实际完成额");
+        data.setSubtitleText("2024年度销售趋势分析");
+        data.setFooterText("数据来源：销售部月度报表");
+        data.setCategories(categories);
+        data.setLineValues(lineValues);
+        data.setScatterValues(scatterValues);
+        data.setLineSeriesName("计划销售额");
+        data.setScatterSeriesName("实际完成额");
+        data.setMaxValue(500);
+        data.setGridCount(5);
+        data.setShowDataLabels(true);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/lineRadar.svg" alt="折线雷达图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">折线雷达图</div>
     </td>
   </tr>
 </table>
