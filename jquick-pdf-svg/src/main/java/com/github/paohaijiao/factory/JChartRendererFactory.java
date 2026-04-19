@@ -20,6 +20,7 @@ import com.github.paohaijiao.bar.JBarChartsRenderer;
 import com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
 import com.github.paohaijiao.bubble.JBubbleChartRenderer;
 import com.github.paohaijiao.calendar.JCalendarChartRenderer;
+import com.github.paohaijiao.combol.JAreaChartRenderer;
 import com.github.paohaijiao.combol.JComboLineBarChartRenderer;
 import com.github.paohaijiao.combol.JMultiBarChartRenderer;
 import com.github.paohaijiao.combol.JMultiLineChartRenderer;
@@ -101,6 +102,9 @@ public class JChartRendererFactory {
                 return new JMultiLineChartRenderer();
             case MultipleBar:
                 return new JMultiBarChartRenderer();
+            case AREA:
+                return new JAreaChartRenderer();
+
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }

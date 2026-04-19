@@ -66,6 +66,8 @@ public enum JChartType {
 
     MultipleBar("MultipleBar", "多重条形图"),
 
+    AREA("area", "区域堆叠图"),
+
     ;
     private String code;
 

@@ -44,6 +44,7 @@
 | Line Bar         | 组合图形<折线条形图>(1.5.5) |
 | Multiple Line    | 多重折线图(1.5.6)       |
 | Multiple Bar     | 多重条形图(1.5.7)       |
+| AREA             | 区域堆积图(1.5.8)       |
 
 ## 🚀 项目状态
 
@@ -1529,6 +1530,46 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/fourBar.svg" alt="多重条形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">多重条形图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 区域堆积图(1.5.8)  Area Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>区域堆积图(区域堆积图 Area Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+       java.util.List<Double> values =Arrays.asList(85.0, 120.0, 
+        150.0, 210.0, 280.0, 350.0, 420.0, 400.0, 380.0, 450.0, 480.0, 520.0);
+        List<String> labels = Arrays.asList("1月", "2月", "3月", "4月", "5月",
+        "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+        JAreaChartData data = new JAreaChartData();
+        data.setWidth(800);
+        data.setHeight(500);
+        data.setTitle("2024年度销售趋势");
+        data.setSubtitle("数据来源：销售系统");
+        data.setXAxisTitle("月份");
+        data.setYAxisTitle("销售额（万元）");
+        data.setLegendText("销售额");
+        data.setShowDataLabels(true);
+        data.setSeriesList(Arrays.asList(new JSeriesData("销售额", values)));
+        data.setXAxisLabels(labels);
+        data.setTheme(JTheme.DEFAULT);      // 默认主题
+        JOption option = new JOption();
+        option.setData(data);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/area.svg" alt="堆叠区域图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">堆叠区域图</div>
     </td>
   </tr>
 </table>
