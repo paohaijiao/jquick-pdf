@@ -48,6 +48,7 @@
 | AREA             | 区域堆积图(1.5.8)       |
 | HorizontalBar    | 横向条形图(1.5.9)       |
 | MutipleHorizontalBar    | 多重横向条形图(1.5.10)    |
+| DoubleRadar          | 双雷达图(1.5.11)       |
 
 ## 🚀 项目状态
 
@@ -1668,6 +1669,80 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/mhBarChart.svg" alt="多重横向条形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">多重横向条形图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 双雷达图(1.5.11)  DoubleRadar Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>双雷达图(双雷达图 DoubleRadar Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JDoubleRadarChartData chartData = new 
+        JDoubleRadarChartData();
+        chartData.setWidth(1000);
+        chartData.setHeight(600);
+        chartData.setTitleText("多维度数据对比雷达图");
+        chartData.setSubtitleText("左右两组数据对比分析");
+        chartData.setLeftTitle("实验组数据");
+        chartData.setRightTitle("对照组数据");
+        List<String> dimensions = Arrays.asList("维度A", 
+        "维度B", "维度C", "维度D", "维度E");
+        chartData.setDimensions(dimensions);
+        JDoubleRadarChartData.RadarData leftRadar = new 
+        JDoubleRadarChartData.RadarData();
+        List<JDoubleRadarChartData.Series> leftSeriesList = new ArrayList<>();
+        JDoubleRadarChartData.Series series1 = new JDoubleRadarChartData.Series();
+        series1.setName("节点1");
+        List<Double> values1 = Arrays.asList(85.0, 70.0, 65.0, 80.0, 75.0);
+        series1.setValues(values1);
+        series1.setColor(new Color(84, 112, 198));  // 蓝色
+        leftSeriesList.add(series1);
+        JDoubleRadarChartData.Series series2 = new JDoubleRadarChartData.Series();
+        series2.setName("节点2");
+        List<Double> values2 = Arrays.asList(70.0, 85.0, 80.0, 65.0, 70.0);
+        series2.setValues(values2);
+        series2.setColor(new Color(250, 200, 88));  // 黄色
+        leftSeriesList.add(series2);
+        leftRadar.setSeriesList(leftSeriesList);
+        chartData.setLeftRadar(leftRadar);
+        JDoubleRadarChartData.RadarData rightRadar = new J
+        DoubleRadarChartData.RadarData();
+        List<JDoubleRadarChartData.Series> rightSeriesList = new ArrayList<>();
+        JDoubleRadarChartData.Series series3 = new JDoubleRadarChartData.Series();
+        series3.setName("节点3");
+        List<Double> values3 = Arrays.asList(90.0, 85.0, 88.0, 92.0, 87.0);
+        series3.setValues(values3);
+        series3.setColor(new Color(238, 102, 102));  // 红色
+        rightSeriesList.add(series3);
+        JDoubleRadarChartData.Series series4 = new JDoubleRadarChartData.Series();
+        series4.setName("节点4");
+        List<Double> values4 = Arrays.asList(75.0, 80.0, 72.0, 78.0, 82.0);
+        series4.setValues(values4);
+        series4.setColor(new Color(80, 180, 150));  // 绿色
+        rightSeriesList.add(series4);
+        rightRadar.setSeriesList(rightSeriesList);
+        chartData.setRightRadar(rightRadar);
+        chartData.setGridLevels(4);
+        chartData.setFillAlpha(70);
+        chartData.setLineWidth(2.0f);
+        chartData.setShowDataPoints(true);
+        chartData.setLegendAtTop(false);
+        chartData.setShowLegendSide(true);
+        chartData.setFooterText("数据来源：示例数据");
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/twoRadar.svg" alt="双雷达图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">双雷达图</div>
     </td>
   </tr>
 </table>

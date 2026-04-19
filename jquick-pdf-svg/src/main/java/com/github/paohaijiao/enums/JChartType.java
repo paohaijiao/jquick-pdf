@@ -72,6 +72,8 @@ public enum JChartType {
 
     MutipleHorizontalBar("MutipleHorizontalBar", "多重横向条形图"),
 
+    DoubleRadar("DoubleRadar", "双雷达图"),
+
     ;
     private String code;
 
