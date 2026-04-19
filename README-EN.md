@@ -47,6 +47,7 @@
 | Multiple Bar    | 多重条形图(1.5.7)       |
 | AREA             | 区域堆积图(1.5.8)       |
 | HorizontalBar    | 横向条形图(1.5.9)       |
+| MutipleHorizontalBar    | 多重横向条形图(1.5.10)    |
 
 ## 🚀 项目状态
 
@@ -1615,6 +1616,58 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/horizontalBar.svg" alt="横向条形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">横向条形图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 多重横向条形图(1.5.10)  MutipleHorizontalBar Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>多重横向条形图(多重横向条形图 MutipleHorizontalBar Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JHorizontalMultiBarChartData chartData = 
+        new JHorizontalMultiBarChartData();
+        chartData.setTitleText("2024年度各产品销售数据");
+        chartData.setSubtitleText("单位：万元");
+        chartData.setXAxisTitle("销售额（万元）");
+//        chartData.setYAxisTitle("产品类别");
+        chartData.setValueWithPercent(false);
+        chartData.setShowDataLabels(true);
+        chartData.setLegendAtTop(true);
+        chartData.setGroupSpacingRatio(0.15);
+        chartData.setBarSpacingRatio(0.2);
+        chartData.addCategory("智能手机");
+        chartData.addCategory("笔记本电脑");
+        chartData.addCategory("平板电脑");
+        chartData.addCategory("智能手表");
+        chartData.addCategory("耳机音箱");
+        List<Double> productAValues = Arrays
+        .asList(125.5, 98.3, 65.8, 45.2, 78.6);
+        List<Double> productBValues = Arrays
+        .asList(88.2, 112.5, 72.1, 38.5, 55.3);
+        List<Double> productCValues = Arrays
+        .asList(45.6, 68.9, 52.4, 28.7, 42.1);
+        chartData.addSeries("品牌 A", productAValues, 
+        new Color(52, 73, 94));    // 深灰蓝 #34495e
+        chartData.addSeries("品牌 B", productBValues, 
+        new Color(41, 128, 185));   // 中蓝 #2980b9
+        chartData.addSeries("品牌 C", productCValues,
+        new Color(26, 188, 156));   // 薄荷绿 #1abc9c
+        JOption option = new JOption();
+        option.setData(chartData);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/mhBarChart.svg" alt="多重横向条形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">多重横向条形图</div>
     </td>
   </tr>
 </table>

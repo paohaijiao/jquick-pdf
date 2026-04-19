@@ -70,6 +70,8 @@ public enum JChartType {
 
     HorizontalBar("HorizontalBar", "横向条形图"),
 
+    MutipleHorizontalBar("MutipleHorizontalBar", "多重横向条形图"),
+
     ;
     private String code;
 
