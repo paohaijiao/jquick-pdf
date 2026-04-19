@@ -13,28 +13,23 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.ele;
+package com.github.paohaijiao.graph;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
-import com.github.paohaijiao.combol.JMultiBarChartData;
-import com.github.paohaijiao.combol.JMultiBarChartRenderer;
-import com.github.paohaijiao.combol.area.JAreaChartData;
-import com.github.paohaijiao.combol.area.JSeriesData;
-import com.github.paohaijiao.combol.area.JTheme;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
+import com.github.paohaijiao.geo.GeoOption;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
-import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * packageName com.github.paohaijiao.ele
@@ -43,29 +38,27 @@ import java.util.List;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JAreaTest {
-
+public class JGeoTest {
+    private static String readFile(String filePath) throws IOException {
+        StringBuilder content = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+        }
+        return content.toString();
+    }
     @Test
     public void svg2() throws IOException {
         JGraphContainer graphContainer = new JGraphContainer();
-        graphContainer.setType(JChartType.AREA);
-        java.util.List<Double> values =Arrays.asList(85.0, 120.0, 150.0, 210.0, 280.0, 350.0, 420.0, 400.0, 380.0, 450.0, 480.0, 520.0);
-        List<String> labels = Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
-        JAreaChartData data = new JAreaChartData();
-        data.setWidth(800);
-        data.setHeight(500);
-        data.setTitle("2024年度销售趋势");
-        data.setSubtitle("数据来源：销售系统");
-        data.setXAxisTitle("月份");
-        data.setYAxisTitle("销售额（万元）");
-        data.setLegendText("销售额");
-        data.setShowDataLabels(true);
-        data.setSeriesList(Arrays.asList(new JSeriesData("销售额", values)));
-        data.setXAxisLabels(labels);
-        data.setTheme(JTheme.DEFAULT);      // 默认主题
-        JOption option = new JOption();
-        option.setData(data);
-        graphContainer.setOption(option);
+        JOption jOption = new JOption();
+        String geoJsonContent = readFile("d://sample//test.geojson");
+        GeoOption geoOption = new GeoOption();
+        geoOption.setGeoJsonContent(geoJsonContent);
+        graphContainer.setType(JChartType.Geo);
+        jOption.setGeoOption(geoOption);
+        graphContainer.setOption(jOption);
         JGraphConfig graphConfig = new JGraphConfig();
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();

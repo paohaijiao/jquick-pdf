@@ -13,7 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.ele;
+package com.github.paohaijiao.graph;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;

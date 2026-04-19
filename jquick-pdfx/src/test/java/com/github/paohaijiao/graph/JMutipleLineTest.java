@@ -13,15 +13,12 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.ele;
+package com.github.paohaijiao.graph;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JTitle;
 import com.github.paohaijiao.adaptor.JAdaptor;
-import com.github.paohaijiao.combol.JComboLineBarChartData;
-import com.github.paohaijiao.combol.JComboLineBarChartRenderer;
 import com.github.paohaijiao.combol.JMultiLineChartData;
-import com.github.paohaijiao.combol.JMultiLineChartRenderer;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;

@@ -13,21 +13,22 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.ele;
+package com.github.paohaijiao.graph;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
+import com.github.paohaijiao.combol.JHorizontalBarChartData;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
-import com.github.paohaijiao.matrix.JCorrelationMatrixOption;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 /**
  * packageName com.github.paohaijiao.ele
@@ -36,40 +37,31 @@ import java.io.IOException;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JMatrixTest {
-
-
-    private JOption createData() {
-        try {
-            double[][] correlationData = {
-                    {1.00, -0.20, 0.03, -0.62, -0.54, -0.21, 0.63, 0.30},
-                    {-0.20, 1.00, 0.36, -0.61, -0.26, 0.05, 0.16, 0.41},
-                    {0.03, 0.36, 1.00, -0.74, -0.94, 0.71, -0.90, -0.66},
-                    {-0.62, -0.61, -0.74, 1.00, 0.37, -0.66, 0.54, -0.66},
-                    {-0.54, -0.26, -0.94, 0.37, 1.00, -0.05, -0.46, 0.71},
-                    {-0.21, 0.05, 0.71, -0.66, -0.05, 1.00, -0.84, -0.40},
-                    {0.63, 0.16, -0.90, 0.54, -0.46, -0.84, 1.00, -0.55},
-                    {0.30, 0.41, -0.66, -0.66, 0.71, -0.40, -0.55, 1.00}
-            };
-            String[] dimensions = {"销售额", "广告费", "促销费", "竞品价", "季节指数", "GDP", "人口", "天气"};
-            JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
-                    .title("销售因素相关系数矩阵", "各因素之间的相关性分析")
-                    .dataset(correlationData)
-                    .build();
-            option.dataset().dimensions(dimensions);
-            JOption jOption = new JOption();
-            jOption.setCorrelationMatrixOption(option);
-            return jOption;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+public class JHorizontalBarChartTest {
 
     @Test
     public void svg2() throws IOException {
         JGraphContainer graphContainer = new JGraphContainer();
-        graphContainer.setType(JChartType.CorrectionMatrix);
-        graphContainer.setOption(createData());
+        graphContainer.setType(JChartType.HorizontalBar);
+        JHorizontalBarChartData chartData = new JHorizontalBarChartData();
+        chartData.setTitleText("2024年度销售数据");
+        chartData.setSubtitleText("各产品线销售占比");
+        chartData.setXAxisTitle("销售额（万元）");
+        chartData.setYAxisTitle("产品类别");
+        chartData.setValueWithPercent(false);
+        chartData.setShowDataLabels(true);
+        chartData.addYAxisLabel("电子产品");
+        chartData.addYAxisLabel("服装服饰");
+        chartData.addYAxisLabel("家居用品");
+        chartData.addYAxisLabel("美妆个护");
+        chartData.addYAxisLabel("食品饮料");
+        java.util.List<Double> productAValues = Arrays.asList(85.5, 62.3, 45.8, 71.2, 93.6);
+        java.util.List<Double> productBValues = Arrays.asList(45.2, 78.9, 52.1, 38.5, 67.4);
+        chartData.addBarData(new JHorizontalBarChartData.BarData("产品A", productAValues, JHorizontalBarChartData.COLOR_A));
+        chartData.addBarData(new JHorizontalBarChartData.BarData("产品B", productBValues, JHorizontalBarChartData.COLOR_B));
+        JOption option = new JOption();
+        option.setData(chartData);
+        graphContainer.setOption(option);
         JGraphConfig graphConfig = new JGraphConfig();
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();

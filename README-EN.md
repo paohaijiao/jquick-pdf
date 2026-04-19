@@ -46,6 +46,8 @@
 | Multiple Line    | 多重折线图(1.5.6)       |
 | Multiple Bar    | 多重条形图(1.5.7)       |
 | AREA             | 区域堆积图(1.5.8)       |
+| HorizontalBar    | 横向条形图(1.5.9)       |
+
 ## 🚀 项目状态
 
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
@@ -1569,6 +1571,50 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/area.svg" alt="堆叠区域图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">堆叠区域图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 横向条形图(1.5.9)  HorizontalBar Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>横向条形图(横向条形图 HorizontalBar Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+     JHorizontalBarChartData chartData = new JHorizontalBarChartData();
+        chartData.setTitleText("2024年度销售数据");
+        chartData.setSubtitleText("各产品线销售占比");
+        chartData.setXAxisTitle("销售额（万元）");
+        chartData.setYAxisTitle("产品类别");
+        chartData.setValueWithPercent(false);
+        chartData.setShowDataLabels(true);
+        chartData.addYAxisLabel("电子产品");
+        chartData.addYAxisLabel("服装服饰");
+        chartData.addYAxisLabel("家居用品");
+        chartData.addYAxisLabel("美妆个护");
+        chartData.addYAxisLabel("食品饮料");
+        java.util.List<Double> productAValues = Arrays
+        .asList(85.5, 62.3, 45.8, 71.2, 93.6);
+        java.util.List<Double> productBValues = Arrays
+        .asList(45.2, 78.9, 52.1, 38.5, 67.4);
+        chartData.addBarData(new JHorizontalBarChartData
+        .BarData("产品A", productAValues, JHorizontalBarChartData.COLOR_A));
+        chartData.addBarData(new JHorizontalBarChartData
+        .BarData("产品B", productBValues, JHorizontalBarChartData.COLOR_B));
+        JOption option = new JOption();
+        option.setData(chartData);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/horizontalBar.svg" alt="横向条形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">横向条形图</div>
     </td>
   </tr>
 </table>

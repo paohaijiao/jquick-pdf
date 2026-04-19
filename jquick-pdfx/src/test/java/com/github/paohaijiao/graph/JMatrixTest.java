@@ -13,26 +13,21 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.ele;
+package com.github.paohaijiao.graph;
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.JTitle;
 import com.github.paohaijiao.adaptor.JAdaptor;
-import com.github.paohaijiao.bubble.CategoryAxis;
-import com.github.paohaijiao.bubble.ScatterSeries;
-import com.github.paohaijiao.bubble.ValueAxis;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
+import com.github.paohaijiao.matrix.JCorrelationMatrixOption;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 /**
  * packageName com.github.paohaijiao.ele
@@ -41,29 +36,40 @@ import java.util.Map;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JBubbleTest {
+public class JMatrixTest {
+
+
+    private JOption createData() {
+        try {
+            double[][] correlationData = {
+                    {1.00, -0.20, 0.03, -0.62, -0.54, -0.21, 0.63, 0.30},
+                    {-0.20, 1.00, 0.36, -0.61, -0.26, 0.05, 0.16, 0.41},
+                    {0.03, 0.36, 1.00, -0.74, -0.94, 0.71, -0.90, -0.66},
+                    {-0.62, -0.61, -0.74, 1.00, 0.37, -0.66, 0.54, -0.66},
+                    {-0.54, -0.26, -0.94, 0.37, 1.00, -0.05, -0.46, 0.71},
+                    {-0.21, 0.05, 0.71, -0.66, -0.05, 1.00, -0.84, -0.40},
+                    {0.63, 0.16, -0.90, 0.54, -0.46, -0.84, 1.00, -0.55},
+                    {0.30, 0.41, -0.66, -0.66, 0.71, -0.40, -0.55, 1.00}
+            };
+            String[] dimensions = {"销售额", "广告费", "促销费", "竞品价", "季节指数", "GDP", "人口", "天气"};
+            JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
+                    .title("销售因素相关系数矩阵", "各因素之间的相关性分析")
+                    .dataset(correlationData)
+                    .build();
+            option.dataset().dimensions(dimensions);
+            JOption jOption = new JOption();
+            jOption.setCorrelationMatrixOption(option);
+            return jOption;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Test
     public void svg2() throws IOException {
         JGraphContainer graphContainer = new JGraphContainer();
-
-
-        JTitle title = new JTitle();
-        title.setText("空气质量指数 (AQI) 监测气泡图");
-        title.setSubtext("图表说明：本气泡图展示了空气质量指数(AQI)的时间变化趋势。X轴表示日期，Y轴表示AQI数值，气泡大小反映PM2.5浓度，气泡颜色表示AQI等级。");
-//        title.set
-        JOption option = new JOption()
-                .title(title)
-                .legend("优", "良", "轻度污染", "中度污染", "重度污染")
-                .xAxis(new CategoryAxis().name("日期"))
-                .yAxis(new ValueAxis().name("AQI数值"));
-        ScatterSeries series = new ScatterSeries("空气质量监测");
-        List<Map<String, Object>> seriesData = BubbleDataCreator.createAQISampleData();
-        series.data(seriesData.toArray());
-        option.series(series);
-        option.title("公司业务分布矩形树图（JTreemapRenderer）");
-        graphContainer.setType(JChartType.Bubble);
-        graphContainer.setOption(option);
+        graphContainer.setType(JChartType.CorrectionMatrix);
+        graphContainer.setOption(createData());
         JGraphConfig graphConfig = new JGraphConfig();
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();

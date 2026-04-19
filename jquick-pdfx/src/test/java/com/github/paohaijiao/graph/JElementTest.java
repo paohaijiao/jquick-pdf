@@ -1,4 +1,4 @@
-package com.github.paohaijiao.ele;
+package com.github.paohaijiao.graph;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
