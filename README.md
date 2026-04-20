@@ -49,6 +49,7 @@
 | MutipleHorizontalBar | 多重横向条形图(1.5.10)    |
 | DoubleRadar          | 双雷达图(1.5.11)       |
 | LineRadar          | 折线雷达图(1.5.12)      |
+| Circle          | 环形图(1.5.13)        |
 ## 🚀 项目状态
 
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
@@ -1751,14 +1752,14 @@ jOption.setCorrelationMatrixOption(option);
 
 ```string 
 // ============================================================================
-# 折线雷达图(1.5.11)  LineRadar Chart
+# 折线散点图(1.5.12)  LineRadar Chart
 // ============================================================================
 ```
 
 <table style="width: 100%; border: none; border-collapse: collapse;">
   <tr>
     <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
-      <strong>折线雷达图(折线雷达图 LineRadar Chart)</strong><br>
+      <strong>折线散点图(折线散点图 LineRadar Chart)</strong><br>
       <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
       <code class="language-java">
         List<String> categories = Arrays.asList(
@@ -1799,8 +1800,50 @@ jOption.setCorrelationMatrixOption(option);
       </pre>
     </td>
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
-      <img src="./images/lineRadar.svg" alt="折线雷达图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
-      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">折线雷达图</div>
+      <img src="./images/lineRadar.svg" alt="折线散点图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">折线散点图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 环形图(1.5.13)  Circle Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>环形图(环形图 Circle Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JCircleChartData chartData = new JCircleChartData();
+        chartData.setWidth(500);
+        chartData.setHeight(400);
+        chartData.setTitleText("2024年度销售分布");
+        chartData.setSubtitleText("按产品类别统计");
+        chartData.setCenterTitle("总销售额");
+        chartData.setCenterUnit("万");
+        chartData.setFooterText("数据基于2024年度销售报告");
+        List<JCircleChartData.SectorData> sectors = new ArrayList<>();
+        sectors.add(new JCircleChartData
+        .SectorData("产品A", 4480, new Color(46, 125, 100)));
+        sectors.add(new JCircleChartData
+        .SectorData("产品B", 3584, new Color(74, 144, 196)));
+        sectors.add(new JCircleChartData
+        .SectorData("产品C", 2816, new Color(91, 108, 142)));
+        sectors.add(new JCircleChartData
+        .SectorData("产品D", 1920, new Color(154, 172, 184)));
+        chartData.setSectorDataList(sectors);
+        JOption option = new JOption();
+        option.setData(chartData);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/circle-chart.svg" alt="环形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">环形图</div>
     </td>
   </tr>
 </table>

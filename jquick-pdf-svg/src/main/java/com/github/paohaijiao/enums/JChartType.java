@@ -76,6 +76,8 @@ public enum JChartType {
 
     LineRadar("LineRadar", "折线雷达图"),
 
+    Circle("Circle", "环形图"),
+
     ;
     private String code;
 

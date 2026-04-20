@@ -109,7 +109,8 @@ public class JChartRendererFactory {
                 return new JDoubleRadarChartRenderer();
             case LineRadar:
                 return new JLineScatterChartRenderer();
-
+            case Circle:
+                return new JCircleChartRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }
