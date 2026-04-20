@@ -1847,8 +1847,10 @@ jOption.setCorrelationMatrixOption(option);
     </td>
   </tr>
 </table>
+
 ### How to Generate a Credit Report Using JQuickPDF
 #### Define a Template
+
 ```xml
 <pdf>
 <body>
