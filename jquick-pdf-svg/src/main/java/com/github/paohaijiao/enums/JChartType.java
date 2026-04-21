@@ -82,6 +82,8 @@ public enum JChartType {
 
     TimeLine("TimeLine", "时间线"),
 
+    Tree("Tree", "树"),
+
     ;
     private String code;
 

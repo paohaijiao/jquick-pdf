@@ -19,39 +19,40 @@
 ---
 
 
-| 图标类型                 | 备注                 |
-|----------------------|--------------------|
-| BAR                  | 柱状图                |
-| BOXPLOT              | 箱线图                |
-| HEATMAP              | 热力图                |
-| K                    | K线图(蜡烛图)           |
-| LINE                 | 折线图                |
-| PIE                  | 饼图                 |
-| RADAR                | 雷达图                |
-| RELATION             | 关系图                |
-| SCATTER              | 散点图                |
-| SUNBURST             | 旭日图(1.5.1)         |
-| Treemap              | 矩形树图(1.5.1)        |
-| Bubble               | 气泡图(1.5.1)         |
-| Calendar             | 日历活动图(1.5.3)       |
-| Lunar                | 日历(1.5.3)          |
-| Funnel               | 漏斗图(1.5.3)         |
-| CorrectionMatrix     | 相关系数矩阵(1.5.3)      |
-| Gantt                | 甘特图(1.5.3)         |
-| Gauge                | 仪表盘(1.5.3)         |
-| WordsCloud           | 词云(1.5.3)          |
-| GEO Json             | 地图(1.5.4)          |
-| Line Bar             | 组合图形<折线条形图>(1.5.5) |
-| Multiple Line        | 多重折线图(1.5.6)       |
-| Multiple Bar         | 多重条形图(1.5.7)       |
-| AREA                 | 区域堆积图(1.5.8)       |
-| HorizontalBar        | 横向条形图(1.5.9)       |
-| MutipleHorizontalBar | 多重横向条形图(1.5.10)    |
-| DoubleRadar          | 双雷达图(1.5.11)       |
-| LineRadar            | 折线雷达图(1.5.12)      |
-| Circle               | 环形图(1.5.13)        |
-| AdvancedTopology     | 高级拓扑图(1.5.14)      |
-| TimeLine             | 时间线(1.5.15)        |
+| 图标类型                 | 备注                  |
+|----------------------|---------------------|
+| BAR                  | 柱状图                 |
+| BOXPLOT              | 箱线图                 |
+| HEATMAP              | 热力图                 |
+| K                    | K线图(蜡烛图)            |
+| LINE                 | 折线图                 |
+| PIE                  | 饼图                  |
+| RADAR                | 雷达图                 |
+| RELATION             | 关系图                 |
+| SCATTER              | 散点图                 |
+| SUNBURST             | 旭日图(1.5.1)          |
+| Treemap              | 矩形树图(1.5.1)         |
+| Bubble               | 气泡图(1.5.1)          |
+| Calendar             | 日历活动图(1.5.3)        |
+| Lunar                | 日历(1.5.3)           |
+| Funnel               | 漏斗图(1.5.3)          |
+| CorrectionMatrix     | 相关系数矩阵(1.5.3)       |
+| Gantt                | 甘特图(1.5.3)          |
+| Gauge                | 仪表盘(1.5.3)          |
+| WordsCloud           | 词云(1.5.3)           |
+| GEO Json             | 地图(1.5.4)           |
+| Line Bar             | 组合图形<折线条形图>(1.5.5)  |
+| Multiple Line        | 多重折线图(1.5.6)        |
+| Multiple Bar         | 多重条形图(1.5.7)        |
+| AREA                 | 区域堆积图(1.5.8)        |
+| HorizontalBar        | 横向条形图(1.5.9)        |
+| MutipleHorizontalBar | 多重横向条形图(1.5.10)     |
+| DoubleRadar          | 双雷达图(1.5.11)        |
+| LineRadar            | 折线雷达图(1.5.12)       |
+| Circle               | 环形图(1.5.13)         |
+| AdvancedTopology     | 高级拓扑图(1.5.14)       |
+| TimeLine             | 时间线(1.5.15)         |
+| Tree                 | 树(1.5.16)           |
 ## 🚀 项目状态
 
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
@@ -1917,6 +1918,31 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/timeline.svg" alt="时间线" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">时间线</div>
+    </td>
+  </tr>
+</table>
+
+
+
+```string 
+// ============================================================================
+# 树(1.5.16)  Tree Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>树(树 Tree Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        // 具体参数可参考JTreeTest 的测试数据
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/tree.svg" alt="树" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">树</div>
     </td>
   </tr>
 </table>

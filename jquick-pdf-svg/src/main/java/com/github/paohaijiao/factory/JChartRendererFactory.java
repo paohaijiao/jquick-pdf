@@ -115,6 +115,9 @@ public class JChartRendererFactory {
                 return new JAdvancedTopologyRenderer();
             case TimeLine:
                 return new JTimeLineRenderer();
+            case Tree:
+                return new JTreeChartRenderer();
+
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }

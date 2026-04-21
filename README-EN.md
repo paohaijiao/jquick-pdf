@@ -53,6 +53,7 @@
 | Circle          | 环形图(1.5.13)        |
 | AdvancedTopology          | 高级拓扑图(1.5.14)      |
 | TimeLine             | 时间线(1.5.15)        |
+| Tree                 | 树(1.5.16)           |
 ## 🚀 项目状态
 
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
@@ -1916,6 +1917,29 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/timeline.svg" alt="时间线" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">时间线</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 树(1.5.16)  Tree Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>树(树 Tree Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        // 具体参数可参考JTreeTest 的测试数据
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/tree.svg" alt="树" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">树</div>
     </td>
   </tr>
 </table>
