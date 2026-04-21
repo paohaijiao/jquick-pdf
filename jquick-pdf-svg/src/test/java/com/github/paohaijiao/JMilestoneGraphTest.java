@@ -31,7 +31,7 @@ public class JMilestoneGraphTest {
         JOption option = new JOption();
         option.setData(data);
 
-        JBusinessAlternateFlowRenderer renderer = new JBusinessAlternateFlowRenderer();
+        JTimeLineRenderer renderer = new JTimeLineRenderer();
         renderer.render(option, "d://test//alternate_flow_1.svg");
 
     }

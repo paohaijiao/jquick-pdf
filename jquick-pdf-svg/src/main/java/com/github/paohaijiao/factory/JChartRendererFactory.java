@@ -113,6 +113,8 @@ public class JChartRendererFactory {
                 return new JCircleChartRenderer();
             case AdvancedTopology:
                 return new JAdvancedTopologyRenderer();
+            case TimeLine:
+                return new JTimeLineRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }

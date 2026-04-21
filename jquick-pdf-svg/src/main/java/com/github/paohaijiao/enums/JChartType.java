@@ -80,6 +80,8 @@ public enum JChartType {
 
     AdvancedTopology("AdvancedTopology", "高级拓扑图"),
 
+    TimeLine("TimeLine", "时间线"),
+
     ;
     private String code;
 

@@ -48,9 +48,10 @@
 | HorizontalBar        | 横向条形图(1.5.9)       |
 | MutipleHorizontalBar | 多重横向条形图(1.5.10)    |
 | DoubleRadar          | 双雷达图(1.5.11)       |
-| LineRadar          | 折线雷达图(1.5.12)      |
-| Circle          | 环形图(1.5.13)        |
-| AdvancedTopology          | 高级拓扑图(1.5.14)      |
+| LineRadar            | 折线雷达图(1.5.12)      |
+| Circle               | 环形图(1.5.13)        |
+| AdvancedTopology     | 高级拓扑图(1.5.14)      |
+| TimeLine             | 时间线(1.5.15)        |
 ## 🚀 项目状态
 
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
@@ -1871,6 +1872,55 @@ jOption.setCorrelationMatrixOption(option);
     </td>
   </tr>
 </table>
+
+
+```string 
+// ============================================================================
+# 时间线(1.5.15)  TimeLine Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>高级拓扑图(高级拓扑图 AdvancedTopology Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+        JTimeLineData data = new JTimeLineData();
+        List<JTimeLineData.FlowNode> nodes =
+        new java.util.ArrayList<>();
+        nodes.add(new JTimeLineData.FlowNode("项目启动", 
+        "•团队组建与立项|•市场调研完成|•战略规划制定", 
+        new Color(31, 78, 121), new Color(31, 78, 121)));
+        nodes.add(new JTimeLineData.FlowNode("1000", "500", 
+        new Color(68, 114, 196), new Color(68, 114, 196)));
+        nodes.add(new JTimeLineData.FlowNode("500", "里程碑达成",
+        new Color(112, 173, 71), new Color(112, 173, 71)));
+        nodes.add(new JTimeLineData.FlowNode("150%", "100%增长",
+        new Color(237, 125, 49), new Color(237, 125, 49)));
+        nodes.add(new JTimeLineData.FlowNode("100%", "50%完成率", 
+        new Color(79, 129, 189), new Color(79, 129, 189)));
+        data.setNodes(nodes);
+        data.setMainTitle("MILESTONE TIMELINE");
+        data.setSubtitle("2021-2023 关键里程碑节点");
+        data.setFooterText("数据来源：年度报告 | 更新日期：2024年1月");
+        data.setHeight(1300);
+        data.setBoxWidth(200);
+        data.setBoxHeight(90);
+        data.setStartX(100);
+        data.setEndX(100);
+        JOption option = new JOption();
+        option.setData(data);
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/timeline.svg" alt="时间线" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">时间线</div>
+    </td>
+  </tr>
+</table>
+
 
 ### 如何利用jquick pdf 生成一个信用报告
 #### 定义一个模板

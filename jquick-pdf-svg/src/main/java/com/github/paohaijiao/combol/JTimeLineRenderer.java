@@ -39,14 +39,14 @@ import static com.github.paohaijiao.combol.JTimeLineData.*;
  *       ●  →  →  →  → ●  →  →  →  → ●  →  →  →  → ●  →  →  →  → ●
  */
 @Data
-public class JBusinessAlternateFlowRenderer extends JAbstractChartRenderer {
+public class JTimeLineRenderer extends JAbstractChartRenderer {
 
 
     private JTimeLineData config;
 
     private LayoutParams layoutParams;
 
-    public JBusinessAlternateFlowRenderer() {
+    public JTimeLineRenderer() {
         this.layoutParams = new LayoutParams();
     }
 
