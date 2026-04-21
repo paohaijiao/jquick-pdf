@@ -1,7 +1,7 @@
 package com.github.paohaijiao;
 
-import com.github.paohaijiao.combol.JNetworkTopologyData;
-import com.github.paohaijiao.combol.JNetworkTopologyRenderer;
+import com.github.paohaijiao.combol.JAdvancedTopologyData;
+import com.github.paohaijiao.combol.JAdvancedTopologyRenderer;
 import org.junit.Test;
 
 import java.awt.*;
@@ -11,8 +11,8 @@ public class JNetworkTopologyGraphTest {
     /**
      * 创建节点
      */
-    private static JNetworkTopologyData.Node createNode(String id, String label, String icon, String status, String legendGroup, Color color, int radius) {
-        JNetworkTopologyData.Node node = new JNetworkTopologyData.Node();
+    private static JAdvancedTopologyData.Node createNode(String id, String label, String icon, String status, String legendGroup, Color color, int radius) {
+        JAdvancedTopologyData.Node node = new JAdvancedTopologyData.Node();
         node.setId(id);
         node.setLabel(label);
         node.setIcon(icon);
@@ -26,8 +26,8 @@ public class JNetworkTopologyGraphTest {
     /**
      * 添加连线
      */
-    private static void addLink(JNetworkTopologyData data, String sourceId, String targetId, String label, Color color, int width, boolean curved, boolean showArrow) {
-        JNetworkTopologyData.Link link = new JNetworkTopologyData.Link();
+    private static void addLink(JAdvancedTopologyData data, String sourceId, String targetId, String label, Color color, int width, boolean curved, boolean showArrow) {
+        JAdvancedTopologyData.Link link = new JAdvancedTopologyData.Link();
         link.setSourceId(sourceId);
         link.setTargetId(targetId);
         link.setLabel(label);
@@ -46,7 +46,7 @@ public class JNetworkTopologyGraphTest {
     @Test
     public void generateDataCenterTopology() throws IOException {
         System.out.println("\n=== 生成数据中心网络拓扑 ===");
-        JNetworkTopologyData data = new JNetworkTopologyData();
+        JAdvancedTopologyData data = new JAdvancedTopologyData();
         data.setTitleText("数据中心网络拓扑图");
         data.setSubtitleText("典型的三层网络架构");
         data.setFooterText("© 2025 数据中心运维团队");
@@ -63,18 +63,42 @@ public class JNetworkTopologyGraphTest {
         data.setGridSize(40);
         data.setDefaultNodeRadius(30);
         data.setShowLegend(true);
+        data.setTitleText("数据中心网络拓扑图");
+        data.setSubtitleText("典型的三层网络架构");
+        data.setFooterText("© 2025 数据中心运维团队");
+        data.setWidth(1200);  // 增加宽度
+        data.setHeight(800);   // 增加高度
+        data.setAutoLayout(true);
+        data.setLayoutIterations(150);  // 增加迭代次数
+        data.setLayoutSeed(42);  // 固定随机种子，保证可重现
+
+        // 样式配置
+        data.setCurvedLinks(false);
+        data.setShowArrows(true);
+        data.setShowDataFlow(true);
+        data.setFlowAnimationDuration(3000);
+        data.setShowGrid(true);
+        data.setGridSize(40);
+        data.setDefaultNodeRadius(30);
+        data.setShowLegend(true);
+
+        // 智能标签布局
+        data.setSmartLabelLayout(true);
+        data.setNodeLabelOffset(18);
+        data.setShowLabelBackground(true);
+        data.setLabelBackgroundColor(new Color(255, 255, 255, 200));
         // 添加核心层交换机
-        JNetworkTopologyData.Node coreSwitch = createNode("core-sw-01", "核心交换机", "🔵", "active", "Core Layer", new Color(233, 30, 99), 35);
+        JAdvancedTopologyData.Node coreSwitch = createNode("core-sw-01", "核心交换机", "🔵", "active", "Core Layer", new Color(233, 30, 99), 35);
         data.getNodes().add(coreSwitch);
 
-        JNetworkTopologyData.Node coreSwitch2 = createNode("core-sw-02", "核心交换机", "🔵", "active", "Core Layer", new Color(233, 30, 99), 35);
+        JAdvancedTopologyData.Node coreSwitch2 = createNode("core-sw-02", "核心交换机", "🔵", "active", "Core Layer", new Color(233, 30, 99), 35);
         data.getNodes().add(coreSwitch2);
         // 添加汇聚层交换机
         String[] aggNames = {"汇聚交换机-A", "汇聚交换机-B", "汇聚交换机-C"};
         String[] aggIds = {"agg-sw-01", "agg-sw-02", "agg-sw-03"};
         Color aggColor = new Color(156, 39, 176);
         for (int i = 0; i < aggNames.length; i++) {
-            JNetworkTopologyData.Node agg = createNode(aggIds[i], aggNames[i], "🟣", "active", "Aggregation Layer", aggColor, 28);
+            JAdvancedTopologyData.Node agg = createNode(aggIds[i], aggNames[i], "🟣", "active", "Aggregation Layer", aggColor, 28);
             data.getNodes().add(agg);
             // 连接到核心层
             addLink(data, "core-sw-01", aggIds[i], "10GE", new Color(66, 133, 244), 2, true, true);
@@ -92,7 +116,7 @@ public class JNetworkTopologyGraphTest {
         };
         Color accessColor = new Color(76, 175, 80);
         for (int i = 0; i < accessNodes.length; i++) {
-            JNetworkTopologyData.Node access = createNode(accessNodes[i][0], accessNodes[i][1], accessNodes[i][2], "active", "Access Layer", accessColor, 25);
+            JAdvancedTopologyData.Node access = createNode(accessNodes[i][0], accessNodes[i][1], accessNodes[i][2], "active", "Access Layer", accessColor, 25);
             data.getNodes().add(access);
             // 连接到汇聚层（负载均衡）
             String aggId = aggIds[i % aggIds.length];
@@ -101,7 +125,7 @@ public class JNetworkTopologyGraphTest {
         // 添加服务器
         String[] servers = {"web-01", "Web服务器", "🌐", "app-01", "应用服务器", "⚙️", "db-01", "数据库服务器", "🗄️", "cache-01", "缓存服务器", "⚡", "storage-01", "存储服务器", "💾"};
         for (int i = 0; i < servers.length; i += 3) {
-            JNetworkTopologyData.Node server = createNode(servers[i], servers[i + 1], servers[i + 2], "active", "Servers", new Color(255, 152, 0), 22);
+            JAdvancedTopologyData.Node server = createNode(servers[i], servers[i + 1], servers[i + 2], "active", "Servers", new Color(255, 152, 0), 22);
             data.getNodes().add(server);
             // 连接到接入层
             String accessId = accessNodes[i / 3 % accessNodes.length][0];
@@ -113,7 +137,7 @@ public class JNetworkTopologyGraphTest {
         title.setSubtext("三层网络架构");
         option.setTitle(title);
         option.setData(data);
-        JNetworkTopologyRenderer renderer = new JNetworkTopologyRenderer();
+        JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
         renderer.render(option, "d://test//datacenter_topology.svg");
         System.out.println("数据中心拓扑已生成: datacenter_topology.svg");
     }
@@ -125,7 +149,7 @@ public class JNetworkTopologyGraphTest {
     @Test
     public void generateCloudArchitectureTopology() throws IOException {
         System.out.println("\n=== 生成云服务架构拓扑 ===");
-        JNetworkTopologyData data = new JNetworkTopologyData();
+        JAdvancedTopologyData data = new JAdvancedTopologyData();
         data.setTitleText("云服务架构拓扑图");
         data.setSubtitleText("多区域高可用架构");
         data.setFooterText("AWS 云架构 | 生产环境");
@@ -140,16 +164,16 @@ public class JNetworkTopologyGraphTest {
         data.setShowShadow(true);
         data.setShowStatus(true);
         data.setDefaultNodeRadius(28);
-        data.setDefaultShape(JNetworkTopologyData.NodeShape.RECTANGLE);
+        data.setDefaultShape(JAdvancedTopologyData.NodeShape.RECTANGLE);
         // 添加区域边界（通过不同颜色和分组体现）
         // 负载均衡器
-        JNetworkTopologyData.Node lb = createNode("lb-01", "负载均衡器", "⚖️", "active", "Load Balancer", new Color(33, 150, 243), 32);
-        lb.setShape(JNetworkTopologyData.NodeShape.DIAMOND);
+        JAdvancedTopologyData.Node lb = createNode("lb-01", "负载均衡器", "⚖️", "active", "Load Balancer", new Color(33, 150, 243), 32);
+        lb.setShape(JAdvancedTopologyData.NodeShape.DIAMOND);
         data.getNodes().add(lb);
         // Web服务器集群
         String[] webServers = {"web-01", "web-02", "web-03"};
         for (int i = 0; i < webServers.length; i++) {
-            JNetworkTopologyData.Node web = createNode(webServers[i], "Web Server " + (i + 1), "🌐", "active", "Web Tier", new Color(76, 175, 80), 25);
+            JAdvancedTopologyData.Node web = createNode(webServers[i], "Web Server " + (i + 1), "🌐", "active", "Web Tier", new Color(76, 175, 80), 25);
             data.getNodes().add(web);
             addLink(data, "lb-01", webServers[i], "HTTP", new Color(76, 175, 80), 2, false, true);
         }
@@ -157,40 +181,40 @@ public class JNetworkTopologyGraphTest {
         // 应用服务器
         String[] appServers = {"app-01", "app-02"};
         for (int i = 0; i < appServers.length; i++) {
-            JNetworkTopologyData.Node app = createNode(appServers[i], "App Server " + (i + 1), "⚙️", "active", "Application Tier", new Color(156, 39, 176), 25);
+            JAdvancedTopologyData.Node app = createNode(appServers[i], "App Server " + (i + 1), "⚙️", "active", "Application Tier", new Color(156, 39, 176), 25);
             data.getNodes().add(app);
             for (String web : webServers) {
                 addLink(data, web, appServers[i], "RPC", new Color(156, 39, 176), 1, false, false);
             }
         }
         // 数据库主从
-        JNetworkTopologyData.Node dbMaster = createNode("db-master", "主数据库", "🗄️", "active", "Database", new Color(244, 67, 54), 30);
-        dbMaster.setShape(JNetworkTopologyData.NodeShape.DIAMOND);
+        JAdvancedTopologyData.Node dbMaster = createNode("db-master", "主数据库", "🗄️", "active", "Database", new Color(244, 67, 54), 30);
+        dbMaster.setShape(JAdvancedTopologyData.NodeShape.DIAMOND);
         data.getNodes().add(dbMaster);
-        JNetworkTopologyData.Node dbSlave = createNode("db-slave", "从数据库", "🗄️", "active", "Database", new Color(255, 87, 34), 28);
+        JAdvancedTopologyData.Node dbSlave = createNode("db-slave", "从数据库", "🗄️", "active", "Database", new Color(255, 87, 34), 28);
         data.getNodes().add(dbSlave);
         for (String app : appServers) {
             addLink(data, app, "db-master", "JDBC", new Color(244, 67, 54), 2, true, true);
         }
         addLink(data, "db-master", "db-slave", "Replication", new Color(158, 158, 158), 1, true, false);
         // 缓存服务
-        JNetworkTopologyData.Node redis = createNode("redis-01", "Redis集群", "⚡", "active", "Cache", new Color(255, 193, 7), 28);
-        redis.setShape(JNetworkTopologyData.NodeShape.CIRCLE);
+        JAdvancedTopologyData.Node redis = createNode("redis-01", "Redis集群", "⚡", "active", "Cache", new Color(255, 193, 7), 28);
+        redis.setShape(JAdvancedTopologyData.NodeShape.CIRCLE);
         data.getNodes().add(redis);
         for (String app : appServers) {
             addLink(data, app, "redis-01", "Cache", new Color(255, 193, 7), 1, false, true);
         }
 
         // 消息队列
-        JNetworkTopologyData.Node mq = createNode("mq-01", "消息队列", "📨", "active", "Messaging", new Color(233, 30, 99), 28);
-        mq.setShape(JNetworkTopologyData.NodeShape.RECTANGLE);
+        JAdvancedTopologyData.Node mq = createNode("mq-01", "消息队列", "📨", "active", "Messaging", new Color(233, 30, 99), 28);
+        mq.setShape(JAdvancedTopologyData.NodeShape.RECTANGLE);
         data.getNodes().add(mq);
         for (String app : appServers) {
             addLink(data, app, "mq-01", "AMQP", new Color(233, 30, 99), 1, false, true);
         }
 
         // 监控服务
-        JNetworkTopologyData.Node monitor = createNode("monitor-01", "监控系统", "📊", "warning", "Monitoring", new Color(158, 158, 158), 26);
+        JAdvancedTopologyData.Node monitor = createNode("monitor-01", "监控系统", "📊", "warning", "Monitoring", new Color(158, 158, 158), 26);
         data.getNodes().add(monitor);
         for (String node : webServers) {
             addLink(data, node, "monitor-01", "Metrics", new Color(158, 158, 158), 1, false, false);
@@ -201,7 +225,7 @@ public class JNetworkTopologyGraphTest {
         title.setSubtext("生产环境");
         option.setTitle(title);
         option.setData(data);
-        JNetworkTopologyRenderer renderer = new JNetworkTopologyRenderer();
+        JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
         renderer.render(option, "d://test//cloud_architecture.svg");
         System.out.println("云架构拓扑已生成: cloud_architecture.svg");
     }
@@ -213,7 +237,7 @@ public class JNetworkTopologyGraphTest {
     @Test
     public void generateEnterpriseNetworkTopology() throws IOException {
         System.out.println("\n=== 生成企业网络拓扑 ===");
-        JNetworkTopologyData data = new JNetworkTopologyData();
+        JAdvancedTopologyData data = new JAdvancedTopologyData();
         data.setTitleText("企业网络拓扑图");
         data.setSubtitleText("总部-分支机构网络架构");
         data.setFooterText("VPN连接 | MPLS专线");
@@ -222,8 +246,8 @@ public class JNetworkTopologyGraphTest {
         data.setAutoLayout(true);
         data.setLayoutIterations(100);
         // 总部节点
-        JNetworkTopologyData.Node hq = createNode("hq", "北京总部", "🏢", "active", "Headquarters", new Color(25, 118, 210), 40);
-        hq.setShape(JNetworkTopologyData.NodeShape.RECTANGLE);
+        JAdvancedTopologyData.Node hq = createNode("hq", "北京总部", "🏢", "active", "Headquarters", new Color(25, 118, 210), 40);
+        hq.setShape(JAdvancedTopologyData.NodeShape.RECTANGLE);
         data.getNodes().add(hq);
         // 分支机构
         String[][] branches = {
@@ -235,7 +259,7 @@ public class JNetworkTopologyGraphTest {
         };
 
         for (String[] branch : branches) {
-            JNetworkTopologyData.Node branchNode = createNode(branch[0], branch[1], branch[2], branch[3], "Branches", new Color(56, 142, 60), 30);
+            JAdvancedTopologyData.Node branchNode = createNode(branch[0], branch[1], branch[2], branch[3], "Branches", new Color(56, 142, 60), 30);
             data.getNodes().add(branchNode);
             // 使用不同的线路类型
             if (branch[0].equals("sh") || branch[0].equals("gz")) {
@@ -246,12 +270,12 @@ public class JNetworkTopologyGraphTest {
         }
 
         // 添加互联网出口
-        JNetworkTopologyData.Node internet = createNode("internet", "互联网", "🌍", "active", "Internet", new Color(96, 125, 139), 35);
+        JAdvancedTopologyData.Node internet = createNode("internet", "互联网", "🌍", "active", "Internet", new Color(96, 125, 139), 35);
         data.getNodes().add(internet);
         addLink(data, "hq", "internet", "1Gbps", new Color(96, 125, 139), 3, true, true);
         // 添加防火墙
-        JNetworkTopologyData.Node firewall = createNode("fw-01", "防火墙集群", "🔥", "active", "Security", new Color(211, 47, 47), 28);
-        firewall.setShape(JNetworkTopologyData.NodeShape.DIAMOND);
+        JAdvancedTopologyData.Node firewall = createNode("fw-01", "防火墙集群", "🔥", "active", "Security", new Color(211, 47, 47), 28);
+        firewall.setShape(JAdvancedTopologyData.NodeShape.DIAMOND);
         data.getNodes().add(firewall);
         addLink(data, "internet", "fw-01", "10Gbps", new Color(211, 47, 47), 2, true, false);
         addLink(data, "fw-01", "hq", "10Gbps", new Color(211, 47, 47), 2, true, false);
@@ -261,7 +285,7 @@ public class JNetworkTopologyGraphTest {
         title.setSubtext("总部-分支机构");
         option.setTitle(title);
         option.setData(data);
-        JNetworkTopologyRenderer renderer = new JNetworkTopologyRenderer();
+        JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
         renderer.render(option, "d://test//enterprise_network.svg");
         System.out.println("企业网络拓扑已生成: enterprise_network.svg");
     }
@@ -273,7 +297,7 @@ public class JNetworkTopologyGraphTest {
     @Test
     public void generateMicroserviceTopology() throws IOException {
         System.out.println("\n=== 生成微服务架构拓扑 ===");
-        JNetworkTopologyData data = new JNetworkTopologyData();
+        JAdvancedTopologyData data = new JAdvancedTopologyData();
         data.setTitleText("微服务架构拓扑图");
         data.setSubtitleText("服务调用链路图");
         data.setFooterText("服务网格 | Istio");
@@ -285,8 +309,8 @@ public class JNetworkTopologyGraphTest {
         data.setShowDataFlow(true);
         data.setFlowAnimationDuration(2000);
         // API网关
-        JNetworkTopologyData.Node gateway = createNode("gateway", "API Gateway", "🚪", "active", "Gateway", new Color(33, 150, 243), 32);
-        gateway.setShape(JNetworkTopologyData.NodeShape.DIAMOND);
+        JAdvancedTopologyData.Node gateway = createNode("gateway", "API Gateway", "🚪", "active", "Gateway", new Color(33, 150, 243), 32);
+        gateway.setShape(JAdvancedTopologyData.NodeShape.DIAMOND);
         data.getNodes().add(gateway);
         // 业务服务 - 修复数组类型问题
         // 业务服务
@@ -316,7 +340,7 @@ public class JNetworkTopologyGraphTest {
         };
 
         for (ServiceInfo svc : services) {
-            JNetworkTopologyData.Node service = createNode(svc.id, svc.name, svc.icon, "active", "Microservices", svc.color, 26);
+            JAdvancedTopologyData.Node service = createNode(svc.id, svc.name, svc.icon, "active", "Microservices", svc.color, 26);
             data.getNodes().add(service);
             // 所有服务都通过网关
             addLink(data, "gateway", svc.id, "HTTP/gRPC", svc.color, 2, false, true);
@@ -331,16 +355,16 @@ public class JNetworkTopologyGraphTest {
         addLink(data, "cart-svc", "order-svc", "gRPC", new Color(158, 158, 158), 1, false, false);
         addLink(data, "review-svc", "product-svc", "HTTP", new Color(158, 158, 158), 1, false, false);
         // 注册中心和配置中心
-        JNetworkTopologyData.Node eureka = createNode("eureka", "服务注册中心", "📋", "active", "Infrastructure", new Color(96, 125, 139), 28);
+        JAdvancedTopologyData.Node eureka = createNode("eureka", "服务注册中心", "📋", "active", "Infrastructure", new Color(96, 125, 139), 28);
         data.getNodes().add(eureka);
-        JNetworkTopologyData.Node config = createNode("config", "配置中心", "⚙️", "active", "Infrastructure", new Color(96, 125, 139), 28);
+        JAdvancedTopologyData.Node config = createNode("config", "配置中心", "⚙️", "active", "Infrastructure", new Color(96, 125, 139), 28);
         data.getNodes().add(config);
         for (ServiceInfo svc : services) {
             addLink(data, svc.id, "eureka", "心跳", new Color(96, 125, 139), 1, false, false);
             addLink(data, svc.id, "config", "配置拉取", new Color(96, 125, 139), 1, false, false);
         }
         // 数据库
-        JNetworkTopologyData.Node db = createNode("db-cluster", "数据库集群", "🗄️", "active", "Data Layer", new Color(244, 67, 54), 30);
+        JAdvancedTopologyData.Node db = createNode("db-cluster", "数据库集群", "🗄️", "active", "Data Layer", new Color(244, 67, 54), 30);
         data.getNodes().add(db);
         for (ServiceInfo svc : services) {
             addLink(data, svc.id, "db-cluster", "JDBC", new Color(244, 67, 54), 1, false, true);
@@ -351,7 +375,7 @@ public class JNetworkTopologyGraphTest {
         title.setSubtext("服务调用链路");
         option.setTitle(title);
         option.setData(data);
-        JNetworkTopologyRenderer renderer = new JNetworkTopologyRenderer();
+        JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
         renderer.render(option, "d://test//microservice_topology.svg");
         System.out.println("微服务拓扑已生成: microservice_topology.svg");
     }
@@ -363,7 +387,7 @@ public class JNetworkTopologyGraphTest {
     @Test
     public void generateManualLayoutTopology() throws IOException {
         System.out.println("\n=== 生成手动布局拓扑图 ===");
-        JNetworkTopologyData data = new JNetworkTopologyData();
+        JAdvancedTopologyData data = new JAdvancedTopologyData();
         data.setTitleText("自定义布局网络拓扑");
         data.setSubtitleText("手动控制节点位置");
         data.setFooterText("网络监控系统");
@@ -378,10 +402,10 @@ public class JNetworkTopologyGraphTest {
         int centerX = 450;
         int centerY = 250;
         // 核心交换机（中心）
-        JNetworkTopologyData.Node core = createNode("core-sw", "核心交换机", "🔵", "active", "Core", new Color(233, 30, 99), 35);
+        JAdvancedTopologyData.Node core = createNode("core-sw", "核心交换机", "🔵", "active", "Core", new Color(233, 30, 99), 35);
         core.setX(centerX);
         core.setY(centerY);
-        core.setShape(JNetworkTopologyData.NodeShape.DIAMOND);
+        core.setShape(JAdvancedTopologyData.NodeShape.DIAMOND);
         data.getNodes().add(core);
         // 周边设备（圆形分布）- 修复数组类型问题
         int radius = 150;
@@ -403,7 +427,7 @@ public class JNetworkTopologyGraphTest {
             double angle = 2 * Math.PI * i / deviceIds.length;
             int x = centerX + (int) (radius * Math.cos(angle));
             int y = centerY + (int) (radius * Math.sin(angle));
-            JNetworkTopologyData.Node device = createNode(deviceIds[i], deviceNames[i], deviceIcons[i], deviceStatuses[i], deviceGroups[i], deviceColors[i], 28);
+            JAdvancedTopologyData.Node device = createNode(deviceIds[i], deviceNames[i], deviceIcons[i], deviceStatuses[i], deviceGroups[i], deviceColors[i], 28);
             device.setX(x);
             device.setY(y);
             data.getNodes().add(device);
@@ -411,7 +435,7 @@ public class JNetworkTopologyGraphTest {
             addLink(data, "core-sw", deviceIds[i], "10GE", deviceColors[i], 2, true, true);
         }
         // 添加外网连接
-        JNetworkTopologyData.Node internet = createNode("internet", "互联网", "🌍", "active", "External", new Color(96, 125, 139), 30);
+        JAdvancedTopologyData.Node internet = createNode("internet", "互联网", "🌍", "active", "External", new Color(96, 125, 139), 30);
         internet.setX(centerX);
         internet.setY(centerY - radius - 80);
         data.getNodes().add(internet);
@@ -424,7 +448,7 @@ public class JNetworkTopologyGraphTest {
         title.setSubtext("手动控制节点位置");
         option.setTitle(title);
         option.setData(data);
-        JNetworkTopologyRenderer renderer = new JNetworkTopologyRenderer();
+        JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
         renderer.render(option, "d://test//manual_layout_topology.svg");
         System.out.println("手动布局拓扑已生成: manual_layout_topology.svg");
     }

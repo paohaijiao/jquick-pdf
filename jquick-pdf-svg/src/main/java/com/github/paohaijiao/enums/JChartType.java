@@ -78,6 +78,8 @@ public enum JChartType {
 
     Circle("Circle", "环形图"),
 
+    AdvancedTopology("AdvancedTopology", "高级拓扑图"),
+
     ;
     private String code;
 

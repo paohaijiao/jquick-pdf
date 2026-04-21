@@ -50,6 +50,7 @@
 | DoubleRadar          | 双雷达图(1.5.11)       |
 | LineRadar          | 折线雷达图(1.5.12)      |
 | Circle          | 环形图(1.5.13)        |
+| AdvancedTopology          | 高级拓扑图(1.5.14)      |
 ## 🚀 项目状态
 
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
@@ -1844,6 +1845,29 @@ jOption.setCorrelationMatrixOption(option);
     <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
       <img src="./images/circle-chart.svg" alt="环形图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
       <div style="font-size: 0.9em; color: #666; margin-top: 10px;">环形图</div>
+    </td>
+  </tr>
+</table>
+
+```string 
+// ============================================================================
+# 高级拓扑图(1.5.14)  AdvancedTopology Chart
+// ============================================================================
+```
+
+<table style="width: 100%; border: none; border-collapse: collapse;">
+  <tr>
+    <td style="width: 30%; vertical-align: middle; padding-right: 2%; border: none;">
+      <strong>高级拓扑图(高级拓扑图 AdvancedTopology Chart)</strong><br>
+      <pre style="background: #f5f5f5; padding: 10px; border-radius: 4px; font-size: 0.9em; overflow-x: auto;">
+      <code class="language-java">
+         //相关配置请参考JNetworkTopologyGraphTest 对应的方法
+       </code>
+      </pre>
+    </td>
+    <td style="width: 48%; vertical-align: middle; text-align: center; border: none;">
+      <img src="./images/advance_topology.svg" alt="高级拓扑图" style="width: 100%; min-width: 400px ;max-width: 400px !important; height: auto;">
+      <div style="font-size: 0.9em; color: #666; margin-top: 10px;">高级拓扑图</div>
     </td>
   </tr>
 </table>

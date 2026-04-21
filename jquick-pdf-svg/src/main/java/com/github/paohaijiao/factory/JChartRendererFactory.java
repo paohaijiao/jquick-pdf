@@ -111,6 +111,8 @@ public class JChartRendererFactory {
                 return new JLineScatterChartRenderer();
             case Circle:
                 return new JCircleChartRenderer();
+            case AdvancedTopology:
+                return new JAdvancedTopologyRenderer();
             default:
                 throw new IllegalArgumentException("Unsupported chart type: " + type);
         }

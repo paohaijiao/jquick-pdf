@@ -11,7 +11,7 @@ import java.util.List;
  * 网络拓扑图数据类
  */
 @Data
-public class JNetworkTopologyData implements JGraphData {
+public class JAdvancedTopologyData implements JGraphData {
     /**
      * 基础配置
      */
@@ -36,9 +36,20 @@ public class JNetworkTopologyData implements JGraphData {
      * 布局配置
      */
     private boolean autoLayout = true;
+
     private long layoutIterations = 50;
+
     private int layoutSeed = 42;
 
+    /**
+     * 节点标签偏移量（像素）
+     */
+    private int nodeLabelOffset = 15;
+
+    /**
+     * 是否启用智能标签布局（避免重叠）
+     */
+    private boolean smartLabelLayout = true;
     /**
      * 样式配置
      */
