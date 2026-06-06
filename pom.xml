@@ -19,6 +19,9 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <openpdf.version>1.3.30</openpdf.version>
+        <openpdf.version>1.3.30</openpdf.version>
+        <openpdf-html.version>1.0.4</openpdf-html.version>
         <batik.version>1.12</batik.version>
         <itext.svg.version>7.2.5</itext.svg.version>
         <itext.version>7.2.5</itext.version>
@@ -32,6 +35,18 @@
     </properties>
     <dependencyManagement>
         <dependencies>
+            <!-- OpenPDF 核心库 -->
+            <dependency>
+                <groupId>com.github.librepdf</groupId>
+                <artifactId>openpdf</artifactId>
+                <version>${openpdf.version}</version>
+            </dependency>
+            <!-- OpenPDF HTML 转换扩展 -->
+            <dependency>
+                <groupId>com.github.librepdf</groupId>
+                <artifactId>openpdf-html</artifactId>
+                <version>${openpdf-html.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.itextpdf</groupId>
                 <artifactId>html2pdf</artifactId>
