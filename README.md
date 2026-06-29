@@ -1,5 +1,7 @@
 # 📄 JQuickPDF – 最轻量、最纯粹的 Java PDF 生成库
-
+[![Awesome Java](https://img.shields.io/badge/Awesome-Java-ff69b4.svg)](https://github.com/akullpp/awesome-java)
+> 已被收录至 [Awesome Java](https://github.com/akullpp/awesome-java) 的 **PDF** 精选章节
+> 
 [简体中文] | [ENGLISH](./README-EN.md)
 
 > JQuickPDF 是一个纯 Java 库，专门用于将类似HTML和Css样式的语法渲染为 PDF，  
