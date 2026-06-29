@@ -1,5 +1,7 @@
 # 📄 JQuickPDF – The lightest and purest Java PDF generation library
-
+[![Awesome Java](https://img.shields.io/badge/Awesome-Java-ff69b4.svg)](https://github.com/akullpp/awesome-java)
+> Featured in the [Awesome Java](https://github.com/akullpp/awesome-java) curated list — **PDF** section
+> 
 [简体中文](./README.md) | [ENGLISH]
 
 > JQuickPDF is a pure Java library specifically designed to render syntax like HTML and CSS styles into PDFs,
