@@ -16,6 +16,8 @@
 package com.github.paohaijiao.executor;
 
 import com.github.paohaijiao.antlr.impl.JAbstractAntlrExecutor;
+import com.github.paohaijiao.banner.JQuickBanner;
+import com.github.paohaijiao.banner.impl.JQuickBannerImpl;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.console.JConsole;
 import com.github.paohaijiao.exception.JAntlrExecutionException;
@@ -58,7 +60,6 @@ public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
     @Override
     protected Lexer createLexer(CharStream input) {
         JConsole console = new JConsole();
-        console.debug("evalue:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 
@@ -69,6 +70,8 @@ public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
 
     @Override
     protected Object parse(Parser parser) throws JAntlrExecutionException {
+        JQuickBanner banner= JQuickBannerImpl.getInstance();
+        banner.printBanner();
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
         JQuickPDFParser.DocumentContext tree = calcParser.document();
         JPdfXCommonVisitor visitor = null;
