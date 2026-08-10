@@ -33,5 +33,5 @@ public class GeoOption {
 
     private String backgroundColor ="#4CAF50";
 
-    private String title = "地图";
+    private String title = "";
 }

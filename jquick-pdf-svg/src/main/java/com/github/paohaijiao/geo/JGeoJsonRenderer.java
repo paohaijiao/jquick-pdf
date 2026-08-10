@@ -346,7 +346,6 @@ public class JGeoJsonRenderer extends JAbstractChartRenderer {
             svgGenerator.setColor(Color.WHITE);
             svgGenerator.fillRect(0, 0, width, height);
             Bounds bounds = calculateBounds(geometries, option.getGeoOption().getPadding());
-            System.out.printf("地图边界: minX=%.6f, minY=%.6f, maxX=%.6f, maxY=%.6f%n", bounds.getMinX(), bounds.getMinY(), bounds.getMaxX(), bounds.getMaxY());
             setupViewport(svgGenerator, bounds, width, height);
             for (GeometryData geom : geometries) {
                 drawGeometry(svgGenerator, option, geom);
