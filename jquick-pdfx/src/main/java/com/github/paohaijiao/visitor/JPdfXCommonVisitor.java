@@ -25,7 +25,6 @@ import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfReader;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
@@ -33,11 +32,8 @@ import com.itextpdf.layout.properties.AreaBreakType;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.VerticalAlignment;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.io.OutputStream;
 import java.util.*;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -54,24 +50,28 @@ import java.util.stream.Collectors;
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
 
-    public JPdfXCommonVisitor() throws FileNotFoundException {
+    public JPdfXCommonVisitor(OutputStream outputStream) throws FileNotFoundException {
         this.context = new JContext();
         this.config = new JPdfConfig();
+        this.outputStream = outputStream;
     }
 
-    public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
+    public JPdfXCommonVisitor(JContext context, OutputStream outputStream) throws FileNotFoundException {
         this.context = context;
         this.config = new JPdfConfig();
+        this.outputStream = outputStream;
     }
 
-    public JPdfXCommonVisitor(JPdfConfig config) throws FileNotFoundException {
+    public JPdfXCommonVisitor(JPdfConfig config, OutputStream outputStream) throws FileNotFoundException {
         this.context = new JContext();
         this.config = config;
+        this.outputStream = outputStream;
     }
 
-    public JPdfXCommonVisitor(JContext context, JPdfConfig config) throws FileNotFoundException {
+    public JPdfXCommonVisitor(JContext context, JPdfConfig config, OutputStream outputStream) throws FileNotFoundException {
         this.context = context;
         this.config = config;
+        this.outputStream = outputStream;
     }
 
     @Override
@@ -97,7 +97,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
             visitBody(ctx.body());
         }
 //        this.addCatalog();
-//        this.addPageNumber();
         pdf.close();
         return null;
     }
@@ -207,46 +206,5 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
             tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph((cataLog.getPageNumber() + offPage) + "")));
             tableCatalog.startNewRow();
         }
-    }
-
-    public void addPageNumber() {
-        Integer catalogSize = Integer.parseInt(properties.getProperty(ReportConstant.CATALOG_SIZE));
-        pdf.close();
-        PdfReader reader = null;
-        PdfWriter writer = null;
-        try {
-            reader = new PdfReader(new File(this.config.getOutputFilePath()));
-            writer = new PdfWriter(new File(this.config.getOutputFilePath()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        PdfDocument pdf = new PdfDocument(reader, writer);
-        Document doc = new Document(pdf);
-        int startPage = 7;
-        int numberOfPages = pdf.getNumberOfPages();
-        for (int i = 0; i < catalogSize; i++) {
-            pdf.movePage(numberOfPages, startPage);
-        }
-        String forbidPage = properties.getProperty(ReportConstant.FORBIDDE);
-        for (int pageNumber = 1; pageNumber < numberOfPages + 1; pageNumber++) {
-
-            if (pageNumber > 6 + catalogSize && pageNumber != 8 + catalogSize) {
-                if (forbidPage != null && (pageNumber - catalogSize) >= Integer.parseInt(forbidPage)) {
-                    continue;
-                }
-                if (pageSet.contains(pageNumber - catalogSize)) {
-                    continue;
-                }
-                PageSize pageSize = pdf.getDefaultPageSize();
-                doc.showTextAligned(new Paragraph(String.format("- %d -", pageNumber)), pageSize.getWidth() / 2, 30, pageNumber, TextAlignment.CENTER, VerticalAlignment.MIDDLE, 0);
-            }
-        }
-        pdf.close();
-        try {
-            Files.delete(Paths.get(this.config.getOutputFilePath()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return;
     }
 }

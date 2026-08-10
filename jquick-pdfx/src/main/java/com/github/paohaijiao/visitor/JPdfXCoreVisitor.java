@@ -41,6 +41,7 @@ import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.font.FontProvider;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.*;
 
 /**
@@ -57,6 +58,14 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected PdfDocument pdf;
 
     protected JPdfConfig config = new JPdfConfig();
+
+    /**
+     * Mandatory OutputStream: the visitor always writes the PDF to this stream.
+     * Set by the subclass constructor (JPdfXCommonVisitor) which receives it as
+     * a required parameter. PdfWriter is created with setCloseStream(false) so
+     * the caller (executor / factory) retains full control over the lifecycle.
+     */
+    protected OutputStream outputStream;
 
     protected JStyleAlignModel align = new JStyleAlignModel();
 
@@ -114,7 +123,11 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 
     protected void configure(JPdfConfig config) {
         try {
-            PdfWriter writer = new PdfWriter(config.getOutputFilePath());
+            // The OutputStream is a mandatory parameter; the visitor always streams
+            // to it and never writes to disk. setCloseStream(false) keeps the caller
+            // in control of the stream lifecycle.
+            PdfWriter writer = new PdfWriter(this.outputStream);
+            writer.setCloseStream(false);
             PdfDocument pdf = new PdfDocument(writer);
             pdf = new PdfDocument(writer);
             pdf.setDefaultPageSize(config.getDefaultPageSize());
@@ -155,6 +168,7 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 //                        new JPdfXWatermarkEventHandler(config.getWatermarkConfig()));
 //            }
             this.pdf = pdf;
+
 
         } catch (Exception e) {
             e.printStackTrace();

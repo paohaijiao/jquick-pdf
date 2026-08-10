@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * packageName com.github.paohaijiao.model.meta
+ * packageName com.paohaijiao.javelin.model.meta
  *
  * @author Martin
  * @version 1.0.0
@@ -32,12 +32,6 @@ import java.util.List;
  */
 @Data
 public class JPdfConfig {
-
-    private String workspace = "d://test";
-
-//    private String templateFile="//template.pdf";
-
-    private String outputFile = "//hello.pdf";
 
     private PageSize defaultPageSize = PageSize.A4;
 
@@ -69,10 +63,5 @@ public class JPdfConfig {
     private JTreeNodeConfig treeConfig = new JTreeNodeConfig();
 
     private JTemplateConfig templateConfig = new JTemplateConfig();
-
-
-    public String getOutputFilePath() {
-        return this.workspace + outputFile;
-    }
 
 }

@@ -31,30 +31,37 @@ import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
 
 import java.io.FileNotFoundException;
+import java.io.OutputStream;
 
 public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
     private JContext context;
 
     private JPdfConfig config;
 
-    public JQuickPdfXExecutor() throws FileNotFoundException {
+    private OutputStream outputStream;
+
+    public JQuickPdfXExecutor(OutputStream outputStream) throws FileNotFoundException {
         this.context = new JContext();
         this.config = new JPdfConfig();
+        this.outputStream = outputStream;
     }
 
-    public JQuickPdfXExecutor(JContext context) throws FileNotFoundException {
+    public JQuickPdfXExecutor(JContext context, OutputStream outputStream) throws FileNotFoundException {
         this.context = context;
         this.config = new JPdfConfig();
+        this.outputStream = outputStream;
     }
 
-    public JQuickPdfXExecutor(JPdfConfig config) throws FileNotFoundException {
+    public JQuickPdfXExecutor(JPdfConfig config, OutputStream outputStream) throws FileNotFoundException {
         this.context = new JContext();
         this.config = config;
+        this.outputStream = outputStream;
     }
 
-    public JQuickPdfXExecutor(JContext context, JPdfConfig config) throws FileNotFoundException {
+    public JQuickPdfXExecutor(JContext context, JPdfConfig config, OutputStream outputStream) throws FileNotFoundException {
         this.context = context;
         this.config = config;
+        this.outputStream = outputStream;
     }
 
     @Override
@@ -76,7 +83,7 @@ public class JQuickPdfXExecutor extends JAbstractAntlrExecutor<String, Object> {
         JQuickPDFParser.DocumentContext tree = calcParser.document();
         JPdfXCommonVisitor visitor = null;
         try {
-            visitor = new JPdfXCommonVisitor(context, config);
+            visitor = new JPdfXCommonVisitor(context, config, outputStream);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
