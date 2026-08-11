@@ -48,8 +48,8 @@ import java.util.Map;
  * <ul>
  *   <li><b>Direct streaming</b>: pass an {@link OutputStream} to the constructor, then
  *       call {@link #execute(String)}; the stream is flushed and closed afterwards.</li>
- *   <li><b>Byte array / InputStream</b>: use {@link #executeToBytes(String)} or
- *       {@link #executeToStream(String)} for in-memory results; no constructor stream
+ *   <li><b>Byte array / InputStream</b>: use {@link (String)} or
+ *       {@link #(String)} for in-memory results; no constructor stream
  *       is required.</li>
  * </ul>
  *
@@ -86,8 +86,8 @@ public class JQuickPdfFactory {
 
     /**
      * Default constructor: creates an empty {@link JContext} and a {@link JPdfConfig}
-     * with default values. Use this for {@link #executeToBytes(String)} /
-     * {@link #executeToStream(String)} shortcuts. Calling {@link #execute(String)} on
+     * with default values. Use this for {@link (String)} /
+     * {@link #(String)} shortcuts. Calling {@link #execute(String)} on
      * a factory created with this constructor throws {@link IllegalStateException}.
      *
      * @example {@code JQuickPdfFactory factory = new JQuickPdfFactory();}
@@ -337,7 +337,7 @@ public class JQuickPdfFactory {
      * @return execution result
      * @throws IOException           if rendering fails
      * @throws IllegalStateException if no OutputStream was provided via constructor;
-     *         use {@link #executeToBytes(String)} or {@link #executeToStream(String)}
+     *         use {@link (String)}
      *         for in-memory results without a constructor stream
      * @example {@code factory.execute("&lt;pdf&gt;&lt;body&gt;&lt;h1&gt;'Hi'&lt;/h1&gt;&lt;/body&gt;&lt;/pdf&gt;");}
      */
@@ -352,13 +352,14 @@ public class JQuickPdfFactory {
      * Load template from classpath resource and render to the constructor-provided
      * {@link OutputStream}. The stream is flushed and closed after rendering.
      *
-     * @param resourcePath classpath resource path
+     * @param resourceFile classpath resource path
      * @return execution result
      * @throws IOException if the resource is missing or rendering fails
      * @example {@code factory.executeResource("sample/svg1.txt");}
      */
-    public Object executeResource(String resourcePath) throws IOException {
-        return execute(readResource(resourcePath));
+    public byte[] executeResource(String resourceFile) throws IOException {
+        String templateContent = readResource(resourceFile);
+        return renderToBytes(templateContent, context, config);
     }
 
     /**
@@ -370,8 +371,12 @@ public class JQuickPdfFactory {
      * @throws IOException if the file is missing or rendering fails
      * @example {@code factory.executeFile("d:/templates/rule.txt");}
      */
-    public Object executeFile(String filePath) throws IOException {
-        return execute(readFile(filePath));
+    public byte[] executeFile(String filePath) throws IOException {
+        String templateContent = readFile(filePath);
+        if (templateContent == null) {
+            throw new IllegalArgumentException("templateContent must not be null");
+        }
+        return renderToBytes(templateContent, context, config);
     }
 
     /**
@@ -384,53 +389,13 @@ public class JQuickPdfFactory {
      * @throws IOException if rendering fails
      * @example {@code byte[] pdf = factory.executeToBytes(content);}
      */
-    public byte[] executeToBytes(String templateContent) throws IOException {
+    public byte[] executeContent(String templateContent) throws IOException {
         if (templateContent == null) {
             throw new IllegalArgumentException("templateContent must not be null");
         }
         return renderToBytes(templateContent, context, config);
     }
 
-    /**
-     * Render the template and return the PDF bytes as an {@link InputStream}. Internally
-     * delegates to {@link #executeToBytes(String)} and wraps the result in a
-     * {@link ByteArrayInputStream}.
-     *
-     * @param templateContent template content
-     * @return PDF byte input stream (closing it is a no-op)
-     * @throws IOException if rendering fails
-     * @example {@code InputStream pdf = factory.executeToStream(content);}
-     */
-    public InputStream executeToStream(String templateContent) throws IOException {
-        if (templateContent == null) {
-            throw new IllegalArgumentException("templateContent must not be null");
-        }
-        return new ByteArrayInputStream(renderToBytes(templateContent, context, config));
-    }
-
-    /**
-     * Load template from classpath resource and render to an in-memory PDF stream.
-     *
-     * @param resourcePath classpath resource path
-     * @return PDF byte input stream
-     * @throws IOException if the resource is missing or rendering fails
-     * @example {@code factory.executeResourceToStream("sample/svg1.txt");}
-     */
-    public InputStream executeResourceToStream(String resourcePath) throws IOException {
-        return executeToStream(readResource(resourcePath));
-    }
-
-    /**
-     * Load template from file system and render to an in-memory PDF stream.
-     *
-     * @param filePath file system path
-     * @return PDF byte input stream
-     * @throws IOException if the file is missing or rendering fails
-     * @example {@code factory.executeFileToStream("d:/templates/rule.txt");}
-     */
-    public InputStream executeFileToStream(String filePath) throws IOException {
-        return executeToStream(readFile(filePath));
-    }
 
     /**
      * Return the current variable context.
@@ -453,8 +418,7 @@ public class JQuickPdfFactory {
 
     /**
      * Static factory entry, equivalent to {@code new JQuickPdfFactory()}. Intended for
-     * fluent configuration followed by {@link #executeToBytes(String)} or
-     * {@link #executeToStream(String)}.
+     * fluent configuration followed by {@link (String)} or
      *
      * @return a new factory instance (no OutputStream configured)
      * @example {@code JQuickPdfFactory.create().bind("k", "v").executeToBytes(content);}
@@ -472,44 +436,11 @@ public class JQuickPdfFactory {
      * @example {@code byte[] pdf = JQuickPdfFactory.renderToBytes(content);}
      */
     public static byte[] renderToBytes(String templateContent) throws IOException {
-        return new JQuickPdfFactory().executeToBytes(templateContent);
+        return new JQuickPdfFactory().executeContent(templateContent);
     }
 
-    /**
-     * One-liner: render template string and return a PDF {@link InputStream}.
-     *
-     * @param templateContent template content
-     * @return PDF byte input stream
-     * @throws IOException if rendering fails
-     * @example {@code InputStream pdf = JQuickPdfFactory.renderToStream(content);}
-     */
-    public static InputStream renderToStream(String templateContent) throws IOException {
-        return new JQuickPdfFactory().executeToStream(templateContent);
-    }
 
-    /**
-     * One-liner: load classpath resource and return a PDF {@link InputStream}.
-     *
-     * @param resourcePath classpath resource path
-     * @return PDF byte input stream
-     * @throws IOException if the resource is missing or rendering fails
-     * @example {@code InputStream pdf = JQuickPdfFactory.renderResourceToStream("sample/svg1.txt");}
-     */
-    public static InputStream renderResourceToStream(String resourcePath) throws IOException {
-        return new JQuickPdfFactory().executeResourceToStream(resourcePath);
-    }
 
-    /**
-     * One-liner: load file system file and return a PDF {@link InputStream}.
-     *
-     * @param filePath file system path
-     * @return PDF byte input stream
-     * @throws IOException if the file is missing or rendering fails
-     * @example {@code InputStream pdf = JQuickPdfFactory.renderFileToStream("d:/templates/rule.txt");}
-     */
-    public static InputStream renderFileToStream(String filePath) throws IOException {
-        return new JQuickPdfFactory().executeFileToStream(filePath);
-    }
 
     /**
      * Lazily create or reuse the graph config attached to the current {@link JPdfConfig}.
