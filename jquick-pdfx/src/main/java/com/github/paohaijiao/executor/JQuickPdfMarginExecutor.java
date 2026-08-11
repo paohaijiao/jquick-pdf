@@ -16,7 +16,6 @@
 package com.github.paohaijiao.executor;
 
 import com.github.paohaijiao.antlr.impl.JAbstractAntlrExecutor;
-import com.github.paohaijiao.console.JConsole;
 import com.github.paohaijiao.exception.JAntlrExecutionException;
 import com.github.paohaijiao.model.JMarginModel;
 import com.github.paohaijiao.param.JContext;
@@ -42,8 +41,6 @@ public class JQuickPdfMarginExecutor extends JAbstractAntlrExecutor<String, JMar
 
     @Override
     protected Lexer createLexer(CharStream input) {
-        JConsole console = new JConsole();
-        console.debug("style:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 

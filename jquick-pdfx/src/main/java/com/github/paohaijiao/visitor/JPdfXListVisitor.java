@@ -97,7 +97,6 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
             style = new JStyleAttributes();
         }
         java.util.List<Object> subelem = null;
-        System.out.println(ctx.elemValue().getText());
         if (ctx.elemValue() != null) {
             subelem = visitElemValue(ctx.elemValue());
         }

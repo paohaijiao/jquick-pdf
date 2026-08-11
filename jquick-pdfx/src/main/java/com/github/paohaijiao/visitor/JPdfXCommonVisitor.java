@@ -19,18 +19,15 @@ import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.sample.*;
+import com.github.paohaijiao.sample.CataLog;
+import com.github.paohaijiao.sample.CatalogType;
+import com.github.paohaijiao.sample.ReportComponent;
+import com.github.paohaijiao.sample.ReportStyle;
 import com.github.paohaijiao.sample.event.CatalogMoveEvent;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
-import com.itextpdf.kernel.geom.PageSize;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.AreaBreakType;
-import com.itextpdf.layout.properties.TextAlignment;
-import com.itextpdf.layout.properties.VerticalAlignment;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -77,7 +74,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         if (null != ctx.doc()) {
              visitDoc(ctx.doc());
         }
-        return getOutputStream();
+        return getOutputStream();//no need to close the bytearrayoutputstream
     }
 
     @Override

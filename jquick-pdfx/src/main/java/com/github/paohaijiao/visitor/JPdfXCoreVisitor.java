@@ -16,6 +16,7 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.console.JConsole;
 import com.github.paohaijiao.event.JFooterHandler;
 import com.github.paohaijiao.event.JHeaderHandler;
 import com.github.paohaijiao.event.JPdfXWatermarkEventHandler;
@@ -59,6 +60,8 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected PdfDocument pdf;
 
     protected JPdfConfig config = new JPdfConfig();
+
+    protected JConsole console = JConsole.initConsoleEnvironment();
 
     /**
      * Mandatory OutputStream: the visitor always writes the PDF to this stream.

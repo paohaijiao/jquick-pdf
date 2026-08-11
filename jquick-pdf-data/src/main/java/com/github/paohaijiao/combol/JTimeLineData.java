@@ -4,7 +4,6 @@ import com.github.paohaijiao.graph.JGraphData;
 import lombok.Data;
 
 import java.awt.*;
-import java.util.List;
 
 /**
  * 奇偶排列流程图数据配置类

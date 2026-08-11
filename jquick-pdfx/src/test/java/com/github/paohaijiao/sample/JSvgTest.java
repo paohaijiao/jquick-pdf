@@ -96,7 +96,6 @@ public class JSvgTest {
             SvgImage svgImage = new SvgImage(svgContent);
             document.add(svgImage);
             document.close();
-            System.out.println("PDF文件已生成: " + new File(outputPath).getAbsolutePath());
 
         } catch (IOException e) {
             System.err.println("生成PDF文件时出错: " + e.getMessage());

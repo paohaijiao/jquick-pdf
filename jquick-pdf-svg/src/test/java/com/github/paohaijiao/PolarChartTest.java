@@ -15,13 +15,10 @@
  */
 package com.github.paohaijiao;
 
-import com.github.paohaijiao.combol.*;
+import com.github.paohaijiao.combol.JPolarGridRenderer;
 import org.junit.Test;
 
-import java.awt.*;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * packageName com.github.paohaijiao

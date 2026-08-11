@@ -14,10 +14,10 @@
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.combol;
+
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import org.apache.batik.svggen.SVGGraphics2D;
-import org.w3c.dom.Document;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;

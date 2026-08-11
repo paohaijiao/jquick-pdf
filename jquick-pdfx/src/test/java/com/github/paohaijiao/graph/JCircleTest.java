@@ -18,9 +18,6 @@ package com.github.paohaijiao.graph;
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.combol.JCircleChartData;
-import com.github.paohaijiao.combol.area.JAreaChartData;
-import com.github.paohaijiao.combol.area.JSeriesData;
-import com.github.paohaijiao.combol.area.JTheme;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
@@ -33,7 +30,6 @@ import org.junit.Test;
 import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**

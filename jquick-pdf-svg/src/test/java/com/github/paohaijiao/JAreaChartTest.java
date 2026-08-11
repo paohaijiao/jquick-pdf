@@ -15,11 +15,12 @@
  */
 package com.github.paohaijiao;
 
-import com.github.paohaijiao.combol.*;
+import com.github.paohaijiao.combol.JAreaChartRenderer;
 import com.github.paohaijiao.combol.area.JAreaChartData;
 import com.github.paohaijiao.combol.area.JSeriesData;
 import com.github.paohaijiao.combol.area.JTheme;
 import org.junit.Test;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;

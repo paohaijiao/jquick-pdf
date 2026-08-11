@@ -16,7 +16,6 @@
 package com.github.paohaijiao.executor;
 
 import com.github.paohaijiao.antlr.impl.JAbstractAntlrExecutor;
-import com.github.paohaijiao.console.JConsole;
 import com.github.paohaijiao.exception.JAntlrExecutionException;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
@@ -41,8 +40,6 @@ public class JQuickPdfColorExecutor extends JAbstractAntlrExecutor<String, Color
 
     @Override
     protected Lexer createLexer(CharStream input) {
-        JConsole console = new JConsole();
-        console.debug("color:\n" + input.toString());
         return new JQuickPDFLexer(input);
     }
 

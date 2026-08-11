@@ -15,7 +15,7 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.console.JConsole;
+
 import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
@@ -50,10 +50,7 @@ public class JPdfXCheckBoxVisitor extends JPdfXButtonVisitor {
         if (ctx.value() != null) {
             value = ctx.value().getText();
         }
-        String checkbox = String.format("<input type=\"checkbox\" id=\"checkBoxItem\" %s  %s>" +
-                "<label for=\"checkBoxItem\">%s</label><br>\n", style, checkStatus, JStringUtils.trim(value));
-        JConsole console = new JConsole();
-        console.info(checkbox);
+        String checkbox = String.format("<input type=\"checkbox\" id=\"checkBoxItem\" %s  %s>" + "<label for=\"checkBoxItem\">%s</label><br>\n", style, checkStatus, JStringUtils.trim(value));
         List<IElement> iElements = HtmlConverter.convertToElements(checkbox, proper);
         JHtmlRenderModel jHtmlRenderModel = new JHtmlRenderModel();
         jHtmlRenderModel.setList(iElements);

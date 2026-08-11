@@ -14,13 +14,8 @@ package com.github.paohaijiao;/*
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 
-import com.github.paohaijiao.axis.JCategoryAxis;
-import com.github.paohaijiao.axis.JValueAxis;
-import com.github.paohaijiao.bar.JBarChartsRenderer;
-import com.github.paohaijiao.code.JTrigger;
 import com.github.paohaijiao.combol.JTreeChartData;
 import com.github.paohaijiao.combol.JTreeChartRenderer;
-import com.github.paohaijiao.series.JBar;
 import org.junit.Test;
 
 import java.awt.*;

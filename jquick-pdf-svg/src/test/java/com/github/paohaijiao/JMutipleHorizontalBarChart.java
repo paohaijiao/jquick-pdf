@@ -15,8 +15,6 @@
  */
 package com.github.paohaijiao;
 
-import com.github.paohaijiao.combol.JHorizontalBarChartData;
-import com.github.paohaijiao.combol.JHorizontalBarChartRenderer;
 import com.github.paohaijiao.combol.JHorizontalMultiBarChartData;
 import com.github.paohaijiao.combol.JHorizontalMultiBarChartRenderer;
 import org.junit.Test;

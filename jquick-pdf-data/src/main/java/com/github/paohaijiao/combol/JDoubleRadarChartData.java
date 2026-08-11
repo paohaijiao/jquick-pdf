@@ -17,6 +17,7 @@ package com.github.paohaijiao.combol;
 
 import com.github.paohaijiao.graph.JGraphData;
 import lombok.Data;
+
 import java.awt.*;
 import java.util.List;
 

@@ -24,12 +24,7 @@ import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.param.JContext;
 import com.itextpdf.kernel.geom.PageSize;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;

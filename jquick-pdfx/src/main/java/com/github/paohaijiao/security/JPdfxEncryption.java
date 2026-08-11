@@ -60,15 +60,12 @@ public class JPdfxEncryption {
         document.add(new Paragraph("User password: " + userPassword));
         document.add(new Paragraph("Owner password: " + ownerPassword));
         document.close();
-        System.out.println("Encrypted PDF created at: " + dest);
     }
 
     public static void testReadEncryptedPdf(String src, String password) {
         try {
             PdfReader reader = new PdfReader(src, new com.itextpdf.kernel.pdf.ReaderProperties().setPassword(password.getBytes()));
             PdfDocument pdfDoc = new PdfDocument(reader);
-            System.out.println("Successfully opened encrypted PDF with password: " + password);
-            System.out.println("Number of pages: " + pdfDoc.getNumberOfPages());
             pdfDoc.close();
         } catch (IOException e) {
             System.err.println("Failed to read encrypted PDF: " + e.getMessage());

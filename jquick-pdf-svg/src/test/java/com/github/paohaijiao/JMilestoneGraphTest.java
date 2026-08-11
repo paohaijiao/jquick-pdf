@@ -1,6 +1,7 @@
 package com.github.paohaijiao;
 
-import com.github.paohaijiao.combol.*;
+import com.github.paohaijiao.combol.JTimeLineData;
+import com.github.paohaijiao.combol.JTimeLineRenderer;
 import org.junit.Test;
 
 import java.awt.*;

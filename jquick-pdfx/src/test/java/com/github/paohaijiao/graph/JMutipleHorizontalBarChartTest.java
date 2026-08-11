@@ -17,7 +17,6 @@ package com.github.paohaijiao.graph;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
-import com.github.paohaijiao.combol.JHorizontalBarChartData;
 import com.github.paohaijiao.combol.JHorizontalMultiBarChartData;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
