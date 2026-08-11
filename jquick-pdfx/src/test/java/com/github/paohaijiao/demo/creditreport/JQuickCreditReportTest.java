@@ -17,7 +17,7 @@ public class JQuickCreditReportTest {
 
     @Test
     public void reportByContent() throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream("D:\\test\\test.pdf");
+        FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
         JReader htmlReader = new JReSourceFileReader("html.txt");
         JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
         JPdfConfig config = new JPdfConfig();
@@ -35,7 +35,7 @@ public class JQuickCreditReportTest {
     }
     @Test
     public void reportByClassResourceFile() throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream("D:\\test\\test.pdf");
+        FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
         JReader htmlReader = new JReSourceFileReader("html.txt");
         JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
         JPdfConfig config = new JPdfConfig();
@@ -51,7 +51,7 @@ public class JQuickCreditReportTest {
     }
     @Test
     public void reportByFile() throws IOException {
-        FileOutputStream fileOutputStream = new FileOutputStream("D:\\test\\test.pdf");
+        FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
         JReader htmlReader = new JReSourceFileReader("html.txt");
         JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
         JPdfConfig config = new JPdfConfig();

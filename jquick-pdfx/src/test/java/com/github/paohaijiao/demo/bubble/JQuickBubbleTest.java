@@ -13,7 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.graph;
+package com.github.paohaijiao.demo.bubble;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JTitle;
@@ -24,12 +24,16 @@ import com.github.paohaijiao.bubble.ValueAxis;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfFactory;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
+import com.github.paohaijiao.graph.BubbleDataCreator;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -41,17 +45,16 @@ import java.util.Map;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JBubbleTest {
+public class JQuickBubbleTest {
+
+    public static final String  path= JQuickConstant.path;
 
     @Test
-    public void svg2() throws IOException {
+    public void bubble() throws IOException {
         JGraphContainer graphContainer = new JGraphContainer();
-
-
         JTitle title = new JTitle();
         title.setText("空气质量指数 (AQI) 监测气泡图");
         title.setSubtext("图表说明：本气泡图展示了空气质量指数(AQI)的时间变化趋势。X轴表示日期，Y轴表示AQI数值，气泡大小反映PM2.5浓度，气泡颜色表示AQI等级。");
-//        title.set
         JOption option = new JOption()
                 .title(title)
                 .legend("优", "良", "轻度污染", "中度污染", "重度污染")
@@ -68,9 +71,12 @@ public class JBubbleTest {
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
-        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
-        executor.execute(context.getRuleContent());
+
+        FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
+        JQuickPdfFactory factory=new JQuickPdfFactory(config);
+        byte[] bytes=factory.executeResource("sample/svg2.txt");
+        fileOutputStream.write(bytes);
+
+
     }
 }

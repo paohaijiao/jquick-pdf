@@ -102,11 +102,10 @@ public abstract class JAbstractChartRenderer implements JChartRenderer {
             svgGenerator.setPaint(Color.BLACK);
             String title = option.title().text();
             svgGenerator.drawString(title, width / 2 - svgGenerator.getFontMetrics().stringWidth(title) / 2, 40);
-
             if (option.title().subtext() != null) {
                 svgGenerator.setFont(LABEL_FONT);
                 String subTitle = option.title().subtext();
-                svgGenerator.drawString(subTitle, width / 2 - svgGenerator.getFontMetrics().stringWidth(subTitle) / 2, 60);
+                svgGenerator.drawString(subTitle, width / 2 - svgGenerator.getFontMetrics().stringWidth(subTitle) / 2, 80);
             }
         }
     }

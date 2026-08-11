@@ -35,20 +35,19 @@ import java.util.Map;
 public class JBubbleChartRenderer extends JAbstractChartRenderer {
 
 
-    private static final Color[] DEFAULT_AQI_COLORS = {new Color(102, 194, 165), // 优 - 绿色
-            new Color(252, 194, 91),  // 良 - 黄色
-            new Color(246, 138, 89),  // 轻度污染 - 橙色
-            new Color(232, 96, 85),   // 中度污染 - 红色
-            new Color(158, 42, 95)    // 重度污染 - 紫色
-    };// 默认颜色配置
 
-    private static final int MARGIN_LEFT = 80;// 默认边距配置
+
+    private static final int MARGIN_LEFT = 80;
+
     private static final int MARGIN_RIGHT = 120;
-    private static final int MARGIN_TOP = 60;
+
+    private static final int MARGIN_TOP = 150;
+
     private static final int MARGIN_BOTTOM = 80;
 
 
-    private static final int MIN_BUBBLE_SIZE = 10;  // 默认气泡大小范围
+    private static final int MIN_BUBBLE_SIZE = 10;
+
     private static final int MAX_BUBBLE_SIZE = 60;
 
     @Override
@@ -58,20 +57,20 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
 
     @Override
     protected int getDefaultHeight() {
-        return 600;
+        return 800;
     }
 
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
         svgGenerator.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         drawTitle(svgGenerator, option, width);
-        int chartWidth = width - MARGIN_LEFT - MARGIN_RIGHT;// 计算图表区域
+        int chartWidth = width - MARGIN_LEFT - MARGIN_RIGHT;
         int chartHeight = height - MARGIN_TOP - MARGIN_BOTTOM;
-        drawAxes(svgGenerator, MARGIN_LEFT, MARGIN_TOP, chartWidth, chartHeight); // 绘制坐标轴
-        drawAxisLabels(svgGenerator, option, MARGIN_LEFT, MARGIN_TOP, chartWidth, chartHeight);// 绘制坐标轴标签
-        drawBubbles(svgGenerator, option, MARGIN_LEFT, MARGIN_TOP, chartWidth, chartHeight);// 绘制气泡数据
-        drawLegend(svgGenerator, option, width - MARGIN_RIGHT + 20, MARGIN_TOP);// 绘制图例
-        drawDescriptions(svgGenerator, option, MARGIN_LEFT, height - MARGIN_BOTTOM + 40, chartWidth);// 绘制说明文字
+        drawAxes(svgGenerator, MARGIN_LEFT, MARGIN_TOP, chartWidth, chartHeight);
+        drawAxisLabels(svgGenerator, option, MARGIN_LEFT, MARGIN_TOP, chartWidth, chartHeight);
+        drawBubbles(svgGenerator, option, MARGIN_LEFT+20, MARGIN_TOP-30, chartWidth, chartHeight);
+        drawLegend(svgGenerator, option, width - MARGIN_RIGHT + 20, MARGIN_TOP);
+        drawDescriptions(svgGenerator, option, MARGIN_LEFT, height - MARGIN_BOTTOM + 40, chartWidth);
     }
 
     /**
@@ -117,7 +116,7 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
         String yAxisTitle = getYAxisTitle(option);
         String xAxisTitle = getXAxisTitle(option);
         g2d.drawString(yAxisTitle, x - 60, y - 10);
-        g2d.drawString(xAxisTitle, x + width / 2 - 20, y + height + 50);
+        g2d.drawString(xAxisTitle, x + width / 2 - 20, y + height + 38);
     }
 
     /**
@@ -134,7 +133,6 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
         double maxY = getMaxYValue(dataPoints);
         double minSize = getMinSizeValue(dataPoints);
         double maxSize = getMaxSizeValue(dataPoints);
-
         for (int i = 0; i < dataPoints.size(); i++) {
             Map<String, Object> point = dataPoints.get(i);
             Number yValue = (Number) point.get("y");// 获取数据值
@@ -261,7 +259,6 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
                     if (data instanceof Map) {
                         dataPoints.add((Map<String, Object>) data);
                     } else if (data instanceof BubbleDataPoint) {
-                        // 处理 BubbleDataPoint 对象
                         BubbleDataPoint point = (BubbleDataPoint) data;
                         Map<String, Object> map = new HashMap<>();
                         map.put("x", point.getX());

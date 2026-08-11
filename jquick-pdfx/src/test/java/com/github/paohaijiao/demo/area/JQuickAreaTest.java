@@ -13,7 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.graph;
+package com.github.paohaijiao.demo.area;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
@@ -22,13 +22,17 @@ import com.github.paohaijiao.combol.area.JSeriesData;
 import com.github.paohaijiao.combol.area.JTheme;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.config.JTemplateConfig;
 import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfFactory;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -40,10 +44,12 @@ import java.util.List;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JAreaTest {
+public class JQuickAreaTest {
+
+    public static final String  path= JQuickConstant.path;
 
     @Test
-    public void svg2() throws IOException {
+    public void area() throws IOException {
         JGraphContainer graphContainer = new JGraphContainer();
         graphContainer.setType(JChartType.AREA);
         java.util.List<Double> values =Arrays.asList(85.0, 120.0, 150.0, 210.0, 280.0, 350.0, 420.0, 400.0, 380.0, 450.0, 480.0, 520.0);
@@ -59,7 +65,7 @@ public class JAreaTest {
         data.setShowDataLabels(true);
         data.setSeriesList(Arrays.asList(new JSeriesData("销售额", values)));
         data.setXAxisLabels(labels);
-        data.setTheme(JTheme.DEFAULT);      // 默认主题
+        data.setTheme(JTheme.DEFAULT);
         JOption option = new JOption();
         option.setData(data);
         graphContainer.setOption(option);
@@ -67,9 +73,10 @@ public class JAreaTest {
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
-        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
-        executor.execute(context.getRuleContent());
+
+        FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
+        JQuickPdfFactory factory=new JQuickPdfFactory(config);
+        byte[] bytes=factory.executeResource("sample/svg2.txt");
+        fileOutputStream.write(bytes);
     }
 }
