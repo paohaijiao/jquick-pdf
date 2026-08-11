@@ -32,6 +32,7 @@ import com.itextpdf.layout.properties.AreaBreakType;
 import com.itextpdf.layout.properties.TextAlignment;
 import com.itextpdf.layout.properties.VerticalAlignment;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.OutputStream;
 import java.util.*;
@@ -50,42 +51,39 @@ import java.util.stream.Collectors;
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
 
-    public JPdfXCommonVisitor(OutputStream outputStream) throws FileNotFoundException {
+    public JPdfXCommonVisitor() throws FileNotFoundException {
         this.context = new JContext();
         this.config = new JPdfConfig();
-        this.outputStream = outputStream;
     }
 
-    public JPdfXCommonVisitor(JContext context, OutputStream outputStream) throws FileNotFoundException {
+    public JPdfXCommonVisitor(JContext context) throws FileNotFoundException {
         this.context = context;
         this.config = new JPdfConfig();
-        this.outputStream = outputStream;
     }
 
-    public JPdfXCommonVisitor(JPdfConfig config, OutputStream outputStream) throws FileNotFoundException {
+    public JPdfXCommonVisitor(JPdfConfig config) throws FileNotFoundException {
         this.context = new JContext();
         this.config = config;
-        this.outputStream = outputStream;
     }
 
-    public JPdfXCommonVisitor(JContext context, JPdfConfig config, OutputStream outputStream) throws FileNotFoundException {
+    public JPdfXCommonVisitor(JContext context, JPdfConfig config) throws FileNotFoundException {
         this.context = context;
         this.config = config;
-        this.outputStream = outputStream;
     }
 
     @Override
-    public Void visitDocument(JQuickPDFParser.DocumentContext ctx) {
+    public OutputStream visitDocument(JQuickPDFParser.DocumentContext ctx) {
+        baos=new ByteArrayOutputStream();
         if (null != ctx.doc()) {
-            visitDoc(ctx.doc());
+             visitDoc(ctx.doc());
         }
-        return null;
+        return getOutputStream();
     }
 
     @Override
     public Void visitDoc(JQuickPDFParser.DocContext ctx) {
         if (null != ctx.html()) {
-            visitHtml(ctx.html());
+            return visitHtml(ctx.html());
         }
         return null;
     }

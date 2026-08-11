@@ -45,7 +45,7 @@ public class JPdfXSvgVisitor extends JPdfXTreeVisitor {
         SvgImage svgImage = null;
         if (ctx.variable() != null) {
             Object var = visitVariable(ctx.variable());
-            JAssert.notNull(var, "the variable not  null");
+            JAssert.notNull(var, "the svgImage variable ["+var+"] not  null");
             svgImage = new SvgImage(var.toString());
         } else if (ctx.addressOf() != null) {
             String identify = ctx.addressOf().IDENTIFIER().getText();

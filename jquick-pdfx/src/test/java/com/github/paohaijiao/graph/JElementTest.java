@@ -308,42 +308,7 @@ public class JElementTest {
         executor.execute(adaptor.getRuleContent());
     }
 
-    @Test
-    public void report() throws IOException {
-        String html="  <div style=\"marginBottom:15px\">\n" +
-                "    <h2 style=\"color:#3498db;  fontSize:13; marginBottom:10px\">企业资质认证</h2>\n" +
-                "    <div style=\"display:flex; marginTop:12px; gap:8px\">\n" +
-                "      <div style=\"width:20%; background:linear-gradient(135deg, #4CAF50 0%, #81C784 100%); color:white; padding:10px; border-radius:5px; text-align:center\">\n" +
-                "        <div style=\"font-size:18px; font-weight:bold; margin-bottom:3px\">AAA</div>\n" +
-                "        <div style=\"font-size:10px\">信用等级</div>\n" +
-                "      </div>\n" +
-                "      <div style=\"width:20%; background:linear-gradient(135deg, #FF9800 0%, #F57C00 100%); color:white; padding:10px; border-radius:5px; text-align:center\">\n" +
-                "        <div style=\"font-size:18px; font-weight:bold; margin-bottom:3px\">高新</div>\n" +
-                "        <div style=\"font-size:10px\">高新技术企业</div>\n" +
-                "      </div>\n" +
-                "      <div style=\"width:20%; background:linear-gradient(135deg, #1976D2 0%, #0D47A1 100%); color:white; padding:10px; border-radius:5px; text-align:center\">\n" +
-                "        <div style=\"font-size:18px; font-weight:bold; margin-bottom:3px\">专精特新</div>\n" +
-                "        <div style=\"font-size:10px\">小巨人企业</div>\n" +
-                "      </div>\n" +
-                "      <div style=\"width:20%; background:linear-gradient(135deg, #9C27B0 0%, #BA68C8 100%); color:white; padding:10px; border-radius:5px; text-align:center\">\n" +
-                "        <div style=\"font-size:18px; font-weight:bold; margin-bottom:3px\">水电</div>\n" +
-                "        <div style=\"font-size:10px\">双软认证企业</div>\n" +
-                "      </div>\n" +
-                "    </div>\n" +
-                "  </div>";
-        JPdfConfig config = new JPdfConfig();
-        JTemplateConfig templateConfig = config.getTemplateConfig();
-        templateConfig.put("html", html);
-        System.out.println(html);
-        config.setTemplateConfig(templateConfig);
-        JReader fileReader = new JReSourceFileReader("report.txt");
-        JAdaptor adaptor = new JAdaptor(fileReader);
 
-        JContext param = new JContext();
-       // param.put("svg", svg);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(param, config);
-        executor.execute(adaptor.getRuleContent());
-    }
 
 
 }

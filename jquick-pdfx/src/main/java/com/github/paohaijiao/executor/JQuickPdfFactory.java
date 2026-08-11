@@ -83,11 +83,6 @@ public class JQuickPdfFactory {
     /** PDF configuration object (page size, margins, charts, templates ...). */
     private final JPdfConfig config;
 
-    /**
-     * OutputStream provided via constructor; null when the no-arg constructor is used.
-     * When non-null, {@link #execute(String)} writes to this stream and closes it.
-     */
-    private final OutputStream outputStream;
 
     /**
      * Default constructor: creates an empty {@link JContext} and a {@link JPdfConfig}
@@ -100,25 +95,8 @@ public class JQuickPdfFactory {
     public JQuickPdfFactory() {
         this.context = new JContext();
         this.config = new JPdfConfig();
-        this.outputStream = null;
     }
 
-    /**
-     * Stream-output constructor: the PDF is written directly to the given
-     * {@link OutputStream} during {@link #execute(String)}. After rendering the stream
-     * is flushed and closed by the factory (the caller must not close it).
-     *
-     * @param outputStream target output stream (must not be null); closed after rendering
-     * @example {@code new JQuickPdfFactory(response.getOutputStream()).execute(content);}
-     */
-    public JQuickPdfFactory(OutputStream outputStream) {
-        if (outputStream == null) {
-            throw new IllegalArgumentException("outputStream must not be null");
-        }
-        this.context = new JContext();
-        this.config = new JPdfConfig();
-        this.outputStream = outputStream;
-    }
 
     /**
      * Construct with an existing variable context.
@@ -132,7 +110,6 @@ public class JQuickPdfFactory {
         }
         this.context = context;
         this.config = new JPdfConfig();
-        this.outputStream = null;
     }
 
     /**
@@ -147,7 +124,6 @@ public class JQuickPdfFactory {
         }
         this.context = new JContext();
         this.config = config;
-        this.outputStream = null;
     }
 
     /**
@@ -166,31 +142,8 @@ public class JQuickPdfFactory {
         }
         this.context = context;
         this.config = config;
-        this.outputStream = null;
     }
 
-    /**
-     * Construct with a variable context, a PDF configuration and a target stream.
-     *
-     * @param context       existing variable context (must not be null)
-     * @param config        existing PDF configuration (must not be null)
-     * @param outputStream  target output stream (must not be null); closed after rendering
-     * @example {@code new JQuickPdfFactory(ctx, cfg, response.getOutputStream()).execute(content);}
-     */
-    public JQuickPdfFactory(JContext context, JPdfConfig config, OutputStream outputStream) {
-        if (context == null) {
-            throw new IllegalArgumentException("context must not be null");
-        }
-        if (config == null) {
-            throw new IllegalArgumentException("config must not be null");
-        }
-        if (outputStream == null) {
-            throw new IllegalArgumentException("outputStream must not be null");
-        }
-        this.context = context;
-        this.config = config;
-        this.outputStream = outputStream;
-    }
 
 
     /**
@@ -372,11 +325,7 @@ public class JQuickPdfFactory {
      * @example {@code factory.build().execute(content);}
      */
     public JQuickPdfXExecutor build() throws FileNotFoundException {
-        if (outputStream == null) {
-            throw new IllegalStateException(
-                "No OutputStream configured; pass one to the constructor before calling build()");
-        }
-        return new JQuickPdfXExecutor(context, config, outputStream);
+        return new JQuickPdfXExecutor(context, config);
     }
 
     /**
@@ -392,29 +341,11 @@ public class JQuickPdfFactory {
      *         for in-memory results without a constructor stream
      * @example {@code factory.execute("&lt;pdf&gt;&lt;body&gt;&lt;h1&gt;'Hi'&lt;/h1&gt;&lt;/body&gt;&lt;/pdf&gt;");}
      */
-    public Object execute(String templateContent) throws IOException {
+    private Object execute(String templateContent) throws IOException {
         if (templateContent == null) {
             throw new IllegalArgumentException("templateContent must not be null");
         }
-        if (outputStream == null) {
-            throw new IllegalStateException(
-                "No OutputStream configured; pass one to the constructor, " +
-                "or use executeToBytes/executeToStream for in-memory results");
-        }
-        try {
-            return new JQuickPdfXExecutor(context, config, outputStream).execute(templateContent);
-        } finally {
-            try {
-                outputStream.flush();
-            } catch (IOException ignored) {
-                // flush failure should not prevent close
-            }
-            try {
-                outputStream.close();
-            } catch (IOException ignored) {
-                // best-effort close; ignore to avoid masking the real exception
-            }
-        }
+        return new JQuickPdfXExecutor(context, config).execute(templateContent);
     }
 
     /**
@@ -674,12 +605,8 @@ public class JQuickPdfFactory {
      * @throws IOException if rendering fails
      */
     private static byte[] renderToBytes(String templateContent, JContext context, JPdfConfig config) throws IOException {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
-            new JQuickPdfXExecutor(context, config, baos).execute(templateContent);
-        } catch (FileNotFoundException e) {
-            throw new IOException(e);
-        }
+        OutputStream outputStream=new JQuickPdfXExecutor(context, config).execute(templateContent);;
+        ByteArrayOutputStream baos = (ByteArrayOutputStream)outputStream;
         return baos.toByteArray();
     }
 }

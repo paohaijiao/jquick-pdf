@@ -40,6 +40,7 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.IElement;
 import com.itextpdf.layout.font.FontProvider;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.*;
@@ -65,7 +66,6 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
      * a required parameter. PdfWriter is created with setCloseStream(false) so
      * the caller (executor / factory) retains full control over the lifecycle.
      */
-    protected OutputStream outputStream;
 
     protected JStyleAlignModel align = new JStyleAlignModel();
 
@@ -74,12 +74,21 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
     protected Map<CatalogType, java.util.List<CataLog>> cataLogsMap = new LinkedHashMap<>();
 
     protected PageSize currentPageSize = PageSize.A4;
+
     protected float[] currentMargins = new float[]{72, 72, 72, 72}; // default 1 inch margins // top, right, bottom, left
+
     protected JContext context = new JContext();
+
     protected PdfFont font;
+
     protected Document doc;
+
+    protected ByteArrayOutputStream baos =null;
+
     protected Properties properties = new Properties();
+
     protected Set<Integer> pageSet = new HashSet<>();
+
     protected ConverterProperties proper = new ConverterProperties();
 
     public static String trim(String str) {
@@ -123,21 +132,15 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 
     protected void configure(JPdfConfig config) {
         try {
-            // The OutputStream is a mandatory parameter; the visitor always streams
-            // to it and never writes to disk. setCloseStream(false) keeps the caller
-            // in control of the stream lifecycle.
-            PdfWriter writer = new PdfWriter(this.outputStream);
+            PdfWriter writer = new PdfWriter(baos);
             writer.setCloseStream(false);
             PdfDocument pdf = new PdfDocument(writer);
             pdf = new PdfDocument(writer);
             pdf.setDefaultPageSize(config.getDefaultPageSize());
-            pdf.getDefaultPageSize().applyMargins(config.getMargins().get(0),
-                    config.getMargins().get(1), config.getMargins().get(2),
-                    config.getMargins().get(3), config.getReverse());
+            pdf.getDefaultPageSize().applyMargins(config.getMargins().get(0), config.getMargins().get(1), config.getMargins().get(2), config.getMargins().get(3), config.getReverse());
             FontProvider fontProvider = getFontProvider();
             doc = new Document(pdf);
-            doc.setMargins(config.getDoc().getMargins().get(0), config.getDoc().getMargins().get(1),
-                    config.getDoc().getMargins().get(2), config.getDoc().getMargins().get(3));
+            doc.setMargins(config.getDoc().getMargins().get(0), config.getDoc().getMargins().get(1), config.getDoc().getMargins().get(2), config.getDoc().getMargins().get(3));
             doc.setFontProvider(fontProvider);
             doc.setFont(config.getDoc().getFont());
             doc.setFontSize(config.getDoc().getFontSize());
@@ -148,12 +151,10 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
                 doc.setFont(config.getFontConfig().getDefaultFont());
             }
             if (null != config.getHeaderConfig() && config.getHeaderConfig().isEnabled()) {
-                pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
-                        new JHeaderHandler(config.getHeaderConfig()));
+                pdf.addEventHandler(PdfDocumentEvent.END_PAGE, new JHeaderHandler(config.getHeaderConfig()));
             }
             if (null != config.getFooterConfig() && config.getFooterConfig().isEnabled()) {
-                pdf.addEventHandler(PdfDocumentEvent.END_PAGE,
-                        new JFooterHandler(config.getFooterConfig()));
+                pdf.addEventHandler(PdfDocumentEvent.END_PAGE, new JFooterHandler(config.getFooterConfig()));
             }
             if (config.getCatalogConfig() != null && config.getCatalogConfig().isEnabled()) {
                 pdf.addEventHandler(PdfDocumentEvent.START_PAGE, new JTocEventHandler(pdf, config.getCatalogConfig()));
@@ -161,19 +162,14 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
             if (config.getWatermarkConfig() != null && config.getWatermarkConfig().getEnabled()) {
                 pdf.addEventHandler(PdfDocumentEvent.START_PAGE, new JPdfXWatermarkEventHandler(config.getWatermarkConfig()));
             }
-
-
-//            if (config.getWatermarkConfig().isEnabled()) {
-//                pdf.addEventHandler(PdfDocumentEvent.START_PAGE,
-//                        new JPdfXWatermarkEventHandler(config.getWatermarkConfig()));
-//            }
             this.pdf = pdf;
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+    public OutputStream getOutputStream() {
+        return baos;
     }
 
 
