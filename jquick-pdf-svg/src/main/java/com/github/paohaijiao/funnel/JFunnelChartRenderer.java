@@ -1,4 +1,4 @@
-package com.github.paohaijiao.funnel;/*
+/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,8 @@ package com.github.paohaijiao.funnel;/*
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
+package com.github.paohaijiao.funnel;
+
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;

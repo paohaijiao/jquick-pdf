@@ -13,14 +13,16 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.graph;
+package com.github.paohaijiao.demo.funnel;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfFactory;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.funnel.*;
 import com.github.paohaijiao.resouce.JReader;
@@ -28,6 +30,7 @@ import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
 import java.awt.*;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
@@ -39,8 +42,13 @@ import java.util.Collections;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JFulnnelTest {
-    private JOption createData() {
+public class JFunnelTest {
+    public static final String  path= JQuickConstant.path;
+
+    @Test
+    public void funnel() throws IOException {
+        JGraphContainer graphContainer = new JGraphContainer();
+        graphContainer.setType(JChartType.Funnel);
         JFunnelOption option = JFunnelOption.createDefaultFunnel();
         JFunnelOption customOption = option
                 .title(new Title().text("销售漏斗").subtext("2024年数据"))
@@ -50,8 +58,7 @@ public class JFulnnelTest {
                         .bottomY(200)
                         .gap(2)
                         .borderColor(Color.GRAY)
-                )
-                .series(Collections.singletonList(
+                ).series(Collections.singletonList(
                         new Series()
                                 .name("sales")
                                 .type("funnel")
@@ -60,32 +67,24 @@ public class JFulnnelTest {
                                         new DataItem("点击", 5000),
                                         new DataItem("咨询", 2000),
                                         new DataItem("订单", 500)
-                                ))
-                ))
+                                ))))
                 .colors(
                         new Color(12, 168, 223),
                         new Color(255, 153, 77),
                         new Color(80, 112, 221),
                         new Color(182, 214, 52)
                 );
-
         JOption jOption = new JOption();
         jOption.setFunnelOption(customOption);
-        return jOption;
-    }
-
-    @Test
-    public void svg2() throws IOException {
-        JGraphContainer graphContainer = new JGraphContainer();
-        graphContainer.setType(JChartType.Funnel);
-        graphContainer.setOption(createData());
+        graphContainer.setOption(jOption);
         JGraphConfig graphConfig = new JGraphConfig();
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
-        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
-        executor.execute(context.getRuleContent());
+
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
+        JQuickPdfFactory factory = new JQuickPdfFactory(config);
+        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        fileOutputStream.write(bytes);
     }
 }
