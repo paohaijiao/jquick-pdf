@@ -26,38 +26,30 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
-/**
- * 多重条形图渲染器 - 支持多组数据并列显示
- * 完全自适应布局，根据数据量自动调整所有元素位置和大小
- * <p>
- * 颜色风格参考:
- * - 产品A: #5470c6 (蓝色)
- * - 产品B: #fac858 (橙黄色)
- * - 产品C: #ee6666 (红色)
- */
+
 @Data
 public class JMultiBarChartRenderer extends JAbstractChartRenderer {
 
     /**
      * 预设颜色方案
      */
-    public static final Color COLOR_A = new Color(84, 112, 198);  // #5470c6
+    public static final Color COLOR_A = new Color(84, 112, 198);
 
-    public static final Color COLOR_B = new Color(250, 200, 88);  // #fac858
+    public static final Color COLOR_B = new Color(250, 200, 88);
 
-    public static final Color COLOR_C = new Color(238, 102, 102); // #ee6666
+    public static final Color COLOR_C = new Color(238, 102, 102);
 
-    public static final Color COLOR_BACKGROUND = new Color(249, 249, 249); // #f9f9f9
+    public static final Color COLOR_BACKGROUND = new Color(249, 249, 249);
 
-    public static final Color COLOR_GRID = new Color(221, 221, 221); // #ddd
+    public static final Color COLOR_GRID = new Color(221, 221, 221);
 
-    public static final Color COLOR_AXIS = new Color(102, 102, 102); // #666
+    public static final Color COLOR_AXIS = new Color(102, 102, 102);
 
-    public static final Color COLOR_TEXT = new Color(51, 51, 51);    // #333
+    public static final Color COLOR_TEXT = new Color(51, 51, 51);
 
-    public static final Color COLOR_LABEL = new Color(85, 85, 85);   // #555
+    public static final Color COLOR_LABEL = new Color(85, 85, 85);
 
-    public static final Color COLOR_YAXIS_TEXT = new Color(136, 136, 136); // #888
+    public static final Color COLOR_YAXIS_TEXT = new Color(136, 136, 136);
 
     private final LayoutParams layoutParams;
 
@@ -122,7 +114,6 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
         int groupCount = config.getBarDataList().size();
         int width = config.getWidth();
         int height = config.getHeight();
-        // 计算标题占用的高度
         int titleHeight = 0;
         if (config.getTitleText() != null && !config.getTitleText().isEmpty()) {
             titleHeight += 40;
@@ -132,18 +123,16 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
         } else {
             titleHeight = 30;
         }
-        int legendHeight = groupCount <= 4 ? 50 : 70;// 图例占用的高度
+        int legendHeight = groupCount <= 4 ? 50 : 70;
         int footerHeight = 30;
-        int xAxisLabelHeight = 60;  // X轴标签 + 轴标题
+        int xAxisLabelHeight = 60;
         int xAxisTitleHeight = 30;
-        // 计算Y轴标签宽度
         FontMetrics fm = getDefaultFontMetrics();
         int maxYLabelWidth = 0;
         if (fm != null) {
             String maxLabel = formatValue(config.getMaxValue());
             maxYLabelWidth = fm.stringWidth(maxLabel) + 15;
         }
-        // 计算可用图表区域
         int topMargin = titleHeight;
         int bottomMargin = xAxisLabelHeight + xAxisTitleHeight + legendHeight + footerHeight;
         int leftMargin = Math.max(50, maxYLabelWidth + 5);
@@ -154,15 +143,12 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
         int chartRight = width - rightMargin;
         int chartWidth = chartRight - chartLeft;
         int chartHeight = chartBottom - chartTop;
-        // 计算每组柱子的宽度和间距
         double groupSpacingRatio = config.getGroupSpacingRatio();
         double barSpacingRatio = config.getBarSpacingRatio();
-        // 总组数 = dataCount
         double groupUnitWidth = (double) chartWidth / dataCount;
         double groupInnerWidth = groupUnitWidth * (1 - groupSpacingRatio);
         double barWidth = groupInnerWidth / (groupCount + (groupCount - 1) * barSpacingRatio);
         double barSpacing = barWidth * barSpacingRatio;
-        // 保存布局参数
         layoutParams.chartTop = chartTop;
         layoutParams.chartBottom = chartBottom;
         layoutParams.chartLeft = chartLeft;
@@ -218,35 +204,26 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
         int gridCount = config.getGridCount();
         double maxValue = config.getMaxValue();
         svg.setStroke(new BasicStroke(1));
-        // 绘制水平网格线和Y轴标签
         for (int i = 0; i <= gridCount; i++) {
             int y = layoutParams.chartTop + (int) ((double) i / gridCount * layoutParams.chartHeight);
             double value = maxValue * (1 - (double) i / gridCount);
-            // 网格线 (实线为0线，虚线为其他)
             svg.setPaint(config.getGridColor());
             if (i == gridCount) {
-                // 底部0线为实线
                 svg.drawLine(layoutParams.chartLeft, y, layoutParams.chartRight, y);
             } else {
-                // 其他网格线为虚线
                 svg.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{4, 4}, 0));
                 svg.drawLine(layoutParams.chartLeft, y, layoutParams.chartRight, y);
                 svg.setStroke(new BasicStroke(1));
             }
-            // Y轴标签
             svg.setFont(config.getAxisFont());
             svg.setPaint(config.getYAxisTextColor());
             String label = formatValue(value);
             FontMetrics fm = svg.getFontMetrics();
             svg.drawString(label, layoutParams.chartLeft - fm.stringWidth(label) - 8, y + 5);
         }
-        // 重置描边
         svg.setStroke(new BasicStroke(1));
-        // 绘制Y轴轴线
         svg.setPaint(config.getAxisColor());
         svg.drawLine(layoutParams.chartLeft, layoutParams.chartTop, layoutParams.chartLeft, layoutParams.chartBottom);
-
-        // 绘制X轴轴线
         svg.drawLine(layoutParams.chartLeft, layoutParams.chartBottom, layoutParams.chartRight, layoutParams.chartBottom);
     }
 
@@ -257,30 +234,24 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
         List<JMultiBarChartData.BarData> barDataList = config.getBarDataList();
         double maxValue = config.getMaxValue();
         for (int groupIdx = 0; groupIdx < layoutParams.dataCount; groupIdx++) {
-            // 计算当前组起始X坐标
             double groupStartX = layoutParams.chartLeft + groupIdx * layoutParams.groupUnitWidth + layoutParams.groupUnitWidth * config.getGroupSpacingRatio() / 2;
             double firstBarStartX = groupStartX;
             for (int barIdx = 0; barIdx < layoutParams.groupCount; barIdx++) {
                 JMultiBarChartData.BarData barData = barDataList.get(barIdx);
                 List<Double> values = barData.getValues();
                 double value = values.get(groupIdx);
-                // 计算柱子X坐标
                 double barX = firstBarStartX + barIdx * (layoutParams.barWidth + layoutParams.barSpacing);
                 int barWidthInt = (int) Math.max(3, layoutParams.barWidth);
                 int barXInt = (int) barX;
-                // 计算柱子高度和Y坐标
                 int barHeight = (int) ((value / maxValue) * layoutParams.chartHeight);
                 barHeight = Math.max(1, Math.min(barHeight, layoutParams.chartHeight));
                 int barY = layoutParams.chartBottom - barHeight;
-                // 边界检查
                 if (barXInt + barWidthInt > layoutParams.chartRight) {
                     barWidthInt = layoutParams.chartRight - barXInt;
                 }
                 if (barWidthInt < 1) continue;
-                // 绘制柱子 (带圆角)
                 svg.setPaint(barData.getBarColor());
                 svg.fillRoundRect(barXInt, barY, barWidthInt, barHeight, 3, 3);
-                // 绘制数据标签
                 if (config.isShowDataLabels()) {
                     svg.setFont(config.getDataLabelFont());
                     svg.setPaint(barData.getLabelColor() != null ? barData.getLabelColor() : barData.getBarColor());
@@ -289,18 +260,15 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
                     int labelX = barXInt + barWidthInt / 2 - fm.stringWidth(label) / 2;
                     int labelY;
                     if (barHeight < 25) {
-                        // 柱子太矮，标签放在柱子上方
                         labelY = barY - 5;
                         if (labelY < layoutParams.chartTop + 10) {
                             labelY = barY + barHeight + 15;
                         }
                         svg.setPaint(barData.getLabelColor() != null ? barData.getLabelColor() : barData.getBarColor());
                     } else {
-                        // 标签放在柱子内部
                         labelY = barY + barHeight / 2 + fm.getHeight() / 3;
                         svg.setPaint(Color.WHITE);
                     }
-                    // 边界调整
                     if (labelY > layoutParams.chartBottom - 5) {
                         labelY = barY - 5;
                         svg.setPaint(barData.getLabelColor() != null ? barData.getLabelColor() : barData.getBarColor());
@@ -323,15 +291,12 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
         svg.setFont(config.getAxisFont());
         svg.setPaint(config.getTextColor());
         for (int i = 0; i < labels.size(); i++) {
-            // X轴标签位于每组柱子的中心
             double groupCenterX = layoutParams.chartLeft + i * layoutParams.groupUnitWidth + layoutParams.groupUnitWidth / 2;
             int x = (int) groupCenterX;
             String label = labels.get(i);
             FontMetrics fm = svg.getFontMetrics();
             int labelX = x - fm.stringWidth(label) / 2;
-            // 边界检查
             labelX = Math.max(layoutParams.chartLeft + 2, Math.min(layoutParams.chartRight - fm.stringWidth(label) - 2, labelX));
-            // 加粗样式
             svg.setFont(config.getAxisFont().deriveFont(Font.BOLD));
             svg.drawString(label, labelX, layoutParams.xAxisLabelY);
             svg.setFont(config.getAxisFont());
@@ -368,10 +333,8 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
         for (int i = 0; i < legendCount; i++) {
             JMultiBarChartData.BarData barData = barDataList.get(i);
             int legendX = legendStartX + i * legendItemWidth;
-            // 绘制色块示例 (带圆角)
             svg.setPaint(barData.getBarColor());
             svg.fillRoundRect(legendX, layoutParams.legendY - rectSize, rectSize, rectSize, rectRx, rectRx);
-            // 绘制图例文字
             svg.setPaint(config.getTextColor());
             svg.setFont(config.getLegendFont());
             svg.drawString(barData.getLegendText(), legendX + rectSize + 8, layoutParams.legendY);
@@ -451,16 +414,27 @@ public class JMultiBarChartRenderer extends JAbstractChartRenderer {
      * 布局参数内部类
      */
     private static class LayoutParams {
+
         int chartTop, chartBottom, chartLeft, chartRight;
+
         int chartWidth, chartHeight;
+
         double groupUnitWidth;
+
         double groupInnerWidth;
+
         double barWidth;
+
         double barSpacing;
+
         int groupCount;
+
         int dataCount;
+
         int xAxisLabelY, xAxisTitleY, legendY, footerY;
+
         int yAxisTitleX, yAxisTitleY;
+
         int topMargin, bottomMargin, leftMargin, rightMargin;
     }
 }
