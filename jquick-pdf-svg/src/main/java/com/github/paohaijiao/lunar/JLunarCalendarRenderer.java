@@ -63,7 +63,7 @@ public class JLunarCalendarRenderer extends JAbstractChartRenderer {
         Font titleFont = new Font("Microsoft YaHei", Font.BOLD, 16);
         g2d.setFont(chineseFont);
         int startX = 50;
-        int startY = 80;
+        int startY = 180;
         int cellSize = 110;
         int cellHeight = 90;
         int rows = dataConfig.getRows();
@@ -81,7 +81,6 @@ public class JLunarCalendarRenderer extends JAbstractChartRenderer {
                 } else {
                     g2d.setColor(colorConfig.getBackgroundColor());
                 }
-
                 g2d.fillRect(x + 1, y + 1, cellSize - 2, cellHeight - 2);
             }
         }

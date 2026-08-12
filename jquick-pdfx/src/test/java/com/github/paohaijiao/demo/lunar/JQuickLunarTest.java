@@ -13,7 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.graph;
+package com.github.paohaijiao.demo.lunar;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JTitle;
@@ -21,7 +21,9 @@ import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfFactory;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.lunar.LunarCalendarOption;
 import com.github.paohaijiao.resouce.JReader;
@@ -29,6 +31,7 @@ import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
 import java.awt.*;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -39,10 +42,10 @@ import java.util.ArrayList;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JLunarTest {
+public class JQuickLunarTest {
+    public static final String path = JQuickConstant.path;
     private static java.util.List<LunarCalendarOption.DayData> createDefaultDayData() {
         java.util.List<LunarCalendarOption.DayData> defaultData = new ArrayList<>();
-        // 第一行
         defaultData.add(new LunarCalendarOption.DayData(1, "初四", 0, 0));
         defaultData.add(new LunarCalendarOption.DayData(2, "初五", 0, 1));
         defaultData.add(new LunarCalendarOption.DayData(3, "初六", 0, 2));
@@ -100,7 +103,6 @@ public class JLunarTest {
                 .setSpecialDayColor(new Color(0, 100, 0));
         JTitle title = new JTitle();
         title.setText("2024年3月日历");
-//        title.setSubtext("自定义月份");
         LunarCalendarOption option = LunarCalendarOption.of("2024", "三月", colorConfig, title, dataConfig);
         return option;
     }
@@ -114,9 +116,10 @@ public class JLunarTest {
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
-        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
-        executor.execute(context.getRuleContent());
+
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
+        JQuickPdfFactory factory = new JQuickPdfFactory(config);
+        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        fileOutputStream.write(bytes);
     }
 }
