@@ -13,7 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.graph;
+package com.github.paohaijiao.demo.calendar;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
@@ -21,13 +21,16 @@ import com.github.paohaijiao.calendar.JCalendarOption;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfFactory;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
 import java.awt.*;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
@@ -40,9 +43,13 @@ import java.util.Map;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JCalendarTest {
+public class JQuickCalendarTest {
 
-    private JOption createData() {
+    public static final String path = JQuickConstant.path;
+
+
+    @Test
+    public void calendar() throws IOException {
         Map<LocalDate, Integer> data = new HashMap<>();
         LocalDate startDate = LocalDate.of(2024, 1, 1);
         for (int i = 0; i < 365; i++) {
@@ -60,21 +67,18 @@ public class JCalendarTest {
                 80
         );
         option.setJCalendarOption(calendarOption);
-        return option;
-    }
 
-    @Test
-    public void svg2() throws IOException {
         JGraphContainer graphContainer = new JGraphContainer();
         graphContainer.setType(JChartType.Calendar);
-        graphContainer.setOption(createData());
+        graphContainer.setOption(option);
         JGraphConfig graphConfig = new JGraphConfig();
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
-        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
-        executor.execute(context.getRuleContent());
+
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
+        JQuickPdfFactory factory = new JQuickPdfFactory(config);
+        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        fileOutputStream.write(bytes);
     }
 }

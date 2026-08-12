@@ -1,4 +1,4 @@
-package com.github.paohaijiao.calendar;/*
+/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,7 @@ package com.github.paohaijiao.calendar;/*
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
+package com.github.paohaijiao.calendar;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
@@ -31,10 +32,15 @@ import java.util.Map;
 public class JCalendarChartRenderer extends JAbstractChartRenderer {
 
     private static final Color DEFAULT_GRID_COLOR = new Color(232, 235, 240);
+
     private static final Color DEFAULT_TEXT_COLOR = new Color(84, 85, 90);
+
     private static final Color DEFAULT_WEEKEND_COLOR = new Color(248, 249, 250);
+
     private static final Font MONTH_FONT = new Font("Microsoft YaHei", Font.PLAIN, 12);
+
     private static final Font WEEKDAY_FONT = new Font("Microsoft YaHei", Font.PLAIN, 12);
+
     private static final Font YEAR_FONT = new Font("sans-serif", Font.BOLD, 20);
 
     @Override
