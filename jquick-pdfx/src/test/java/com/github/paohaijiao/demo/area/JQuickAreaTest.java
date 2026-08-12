@@ -32,6 +32,7 @@ import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
+import java.awt.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
@@ -62,7 +63,10 @@ public class JQuickAreaTest {
         data.setXAxisTitle("月份");
         data.setYAxisTitle("销售额（万元）");
         data.setLegendText("销售额");
+//        data.setBackgroundColor(Color.white);
         data.setShowDataLabels(true);
+//        data.setAreaStartColor(JTheme.GREEN.getAreaStartColor());
+//        data.setAreaEndColor(JTheme.GREEN.getAreaEndColor());
         data.setSeriesList(Arrays.asList(new JSeriesData("销售额", values)));
         data.setXAxisLabels(labels);
         data.setTheme(JTheme.DEFAULT);

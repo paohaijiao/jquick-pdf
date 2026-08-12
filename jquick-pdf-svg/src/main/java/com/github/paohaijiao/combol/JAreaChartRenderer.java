@@ -28,7 +28,6 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
         layout.marginBottom = 70;
         layout.marginLeft = 60;
         layout.marginRight = 40;
-
         layout.chartLeft = layout.marginLeft;
         layout.chartRight = width - layout.marginRight;
         layout.chartTop = layout.marginTop;
@@ -65,7 +64,6 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
             double ratio = (double) i / gridCount;
             int y = layout.chartBottom - (int) (ratio * layout.chartHeight);
             double value = layout.yMin + ratio * layout.yRange;
-            // 网格线
             svg.setPaint(config.getEffectiveGridColor());
             if (i == 0 || i == gridCount) {
                 svg.setStroke(new BasicStroke(1));
@@ -75,13 +73,11 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
                 svg.drawLine(layout.chartLeft, y, layout.chartRight, y);
                 svg.setStroke(new BasicStroke(1));
             }
-            // Y轴标签
             svg.setPaint(config.getEffectiveAxisTextColor());
             String label = formatValue(value);
             FontMetrics fm = svg.getFontMetrics();
             svg.drawString(label, layout.chartLeft - fm.stringWidth(label) - 8, y + 5);
         }
-        // 轴线
         svg.setPaint(config.getEffectiveAxisColor());
         svg.setStroke(new BasicStroke(1));
         svg.drawLine(layout.chartLeft, layout.chartTop, layout.chartLeft, layout.chartBottom);
@@ -94,34 +90,27 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
     private void drawAreaAndLines(SVGGraphics2D svg, JAreaChartData config, LayoutParams layout) {
         List<JSeriesData> seriesList = config.getSeriesList();
         if (seriesList == null || seriesList.isEmpty()) return;
-        // 只渲染第一个系列（面积图通常只有一个主系列）
         JSeriesData series = seriesList.get(0);
         List<Double> values = series.getValues();
         if (values.size() < 2) return;
-        // 构建面积路径
         Path2D.Double areaPath = new Path2D.Double();
         Path2D.Double linePath = new Path2D.Double();
-        // 第一个点
         double firstY = getYCoordinate(values.get(0), layout);
         areaPath.moveTo(layout.chartLeft, firstY);
         linePath.moveTo(layout.chartLeft, firstY);
-        // 中间点
         for (int i = 1; i < values.size(); i++) {
             double x = layout.chartLeft + i * layout.stepX;
             double y = getYCoordinate(values.get(i), layout);
             areaPath.lineTo(x, y);
             linePath.lineTo(x, y);
         }
-        // 闭合面积路径
         double lastX = layout.chartLeft + (values.size() - 1) * layout.stepX;
         areaPath.lineTo(lastX, layout.chartBottom);
         areaPath.lineTo(layout.chartLeft, layout.chartBottom);
         areaPath.closePath();
-        // 绘制面积填充（渐变）
         GradientPaint gradient = new GradientPaint(0, layout.chartTop, config.getEffectiveAreaStartColor(), 0, layout.chartBottom, config.getEffectiveAreaEndColor());
         svg.setPaint(gradient);
         svg.fill(areaPath);
-        // 绘制折线
         svg.setPaint(config.getEffectiveLineColor());
         svg.setStroke(new BasicStroke(2.5f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
         svg.draw(linePath);
@@ -140,11 +129,9 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
             String label = labels.get(i);
             FontMetrics fm = svg.getFontMetrics();
             int labelX = x - fm.stringWidth(label) / 2;
-            // 边界检查
             labelX = Math.max(layout.chartLeft + 2, Math.min(layout.chartRight - fm.stringWidth(label) - 2, labelX));
             svg.drawString(label, labelX, layout.chartBottom + 20);
         }
-        // 刻度线
         svg.setPaint(config.getEffectiveAxisColor());
         for (int i = 0; i < labels.size(); i++) {
             int x = (int) (layout.chartLeft + i * layout.stepX);
@@ -217,10 +204,8 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
             legendText = "数据系列";
         }
         int legendX = (width - 120) / 2;
-        // 色块
         svg.setPaint(config.getEffectiveLineColor());
         svg.fillRoundRect(legendX, legendY - rectSize, rectSize, rectSize, 3, 3);
-        // 文字
         svg.setPaint(config.getEffectiveTextColor());
         svg.setFont(config.getFonts().getLegendFont());
         svg.drawString(legendText, legendX + rectSize + 8, legendY);
@@ -243,7 +228,6 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
             FontMetrics fm = svg.getFontMetrics();
             int labelX = (int) (x - fm.stringWidth(label) / 2);
             int labelY = (int) (y - 8);
-            // 边界检查，避免超出顶部
             if (labelY < layout.chartTop + 10) {
                 labelY = (int) (y + 20);
             }
@@ -278,18 +262,17 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
     @Override
     protected void drawChart(SVGGraphics2D svg, JOption option, int width, int height) {
         JAreaChartData config = (JAreaChartData) option.getData();
-        LayoutParams layout = calculateLayout(config);  // 计算布局参数
-        drawBackground(svg, config);// 绘制背景
-        drawGridAndYAxis(svg, config, layout);// 绘制网格和Y轴
-        drawAreaAndLines(svg, config, layout);// 绘制面积和折线
-        drawXAxisAndLabels(svg, config, layout);// 绘制X轴和标签
-        drawXAxisTitle(svg, config, layout);// 绘制X轴标题
-        drawYAxisTitle(svg, config, layout); // 绘制Y轴标题
-        drawTitle(svg, config);// 绘制标题
-        if (config.isShowLegend()) { // 绘制图例
+        LayoutParams layout = calculateLayout(config);
+        drawBackground(svg, config);
+        drawGridAndYAxis(svg, config, layout);
+        drawAreaAndLines(svg, config, layout);
+        drawXAxisAndLabels(svg, config, layout);
+        drawXAxisTitle(svg, config, layout);
+        drawYAxisTitle(svg, config, layout);
+        drawTitle(svg, config);
+        if (config.isShowLegend()) {
             drawLegend(svg, config, layout);
         }
-        // 绘制数据标签
         if (config.isShowDataLabels()) {
             drawDataLabels(svg, config, layout);
         }
@@ -299,11 +282,17 @@ public class JAreaChartRenderer extends JAbstractChartRenderer {
      * 布局参数内部类
      */
     private static class LayoutParams {
+
         int marginTop, marginBottom, marginLeft, marginRight;
+
         int chartLeft, chartRight, chartTop, chartBottom;
+
         int chartWidth, chartHeight;
+
         int dataCount;
+
         double stepX;
+
         double yMin, yMax, yRange;
     }
 }
