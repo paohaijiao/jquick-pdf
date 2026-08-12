@@ -1,3 +1,18 @@
+/*
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
+ */
 package com.github.paohaijiao.combol;
 
 import com.github.paohaijiao.JOption;
@@ -68,7 +83,7 @@ public class JCircleChartRenderer extends JAbstractChartRenderer {
     private void calculateLayout() {
         int width = config.getWidth();
         int height = config.getHeight();
-        int titleHeight = 0;// 计算标题占用的高度
+        int titleHeight = 0;
         if (config.getTitleText() != null && !config.getTitleText().isEmpty()) {
             titleHeight += 45;
             if (config.getSubtitleText() != null && !config.getSubtitleText().isEmpty()) {
@@ -116,7 +131,6 @@ public class JCircleChartRenderer extends JAbstractChartRenderer {
         float startAngle = config.getStartAngle();
         int outerR = layoutParams.ringRadius;// 先绘制灰色背景圆环
         int innerR = layoutParams.holeRadius;
-
         // 绘制外圈装饰线（商务风格）
         svg.setStroke(new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
         svg.setPaint(new Color(230, 235, 240));
