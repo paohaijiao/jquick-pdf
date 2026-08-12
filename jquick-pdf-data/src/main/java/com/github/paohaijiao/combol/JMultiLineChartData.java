@@ -43,38 +43,38 @@ public class JMultiLineChartData implements JGraphData {
     /**
      * 数据
      */
-    private List<String> xAxisLabels;           // X轴标签
+    private List<String> xAxisLabels;
 
-    private List<LineData> lineDataList;        // 折线数据列表
+    private List<LineData> lineDataList;
 
     /**
      * 标题配置
      */
-    private String titleText;                   // 主标题
+    private String titleText;
 
-    private String subtitleText;                // 副标题
+    private String subtitleText;
 
     /**
      * 坐标轴配置
      */
-    private String yAxisTitle;                  // Y轴标题
+    private String yAxisTitle;
 
-    private int gridCount = 5;                  // 网格线数量
+    private int gridCount = 5;
 
-    private boolean rotateXAxisLabels = false;  // 是否旋转X轴标签
+    private boolean rotateXAxisLabels = false;
 
     /**
      * 颜色配置
      */
-    private Color chartAreaColor = new Color(248, 249, 250);  // 图表区域背景色
+    private Color chartAreaColor = new Color(248, 249, 250);
 
-    private Color axisColor = Color.BLACK;                     // 坐标轴颜色
+    private Color axisColor = Color.BLACK;
 
-    private Color gridColor = new Color(200, 200, 200);        // 网格线颜色
+    private Color gridColor = new Color(200, 200, 200);
 
-    private Color textColor = Color.BLACK;                     // 文字颜色
+    private Color textColor = Color.BLACK;
 
-    private Color footerColor = new Color(128, 128, 128);      // 底部说明颜色
+    private Color footerColor = new Color(128, 128, 128);
 
 
     /**
@@ -98,32 +98,31 @@ public class JMultiLineChartData implements JGraphData {
     /**
      * 数据点配置
      */
-    private int pointRadius = 5;                // 数据点半径
+    private int pointRadius = 5;
 
-    private int innerPointRadius = 2;           // 内点半径
+    private int innerPointRadius = 2;
 
-    private boolean showInnerPoint = true;      // 是否显示内点
+    private boolean showInnerPoint = true;
 
-    private boolean showDataLabels = false;     // 是否显示数据标签
+    private boolean showDataLabels = false;
 
     /**
      * 底部说明配置
      */
-    private String footerText;                  // 底部说明文字
+    private String footerText;
 
 
     /**
      * 格式化配置
      */
-    private boolean valueWithPercent = false;   // 数值是否带百分号
+    private boolean valueWithPercent = false;
 
     /**
      * 内部状态
      */
-    private double maxValue;                    // 最大值
+    private double maxValue;
 
-    private boolean autoCalculateMax = true;    // 是否自动计算最大值
-
+    private boolean autoCalculateMax = true;
 
 
     /**
@@ -168,17 +167,17 @@ public class JMultiLineChartData implements JGraphData {
     @AllArgsConstructor
     public static class LineData {
 
-        private String name;                    // 折线名称
+        private String name;
 
-        private String legendText;              // 图例文字（可选，默认使用name）
+        private String legendText;
 
-        private List<Double> values;            // 数据值
-
-        @Builder.Default
-        private Color lineColor = Color.BLUE;   // 线条颜色
+        private List<Double> values;
 
         @Builder.Default
-        private float lineWidth = 2.0f;         // 线条宽度
+        private Color lineColor = Color.BLUE;
+
+        @Builder.Default
+        private float lineWidth = 2.0f;
 
         /**
          * 获取图例文字
@@ -193,14 +192,14 @@ public class JMultiLineChartData implements JGraphData {
      */
     public static class ColorScheme {
         public static final Color[] DEFAULT_COLORS = {
-                new Color(66, 133, 244),   // 蓝色
-                new Color(234, 67, 53),    // 红色
-                new Color(52, 168, 83),    // 绿色
-                new Color(251, 188, 5),    // 黄色
-                new Color(104, 58, 183),   // 紫色
-                new Color(255, 87, 34),    // 橙色
-                new Color(0, 172, 193),    // 青色
-                new Color(233, 30, 99)     // 粉色
+                new Color(66, 133, 244),
+                new Color(234, 67, 53),
+                new Color(52, 168, 83),
+                new Color(251, 188, 5),
+                new Color(104, 58, 183),
+                new Color(255, 87, 34),
+                new Color(0, 172, 193),
+                new Color(233, 30, 99)
         };
 
         /**

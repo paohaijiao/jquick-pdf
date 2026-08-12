@@ -1,4 +1,4 @@
-package com.github.paohaijiao.combol;/*
+/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -13,6 +13,8 @@ package com.github.paohaijiao.combol;/*
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
+package com.github.paohaijiao.combol;
+
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.exception.JAssert;
@@ -26,10 +28,6 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 多折线图渲染器 - 支持多条折线对比显示
- * 完全自适应布局，根据数据量自动调整所有元素位置和大小
- */
 @Data
 public class JMultiLineChartRenderer extends JAbstractChartRenderer {
 
@@ -91,7 +89,6 @@ public class JMultiLineChartRenderer extends JAbstractChartRenderer {
         int dataCount = config.getDataCount();
         int width = config.getWidth();
         int height = config.getHeight();
-        // 计算标题占用的高度
         int titleHeight = 0;
         if (config.getTitleText() != null && !config.getTitleText().isEmpty()) {
             titleHeight += 40;
@@ -101,18 +98,15 @@ public class JMultiLineChartRenderer extends JAbstractChartRenderer {
         } else {
             titleHeight = 30;
         }
-        // 图例和底部说明占用的高度
         int legendHeight = config.getLineDataList().size() <= 4 ? 50 : 70;
         int footerHeight = 30;
         int xAxisLabelHeight = 40;
-        // 计算Y轴标签宽度
         FontMetrics fm = getDefaultFontMetrics();
         int maxYLabelWidth = 0;
         if (fm != null) {
             String maxLabel = formatValue(config.getMaxValue());
             maxYLabelWidth = fm.stringWidth(maxLabel) + 15;
         }
-        // 计算可用图表区域
         int topMargin = titleHeight;
         int bottomMargin = xAxisLabelHeight + legendHeight + footerHeight;
         int leftMargin = Math.max(60, maxYLabelWidth);
@@ -123,7 +117,6 @@ public class JMultiLineChartRenderer extends JAbstractChartRenderer {
         int chartRight = width - rightMargin;
         int chartWidth = chartRight - chartLeft;
         int chartHeight = chartBottom - chartTop;
-        // 计算X轴标签间距
         int step;
         int pointStartX;
         if (dataCount <= 1) {
@@ -133,7 +126,6 @@ public class JMultiLineChartRenderer extends JAbstractChartRenderer {
             step = chartWidth / (dataCount - 1);
             pointStartX = chartLeft;
         }
-        // 保存布局参数
         layoutParams.chartTop = chartTop;
         layoutParams.chartBottom = chartBottom;
         layoutParams.chartLeft = chartLeft;
@@ -364,12 +356,11 @@ public class JMultiLineChartRenderer extends JAbstractChartRenderer {
         svg.setPaint(config.getTextColor());
         Graphics2D g2d = svg;
         FontMetrics fm = g2d.getFontMetrics();
-        // 左侧Y轴标题（垂直旋转）
         int titleX = layoutParams.leftMargin - 35;
         int titleY = config.getHeight() / 2;
         g2d.translate(titleX, titleY);
         g2d.rotate(-Math.PI / 2);
-        g2d.drawString(config.getYAxisTitle(), -fm.stringWidth(config.getYAxisTitle()) / 2, 0);
+        g2d.drawString(config.getYAxisTitle(), -fm.stringWidth(config.getYAxisTitle()) / 2-90, 0);
         g2d.rotate(Math.PI / 2);
         g2d.translate(-titleX, -titleY);
     }
