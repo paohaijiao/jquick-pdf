@@ -17,7 +17,6 @@ package com.github.paohaijiao.demo.bubble;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.JTitle;
-import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.bubble.CategoryAxis;
 import com.github.paohaijiao.bubble.ScatterSeries;
 import com.github.paohaijiao.bubble.ValueAxis;
@@ -27,16 +26,13 @@ import com.github.paohaijiao.data.JGraphContainer;
 import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.executor.JQuickPdfFactory;
-import com.github.paohaijiao.executor.JQuickPdfXExecutor;
-import com.github.paohaijiao.graph.BubbleDataCreator;
-import com.github.paohaijiao.resouce.JReader;
-import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
+import java.awt.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 
 /**
  * packageName com.github.paohaijiao.ele
@@ -47,7 +43,7 @@ import java.util.Map;
  */
 public class JQuickBubbleTest {
 
-    public static final String  path= JQuickConstant.path;
+    public static final String path = JQuickConstant.path;
 
     @Test
     public void bubble() throws IOException {
@@ -61,7 +57,28 @@ public class JQuickBubbleTest {
                 .xAxis(new CategoryAxis().name("日期"))
                 .yAxis(new ValueAxis().name("AQI数值"));
         ScatterSeries series = new ScatterSeries("空气质量监测");
-        List<Map<String, Object>> seriesData = BubbleDataCreator.createAQISampleData();
+        List<Map<String, Object>> seriesData = new ArrayList<>();
+        Random random = new Random(42); // 固定种子以便重现
+        String[] dates = {"01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10", "01-11", "01-12", "01-13", "01-14", "01-15"};
+        for (int i = 0; i < dates.length; i++) {
+            int aqi = 20 + random.nextInt(180); // AQI 20-200
+            double pm25 = 10 + random.nextDouble() * 150; // PM2.5 10-160
+            String category;
+            if (aqi <= 50) category = "优";
+            else if (aqi <= 100) category = "良";
+            else if (aqi <= 150) category = "轻度污染";
+            else if (aqi <= 200) category = "中度污染";
+            else category = "重度污染";
+            String name = String.format("日期:%s, AQI:%d, PM2.5:%.1f", dates[i], aqi, pm25);
+            Map<String, Object> dataPoint = new HashMap<>();
+            dataPoint.put("x", dates[i]);
+            dataPoint.put("y", aqi);
+            dataPoint.put("size", pm25);
+            dataPoint.put("category", category);
+            dataPoint.put("name", name);
+            dataPoint.put("color", getBubbleColor(category,aqi));
+            seriesData.add(dataPoint);
+        }
         series.data(seriesData.toArray());
         option.series(series);
         option.title("公司业务分布矩形树图（JTreemapRenderer）");
@@ -72,11 +89,32 @@ public class JQuickBubbleTest {
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
 
-        FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
-        JQuickPdfFactory factory=new JQuickPdfFactory(config);
-        byte[] bytes=factory.executeResource("sample/svg2.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
+        JQuickPdfFactory factory = new JQuickPdfFactory(config);
+        byte[] bytes = factory.executeResource("sample/svg2.txt");
         fileOutputStream.write(bytes);
-
-
+    }
+    private static  Color getBubbleColor(Object category, double yValue) {
+        if (category != null) {
+            String categoryStr = category.toString();
+            switch (categoryStr) {
+                case "优":
+                    return new Color(102, 194, 165, 180);
+                case "良":
+                    return new Color(252, 194, 91, 180);
+                case "轻度污染":
+                    return new Color(246, 138, 89, 180);
+                case "中度污染":
+                    return new Color(232, 96, 85, 180);
+                case "重度污染":
+                    return new Color(158, 42, 95, 180);
+            }
+        }
+        if (yValue <= 50) return new Color(102, 194, 165, 180);
+        else if (yValue <= 100) return new Color(252, 194, 91, 180);
+        else if (yValue <= 150) return new Color(246, 138, 89, 180);
+        else if (yValue <= 200) return new Color(232, 96, 85, 180);
+        else return new Color(158, 42, 95, 180);
     }
 }
+

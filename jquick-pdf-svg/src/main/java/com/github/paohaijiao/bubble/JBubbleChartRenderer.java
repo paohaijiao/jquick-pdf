@@ -142,7 +142,7 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
             double xPos = x + (i * width / maxX);// 计算气泡位置
             double yPos = y + height - ((yValue.doubleValue() - minY) * height / (maxY - minY));
             double size = calculateBubbleSize(sizeValue.doubleValue(), minSize, maxSize); // 计算气泡大小
-            Color bubbleColor = getBubbleColor(category, yValue.doubleValue());// 设置气泡颜色
+            Color bubbleColor = (Color)point.get("color");// 设置气泡颜色
             g2d.setColor(bubbleColor);// 绘制气泡
             g2d.fill(new Ellipse2D.Double(xPos - size / 2, yPos - size / 2, size, size));
             g2d.setColor(getBubbleBorderColor(bubbleColor));// 绘制气泡边框
@@ -160,23 +160,7 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
      * 绘制图例
      */
     private void drawLegend(SVGGraphics2D g2d, JOption option, int x, int y) {
-//        g2d.setColor(Color.BLACK);
-//        g2d.setFont(new Font("Microsoft YaHei", Font.BOLD, 14));
-//        g2d.drawString("图例", x, y - 10);
-//        String[] levels = {"优", "良", "轻度污染", "中度污染", "重度污染"};
-//        g2d.setFont(LABEL_FONT);
-//        for (int i = 0; i < levels.length; i++) {
-//            g2d.setColor(DEFAULT_AQI_COLORS[i]);
-//            g2d.fill(new Rectangle2D.Double(x, y + i * 25, 15, 15));
-//            g2d.setColor(Color.BLACK);
-//            g2d.drawString(levels[i], x + 20, y + i * 25 + 12);
-//        }
-//        g2d.setFont(new Font("Microsoft YaHei", Font.BOLD, 12));
-//        g2d.drawString("气泡大小:", x, y + levels.length * 25 + 20);
-//        g2d.setFont(LABEL_FONT);
-//        g2d.drawString("代表 PM2.5 浓度", x, y + levels.length * 25 + 40);
-//        g2d.drawString("气泡越大", x + 10, y + levels.length * 25 + 60);
-//        g2d.drawString("PM2.5 浓度越高", x + 10, y + levels.length * 25 + 80);
+
     }
 
     /**
@@ -315,28 +299,7 @@ public class JBubbleChartRenderer extends JAbstractChartRenderer {
         return MIN_BUBBLE_SIZE + normalized * (MAX_BUBBLE_SIZE - MIN_BUBBLE_SIZE);
     }
 
-    private Color getBubbleColor(Object category, double yValue) {
-        if (category != null) {
-            String categoryStr = category.toString();
-            switch (categoryStr) {
-                case "优":
-                    return new Color(102, 194, 165, 180);
-                case "良":
-                    return new Color(252, 194, 91, 180);
-                case "轻度污染":
-                    return new Color(246, 138, 89, 180);
-                case "中度污染":
-                    return new Color(232, 96, 85, 180);
-                case "重度污染":
-                    return new Color(158, 42, 95, 180);
-            }
-        }
-        if (yValue <= 50) return new Color(102, 194, 165, 180);
-        else if (yValue <= 100) return new Color(252, 194, 91, 180);
-        else if (yValue <= 150) return new Color(246, 138, 89, 180);
-        else if (yValue <= 200) return new Color(232, 96, 85, 180);
-        else return new Color(158, 42, 95, 180);
-    }
+
 
     private Color getBubbleBorderColor(Color baseColor) {
         return new Color(baseColor.getRed(), baseColor.getGreen(), baseColor.getBlue(), 220);
