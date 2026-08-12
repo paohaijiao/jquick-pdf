@@ -335,7 +335,7 @@ public class JGeoJsonRenderer extends JAbstractChartRenderer {
                 if (properties != null && properties.has("color")) {
                     color = properties.get("color").asText();
                 }
-                String name = "未命名区域"; // 默认名称
+                String name = "default"; // 默认名称
                 if (properties != null && properties.has("name")) {
                     name = properties.get("name").asText();
                 }

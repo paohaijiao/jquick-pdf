@@ -13,23 +13,24 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.graph;
+package com.github.paohaijiao.demo.geo;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfFactory;
 import com.github.paohaijiao.executor.JQuickPdfXExecutor;
 import com.github.paohaijiao.geo.GeoOption;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * packageName com.github.paohaijiao.ele
@@ -39,9 +40,16 @@ import java.io.IOException;
  * @since 2025/11/4
  */
 public class JGeoTest {
-    private static String readFile(String filePath) throws IOException {
+
+    public static final String  path= JQuickConstant.path;
+
+    private String readFromClasspath(String fileName) throws IOException {
         StringBuilder content = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName);
+             BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8))) {
+            if (is == null) {
+                throw new IOException("File not found in classpath: " + fileName);
+            }
             String line;
             while ((line = br.readLine()) != null) {
                 content.append(line).append("\n");
@@ -50,10 +58,10 @@ public class JGeoTest {
         return content.toString();
     }
     @Test
-    public void svg2() throws IOException {
+    public void geo() throws IOException {
         JGraphContainer graphContainer = new JGraphContainer();
         JOption jOption = new JOption();
-        String geoJsonContent = readFile("d://sample//test.geojson");
+        String geoJsonContent = readFromClasspath("sample/test.geojson");
         GeoOption geoOption = new GeoOption();
         geoOption.setGeoJsonContent(geoJsonContent);
         graphContainer.setType(JChartType.Geo);
@@ -63,9 +71,10 @@ public class JGeoTest {
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
-        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
-        executor.execute(context.getRuleContent());
+
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
+        JQuickPdfFactory factory = new JQuickPdfFactory(config);
+        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        fileOutputStream.write(bytes);
     }
 }
