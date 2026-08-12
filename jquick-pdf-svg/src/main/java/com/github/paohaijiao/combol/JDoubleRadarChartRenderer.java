@@ -28,21 +28,21 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
 
     public static final Color[] DEFAULT_COLORS = {
 
-            new Color(84, 112, 198),  // 蓝色
+            new Color(84, 112, 198),
 
-            new Color(250, 200, 88),  // 橙黄色
+            new Color(250, 200, 88),
 
-            new Color(238, 102, 102), // 红色
+            new Color(238, 102, 102),
 
-            new Color(80, 180, 150),  // 绿色
+            new Color(80, 180, 150),
 
-            new Color(159, 120, 196), // 紫色
+            new Color(159, 120, 196),
 
-            new Color(255, 150, 90),  // 橙色
+            new Color(255, 150, 90),
 
-            new Color(97, 187, 211),  // 青色
+            new Color(97, 187, 211),
 
-            new Color(230, 130, 170)  // 粉色
+            new Color(230, 130, 170)
     };
 
     private final LayoutParams layoutParams;
@@ -66,22 +66,21 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
         if (option == null || option.getData() == null) {
-            drawErrorMessage(svgGenerator, width, height, "错误：图表数据为空");
+            drawErrorMessage(svgGenerator, width, height, "Error: Chart data is empty");
             return;
         }
         Object dataObj = option.getData();
         if (!(dataObj instanceof JDoubleRadarChartData)) {
-            drawErrorMessage(svgGenerator, width, height, "错误：数据类型错误！期望 JDoubleRadarChartData，实际: " + dataObj.getClass().getSimpleName());
+            drawErrorMessage(svgGenerator, width, height, "Error: Data type incorrect! Expected JDoubleRadarCharData, but actually: " + dataObj.getClass().getSimpleName());
             return;
         }
         JDoubleRadarChartData config = (JDoubleRadarChartData) dataObj;
-        // 验证必要字段
         if (config.getDimensions() == null || config.getDimensions().isEmpty()) {
-            drawErrorMessage(svgGenerator, width, height, "错误：维度标签(dimensions)为空");
+            drawErrorMessage(svgGenerator, width, height, "Error: Dimensions label is empty");
             return;
         }
         if (config.getLeftRadar() == null || config.getRightRadar() == null) {
-            drawErrorMessage(svgGenerator, width, height, "错误：左右雷达图数据为空");
+            drawErrorMessage(svgGenerator, width, height, "Error: Left and right radar chart data is empty");
             return;
         }
         this.config = config;
@@ -92,9 +91,7 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
         svgGenerator.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         drawChartBackground(svgGenerator);
         drawTitle(svgGenerator, option, width);
-        // 绘制左侧雷达图
         drawSingleRadar(svgGenerator, layoutParams.leftRadarX, layoutParams.radarCenterY, layoutParams.radarRadius, config.getLeftRadar(), config.getLeftTitle() != null ? config.getLeftTitle() : "左侧雷达图");
-        // 绘制右侧雷达图
         drawSingleRadar(svgGenerator, layoutParams.rightRadarX, layoutParams.radarCenterY, layoutParams.radarRadius, config.getRightRadar(), config.getRightTitle() != null ? config.getRightTitle() : "右侧雷达图");
         drawLegend(svgGenerator);
         drawFooter(svgGenerator);
@@ -108,7 +105,7 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
         FontMetrics fm = svg.getFontMetrics();
         svg.drawString(message, width / 2 - fm.stringWidth(message) / 2, height / 2);
         svg.setFont(new Font("Microsoft YaHei", Font.PLAIN, 12));
-        String tip = "请使用 JDoubleRadarChartData 对象传入数据";
+        String tip = "Please use JDoubleRadarCharData object to pass in data";
         fm = svg.getFontMetrics();
         svg.drawString(tip, width / 2 - fm.stringWidth(tip) / 2, height / 2 + 30);
     }
@@ -121,7 +118,6 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
     private void calculateLayout() {
         int width = config.getWidth();
         int height = config.getHeight();
-        // 计算标题占用的高度
         int titleHeight = 0;
         if (config.getTitleText() != null && !config.getTitleText().isEmpty()) {
             titleHeight += 45;
@@ -131,25 +127,20 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
         } else {
             titleHeight = 20;
         }
-        // 底部空间
         int leftSeriesCount = config.getLeftRadar().getSeriesList().size();
         int rightSeriesCount = config.getRightRadar().getSeriesList().size();
         int maxSeriesCount = Math.max(leftSeriesCount, rightSeriesCount);
         int legendHeight = (maxSeriesCount <= 4) ? 60 : 80;
         int footerHeight = (config.getFooterText() != null && !config.getFooterText().isEmpty()) ? 35 : 10;
         int bottomSpace = legendHeight + footerHeight;
-        // 计算雷达图半径 - 确保有足够空间
         int maxRadiusByWidth = (width / 2) - 80;
         int maxRadiusByHeight = height - titleHeight - bottomSpace - 60;
         int radarRadius = Math.min(maxRadiusByWidth, maxRadiusByHeight) / 2;
-        radarRadius = Math.max(radarRadius, 100);  // 最小半径100px
-        // 左右雷达图中心点
+        radarRadius = Math.max(radarRadius, 100);
         int leftRadarX = width / 4;
         int rightRadarX = width * 3 / 4;
         int radarCenterY = titleHeight + radarRadius + 50;
-        // 图例Y坐标
         int legendY = radarCenterY + radarRadius + 40;
-        // 保存布局参数
         layoutParams.radarRadius = radarRadius;
         layoutParams.leftRadarX = leftRadarX;
         layoutParams.rightRadarX = rightRadarX;
@@ -163,12 +154,10 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
         List<String> dimensions = config.getDimensions();
         int dimensionCount = dimensions.size();
         double angleStep = 2 * Math.PI / dimensionCount;
-        // 绘制雷达图标题
         svg.setFont(config.getAxisTitleFont());
         svg.setPaint(config.getTextColor());
         FontMetrics fm = svg.getFontMetrics();
         svg.drawString(title, centerX - fm.stringWidth(title) / 2, centerY - radius - 15);
-        // 绘制网格层
         int gridLevels = config.getGridLevels();
         for (int level = 1; level <= gridLevels; level++) {
             double levelRadius = radius * level / (double) gridLevels;
@@ -183,16 +172,13 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
             svg.setStroke(new BasicStroke(1));
             svg.drawPolygon(xPoints, yPoints, dimensionCount);
         }
-        // 绘制径向线和维度标签
         svg.setFont(config.getAxisFont());
         for (int i = 0; i < dimensionCount; i++) {
             double angle = -Math.PI / 2 + i * angleStep;
             int endX = (int) (centerX + radius * Math.cos(angle));
             int endY = (int) (centerY + radius * Math.sin(angle));
-            // 径向线
             svg.setPaint(config.getGridColor());
             svg.drawLine(centerX, centerY, endX, endY);
-            // 维度标签
             String label = dimensions.get(i);
             int labelX = (int) (centerX + (radius + 12) * Math.cos(angle));
             int labelY = (int) (centerY + (radius + 5) * Math.sin(angle));
@@ -207,7 +193,6 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
                 svg.drawString(label, labelX - fm.stringWidth(label) / 2, angle > 0 ? labelY + 12 : labelY - 4);
             }
         }
-        // 绘制数值刻度标签
         svg.setFont(config.getAxisFont().deriveFont(Font.PLAIN, 10));
         svg.setPaint(new Color(136, 136, 136));
         double maxValue = radarData.getMaxValue();
@@ -219,7 +204,6 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
             int labelY = (int) (centerY + levelRadius * Math.sin(-Math.PI / 2 + 0.15));
             svg.drawString(valueLabel, labelX - 8, labelY - 5);
         }
-        // 绘制数据系列
         List<JDoubleRadarChartData.Series> seriesList = radarData.getSeriesList();
         for (int seriesIdx = 0; seriesIdx < seriesList.size(); seriesIdx++) {
             JDoubleRadarChartData.Series series = seriesList.get(seriesIdx);
@@ -238,15 +222,12 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
             if (seriesColor == null) {
                 seriesColor = DEFAULT_COLORS[seriesIdx % DEFAULT_COLORS.length];
             }
-            // 填充区域
             Color fillColor = new Color(seriesColor.getRed(), seriesColor.getGreen(), seriesColor.getBlue(), config.getFillAlpha());
             svg.setPaint(fillColor);
             svg.fillPolygon(xPoints, yPoints, dimensionCount);
-            // 边框
             svg.setPaint(seriesColor);
             svg.setStroke(new BasicStroke(config.getLineWidth()));
             svg.drawPolygon(xPoints, yPoints, dimensionCount);
-            // 数据点
             if (config.isShowDataPoints()) {
                 for (int i = 0; i < dimensionCount; i++) {
                     double value = values.get(i);
@@ -262,7 +243,6 @@ public class JDoubleRadarChartRenderer extends JAbstractChartRenderer {
                 }
             }
         }
-        // 绘制中心点
         svg.setPaint(config.getAxisColor());
         svg.fillOval(centerX - 3, centerY - 3, 6, 6);
     }
