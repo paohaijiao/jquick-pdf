@@ -41,6 +41,7 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
     public JComboLineBarChartRenderer() {
         this.layoutParams = new LayoutParams();
     }
+
     @Override
     protected int getDefaultWidth() {
         return config != null ? config.getWidth() : 800;
@@ -53,31 +54,31 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
 
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
-        JComboLineBarChartData config=(JComboLineBarChartData)option.getData();
+        JComboLineBarChartData config = (JComboLineBarChartData) option.getData();
         JAssert.notNull(config, "config require not  null");
         JAssert.notNull(config.getBarData(), "bar data require not  null");
         JAssert.notNull(config.getLineData(), "line data require not  null");
         JAssert.notNull(config.getXAxisLabels(), "xAxisLabels data require not  null");
-        if(config.getBarData().size()!=config.getLineData().size()&&config.getLineData().size()!=config.getXAxisLabels().size()){
+        if (config.getBarData().size() != config.getLineData().size() && config.getLineData().size() != config.getXAxisLabels().size()) {
             JAssert.throwNewException("the length of data should be the same");
         }
         this.config = config;
         if (config == null) {
             return;
         }
-        updateConfigDimensions(width, height);// 更新宽高
-        config.updateMaxValues();// 更新最大值
-        calculateLayout(); // 计算自适应布局参数
+        updateConfigDimensions(width, height);
+        config.updateMaxValues();
+        calculateLayout();
         svgGenerator.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);// 启用抗锯齿
-        drawChartBackground(svgGenerator);// 绘制图表区域背景
-        drawGridAndAxes(svgGenerator);// 绘制网格线和Y轴
-        drawBars(svgGenerator); // 绘制条形图
-        drawLineChart(svgGenerator);// 绘制折线图
-        drawXAxisLabels(svgGenerator);// 绘制X轴标签
-        drawLegend(svgGenerator);// 绘制图例
-        drawTitle(svgGenerator, option, width);// 绘制标题
-        drawFooter(svgGenerator);// 绘制底部说明
-        drawAxisTitles(svgGenerator); // 绘制坐标轴标题
+        drawChartBackground(svgGenerator);
+        drawGridAndAxes(svgGenerator);
+        drawBars(svgGenerator);
+        drawLineChart(svgGenerator);
+        drawXAxisLabels(svgGenerator);
+        drawLegend(svgGenerator);
+        drawTitle(svgGenerator, option, width);
+        drawFooter(svgGenerator);
+        drawAxisTitles(svgGenerator);
     }
 
     /**
@@ -111,12 +112,9 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
         } else {
             titleHeight = 30;
         }
-        // 计算图例和底部说明占用的高度
         int legendHeight = 50;
         int footerHeight = 30;
-        // 计算X轴标签占用的高度
         int xAxisLabelHeight = 30;
-        //计算Y轴标签占用的宽度
         FontMetrics fm = getDefaultFontMetrics();
         int maxBarLabelWidth = 0;
         if (fm != null && config.getBarData() != null) {
@@ -131,7 +129,6 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
             maxLineLabelWidth = fm.stringWidth(maxLabel) + 10;
         }
 
-        //计算实际可用的图表区域
         int topMargin = titleHeight;
         int bottomMargin = xAxisLabelHeight + legendHeight + footerHeight;
         int leftMargin = Math.max(50, maxBarLabelWidth);
@@ -142,34 +139,27 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
         int chartRight = width - rightMargin;
         int chartWidth = chartRight - chartLeft;
         int chartHeight = chartBottom - chartTop;
-        //根据数据量计算条形宽度和间距
         int barWidth;
         int barGap;
         if (dataCount <= 6) {
-            // 数据量少时，使用较大的条形宽度
             barWidth = Math.min(80, chartWidth / (dataCount * 2));
             barGap = Math.min(40, (chartWidth - barWidth * dataCount) / (dataCount - 1));
             if (barGap < 10) barGap = 10;
         } else if (dataCount <= 12) {
-            // 中等数据量
             barWidth = Math.min(50, chartWidth / (dataCount * 2));
             barGap = Math.min(25, (chartWidth - barWidth * dataCount) / (dataCount - 1));
             if (barGap < 8) barGap = 8;
         } else {
-            // 大量数据
             barWidth = Math.min(35, chartWidth / (dataCount * 2));
             barGap = Math.min(15, (chartWidth - barWidth * dataCount) / (dataCount - 1));
             if (barGap < 5) barGap = 5;
         }
-        // 确保条形宽度合理
         barWidth = Math.max(20, barWidth);
         barGap = Math.max(5, barGap);
-        // 计算起始位置
         int totalWidth = dataCount * barWidth + (dataCount - 1) * barGap;
         int startX = chartLeft + (chartWidth - totalWidth) / 2;
         int step = barWidth + barGap;
         int pointStartX = startX + barWidth / 2;
-        // 保存布局参数
         layoutParams.chartTop = chartTop;
         layoutParams.chartBottom = chartBottom;
         layoutParams.chartLeft = chartLeft;
@@ -220,26 +210,20 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
     private void drawGridAndAxes(SVGGraphics2D svg) {
         int gridCount = config.getGridCount();
         svg.setStroke(new BasicStroke(1));
-        // 绘制水平网格线和左侧Y轴标签
         for (int i = 0; i <= gridCount; i++) {
             int y = layoutParams.chartTop + (int) ((double) i / gridCount * layoutParams.chartHeight);
             double value = config.getMaxBarValue() * (1 - (double) i / gridCount);
-            // 网格线
             svg.setPaint(config.getGridColor());
             svg.drawLine(layoutParams.chartLeft, y, layoutParams.chartRight, y);
-            // Y轴标签
             svg.setFont(config.getAxisFont());
             svg.setPaint(config.getTextColor());
             String label = formatValue(value, false);
             FontMetrics fm = svg.getFontMetrics();
             svg.drawString(label, layoutParams.chartLeft - fm.stringWidth(label) - 8, y + 4);
         }
-        // 绘制左侧Y轴轴线
         svg.setPaint(config.getAxisColor());
         svg.drawLine(layoutParams.chartLeft, layoutParams.chartTop, layoutParams.chartLeft, layoutParams.chartBottom);
-        // 绘制底部X轴轴线
         svg.drawLine(layoutParams.chartLeft, layoutParams.chartBottom, layoutParams.chartRight, layoutParams.chartBottom);
-        // 绘制右侧Y轴轴线和标签
         svg.setPaint(config.getAxisColor());
         svg.drawLine(layoutParams.chartRight, layoutParams.chartTop, layoutParams.chartRight, layoutParams.chartBottom);
         for (int i = 0; i <= gridCount; i++) {
@@ -265,10 +249,8 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
             int barHeight = (int) ((value / maxBarValue) * layoutParams.chartHeight);
             barHeight = Math.max(2, barHeight);
             int y = layoutParams.chartBottom - barHeight;
-            // 绘制条形
             svg.setPaint(config.getBarColor());
             svg.fillRoundRect(x, y, layoutParams.barWidth, barHeight, 4, 4);
-            // 绘制数据标签
             if (config.isShowBarLabels()) {
                 svg.setFont(config.getDataLabelFont());
                 svg.setPaint(config.getBarColor());
@@ -290,7 +272,6 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
     private void drawLineChart(SVGGraphics2D svg) {
         List<Double> lineData = config.getLineData();
         double maxLineValue = config.getMaxLineValue();
-        // 收集所有点坐标
         List<Point> points = new ArrayList<>();
         for (int i = 0; i < lineData.size(); i++) {
             int x = layoutParams.pointStartX + i * layoutParams.step;
@@ -299,7 +280,6 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
             y = Math.max(layoutParams.chartTop + 2, Math.min(layoutParams.chartBottom - 2, y));
             points.add(new Point(x, y));
         }
-        // 绘制折线
         if (points.size() >= 2) {
             Path2D path = new Path2D.Double();
             path.moveTo(points.get(0).x, points.get(0).y);
@@ -310,19 +290,15 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
             svg.setStroke(config.getLineStroke());
             svg.draw(path);
         }
-        // 绘制数据点和标签
         int pointRadius = config.getPointRadius();
         for (int i = 0; i < points.size(); i++) {
             Point p = points.get(i);
             double value = lineData.get(i);
-            // 绘制圆点
             svg.setPaint(config.getLineColor());
             svg.fillOval(p.x - pointRadius, p.y - pointRadius, pointRadius * 2, pointRadius * 2);
-            // 白色内点
             int innerRadius = config.getInnerPointRadius();
             svg.setPaint(Color.WHITE);
             svg.fillOval(p.x - innerRadius, p.y - innerRadius, innerRadius * 2, innerRadius * 2);
-            // 数据标签
             if (config.isShowLineLabels()) {
                 svg.setFont(config.getDataLabelFont());
                 svg.setPaint(config.getLineColor());
@@ -335,7 +311,6 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
                 } else {
                     labelY = p.y - pointRadius - 5;
                 }
-                // 边界检查
                 if (labelY > layoutParams.chartBottom - 5) {
                     labelY = p.y - pointRadius - 5;
                 }
@@ -359,7 +334,6 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
             String label = labels.get(i);
             FontMetrics fm = svg.getFontMetrics();
             int labelX = x - fm.stringWidth(label) / 2;
-            // 边界检查
             labelX = Math.max(layoutParams.chartLeft + 2, Math.min(layoutParams.chartRight - fm.stringWidth(label) - 2, labelX));
             svg.drawString(label, labelX, layoutParams.xAxisLabelY);
         }
@@ -373,13 +347,11 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
         int legendStartX = width / 2 - 150;
         int itemWidth = 16;
         int itemHeight = 16;
-        // 条形图图例
         svg.setPaint(config.getBarColor());
         svg.fillRoundRect(legendStartX, layoutParams.legendY - 10, itemWidth, itemHeight, 3, 3);
         svg.setFont(config.getLegendFont());
         svg.setPaint(config.getTextColor());
         svg.drawString(config.getBarLegendText(), legendStartX + itemWidth + 6, layoutParams.legendY);
-        // 折线图图例
         int lineLegendX = legendStartX + 180;
         svg.setPaint(config.getLineColor());
         svg.setStroke(config.getLineStroke());
@@ -410,7 +382,6 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
         svg.setPaint(config.getTextColor());
         Graphics2D g2d = svg;
         FontMetrics fm = g2d.getFontMetrics();
-        // 左侧Y轴标题
         String leftTitle = config.getLeftAxisTitle();
         int leftTitleX = layoutParams.leftMargin - 35;
         int leftTitleY = config.getHeight() / 2;
@@ -419,7 +390,6 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
         g2d.drawString(leftTitle, -fm.stringWidth(leftTitle) / 2, 0);
         g2d.rotate(Math.PI / 2);
         g2d.translate(-leftTitleX, -leftTitleY);
-        // 右侧Y轴标题
         String rightTitle = config.getRightAxisTitle();
         int rightTitleX = config.getWidth() - layoutParams.rightMargin + 30;
         int rightTitleY = config.getHeight() / 2;
@@ -467,11 +437,17 @@ public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
      * 布局参数内部类
      */
     private static class LayoutParams {
+
         int chartTop, chartBottom, chartLeft, chartRight;
+
         int chartWidth, chartHeight;
+
         int barWidth, barGap, step;
+
         int startX, pointStartX;
+
         int topMargin, bottomMargin, leftMargin, rightMargin;
+
         int xAxisLabelY, legendY, footerY;
     }
 }

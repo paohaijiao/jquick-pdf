@@ -13,22 +13,20 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.graph;
+package com.github.paohaijiao.demo.linebar;
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.combol.JComboLineBarChartData;
-import com.github.paohaijiao.combol.JComboLineBarChartRenderer;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
 import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
-import com.github.paohaijiao.executor.JQuickPdfXExecutor;
-import com.github.paohaijiao.resouce.JReader;
-import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
+import com.github.paohaijiao.executor.JQuickPdfFactory;
 import org.junit.Test;
 
 import java.awt.*;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -40,13 +38,13 @@ import java.util.List;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JLineBarTest {
+public class JQuickLineBarTest {
+
+    public static final String path = JQuickConstant.path;
 
     @Test
     public void svg2() throws IOException {
         JGraphContainer graphContainer = new JGraphContainer();
-
-
         graphContainer.setType(JChartType.LineBar);
         JOption jOption = new JOption();
         List<Double> sales = Arrays.asList(120.0, 135.0, 148.0, 162.0, 175.0, 190.0);
@@ -67,16 +65,16 @@ public class JLineBarTest {
                 .lineLegendText("利润率")
                 .footerText("数据来源：财务系统")
                 .build();
-        JComboLineBarChartRenderer customRenderer = new JComboLineBarChartRenderer();
         jOption.setData(jComboLineBarChartData);
         graphContainer.setOption(jOption);
         JGraphConfig graphConfig = new JGraphConfig();
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
-        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
-        JAdaptor context = new JAdaptor(fileReader);
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
-        executor.execute(context.getRuleContent());
+
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
+        JQuickPdfFactory factory = new JQuickPdfFactory(config);
+        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        fileOutputStream.write(bytes);
     }
 }
