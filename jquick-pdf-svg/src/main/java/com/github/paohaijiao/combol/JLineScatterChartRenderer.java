@@ -23,18 +23,13 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.util.List;
 
-/**
- * 折线+散点组合图渲染器
- * 支持两组独立数据：一组用折线表示，一组用散点表示
- */
+
 public class JLineScatterChartRenderer extends JAbstractChartRenderer {
 
-    /**
-     * 预设颜色
-     */
-    private static final Color LINE_COLOR = new Color(16, 185, 129);  // 绿色
 
-    private static final Color SCATTER_COLOR = new Color(239, 68, 68); // 红色
+    private static final Color LINE_COLOR = new Color(16, 185, 129);
+
+    private static final Color SCATTER_COLOR = new Color(239, 68, 68);
 
     private static final Color GRID_COLOR = new Color(221, 221, 221);
 
@@ -44,9 +39,7 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
 
     private static final Color BACKGROUND_COLOR = new Color(248, 249, 250);
 
-    /**
-     * 字体
-     */
+
     private static final Font TITLE_FONT = new Font("Microsoft YaHei", Font.BOLD, 22);
 
     private static final Font AXIS_FONT = new Font("Microsoft YaHei", Font.PLAIN, 12);
@@ -55,7 +48,6 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
 
     private static final Font LEGEND_FONT = new Font("Microsoft YaHei", Font.PLAIN, 12);
 
-    // 图表数据
 
     private JLineScatterChartData config;
 
@@ -75,18 +67,17 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
     protected void drawChart(SVGGraphics2D svg, JOption option, int width, int height) {
         this.config = (JLineScatterChartData) option.getData();
         validateData();
-        // 开启抗锯齿
         svg.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         svg.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-        drawBackground(svg, width, height);// 绘制背景
-        LayoutParams layout = calculateLayout(width, height);// 计算布局参数
-        drawGridAndAxes(svg, layout);// 绘制网格线和坐标轴
-        drawLineChart(svg, layout);// 绘制折线（计划数据）
-        drawScatterChart(svg, layout);// 绘制散点（实际数据）
-        drawXAxisLabels(svg, layout);// 绘制X轴标签
-        drawTitle(svg, option, width);// 绘制标题
-        drawLegend(svg, layout, width);// 绘制图例
-        drawFooter(svg, layout, width);// 绘制底部说明
+        drawBackground(svg, width, height);
+        LayoutParams layout = calculateLayout(width, height);
+        drawGridAndAxes(svg, layout);
+        drawLineChart(svg, layout);
+        drawScatterChart(svg, layout);
+        drawXAxisLabels(svg, layout);
+        drawTitle(svg, option, width);
+        drawLegend(svg, layout, width);
+        drawFooter(svg, layout, width);
     }
 
     /**
@@ -107,27 +98,21 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
         }
     }
 
-    /**
-     * 绘制背景
-     */
+
     private void drawBackground(SVGGraphics2D svg, int width, int height) {
         svg.setPaint(BACKGROUND_COLOR);
         svg.fillRoundRect(0, 0, width, height, 10, 10);
     }
 
-    /**
-     * 计算布局参数
-     */
+
     private LayoutParams calculateLayout(int width, int height) {
         LayoutParams layout = new LayoutParams();
-        int titleHeight = 60;// 标题高度
+        int titleHeight = 60;
         if (config.getTitleText() == null || config.getTitleText().isEmpty()) {
             titleHeight = 30;
         }
-        int legendHeight = 40;// 图例高度
-        // 底部说明高度
+        int legendHeight = 40;
         int footerHeight = config.getFooterText() != null && !config.getFooterText().isEmpty() ? 30 : 0;
-        // 计算Y轴标签最大宽度
         FontMetrics fm = getFontMetrics(AXIS_FONT);
         int maxCategoryWidth = 0;
         for (String category : config.getCategories()) {
@@ -135,26 +120,20 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
             if (w > maxCategoryWidth) maxCategoryWidth = w;
         }
         int leftMargin = Math.max(60, maxCategoryWidth + 20);
-        // 计算X轴数值标签宽度
         String maxValueStr = formatValue(config.getMaxValue());
         int rightMargin = Math.max(50, fm.stringWidth(maxValueStr) + 30);
-        // 图表区域
         layout.chartTop = titleHeight + 10;
         layout.chartBottom = height - legendHeight - footerHeight - 40;
         layout.chartLeft = leftMargin;
         layout.chartRight = width - rightMargin;
         layout.chartWidth = layout.chartRight - layout.chartLeft;
         layout.chartHeight = layout.chartBottom - layout.chartTop;
-        // 数据点之间的间距
         layout.categoryCount = config.getCategories().size();
         layout.xStep = (double) layout.chartWidth / (layout.categoryCount - 1);
-        // Y轴缩放比例
         layout.yScale = layout.chartHeight / config.getMaxValue();
-        // 各元素位置
         layout.legendX = (width - 250) / 2;
         layout.legendY = height - legendHeight - footerHeight - 10;
         layout.footerY = height - 15;
-
         return layout;
     }
 
@@ -180,11 +159,9 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
     private void drawGridAndAxes(SVGGraphics2D svg, LayoutParams layout) {
         int gridCount = config.getGridCount() > 0 ? config.getGridCount() : 5;
         svg.setStroke(new BasicStroke(1));
-        // 绘制水平网格线和Y轴标签
         for (int i = 0; i <= gridCount; i++) {
             double value = config.getMaxValue() * i / gridCount;
             int y = layout.chartBottom - (int) (value * layout.yScale);
-            // 网格线
             svg.setPaint(GRID_COLOR);
             if (i > 0 && i < gridCount) {
                 svg.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 0, new float[]{4, 4}, 0));
@@ -193,14 +170,12 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
             } else if (i == gridCount) {
                 svg.drawLine(layout.chartLeft, y, layout.chartRight, y);
             }
-            // Y轴标签
             svg.setFont(AXIS_FONT);
             svg.setPaint(TEXT_COLOR);
             String label = formatValue(value);
             FontMetrics fm = svg.getFontMetrics();
             svg.drawString(label, layout.chartLeft - fm.stringWidth(label) - 8, y + fm.getHeight() / 3);
         }
-        // 绘制X轴和Y轴轴线
         svg.setPaint(AXIS_COLOR);
         svg.setStroke(new BasicStroke(1.5f));
         svg.drawLine(layout.chartLeft, layout.chartBottom, layout.chartRight, layout.chartBottom);
@@ -213,7 +188,6 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
     private void drawLineChart(SVGGraphics2D svg, LayoutParams layout) {
         List<Double> values = config.getLineValues();
         if (values == null || values.isEmpty()) return;
-        // 构建折线路径
         java.awt.geom.GeneralPath path = new java.awt.geom.GeneralPath();
         boolean first = true;
         for (int i = 0; i < layout.categoryCount; i++) {
@@ -227,21 +201,17 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
                 path.lineTo(x, y);
             }
         }
-        // 绘制折线
         svg.setPaint(LINE_COLOR);
         svg.setStroke(new BasicStroke(3, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
         svg.draw(path);
-        // 绘制折线上的数据点
         for (int i = 0; i < layout.categoryCount; i++) {
             double value = values.get(i);
             int x = layout.chartLeft + (int) (i * layout.xStep);
             int y = layout.chartBottom - (int) (value * layout.yScale);
-            // 绘制圆点
             svg.setPaint(LINE_COLOR);
             svg.fill(new Ellipse2D.Double(x - 5, y - 5, 10, 10));
             svg.setPaint(Color.WHITE);
             svg.fill(new Ellipse2D.Double(x - 3, y - 3, 6, 6));
-            // 绘制数据标签
             if (config.isShowDataLabels()) {
                 svg.setFont(LABEL_FONT);
                 svg.setPaint(LINE_COLOR);
@@ -262,12 +232,10 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
             double value = values.get(i);
             int x = layout.chartLeft + (int) (i * layout.xStep);
             int y = layout.chartBottom - (int) (value * layout.yScale);
-            // 绘制散点（圆形）
             svg.setPaint(SCATTER_COLOR);
             svg.fill(new Ellipse2D.Double(x - 7, y - 7, 14, 14));
             svg.setPaint(Color.WHITE);
             svg.fill(new Ellipse2D.Double(x - 4, y - 4, 8, 8));
-            // 添加光晕效果
             svg.setPaint(new Color(239, 68, 68, 50));
             svg.fill(new Ellipse2D.Double(x - 12, y - 12, 24, 24));
             svg.setPaint(SCATTER_COLOR);
@@ -306,20 +274,18 @@ public class JLineScatterChartRenderer extends JAbstractChartRenderer {
     private void drawLegend(SVGGraphics2D svg, LayoutParams layout, int width) {
         int rectSize = 16;
         int spacing = 40;
-        // 折线图例
         int lineLegendX = (width - 250) / 2;
         int legendY = layout.legendY;
         svg.setPaint(LINE_COLOR);
-        svg.fillRoundRect(lineLegendX, legendY - rectSize + 4, rectSize, rectSize, 3, 3);
+        svg.fillRoundRect(lineLegendX, legendY - rectSize + 44, rectSize, rectSize, 3, 3);
         svg.setPaint(TEXT_COLOR);
         svg.setFont(LEGEND_FONT);
-        svg.drawString(config.getLineSeriesName(), lineLegendX + rectSize + 8, legendY);
-        // 散点图例
+        svg.drawString(config.getLineSeriesName(), lineLegendX + rectSize + 8, legendY+40);
         int scatterLegendX = lineLegendX + 130;
         svg.setPaint(SCATTER_COLOR);
-        svg.fillRoundRect(scatterLegendX, legendY - rectSize + 4, rectSize, rectSize, 3, 3);
+        svg.fillRoundRect(scatterLegendX, legendY - rectSize + 44, rectSize, rectSize, 3, 3);
         svg.setPaint(TEXT_COLOR);
-        svg.drawString(config.getScatterSeriesName(), scatterLegendX + rectSize + 8, legendY);
+        svg.drawString(config.getScatterSeriesName(), scatterLegendX + rectSize + 8, legendY+40);
     }
 
     /**
