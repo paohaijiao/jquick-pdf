@@ -83,10 +83,10 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
      */
     private void calculateTreeLayout(JTreeMapNode node, double x, double y, double width, double height) {
         if (node == null) return;
-        if (node.getRect() == null) {// 为当前节点设置矩形（如果是根节点，通常不显示）
+        if (node.getRect() == null) {
             node.setRect(new Rectangle2D.Double(x, y, width, height));
         }
-        if (node.hasChildren()) {// 递归计算子节点布局
+        if (node.hasChildren()) {
             calculateLayoutImproved(node.getChildren(), x, y, width, height);
         }
     }
@@ -98,8 +98,8 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
         if (nodes == null || nodes.isEmpty()) return;
         double total = nodes.stream().mapToDouble(JTreeMapNode::getValue).sum();
         if (total <= 0) return;
-        nodes.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));// 按值排序以获得更好的视觉效果
-        boolean vertical = width < height; // 根据宽高比决定分割方向
+        nodes.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));
+        boolean vertical = width < height;
         double current = vertical ? y : x;
         double remaining = vertical ? height : width;
         for (int i = 0; i < nodes.size(); i++) {
@@ -114,8 +114,7 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
             }
             node.setRect(rect);
 
-            if (node.hasChildren()) { // 递归处理子节点 - 修复：正确处理所有层级的子节点
-                // 为子节点预留一些边距
+            if (node.hasChildren()) {
                 double childMargin = 1.0; // 1像素边距，避免重叠
                 double childX = rect.getX() + childMargin;
                 double childY = rect.getY() + childMargin;
@@ -136,7 +135,6 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
     private void drawTreemap(SVGGraphics2D svgGenerator, JTreeMapNode node, TreeMapOption option) {
         if (node.getRect() == null) return;
         if (node.getName().equals("公司业务")) {
-            // 只绘制子节点
             if (node.hasChildren()) {
                 for (JTreeMapNode child : node.getChildren()) {
                     drawTreemap(svgGenerator, child, option);
@@ -151,7 +149,7 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
         svgGenerator.setStroke(new BasicStroke(option.getBorderWidth()));
         svgGenerator.draw(node.getRect());
         drawNodeLabel(svgGenerator, node, color, option);
-        if (node.hasChildren()) {// 递归绘制子节点
+        if (node.hasChildren()) {
             for (JTreeMapNode child : node.getChildren()) {
                 drawTreemap(svgGenerator, child, option);
             }
@@ -162,20 +160,20 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
      * 获取节点颜色
      */
     private Color getNodeColor(JTreeMapNode node, TreeMapOption option) {
-        if (node.getColor() != null) {// 优先使用节点自身配置的颜色
+        if (node.getColor() != null) {
             return node.getColor();
         }
 
         Map<String, Color> categoryColors = option.getCategoryColors();
-        if (categoryColors.containsKey(node.getName())) {// 使用分类颜色映射
+        if (categoryColors.containsKey(node.getName())) {
             return categoryColors.get(node.getName());
         }
 
         Map<String, Color> departmentColors = option.getDepartmentColors();
-        if (departmentColors.containsKey(node.getName())) {// 使用部门颜色映射
+        if (departmentColors.containsKey(node.getName())) {
             return departmentColors.get(node.getName());
         }
-        return generateSimilarColor(node, option);// 自动生成相似颜色
+        return generateSimilarColor(node, option);
     }
 
     /**
@@ -189,7 +187,7 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
             return adjustColorBrightness(baseColor, node.getName().hashCode() % option.getColorDeltaRange() - (option.getColorDeltaRange() / 2)
             );
         }
-        if (!departmentColors.isEmpty()) {// 默认使用第一个部门的颜色
+        if (!departmentColors.isEmpty()) {
             Color defaultBase = departmentColors.values().iterator().next();
             return adjustColorBrightness(defaultBase, node.getName().hashCode() % 30 - 15);
         }
@@ -225,21 +223,20 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
     private void drawNodeLabel(SVGGraphics2D svgGenerator, JTreeMapNode node, Color bgColor, TreeMapOption option) {
         Rectangle2D rect = node.getRect();
         if (rect.getWidth() < option.getMinLabelWidth() || rect.getHeight() < option.getMinLabelHeight()) {
-            return; // 矩形太小不绘制标签
+            return;
         }
-        Color textColor = getContrastColor(bgColor);// 计算文本颜色（与背景色对比）
+        Color textColor = getContrastColor(bgColor);
         svgGenerator.setColor(textColor);
         svgGenerator.setFont(new Font(option.getFontFamily(), Font.PLAIN, option.getFontSize()));
         String label = node.getName();
         if (rect.getWidth() > option.getMinValueLabelWidth() && rect.getHeight() > option.getMinValueLabelHeight()) {
             label += " (" + node.getValue() + ")";
-        }// 决定是否显示数值
-        int textWidth = svgGenerator.getFontMetrics().stringWidth(label);// 文本过长时截断
+        }
+        int textWidth = svgGenerator.getFontMetrics().stringWidth(label);
         if (textWidth > rect.getWidth() - 10 && label.length() > option.getMaxLabelLength()) {
             label = label.substring(0, option.getMaxLabelLength() - 3) + "...";
             textWidth = svgGenerator.getFontMetrics().stringWidth(label);
         }
-        // 居中绘制文本
         if (textWidth < rect.getWidth() - 10) {
             double centerX = rect.getX() + rect.getWidth() / 2;
             double centerY = rect.getY() + rect.getHeight() / 2;
@@ -263,17 +260,15 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
         int startY = height - option.getMarginBottom() + 10;
         int boxSize = option.getLegendBoxSize();
         svgGenerator.setFont(new Font(option.getFontFamily(), Font.PLAIN, option.getLegendFontSize()));
-        // 绘制部门图例
         for (Map.Entry<String, Color> entry : option.getDepartmentColors().entrySet()) {
-            // 绘制颜色块
             svgGenerator.setColor(entry.getValue());
             svgGenerator.fillRect(startX, startY, boxSize, boxSize);
-            svgGenerator.setColor(Color.BLACK);// 绘制边框
+            svgGenerator.setColor(Color.BLACK);
             svgGenerator.drawRect(startX, startY, boxSize, boxSize);
             svgGenerator.drawString(entry.getKey(), startX + boxSize + 5, startY + boxSize - 3);
             startX += option.getLegendItemWidth();
         }
-        if (option.getLegendNote() != null) {// 绘制图例说明
+        if (option.getLegendNote() != null) {
             svgGenerator.setColor(option.getLegendNoteColor());
             svgGenerator.drawString(option.getLegendNote(), option.getMarginLeft(), startY + boxSize + option.getLegendNoteSpacing());
         }
