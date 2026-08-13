@@ -41,13 +41,13 @@ public class JHorizontalBarChartData implements JGraphData {
     @Data
     public static class BarData {
 
-        private String legendText;           // 图例文本
+        private String legendText;
 
-        private List<Double> values;         // 数值列表，长度与Y轴标签数一致
+        private List<Double> values;
 
-        private Color barColor;              // 条形颜色
+        private Color barColor;
 
-        private Color labelColor;            // 数据标签颜色（可选）
+        private Color labelColor;
 
         public BarData(String legendText, List<Double> values, Color barColor) {
             this.legendText = legendText;
@@ -63,36 +63,36 @@ public class JHorizontalBarChartData implements JGraphData {
         }
     }
 
-    // 画布尺寸
     private int width = 800;
 
     private int height = 500;
-    // 标题相关
+
     private String titleText;
 
     private String subtitleText;
-    // 坐标轴标题
-    private String xAxisTitle;   // X轴标题（数值轴）
 
-    private String yAxisTitle;   // Y轴标题（类别轴）
-    // Y轴标签（类别名称）
+    private String xAxisTitle;
+
+    private String yAxisTitle;
+
     private List<String> yAxisLabels = new ArrayList<>();
-    // 条形数据列表（支持多组并列）
-    private List<BarData> barDataList = new ArrayList<>();
-    // 最大值（自动计算）
-    private double maxValue = 0;
-    // 显示数据标签
-    private boolean showDataLabels = true;
-    // 数值是否带百分号
-    private boolean valueWithPercent = false;
-    // 网格线数量
-    private int gridCount = 5;
-    // 间距比例
-    private double groupSpacingRatio = 0.2;   // 组间距比例
 
-    private double barSpacingRatio = 0.3;     // 组内条形间距比例
-    // 底部说明文本
+    private List<BarData> barDataList = new ArrayList<>();
+
+    private double maxValue = 0;
+
+    private boolean showDataLabels = true;
+
+    private boolean valueWithPercent = false;
+
+    private int gridCount = 5;
+
+    private double groupSpacingRatio = 0.2;
+
+    private double barSpacingRatio = 0.3;
+
     private String footerText;
+
     public static final Color COLOR_A = new Color(84, 112, 198);  // #5470c6
 
     public static final Color COLOR_B = new Color(250, 200, 88);  // #fac858

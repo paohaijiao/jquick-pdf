@@ -63,12 +63,10 @@ public class SvgImage extends Image {
      * @param svgContent the SVG content as a string
      */
     public SvgImage(String svgContent) {
-        super(convertSvgToXObject(svgContent, -1, -1));
-        this.svgContent = svgContent;
+        this(svgContent, -1, -1);
         float[] diemonsions = JSvgUtil.parseSvgDimensions(svgContent);
         this.explicitWidth = diemonsions[0];
         this.explicitHeight = diemonsions[1];
-        this.setProperty(19, true); // Mark as reusable
     }
 
     /**
@@ -81,8 +79,17 @@ public class SvgImage extends Image {
     public SvgImage(String svgContent, float width, float height) {
         super(convertSvgToXObject(svgContent, width, height));
         this.svgContent = svgContent;
-        this.explicitWidth = width;
-        this.explicitHeight = height;
+        float[] dimensions = JSvgUtil.parseSvgDimensions(svgContent);
+        float svgWidth = dimensions[0];
+        float svgHeight = dimensions[1];
+        this.explicitWidth = width > 0 ? width : svgWidth;
+        this.explicitHeight = height > 0 ? height : svgHeight;
+        if (width > 0 && height <= 0 && svgWidth > 0) {
+            this.explicitHeight = svgHeight * (width / svgWidth);
+        } else if (height > 0 && width <= 0 && svgHeight > 0) {
+            this.explicitWidth = svgWidth * (height / svgHeight);
+        }
+        this.scaleAbsolute(this.explicitWidth, this.explicitHeight);
         this.setProperty(19, true);
     }
 

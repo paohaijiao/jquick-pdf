@@ -112,7 +112,7 @@
   <div style="margin-bottom:15px">
     <h2 style="color:#3498db; border-bottom:1px solid #3498db; padding-bottom:4px; font-size:13px; margin-bottom:10px">'信用评级雷达图'</h2>
     <div style="display:flex; justify-content:space-between; margin-top:10px">
-        <svg>${svg}</svg>
+        <svg style="width:400px;height:400px">${svg}</svg>
     </div>
     <div style="display:flex; justify-content:space-between; margin-top:10px">
       <div style="width:400px">

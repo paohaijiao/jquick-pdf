@@ -50,6 +50,8 @@ public class JQuickHorizontalBarChartTest {
         graphContainer.setType(JChartType.HorizontalBar);
         JHorizontalBarChartData chartData = new JHorizontalBarChartData();
         chartData.setTitleText("2024年度销售数据");
+        chartData.setWidth(300);
+        chartData.setHeight(400);
         chartData.setSubtitleText("各产品线销售占比");
         chartData.setXAxisTitle("销售额（万元）");
         chartData.setYAxisTitle("产品类别");

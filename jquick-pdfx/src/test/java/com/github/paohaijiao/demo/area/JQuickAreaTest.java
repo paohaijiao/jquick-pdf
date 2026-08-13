@@ -56,8 +56,8 @@ public class JQuickAreaTest {
         java.util.List<Double> values =Arrays.asList(85.0, 120.0, 150.0, 210.0, 280.0, 350.0, 420.0, 400.0, 380.0, 450.0, 480.0, 520.0);
         List<String> labels = Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
         JAreaChartData data = new JAreaChartData();
-        data.setWidth(800);
-        data.setHeight(500);
+        data.setWidth(500);
+        data.setHeight(400);
         data.setTitle("2024年度销售趋势");
         data.setSubtitle("数据来源：销售系统");
         data.setXAxisTitle("月份");
