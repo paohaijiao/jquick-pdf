@@ -86,7 +86,7 @@ public class JGanttChartRenderer extends JAbstractChartRenderer {
 
         int totalRows = computeTotalRows(flights);
         int startY = HEADER_HEIGHT;
-        int chartWidth = width - START_X - 8;
+        int chartWidth = width - START_X - 20;
         int available = height - HEADER_HEIGHT - LEGEND_SPACE;
         int rowHeight = Math.max(8, available / totalRows);
         int chartHeight = rowHeight * totalRows;
@@ -284,8 +284,6 @@ public class JGanttChartRenderer extends JAbstractChartRenderer {
         g2d.fillRoundRect(x + 12, swatchY, 18, 10, 3, 3);
         g2d.setColor(planned);
         g2d.drawRoundRect(x + 12, swatchY, 18, 10, 3, 3);
-        g2d.setColor(actual);
-        g2d.fillRect(x + 12 + 11, swatchY, 7, 10);
         g2d.setColor(TIME_TEXT_COLOR);
         g2d.drawString("计划时间", x + 38, textY);
 
