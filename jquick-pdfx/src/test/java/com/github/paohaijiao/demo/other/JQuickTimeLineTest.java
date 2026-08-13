@@ -16,7 +16,6 @@
 package com.github.paohaijiao.demo.other;
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.combol.JTimeLineData;
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.config.JPdfConfig;
@@ -24,9 +23,6 @@ import com.github.paohaijiao.data.JGraphContainer;
 import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.executor.JQuickPdfFactory;
-import com.github.paohaijiao.executor.JQuickPdfXExecutor;
-import com.github.paohaijiao.resouce.JReader;
-import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
 import java.awt.*;
@@ -41,7 +37,7 @@ import java.util.List;
  * @version 1.0.0
  * @since 2025/11/4
  */
-public class JTimeLineTest {
+public class JQuickTimeLineTest {
 
 
     public static final String path = JQuickConstant.path;
