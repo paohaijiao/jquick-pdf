@@ -34,29 +34,42 @@ public class JCorrelationMatrixRenderer extends JAbstractChartRenderer {
 
     private static final int DEFAULT_HEIGHT = 400;
 
-    // ---------- 配色 ----------
     private static final Color CANVAS_BG = new Color(243, 246, 252);
+
     private static final Color TITLE_COLOR = new Color(30, 41, 59);
+
     private static final Color SUBTITLE_COLOR = new Color(100, 116, 139);
+
     private static final Color LABEL_COLOR = new Color(71, 85, 105);
+
     private static final Color STRIP_BG = new Color(237, 242, 250);
+
     private static final Color MATRIX_BORDER = new Color(215, 223, 236);
+
     private static final Color LEGEND_BORDER = new Color(226, 232, 240);
+
     private static final Color CELL_TEXT_DARK = new Color(51, 65, 85);
 
-    // 发散色标：0 为浅色，±1 为强色
     private static final Color ZERO_POS = new Color(241, 245, 251);
+
     private static final Color POS_COLOR = new Color(37, 99, 235);
+
     private static final Color ZERO_NEG = new Color(253, 242, 242);
+
     private static final Color NEG_COLOR = new Color(220, 38, 38);
 
-    // ---------- 布局 ----------
     private static final int CELL_W = 84;
+
     private static final int CELL_H = 26;
+
     private static final int START_Y = 140;
+
     private static final int LEGEND_X = 640;
+
     private static final int LEGEND_Y = 34;
+
     private static final int LEGEND_W = 208;
+
     private static final int LEGEND_H = 72;
 
     @Override
@@ -71,22 +84,16 @@ public class JCorrelationMatrixRenderer extends JAbstractChartRenderer {
 
     @Override
     protected void drawChart(SVGGraphics2D g2d, JOption option, int width, int height) {
-        // 抗锯齿
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-
         JCorrelationMatrixOption matrixOption = option.getCorrelationMatrixOption();
         double[][] data = getCorrelationData(matrixOption);
         int rows = data.length;
         int cols = data[0].length;
-
-        // 画布背景
         g2d.setColor(CANVAS_BG);
         g2d.fillRect(0, 0, width, height);
-
         drawHeader(g2d, width, matrixOption);
         drawLegend(g2d, matrixOption);
-
         int startX = (width - cols * CELL_W) / 2;
         drawColumnStrip(g2d, startX, cols, matrixOption);
         drawMatrixBorder(g2d, startX, rows, cols);
@@ -117,18 +124,13 @@ public class JCorrelationMatrixRenderer extends JAbstractChartRenderer {
     }
 
     private void drawLegend(SVGGraphics2D g2d, JCorrelationMatrixOption option) {
-        // 白色圆角卡片
         g2d.setColor(Color.WHITE);
         g2d.fill(new RoundRectangle2D.Double(LEGEND_X, LEGEND_Y, LEGEND_W, LEGEND_H, 10, 10));
         g2d.setColor(LEGEND_BORDER);
         g2d.draw(new RoundRectangle2D.Double(LEGEND_X, LEGEND_Y, LEGEND_W, LEGEND_H, 10, 10));
-
-        // 标题
         g2d.setFont(new Font("Microsoft YaHei", Font.BOLD, 12));
         g2d.setColor(LABEL_COLOR);
         g2d.drawString("相关系数", LEGEND_X + 12, LEGEND_Y + 19);
-
-        // 发散渐变条：-1（红）→ 0（浅色）→ +1（蓝）
         int barX = LEGEND_X + 12;
         int barY = LEGEND_Y + 28;
         int barW = LEGEND_W - 24;
@@ -140,8 +142,6 @@ public class JCorrelationMatrixRenderer extends JAbstractChartRenderer {
         }
         g2d.setColor(LEGEND_BORDER);
         g2d.drawRect(barX, barY, barW, barH);
-
-        // 刻度
         g2d.setFont(new Font("Microsoft YaHei", Font.PLAIN, 10));
         g2d.setColor(LABEL_COLOR);
         FontMetrics fm = g2d.getFontMetrics();
@@ -152,11 +152,9 @@ public class JCorrelationMatrixRenderer extends JAbstractChartRenderer {
     }
 
     private void drawColumnStrip(SVGGraphics2D g2d, int startX, int cols, JCorrelationMatrixOption option) {
-        // 列头浅色渐变条
         int stripW = cols * CELL_W;
         g2d.setColor(STRIP_BG);
         g2d.fill(new RoundRectangle2D.Double(startX, START_Y - 22, stripW, 22, 8, 8));
-        // 列标签
         g2d.setFont(new Font("Microsoft YaHei", Font.BOLD, 12));
         g2d.setColor(LABEL_COLOR);
         String[] dimensions = getDimensions(option, cols, cols);
@@ -182,27 +180,20 @@ public class JCorrelationMatrixRenderer extends JAbstractChartRenderer {
                 Color cellColor = divergingColor(value);
                 int x = startX + j * CELL_W;
                 int y = START_Y + i * CELL_H;
-
-                // 圆角单元格（留 1px 间隙，形成现代热力图效果）
                 RoundRectangle2D cell = new RoundRectangle2D.Double(x + 1, y + 1, CELL_W - 2, CELL_H - 2, 5, 5);
                 g2d.setColor(cellColor);
                 g2d.fill(cell);
-
-                // 对角线（自相关=1）加白色高亮内圈
                 if (i == j) {
                     g2d.setColor(withAlpha(Color.WHITE, 150));
                     g2d.setStroke(new BasicStroke(1.5f));
                     g2d.draw(new RoundRectangle2D.Double(x + 2.5, y + 2.5, CELL_W - 5, CELL_H - 5, 4, 4));
                 }
-
-                // 数值文字
                 String text = String.format("%.2f", value);
                 boolean strong = Math.abs(value) >= 0.7;
                 g2d.setFont(new Font("Microsoft YaHei", strong ? Font.BOLD : Font.PLAIN, 12));
                 g2d.setColor(luminance(cellColor) < 0.5 ? Color.WHITE : CELL_TEXT_DARK);
                 FontMetrics fm = g2d.getFontMetrics();
-                g2d.drawString(text, x + (CELL_W - fm.stringWidth(text)) / 2,
-                        y + (CELL_H - fm.getHeight()) / 2 + fm.getAscent());
+                g2d.drawString(text, x + (CELL_W - fm.stringWidth(text)) / 2, y + (CELL_H - fm.getHeight()) / 2 + fm.getAscent());
             }
         }
     }
@@ -220,7 +211,6 @@ public class JCorrelationMatrixRenderer extends JAbstractChartRenderer {
         }
     }
 
-    // ---------- 数据与工具方法 ----------
 
     private double[][] getCorrelationData(JCorrelationMatrixOption option) {
         if (option != null && option.dataset() != null && option.dataset().sourceArray() != null) {

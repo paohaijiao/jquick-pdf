@@ -45,7 +45,7 @@ public class JQuickMatrixTest {
 
     private JOption createData() {
         try {
-            double[][] correlationData = {
+            double[][] correlationData = new double[][]{
                     {1.00, -0.20, 0.03, -0.62, -0.54, -0.21, 0.63, 0.30},
                     {-0.20, 1.00, 0.36, -0.61, -0.26, 0.05, 0.16, 0.41},
                     {0.03, 0.36, 1.00, -0.74, -0.94, 0.71, -0.90, -0.66},
