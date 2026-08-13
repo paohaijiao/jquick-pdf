@@ -41,6 +41,21 @@ import static com.github.paohaijiao.combol.JTimeLineData.*;
 @Data
 public class JTimeLineRenderer extends JAbstractChartRenderer {
 
+    // 页面布局常量
+    private static final int PAGE_MARGIN = 30;
+    private static final int HEADER_H = 120;
+    private static final Color PAGE_SHADOW = new Color(30, 41, 59, 26);
+    private static final Color PAGE_BG = new Color(232, 237, 245);
+    private static final Color HEADER_GRAD_START = new Color(38, 55, 98);
+    private static final Color HEADER_GRAD_END = new Color(82, 115, 185);
+    private static final Color SUBTITLE_ON_BAND = new Color(214, 224, 244);
+    private static final Color TIMELINE_GLOW = new Color(79, 129, 189, 40);
+    private static final Color ARROW_COLOR = new Color(110, 140, 205);
+    private static final Color CONNECTOR_COLOR = new Color(150, 170, 205);
+    private static final Color BOX_BORDER = new Color(228, 234, 244);
+    private static final Color DESC_COLOR = new Color(90, 105, 125);
+    private static final Color WATERMARK_COLOR = new Color(80, 112, 180, 14);
+    private static final Color DIVIDER_COLOR = new Color(226, 232, 240);
 
     private JTimeLineData config;
 
@@ -72,6 +87,7 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
         svgGenerator.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         svgGenerator.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         drawBackground(svgGenerator);
+        drawWatermark(svgGenerator);
         drawHeader(svgGenerator);
         drawMainTimeline(svgGenerator);
         drawAllBoxesAndCircles(svgGenerator);
@@ -147,49 +163,87 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
     }
 
     /**
-     * 绘制背景
+     * 绘制背景（海报式白色页面 + 柔和阴影）
      */
     private void drawBackground(SVGGraphics2D svg) {
-        svg.setPaint(config.getBackgroundColor());
-        svg.fillRect(0, 0, config.getWidth(), config.getHeight());
+        int w = config.getWidth();
+        int h = config.getHeight();
+        // 画布底色
+        svg.setPaint(PAGE_BG);
+        svg.fillRect(0, 0, w, h);
+        // 页面投影
+        svg.setPaint(PAGE_SHADOW);
+        svg.fillRoundRect(PAGE_MARGIN + 4, PAGE_MARGIN + 6, w - PAGE_MARGIN * 2, h - PAGE_MARGIN * 2, 24, 24);
+        // 白色页面
+        svg.setPaint(Color.WHITE);
+        svg.fillRoundRect(PAGE_MARGIN, PAGE_MARGIN, w - PAGE_MARGIN * 2, h - PAGE_MARGIN * 2, 24, 24);
     }
 
     /**
-     * 绘制头部标题（左上对齐）
+     * 装饰性水印圆环，衬托时间线区域
+     */
+    private void drawWatermark(SVGGraphics2D svg) {
+        int cx = config.getWidth() / 2;
+        int cy = layoutParams.timelineY;
+        svg.setPaint(WATERMARK_COLOR);
+        svg.setStroke(new BasicStroke(1.5f));
+        svg.drawOval(cx - 200, cy - 200, 400, 400);
+        svg.drawOval(cx - 260, cy - 260, 520, 520);
+        svg.drawOval(cx - 320, cy - 320, 640, 640);
+    }
+
+    /**
+     * 绘制头部：顶部渐变横幅 + 主标题/副标题
      */
     private void drawHeader(SVGGraphics2D svg) {
-        int leftMargin = config.getLeftMargin();
-        int currentY = config.getTitleY();
+        int w = config.getWidth();
+        // 顶部渐变横幅（上圆角）
+        GradientPaint headerGrad = new GradientPaint(PAGE_MARGIN, 0, HEADER_GRAD_START,
+                w - PAGE_MARGIN, 0, HEADER_GRAD_END);
+        svg.setPaint(headerGrad);
+        Path2D band = new Path2D.Double();
+        band.moveTo(PAGE_MARGIN, PAGE_MARGIN + 24);
+        band.quadTo(PAGE_MARGIN, PAGE_MARGIN, PAGE_MARGIN + 24, PAGE_MARGIN);
+        band.lineTo(w - PAGE_MARGIN - 24, PAGE_MARGIN);
+        band.quadTo(w - PAGE_MARGIN, PAGE_MARGIN, w - PAGE_MARGIN, PAGE_MARGIN + 24);
+        band.lineTo(w - PAGE_MARGIN, PAGE_MARGIN + HEADER_H);
+        band.lineTo(PAGE_MARGIN, PAGE_MARGIN + HEADER_H);
+        band.closePath();
+        svg.fill(band);
 
-        // 主标题 - 左上对齐
+        int textX = PAGE_MARGIN + 50;
+        // 主标题（白色）
         String mainTitle = config.getMainTitle();
         if (mainTitle != null && !mainTitle.isEmpty()) {
-            svg.setFont(config.getMainTitleFont());
-            svg.setPaint(COLOR_DARK);
-            svg.drawString(mainTitle, leftMargin, currentY);
-            currentY += 28;
+            svg.setFont(config.getMainTitleFont().deriveFont(Font.BOLD, 26f));
+            svg.setPaint(Color.WHITE);
+            svg.drawString(mainTitle, textX, PAGE_MARGIN + 66);
         }
-
-        // 副标题 - 左上对齐
+        // 副标题（浅蓝白）
         String subtitle = config.getSubtitle();
         if (subtitle != null && !subtitle.isEmpty()) {
-            svg.setFont(config.getSubtitleFont());
-            svg.setPaint(COLOR_MEDIUM);
-            svg.drawString(subtitle, leftMargin, currentY);
+            svg.setFont(config.getSubtitleFont().deriveFont(Font.PLAIN, 13f));
+            svg.setPaint(SUBTITLE_ON_BAND);
+            svg.drawString(subtitle, textX, PAGE_MARGIN + 96);
         }
     }
 
     /**
-     * 绘制主时间线（圆圈中心的水平线）
+     * 绘制主时间线（光晕 + 渐变主线）
      */
     private void drawMainTimeline(SVGGraphics2D svg) {
         int startX = layoutParams.circleX[0] - layoutParams.circleRadius;
         int endX = layoutParams.circleX[layoutParams.nodeCount - 1] + layoutParams.circleRadius;
         int timelineY = layoutParams.timelineY;
 
-        // 主时间线（实线）
-        svg.setStroke(new BasicStroke(2.5f));
-        svg.setPaint(COLOR_PRIMARY_LIGHT);
+        // 柔和光晕
+        svg.setStroke(new BasicStroke(9f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        svg.setPaint(TIMELINE_GLOW);
+        svg.drawLine(startX, timelineY, endX, timelineY);
+        // 渐变主线
+        svg.setPaint(new GradientPaint(startX, timelineY, new Color(120, 148, 218),
+                endX, timelineY, new Color(52, 84, 150)));
+        svg.setStroke(new BasicStroke(3f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
         svg.drawLine(startX, timelineY, endX, timelineY);
     }
 
@@ -216,6 +270,7 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
         int boxY = layoutParams.boxY[index];
         int boxWidth = layoutParams.boxWidth;
         int boxHeight = layoutParams.boxHeight;
+        Color boxColor = node.getBoxColor() != null ? node.getBoxColor() : config.getDefaultBoxColor();
 
         // 边界检查
         if (boxX < 10) {
@@ -225,34 +280,32 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
             boxX = config.getWidth() - boxWidth - 10;
         }
         // 阴影效果
-        svg.setPaint(COLOR_BOX_SHADOW);
-        svg.fillRoundRect(boxX + 2, boxY + 2, boxWidth, boxHeight, 8, 8);
-        // 矩形框背景
-        svg.setPaint(COLOR_BOX_BG);
-        svg.fillRoundRect(boxX, boxY, boxWidth, boxHeight, 8, 8);
-        // 矩形框边框
-        Color boxColor = node.getBoxColor() != null ? node.getBoxColor() : config.getDefaultBoxColor();
-        svg.setStroke(new BasicStroke(1.5f));
+        svg.setPaint(new Color(30, 41, 59, 30));
+        svg.fillRoundRect(boxX + 3, boxY + 4, boxWidth, boxHeight, 10, 10);
+        // 矩形框白色背景
+        svg.setPaint(Color.WHITE);
+        svg.fillRoundRect(boxX, boxY, boxWidth, boxHeight, 10, 10);
+        // 细边框
+        svg.setStroke(new BasicStroke(1f));
+        svg.setPaint(BOX_BORDER);
+        svg.drawRoundRect(boxX, boxY, boxWidth, boxHeight, 10, 10);
+        // 左侧彩色竖条
         svg.setPaint(boxColor);
-        svg.drawRoundRect(boxX, boxY, boxWidth, boxHeight, 8, 8);
-        // 顶部色条
-        svg.setPaint(boxColor);
-        svg.fillRoundRect(boxX, boxY, boxWidth, 4, 8, 8);
-        svg.fillRect(boxX, boxY + 2, boxWidth, 2);
+        svg.fillRoundRect(boxX, boxY, 6, boxHeight, 3, 3);
 
         // 绘制矩形框内的文字
-        drawBoxText(svg, node, boxX, boxY, boxWidth, boxHeight);
+        drawBoxText(svg, node, boxColor, boxX, boxY, boxWidth, boxHeight);
     }
 
     /**
      * 绘制矩形框内的文字
      */
-    private void drawBoxText(SVGGraphics2D svg, JTimeLineData.FlowNode node, int boxX, int boxY, int boxWidth, int boxHeight) {
-        // 标题
+    private void drawBoxText(SVGGraphics2D svg, JTimeLineData.FlowNode node, Color boxColor, int boxX, int boxY, int boxWidth, int boxHeight) {
+        // 标题（使用节点主题色）
         String title = node.getTitle();
         if (title != null && !title.isEmpty()) {
             svg.setFont(config.getBoxTitleFont());
-            svg.setPaint(COLOR_DARK);
+            svg.setPaint(boxColor);
             FontMetrics fm = svg.getFontMetrics();
             int textX = boxX + (boxWidth - fm.stringWidth(title)) / 2;
             int textY = boxY + config.getBoxTitlePaddingTop();
@@ -263,7 +316,7 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
         String description = node.getDescription();
         if (description != null && !description.isEmpty()) {
             svg.setFont(config.getBoxDescFont());
-            svg.setPaint(COLOR_MEDIUM);
+            svg.setPaint(DESC_COLOR);
 
             String[] lines = description.split("\\|");
             FontMetrics fm = svg.getFontMetrics();
@@ -314,8 +367,9 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
             lineEndY = boxY;
         }
 
-        svg.setStroke(new BasicStroke(1.5f));
-        svg.setPaint(COLOR_BORDER);
+        svg.setStroke(new BasicStroke(1.6f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND,
+                0f, new float[]{4f, 4f}, 0f));
+        svg.setPaint(CONNECTOR_COLOR);
         svg.drawLine(lineStartX, lineStartY, lineEndX, lineEndY);
     }
 
@@ -329,7 +383,7 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
         int radius = layoutParams.circleRadius;
         Color nodeColor = node.getNodeColor() != null ? node.getNodeColor() : config.getDefaultNodeColor();
         // 外光晕
-        svg.setPaint(new Color(nodeColor.getRed(), nodeColor.getGreen(), nodeColor.getBlue(), 40));
+        svg.setPaint(new Color(nodeColor.getRed(), nodeColor.getGreen(), nodeColor.getBlue(), 55));
         svg.fillOval(circleX - radius - 5, circleY - radius - 5, (radius + 5) * 2, (radius + 5) * 2);
         // 外圈白色
         svg.setPaint(Color.WHITE);
@@ -372,8 +426,8 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
         // 箭头终点（到下一个圆圈的左侧）
         int arrowEndX = toCircleX - radius;
         // 绘制连接线
-        svg.setStroke(new BasicStroke(2));
-        svg.setPaint(COLOR_PRIMARY_LIGHT);
+        svg.setStroke(new BasicStroke(2.4f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+        svg.setPaint(ARROW_COLOR);
         svg.drawLine(arrowStartX, circleY, arrowEndX - 8, circleY);
         // 绘制箭头头部
         drawArrowHead(svg, arrowEndX - 8, circleY, arrowEndX, circleY);
@@ -398,18 +452,25 @@ public class JTimeLineRenderer extends JAbstractChartRenderer {
     }
 
     /**
-     * 绘制底部（简洁版，无装饰线）
+     * 绘制底部：分隔线 + 右下对齐脚注
      */
     private void drawFooter(SVGGraphics2D svg) {
         if (config.getFooterText() == null || config.getFooterText().isEmpty()) {
             return;
         }
+        int w = config.getWidth();
+        int h = config.getHeight();
+        // 分隔线
+        svg.setStroke(new BasicStroke(1f));
+        svg.setPaint(DIVIDER_COLOR);
+        svg.drawLine(PAGE_MARGIN + 50, h - PAGE_MARGIN - 40, w - PAGE_MARGIN - 50, h - PAGE_MARGIN - 40);
 
+        // 脚注（右下对齐）
         svg.setFont(config.getFooterFont());
         svg.setPaint(COLOR_LIGHT);
         FontMetrics fm = svg.getFontMetrics();
-        int textX = config.getLeftMargin();
-        svg.drawString(config.getFooterText(), textX, layoutParams.footerY);
+        int textX = w - PAGE_MARGIN - 50 - fm.stringWidth(config.getFooterText());
+        svg.drawString(config.getFooterText(), textX, h - PAGE_MARGIN - 14);
     }
 
     /**
