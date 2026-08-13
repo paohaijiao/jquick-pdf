@@ -49,8 +49,9 @@ public class JSunburstChart extends JAbstractChartRenderer {
     private static final int SVG_WIDTH = 800;
     private static final int SVG_HEIGHT = 800;
     private static final int CENTER_X = SVG_WIDTH / 2;
-    private static final int CENTER_Y = SVG_HEIGHT / 2;
-    private static final int[] RADII = {60, 140, 220, 300, 360};
+    // 中心下移，为顶部标题预留空间，避免标题与图表重叠
+    private static final int CENTER_Y = 355;
+    private static final int[] RADII = {45, 105, 165, 225, 280};
     private static final Color NO_DATA_FILL = new Color(248, 249, 250);
     private static final Color NO_DATA_STROKE = new Color(233, 236, 239);
 
@@ -313,7 +314,7 @@ public class JSunburstChart extends JAbstractChartRenderer {
      */
     private void drawLegend(SVGGraphics2D g, JSunburstData root) {
         int legendX = 50;
-        int legendY = 650;
+        int legendY = 665;
 
         // 图例标题
         g.setColor(new Color(85, 85, 85));
@@ -377,7 +378,8 @@ public class JSunburstChart extends JAbstractChartRenderer {
     private void drawInteractionInfo(SVGGraphics2D g) {
         g.setColor(new Color(119, 119, 119));
         g.setFont(new Font("Arial", Font.PLAIN, 11));
-        g.drawString("提示：悬停查看详细信息", 600, 650);
+        // 底部居中，避开图表与图例
+        g.drawString("提示：悬停查看详细信息", 400, 775);
     }
 
     /**
