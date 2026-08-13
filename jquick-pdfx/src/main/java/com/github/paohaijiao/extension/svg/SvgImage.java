@@ -51,6 +51,8 @@ import java.net.URL;
  */
 public class SvgImage extends Image {
     private static final float DEFAULT_DPI = 72f;
+    private static final float RENDER_DPI = 300f;
+    private static final float PNG_SCALE = RENDER_DPI / DEFAULT_DPI;
     private String svgContent;
     private float explicitWidth = -1;
     private float explicitHeight = -1;
@@ -187,8 +189,11 @@ public class SvgImage extends Image {
                 finalWidth = svgWidth * (height / svgHeight);
             }
 
-            transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, finalWidth);
-            transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, finalHeight);
+            float rasterWidth = Math.max(1f, finalWidth * PNG_SCALE);
+            float rasterHeight = Math.max(1f, finalHeight * PNG_SCALE);
+
+            transcoder.addTranscodingHint(PNGTranscoder.KEY_WIDTH, rasterWidth);
+            transcoder.addTranscodingHint(PNGTranscoder.KEY_HEIGHT, rasterHeight);
 
             ByteArrayOutputStream pngOutputStream = new ByteArrayOutputStream();
             TranscoderOutput output = new TranscoderOutput(pngOutputStream);
