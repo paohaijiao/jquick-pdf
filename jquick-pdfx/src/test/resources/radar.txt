@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="450" viewBox="0 0 500 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="108" viewBox="0 0 500 450">
                 <!-- 雷达图背景 -->
                 <g transform="translate(250, 200)">
                     <!-- 绘制5层同心六边形 -->
