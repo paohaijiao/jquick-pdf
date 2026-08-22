@@ -3,8 +3,30 @@
 > 已被收录至 [Awesome Java](https://github.com/akullpp/awesome-java) 的 **PDF** 精选章节
 > 
 [简体中文] | [ENGLISH](./README-EN.md)
+# v1.0.1 — 许可证合规追溯更正
+> 📌 **无任何功能变更，本版本仅做法律合规层面的追溯更正**
 
+## 🔴 重要追溯许可证声明
+**本项目所有 4.0.0 及以下版本，追溯生效采用 AGPL‑3.0 协议。**
 
+### 更正原因
+本项目依赖 **iText 7**，该组件使用 AGPL‑3.0 著佐权协议分发。
+受 AGPL‑3.0 著佐权（传染性）条款约束，包含本项目在内的衍生作品必须使用 AGPL‑3.0。
+此前标注的 Apache‑2.0 许可证属于错误声明，**对于全部 ≤4.0.0 的版本正式撤销该声明**。
+
+- 项目输出PDF文件保留 "Powered by iText" 标识，满足iText协议署名义务。
+
+### 对用户的影响
+✅ **开源项目使用者**：4.0.0及以下全部版本，可以在 AGPL‑3.0 条款下免费使用。
+⚠️ **闭源商业项目使用者**：
+若用于闭源商业集成，需要向 iText Group NV 购买商业许可证；
+也可持续关注后续基于 Apache PDFBox 的适配版本。
+
+### 后续计划
+- [ ] 评估迁移 Apache PDFBox，计划发布兼容 Apache‑2.0 的版本。
+
+感谢各位理解与支持。
+---
 > JQuickPDF 是一个纯 Java 库，专门用于将类似HTML和Css样式的语法渲染为 PDF，  
 > **完全不依赖任何浏览器或外部渲染引擎**。
 > **支持条形图，地图，雷达，饼图等常用Echart 图形**。
@@ -18,7 +40,7 @@
 - 📊 **图形丰富**  
  支持30多种常见echart 图形
 - 💰 **开源免费**  
-  基于 Apache 协议
+  基于 AGPL-3.0 协议
 ---
 
 
@@ -61,7 +83,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
 [![GitHub forks](https://img.shields.io/github/forks/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Forks)](https://github.com/paohaijiao/jquick-pdf)
 [![GitHub issues](https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Issues)](https://github.com/paohaijiao/jquick-pdf/issues)
-[![GitHub license](https://img.shields.io/github/license/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=License)](https://opensource.org/licenses/Apache-2.0)
+[![GitHub license](https://img.shields.io/github/license/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=License)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 ---
 

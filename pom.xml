@@ -166,8 +166,9 @@
     <url>https://github.com/paohaijiao/jquick-pdf</url>
     <licenses>
         <license>
-            <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <name>GNU Affero General Public License v3.0</name>
+            <url>https://www.gnu.org/licenses/agpl‑3.0.html</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
     <developers>

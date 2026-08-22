@@ -4,6 +4,34 @@
 > 
 [简体中文](./README.md) | [ENGLISH]
 
+# v1.0.1 — License Compliance Retrospective Correction
+> 📌 **NO functional changes. This is a pure legal‑compliance retrospective correction release.**
+
+---
+
+## 🔴 Important Retrospective License Statement
+**All project versions 4.0.0 and below are retroactively licensed under AGPL‑3.0.**
+
+### Reason for Correction
+The project depends on **iText 7**, which is distributed under the AGPL‑3.0 copyleft license.
+Due to AGPL‑3.0 copyleft (infectious) terms, all derivative works including our project must adopt AGPL‑3.0.
+Formerly‑stated Apache‑2.0 license was an error and is formally revoked for all versions ≤4.0.0.
+
+- Generated PDF artifacts retain "Powered by iText" attribution to satisfy iText license obligations.
+
+### User Impact
+✅ **Open‑source project users**: All versions ≤4.0.0 may be freely used under AGPL‑3.0 terms.
+⚠️ **Closed‑source / commercial users**:
+You must obtain a commercial license from iText Group NV for closed‑source integration.
+Alternatively, follow our roadmap for the upcoming Apache PDFBox‑based variant.
+
+### Roadmap
+- [ ] Evaluate migration to Apache PDFBox for a future Apache‑2.0‑compatible release.
+
+Thank you for your understanding and support.
+
+---
+
 > JQuickPDF is a pure Java library specifically designed to render syntax like HTML and CSS styles into PDFs,
 
 > **It does not rely on any browser or external rendering engine at all**。
@@ -18,7 +46,7 @@
 - 📊 **graphics-rich**  
   Supports over 20 common Echart graphics
 - 💰 **open source and free**  
-  under the Apache License
+  under the AGPL-3.0 License
 ---
 
 
@@ -61,7 +89,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars)](https://github.com/paohaijiao/jquick-pdf)
 [![GitHub forks](https://img.shields.io/github/forks/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Forks)](https://github.com/paohaijiao/jquick-pdf)
 [![GitHub issues](https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Issues)](https://github.com/paohaijiao/jquick-pdf/issues)
-[![GitHub license](https://img.shields.io/github/license/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=License)](https://opensource.org/licenses/Apache-2.0)
+[![GitHub license](https://img.shields.io/github/license/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=License)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 ---
 
