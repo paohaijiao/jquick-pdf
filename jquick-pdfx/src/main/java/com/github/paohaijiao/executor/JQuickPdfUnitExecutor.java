@@ -21,13 +21,12 @@ import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXStyleVisitor;
-import com.itextpdf.layout.properties.UnitValue;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
 
-public class JQuickPdfUnitExecutor extends JAbstractAntlrExecutor<String, UnitValue> {
+public class JQuickPdfUnitExecutor extends JAbstractAntlrExecutor<String, Float> {
 
     private JContext context;
 
@@ -50,11 +49,11 @@ public class JQuickPdfUnitExecutor extends JAbstractAntlrExecutor<String, UnitVa
     }
 
     @Override
-    protected UnitValue parse(Parser parser) throws JAntlrExecutionException {
+    protected Float parse(Parser parser) throws JAntlrExecutionException {
         JQuickPDFParser calcParser = (JQuickPDFParser) parser;
         JQuickPDFParser.UnitContext tree = calcParser.unit();
         JPdfXStyleVisitor visitor = new JPdfXStyleVisitor();
-        UnitValue response = visitor.visitUnit(tree);
+        Float response = visitor.visitUnit(tree);
         return response;
     }
 }

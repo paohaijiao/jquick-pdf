@@ -25,38 +25,7 @@ package com.github.paohaijiao.visitor;
  * @description
  */
 public class JPdfXLayOutVisitor extends JPdfXStyleVisitor {
-//    @Override
-//    public PageSize visitLayoutOption(JQuickPDFParser.LayoutOptionContext ctx) {
-//        if (ctx.A0() != null) return PageSize.A0;
-//        if (ctx.A1() != null) return PageSize.A1;
-//        if (ctx.A2() != null) return PageSize.A2;
-//        if (ctx.A3() != null) return PageSize.A3;
-//        if (ctx.A4() != null) return PageSize.A4;
-//        if (ctx.A5() != null) return PageSize.A5;
-//        if (ctx.A6() != null) return PageSize.A6;
-//        if (ctx.A7() != null) return PageSize.A7;
-//        if (ctx.A8() != null) return PageSize.A8;
-//        if (ctx.A9() != null) return PageSize.A9;
-//        if (ctx.A10() != null) return PageSize.A10;
-//        if (ctx.B0() != null) return PageSize.B0;
-//        if (ctx.B1() != null) return PageSize.B1;
-//        if (ctx.B2() != null) return PageSize.B2;
-//        if (ctx.B3() != null) return PageSize.B3;
-//        if (ctx.B4() != null) return PageSize.B4;
-//        if (ctx.B5() != null) return PageSize.B5;
-//        if (ctx.B6() != null) return PageSize.B6;
-//        if (ctx.B7() != null) return PageSize.B7;
-//        if (ctx.B8() != null) return PageSize.B8;
-//        if (ctx.B9() != null) return PageSize.B9;
-//        if (ctx.B10() != null) return PageSize.B10;
-//        if (ctx.DEFAULT() != null) return PageSize.A4;
-//        if (ctx.EXECUTIVE() != null) return PageSize.EXECUTIVE;
-//        if (ctx.LEDGER() != null) return PageSize.LEDGER;
-//        if (ctx.LEGAL() != null) return PageSize.LEGAL;
-//        if (ctx.LETTER() != null) return PageSize.LETTER;
-//        if (ctx.TABLOID() != null) return PageSize.TABLOID;
-//        return PageSize.A4;
-//    }
+
 
 
 }

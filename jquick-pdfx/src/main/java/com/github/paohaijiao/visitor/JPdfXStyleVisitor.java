@@ -25,10 +25,7 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.unit.JUnitConverter;
 import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.DeviceRgb;
-import com.itextpdf.layout.properties.UnitValue;
-
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -90,19 +87,19 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
     }
 
     @Override
-    public Color visitColor(JQuickPDFParser.ColorContext ctx) {
+    public PDColor visitColor(JQuickPDFParser.ColorContext ctx) {
         if (ctx == null) {
             return null; // or return a default color
         }
         if (ctx.getText().startsWith("#")) {
-            DeviceRgb rgb = JColorEnums.convertHexToRgb(ctx.getText());
+            PDColor rgb = JColorEnums.convertHexToRgb(ctx.getText());
             return rgb;
         } else if (null != ctx.RGB_COLOR()) {
             String[] numbers = ctx.RGB_COLOR().getText().trim().replace("rgb(", "").replace(")", "").split(",");
             int r = Integer.parseInt(numbers[0].trim());
             int g = Integer.parseInt(numbers[1].trim());
             int b = Integer.parseInt(numbers[2].trim());
-            Color rgb = JColorEnums.colorOf(r, g, b);
+            PDColor rgb = JColorEnums.colorOf(r, g, b);
             return rgb;
         } else if (null != ctx.CMYK_COLOR()) {
             String[] numbers = ctx.CMYK_COLOR().getText().trim().replace("cmyk(", "").replace(")", "").split(",");
@@ -110,7 +107,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             BigDecimal m = new BigDecimal(numbers[1]);
             BigDecimal y = new BigDecimal(numbers[2]);
             BigDecimal k = new BigDecimal(numbers[3]);
-            Color rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
+            PDColor rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
             return rgb;
         } else if (null != ctx.CMYK_PERCENT()) {
             String[] numbers = ctx.CMYK_PERCENT().getText().trim().replace("cmyk(", "").replace(")", "").replace("%", "").split(",");
@@ -118,7 +115,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             BigDecimal m = new BigDecimal(numbers[1]);
             BigDecimal y = new BigDecimal(numbers[2]);
             BigDecimal k = new BigDecimal(numbers[3]);
-            Color rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
+            PDColor rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
             return rgb;
         } else if (null != ctx.COLORENUM()) {
             String color = ctx.COLORENUM().getText().trim();
@@ -128,7 +125,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
     }
 
     @Override
-    public UnitValue visitUnit(JQuickPDFParser.UnitContext ctx) {
+    public Float visitUnit(JQuickPDFParser.UnitContext ctx) {
         if (null != ctx.NUMBERUNIT()) {
             String unit = ctx.NUMBERUNIT().getText();
             Pattern pattern = Pattern.compile("\\d+\\.?\\d*");
@@ -138,7 +135,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
                 f = Float.parseFloat(matcher.group());
             }
             String code = unit.replaceAll("[0-9.]", "").trim();
-            UnitValue unitValue = JUnitConverter.create(f, code);
+            float unitValue = JUnitConverter.create(f, code);
             return unitValue;
         }
         return null;
@@ -158,10 +155,10 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         if (ctx.NUMBERUNIT() != null && ctx.NUMBERUNIT().size() == 4) {
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             String txt = ctx.NUMBERUNIT().get(0).getText();
-            UnitValue first = executor.execute(ctx.NUMBERUNIT().get(0).getText());
-            UnitValue second = executor.execute(ctx.NUMBERUNIT().get(1).getText());
-            UnitValue third = executor.execute(ctx.NUMBERUNIT().get(2).getText());
-            UnitValue four = executor.execute(ctx.NUMBERUNIT().get(3).getText());
+            float first = executor.execute(ctx.NUMBERUNIT().get(0).getText());
+            float second = executor.execute(ctx.NUMBERUNIT().get(1).getText());
+            float third = executor.execute(ctx.NUMBERUNIT().get(2).getText());
+            float four = executor.execute(ctx.NUMBERUNIT().get(3).getText());
             JMarginModel m = new JMarginModel();
             m.setFirst(first);
             m.setSecond(second);
@@ -171,6 +168,5 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         }
         return null;
     }
-
 
 }

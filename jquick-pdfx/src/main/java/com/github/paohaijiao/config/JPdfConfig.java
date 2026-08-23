@@ -15,7 +15,7 @@
  */
 package com.github.paohaijiao.config;
 
-import com.itextpdf.kernel.geom.PageSize;
+import com.github.paohaijiao.visitor.JPdfXCoreVisitor;
 import lombok.Data;
 
 import java.util.Arrays;
@@ -33,9 +33,13 @@ import java.util.List;
 @Data
 public class JPdfConfig {
 
-    private PageSize defaultPageSize = PageSize.A4;
+    private JPdfXCoreVisitor.PageSize defaultPageSize = JPdfXCoreVisitor.PageSize.A4;
 
-    private List<Integer> margins = Arrays.asList(0, 0, 0, 0);
+    private String author=null;
+
+    private String title=null;
+
+    private List<Float> margins = Arrays.asList(0f, 0f, 0f, 0f);
 
     private Boolean reverse = true;
 

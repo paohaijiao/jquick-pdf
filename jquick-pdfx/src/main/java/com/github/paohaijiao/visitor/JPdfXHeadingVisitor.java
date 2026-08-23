@@ -18,13 +18,10 @@ package com.github.paohaijiao.visitor;
 import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.kernel.colors.ColorConstants;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.ILeafElement;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.TabStop;
-import com.itextpdf.layout.properties.TextAlignment;
-
+import com.github.paohaijiao.visitor.context.JQuickRenderContext;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import java.io.IOException;
+import java.util.List;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,6 +36,7 @@ import java.util.List;
  * @description
  */
 public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
+
 
     private static Paragraph createHeading(Paragraph heading, int level) {
         heading.setFont(JFontProviderFactory.defualtFont());

@@ -83,25 +83,27 @@ public class JUnitConverter {
         }
     }
 
-    public static UnitValue create(float value, String unit) {
+    public static float create(float value, String unit) {
         if (unit == null || unit.isEmpty()) {
-            throw new IllegalArgumentException("单位不能为空");
+            return value;
         }
         switch (unit.toLowerCase()) {
-            case "px":
-                return UnitValue.createPointValue(pxToPt(value));
             case "pt":
-                return UnitValue.createPointValue(value);
+                return value;
             case "mm":
-                return UnitValue.createPointValue(mmToPt(value));
+                return value * 72f / 25.4f;
             case "cm":
-                return UnitValue.createPointValue(cmToPt(value));
+                return value * 72f / 2.54f;
             case "in":
-                return UnitValue.createPointValue(inchToPt(value));
+                return value * 72f;
+            case "px":
+                return value * 72f / 96f;
+            case "em":
+                return value * 12f;
             case "%":
-                return UnitValue.createPercentValue(value);
+                return value / 100f;
             default:
-                throw new IllegalArgumentException("不支持的单位: " + unit);
+                return value;
         }
     }
 
@@ -141,27 +143,27 @@ public class JUnitConverter {
         return pt / PT_PER_INCH;
     }
 
-    public static UnitValue px(float value) {
+    public static float px(float value) {
         return create(value, "px");
     }
 
-    public static UnitValue pt(float value) {
+    public static float pt(float value) {
         return create(value, "pt");
     }
 
-    public static UnitValue mm(float value) {
+    public static float mm(float value) {
         return create(value, "mm");
     }
 
-    public static UnitValue cm(float value) {
+    public static float cm(float value) {
         return create(value, "cm");
     }
 
-    public static UnitValue in(float value) {
+    public static float in(float value) {
         return create(value, "in");
     }
 
-    public static UnitValue percent(float value) {
+    public static float percent(float value) {
         return create(value, "%");
     }
 

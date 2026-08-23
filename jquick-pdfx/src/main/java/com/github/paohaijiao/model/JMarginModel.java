@@ -21,11 +21,11 @@ import lombok.Data;
 @Data
 public class JMarginModel {
 
-    private UnitValue first;
+    private float first;
 
-    private UnitValue second;
+    private float second;
 
-    private UnitValue third;
+    private float third;
 
-    private UnitValue fourth;
+    private float fourth;
 }

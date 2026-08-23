@@ -30,6 +30,10 @@
             <groupId>com.itextpdf</groupId>
             <artifactId>layout</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+        </dependency>
     </dependencies>
     <description>
         jquick-pdf is an enterprise-grade PDF generation framework built on top of iText 7 Core,
