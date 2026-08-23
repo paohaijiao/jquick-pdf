@@ -1,5 +1,6 @@
 package com.github.paohaijiao.visitor.context;
 
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 import lombok.Builder;
@@ -37,6 +38,8 @@ public class JQuickRenderContext {
     private float pageWidth;
 
     private float pageHeight;
+
+    private PDDocument document;
 
     private float[] margins;
 

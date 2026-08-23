@@ -19,8 +19,6 @@ import com.github.paohaijiao.enums.JHtmlPageBreakTypeEnums;
 import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.html2pdf.attach.impl.layout.HtmlPageBreak;
-import com.itextpdf.html2pdf.attach.impl.layout.HtmlPageBreakType;
 import org.apache.commons.lang3.StringUtils;
 
 /**

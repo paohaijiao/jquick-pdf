@@ -15,11 +15,9 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
-import com.itextpdf.layout.element.LineSeparator;
+import com.github.paohaijiao.visitor.element.JQuickLineSeparatorElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -33,22 +31,15 @@ import com.itextpdf.layout.element.LineSeparator;
 public class JPdfXLineSeparaterVisitor extends JPdfXInputFieldVisitor {
 
     @Override
-    public LineSeparator visitLineSeparator(JQuickPDFParser.LineSeparatorContext ctx) {
-        LineSeparator line = new LineSeparator(new SolidLine());
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
+    public JQuickLineSeparatorElementRender visitLineSeparator(JQuickPDFParser.LineSeparatorContext ctx) {
+        JStyleAttributes style;
+        if (ctx.styleEle() != null) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        String value = "";
-        if (null != ctx.IDENTIFIER()) {
-            value = ctx.IDENTIFIER().getText();
-        }
-        line.setFont(JFontProviderFactory.defualtFont());
+        JQuickLineSeparatorElementRender line = new JQuickLineSeparatorElementRender(style);
         super.buildStyle(line, style);
         return line;
     }
-
-
 }

@@ -131,20 +131,20 @@ public class JQuickTextElementRender implements JQuickElementRender {
         // 3. 处理换行符（分割多行）
         String[] lines = text.split("\n", -1);
         if (lines.length > 1) {
-            // 多行文本，逐行绘制
             float currentY = getEffectiveY(context);
             for (String line : lines) {
                 if (!line.isEmpty()) {
                     drawSingleLine(stream, context, line, currentY);
                 }
-                // 换行
                 currentY -= getEffectiveLineHeight(context);
             }
+            context.setCursorY(currentY);
             return;
         }
 
-        // 4. 单行文本绘制
-        drawSingleLine(stream, context, text, getEffectiveY(context));
+        float drawY = getEffectiveY(context);
+        drawSingleLine(stream, context, text, drawY);
+        context.setCursorY(drawY - getEffectiveLineHeight(context));
 
     }
     /**

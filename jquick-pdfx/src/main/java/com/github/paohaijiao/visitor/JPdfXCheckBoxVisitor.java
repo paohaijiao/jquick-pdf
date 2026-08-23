@@ -15,15 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
-
-import com.github.paohaijiao.model.JHtmlRenderModel;
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.layout.element.IElement;
-
-import java.util.List;
-
+import com.github.paohaijiao.visitor.element.JQuickCheckBoxElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -37,26 +32,26 @@ import java.util.List;
 public class JPdfXCheckBoxVisitor extends JPdfXButtonVisitor {
 
     @Override
-    public JHtmlRenderModel visitCheckbox(JQuickPDFParser.CheckboxContext ctx) {
-        String style = "";
+    public JQuickCheckBoxElementRender visitCheckbox(JQuickPDFParser.CheckboxContext ctx) {
+        JStyleAttributes style;
         String value = "";
-        String checkStatus = "";
+        boolean checked = false;
         if (ctx.styleEle() != null) {
-            style = ctx.styleEle().getText();
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
         if (ctx.checkboxStatus() != null) {
-            checkStatus = "checked";
+            checked = true;
         }
         if (ctx.value() != null) {
-            value = ctx.value().getText();
+            Object val = visitValue(ctx.value());
+            if (val != null) {
+                value = val.toString();
+            }
         }
-        String checkbox = String.format("<input type=\"checkbox\" id=\"checkBoxItem\" %s  %s>" + "<label for=\"checkBoxItem\">%s</label><br>\n", style, checkStatus, JStringUtils.trim(value));
-        List<IElement> iElements = HtmlConverter.convertToElements(checkbox, proper);
-        JHtmlRenderModel jHtmlRenderModel = new JHtmlRenderModel();
-        jHtmlRenderModel.setList(iElements);
-        //areaBreak.setFont(JFontProviderFactory.defualtFont());
-        return jHtmlRenderModel;
+        JQuickCheckBoxElementRender checkBoxElement = new JQuickCheckBoxElementRender(checked, JStringUtils.trim(value), style);
+        super.buildStyle(checkBoxElement, style);
+        return checkBoxElement;
     }
-
-
 }

@@ -15,14 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.model.JHtmlRenderModel;
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.layout.element.IElement;
-
-import java.util.List;
-
+import com.github.paohaijiao.visitor.element.JQuickButtonElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -35,22 +31,22 @@ import java.util.List;
  */
 public class JPdfXButtonVisitor extends JPdfXAreaBreakVisitor {
     @Override
-    public JHtmlRenderModel visitButton(JQuickPDFParser.ButtonContext ctx) {
-        String style = "";
+    public JQuickButtonElementRender visitButton(JQuickPDFParser.ButtonContext ctx) {
+        JStyleAttributes style;
         String value = "";
         if (ctx.styleEle() != null) {
-            style = ctx.styleEle().getText();
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
         if (ctx.value() != null) {
-            value = ctx.value().getText();
+            Object val = visitValue(ctx.value());
+            if (val != null) {
+                value = val.toString();
+            }
         }
-        String button = String.format("<button %s>%s</button>", style, JStringUtils.trim(value));
-        String text = ctx.getText();
-        List<IElement> iElements = HtmlConverter.convertToElements(button, proper);
-        JHtmlRenderModel jHtmlRenderModel = new JHtmlRenderModel();
-        jHtmlRenderModel.setList(iElements);
-        //areaBreak.setFont(JFontProviderFactory.defualtFont());
-        return jHtmlRenderModel;
+        JQuickButtonElementRender buttonElement = new JQuickButtonElementRender(JStringUtils.trim(value), style);
+        super.buildStyle(buttonElement, style);
+        return buttonElement;
     }
-
 }

@@ -15,13 +15,12 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.ILeafElement;
-import com.itextpdf.layout.element.Paragraph;
+import com.github.paohaijiao.visitor.element.JQuickTextElementRender;
+
+import java.util.List;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -33,42 +32,37 @@ import com.itextpdf.layout.element.Paragraph;
  * @description
  */
 public class JPdfXParagraphVisitor extends JPdfXSpanVisitor {
+
     @Override
-    public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
+    public JQuickTextElementRender visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
         String text = "";
         Object value = null;
         if (ctx.elemValue() != null) {
             value = visitElemValue(ctx.elemValue());
-            if (null != value && value instanceof String) {
-                text = (String) value;
-            }
         }
-        Paragraph h1 = new Paragraph(JStringUtils.trim(text));
-        h1.setFont(JFontProviderFactory.defualtFont());
-        saveSub(h1, value);
+        if (value instanceof String) {
+            text = (String) value;
+        }
+        if (value instanceof List) {
+            text = mergeText((List<?>) value);
+        }
         JStyleAttributes jStyleAttributes = new JStyleAttributes();
         if (ctx.styleEle() != null) {
             jStyleAttributes = visitStyleEle(ctx.styleEle());
         }
-        super.buildStyle(h1, jStyleAttributes);
-        return h1;
+        jStyleAttributes.putIfAbsent("line-height", "20");
+        JQuickTextElementRender textElement = new JQuickTextElementRender(JStringUtils.trim(text), jStyleAttributes);
+        super.buildStyle(textElement, jStyleAttributes);
+        return textElement;
     }
 
-    private void saveSub(Paragraph paragraph, Object object) {
-        if (null != object && object instanceof java.util.List) {
-            java.util.List<Object> list = (java.util.List<Object>) object;
-            list.forEach(e -> {
-                if (e instanceof String) {
-                    paragraph.add((String) e);
-                }
-                if (e instanceof ILeafElement) {
-                    paragraph.add((ILeafElement) e);
-                }
-                if (e instanceof IBlockElement) {
-                    paragraph.add((IBlockElement) e);
-                }
-            });
+    private String mergeText(List<?> list) {
+        StringBuilder builder = new StringBuilder();
+        for (Object item : list) {
+            if (item instanceof String) {
+                builder.append(item);
+            }
         }
+        return builder.toString();
     }
-
 }

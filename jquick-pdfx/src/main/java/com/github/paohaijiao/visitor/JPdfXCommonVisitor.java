@@ -24,13 +24,31 @@ import com.github.paohaijiao.sample.CatalogType;
 import com.github.paohaijiao.sample.ReportComponent;
 import com.github.paohaijiao.sample.ReportStyle;
 import com.github.paohaijiao.sample.event.CatalogMoveEvent;
+import com.github.paohaijiao.visitor.context.JQuickRenderContext;
+import com.github.paohaijiao.visitor.render.JTemplatePdfBoxRenderer;
+import com.github.paohaijiao.visitor.element.JQuickAreaBreakElementRender;
+import com.github.paohaijiao.visitor.element.JQuickButtonElementRender;
+import com.github.paohaijiao.visitor.element.JQuickCheckBoxElementRender;
+import com.github.paohaijiao.visitor.element.JQuickComboBoxElementRender;
+import com.github.paohaijiao.visitor.element.JQuickElementRender;
+import com.github.paohaijiao.visitor.element.JQuickImageElementRender;
+import com.github.paohaijiao.visitor.element.JQuickLineSeparatorElementRender;
+import com.github.paohaijiao.visitor.element.JQuickListElementRender;
+import com.github.paohaijiao.visitor.element.JQuickTabElementRender;
+import com.github.paohaijiao.visitor.element.JQuickTextAreaElementRender;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.events.PdfDocumentEvent;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.AreaBreakType;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.util.*;
 import java.util.List;
@@ -47,6 +65,7 @@ import java.util.stream.Collectors;
  */
 public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
+    protected boolean pdfBoxEnabled = false;
 
     public JPdfXCommonVisitor() throws FileNotFoundException {
         this.context = new JContext();
@@ -68,13 +87,22 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         this.config = config;
     }
 
+    public JPdfXCommonVisitor enablePdfBox() {
+        this.pdfBoxEnabled = true;
+        return this;
+    }
+
+    public boolean isPdfBoxEnabled() {
+        return pdfBoxEnabled;
+    }
+
     @Override
     public OutputStream visitDocument(JQuickPDFParser.DocumentContext ctx) {
-        baos=new ByteArrayOutputStream();
+        baos = new ByteArrayOutputStream();
         if (null != ctx.doc()) {
-             visitDoc(ctx.doc());
+            visitDoc(ctx.doc());
         }
-        return getOutputStream();//no need to close the bytearrayoutputstream
+        return getOutputStream();
     }
 
     @Override
@@ -88,14 +116,80 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
     @Override
     public Void visitHtml(JQuickPDFParser.HtmlContext ctx) {
         configure(config);
+        if (pdfBoxEnabled) {
+            return renderWithPdfBox(ctx);
+        }
         if (null != ctx.body()) {
             visitBody(ctx.body());
         }
-//        this.addCatalog();
-        pdf.close();
+        if (pdf != null) {
+            pdf.close();
+        }
         return null;
     }
 
+    protected Void renderWithPdfBox(JQuickPDFParser.HtmlContext ctx) {
+        try {
+            if (getPdfBoxDocument() == null) {
+                return null;
+            }
+            PDPage page = createPdfBoxPage();
+            getPdfBoxDocument().addPage(page);
+            try (PDPageContentStream contentStream = new PDPageContentStream(getPdfBoxDocument(), page)) {
+                JQuickRenderContext renderContext = createRenderContext(page.getMediaBox());
+                if (ctx != null && ctx.body() != null) {
+                    renderPdfBoxBody(ctx.body(), contentStream, renderContext);
+                }
+            }
+            getPdfBoxDocument().save(baos);
+            getPdfBoxDocument().close();
+        } catch (Exception e) {
+            throw new RuntimeException("render pdf with pdfbox failed", e);
+        }
+        return null;
+    }
+
+    protected PDPage createPdfBoxPage() {
+        PDRectangle rectangle = PDRectangle.A4;
+        if (config != null && config.getDefaultPageSize() != null) {
+            float width = config.getDefaultPageSize().getWidth();
+            float height = config.getDefaultPageSize().getHeight();
+            rectangle = new PDRectangle(width, height);
+        }
+        return new PDPage(rectangle);
+    }
+
+    protected JQuickRenderContext createRenderContext(PDRectangle mediaBox) {
+        float[] margins = new float[]{36f, 36f, 36f, 36f};
+        return JQuickRenderContext.builder()
+                .pageWidth(mediaBox.getWidth())
+                .pageHeight(mediaBox.getHeight())
+                .document(getPdfBoxDocument())
+                .width(mediaBox.getWidth() - margins[1] - margins[3])
+                .height(mediaBox.getHeight() - margins[0] - margins[2])
+                .margins(margins)
+                .cursorX(margins[3])
+                .cursorY(mediaBox.getHeight() - margins[0])
+                .font(new PDType1Font(Standard14Fonts.FontName.HELVETICA))
+                .fontSize(12f)
+                .lineHeight(16f)
+                .build();
+    }
+
+    protected void renderPdfBoxBody(JQuickPDFParser.BodyContext ctx, PDPageContentStream contentStream, JQuickRenderContext renderContext) throws IOException {
+        if (ctx == null || ctx.element() == null || ctx.element().isEmpty()) {
+            return;
+        }
+        for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
+            Object object = visitElement(elementContext);
+            if (object instanceof JQuickElementRender) {
+                ((JQuickElementRender) object).draw(contentStream, renderContext);
+                if (renderContext.isNewPage()) {
+                    renderContext.setNewPage(false);
+                }
+            }
+        }
+    }
 
     @Override
     public Void visitBody(JQuickPDFParser.BodyContext ctx) {
@@ -110,16 +204,31 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                     IBlockElement blockElement = (IBlockElement) object;
                     doc.add(blockElement);
                 }
-                if (object instanceof AreaBreak) {
-                    AreaBreak areaBreak = (AreaBreak) object;
-                    doc.add(areaBreak);
+                if (object instanceof JQuickAreaBreakElementRender) {
+                    continue;
+                }
+                if (object instanceof JQuickTextAreaElementRender) {
+                    continue;
+                }
+                if (object instanceof JQuickListElementRender) {
+                    continue;
+                }
+                if (object instanceof JQuickSvgElementRender) {
+                    continue;
+                }
+                if (object instanceof JQuickTableElementRender) {
+                    continue;
+                }
+                if (object instanceof JQuickTemplateRenderModel) {
+                    continue;
+                }
+                if (object instanceof JQuickElementRender) {
+                    continue;
                 }
                 if (object instanceof JHtmlRenderModel) {
-                    JHtmlRenderModel areaBreak = (JHtmlRenderModel) object;
-                    if (areaBreak.getList() != null) {
-                        areaBreak.getList().forEach(e -> {
-                            saveSub(e);
-                        });
+                    JHtmlRenderModel renderModel = (JHtmlRenderModel) object;
+                    if (renderModel.getList() != null) {
+                        renderModel.getList().forEach(this::saveSub);
                     }
                 }
             }
@@ -128,6 +237,9 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
     }
 
     private void saveSub(Object object) {
+        if (doc == null || object == null) {
+            return;
+        }
         if (object instanceof Image) {
             Image image = (Image) object;
             doc.add(image);
@@ -136,9 +248,41 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
             IBlockElement blockElement = (IBlockElement) object;
             doc.add(blockElement);
         }
-        if (object instanceof AreaBreak) {
-            AreaBreak areaBreak = (AreaBreak) object;
-            doc.add(areaBreak);
+        if (object instanceof JQuickAreaBreakElementRender) {
+            return;
+        }
+        if (object instanceof JQuickButtonElementRender) {
+            return;
+        }
+        if (object instanceof JQuickCheckBoxElementRender) {
+            return;
+        }
+        if (object instanceof JQuickComboBoxElementRender) {
+            return;
+        }
+        if (object instanceof JQuickTextAreaElementRender) {
+            return;
+        }
+        if (object instanceof JQuickImageElementRender) {
+            return;
+        }
+        if (object instanceof JQuickLineSeparatorElementRender) {
+            return;
+        }
+        if (object instanceof JQuickTabElementRender) {
+            return;
+        }
+        if (object instanceof JQuickListElementRender) {
+            return;
+        }
+        if (object instanceof JQuickSvgElementRender) {
+            return;
+        }
+        if (object instanceof JQuickTableElementRender) {
+            return;
+        }
+        if (object instanceof JQuickTemplateRenderModel) {
+            return;
         }
     }
 
@@ -157,7 +301,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         for (int i = startNum; i < startNum + pageSize; i++) {
             pdf.removePage(startNum);
         }
-        return;
     }
 
     private Div getCataLogDiv(int offPage) {

@@ -15,14 +15,9 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.enums.JAreaBreakEnums;
-import com.github.paohaijiao.enums.JPageSize;
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.github.paohaijiao.model.JStyleAreaBreakAttributes;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.element.AreaBreak;
-
+import com.github.paohaijiao.visitor.element.JQuickAreaBreakElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -35,8 +30,8 @@ import com.itextpdf.layout.element.AreaBreak;
  */
 public class JPdfXAreaBreakVisitor extends JPdfXDivVisitor {
     @Override
-    public AreaBreak visitAreaBreak(JQuickPDFParser.AreaBreakContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
+    public JQuickAreaBreakElementRender visitAreaBreak(JQuickPDFParser.AreaBreakContext ctx) {
+        JStyleAttributes style;
         String breakType = null;
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
@@ -46,29 +41,9 @@ public class JPdfXAreaBreakVisitor extends JPdfXDivVisitor {
         if (ctx.IDENTIFIER() != null) {
             breakType = ctx.IDENTIFIER().getText();
         }
-        AreaBreak areaBreak = new AreaBreak();
-        areaBreak.setFont(JFontProviderFactory.defualtFont());
-        if (null != breakType) {
-            JAreaBreakEnums breakEnums = JAreaBreakEnums.codeOf(breakType);
-            if (breakEnums != null) {
-                areaBreak = new AreaBreak(breakEnums.getType());
-            }
-        }
+        String pageSize = style.get("pageSize") == null ? null : String.valueOf(style.get("pageSize"));
+        JQuickAreaBreakElementRender areaBreak = new JQuickAreaBreakElementRender(breakType, pageSize);
         super.buildStyle(areaBreak, style);
-        this.buildStyle(areaBreak, style);
         return areaBreak;
     }
-
-    private void buildStyle(AreaBreak areaBreak, JStyleAttributes style) {
-        JStyleAreaBreakAttributes attr = new JStyleAreaBreakAttributes();
-        attr.putAll(style);
-        if (null != attr.getPageSize()) {
-            JPageSize pageSize = JPageSize.codeOf(attr.getPageSize());
-            if (null != pageSize) {
-                areaBreak.setPageSize(pageSize.getPageSize());
-            }
-
-        }
-    }
-
 }

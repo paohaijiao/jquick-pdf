@@ -15,20 +15,12 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
-import com.github.paohaijiao.model.JStyleListAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.sample.ReportColor;
-import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.DeviceRgb;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.List;
-import com.itextpdf.layout.element.ListItem;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.properties.ListNumberingType;
-import com.itextpdf.layout.properties.TextAlignment;
+import com.github.paohaijiao.visitor.element.JQuickListElementRender;
 
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -40,90 +32,69 @@ import com.itextpdf.layout.properties.TextAlignment;
  * @description
  */
 public class JPdfXListVisitor extends JPdfXTableVisitor {
-    private static final Color PRIMARY_COLOR = new DeviceRgb(52, 152, 219);
-    private static final Color SUCCESS_COLOR = new DeviceRgb(46, 204, 113);
-    private static final Color WARNING_COLOR = new DeviceRgb(241, 196, 15);
-    private static final Color DANGER_COLOR = new DeviceRgb(231, 76, 60);
-    private static final Color LIGHT_BG = new DeviceRgb(248, 249, 250);
-    private static final Color BORDER_COLOR = new DeviceRgb(234, 234, 234);
 
     @Override
-    public List visitList(JQuickPDFParser.ListContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
-        }
-        List list = new List(ListNumberingType.ROMAN_UPPER);
-        list.setFont(JFontProviderFactory.defualtFont());
-        list.setMarginLeft(20);
-        list.setSymbolIndent(15);
-        list.setTextAlignment(TextAlignment.JUSTIFIED);
-        super.buildStyle(list, style);
-        if (null != ctx.listItem() && !ctx.listItem().isEmpty()) {
-            for (JQuickPDFParser.ListItemContext listItemContext : ctx.listItem()) {
-                ListItem item = visitListItem(listItemContext);
-                list.add(item);
-            }
-        }
-//        super.buildStyle(list, style);
-//        JStyleListAttributes newStyle=new JStyleListAttributes();
-//        newStyle.putAll(style);
-//        this.buildExtraStyle(list,newStyle);
-        return list;
-    }
-
-    private void buildDefaultListStyle(List list) {
-        list.setFont(JFontProviderFactory.defualtFont());
-        list.setMarginLeft(20);
-        list.setSymbolIndent(15);
-        list.setTextAlignment(TextAlignment.JUSTIFIED);
-    }
-
-    private void buildExtraStyle(List list, JStyleListAttributes style) {
-        if (style.getImage() != null) {
-            list.setListSymbol(style.getImage());
-        }
-    }
-
-
-    @Override
-    public ListItem visitListItem(JQuickPDFParser.ListItemContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
+    public JQuickListElementRender visitList(JQuickPDFParser.ListContext ctx) {
+        JStyleAttributes style;
         if (ctx.styleEle() != null) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
+        List<String> items = new ArrayList<>();
+        if (ctx.listItem() != null && !ctx.listItem().isEmpty()) {
+            for (JQuickPDFParser.ListItemContext listItemContext : ctx.listItem()) {
+                String item = visitListItem(listItemContext);
+                if (item != null && !item.isEmpty()) {
+                    items.add(item);
+                }
+            }
+        }
+        boolean ordered = isOrderedList(ctx);
+        JQuickListElementRender list = new JQuickListElementRender(ordered, items, style);
+        super.buildStyle(list, style);
+        return list;
+    }
+
+    @Override
+    public String visitListItem(JQuickPDFParser.ListItemContext ctx) {
         java.util.List<Object> subelem = null;
         if (ctx.elemValue() != null) {
             subelem = visitElemValue(ctx.elemValue());
         }
-        ListItem item = new ListItem();
-        saveSub(item, subelem);
-        buildDefaultListItemStyle(item);
-        super.buildStyle(item, style);
-        return item;
+        return mergeText(subelem);
     }
 
-    private void buildDefaultListItemStyle(ListItem listItem) {
-        listItem.setFontColor(ReportColor.getThemeColor());
-        listItem.setFontSize(11);
+    @Override
+    public String visitListType(JQuickPDFParser.ListTypeContext ctx) {
+        if (ctx == null) {
+            return null;
+        }
+        return ctx.getText();
     }
 
-    private void saveSub(ListItem listItem, java.util.List<Object> list) {
-        list.forEach(e -> {
-            if (e instanceof IBlockElement) {
-                listItem.add((IBlockElement) e);
-            }
+    private boolean isOrderedList(JQuickPDFParser.ListContext ctx) {
+        if (ctx.listType() == null) {
+            return false;
+        }
+        String type = visitListType(ctx.listType());
+        if (type == null) {
+            return false;
+        }
+        String normalized = type.trim().toLowerCase();
+        return normalized.contains("ordered") || normalized.contains("ol") || normalized.contains("number");
+    }
+
+    private String mergeText(List<Object> list) {
+        if (list == null || list.isEmpty()) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        for (Object e : list) {
             if (e instanceof String) {
-                Paragraph paragraph = new Paragraph((String) e);
-                paragraph.setFont(JFontProviderFactory.defualtFont());
-                listItem.add(paragraph);
+                builder.append(e);
             }
-
-        });
+        }
+        return trim(builder.toString());
     }
-
 }
