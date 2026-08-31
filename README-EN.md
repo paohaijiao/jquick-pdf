@@ -177,6 +177,95 @@ public class Demo {
 | `<inputField>` | ⏳ Pending | Only a visitor stub exists; full grammar wiring is not ready |
 | `${variable}` | ✅ Supported | Variable placeholder binding |
 
+
+| 属性 | 示例值 | 说明 | 示例代码 |
+|------|--------|------|----------|
+| **边距属性** | | | |
+| `marginLeft` | `"1px"` | 左边距值 | `<div style="marginLeft:1px">内容</div>` |
+| `marginRight` | `"500px"` | 右边距值 | `<div style="marginRight:500px">内容</div>` |
+| `marginTop` | `"500px"` | 上边距值 | `<div style="marginTop:500px">内容</div>` |
+| `marginBottom` | `"500px"` | 下边距值 | `<div style="marginBottom:500px">内容</div>` |
+| `commonMargin` | `"100px"` | 所有边统一的边距 | `<div style="commonMargin:100px">内容</div>` |
+| `margins` | `"'20px 30px 40px 50px'"` | 上、右、下、左边距 | `<div style="margins:'20px 30px 40px 50px'">内容</div>` |
+| **内边距属性** | | | |
+| `paddingLeft` | `"50px"` | 左内边距值 | `<div style="paddingLeft:50px">内容</div>` |
+| `paddingRight` | `"50px"` | 右内边距值 | `<div style="paddingRight:50px">内容</div>` |
+| `paddingTop` | `"50px"` | 上内边距值 | `<div style="paddingTop:50px">内容</div>` |
+| `paddingBottom` | `"50px"` | 下内边距值 | `<div style="paddingBottom:50px">内容</div>` |
+| `commonPadding` | `"50px"` | 所有边统一的内边距 | `<div style="commonPadding:50px">内容</div>` |
+| `paddings` | `"50px 50px 60px 70px"` | 上、右、下、左内边距 | `<div style="paddings:50px 50px 60px 70px">内容</div>` |
+| **对齐与布局属性** | | | |
+| `verticalAlignment` | `"top"` | 垂直对齐方式(top/middle/bottom) | `<div style="verticalAlignment:top">内容</div>` |
+| `spacingRatio` | `"30"` | 元素之间的间距比例 | `<div style="spacingRatio:30">内容</div>` |
+| `keepTogether` | `"true"` | 是否保持元素在一起 | `<div style="keepTogether:true">内容</div>` |
+| `keepWithNext` | `"true"` | 是否与下一个元素保持在一起 | `<div style="keepWithNext:true">内容</div>` |
+| **尺寸属性** | | | |
+| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
+| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
+| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
+| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
+| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
+| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
+| **其他属性** | | | |
+| `angleInRadians` | `"30"` | 旋转角度(弧度) | `<div style="angleInRadians:30">内容</div>` |
+#### 📐 尺寸属性表格（含示例代码）
+
+| 属性 | 示例值 | 说明 | 示例代码 |
+|------|--------|------|----------|
+| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
+| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
+| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
+| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
+| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
+| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
+
+#### 属性样式
+## 🎨 属性样式表格（含示例代码）
+
+| Property | 示例值 | 说明 | 示例代码 |
+|----------|--------|------|----------|
+| **位置与布局** | | | |
+| `relativePosition` | `"30px 30px 30px 30px"` | 相对位置值(左 上 右 下) | `<div style="relativePosition:'30px 30px 30px 30px'">内容</div>` |
+| **字体属性** | | | |
+| `font` | `"HELVETICA"` | 字体类型，参考 JFontEnum | `<span style="font:HELVETICA">文本</span>` |
+| `fontFamilyNames` | `"Helvetica"` | 字体家族名称(逗号分隔) | `<p style="fontFamilyNames:Helvetica,Arial">文本</p>` |
+| `fontColor` | `"red"` | 字体颜色，参考 JColorEnums 类 | `<span style="fontColor:red">红色文本</span>` |
+| `fontSize` | `"34"` | 字体大小 | `<p style="fontSize:34">大号文本</p>` |
+| `fontKerning` | `"yes"` | 字体字距调整设置 | `<p style="fontKerning:yes">调整字距文本</p>` |
+| `fontScript` | `"common"` | 字体脚本类型 | `<p style="fontScript:common">文本</p>` |
+| **文本样式** | | | |
+| `textAlignment` | `"left"` | 文本对齐方式，参考 JTextAlignment | `<div style="textAlignment:left">左对齐文本</div>` |
+| `characterSpacing` | `"30"` | 字符间距 | `<p style="characterSpacing:30">文本</p>` |
+| `wordSpacing` | `"30"` | 单词间距 | `<p style="wordSpacing:30">文本</p>` |
+| `splitCharacters` | `"24"` | 字符间距(同 characterSpacing) | `<p style="splitCharacters:24">文本</p>` |
+| `textRenderingMode` | `"24"` | 文本渲染模式 | `<p style="textRenderingMode:24">文本</p>` |
+| `baseDirection` | `"no_bidi"` | 文本基础方向 | `<p style="baseDirection:no_bidi">文本</p>` |
+| **文本装饰** | | | |
+| `bold` | `"true"` | 文本是否加粗 | `<span style="bold:true">粗体文本</span>` |
+| `italic` | `"true"` | 文本是否斜体 | `<span style="italic:true">斜体文本</span>` |
+| `lineThrough` | `"true"` | 文本是否有删除线 | `<span style="lineThrough:true">删除线文本</span>` |
+| `underline` | `"true"` | 文本是否有下划线 | `<span style="underline:true">下划线文本</span>` |
+| **背景与边框** | | | |
+| `backgroundColor` | `"red"` | 背景颜色，参考 JColorEnums 类 | `<div style="backgroundColor:red">内容</div>` |
+| `backgroundImage` | `"D:/pdf/image.png"` | 背景图片路径 | `<div style="backgroundImage:'D:/pdf/image.png'">内容</div>` |
+| `border` | `"solid 32px red"` | 边框样式(类型 宽度 颜色) | `<div style="border:'solid 32px red'">内容</div>` |
+| `borderTop` | `"solid 32px red"` | 上边框样式 | `<div style="borderTop:'solid 32px red'">内容</div>` |
+| `borderRight` | `"solid 32px red"` | 右边框样式 | `<div style="borderRight:'solid 32px red'">内容</div>` |
+| `borderLeft` | `"solid 32px red"` | 左边框样式 | `<div style="borderLeft:'solid 32px red'">内容</div>` |
+| `borderBottom` | `"solid 32px red"` | 下边框样式 | `<div style="borderBottom:'solid 32px red'">内容</div>` |
+| `borderRadius` | `"32px 24px"` | 边框圆角值 | `<div style="borderRadius:'32px 24px'">内容</div>` |
+| `borderBottomLeftRadius` | `"32px 24px"` | 左下边框圆角 | `<div style="borderBottomLeftRadius:'32px 24px'">内容</div>` |
+| `borderBottomRightRadius` | `"32px 24px"` | 右下边框圆角 | `<div style="borderBottomRightRadius:'32px 24px'">内容</div>` |
+| `borderTopRightRadius` | `"32px 24px"` | 右上边框圆角 | `<div style="borderTopRightRadius:'32px 24px'">内容</div>` |
+| `borderTopLeftRadius` | `"32px 24px"` | 左上边框圆角 | `<div style="borderTopLeftRadius:'32px 24px'">内容</div>` |
+| **效果与描边** | | | |
+| `opacity` | `"0.5"` | 元素透明度 | `<div style="opacity:0.5">半透明内容</div>` |
+| `strokeColor` | `"red"` | 描边颜色 | `<div style="strokeColor:red">内容</div>` |
+| `strokeWidth` | `"24"` | 描边宽度 | `<div style="strokeWidth:24">内容</div>` |
+| **锚点与目标** | | | |
+| `destination` | `"hello"` | 元素目标/锚点名称 | `<div style="destination:hello">内容</div>` |
+
+
 ### Chart Demo Index
 
 | Chart / Scenario | Demo File |
@@ -684,7 +773,7 @@ option.setSunburstData(root);
 
 #### Credit Report Composite Demo
 
-Preview: see the enterprise credit report section and the `images/` previews
+![](./pay/demo.png)
 
 Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/creditreport/JQuickCreditReportTest.java`
 
@@ -770,6 +859,132 @@ Main flow responsibilities:
 ### 2. XML Template Tags and Attributes
 
 > Note: style naming in the repository follows actual examples. Common keys include `fontSize`, `marginBottom`, `backgroundColor`, `width`, and `height`. This section now includes copyable demo snippets in addition to the attribute tables.
+
+#### Syntax Rules
+
+```string
+<element style="property1:value1; property2:value2; ...">
+    content
+</element>
+```
+
+#### Elements
+
+##### Text Elements
+
+| Element | Description | Example |
+|---|---|---|
+| `<p>` | Paragraph block | `<p style="textAlignment:justify">'Paragraph content'</p>` |
+| `<h1>-<h6>` | Heading block | `<h1 style="fontSize:24">'Heading content'</h1>` |
+| `<span>` | Inline text container | `<span style="fontColor:blue">'Inline text'</span>` |
+| `<br>` | New line | `<br type="after"></br>` |
+| `<tab>` | Tab | `<p><tab></tab><tab></tab><span>'Text after tab'</span></p>` |
+
+##### Layout Elements
+
+| Element | Description | Example |
+|---|---|---|
+| `<div>` | Block container | `<div style="width:100%">'Block content'</div>` |
+| `<areaBreak>` | Area break | `<areaBreak></areaBreak>` |
+| `<htmlPageBreak>` | Explicit page break | `<htmlPageBreak style="fontColor:blue">'next_area'</htmlPageBreak>` |
+| `<lineSeparator>` | Separator line | `<lineSeparator style="strokeColor:red"></lineSeparator>` |
+
+##### List and Table Elements
+
+| Element | Description | Example |
+|---|---|---|
+| `<list>` | Ordered / unordered list | `<list style="symbol:hahaha"><li>'Item 1'</li></list>` |
+| `<li>` | List item | `<li style="fontColor:red">'Item 1'</li>` |
+| `<table>` | Table container | `<table><tr><td>'Data'</td></tr></table>` |
+| `<tr>` | Table row | `<tr style="height:30px"></tr>` |
+| `<td>` | Table data cell | `<td style="fontColor:red">'Data'</td>` |
+| `<th>` | Table header cell | `<th style="fontWeight:bold">'Title'</th>` |
+
+##### Form Elements
+
+| Element | Description | Example |
+|---|---|---|
+| `<button>` | Button | `<button style="fontColor:blue">'Submit'</button>` |
+| `<checkbox>` | Checkbox | `<checkbox style="fontColor:blue" checked>'Submit'</checkbox>` |
+| `<inputField>` | Text field | `<inputField style="fontColor:blue">'Hello China'</inputField>` |
+| `<comboBoxField>` | Combo box | `<comboBoxField style="fontColor:blue" checked>'Submit'</comboBoxField>` |
+| `<textArea>` | Multiline text area | `<p><textArea>'Hello China'</textArea></p>` |
+
+##### Media Elements
+
+| Element | Description | Example |
+|---|---|---|
+| `<image>` | Embedded image | `<image src="logo.png" style="width:200px;height:150px"></image>` |
+| `<svg>` | Vector graphic | `<svg>${svg}</svg>` or `<svg>&{svg}</svg>` |
+
+##### Special Elements
+
+| Element | Description | Example |
+|---|---|---|
+| `<template>` | Reusable template content | `<template>&html</template>` |
+| `<tree>` | Tree-structured data | `<tree>${tree}</tree>` or `<tree>tree</tree>` |
+| `${variable}` | Data binding placeholder | `<p>'Name: ' ${name}</p>` |
+
+#### Full Attribute Table with Examples
+
+| Property | Example Value | Description | Example |
+|---|---|---|---|
+| `marginLeft` | `1px` | Left margin | `<div style="marginLeft:1px">content</div>` |
+| `marginRight` | `500px` | Right margin | `<div style="marginRight:500px">content</div>` |
+| `marginTop` | `500px` | Top margin | `<div style="marginTop:500px">content</div>` |
+| `marginBottom` | `500px` | Bottom margin | `<div style="marginBottom:500px">content</div>` |
+| `commonMargin` | `100px` | Unified margin on all sides | `<div style="commonMargin:100px">content</div>` |
+| `margins` | `'20px 30px 40px 50px'` | Top, right, bottom, left margins | `<div style="margins:'20px 30px 40px 50px'">content</div>` |
+| `paddingLeft` | `50px` | Left padding | `<div style="paddingLeft:50px">content</div>` |
+| `paddingRight` | `50px` | Right padding | `<div style="paddingRight:50px">content</div>` |
+| `paddingTop` | `50px` | Top padding | `<div style="paddingTop:50px">content</div>` |
+| `paddingBottom` | `50px` | Bottom padding | `<div style="paddingBottom:50px">content</div>` |
+| `commonPadding` | `50px` | Unified padding on all sides | `<div style="commonPadding:50px">content</div>` |
+| `paddings` | `50px 50px 60px 70px` | Top, right, bottom, left paddings | `<div style="paddings:50px 50px 60px 70px">content</div>` |
+| `verticalAlignment` | `top` | Vertical alignment(top/middle/bottom) | `<div style="verticalAlignment:top">content</div>` |
+| `spacingRatio` | `30` | Spacing ratio between elements | `<div style="spacingRatio:30">content</div>` |
+| `keepTogether` | `true` | Keep the element together | `<div style="keepTogether:true">content</div>` |
+| `keepWithNext` | `true` | Keep together with the next element | `<div style="keepWithNext:true">content</div>` |
+| `width` | `300px` | Element width | `<div style="width:300px">content</div>` |
+| `height` | `300px` | Element height | `<div style="height:300px">content</div>` |
+| `maxHeight` | `300px` | Maximum height | `<div style="maxHeight:300px">content</div>` |
+| `minHeight` | `300px` | Minimum height | `<div style="minHeight:300px">content</div>` |
+| `minWidth` | `300px` | Minimum width | `<div style="minWidth:300px">content</div>` |
+| `maxWidth` | `300px` | Maximum width | `<div style="maxWidth:300px">content</div>` |
+| `angleInRadians` | `30` | Rotation angle in radians | `<div style="angleInRadians:30">content</div>` |
+| `relativePosition` | `30px 30px 30px 30px` | Relative position(left top right bottom) | `<div style="relativePosition:'30px 30px 30px 30px'">content</div>` |
+| `font` | `HELVETICA` | Font type, see `JFontEnum` | `<span style="font:HELVETICA">text</span>` |
+| `fontFamilyNames` | `Helvetica,Arial` | Font family names | `<p style="fontFamilyNames:Helvetica,Arial">text</p>` |
+| `fontColor` | `red` | Font color, see `JColorEnums` | `<span style="fontColor:red">red text</span>` |
+| `fontSize` | `34` | Font size | `<p style="fontSize:34">large text</p>` |
+| `fontKerning` | `yes` | Font kerning | `<p style="fontKerning:yes">kerned text</p>` |
+| `fontScript` | `common` | Font script type | `<p style="fontScript:common">text</p>` |
+| `textAlignment` | `left` | Text alignment, see `JTextAlignment` | `<div style="textAlignment:left">left text</div>` |
+| `characterSpacing` | `30` | Character spacing | `<p style="characterSpacing:30">text</p>` |
+| `wordSpacing` | `30` | Word spacing | `<p style="wordSpacing:30">text</p>` |
+| `splitCharacters` | `24` | Character split control | `<p style="splitCharacters:24">text</p>` |
+| `textRenderingMode` | `24` | Text rendering mode | `<p style="textRenderingMode:24">text</p>` |
+| `baseDirection` | `no_bidi` | Base text direction | `<p style="baseDirection:no_bidi">text</p>` |
+| `bold` | `true` | Bold text | `<span style="bold:true">bold text</span>` |
+| `italic` | `true` | Italic text | `<span style="italic:true">italic text</span>` |
+| `lineThrough` | `true` | Strikethrough text | `<span style="lineThrough:true">strike text</span>` |
+| `underline` | `true` | Underlined text | `<span style="underline:true">underline text</span>` |
+| `backgroundColor` | `red` | Background color, see `JColorEnums` | `<div style="backgroundColor:red">content</div>` |
+| `backgroundImage` | `D:/pdf/image.png` | Background image path | `<div style="backgroundImage:'D:/pdf/image.png'">content</div>` |
+| `border` | `solid 32px red` | Border style(type width color) | `<div style="border:'solid 32px red'">content</div>` |
+| `borderTop` | `solid 32px red` | Top border | `<div style="borderTop:'solid 32px red'">content</div>` |
+| `borderRight` | `solid 32px red` | Right border | `<div style="borderRight:'solid 32px red'">content</div>` |
+| `borderLeft` | `solid 32px red` | Left border | `<div style="borderLeft:'solid 32px red'">content</div>` |
+| `borderBottom` | `solid 32px red` | Bottom border | `<div style="borderBottom:'solid 32px red'">content</div>` |
+| `borderRadius` | `32px 24px` | Border radius | `<div style="borderRadius:'32px 24px'">content</div>` |
+| `borderBottomLeftRadius` | `32px 24px` | Bottom-left radius | `<div style="borderBottomLeftRadius:'32px 24px'">content</div>` |
+| `borderBottomRightRadius` | `32px 24px` | Bottom-right radius | `<div style="borderBottomRightRadius:'32px 24px'">content</div>` |
+| `borderTopRightRadius` | `32px 24px` | Top-right radius | `<div style="borderTopRightRadius:'32px 24px'">content</div>` |
+| `borderTopLeftRadius` | `32px 24px` | Top-left radius | `<div style="borderTopLeftRadius:'32px 24px'">content</div>` |
+| `opacity` | `0.5` | Element opacity | `<div style="opacity:0.5">semi-transparent content</div>` |
+| `strokeColor` | `red` | Stroke color | `<div style="strokeColor:red">content</div>` |
+| `strokeWidth` | `24` | Stroke width | `<div style="strokeWidth:24">content</div>` |
+| `destination` | `hello` | Anchor or destination name | `<div style="destination:hello">content</div>` |
 
 #### Page-level global attributes
 
@@ -1099,6 +1314,8 @@ public class SvgDemo {
 ## 🎯 Business Scenario Example
 
 ### Enterprise Credit Report
+
+![](./pay/demo.png)
 
 The repository already provides enterprise credit report examples:
 

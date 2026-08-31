@@ -205,6 +205,160 @@ public class Demo {
 | Sunburst | `demo/sunburd/JQuickSunburdTest.java` |
 | Advanced Topology | `demo/advance/JQuickAdvanceToplogyTest.java` |
 
+### 语法规则
+
+```string
+<element style="属性名1:值1; 属性名2:值2; ...">
+    内容
+</element>
+```
+
+### 元素
+
+#### 文本元素
+
+| Element | Description | 示例代码 |
+|---|---|---|
+| `<p>` | 段落块(Paragraph) | `<p style="textAlignment:justify">'段落内容'</p>` |
+| `<h1>-<h6>` | 标题(带样式的段落) | `<h1 style="fontSize:24">'标题内容'</h1>` |
+| `<span>` | 内联文本容器(Chunk) | `<span style="fontColor:blue">'内联文本'</span>` |
+| `<br>` | 换行(Newline) | `<br type="after"></br>` |
+| `<tab>` | 制表符 | `<p><tab></tab><tab></tab><span>'制表符后的文本'</span></p>` |
+
+#### 布局元素
+
+| Element | Description | 示例代码 |
+|---|---|---|
+| `<div>` | 块容器(Div) | `<div style="width:100%">'块容器内容'</div>` |
+| `<areaBreak>` | 分节符(AreaBreak) | `<areaBreak></areaBreak>` |
+| `<htmlPageBreak>` | 显式分页符(NewPage) | `<htmlPageBreak style="fontColor:blue">'next_area'</htmlPageBreak>` |
+| `<lineSeparator>` | 分隔线 | `<lineSeparator style="strokeColor:red"></lineSeparator>` |
+
+#### 列表与表格元素
+
+| Element | Description | 示例代码 |
+|---|---|---|
+| `<list>` | 有序/无序列表(List) | `<list style="symbol:hahaha"><li>'选项1'</li></list>` |
+| `<li>` | 列表项(ListItem) | `<li style="fontColor:red">'选项1'</li>` |
+| `<table>` | 表格容器(Table) | `<table><tr><td>'数据'</td></tr></table>` |
+| `<tr>` | 表格行(TableRow) | `<tr style="height:30px"></tr>` |
+| `<td>` | 表格数据单元格(TableCell) | `<td style="fontColor:red">'数据'</td>` |
+| `<th>` | 表格标题单元格(TableCell) | `<th style="fontWeight:bold">'标题'</th>` |
+
+#### 表单元素
+
+| Element | Description | 示例代码 |
+|---|---|---|
+| `<button>` | 按钮(PushbuttonField) | `<button style="fontColor:blue">'提交'</button>` |
+| `<checkbox>` | 复选框(CheckboxField) | `<checkbox style="fontColor:blue" checked>'提交'</checkbox>` |
+| `<inputField>` | 文本输入框(TextField) | `<inputField style="fontColor:blue">'你好中国'</inputField>` |
+| `<comboBoxField>` | 下拉选择框(ComboBoxField) | `<comboBoxField style="fontColor:blue" checked>'提交'</comboBoxField>` |
+| `<textArea>` | 多行文本输入框(TextAreaField) | `<p><textArea>'你好中国'</textArea></p>` |
+
+#### 媒体元素
+
+| Element | Description | 示例代码 |
+|---|---|---|
+| `<image>` | 嵌入图片(Image) | `<image src="logo.png" style="width:200px;height:150px"></image>` |
+| `<svg>` | 矢量图形(PdfTemplate) | `<svg>${svg}</svg>` 或 `<svg>&{svg}</svg>` |
+
+#### 特殊元素
+
+| Element | Description | 示例代码 |
+|---|---|---|
+| `<template>` | 可重用模板内容 | `<template>&html</template>` |
+| `<tree>` | 树形结构数据 | `<tree>${tree}</tree>` 或 `<tree>tree</tree>` |
+| `${variable}` | 数据绑定占位符 | `<p>姓名: ${name}</p>` |
+
+#### 📋 完整属性表格（含示例代码）
+
+| 属性 | 示例值 | 说明 | 示例代码 |
+|------|--------|------|----------|
+| **边距属性** | | | |
+| `marginLeft` | `"1px"` | 左边距值 | `<div style="marginLeft:1px">内容</div>` |
+| `marginRight` | `"500px"` | 右边距值 | `<div style="marginRight:500px">内容</div>` |
+| `marginTop` | `"500px"` | 上边距值 | `<div style="marginTop:500px">内容</div>` |
+| `marginBottom` | `"500px"` | 下边距值 | `<div style="marginBottom:500px">内容</div>` |
+| `commonMargin` | `"100px"` | 所有边统一的边距 | `<div style="commonMargin:100px">内容</div>` |
+| `margins` | `"'20px 30px 40px 50px'"` | 上、右、下、左边距 | `<div style="margins:'20px 30px 40px 50px'">内容</div>` |
+| **内边距属性** | | | |
+| `paddingLeft` | `"50px"` | 左内边距值 | `<div style="paddingLeft:50px">内容</div>` |
+| `paddingRight` | `"50px"` | 右内边距值 | `<div style="paddingRight:50px">内容</div>` |
+| `paddingTop` | `"50px"` | 上内边距值 | `<div style="paddingTop:50px">内容</div>` |
+| `paddingBottom` | `"50px"` | 下内边距值 | `<div style="paddingBottom:50px">内容</div>` |
+| `commonPadding` | `"50px"` | 所有边统一的内边距 | `<div style="commonPadding:50px">内容</div>` |
+| `paddings` | `"50px 50px 60px 70px"` | 上、右、下、左内边距 | `<div style="paddings:50px 50px 60px 70px">内容</div>` |
+| **对齐与布局属性** | | | |
+| `verticalAlignment` | `"top"` | 垂直对齐方式(top/middle/bottom) | `<div style="verticalAlignment:top">内容</div>` |
+| `spacingRatio` | `"30"` | 元素之间的间距比例 | `<div style="spacingRatio:30">内容</div>` |
+| `keepTogether` | `"true"` | 是否保持元素在一起 | `<div style="keepTogether:true">内容</div>` |
+| `keepWithNext` | `"true"` | 是否与下一个元素保持在一起 | `<div style="keepWithNext:true">内容</div>` |
+| **尺寸属性** | | | |
+| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
+| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
+| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
+| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
+| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
+| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
+| **其他属性** | | | |
+| `angleInRadians` | `"30"` | 旋转角度(弧度) | `<div style="angleInRadians:30">内容</div>` |
+#### 📐 尺寸属性表格（含示例代码）
+
+| 属性 | 示例值 | 说明 | 示例代码 |
+|------|--------|------|----------|
+| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
+| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
+| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
+| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
+| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
+| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
+
+#### 属性样式
+## 🎨 属性样式表格（含示例代码）
+
+| Property | 示例值 | 说明 | 示例代码 |
+|----------|--------|------|----------|
+| **位置与布局** | | | |
+| `relativePosition` | `"30px 30px 30px 30px"` | 相对位置值(左 上 右 下) | `<div style="relativePosition:'30px 30px 30px 30px'">内容</div>` |
+| **字体属性** | | | |
+| `font` | `"HELVETICA"` | 字体类型，参考 JFontEnum | `<span style="font:HELVETICA">文本</span>` |
+| `fontFamilyNames` | `"Helvetica"` | 字体家族名称(逗号分隔) | `<p style="fontFamilyNames:Helvetica,Arial">文本</p>` |
+| `fontColor` | `"red"` | 字体颜色，参考 JColorEnums 类 | `<span style="fontColor:red">红色文本</span>` |
+| `fontSize` | `"34"` | 字体大小 | `<p style="fontSize:34">大号文本</p>` |
+| `fontKerning` | `"yes"` | 字体字距调整设置 | `<p style="fontKerning:yes">调整字距文本</p>` |
+| `fontScript` | `"common"` | 字体脚本类型 | `<p style="fontScript:common">文本</p>` |
+| **文本样式** | | | |
+| `textAlignment` | `"left"` | 文本对齐方式，参考 JTextAlignment | `<div style="textAlignment:left">左对齐文本</div>` |
+| `characterSpacing` | `"30"` | 字符间距 | `<p style="characterSpacing:30">文本</p>` |
+| `wordSpacing` | `"30"` | 单词间距 | `<p style="wordSpacing:30">文本</p>` |
+| `splitCharacters` | `"24"` | 字符间距(同 characterSpacing) | `<p style="splitCharacters:24">文本</p>` |
+| `textRenderingMode` | `"24"` | 文本渲染模式 | `<p style="textRenderingMode:24">文本</p>` |
+| `baseDirection` | `"no_bidi"` | 文本基础方向 | `<p style="baseDirection:no_bidi">文本</p>` |
+| **文本装饰** | | | |
+| `bold` | `"true"` | 文本是否加粗 | `<span style="bold:true">粗体文本</span>` |
+| `italic` | `"true"` | 文本是否斜体 | `<span style="italic:true">斜体文本</span>` |
+| `lineThrough` | `"true"` | 文本是否有删除线 | `<span style="lineThrough:true">删除线文本</span>` |
+| `underline` | `"true"` | 文本是否有下划线 | `<span style="underline:true">下划线文本</span>` |
+| **背景与边框** | | | |
+| `backgroundColor` | `"red"` | 背景颜色，参考 JColorEnums 类 | `<div style="backgroundColor:red">内容</div>` |
+| `backgroundImage` | `"D:/pdf/image.png"` | 背景图片路径 | `<div style="backgroundImage:'D:/pdf/image.png'">内容</div>` |
+| `border` | `"solid 32px red"` | 边框样式(类型 宽度 颜色) | `<div style="border:'solid 32px red'">内容</div>` |
+| `borderTop` | `"solid 32px red"` | 上边框样式 | `<div style="borderTop:'solid 32px red'">内容</div>` |
+| `borderRight` | `"solid 32px red"` | 右边框样式 | `<div style="borderRight:'solid 32px red'">内容</div>` |
+| `borderLeft` | `"solid 32px red"` | 左边框样式 | `<div style="borderLeft:'solid 32px red'">内容</div>` |
+| `borderBottom` | `"solid 32px red"` | 下边框样式 | `<div style="borderBottom:'solid 32px red'">内容</div>` |
+| `borderRadius` | `"32px 24px"` | 边框圆角值 | `<div style="borderRadius:'32px 24px'">内容</div>` |
+| `borderBottomLeftRadius` | `"32px 24px"` | 左下边框圆角 | `<div style="borderBottomLeftRadius:'32px 24px'">内容</div>` |
+| `borderBottomRightRadius` | `"32px 24px"` | 右下边框圆角 | `<div style="borderBottomRightRadius:'32px 24px'">内容</div>` |
+| `borderTopRightRadius` | `"32px 24px"` | 右上边框圆角 | `<div style="borderTopRightRadius:'32px 24px'">内容</div>` |
+| `borderTopLeftRadius` | `"32px 24px"` | 左上边框圆角 | `<div style="borderTopLeftRadius:'32px 24px'">内容</div>` |
+| **效果与描边** | | | |
+| `opacity` | `"0.5"` | 元素透明度 | `<div style="opacity:0.5">半透明内容</div>` |
+| `strokeColor` | `"red"` | 描边颜色 | `<div style="strokeColor:red">内容</div>` |
+| `strokeWidth` | `"24"` | 描边宽度 | `<div style="strokeWidth:24">内容</div>` |
+| **锚点与目标** | | | |
+| `destination` | `"hello"` | 元素目标/锚点名称 | `<div style="destination:hello">内容</div>` |
+
 ### 基础图形 API 查询
 
 > 这一节按“一个图形 + 一段 Java 代码”的方式整理，方便快速查找对应 API。完整版本请直接查看对应 demo 类。
@@ -684,7 +838,7 @@ option.setSunburstData(root);
 
 #### Credit Report 综合示例
 
-预览：见企业信用报告章节与 `images/` 图形预览
+预览：当前仓库 `images/` 目录暂无企业信用报告整页效果图，现有视觉参考请见信用报告章节中的模板骨架与 SVG 图表预览。
 
 Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/creditreport/JQuickCreditReportTest.java`
 
@@ -1097,6 +1251,8 @@ public class SvgDemo {
 ## 🎯 业务实战示例
 
 ### 企业信用报告
+
+![](./pay/demo.png)
 
 仓库中已经提供企业信用报告相关示例：
 
