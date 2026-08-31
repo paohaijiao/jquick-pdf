@@ -205,6 +205,503 @@ public class Demo {
 | Sunburst | `demo/sunburd/JQuickSunburdTest.java` |
 | Advanced Topology | `demo/advance/JQuickAdvanceToplogyTest.java` |
 
+### Basic Chart API Lookup
+
+> This section is organized as “one chart + one Java snippet” so it can be used as a quick API lookup index. For the complete version, open the corresponding demo class.
+
+#### Area Chart
+
+Preview: ![](./images/area.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/area/JQuickAreaTest.java`
+
+```java
+JGraphContainer graphContainer = new JGraphContainer();
+graphContainer.setType(JChartType.AREA);
+
+JAreaChartData data = new JAreaChartData();
+data.setWidth(500);
+data.setHeight(400);
+data.setTitle("2024年度销售趋势");
+data.setXAxisTitle("月份");
+data.setYAxisTitle("销售额（万元）");
+data.setShowDataLabels(true);
+data.setSeriesList(Arrays.asList(new JSeriesData("销售额", values)));
+data.setXAxisLabels(labels);
+
+JOption option = new JOption();
+option.setData(data);
+graphContainer.setOption(option);
+```
+
+#### Horizontal Bar Chart
+
+Preview: ![](./images/horizontalBar.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bar/JQuickHorizontalBarChartTest.java`
+
+```java
+JGraphContainer graphContainer = new JGraphContainer();
+graphContainer.setType(JChartType.HorizontalBar);
+
+JHorizontalBarChartData chartData = new JHorizontalBarChartData();
+chartData.setTitleText("2024年度销售数据");
+chartData.setWidth(300);
+chartData.setHeight(400);
+chartData.addYAxisLabel("电子产品");
+chartData.addYAxisLabel("服装服饰");
+chartData.addBarData(new JHorizontalBarChartData.BarData("产品A", productAValues, JHorizontalBarChartData.COLOR_A));
+chartData.addBarData(new JHorizontalBarChartData.BarData("产品B", productBValues, JHorizontalBarChartData.COLOR_B));
+
+JOption option = new JOption();
+option.setData(chartData);
+graphContainer.setOption(option);
+```
+
+#### Bubble Chart
+
+Preview: ![](./images/bubble.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bubble/JQuickBubbleTest.java`
+
+```java
+JOption option = new JOption()
+        .legend("优", "良", "轻度污染", "中度污染", "重度污染")
+        .xAxis(new CategoryAxis().name("日期"))
+        .yAxis(new ValueAxis().name("AQI数值"));
+
+ScatterSeries series = new ScatterSeries("空气质量监测");
+series.data(seriesData.toArray());
+option.series(series);
+
+JGraphContainer graphContainer = new JGraphContainer();
+graphContainer.setType(JChartType.Bubble);
+graphContainer.setOption(option);
+```
+
+#### Funnel Chart
+
+Preview: ![](./images/funnel.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/funnel/JQuickFunnelTest.java`
+
+```java
+JGraphContainer graphContainer = new JGraphContainer();
+graphContainer.setType(JChartType.Funnel);
+
+JFunnelOption option = JFunnelOption.createDefaultFunnel()
+        .title(new Title().text("销售漏斗").subtext("2024年数据"))
+        .funnel(new Funnel().width(600).topY(80).bottomY(200).gap(2))
+        .series(Collections.singletonList(
+                new Series().name("sales").type("funnel").data(Arrays.asList(
+                        new DataItem("展现", 10000),
+                        new DataItem("点击", 5000),
+                        new DataItem("咨询", 2000),
+                        new DataItem("订单", 500)
+                ))));
+
+JOption jOption = new JOption();
+jOption.setFunnelOption(option);
+graphContainer.setOption(jOption);
+```
+
+#### Calendar Chart
+
+Preview: ![](./images/calendar.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/calendar/JQuickCalendarTest.java`
+
+```java
+Map<LocalDate, Integer> data = new HashMap<>();
+JCalendarOption calendarOption = new JCalendarOption(
+        "2024年活动日历",
+        "类似GitHub贡献图",
+        2024,
+        data,
+        new Color(235, 237, 240),
+        new Color(32, 125, 222),
+        new Color(232, 235, 240),
+        new Color(84, 85, 90),
+        20,
+        80
+);
+
+JOption option = new JOption();
+option.setJCalendarOption(calendarOption);
+```
+
+#### Geo / Map Chart
+
+Preview: ![](./images/geo.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/geo/JGeoTest.java`
+
+```java
+String geoJsonContent = readFromClasspath("sample/test.geojson");
+GeoOption geoOption = new GeoOption();
+geoOption.setGeoJsonContent(geoJsonContent);
+
+JOption option = new JOption();
+option.setGeoOption(geoOption);
+
+JGraphContainer graphContainer = new JGraphContainer();
+graphContainer.setType(JChartType.Geo);
+graphContainer.setOption(option);
+```
+
+#### Double Radar Chart
+
+Preview: ![](./images/twoRadar.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/radar/JQuickTwoRadarTest.java`
+
+```java
+JGraphContainer graphContainer = new JGraphContainer();
+graphContainer.setType(JChartType.DoubleRadar);
+
+JDoubleRadarChartData chartData = new JDoubleRadarChartData();
+chartData.setWidth(1000);
+chartData.setHeight(600);
+chartData.setTitleText("多维度数据对比雷达图");
+chartData.setDimensions(Arrays.asList("维度A", "维度B", "维度C", "维度D", "维度E"));
+chartData.setLeftTitle("实验组数据");
+chartData.setRightTitle("对照组数据");
+chartData.setLeftRadar(leftRadar);
+chartData.setRightRadar(rightRadar);
+
+JOption option = new JOption();
+option.setData(chartData);
+graphContainer.setOption(option);
+```
+
+#### Circle / Donut Chart
+
+Preview: ![](./images/pie-chart.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/circle/JQuickCircleTest.java`
+
+```java
+JGraphContainer graphContainer = new JGraphContainer();
+graphContainer.setType(JChartType.Circle);
+
+JCircleChartData chartData = new JCircleChartData();
+chartData.setWidth(500);
+chartData.setHeight(400);
+chartData.setTitleText("2024年度销售分布");
+chartData.setCenterTitle("总销售额");
+chartData.setCenterUnit("万");
+chartData.setSectorDataList(sectors);
+
+JOption option = new JOption();
+option.setData(chartData);
+graphContainer.setOption(option);
+```
+
+#### Gauge Chart
+
+Preview: ![](./images/gauge.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/guage/JQuickGuageTest.java`
+
+```java
+GuageConfig scoreConfig = GuageConfig.builder()
+        .score(75)
+        .pointerColor(new Color(220, 80, 80))
+        .backgroundColor(new Color(240, 240, 245))
+        .title("PERFORMANCE")
+        .build();
+
+JGuageOption option = JGuageOption.builder().scoreMeter(scoreConfig).build();
+JOption jOption = new JOption();
+jOption.setGuageOption(option);
+```
+
+#### Gantt Chart
+
+Preview: ![](./images/gantt.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/gantt/JGanttTest.java`
+
+```java
+JGanttOption option = new JGanttOption();
+option.setTitle(new JGanttOption.Title("Gantt of Airport Flight", "航班调度甘特图"));
+option.setFlightData(Arrays.asList(
+        new JGanttOption.FlightData("Y3683", "681", "X", 21, 0, 360, 0, 0.7),
+        new JGanttOption.FlightData("EKXAD", "682I", "W", 21, 0, 360, 1, 0.7)
+));
+option.setTimeRange(new JGanttOption.TimeRange(21, 3, new String[]{"21:00", "22:00", "23:00", "00:00"}));
+
+JOption jOption = new JOption();
+jOption.setGanttOption(option);
+```
+
+#### Matrix Chart
+
+Preview: ![](./images/Matrix.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/matrix/JQuickMatrixTest.java`
+
+```java
+double[][] correlationData = new double[][] {
+        {1.00, -0.20, 0.03},
+        {-0.20, 1.00, 0.36},
+        {0.03, 0.36, 1.00}
+};
+String[] dimensions = {"销售额", "广告费", "促销费"};
+
+JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
+        .title("销售因素相关系数矩阵", "各因素之间的相关性分析")
+        .dataset(correlationData)
+        .build();
+option.dataset().dimensions(dimensions);
+
+JOption jOption = new JOption();
+jOption.setCorrelationMatrixOption(option);
+```
+
+#### Line Bar Combo Chart
+
+Preview: ![](./images/linebar.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/linebar/JQuickLineBarTest.java`
+
+```java
+JComboLineBarChartData data = JComboLineBarChartData.builder()
+        .width(1000)
+        .height(600)
+        .title("2024年上半年销售分析", "半年度数据报告")
+        .barData(sales)
+        .lineData(profits)
+        .xAxisLabels(months)
+        .leftAxisTitle("销售额（万元）")
+        .rightAxisTitle("利润率（%）")
+        .build();
+
+JOption option = new JOption();
+option.setData(data);
+```
+
+#### Multiple Line Chart
+
+Preview: ![](./images/multipleLine.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/linebar/JQuickMutipleLineTest.java`
+
+```java
+JMultiLineChartData chartData = new JMultiLineChartData();
+chartData.setXAxisLabels(months);
+chartData.setWidth(900);
+chartData.setHeight(600);
+chartData.setTitleText("2024年度产品销售趋势分析");
+chartData.setYAxisTitle("销售额（万元）");
+chartData.setLineDataList(Arrays.asList(lineA, lineB, lineC, lineD));
+chartData.updateMaxValues();
+
+JOption option = new JOption();
+option.setData(chartData);
+```
+
+#### Timeline Chart
+
+Preview: ![](./images/timeline.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/other/JQuickTimeLineTest.java`
+
+```java
+JTimeLineData data = new JTimeLineData();
+data.setNodes(nodes);
+data.setMainTitle("MILESTONE TIMELINE");
+data.setSubtitle("2021-2023 关键里程碑节点");
+data.setFooterText("数据来源：年度报告 | 更新日期：2024年1月");
+data.setHeight(1300);
+data.setBoxWidth(200);
+data.setBoxHeight(90);
+
+JOption option = new JOption();
+option.setData(data);
+```
+
+#### Advanced Topology Chart
+
+Preview: ![](./images/advance_topology.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/advance/JQuickAdvanceToplogyTest.java`
+
+```java
+JAdvancedTopologyData data = new JAdvancedTopologyData();
+data.setTitleText("微服务架构拓扑图");
+data.setSubtitleText("服务调用链路图");
+data.setWidth(1200);
+data.setHeight(800);
+data.setAutoLayout(true);
+data.setCurvedLinks(true);
+data.setShowDataFlow(true);
+
+data.getNodes().add(gateway);
+data.getLinks().add(link);
+
+JOption option = new JOption();
+option.setData(data);
+```
+
+#### Multiple Bar Chart
+
+Preview: ![](./images/fourBar.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bar/JQuickMutipleBarTest.java`
+
+```java
+JGraphContainer graphContainer = new JGraphContainer();
+graphContainer.setType(JChartType.MultipleBar);
+
+JMultiBarChartData regionalData = new JMultiBarChartData();
+regionalData.setTitleText("2024年上半年各区域业绩对比（万元）");
+regionalData.setXAxisLabels(Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月"));
+regionalData.setXAxisTitle("月份");
+regionalData.setYAxisTitle("业绩（万元）");
+regionalData.setBarDataList(Arrays.asList(eastChina, southChina, northChina, westChina));
+
+JOption option = new JOption();
+option.setData(regionalData);
+```
+
+#### Multiple Horizontal Bar Chart
+
+Preview: ![](./images/horizontalBar.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bar/JQuickMutipleHorizontalBarChartTest.java`
+
+```java
+JHorizontalMultiBarChartData chartData = new JHorizontalMultiBarChartData();
+chartData.setTitleText("2024年度各产品销售数据");
+chartData.setXAxisTitle("销售额（万元）");
+chartData.setShowDataLabels(true);
+chartData.setLegendAtTop(true);
+chartData.addCategory("智能手机");
+chartData.addCategory("笔记本电脑");
+chartData.addSeries("品牌 A", productAValues, new Color(52, 73, 94));
+chartData.addSeries("品牌 B", productBValues, new Color(41, 128, 185));
+chartData.addSeries("品牌 C", productCValues, new Color(26, 188, 156));
+
+JOption option = new JOption();
+option.setData(chartData);
+```
+
+#### Line Radar Chart
+
+Preview: ![](./images/lineRadar.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bar/JQuickLineRadarChartTest.java`
+
+```java
+JLineScatterChartData data = new JLineScatterChartData();
+data.setTitleText("计划销售额 vs 实际完成额");
+data.setCategories(categories);
+data.setLineValues(lineValues);
+data.setScatterValues(scatterValues);
+data.setLineSeriesName("计划销售额");
+data.setScatterSeriesName("实际完成额");
+data.setMaxValue(500);
+data.setShowDataLabels(true);
+
+JOption option = new JOption();
+option.setData(data);
+```
+
+#### Lunar Calendar Chart
+
+Preview: ![](./images/calendar.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/lunar/JQuickLunarTest.java`
+
+```java
+LunarCalendarOption.CalendarDataConfig dataConfig = new LunarCalendarOption.CalendarDataConfig()
+        .setDayDataList(createDefaultDayData())
+        .setSpecialDays(createDefaultSpecialDays())
+        .setWeekDays(new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"})
+        .setRows(5)
+        .setCols(7);
+
+LunarCalendarOption option = LunarCalendarOption.of("2024", "三月", colorConfig, title, dataConfig);
+```
+
+#### Tree Chart
+
+Preview: ![](./images/tree.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/other/JQuickTreeTest.java`
+
+```java
+JTreeChartData data = new JTreeChartData();
+data.setWidth(1100);
+data.setHeight(750);
+data.setTitleText("XX集团组织架构图");
+data.setRootNodeWidth(240);
+data.setLevelNodeWidth(190);
+data.setHorizontalSpacing(70);
+data.setVerticalSpacing(60);
+data.setRootNode(root);
+
+JOption option = new JOption();
+option.setData(data);
+```
+
+#### TreeMap Chart
+
+Preview: ![](./images/treemap.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/other/JQuickTreeMapTest.java`
+
+```java
+JTreeMapNode root = createTestData();
+TreeMapOption treemapOption = new TreeMapOption();
+treemapOption.setRoot(root);
+treemapOption.setDepartmentColors(DEPARTMENT_COLORS);
+treemapOption.setCategoryColors(CATEGORY_COLORS);
+treemapOption.getDepartmentRules().add(new TreeMapMapping("开发", "技术部"));
+
+graphContainer.setType(JChartType.TreeMap);
+JOption option = new JOption();
+option.setTreemapOption(treemapOption);
+```
+
+#### Sunburst Chart
+
+Preview: ![](./images/sunburst.svg)
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/sunburd/JQuickSunburdTest.java`
+
+```java
+JSunburstData root = new JSunburstData("总数据", 1.0);
+JSunburstData main1 = new JSunburstData("电子产品", 0.4);
+main1.addChild(new JSunburstData("手机", 0.6));
+main1.addChild(new JSunburstData("电脑", 0.4));
+root.addChild(main1);
+
+JOption option = new JOption();
+option.setSunburstData(root);
+```
+
+#### Credit Report Composite Demo
+
+Preview: see the enterprise credit report section and the `images/` previews
+
+Demo: `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/creditreport/JQuickCreditReportTest.java`
+
+```java
+JReader htmlReader = new JReSourceFileReader("html.txt");
+JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
+JPdfConfig config = new JPdfConfig();
+JTemplateConfig templateConfig = config.getTemplateConfig();
+templateConfig.put("html", htmlAdaptor.getRuleContent());
+config.setTemplateConfig(templateConfig);
+
+JReader svgReader = new JReSourceFileReader("radar.txt");
+JAdaptor svgAdaptor = new JAdaptor(svgReader);
+JQuickPdfFactory factory = new JQuickPdfFactory(config);
+factory.bind("svg", svgAdaptor.getRuleContent());
+byte[] bytes = factory.executeResource("report.txt");
+```
 ---
 
 ## 📚 API and Template Tag Reference
@@ -272,9 +769,9 @@ Main flow responsibilities:
 
 ### 2. XML Template Tags and Attributes
 
-> Note: style naming in the repository follows actual examples, and commonly appears as `fontSize`, `marginBottom`, `backgroundColor`, `width`, `height`, and similar keys.
+> Note: style naming in the repository follows actual examples. Common keys include `fontSize`, `marginBottom`, `backgroundColor`, `width`, and `height`. This section now includes copyable demo snippets in addition to the attribute tables.
 
-#### PDF root tags and page control
+#### Page-level global attributes
 
 | Tag | Attribute | Description | Example |
 |---|---|---|---|
@@ -287,7 +784,19 @@ Main flow responsibilities:
 | `<areaBreak>` | - | Force page break | - |
 | `<htmlPageBreak>` | - | Page switch | - |
 
-#### Text and container tags
+Page-level demo:
+
+```xml
+<pdf page-width="595" page-height="842" margin-left="36" margin-right="36" margin-top="36" margin-bottom="36">
+  <body>
+    <p>'First page content'</p>
+    <areaBreak></areaBreak>
+    <p>'Second page content'</p>
+  </body>
+</pdf>
+```
+
+#### Container / text
 
 | Tag | Attribute | Description | Example |
 |---|---|---|---|
@@ -307,7 +816,20 @@ Main flow responsibilities:
 | `<span>` | `color` | Text color | `#3498db` |
 | `<span>` | `background` | Background color | `#ffffff` |
 
-#### Table tags
+Container / text demo:
+
+```xml
+<div style="textAlignment:center; marginBottom:12px; padding:12px; background:#3E6B9D; color:white; borderRadius:4px">
+  <h1 style="fontSize:20; fontWeight:bold; marginBottom:8px">'企业信用评级报告'</h1>
+  <p style="fontSize:11; margin:2px">'报告编号: CR-2023-08975'</p>
+  <p style="fontSize:11; margin:2px">
+    <span style="fontWeight:bold">'评估机构: '</span>
+    '四川省企业信用评估中心'
+  </p>
+</div>
+```
+
+#### Table
 
 | Tag | Attribute | Description | Example |
 |---|---|---|---|
@@ -319,7 +841,22 @@ Main flow responsibilities:
 | `<td>` / `<th>` | `padding` | Cell padding | `10px` |
 | `<td>` / `<th>` | `backgroundColor` | Cell background color | `#f8f9fa` |
 
-#### Image tags
+Table demo:
+
+```xml
+<table style="width:600px; fontSize:10; marginTop:8px">
+  <tr>
+    <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'财务指标'</th>
+    <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'2023年'</th>
+  </tr>
+  <tr>
+    <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; border:1px solid #dee2e6">'营业收入'</td>
+    <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'25,680'</td>
+  </tr>
+</table>
+```
+
+#### Image
 
 | Tag | Attribute | Description | Example |
 |---|---|---|---|
@@ -328,7 +865,15 @@ Main flow responsibilities:
 | `<image>` | `height` | Image height | `300px` |
 | `<image>` | `alt` | Alternate description | `logo` |
 
-#### Chart-related fields
+Image demo:
+
+```xml
+<div style="marginTop:10px; textAlignment:center">
+  <image src="https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7" style="width:240px;height:120px"></image>
+</div>
+```
+
+#### Chart
 
 | Tag | Attribute | Description | Example |
 |---|---|---|---|
@@ -337,7 +882,16 @@ Main flow responsibilities:
 | chart configuration | `height` | Chart height | `400` |
 | chart configuration | `data` | Chart data source | `JGraphConfig` binding |
 
-#### SVG tags
+Chart demo:
+
+```xml
+<div style="margin-bottom:15px">
+  <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'信用评级雷达图'</h2>
+  <svg style="width:400px;height:400px">${svg}</svg>
+</div>
+```
+
+#### SVG
 
 | Tag | Attribute | Description | Example |
 |---|---|---|---|
@@ -346,6 +900,15 @@ Main flow responsibilities:
 | `<svg>` | `viewBox` | SVG viewport | `0 0 500 450` |
 | `<svg>` | `xmlns` | SVG namespace | `http://www.w3.org/2000/svg` |
 
+SVG demo:
+
+```xml
+<pdf>
+  <body>
+    <svg style="width:400px;height:400px">${svg}</svg>
+  </body>
+</pdf>
+```
 ---
 
 ## 🖼️ Preparing SVG Data
@@ -544,7 +1107,20 @@ The repository already provides enterprise credit report examples:
 - `jquick-pdfx/src/test/resources/html.txt`
 - `jquick-pdfx/src/test/resources/radar.txt`
 
-Core Java usage:
+#### Demo skeleton overview
+
+This scenario includes:
+
+- page title area
+- enterprise basic-info table
+- template fragment insertion
+- financial data table
+- multi-paragraph business description
+- SVG radar chart
+- pagination
+- bottom notes and stamp area
+
+#### Core Java code
 
 ```java
 import com.github.paohaijiao.adaptor.JAdaptor;
@@ -559,13 +1135,13 @@ public class CreditReportDemo {
         JReader htmlReader = new JReSourceFileReader("html.txt");
         JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
 
+        JReader svgReader = new JReSourceFileReader("radar.txt");
+        JAdaptor svgAdaptor = new JAdaptor(svgReader);
+
         JPdfConfig config = new JPdfConfig();
         JTemplateConfig templateConfig = config.getTemplateConfig();
         templateConfig.put("html", htmlAdaptor.getRuleContent());
         config.setTemplateConfig(templateConfig);
-
-        JReader svgReader = new JReSourceFileReader("radar.txt");
-        JAdaptor svgAdaptor = new JAdaptor(svgReader);
 
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svgAdaptor.getRuleContent());
@@ -575,18 +1151,57 @@ public class CreditReportDemo {
 }
 ```
 
-Core template snippet:
+#### Template skeleton snippet
 
 ```xml
-<div style="margin-bottom:15px">
-  <h2 style="color:#3498db; border-bottom:1px solid #3498db; padding-bottom:4px; font-size:13px; margin-bottom:10px">'信用评级雷达图'</h2>
-  <div style="display:flex; justify-content:space-between; margin-top:10px">
-    <svg style="width:400px;height:400px">${svg}</svg>
-  </div>
-</div>
+<pdf>
+  <body>
+    <div style="textAlignment:center; marginBottom:5px; padding:12px; background:#3E6B9D; color:white; borderRadius:4px">
+      <h1 style="fontSize:20; fontWeight:bold; marginBottom:8px">'企业信用评级报告'</h1>
+      <p style="fontSize:11; margin:2px">'报告编号: CR-2023-08975 | 评估日期: 2023年11月15日'</p>
+      <p style="fontSize:11; margin:2px">'评估机构: 四川省企业信用评估中心'</p>
+    </div>
+
+    <table style="width:600px; fontSize:10; marginTop:8px">
+      <tr>
+        <td style="backgroundColor:#f8f9fa; padding:5px; width:150px">'统一信用代码'</td>
+        <td style="padding:5px; width:150px">'91110108MA01XX1234'</td>
+        <td style="backgroundColor:#f8f9fa; padding:5px; width:150px">'成立日期'</td>
+        <td style="padding:5px; width:150px">'2018年5月20日'</td>
+      </tr>
+    </table>
+
+    <template>&html</template>
+
+    <div style="margin-bottom:15px">
+      <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'关键经营指标'</h2>
+      <list style="list-style-type:none; padding-left:0; font-size:11px">
+        <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #4CAF50">'营收增长率: 连续三年保持40%以上增长'</li>
+        <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #2196F3">'利润率提升: 盈利能力显著增强'</li>
+      </list>
+    </div>
+
+    <div style="margin-bottom:15px">
+      <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'信用评级雷达图'</h2>
+      <svg style="width:400px;height:400px">${svg}</svg>
+    </div>
+
+    <areaBreak></areaBreak>
+
+    <div style="margin-bottom:15px; background:#e3f2fd; padding:15px; borderRadius:4px; border-left:4px solid #2196F3">
+      <h2 style="color:#1565c0; fontSize:13; marginBottom:8px">'综合评价'</h2>
+      <p style="line-height:1.5; font-size:11px">'公司财务状况健康，经营能力突出，具备良好的发展潜力。'</p>
+    </div>
+
+    <div style="text-align:center; margin-top:15px; padding-top:12px; border-top:1px solid #dee2e6; color:#6c757d; font-size:9px">
+      <p>'本报告依据公开信息和专业评估模型生成，仅供参考'</p>
+      <p>'© 企业信用评估中心 | 签章区'</p>
+    </div>
+  </body>
+</pdf>
 ```
 
-> Please check the repository demos and resource files for the full example.
+> Please check the demo directory and `report.txt` for the full source and full template.
 
 ---
 
@@ -647,6 +1262,28 @@ Issues, PRs, and suggestions are welcome.
 
 You can contribute in areas such as:
 
+- Documentation improvements
+- More demos
+- Chart extensions
+- Template enhancements
+- PDFBox migration and font support improvements
+
+---
+
+## 🔗 Related Links
+
+- GitHub: https://github.com/paohaijiao/jquick-pdf
+- Gitee: https://gitee.com/paohaijiao/jquick-pdf
+- Issues: https://github.com/paohaijiao/jquick-pdf/issues
+- Changelog: [change.md](./change.md)
+
+---
+
+## 📜 License
+
+Please refer to [LICENSE](./LICENSE) for the project license statement.
+
+> Versions 4.0.0 and below are retroactively licensed under AGPL-3.0.
 - Documentation improvements
 - More demos
 - Chart extensions
