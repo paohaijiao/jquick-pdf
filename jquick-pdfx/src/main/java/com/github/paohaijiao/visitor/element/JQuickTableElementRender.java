@@ -1,6 +1,6 @@
 package com.github.paohaijiao.visitor.element;
 
-import com.github.paohaijiao.color.JColorEnums;
+import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
@@ -69,21 +69,21 @@ public class JQuickTableElementRender implements JQuickElementRender {
 
     private void drawCell(PDPageContentStream stream, float x, float y, float width, float height, boolean header, boolean evenRow) throws IOException {
         if (header) {
-            PDColor headerColor = JColorEnums.colorOf("#4285F4");
+            PDColor headerColor = PdfBoxRenderAdapter.color("#4285F4");
             if (headerColor != null) {
                 stream.setNonStrokingColor(headerColor);
             }
             stream.addRect(x, y, width, height);
             stream.fill();
         } else if (evenRow) {
-            PDColor rowColor = JColorEnums.colorOf("#F5F5F5");
+            PDColor rowColor = PdfBoxRenderAdapter.color("#F5F5F5");
             if (rowColor != null) {
                 stream.setNonStrokingColor(rowColor);
             }
             stream.addRect(x, y, width, height);
             stream.fill();
         }
-        PDColor borderColor = JColorEnums.colorOf("#DDDDDD");
+        PDColor borderColor = PdfBoxRenderAdapter.color("#DDDDDD");
         if (borderColor != null) {
             stream.setStrokingColor(borderColor);
         }
@@ -101,7 +101,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
         float textY = y + rowHeight - cellPadding - fontSize;
         stream.beginText();
         stream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), fontSize);
-        PDColor color = header ? JColorEnums.colorOf("WHITE") : JColorEnums.colorOf("#333333");
+        PDColor color = header ? PdfBoxRenderAdapter.color("WHITE", null) : PdfBoxRenderAdapter.color("#333333", null);
         if (color != null) {
             stream.setNonStrokingColor(color);
         }

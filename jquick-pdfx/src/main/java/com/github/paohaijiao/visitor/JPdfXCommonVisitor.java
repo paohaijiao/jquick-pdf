@@ -16,16 +16,11 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JPdfConfig;
-import com.github.paohaijiao.model.JHtmlRenderModel;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.sample.CataLog;
-import com.github.paohaijiao.sample.CatalogType;
-import com.github.paohaijiao.sample.ReportComponent;
-import com.github.paohaijiao.sample.ReportStyle;
-import com.github.paohaijiao.sample.event.CatalogMoveEvent;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import com.github.paohaijiao.visitor.render.JTemplatePdfBoxRenderer;
+import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
 import com.github.paohaijiao.visitor.element.JQuickAreaBreakElementRender;
 import com.github.paohaijiao.visitor.element.JQuickButtonElementRender;
 import com.github.paohaijiao.visitor.element.JQuickCheckBoxElementRender;
@@ -36,10 +31,6 @@ import com.github.paohaijiao.visitor.element.JQuickLineSeparatorElementRender;
 import com.github.paohaijiao.visitor.element.JQuickListElementRender;
 import com.github.paohaijiao.visitor.element.JQuickTabElementRender;
 import com.github.paohaijiao.visitor.element.JQuickTextAreaElementRender;
-import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.kernel.events.PdfDocumentEvent;
-import com.itextpdf.layout.element.*;
-import com.itextpdf.layout.properties.AreaBreakType;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
@@ -51,8 +42,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.*;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -116,16 +105,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
     @Override
     public Void visitHtml(JQuickPDFParser.HtmlContext ctx) {
         configure(config);
-        if (pdfBoxEnabled) {
-            return renderWithPdfBox(ctx);
-        }
-        if (null != ctx.body()) {
-            visitBody(ctx.body());
-        }
-        if (pdf != null) {
-            pdf.close();
-        }
-        return null;
+        return renderWithPdfBox(ctx);
     }
 
     protected Void renderWithPdfBox(JQuickPDFParser.HtmlContext ctx) {
@@ -133,13 +113,20 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
             if (getPdfBoxDocument() == null) {
                 return null;
             }
-            PDPage page = createPdfBoxPage();
-            getPdfBoxDocument().addPage(page);
-            try (PDPageContentStream contentStream = new PDPageContentStream(getPdfBoxDocument(), page)) {
-                JQuickRenderContext renderContext = createRenderContext(page.getMediaBox());
+            PDPage page = currentPage == null ? createPdfBoxPage() : currentPage;
+            if (currentPage == null) {
+                getPdfBoxDocument().addPage(page);
+            }
+            JQuickRenderContext renderContext = createRenderContext(page.getMediaBox());
+            PdfBoxLayoutEngine layoutEngine = new PdfBoxLayoutEngine(getPdfBoxDocument(), page.getMediaBox(),
+                    renderContext, page, contentStream == null ? new PDPageContentStream(getPdfBoxDocument(), page) : contentStream);
+            renderContext.setLayoutEngine(layoutEngine);
+            try {
                 if (ctx != null && ctx.body() != null) {
-                    renderPdfBoxBody(ctx.body(), contentStream, renderContext);
+                    renderPdfBoxBody(ctx.body(), layoutEngine.getStream(), renderContext);
                 }
+            } finally {
+                layoutEngine.close();
             }
             getPdfBoxDocument().save(baos);
             getPdfBoxDocument().close();
@@ -183,7 +170,9 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
             Object object = visitElement(elementContext);
             if (object instanceof JQuickElementRender) {
-                ((JQuickElementRender) object).draw(contentStream, renderContext);
+                PDPageContentStream activeStream = renderContext.getLayoutEngine() == null
+                        ? contentStream : renderContext.getLayoutEngine().getStream();
+                ((JQuickElementRender) object).draw(activeStream, renderContext);
                 if (renderContext.isNewPage()) {
                     renderContext.setNewPage(false);
                 }
@@ -193,156 +182,6 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
 
     @Override
     public Void visitBody(JQuickPDFParser.BodyContext ctx) {
-        if (ctx.element() != null && !ctx.element().isEmpty()) {
-            for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
-                Object object = visitElement(elementContext);
-                if (object instanceof Image) {
-                    Image image = (Image) object;
-                    doc.add(image);
-                }
-                if (object instanceof IBlockElement) {
-                    IBlockElement blockElement = (IBlockElement) object;
-                    doc.add(blockElement);
-                }
-                if (object instanceof JQuickAreaBreakElementRender) {
-                    continue;
-                }
-                if (object instanceof JQuickTextAreaElementRender) {
-                    continue;
-                }
-                if (object instanceof JQuickListElementRender) {
-                    continue;
-                }
-                if (object instanceof JQuickSvgElementRender) {
-                    continue;
-                }
-                if (object instanceof JQuickTableElementRender) {
-                    continue;
-                }
-                if (object instanceof JQuickTemplateRenderModel) {
-                    continue;
-                }
-                if (object instanceof JQuickElementRender) {
-                    continue;
-                }
-                if (object instanceof JHtmlRenderModel) {
-                    JHtmlRenderModel renderModel = (JHtmlRenderModel) object;
-                    if (renderModel.getList() != null) {
-                        renderModel.getList().forEach(this::saveSub);
-                    }
-                }
-            }
-        }
         return null;
-    }
-
-    private void saveSub(Object object) {
-        if (doc == null || object == null) {
-            return;
-        }
-        if (object instanceof Image) {
-            Image image = (Image) object;
-            doc.add(image);
-        }
-        if (object instanceof IBlockElement) {
-            IBlockElement blockElement = (IBlockElement) object;
-            doc.add(blockElement);
-        }
-        if (object instanceof JQuickAreaBreakElementRender) {
-            return;
-        }
-        if (object instanceof JQuickButtonElementRender) {
-            return;
-        }
-        if (object instanceof JQuickCheckBoxElementRender) {
-            return;
-        }
-        if (object instanceof JQuickComboBoxElementRender) {
-            return;
-        }
-        if (object instanceof JQuickTextAreaElementRender) {
-            return;
-        }
-        if (object instanceof JQuickImageElementRender) {
-            return;
-        }
-        if (object instanceof JQuickLineSeparatorElementRender) {
-            return;
-        }
-        if (object instanceof JQuickTabElementRender) {
-            return;
-        }
-        if (object instanceof JQuickListElementRender) {
-            return;
-        }
-        if (object instanceof JQuickSvgElementRender) {
-            return;
-        }
-        if (object instanceof JQuickTableElementRender) {
-            return;
-        }
-        if (object instanceof JQuickTemplateRenderModel) {
-            return;
-        }
-    }
-
-    public void addCatalog() {
-        CatalogMoveEvent catalogMoveEvent = new CatalogMoveEvent(properties);
-        pdf.addEventHandler(PdfDocumentEvent.END_PAGE, catalogMoveEvent);
-        doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
-        int startNum = pdf.getNumberOfPages();
-        Div div1 = getCataLogDiv(0);
-        doc.add(div1);
-        pdf.removeEventHandler(PdfDocumentEvent.END_PAGE, catalogMoveEvent);
-        int pageSize = catalogMoveEvent.getPageSize();
-        doc.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
-        Div cataLogDiv = getCataLogDiv(pageSize);
-        doc.add(cataLogDiv);
-        for (int i = startNum; i < startNum + pageSize; i++) {
-            pdf.removePage(startNum);
-        }
-    }
-
-    private Div getCataLogDiv(int offPage) {
-        Div div1 = new Div();
-        Table tableCatalog = new Table(4).useAllAvailableWidth();
-        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("检测结果概况").addStyle(ReportStyle.getSecondTitleStyle())));
-        tableCatalog.addCell(ReportComponent.getCatelogCell(2).add(ReportComponent.getCatelogDottedLine(1)));
-        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("8")));
-        tableCatalog.startNewRow();
-        Paragraph p1 = new Paragraph();
-        p1.add(new Text("目录").addStyle(ReportStyle.getTitleStyle()).setFontSize(32));
-        java.util.List<CataLog> cataLogs = cataLogsMap.getOrDefault(CatalogType.ATTENTION, new LinkedList<>());
-        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("需要注意").addStyle(ReportStyle.getSecondTitleStyle())));
-        tableCatalog.startNewRow();
-        this.addCatalogDetail(offPage, tableCatalog, cataLogs);
-        cataLogs = cataLogsMap.getOrDefault(CatalogType.NORMAL, new LinkedList<>());
-        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("正常项目").addStyle(ReportStyle.getSecondTitleStyle())));
-        tableCatalog.startNewRow();
-        Map<String, List<CataLog>> cataLogMap = cataLogs.stream().collect(Collectors.groupingBy(CataLog::getCategoryName, LinkedHashMap::new, Collectors.toList()));
-        Set<Map.Entry<String, List<CataLog>>> entries1 = cataLogMap.entrySet();
-        for (Map.Entry<String, java.util.List<CataLog>> cataLogEntry : entries1) {
-            String categoryName = cataLogEntry.getKey();
-            tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph(categoryName).addStyle(ReportStyle.getSecondTitleStyle().setFontSize(13))));
-            tableCatalog.startNewRow();
-            java.util.List<CataLog> values = cataLogEntry.getValue();
-            this.addCatalogDetail(offPage, tableCatalog, values);
-        }
-        tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph("结束语").addStyle(ReportStyle.getSecondTitleStyle())));
-        div1.add(p1);
-        div1.add(tableCatalog);
-        return div1;
-    }
-
-    private void addCatalogDetail(int offPage, Table tableCatalog, java.util.List<CataLog> values) {
-        for (CataLog cataLog : values) {
-            tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph(cataLog.getName())));
-            tableCatalog.addCell(ReportComponent.getCatelogCell().add(ReportComponent.getCatelogDottedLine(2)));
-            tableCatalog.addCell(ReportComponent.getCatelogCell().add(new com.itextpdf.layout.element.List().add(new ListItem(cataLog.getLabel())
-                    .setListSymbol(new Image(ImageDataFactory.create(JPdfXCommonVisitor.class.getClassLoader().getResource("image/dark-green-point.png")))
-                            .addStyle(ReportStyle.getDefaultPoint())))));
-            tableCatalog.addCell(ReportComponent.getCatelogCell().add(new Paragraph((cataLog.getPageNumber() + offPage) + "")));
-            tableCatalog.startNewRow();
-        }
     }
 }

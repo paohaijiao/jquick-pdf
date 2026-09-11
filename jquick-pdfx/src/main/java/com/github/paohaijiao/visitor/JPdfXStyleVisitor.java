@@ -15,7 +15,8 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.color.JColorEnums;
+import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
+import com.github.paohaijiao.visitor.render.PdfBoxUnitConverter;
 import com.github.paohaijiao.enums.JBorder;
 import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.executor.JQuickPdfStyleExecutor;
@@ -23,7 +24,6 @@ import com.github.paohaijiao.executor.JQuickPdfUnitExecutor;
 import com.github.paohaijiao.model.JMarginModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.unit.JUnitConverter;
 import com.github.paohaijiao.util.JStringUtils;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 import java.math.BigDecimal;
@@ -92,14 +92,14 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             return null; // or return a default color
         }
         if (ctx.getText().startsWith("#")) {
-            PDColor rgb = JColorEnums.convertHexToRgb(ctx.getText());
+            PDColor rgb = PdfBoxRenderAdapter.color(ctx.getText(), null);
             return rgb;
         } else if (null != ctx.RGB_COLOR()) {
             String[] numbers = ctx.RGB_COLOR().getText().trim().replace("rgb(", "").replace(")", "").split(",");
             int r = Integer.parseInt(numbers[0].trim());
             int g = Integer.parseInt(numbers[1].trim());
             int b = Integer.parseInt(numbers[2].trim());
-            PDColor rgb = JColorEnums.colorOf(r, g, b);
+            PDColor rgb = PdfBoxRenderAdapter.color("rgb(" + r + "," + g + "," + b + ")", null);
             return rgb;
         } else if (null != ctx.CMYK_COLOR()) {
             String[] numbers = ctx.CMYK_COLOR().getText().trim().replace("cmyk(", "").replace(")", "").split(",");
@@ -107,7 +107,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             BigDecimal m = new BigDecimal(numbers[1]);
             BigDecimal y = new BigDecimal(numbers[2]);
             BigDecimal k = new BigDecimal(numbers[3]);
-            PDColor rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
+            PDColor rgb = PdfBoxRenderAdapter.color("cmyk(" + c + "," + m + "," + y + "," + k + ")", null);
             return rgb;
         } else if (null != ctx.CMYK_PERCENT()) {
             String[] numbers = ctx.CMYK_PERCENT().getText().trim().replace("cmyk(", "").replace(")", "").replace("%", "").split(",");
@@ -115,11 +115,11 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             BigDecimal m = new BigDecimal(numbers[1]);
             BigDecimal y = new BigDecimal(numbers[2]);
             BigDecimal k = new BigDecimal(numbers[3]);
-            PDColor rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
+            PDColor rgb = PdfBoxRenderAdapter.color("cmyk(" + c + "," + m + "," + y + "," + k + ")", null);
             return rgb;
         } else if (null != ctx.COLORENUM()) {
             String color = ctx.COLORENUM().getText().trim();
-            return JColorEnums.colorOf(color);
+            return PdfBoxRenderAdapter.color(color, null);
         }
         return null;
     }
@@ -135,7 +135,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
                 f = Float.parseFloat(matcher.group());
             }
             String code = unit.replaceAll("[0-9.]", "").trim();
-            float unitValue = JUnitConverter.create(f, code);
+            float unitValue = PdfBoxUnitConverter.toPoint(f + code, f);
             return unitValue;
         }
         return null;

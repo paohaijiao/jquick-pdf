@@ -1,6 +1,6 @@
 package com.github.paohaijiao.visitor.element;
 
-import com.github.paohaijiao.color.JColorEnums;
+import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import lombok.Data;
@@ -91,7 +91,7 @@ public class JQuickListElementRender implements JQuickElementRender {
 
     private PDColor resolveTextColor(JQuickRenderContext context) {
         if (style != null && style.get("color") != null) {
-            return JColorEnums.colorOf(style.get("color").toString());
+            return PdfBoxRenderAdapter.color(style.get("color").toString());
         }
         return context.getColor();
     }

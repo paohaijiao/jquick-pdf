@@ -1,46 +1,62 @@
 package com.github.paohaijiao.sample;
 
-import com.itextpdf.kernel.colors.ColorConstants;
-import com.itextpdf.kernel.geom.PageSize;
-import com.itextpdf.kernel.geom.Rectangle;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfString;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.annot.PdfAnnotation;
-import com.itextpdf.kernel.pdf.annot.PdfStampAnnotation;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.Paragraph;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
 
-import java.io.FileNotFoundException;
+import java.io.File;
+import java.io.IOException;
 
 public class TabTest {
-    static String path = "d://test//outline_tabs.pdf";
 
-    public static void main(String[] args) throws FileNotFoundException {
-        try (PdfDocument pdfDoc = new PdfDocument(new PdfWriter(path));
-             Document document = new Document(pdfDoc)) {
-            pdfDoc.addNewPage();
-            PageSize pageSize = pdfDoc.getDefaultPageSize();
-            int tabHeight = 30;
-            int tabWidth = (int) pageSize.getWidth() / 3;
-            int height = (int) pageSize.getHeight() - tabHeight;
-            PdfAnnotation tab1 = new PdfStampAnnotation(new Rectangle(0, height, tabWidth, tabHeight))
-                    .setContents("Tab 1")
-                    .setColor(ColorConstants.LIGHT_GRAY)
-                    .setTitle(new PdfString("Tab1"));
-            pdfDoc.getFirstPage().addAnnotation(tab1);
+    private static final String PATH = "target/outline_tabs.pdf";
 
-            // 创建Tab 2注释
-            PdfAnnotation tab2 = new PdfStampAnnotation(
-                    new Rectangle(tabWidth, pageSize.getHeight() - tabHeight, tabWidth, tabHeight))
-                    .setContents("Tab 2")
-                    .setColor(ColorConstants.LIGHT_GRAY)
-                    .setTitle(new PdfString("Tab 2"));
-            pdfDoc.getFirstPage().addAnnotation(tab2);
-
-            // 添加内容区域
-            document.add(new Paragraph("Current Tab Content")
-                    .setMarginTop(tabHeight + 10));
+    public static void main(String[] args) throws IOException {
+        File output = new File(PATH);
+        File parent = output.getParentFile();
+        if (parent != null) {
+            parent.mkdirs();
         }
+        try (PDDocument document = new PDDocument()) {
+            PDPage page = new PDPage(PDRectangle.A4);
+            document.addPage(page);
+            try (PDPageContentStream stream = new PDPageContentStream(document, page)) {
+                float tabHeight = 30f;
+                float tabWidth = page.getMediaBox().getWidth() / 3f;
+                float y = page.getMediaBox().getHeight() - tabHeight;
+                PDColor tabColor = new PDColor(new float[]{0.83f, 0.83f, 0.83f}, PDDeviceRGB.INSTANCE);
+                PDType1Font font = new PDType1Font(Standard14Fonts.FontName.HELVETICA);
+                drawTab(stream, font, tabColor, 0f, y, tabWidth, tabHeight, "Tab 1");
+                drawTab(stream, font, tabColor, tabWidth, y, tabWidth, tabHeight, "Tab 2");
+                drawText(stream, font, 12f, "Current Tab Content", 48f, y - 36f);
+            }
+            document.save(output);
+        }
+    }
+
+    private static void drawTab(PDPageContentStream stream, PDType1Font font, PDColor color,
+                                float x, float y, float width, float height, String label) throws IOException {
+        stream.setNonStrokingColor(color);
+        stream.addRect(x, y, width, height);
+        stream.fill();
+        stream.setStrokingColor(160, 160, 160);
+        stream.addRect(x, y, width, height);
+        stream.stroke();
+        float textWidth = font.getStringWidth(label) / 1000f * 11f;
+        drawText(stream, font, 11f, label, x + (width - textWidth) / 2f, y + 10f);
+    }
+
+    private static void drawText(PDPageContentStream stream, PDType1Font font, float size,
+                                 String value, float x, float y) throws IOException {
+        stream.beginText();
+        stream.setFont(font, size);
+        stream.newLineAtOffset(x, y);
+        stream.showText(value);
+        stream.endText();
     }
 }

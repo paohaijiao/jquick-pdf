@@ -74,15 +74,9 @@ public class JPdfXListVisitor extends JPdfXTableVisitor {
     }
 
     private boolean isOrderedList(JQuickPDFParser.ListContext ctx) {
-        if (ctx.listType() == null) {
-            return false;
-        }
-        String type = visitListType(ctx.listType());
-        if (type == null) {
-            return false;
-        }
-        String normalized = type.trim().toLowerCase();
-        return normalized.contains("ordered") || normalized.contains("ol") || normalized.contains("number");
+        String source = ctx == null ? "" : ctx.getText().toLowerCase();
+        return source.contains("ordered") || source.contains("<ol")
+                || source.contains("number") || source.contains("listtype=ol");
     }
 
     private String mergeText(List<Object> list) {

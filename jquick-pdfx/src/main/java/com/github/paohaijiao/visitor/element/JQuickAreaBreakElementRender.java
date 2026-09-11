@@ -23,7 +23,15 @@ public class JQuickAreaBreakElementRender implements JQuickElementRender {
 
     @Override
     public void draw(PDPageContentStream stream, JQuickRenderContext context) throws IOException {
-        if (stream == null || context == null) {
+        if (context == null) {
+            return;
+        }
+        if (context.getLayoutEngine() != null) {
+            context.getLayoutEngine().breakPage();
+            context.setNewPage(true);
+            return;
+        }
+        if (stream == null) {
             return;
         }
         context.setNewPage(true);

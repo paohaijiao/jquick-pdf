@@ -1,50 +1,47 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.event;
 
 import com.github.paohaijiao.config.JCatalogConfig;
-import com.itextpdf.kernel.events.Event;
-import com.itextpdf.kernel.events.IEventHandler;
-import com.itextpdf.kernel.events.PdfDocumentEvent;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfOutline;
-import com.itextpdf.kernel.pdf.PdfPage;
-import com.itextpdf.kernel.pdf.navigation.PdfDestination;
-import com.itextpdf.kernel.pdf.navigation.PdfExplicitDestination;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDDocumentOutline;
+import org.apache.pdfbox.pdmodel.interactive.documentnavigation.outline.PDOutlineItem;
+import org.apache.pdfbox.pdmodel.interactive.documentnavigation.destination.PDPageFitDestination;
+import java.io.IOException;
 
-public class JTocEventHandler implements IEventHandler {
+/**
+ * PDFBox 目录处理器。页面创建后显式调用 render 以登记书签。
+ */
+public class JTocEventHandler {
 
-    private PdfOutline rootOutline;
+    private final JCatalogConfig config;
+    private final PDDocumentOutline rootOutline;
 
-    private JCatalogConfig config;
-
-    public JTocEventHandler(PdfDocument pdfDoc, JCatalogConfig pdfConfig) {
-        this.rootOutline = pdfDoc.getOutlines(false);
-        this.config = pdfConfig;
+    public JTocEventHandler(PDDocument document, JCatalogConfig config) {
+        this.config = config;
+        PDDocumentOutline outline = document.getDocumentCatalog().getDocumentOutline();
+        if (outline == null) {
+            outline = new PDDocumentOutline();
+            document.getDocumentCatalog().setDocumentOutline(outline);
+        }
+        this.rootOutline = outline;
     }
 
-    @Override
-    public void handleEvent(Event event) {
-        PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
-        PdfDocument pdfDoc = docEvent.getDocument();
-        PdfPage page = docEvent.getPage();
-        if (config.getStartPage() == 2) {
-            PdfDestination dest = PdfExplicitDestination.createFit(page);
-            PdfOutline outline = rootOutline.addOutline("重要章节");
-            outline.addDestination(dest);
+    public void render(PDPage page) throws IOException {
+        if (config == null || !config.isEnabled()) {
+            return;
+        }
+        if (Integer.valueOf(2).equals(config.getStartPage())) {
+            PDPageFitDestination destination = new PDPageFitDestination();
+            destination.setPage(page);
+            PDOutlineItem outline = new PDOutlineItem();
+            outline.setTitle("重要章节");
+            outline.setDestination(destination);
+            rootOutline.addLast(outline);
+            rootOutline.openNode();
         }
         config.setStartPage(config.getStartPage() + 1);
     }

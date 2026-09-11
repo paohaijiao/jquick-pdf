@@ -1,111 +1,104 @@
 package com.github.paohaijiao.sample;
 
-import com.itextpdf.kernel.colors.DeviceRgb;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.borders.Border;
-import com.itextpdf.layout.borders.SolidBorder;
-import com.itextpdf.layout.element.Cell;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.Table;
-import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.itextpdf.layout.properties.TextAlignment;
-import com.itextpdf.layout.properties.VerticalAlignment;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
 
 import java.io.File;
 import java.io.IOException;
 
 public class PdfListGenerator {
 
-    public static final String DEST = "d://test//list_example.pdf";
-    private static final DeviceRgb HEADER_COLOR = new DeviceRgb(66, 133, 244); // 蓝色表头
-    private static final DeviceRgb HEADER_TEXT_COLOR = new DeviceRgb(255, 255, 255); // 白色文字
-    private static final DeviceRgb EVEN_ROW_COLOR = new DeviceRgb(245, 245, 245); // 浅灰色偶数行
-    private static final DeviceRgb TEXT_COLOR = new DeviceRgb(51, 51, 51); // 深灰色文字
-    private static final DeviceRgb BORDER_COLOR = new DeviceRgb(221, 221, 221); // 浅灰色边框
+    public static final String DEST = "target/list_example.pdf";
+    private static final PDColor HEADER_COLOR = color(66, 133, 244);
+    private static final PDColor HEADER_TEXT_COLOR = color(255, 255, 255);
+    private static final PDColor EVEN_ROW_COLOR = color(245, 245, 245);
+    private static final PDColor TEXT_COLOR = color(51, 51, 51);
+    private static final PDColor BORDER_COLOR = color(221, 221, 221);
 
     public static void main(String[] args) throws IOException {
-        File file = new File(DEST);
-        file.getParentFile().mkdirs();
         new PdfListGenerator().createPdf(DEST);
     }
 
-    public void createPdf(String dest) throws IOException {
-        PdfWriter writer = new PdfWriter(dest);
-        PdfDocument pdf = new PdfDocument(writer);
-        Document document = new Document(pdf);
-        Paragraph title = new Paragraph("产品信息表")
-                .setFontSize(18)
-                .setBold()
-                .setTextAlignment(TextAlignment.CENTER)
-                .setMarginBottom(20);
-        document.add(title);
-        Table table = new Table(3)
-                .setHorizontalAlignment(HorizontalAlignment.CENTER)
-                .setMarginBottom(30);
-        Border tableBorder = new SolidBorder(BORDER_COLOR, 1);
-        String[] headers = {"产品ID", "产品名称", "价格(元)"};
-        for (String header : headers) {
-            Cell headerCell = new Cell()
-                    .add(new Paragraph(header).setBold())
-                    .setBackgroundColor(HEADER_COLOR)
-                    .setFontColor(HEADER_TEXT_COLOR)
-                    .setTextAlignment(TextAlignment.CENTER)
-                    .setVerticalAlignment(VerticalAlignment.MIDDLE)
-                    .setWidth(250)
-                    .setBorder(tableBorder)
-                    .setPadding(8);
-            table.addHeaderCell(headerCell);
+    public void createPdf(String destination) throws IOException {
+        File file = new File(destination);
+        File parent = file.getParentFile();
+        if (parent != null) {
+            parent.mkdirs();
         }
+        String[] headers = {"Product ID", "Product Name", "Price"};
         String[][] data = {
-                {"P001", "智能手表 Pro", "1299"},
-                {"P002", "无线蓝牙耳机", "799"},
-                {"P003", "便携式充电器 20000mAh", "199"},
-                {"P004", "智能手环", "159"},
-                {"P005", "高清摄像头 1080P", "299"}
+                {"P001", "Smart Watch Pro", "1299"},
+                {"P002", "Wireless Headphones", "799"},
+                {"P003", "Portable Charger 20000mAh", "199"},
+                {"P004", "Smart Band", "159"},
+                {"P005", "HD Camera 1080P", "299"}
         };
-        for (int i = 0; i < data.length; i++) {
-            DeviceRgb rowColor = (i % 2 == 0) ? EVEN_ROW_COLOR : null;
-            for (int j = 0; j < data[i].length; j++) {
-                Cell cell = new Cell()
-                        .add(new Paragraph(data[i][j]))
-                        .setFontColor(TEXT_COLOR)
-                        .setBorder(tableBorder)
-                        .setPadding(8)
-                        .setVerticalAlignment(VerticalAlignment.MIDDLE);
-                if (rowColor != null) {
-                    cell.setBackgroundColor(rowColor);
+        try (PDDocument document = new PDDocument()) {
+            PDPage page = new PDPage(PDRectangle.A4);
+            document.addPage(page);
+            try (PDPageContentStream stream = new PDPageContentStream(document, page)) {
+                PDType1Font regular = new PDType1Font(Standard14Fonts.FontName.HELVETICA);
+                PDType1Font bold = new PDType1Font(Standard14Fonts.FontName.HELVETICA_BOLD);
+                float[] widths = {120f, 280f, 100f};
+                float x = 48f;
+                float top = page.getMediaBox().getHeight() - 72f;
+                drawText(stream, bold, 18f, TEXT_COLOR, "Product Information", centerX(48f, 500f, 18f, bold, "Product Information"), top);
+                float rowTop = top - 36f;
+                drawRow(stream, headers, x, rowTop, widths, HEADER_COLOR, HEADER_TEXT_COLOR, bold, true);
+                for (int row = 0; row < data.length; row++) {
+                    PDColor background = row % 2 == 0 ? EVEN_ROW_COLOR : null;
+                    drawRow(stream, data[row], x, rowTop - (row + 1) * 32f, widths, background, TEXT_COLOR, regular, false);
                 }
-                if (j == 2) {
-                    cell.setTextAlignment(TextAlignment.RIGHT);
-                } else {
-                    cell.setTextAlignment(TextAlignment.LEFT);
-                }
-                table.addCell(cell);
+                String[] total = {"", "Total", "2755"};
+                drawRow(stream, total, x, rowTop - (data.length + 1) * 32f, widths,
+                        color(232, 240, 254), TEXT_COLOR, bold, false);
             }
+            document.save(file);
         }
+    }
 
-        Cell totalLabelCell = new Cell(1, 2) // 跨2列
-                .add(new Paragraph("总计").setBold())
-                .setFontColor(TEXT_COLOR)
-                .setBackgroundColor(ReportColor.getThemeColor())
-                .setTextAlignment(TextAlignment.RIGHT)
-                .setVerticalAlignment(VerticalAlignment.MIDDLE)
-                .setBorder(tableBorder)
-                .setPadding(8);
-        Cell totalValueCell = new Cell()
-                .add(new Paragraph("2755").setBold())
-                .setFontColor(TEXT_COLOR)
-                .setBackgroundColor(ReportColor.getThemeColor())
-                .setTextAlignment(TextAlignment.RIGHT)
-                .setVerticalAlignment(VerticalAlignment.MIDDLE)
-                .setBorder(tableBorder)
-                .setPadding(8);
-        table.addCell(totalLabelCell);
-        table.addCell(totalValueCell);
-        document.add(table);
-        document.close();
-        System.out.println("PDF表格生成成功：" + DEST);
+    private void drawRow(PDPageContentStream stream, String[] values, float x, float top, float[] widths,
+                         PDColor background, PDColor textColor, PDType1Font font, boolean centered) throws IOException {
+        float height = 32f;
+        float currentX = x;
+        for (int column = 0; column < widths.length; column++) {
+            if (background != null) {
+                stream.setNonStrokingColor(background);
+                stream.addRect(currentX, top - height, widths[column], height);
+                stream.fill();
+            }
+            stream.setStrokingColor(BORDER_COLOR);
+            stream.addRect(currentX, top - height, widths[column], height);
+            stream.stroke();
+            String value = values[column];
+            float textWidth = font.getStringWidth(value) / 1000f * 10f;
+            float textX = centered || column == 2 ? currentX + (widths[column] - textWidth) / 2f : currentX + 8f;
+            drawText(stream, font, 10f, textColor, value, textX, top - 20f);
+            currentX += widths[column];
+        }
+    }
+
+    private float centerX(float x, float width, float fontSize, PDType1Font font, String value) throws IOException {
+        return x + (width - font.getStringWidth(value) / 1000f * fontSize) / 2f;
+    }
+
+    private void drawText(PDPageContentStream stream, PDType1Font font, float size, PDColor color,
+                          String text, float x, float y) throws IOException {
+        stream.beginText();
+        stream.setFont(font, size);
+        stream.setNonStrokingColor(color);
+        stream.newLineAtOffset(x, y);
+        stream.showText(text);
+        stream.endText();
+    }
+
+    private static PDColor color(int red, int green, int blue) {
+        return new PDColor(new float[]{red / 255f, green / 255f, blue / 255f}, PDDeviceRGB.INSTANCE);
     }
 }

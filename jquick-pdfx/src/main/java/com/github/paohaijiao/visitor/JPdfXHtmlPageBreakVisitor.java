@@ -16,8 +16,8 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.enums.JHtmlPageBreakTypeEnums;
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.visitor.element.JQuickAreaBreakElementRender;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import org.apache.commons.lang3.StringUtils;
 
@@ -32,8 +32,8 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class JPdfXHtmlPageBreakVisitor extends JPdfXComboBoxFieldVisitor {
     @Override
-    public HtmlPageBreak visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx) {
-        HtmlPageBreak htmlPageBreak = new HtmlPageBreak(HtmlPageBreakType.ALWAYS);
+    public JQuickAreaBreakElementRender visitHtmlPageBreak(JQuickPDFParser.HtmlPageBreakContext ctx) {
+        JQuickAreaBreakElementRender htmlPageBreak = new JQuickAreaBreakElementRender("next_area", pageSize(ctx));
         JStyleAttributes style = new JStyleAttributes();
         if (null != ctx.styleEle()) {
             style = visitStyleEle(ctx.styleEle());
@@ -47,12 +47,14 @@ public class JPdfXHtmlPageBreakVisitor extends JPdfXComboBoxFieldVisitor {
         if (StringUtils.isNotEmpty(value)) {
             JHtmlPageBreakTypeEnums enums = JHtmlPageBreakTypeEnums.codeOf(value);
             if (enums != null) {
-                htmlPageBreak = new HtmlPageBreak(enums.getType());
+                htmlPageBreak.setBreakType(enums.getCode());
             }
         }
-        htmlPageBreak.setFont(JFontProviderFactory.defualtFont());
-        super.buildStyle(htmlPageBreak, style);
         return htmlPageBreak;
+    }
+
+    private String pageSize(JQuickPDFParser.HtmlPageBreakContext ctx) {
+        return null;
     }
 
 }

@@ -15,23 +15,19 @@
  */
 package com.github.paohaijiao.enums;
 
-import com.itextpdf.html2pdf.attach.impl.layout.HtmlPageBreakType;
 import lombok.Getter;
 
 @Getter
 public enum JHtmlPageBreakTypeEnums {
 
-    next_area("next_area", HtmlPageBreakType.ALWAYS),
-    next_page("next_page", HtmlPageBreakType.LEFT),
-    last_page("last_page", HtmlPageBreakType.RIGHT);
+    next_area("next_area"),
+    next_page("next_page"),
+    last_page("last_page");
 
     private String code;
 
-    private HtmlPageBreakType type;
-
-    JHtmlPageBreakTypeEnums(String code, HtmlPageBreakType type) {
+    JHtmlPageBreakTypeEnums(String code) {
         this.code = code;
-        this.type = type;
     }
 
     public static JHtmlPageBreakTypeEnums codeOf(String code) {

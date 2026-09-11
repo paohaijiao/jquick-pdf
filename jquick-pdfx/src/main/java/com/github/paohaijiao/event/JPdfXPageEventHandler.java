@@ -1,52 +1,40 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.event;
 
-import com.itextpdf.kernel.events.Event;
-import com.itextpdf.kernel.events.IEventHandler;
-import com.itextpdf.kernel.events.PdfDocumentEvent;
-import com.itextpdf.kernel.geom.Rectangle;
-import com.itextpdf.kernel.pdf.PdfDocument;
-import com.itextpdf.kernel.pdf.PdfPage;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+
+import java.io.IOException;
 
 /**
- * packageName com.github.paohaijiao.event
- *
- * @author Martin
- * @version 1.0.0
- * @className JPdfXPageEventHandler
- * @date 2025/6/22
- * @description
+ * PDFBox 没有 iText 的页面事件机制；在页面创建后显式调用 render。
  */
-public class JPdfXPageEventHandler implements IEventHandler {
+public class JPdfXPageEventHandler {
 
-    @Override
-    public void handleEvent(Event event) {
-        PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
-        PdfDocument pdfDoc = docEvent.getDocument();
-        PdfPage page = docEvent.getPage();
-        Rectangle pageSize = page.getPageSize();
-        PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), pdfDoc);
-        pdfCanvas.beginText()
-                .setFontAndSize(pdfDoc.getDefaultFont(), 10)
-                .moveText(pageSize.getWidth() / 2 - 30, pageSize.getHeight() - 20)
-                .showText("Page Header")
-                .endText();
-        pdfCanvas.release();
+    private static final String HEADER_TEXT = "Page Header";
+    private static final float FONT_SIZE = 10f;
+
+    public void render(PDDocument document, PDPage page) throws IOException {
+        PDRectangle pageSize = page.getMediaBox();
+        PDType1Font font = new PDType1Font(Standard14Fonts.FontName.HELVETICA);
+        float textWidth = font.getStringWidth(HEADER_TEXT) / 1000f * FONT_SIZE;
+        float x = pageSize.getLowerLeftX() + (pageSize.getWidth() - textWidth) / 2f;
+        float y = pageSize.getUpperRightY() - 20f;
+
+        try (PDPageContentStream stream = new PDPageContentStream(document, page,
+                PDPageContentStream.AppendMode.PREPEND, true, true)) {
+            stream.beginText();
+            stream.setFont(font, FONT_SIZE);
+            stream.newLineAtOffset(x, y);
+            stream.showText(HEADER_TEXT);
+            stream.endText();
+        }
     }
-
 }

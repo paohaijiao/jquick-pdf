@@ -23,8 +23,6 @@ import com.github.paohaijiao.model.style.JStyleAlignModel;
 import com.github.paohaijiao.model.style.JStyleSpacingModel;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFBaseVisitor;
-import com.github.paohaijiao.sample.CataLog;
-import com.github.paohaijiao.sample.CatalogType;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -63,8 +61,6 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 
     protected Stack<PDOutlineItem> outlineStack = new Stack<>();
 
-
-    protected Map<CatalogType, List<CataLog>> cataLogsMap = new LinkedHashMap<>();
 
     protected PageSize currentPageSize = PageSize.A4;
 
@@ -361,6 +357,26 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
 
     // 页面大小枚举（需要根据您的实际定义调整）
     public enum PageSize {
-        A4, A3, A5, LETTER, LEGAL
+        A4(595.28f, 841.89f),
+        A3(841.89f, 1190.55f),
+        A5(419.53f, 595.28f),
+        LETTER(612f, 792f),
+        LEGAL(612f, 1008f);
+
+        private final float width;
+        private final float height;
+
+        PageSize(float width, float height) {
+            this.width = width;
+            this.height = height;
+        }
+
+        public float getWidth() {
+            return width;
+        }
+
+        public float getHeight() {
+            return height;
+        }
     }
 }

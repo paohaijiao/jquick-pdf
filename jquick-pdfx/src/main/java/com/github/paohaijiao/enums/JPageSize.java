@@ -15,46 +15,44 @@
  */
 package com.github.paohaijiao.enums;
 
-import com.itextpdf.kernel.geom.PageSize;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
 
 public enum JPageSize {
-    A0("A0", PageSize.A0),
-    A1("A1", PageSize.A1),
-    A2("A2", PageSize.A2),
-    A3("A3", PageSize.A3),
-    A4("A4", PageSize.A4),
-    A5("A5", PageSize.A5),
-    A6("A6", PageSize.A6),
-    A7("A7", PageSize.A7),
-    A8("A8", PageSize.A8),
-    A9("A9", PageSize.A9),
-    A10("A10", PageSize.A10),
-    B0("B0", PageSize.B0),
-    B1("B1", PageSize.B1),
-    B2("B2", PageSize.B2),
-    B3("B3", PageSize.B3),
-    B4("B4", PageSize.B4),
-    B5("B5", PageSize.B5),
-    B6("B6", PageSize.B6),
-    B7("B7", PageSize.B7),
-    B8("B8", PageSize.B8),
-    B9("B9", PageSize.B9),
-    B10("B10", PageSize.B10),
-
-    DEFAULT("DEFAULT", PageSize.DEFAULT),
-    EXECUTIVE("EXECUTIVE", new PageSize(522.0F, 756.0F)),
-    LEDGER("LEDGER", new PageSize(1224.0F, 792.0F)),
-    LEGAL("LEGAL", new PageSize(612.0F, 1008.0F)),
-    LETTER("LETTER", new PageSize(612.0F, 792.0F)),
-    TABLOID("TABLOID", new PageSize(792.0F, 1224.0F));
+    A0("A0", 2383.94f, 3370.39f),
+    A1("A1", 1683.78f, 2383.94f),
+    A2("A2", 1190.55f, 1683.78f),
+    A3("A3", 841.89f, 1190.55f),
+    A4("A4", 595.28f, 841.89f),
+    A5("A5", 419.53f, 595.28f),
+    A6("A6", 297.64f, 419.53f),
+    A7("A7", 209.76f, 297.64f),
+    A8("A8", 147.40f, 209.76f),
+    A9("A9", 104.88f, 147.40f),
+    A10("A10", 73.70f, 104.88f),
+    B0("B0", 2834.65f, 4008.19f),
+    B1("B1", 2004.09f, 2834.65f),
+    B2("B2", 1417.32f, 2004.09f),
+    B3("B3", 1000.63f, 1417.32f),
+    B4("B4", 708.66f, 1000.63f),
+    B5("B5", 498.90f, 708.66f),
+    B6("B6", 354.33f, 498.90f),
+    B7("B7", 249.45f, 354.33f),
+    B8("B8", 175.75f, 249.45f),
+    B9("B9", 124.72f, 175.75f),
+    B10("B10", 87.87f, 124.72f),
+    DEFAULT("DEFAULT", 595.28f, 841.89f),
+    EXECUTIVE("EXECUTIVE", 522f, 756f),
+    LEDGER("LEDGER", 1224f, 792f),
+    LEGAL("LEGAL", 612f, 1008f),
+    LETTER("LETTER", 612f, 792f),
+    TABLOID("TABLOID", 792f, 1224f);
 
     private final String code;
+    private final PDRectangle pageSize;
 
-    private final PageSize pageSize;
-
-    JPageSize(String code, PageSize pageSize) {
+    JPageSize(String code, float width, float height) {
         this.code = code;
-        this.pageSize = pageSize;
+        this.pageSize = new PDRectangle(width, height);
     }
 
     public static JPageSize codeOf(String code) {
@@ -63,14 +61,14 @@ public enum JPageSize {
                 return size;
             }
         }
-        throw new IllegalArgumentException("unknow pageType: " + code);
+        throw new IllegalArgumentException("unknown pageType: " + code);
     }
 
     public String getCode() {
         return code;
     }
 
-    public PageSize getPageSize() {
+    public PDRectangle getPageSize() {
         return pageSize;
     }
 }

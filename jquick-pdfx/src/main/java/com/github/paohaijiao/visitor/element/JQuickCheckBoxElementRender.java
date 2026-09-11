@@ -1,6 +1,6 @@
 package com.github.paohaijiao.visitor.element;
 
-import com.github.paohaijiao.color.JColorEnums;
+import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.util.JStringUtils;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
@@ -90,14 +90,14 @@ public class JQuickCheckBoxElementRender implements JQuickElementRender {
 
     private PDColor resolveBorderColor() {
         if (style != null && style.get("borderColor") != null) {
-            return JColorEnums.colorOf(style.get("borderColor").toString());
+            return PdfBoxRenderAdapter.color(style.get("borderColor").toString());
         }
-        return JColorEnums.colorOf("BLACK");
+        return PdfBoxRenderAdapter.color("BLACK");
     }
 
     private PDColor resolveTextColor(JQuickRenderContext context) {
         if (style != null && style.get("color") != null) {
-            return JColorEnums.colorOf(style.get("color").toString());
+            return PdfBoxRenderAdapter.color(style.get("color").toString());
         }
         return context.getColor();
     }

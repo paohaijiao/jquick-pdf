@@ -3,6 +3,7 @@ package com.github.paohaijiao.visitor.context;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
 import lombok.Builder;
 import lombok.Data;
 
@@ -56,6 +57,8 @@ public class JQuickRenderContext {
     private int pageNumber;
 
     private boolean isNewPage;
+
+    private PdfBoxLayoutEngine layoutEngine;
 
     public enum TextAlign {
         LEFT, CENTER, RIGHT, JUSTIFY

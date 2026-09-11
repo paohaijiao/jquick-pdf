@@ -20,6 +20,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
@@ -94,7 +98,7 @@
                     <compilerArgs>
                         <arg>-Xlint:none</arg>
                     </compilerArgs>
-                    <failOnError>false</failOnError>
+                    <failOnError>true</failOnError>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>

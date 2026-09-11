@@ -15,18 +15,20 @@
  */
 package com.github.paohaijiao.extension.tab;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.geom.Rectangle;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
-import com.itextpdf.layout.Canvas;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.properties.TextAlignment;
-import com.itextpdf.layout.properties.VerticalAlignment;
-import com.itextpdf.layout.renderer.DrawContext;
-import com.itextpdf.layout.renderer.IRenderer;
+import com.github.paohaijiao.visitor.context.JQuickRenderContext;
+import com.github.paohaijiao.visitor.element.JQuickElementRender;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType0Font;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import org.apache.pdfbox.util.Matrix;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -36,119 +38,253 @@ import java.util.List;
  * @version 1.0.0
  * @since 2025/7/20
  */
-public class TabContainerRenderer extends com.itextpdf.layout.renderer.DivRenderer {
+public class TabContainerRenderer {
+
+    private static final float DEFAULT_FONT_SIZE = 12f;
+
+    private final TabContainer modelElement;
+
     public TabContainerRenderer(TabContainer modelElement) {
-        super(modelElement);
+        this.modelElement = modelElement;
     }
 
-    @Override
-    public IRenderer getNextRenderer() {
-        return new TabContainerRenderer((TabContainer) modelElement);
+    public TabContainerRenderer getNextRenderer() {
+        return new TabContainerRenderer(modelElement);
     }
 
-    @Override
-    public void draw(DrawContext drawContext) {
-        TabContainer tabContainer = (TabContainer) modelElement;
-        List<TabPage> tabs = tabContainer.getTabs();
-        super.draw(drawContext);
-
-        Rectangle area = getOccupiedAreaBBox();
-        float startX = area.getX();
-        float startY = area.getY() + area.getHeight();
-
-        PdfCanvas canvas = drawContext.getCanvas();
-        canvas.saveState();
-        drawTabBar(drawContext, tabs, startX, startY, tabContainer);
-        canvas.setStrokeColor(tabContainer.getTabBorderColor());
-        canvas.setLineWidth(1);
-        canvas.rectangle(startX, startY - tabContainer.getTabHeight() - 1,
-                area.getWidth(), area.getHeight() - tabContainer.getTabHeight());
-        canvas.stroke();
-        canvas.restoreState();
-        if (!tabs.isEmpty()) {
-            TabPage activeTab = tabs.get(tabContainer.getActiveTabIndex());
-            float contentY = startY - tabContainer.getTabHeight() - 10;
-            for (IBlockElement content : activeTab.getContents()) {
-                Canvas contentCanvas = new Canvas(drawContext.getCanvas(),
-                        new Rectangle(startX + 10, contentY - 20,
-                                area.getWidth() - 20, 20));
-                contentCanvas.add(content);
-                contentCanvas.close();
-                contentY -= 30;
-            }
+    public void draw(PDPageContentStream stream,
+                     JQuickRenderContext context) throws IOException {
+        if (stream == null || context == null || modelElement == null) {
+            return;
         }
+        List<TabPage> tabs = modelElement.getTabs();
+        if (tabs == null || tabs.isEmpty()) {
+            return;
+        }
+        float width = resolveWidth(context);
+        if (width <= 0f) {
+            return;
+        }
+        float tabHeight = modelElement.getTabHeight();
+        float contentHeight = modelElement.getContentHeight();
+        float totalHeight = tabHeight + contentHeight;
+        if (context.getLayoutEngine() != null) {
+            context.getLayoutEngine().ensureSpace(totalHeight + modelElement.getMarginBottom(), false);
+            stream = context.getLayoutEngine().getStream();
+        }
+        float startX = context.getCursorX();
+        float topY = context.getCursorY();
+        drawTabBar(stream, context, tabs, startX, topY, width, tabHeight);
+        drawContentBox(stream, startX, topY - tabHeight, width, contentHeight);
+        drawActiveContent(stream, context, tabs, startX, topY, width, tabHeight, contentHeight);
+        context.setCursorY(topY - totalHeight - modelElement.getMarginBottom());
     }
 
-    private void drawTabBar(DrawContext drawContext, List<TabPage> tabs,
-                            float startX, float startY, TabContainer tabContainer) {
-        PdfCanvas canvas = drawContext.getCanvas();
-        PdfFont font = JFontProviderFactory.getFont(JFontProviderFactory.DEFAULT_FONT);
-        canvas.setFontAndSize(font, 32);
-        float tabWidth = (getOccupiedAreaBBox().getWidth() - 2) / tabs.size();
-        float tabX = startX + 1;
+    private float resolveWidth(JQuickRenderContext context) {
+        if (modelElement.getWidth() > 0f) {
+            return modelElement.getWidth();
+        }
+        if (context.getWidth() > 0f) {
+            return context.getWidth();
+        }
+        float[] margins = context.getMargins();
+        if (context.getPageWidth() > 0f && margins != null && margins.length >= 4) {
+            return context.getPageWidth() - margins[1] - margins[3];
+        }
+        return 500f;
+    }
+
+    private void drawTabBar(PDPageContentStream stream,
+                            JQuickRenderContext context,
+                            List<TabPage> tabs,
+                            float startX,
+                            float topY,
+                            float width,
+                            float tabHeight) throws IOException {
+        float tabWidth = width / tabs.size();
+        float tabX = startX;
         for (int i = 0; i < tabs.size(); i++) {
             TabPage tab = tabs.get(i);
-            canvas.saveState();
-            if (tab.isActive()) {
-                canvas.setFillColor(tabContainer.getActiveTabBackgroundColor());
-            } else {
-                canvas.setFillColor(tabContainer.getTabBackgroundColor());
-            }
-            canvas.moveTo(tabX, startY);
-            canvas.lineTo(tabX, startY - tabContainer.getTabHeight() + 5);
-            canvas.curveTo(tabX, startY - tabContainer.getTabHeight(),
-                    tabX + 5, startY - tabContainer.getTabHeight(),
-                    tabX + 5, startY - tabContainer.getTabHeight());
-            canvas.lineTo(tabX + tabWidth - 5, startY - tabContainer.getTabHeight());
-            canvas.curveTo(tabX + tabWidth, startY - tabContainer.getTabHeight(),
-                    tabX + tabWidth, startY - tabContainer.getTabHeight() + 5,
-                    tabX + tabWidth, startY - tabContainer.getTabHeight() + 5);
-            canvas.lineTo(tabX + tabWidth, startY);
-            canvas.closePath();
-            canvas.fill();
-            canvas.setStrokeColor(tabContainer.getTabBorderColor());
-            canvas.setLineWidth(1);
-            if (i == 0 || !tab.isActive()) {
-                canvas.moveTo(tabX, startY);
-                canvas.lineTo(tabX, startY - tabContainer.getTabHeight() + 5);
-                canvas.curveTo(tabX, startY - tabContainer.getTabHeight(),
-                        tabX + 5, startY - tabContainer.getTabHeight(),
-                        tabX + 5, startY - tabContainer.getTabHeight());
-            }
-
-            canvas.moveTo(tabX + 5, startY - tabContainer.getTabHeight());
-            canvas.lineTo(tabX + tabWidth - 5, startY - tabContainer.getTabHeight());
-
-            if (i == tabs.size() - 1 || !tab.isActive()) {
-                canvas.curveTo(tabX + tabWidth, startY - tabContainer.getTabHeight(),
-                        tabX + tabWidth, startY - tabContainer.getTabHeight() + 5,
-                        tabX + tabWidth, startY - tabContainer.getTabHeight() + 5);
-                canvas.lineTo(tabX + tabWidth, startY);
-            }
-
-            if (!tab.isActive()) {
-                canvas.moveTo(tabX, startY);
-                canvas.lineTo(tabX + tabWidth, startY);
-            }
-
-            canvas.stroke();
-            canvas.restoreState();
-            Paragraph tabText = new Paragraph(tab.getTitle())
-                    .setFontSize(12)
-                    .setFont(font)
-                    .setFontColor(tabContainer.getTabTextColor())
-                    .setTextAlignment(TextAlignment.CENTER)
-                    .setWidth(tabWidth)
-                    .setHeight(tabContainer.getTabHeight())
-                    .setVerticalAlignment(VerticalAlignment.MIDDLE);
-
-            Canvas tabCanvas = new Canvas(canvas,
-                    new Rectangle(tabX, startY - tabContainer.getTabHeight(),
-                            tabWidth, tabContainer.getTabHeight()));
-            tabCanvas.add(tabText);
-            tabCanvas.close();
-
+            boolean active = tab.isActive();
+            PDColor fillColor = active ? modelElement.getActiveTabBackgroundColor() : modelElement.getTabBackgroundColor();
+            stream.setNonStrokingColor(fillColor);
+            stream.addRect(tabX, topY - tabHeight, tabWidth, tabHeight);
+            stream.fill();
+            stream.setStrokingColor(modelElement.getTabBorderColor());
+            stream.setLineWidth(1f);
+            stream.addRect(tabX, topY - tabHeight, tabWidth, tabHeight);
+            stream.stroke();
+            PDFont font = resolveFont(context, tab.getFont());
+            drawCenteredText(stream, font, modelElement.getTabTextColor(), tab.getTitle(), tabX, topY - tabHeight,
+                    tabWidth, tabHeight, DEFAULT_FONT_SIZE);
             tabX += tabWidth;
         }
+    }
+
+    private void drawContentBox(PDPageContentStream stream,
+                                float startX,
+                                float topY,
+                                float width,
+                                float contentHeight) throws IOException {
+        stream.setStrokingColor(modelElement.getTabBorderColor());
+        stream.setLineWidth(1f);
+        stream.addRect(startX, topY - contentHeight, width, contentHeight);
+        stream.stroke();
+    }
+
+    private void drawActiveContent(PDPageContentStream stream,
+                                   JQuickRenderContext context,
+                                   List<TabPage> tabs,
+                                   float startX,
+                                   float topY,
+                                   float width,
+                                   float tabHeight,
+                                   float contentHeight) throws IOException {
+        int activeIndex = Math.max(0, Math.min(modelElement.getActiveTabIndex(), tabs.size() - 1));
+        TabPage activeTab = tabs.get(activeIndex);
+        float padding = modelElement.getTabPadding();
+        float contentX = startX + padding;
+        float contentY = topY - tabHeight - padding;
+        float contentWidth = Math.max(0f, width - padding * 2f);
+        float contentAreaHeight = Math.max(0f, contentHeight - padding * 2f);
+        PDFont font = resolveFont(context, activeTab.getFont());
+        float y = contentY;
+        for (Object content : activeTab.getContents()) {
+            if (content == null) {
+                continue;
+            }
+            if (content instanceof JQuickElementRender) {
+                float oldCursorX = context.getCursorX();
+                float oldCursorY = context.getCursorY();
+                float oldWidth = context.getWidth();
+                float oldHeight = context.getHeight();
+                context.setCursorX(contentX);
+                context.setCursorY(y);
+                context.setWidth(contentWidth);
+                context.setHeight(contentAreaHeight);
+                ((JQuickElementRender) content).draw(stream, context);
+                y = context.getCursorY() - padding / 2f;
+                context.setCursorX(oldCursorX);
+                context.setCursorY(oldCursorY);
+                context.setWidth(oldWidth);
+                context.setHeight(oldHeight);
+                if (context.getLayoutEngine() != null) {
+                    stream = context.getLayoutEngine().getStream();
+                }
+            } else {
+                y = drawTextBlock(stream, font, modelElement.getTabTextColor(), String.valueOf(content),
+                        contentX, y, contentWidth, DEFAULT_FONT_SIZE);
+            }
+        }
+    }
+
+    private float drawTextBlock(PDPageContentStream stream,
+                                PDFont font,
+                                PDColor color,
+                                String text,
+                                float x,
+                                float topY,
+                                float width,
+                                float fontSize) throws IOException {
+        if (text == null || text.isEmpty()) {
+            return topY;
+        }
+        float lineHeight = fontSize + 6f;
+        float y = topY;
+        String[] lines = text.split("\\r?\\n");
+        for (String line : lines) {
+            y -= lineHeight;
+            drawText(stream, font, color, line, x, y, width, fontSize, false);
+        }
+        return y;
+    }
+
+    private void drawCenteredText(PDPageContentStream stream,
+                                  PDFont font,
+                                  PDColor color,
+                                  String text,
+                                  float x,
+                                  float y,
+                                  float width,
+                                  float height,
+                                  float fontSize) throws IOException {
+        float baseline = y + (height - fontSize) / 2f + 2f;
+        drawText(stream, font, color, text, x, baseline, width, fontSize, true);
+    }
+
+    private void drawText(PDPageContentStream stream,
+                          PDFont font,
+                          PDColor color,
+                          String text,
+                          float x,
+                          float baseline,
+                          float width,
+                          float fontSize,
+                          boolean center) throws IOException {
+        if (text == null || text.isEmpty()) {
+            return;
+        }
+        String safeText = safeText(font, text);
+        float textWidth = font.getStringWidth(safeText) / 1000f * fontSize;
+        float textX = center ? x + Math.max(0f, (width - textWidth) / 2f) : x;
+        stream.beginText();
+        stream.setFont(font, fontSize);
+        stream.setNonStrokingColor(color);
+        stream.setTextMatrix(Matrix.getTranslateInstance(textX, baseline));
+        stream.showText(safeText);
+        stream.endText();
+    }
+
+    private PDFont resolveFont(JQuickRenderContext context,
+                               PDFont preferredFont) throws IOException {
+        if (preferredFont != null) {
+            return preferredFont;
+        }
+        if (context.getFont() != null) {
+            return context.getFont();
+        }
+        PDDocument document = context.getDocument();
+        if (document != null) {
+            PDFont font = loadChineseFont(document);
+            if (font != null) {
+                return font;
+            }
+        }
+        return new PDType1Font(Standard14Fonts.FontName.HELVETICA);
+    }
+
+    private PDFont loadChineseFont(PDDocument document) throws IOException {
+        InputStream inputStream = TabContainerRenderer.class.getClassLoader().getResourceAsStream("fonts/simhei.ttf");
+        if (inputStream != null) {
+            try {
+                return PDType0Font.load(document, inputStream);
+            } finally {
+                inputStream.close();
+            }
+        }
+        String[] candidates = new String[]{
+                "fonts/simhei.ttf",
+                "jquick-pdf-font/src/main/resources/fonts/simhei.ttf",
+                "../jquick-pdf-font/src/main/resources/fonts/simhei.ttf"
+        };
+        for (String candidate : candidates) {
+            File fontFile = new File(candidate);
+            if (fontFile.exists()) {
+                return PDType0Font.load(document, fontFile);
+            }
+        }
+        return null;
+    }
+
+    private String safeText(PDFont font, String text) {
+        if (!(font instanceof PDType1Font)) {
+            return text;
+        }
+        StringBuilder builder = new StringBuilder(text.length());
+        for (int i = 0; i < text.length(); i++) {
+            char ch = text.charAt(i);
+            builder.append(ch <= 255 ? ch : '?');
+        }
+        return builder.toString();
     }
 }

@@ -19,7 +19,6 @@ import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXCommonVisitor;
-import com.itextpdf.kernel.colors.Color;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
@@ -158,7 +157,7 @@ public class JValueTest {
         JQuickPDFParser parser = new JQuickPDFParser(tokens);
         ParseTree tree = parser.color();
         JPdfXCommonVisitor visitor = new JPdfXCommonVisitor();
-        Object key = (Color) visitor.visit(tree);
+        Object key = visitor.visit(tree);
         System.out.println(key);
     }
 

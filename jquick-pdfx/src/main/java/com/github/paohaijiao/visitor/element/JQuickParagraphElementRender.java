@@ -25,15 +25,15 @@ public class JQuickParagraphElementRender  implements JQuickElementRender {
         float y = context.getCursorY() - marginTop;
         //绘制所有子元素
         for (JQuickElementRender child : children) {
-            // 检查是否需要换页
-            if (y < context.getMargins()[2]) { // bottom margin
-                // TODO: 触发换页逻辑
+            float requiredHeight = context.getLineHeight() > 0 ? context.getLineHeight() : context.getFontSize() * 1.5f;
+            if (context.getLayoutEngine() != null) {
+                context.getLayoutEngine().ensureSpace(requiredHeight, false);
+                stream = context.getLayoutEngine().getStream();
+            } else if (y - requiredHeight < context.getMargins()[2]) {
                 y = context.getPageHeight() - context.getMargins()[0];
                 context.setCursorY(y);
             }
 
-            // 更新子元素的 Y 坐标（流式布局）
-            // 这里需要传入当前 Y 位置
             child.draw(stream, context);
             // 更新 Y 位置（子元素绘制完后会更新 cursorY）
             y = context.getCursorY();
