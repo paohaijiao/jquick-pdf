@@ -57,16 +57,21 @@ public class JQuickDivElementRender implements JQuickElementRender {
         float contentTop = boxTop - model.getPaddingTop();
         float contentWidth = Math.max(0f, outerWidth - model.getPaddingLeft() - model.getPaddingRight());
 
-        if (hasVisibleBox(model)) {
+        boolean visibleBox = hasVisibleBox(model);
+        float contentHeight = 0f;
+        float boxHeight = 0f;
+        if (visibleBox) {
             // 先按 div 的内容区位置试排版一次，量出子元素真实占用的高度，
             // 这样背景框的高度与位置就跟随子元素的实际排版结果，而不是凭空估算。
-            float contentHeight = measureContent(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
-            float boxHeight = resolveBoxHeight(model, contentHeight);
+            contentHeight = measureContent(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
+            boxHeight = resolveBoxHeight(model, contentHeight);
             // 背景必须在文字之下：用真实高度绘制背景覆盖试排版结果，再重绘子元素。
             PdfBoxRenderAdapter.drawBox(context.getDocument(), stream, model, boxX, boxTop, outerWidth, boxHeight);
             PdfBoxRenderAdapter.drawBackgroundImage(context.getDocument(), stream, model,
                     boxX, boxTop - boxHeight, outerWidth, boxHeight);
-            drawChildren(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
+            // 内容整体下移 verticalAlignment 产生的偏移，实现盒内垂直对齐（top 时为 0）。
+            float actualContentTop = contentTop - resolveVerticalOffset(model, boxHeight, contentHeight);
+            drawChildren(stream, context, contentX, actualContentTop, contentWidth, layoutEngine, lineHeight);
             context.setCursorY(boxTop - boxHeight - model.getMarginBottom());
         } else {
             drawChildren(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
@@ -330,6 +335,30 @@ public class JQuickDivElementRender implements JQuickElementRender {
         context.setX(contentX);
         context.setY(contentTop);
         context.setWidth(contentWidth);
+    }
+
+    /**
+     * {@code verticalAlignment} 产生的下移量：内容相对内容区顶部下移，middle 取空余空间的一半、
+     * bottom 取全部，top 与其它取值（含未声明）为 0。空余空间为内容区高度减去内容实际高度，
+     * 因此只有声明了 {@code height}/{@code minHeight}（盒高大于内容高）时才会真正生效。
+     * <p>
+     * 只在可见盒子（声明了背景或边框）中生效：内容高度来自试排版，试排版会先画一遍子元素，
+     * 无可见盒子的背景可覆盖时会把同一段内容画出两次。
+     */
+    private float resolveVerticalOffset(PdfBoxStyleModel model, float boxHeight, float contentHeight) {
+        float innerHeight = boxHeight - model.getPaddingTop() - model.getPaddingBottom();
+        float free = innerHeight - contentHeight;
+        if (free <= 0f) {
+            return 0f;
+        }
+        String alignment = trim(model.getVerticalAlignment());
+        if ("bottom".equalsIgnoreCase(alignment)) {
+            return free;
+        }
+        if ("middle".equalsIgnoreCase(alignment) || "center".equalsIgnoreCase(alignment)) {
+            return free / 2f;
+        }
+        return 0f;
     }
 
     private float resolveBoxHeight(PdfBoxStyleModel model, float contentHeight) {
