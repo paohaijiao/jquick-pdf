@@ -1,15 +1,14 @@
 package com.github.paohaijiao.visitor.element;
 
 import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
+import com.github.paohaijiao.visitor.render.PdfBoxStyleModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.util.JStringUtils;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import lombok.Data;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
-import org.apache.pdfbox.util.Matrix;
 
 import java.io.IOException;
 
@@ -44,7 +43,6 @@ public class JQuickButtonElementRender implements JQuickElementRender {
         float y = context.getCursorY() - height;
         PDColor backgroundColor = resolveBackgroundColor();
         PDColor borderColor = resolveBorderColor();
-        PDColor textColor = resolveTextColor(context);
         if (backgroundColor != null) {
             stream.setNonStrokingColor(backgroundColor);
             stream.addRect(x, y, width, height);
@@ -56,18 +54,15 @@ public class JQuickButtonElementRender implements JQuickElementRender {
             stream.stroke();
         }
         if (content != null && !content.isEmpty()) {
-            float fontSize = context.getFontSize() > 0 ? context.getFontSize() : 12f;
-            float textWidth = new PDType1Font(Standard14Fonts.FontName.HELVETICA).getStringWidth(content) / 1000f * fontSize;
+            // 文本走共享适配器：字体取自上下文（CJK 字体，支持中文），
+            // 颜色按 fontColor → color 解析，并过滤字体缺失的字符避免整页渲染中断。
+            PdfBoxStyleModel model = PdfBoxStyleModel.from(style);
+            PDFont font = PdfBoxRenderAdapter.resolveFont(model, context.getFont());
+            float textWidth = PdfBoxRenderAdapter.textWidth(font, content, model.getFontSize(),
+                    model.getCharacterSpacing(), model.getWordSpacing());
             float textX = x + Math.max(paddingX, (width - textWidth) / 2f);
-            float textY = y + Math.max(paddingY, (height - fontSize) / 2f);
-            stream.beginText();
-            stream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), fontSize);
-            if (textColor != null) {
-                stream.setNonStrokingColor(textColor);
-            }
-            stream.setTextMatrix(Matrix.getTranslateInstance(textX, textY));
-            stream.showText(content);
-            stream.endText();
+            float textY = y + Math.max(paddingY, (height - model.getFontSize()) / 2f);
+            PdfBoxRenderAdapter.drawText(stream, model, font, content, textX, textY, width);
         }
         context.setCursorY(y - paddingY);
     }
@@ -105,12 +100,5 @@ public class JQuickButtonElementRender implements JQuickElementRender {
             return PdfBoxRenderAdapter.color(style.get("borderColor").toString());
         }
         return PdfBoxRenderAdapter.color("BLACK");
-    }
-
-    private PDColor resolveTextColor(JQuickRenderContext context) {
-        if (style != null && style.get("color") != null) {
-            return PdfBoxRenderAdapter.color(style.get("color").toString());
-        }
-        return context.getColor();
     }
 }

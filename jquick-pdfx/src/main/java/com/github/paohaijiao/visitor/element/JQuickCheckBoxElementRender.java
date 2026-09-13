@@ -1,15 +1,14 @@
 package com.github.paohaijiao.visitor.element;
 
 import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
+import com.github.paohaijiao.visitor.render.PdfBoxStyleModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.util.JStringUtils;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import lombok.Data;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
-import org.apache.pdfbox.util.Matrix;
 
 import java.io.IOException;
 
@@ -41,7 +40,6 @@ public class JQuickCheckBoxElementRender implements JQuickElementRender {
         float x = context.getCursorX();
         float y = context.getCursorY() - boxSize;
         PDColor borderColor = resolveBorderColor();
-        PDColor textColor = resolveTextColor(context);
         if (borderColor != null) {
             stream.setStrokingColor(borderColor);
         }
@@ -55,16 +53,12 @@ public class JQuickCheckBoxElementRender implements JQuickElementRender {
         }
         String text = JStringUtils.trim(label);
         if (text != null && !text.isEmpty()) {
-            float fontSize = context.getFontSize() > 0 ? context.getFontSize() : 12f;
-            float textY = y + Math.max(1f, (boxSize - fontSize) / 2f + 2f);
-            stream.beginText();
-            stream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), fontSize);
-            if (textColor != null) {
-                stream.setNonStrokingColor(textColor);
-            }
-            stream.setTextMatrix(Matrix.getTranslateInstance(x + boxSize + labelGap, textY));
-            stream.showText(text);
-            stream.endText();
+            // 标签文本走共享适配器：字体取自上下文（CJK 字体，支持中文），
+            // 颜色按 fontColor → color 解析，并过滤字体缺失的字符避免整页渲染中断。
+            PdfBoxStyleModel model = PdfBoxStyleModel.from(style);
+            PDFont font = PdfBoxRenderAdapter.resolveFont(model, context.getFont());
+            float textY = y + Math.max(1f, (boxSize - model.getFontSize()) / 2f + 2f);
+            PdfBoxRenderAdapter.drawText(stream, model, font, text, x + boxSize + labelGap, textY, 0f);
         }
         context.setCursorY(y - 8f);
     }
@@ -93,12 +87,5 @@ public class JQuickCheckBoxElementRender implements JQuickElementRender {
             return PdfBoxRenderAdapter.color(style.get("borderColor").toString());
         }
         return PdfBoxRenderAdapter.color("BLACK");
-    }
-
-    private PDColor resolveTextColor(JQuickRenderContext context) {
-        if (style != null && style.get("color") != null) {
-            return PdfBoxRenderAdapter.color(style.get("color").toString());
-        }
-        return context.getColor();
     }
 }
