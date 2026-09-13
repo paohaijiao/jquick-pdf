@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx"><img src="https://img.shields.io/maven-central/v/io.github.paohaijiao/jquick-pdfx.svg?style=for-the-badge&label=Maven%20Central" alt="Maven Central" /></a>
-  <a href="#version-matrix"><img src="https://img.shields.io/badge/license-Apache--2.0%20(%E2%89%A5%204.0.1)%20%7C%20AGPL--3.0%20(%E2%89%A4%204.0.0)-blue.svg?style=for-the-badge" alt="License" /></a>
+  <a href="#version-matrix"><img src="https://img.shields.io/badge/license-Apache--2.0%20(%E2%89%A5%204.0.0)%20%7C%20AGPL--3.0%20(%E2%89%A4%204.0.0)-blue.svg?style=for-the-badge" alt="License" /></a>
   <a href="https://github.com/paohaijiao/jquick-pdf"><img src="https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars" alt="GitHub stars" /></a>
   <a href="https://github.com/paohaijiao/jquick-pdf/issues"><img src="https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg?style=for-the-badge&label=Issues" alt="GitHub issues" /></a>
 </p>
@@ -34,8 +34,8 @@
 - [Quick Start](#quick-start)
   - [Requirements](#requirements)
   - [Modules](#modules)
-  - [Maven dependency — 4.0.1 and above (Apache-2.0)](#maven-dependency--401-and-above-apache-20)
-  - [Maven dependency — 4.0.0 and below (AGPL-3.0, iText 7)](#maven-dependency--400-and-below-agpl-30-itext-7)
+  - [Maven dependency — 4.0.0 and above (Apache-2.0)](#maven-dependency--401-and-above-apache-20)
+  - [Maven dependency — 4.0.0  below (AGPL-3.0, iText 7)](#maven-dependency--400-and-below-agpl-30-itext-7)
   - [Hello world](#hello-world)
 - [Demo Gallery](#demo-gallery)
   - [Image index: image → test class → method](#image-index-image--test-class--method)
@@ -151,7 +151,7 @@ Chart support (optional):
 </dependency>
 ```
 
-### Maven dependency — 4.0.0 and below (AGPL-3.0, iText 7)
+### Maven dependency — 4.0.0  below (AGPL-3.0, iText 7)
 
 ```xml
 <dependency>

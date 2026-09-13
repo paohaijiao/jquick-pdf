@@ -14,7 +14,7 @@
 
 <p align="center">
   <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx"><img src="https://img.shields.io/maven-central/v/io.github.paohaijiao/jquick-pdfx.svg?style=for-the-badge&label=Maven%20Central" alt="Maven Central" /></a>
-  <a href="#版本对照表"><img src="https://img.shields.io/badge/license-Apache--2.0%20(%E2%89%A5%204.0.1)%20%7C%20AGPL--3.0%20(%E2%89%A4%204.0.0)-blue.svg?style=for-the-badge" alt="License" /></a>
+  <a href="#版本对照表"><img src="https://img.shields.io/badge/license-Apache--2.0%20(%E2%89%A5%204.0.0)%20%7C%20AGPL--3.0%20(%E2%89%A4%204.0.0)-blue.svg?style=for-the-badge" alt="License" /></a>
   <a href="https://github.com/paohaijiao/jquick-pdf"><img src="https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars" alt="GitHub stars" /></a>
   <a href="https://github.com/paohaijiao/jquick-pdf/issues"><img src="https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg?style=for-the-badge&label=Issues" alt="GitHub issues" /></a>
 </p>
@@ -34,8 +34,8 @@
 - [快速开始](#快速开始)
   - [环境要求](#环境要求)
   - [模块说明](#模块说明)
-  - [Maven 依赖 —— 4.0.1 及以上（Apache-2.0）](#maven-依赖--401-及以上apache-20)
-  - [Maven 依赖 —— 4.0.0 及以下（AGPL-3.0，iText 7）](#maven-依赖--400-及以下agpl-30itext-7)
+  - [Maven 依赖 —— 4.0.0 及以上（Apache-2.0）](#maven-依赖--401-及以上apache-20)
+  - [Maven 依赖 —— 4.0.0 以下（AGPL-3.0，iText 7）](#maven-依赖--400-及以下agpl-30itext-7)
   - [Hello world](#hello-world)
 - [Demo Gallery（演示画廊）](#demo-gallery演示画廊)
   - [图片索引：图片 → 测试类 → 方法](#图片索引图片--测试类--方法)
@@ -151,7 +151,7 @@
 </dependency>
 ```
 
-### Maven 依赖 —— 4.0.0 及以下（AGPL-3.0，iText 7）
+### Maven 依赖 —— 4.0.0 以下（AGPL-3.0，iText 7）
 
 ```xml
 <dependency>
