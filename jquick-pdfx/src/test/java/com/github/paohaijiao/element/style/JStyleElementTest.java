@@ -61,6 +61,20 @@ public class JStyleElementTest {
     /** 渲染层用例使用的文本，用引号包裹以走字符串取值分支。 */
     private static final String TEXT = "内容";
 
+    /** {@code sample/style/style2.txt}（驼峰）与 {@code style3.txt}（标准写法）必须覆盖的全部属性。 */
+    private static final String[] STYLE_PROPERTIES = {
+            "width", "height", "maxHeight", "minHeight", "minWidth", "maxWidth",
+            "relativePosition",
+            "font", "fontFamilyNames", "fontColor", "fontSize", "fontKerning", "fontScript",
+            "textAlignment", "characterSpacing", "wordSpacing", "splitCharacters", "textRenderingMode", "baseDirection",
+            "bold", "italic", "lineThrough", "underline",
+            "backgroundColor", "backgroundImage",
+            "border", "borderTop", "borderRight", "borderLeft", "borderBottom",
+            "borderRadius", "borderBottomLeftRadius", "borderBottomRightRadius",
+            "borderTopRightRadius", "borderTopLeftRadius",
+            "opacity", "strokeColor", "strokeWidth",
+            "destination"};
+
 
     /** {@code marginLeft/Right/Top/Bottom}：驼峰与标准写法都应解析为同一个值。 */
     @Test
@@ -320,6 +334,65 @@ public class JStyleElementTest {
         byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style1.txt");
         FileOutputStream fileOutputStream = new FileOutputStream(path + "style1.pdf");
         fileOutputStream.write(pdf);
+    }
+
+    /**
+     * 样例：渲染 {@code src/test/resources/sample/style/style2.txt}，覆盖尺寸、位置与布局、字体、
+     * 文本样式、文本装饰、背景与边框、圆角、效果与描边、锚点目标共九组属性，输出到本地
+     * {@code D:\test\style2.pdf}。
+     */
+    @Test
+    public void styleSample2() throws IOException {
+        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style2.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "style2.pdf");
+        fileOutputStream.write(pdf);
+    }
+
+    /** 与 {@link #styleSample2()} 同内容，但全部改用标准 CSS 写法（如 {@code min-height}、{@code border-radius}）。 */
+    @Test
+    public void styleSample3() throws IOException {
+        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style3.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "style3.pdf");
+        fileOutputStream.write(pdf);
+    }
+
+    /**
+     * 清单中的属性一个都不能少：逐个断言其标签确实出现在 {@code style2.txt}（驼峰写法）与
+     * {@code style3.txt}（标准写法）渲染出的 PDF 中。
+     * <p>
+     * 提取文本时去掉全部空白，避免字符间距（{@code characterSpacing}）或自动换行把属性名拆开。
+     */
+    @Test
+    public void styleSampleCoversEveryProperty() throws IOException {
+        String[] resources = {"sample/style/style2.txt", "sample/style/style3.txt"};
+        for (String resource : resources) {
+            String text = extractText(new JQuickPdfFactory().executeResource(resource)).replaceAll("\\s+", "");
+            for (String property : STYLE_PROPERTIES) {
+                String expected = resource.endsWith("style2.txt") ? property : toKebab(property);
+                assertTrue(resource + " 中缺少属性：" + property, text.contains(expected + ":"));
+            }
+        }
+    }
+
+    /** 驼峰属性名转标准 CSS 连字符写法：{@code minHeight} → {@code min-height}。 */
+    private static String toKebab(String camel) {
+        StringBuilder builder = new StringBuilder(camel.length() + 4);
+        for (int i = 0; i < camel.length(); i++) {
+            char current = camel.charAt(i);
+            if (Character.isUpperCase(current)) {
+                builder.append('-').append(Character.toLowerCase(current));
+            } else {
+                builder.append(current);
+            }
+        }
+        return builder.toString();
+    }
+
+    /** 把 PDF 字节流提取为纯文本。 */
+    private static String extractText(byte[] pdf) throws IOException {
+        try (PDDocument document = Loader.loadPDF(pdf)) {
+            return new PDFTextStripper().getText(document);
+        }
     }
 
     /** 把 {@code style="..."} 交给真实解析器，得到样式声明的键值集合。 */
