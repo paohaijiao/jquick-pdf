@@ -19,12 +19,10 @@ import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
 import com.github.paohaijiao.visitor.render.PdfBoxUnitConverter;
 import com.github.paohaijiao.enums.JBorder;
 import com.github.paohaijiao.exception.JAssert;
-import com.github.paohaijiao.executor.JQuickPdfStyleExecutor;
 import com.github.paohaijiao.executor.JQuickPdfUnitExecutor;
 import com.github.paohaijiao.model.JMarginModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.util.JStringUtils;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
@@ -43,16 +41,72 @@ import java.util.regex.Pattern;
 public class JPdfXStyleVisitor extends JPdfXValueVisitor {
     @Override
     public JStyleAttributes visitStyleEle(JQuickPDFParser.StyleEleContext ctx) {
-        if (null != ctx.style()) {
-            return visitStyle(ctx.style());
-        } else if (null != ctx.STRING()) {
-            String string = ctx.STRING().getText();
-            String value = JStringUtils.trim(string);
-            JQuickPdfStyleExecutor executor = new JQuickPdfStyleExecutor();
-            JStyleAttributes styleAttributes = executor.execute(value);
-            return styleAttributes;
+        if (null == ctx) {
+            return new JStyleAttributes();
         }
-        return new JStyleAttributes();
+        // 直接按分隔符拆分原始声明串，而不是复用语法树/样式执行器。
+        // 词法未定义十六进制颜色 token，形如 #3498db 的值会被截断
+        // （如 backgroundColor:#3498db 退化为 backgroundColor=3498），
+        // 导致背景、边框、字体颜色等样式静默丢失。
+        String raw = null != ctx.STRING() ? ctx.STRING().getText() : rawText(ctx.style());
+        return parseDeclarations(raw);
+    }
+
+    /** 返回语法树节点对应源码片段，保留词法阶段可能被丢弃的字符（如 #）。 */
+    private String rawText(org.antlr.v4.runtime.ParserRuleContext context) {
+        if (null == context || null == context.getStart() || null == context.getStop()) {
+            return null;
+        }
+        org.antlr.v4.runtime.Token start = context.getStart();
+        org.antlr.v4.runtime.CharStream input = start.getInputStream();
+        if (null == input) {
+            return context.getText();
+        }
+        return input.getText(org.antlr.v4.runtime.misc.Interval.of(
+                start.getStartIndex(), context.getStop().getStopIndex()));
+    }
+
+    /**
+     * 解析 CSS 声明串，形如 {@code color:#fff; padding:5px}。
+     *
+     * @param raw 原始声明串（可带引号）
+     * @return 声明键值集合，无法识别的片段会被忽略
+     */
+    private JStyleAttributes parseDeclarations(String raw) {
+        JStyleAttributes attributes = new JStyleAttributes();
+        if (null == raw) {
+            return attributes;
+        }
+        String text = stripQuotes(raw.trim());
+        for (String declaration : text.split(";")) {
+            String item = declaration.trim();
+            if (item.isEmpty()) {
+                continue;
+            }
+            int separator = item.indexOf(':');
+            if (separator <= 0) {
+                continue;
+            }
+            String key = item.substring(0, separator).trim();
+            String value = stripQuotes(item.substring(separator + 1).trim());
+            if (key.isEmpty() || value.isEmpty()) {
+                continue;
+            }
+            attributes.put(key, value);
+        }
+        return attributes;
+    }
+
+    private String stripQuotes(String text) {
+        if (null == text || text.length() < 2) {
+            return text;
+        }
+        char first = text.charAt(0);
+        char last = text.charAt(text.length() - 1);
+        if ((first == '\'' && last == '\'') || (first == '"' && last == '"')) {
+            return text.substring(1, text.length() - 1).trim();
+        }
+        return text;
     }
 
 

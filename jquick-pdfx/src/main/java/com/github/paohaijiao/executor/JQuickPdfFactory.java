@@ -536,8 +536,11 @@ public class JQuickPdfFactory {
      * @throws IOException if rendering fails
      */
     private static byte[] renderToBytes(String templateContent, JContext context, JPdfConfig config) throws IOException {
-        OutputStream outputStream=new JQuickPdfXExecutor(context, config).execute(templateContent);;
-        ByteArrayOutputStream baos = (ByteArrayOutputStream)outputStream;
+        OutputStream outputStream = new JQuickPdfXExecutor(context, config).execute(templateContent);
+        if (!(outputStream instanceof ByteArrayOutputStream)) {
+            throw new IOException("pdf render produced no output, please check the render log for the underlying error");
+        }
+        ByteArrayOutputStream baos = (ByteArrayOutputStream) outputStream;
         return baos.toByteArray();
     }
 }

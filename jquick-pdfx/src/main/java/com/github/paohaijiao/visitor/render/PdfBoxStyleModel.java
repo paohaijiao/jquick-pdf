@@ -72,17 +72,17 @@ public class PdfBoxStyleModel {
         if (attributes == null) {
             return model;
         }
-        float[] margins = box(attributes.get("commonMargin"), attributes.get("margins"));
-        model.marginTop = value(attributes, "marginTop", margins[0]);
-        model.marginRight = value(attributes, "marginRight", margins[1]);
-        model.marginBottom = value(attributes, "marginBottom", margins[2]);
-        model.marginLeft = value(attributes, "marginLeft", margins[3]);
+        float[] margins = box(attributes.get("commonMargin"), first(attributes, "margins", "margin"));
+        model.marginTop = side(attributes, "marginTop", "margin-top", margins[0]);
+        model.marginRight = side(attributes, "marginRight", "margin-right", margins[1]);
+        model.marginBottom = side(attributes, "marginBottom", "margin-bottom", margins[2]);
+        model.marginLeft = side(attributes, "marginLeft", "margin-left", margins[3]);
 
-        float[] paddings = box(attributes.get("commonPadding"), attributes.get("paddings"));
-        model.paddingTop = value(attributes, "paddingTop", paddings[0]);
-        model.paddingRight = value(attributes, "paddingRight", paddings[1]);
-        model.paddingBottom = value(attributes, "paddingBottom", paddings[2]);
-        model.paddingLeft = value(attributes, "paddingLeft", paddings[3]);
+        float[] paddings = box(attributes.get("commonPadding"), first(attributes, "paddings", "padding"));
+        model.paddingTop = side(attributes, "paddingTop", "padding-top", paddings[0]);
+        model.paddingRight = side(attributes, "paddingRight", "padding-right", paddings[1]);
+        model.paddingBottom = side(attributes, "paddingBottom", "padding-bottom", paddings[2]);
+        model.paddingLeft = side(attributes, "paddingLeft", "padding-left", paddings[3]);
 
         model.width = value(attributes, "width", -1f);
         model.height = value(attributes, "height", -1f);
@@ -111,21 +111,26 @@ public class PdfBoxStyleModel {
         model.font = attributes.get("font");
         model.fontFamilyNames = attributes.get("fontFamilyNames");
         model.fontColor = first(attributes, "fontColor", "color");
-        model.backgroundColor = attributes.get("backgroundColor");
+        // 注意：first() 的第二个候选参数必须是“键名”，不能嵌套传入已解析出的值，
+        // 否则会退化为 attributes.get(值) 从而丢失 background 简写。
+        model.backgroundColor = first(attributes, "backgroundColor", "background");
+        if (model.backgroundColor == null) {
+            model.backgroundColor = attributes.get("background-color");
+        }
         model.backgroundImage = attributes.get("backgroundImage");
         model.border = attributes.get("border");
-        model.borderTop = attributes.get("borderTop");
-        model.borderRight = attributes.get("borderRight");
-        model.borderBottom = attributes.get("borderBottom");
-        model.borderLeft = attributes.get("borderLeft");
-        model.borderRadius = attributes.get("borderRadius");
+        model.borderTop = first(attributes, "borderTop", "border-top");
+        model.borderRight = first(attributes, "borderRight", "border-right");
+        model.borderBottom = first(attributes, "borderBottom", "border-bottom");
+        model.borderLeft = first(attributes, "borderLeft", "border-left");
+        model.borderRadius = first(attributes, "borderRadius", "border-radius");
         model.borderTopLeftRadius = attributes.get("borderTopLeftRadius");
         model.borderTopRightRadius = attributes.get("borderTopRightRadius");
         model.borderBottomRightRadius = attributes.get("borderBottomRightRadius");
         model.borderBottomLeftRadius = attributes.get("borderBottomLeftRadius");
         model.strokeColor = attributes.get("strokeColor");
-        model.textAlignment = attributes.get("textAlignment");
-        model.verticalAlignment = attributes.get("verticalAlignment");
+        model.textAlignment = first(attributes, "textAlignment", "text-align");
+        model.verticalAlignment = first(attributes, "verticalAlignment", "vertical-align");
         model.fontKerning = attributes.get("fontKerning");
         model.fontScript = attributes.get("fontScript");
         model.textRenderingMode = attributes.get("textRenderingMode");
@@ -149,6 +154,10 @@ public class PdfBoxStyleModel {
 
     private static float value(JStyleAttributes attributes, String key, float fallback) {
         return attributes.containsKey(key) ? PdfBoxUnitConverter.toPoint(attributes.get(key), fallback) : fallback;
+    }
+
+    private static float side(JStyleAttributes attributes, String camelKey, String kebabKey, float fallback) {
+        return value(attributes, camelKey, value(attributes, kebabKey, fallback));
     }
 
     private static float number(String value, float fallback) {

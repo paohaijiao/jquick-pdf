@@ -18,12 +18,7 @@ public class JQuickCreditReportTest {
     @Test
     public void reportByContent() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
-        JReader htmlReader = new JReSourceFileReader("html.txt");
-        JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
         JPdfConfig config = new JPdfConfig();
-        JTemplateConfig templateConfig = config.getTemplateConfig();
-        templateConfig.put("html", htmlAdaptor.getRuleContent());
-        config.setTemplateConfig(templateConfig);
         JReader fileReader = new JReSourceFileReader("report.txt");
         JAdaptor adaptor = new JAdaptor(fileReader);
         JReader svgReader = new JReSourceFileReader("radar.txt");
@@ -36,12 +31,7 @@ public class JQuickCreditReportTest {
     @Test
     public void reportByClassResourceFile() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
-        JReader htmlReader = new JReSourceFileReader("html.txt");
-        JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
         JPdfConfig config = new JPdfConfig();
-        JTemplateConfig templateConfig = config.getTemplateConfig();
-        templateConfig.put("html", htmlAdaptor.getRuleContent());
-        config.setTemplateConfig(templateConfig);
         JReader svgReader = new JReSourceFileReader("radar.txt");
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory=new JQuickPdfFactory(config);
@@ -52,12 +42,7 @@ public class JQuickCreditReportTest {
     @Test
     public void reportByFile() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
-        JReader htmlReader = new JReSourceFileReader("html.txt");
-        JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
         JPdfConfig config = new JPdfConfig();
-        JTemplateConfig templateConfig = config.getTemplateConfig();
-        templateConfig.put("html", htmlAdaptor.getRuleContent());
-        config.setTemplateConfig(templateConfig);
         JReader svgReader = new JReSourceFileReader("radar.txt");
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory=new JQuickPdfFactory(config);

@@ -30,7 +30,6 @@
       </table>
     </div>
   </div>
-  <template>&html</template>
   <div style="margin-bottom:15px">
     <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'历年财务数据（单位：万元）'</h2>
     <table style="width:600px; fontSize:10; marginTop:8px">

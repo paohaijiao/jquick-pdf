@@ -16,6 +16,7 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.font.JFontSpec;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
@@ -34,6 +35,7 @@ import com.github.paohaijiao.visitor.element.JQuickTextAreaElementRender;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
@@ -157,10 +159,27 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                 .margins(margins)
                 .cursorX(margins[3])
                 .cursorY(mediaBox.getHeight() - margins[0])
-                .font(new PDType1Font(Standard14Fonts.FontName.HELVETICA))
+                .font(resolveDocumentFont())
                 .fontSize(12f)
                 .lineHeight(16f)
                 .build();
+    }
+
+    /**
+     * 解析文档默认字体：优先使用配置中的字体（默认从 classpath 的 fonts/simhei.ttf 加载，
+     * 支持中文等 CJK 字符），加载失败时回退到内置 Helvetica。
+     */
+    protected PDFont resolveDocumentFont() {
+        try {
+            JFontSpec spec = config == null || config.getFontConfig() == null
+                    ? null : config.getFontConfig().getDefaultFont();
+            if (spec != null) {
+                return spec.resolve(getPdfBoxDocument());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new PDType1Font(Standard14Fonts.FontName.HELVETICA);
     }
 
     protected void renderPdfBoxBody(JQuickPDFParser.BodyContext ctx, PDPageContentStream contentStream, JQuickRenderContext renderContext) throws IOException {

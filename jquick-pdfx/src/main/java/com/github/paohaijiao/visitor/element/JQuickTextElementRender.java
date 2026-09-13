@@ -49,16 +49,26 @@ public class JQuickTextElementRender implements JQuickElementRender {
         if (color != null) stream.setNonStrokingColor(color);
 
         float drawX = useContextPosition ? context.getCursorX() : (x > 0 ? x : context.getX());
-        float drawY = useContextPosition ? context.getCursorY() : (y > 0 ? y : context.getY());
-        float lineHeight = context.getLineHeight() > 0 ? context.getLineHeight() : model.getFontSize() * 1.5f;
+        // 光标代表“行的顶部”，而 PDF 文本按基线定位，因此绘制时下移一个 ascent，
+        // 否则文字会整体高出所在容器（div 背景、表格单元格等）。
+        float lineTop = useContextPosition ? context.getCursorY() : (y > 0 ? y : context.getY());
+        float textSize = model.getFontSize();
+        // 行高按元素自身字号计算，避免大字号标题与小字号正文共用同一行距而重叠。
+        float lineHeight = textSize > 0f
+                ? textSize * 1.5f
+                : (context.getLineHeight() > 0 ? context.getLineHeight() : 18f);
         float availableWidth = model.getWidth() > 0 ? model.getWidth() : context.getWidth();
-        for (String line : text.split("\\n", -1)) {
-            if (!line.isEmpty()) {
-                PdfBoxRenderAdapter.drawText(stream, model, font == null ? context.getFont() : font,
-                        line, drawX, drawY, availableWidth);
+        PDFont effectiveFont = PdfBoxRenderAdapter.resolveFont(model, font == null ? context.getFont() : font);
+        float ascent = PdfBoxRenderAdapter.ascent(effectiveFont, textSize);
+        for (String rawLine : text.split("\\n", -1)) {
+            for (String line : PdfBoxRenderAdapter.wrapText(effectiveFont, rawLine, model.getFontSize(),
+                    availableWidth, model.getCharacterSpacing(), model.getWordSpacing())) {
+                if (!line.isEmpty()) {
+                    PdfBoxRenderAdapter.drawText(stream, model, effectiveFont, line, drawX, lineTop - ascent, availableWidth);
+                }
+                lineTop -= lineHeight;
             }
-            drawY -= lineHeight;
         }
-        context.setCursorY(drawY);
+        context.setCursorY(lineTop);
     }
 }

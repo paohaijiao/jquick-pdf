@@ -24,6 +24,17 @@ public class PdfBoxLayoutEngine implements AutoCloseable {
 
     private PDPageContentStream stream;
 
+    /** 测量（预排版）期间关闭分页，避免试排版在文档中留下多余页面。 */
+    private boolean paginationEnabled = true;
+
+    public boolean isPaginationEnabled() {
+        return paginationEnabled;
+    }
+
+    public void setPaginationEnabled(boolean paginationEnabled) {
+        this.paginationEnabled = paginationEnabled;
+    }
+
     public PdfBoxLayoutEngine(PDDocument document, PDRectangle pageSize, JQuickRenderContext context) throws IOException {
         this.document = document;
         this.pageSize = pageSize == null ? PDRectangle.A4 : pageSize;
@@ -44,6 +55,9 @@ public class PdfBoxLayoutEngine implements AutoCloseable {
     }
 
     public void breakPage() throws IOException {
+        if (!paginationEnabled) {
+            return;
+        }
         newPage();
     }
 
@@ -52,6 +66,9 @@ public class PdfBoxLayoutEngine implements AutoCloseable {
     }
 
     public void ensureSpace(float requiredHeight, boolean keepTogether) throws IOException {
+        if (!paginationEnabled) {
+            return;
+        }
         float bottom = context.getMargins() == null ? 0f : context.getMargins()[2];
         if (context.getCursorY() - requiredHeight < bottom && (keepTogether || requiredHeight > 0f)) {
             newPage();
