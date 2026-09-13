@@ -1,0 +1,7 @@
+<pdf>
+<body>
+<div style="width:100%">'块容器内容'</div>
+<div style="width:100%;height:60">'固定高度的块容器'</div>
+<p>'块容器之后的内容'</p>
+</body>
+</pdf>

@@ -64,8 +64,16 @@ public class JQuickLineSeparatorElementRender implements JQuickElementRender {
     }
 
     private PDColor resolveColor(JQuickRenderContext context) {
-        if (style != null && style.get("color") != null) {
-            return PdfBoxRenderAdapter.color(style.get("color").toString());
+        // 分隔线是描边绘制，颜色以 strokeColor 为准（文档写法），兼容 color 简写。
+        if (style != null) {
+            Object strokeColor = style.get("strokeColor");
+            if (strokeColor != null) {
+                return PdfBoxRenderAdapter.color(strokeColor.toString());
+            }
+            Object color = style.get("color");
+            if (color != null) {
+                return PdfBoxRenderAdapter.color(color.toString());
+            }
         }
         return context.getColor();
     }

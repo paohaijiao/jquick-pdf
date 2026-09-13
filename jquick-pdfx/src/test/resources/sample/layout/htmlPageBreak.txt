@@ -1,0 +1,7 @@
+<pdf>
+<body>
+<p>'分页前的内容'</p>
+<htmlPageBreak style="fontColor:blue">'next_area'</htmlPageBreak>
+<p>'分页后的内容'</p>
+</body>
+</pdf>
