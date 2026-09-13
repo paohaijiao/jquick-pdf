@@ -1,0 +1,5 @@
+<pdf>
+<body>
+<p><span style="fontColor:red">'第一行文本'<br></span><span style="fontColor:blue">'第二行文本'</span></p>
+</body>
+</pdf>

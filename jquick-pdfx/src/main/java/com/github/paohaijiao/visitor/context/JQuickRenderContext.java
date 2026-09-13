@@ -53,6 +53,12 @@ public class JQuickRenderContext {
 
     private float cursorY;
 
+    /**
+     * 行内流中每一行的起始横坐标（段落左边界）。文本换行或遇到 {@code <br>} 后，
+     * 新的一行需要从这里开始，而不是沿用上一行的横向位置。
+     */
+    private float lineStartX;
+
     // 分页信息
     private int pageNumber;
 

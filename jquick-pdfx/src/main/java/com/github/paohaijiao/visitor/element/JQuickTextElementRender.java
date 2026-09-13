@@ -31,6 +31,11 @@ public class JQuickTextElementRender implements JQuickElementRender {
      * 与 HTML 一致；行内文本（{@code <span>}）与容器直接承载的文本忽略外边距，避免与容器的外边距重复计算。
      */
     private boolean blockLevel;
+    /**
+     * 是否为行内文本。行内文本（{@code <p>} 中的 {@code <span>} 等）与兄弟元素排在同一行：
+     * 绘制结束后把光标横向推进到文本末尾，而不是另起一行。
+     */
+    private boolean inline;
 
     public JQuickTextElementRender(String content) {
         this.content = content;
@@ -57,8 +62,8 @@ public class JQuickTextElementRender implements JQuickElementRender {
         // 光标代表“行的顶部”，而 PDF 文本按基线定位，因此绘制时下移一个 ascent，
         // 否则文字会整体高出所在容器（div 背景、表格单元格等）。
         // 块级文本先让出自身的外边距，使相邻块之间保持声明好的间距而不是贴在一起。
-        float marginTop = blockLevel ? model.getMarginTop() : 0f;
-        float marginBottom = blockLevel ? model.getMarginBottom() : 0f;
+        float marginTop = blockLevel && !inline ? model.getMarginTop() : 0f;
+        float marginBottom = blockLevel && !inline ? model.getMarginBottom() : 0f;
         float lineTop = (useContextPosition ? context.getCursorY() : (y > 0 ? y : context.getY())) - marginTop;
         float textSize = model.getFontSize();
         // 行高按元素自身字号计算，避免大字号标题与小字号正文共用同一行距而重叠。
@@ -68,14 +73,32 @@ public class JQuickTextElementRender implements JQuickElementRender {
         float availableWidth = model.getWidth() > 0 ? model.getWidth() : context.getWidth();
         PDFont effectiveFont = PdfBoxRenderAdapter.resolveFont(model, font == null ? context.getFont() : font);
         float ascent = PdfBoxRenderAdapter.ascent(effectiveFont, textSize);
+        // 行内流中换行后的新行从容器左边界开始，块级文本则始终从自身左边界开始。
+        float nextLineX = inline && context.getLineStartX() > 0f ? context.getLineStartX() : drawX;
+        float lineX = drawX;
+        float lastLineWidth = 0f;
         for (String rawLine : text.split("\\n", -1)) {
             for (String line : PdfBoxRenderAdapter.wrapText(effectiveFont, rawLine, model.getFontSize(),
                     availableWidth, model.getCharacterSpacing(), model.getWordSpacing())) {
                 if (!line.isEmpty()) {
-                    PdfBoxRenderAdapter.drawText(stream, model, effectiveFont, line, drawX, lineTop - ascent, availableWidth);
+                    PdfBoxRenderAdapter.drawText(stream, model, effectiveFont, line, lineX, lineTop - ascent, availableWidth);
+                    lastLineWidth = PdfBoxRenderAdapter.textWidth(effectiveFont, line, model.getFontSize(),
+                            model.getCharacterSpacing(), model.getWordSpacing());
+                } else {
+                    lastLineWidth = 0f;
+                }
+                if (inline) {
+                    lineX = nextLineX;
                 }
                 lineTop -= lineHeight;
             }
+        }
+        if (inline) {
+            // 行内文本：光标停在本行行顶并把横坐标推进到文本末尾，兄弟元素可继续排在同一行；
+            // 文本自带的换行（<br>）会让最后一行落空，光标自然被带到新的一行。
+            context.setCursorX(lineX + lastLineWidth);
+            context.setCursorY(lineTop + lineHeight);
+            return;
         }
         context.setCursorY(lineTop - marginBottom);
     }
