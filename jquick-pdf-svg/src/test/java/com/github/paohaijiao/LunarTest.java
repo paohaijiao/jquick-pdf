@@ -35,7 +35,6 @@ import java.util.ArrayList;
 public class LunarTest {
     private static java.util.List<LunarCalendarOption.DayData> createDefaultDayData() {
         java.util.List<LunarCalendarOption.DayData> defaultData = new ArrayList<>();
-        // 第一行
         defaultData.add(new LunarCalendarOption.DayData(1, "初四", 0, 0));
         defaultData.add(new LunarCalendarOption.DayData(2, "初五", 0, 1));
         defaultData.add(new LunarCalendarOption.DayData(3, "初六", 0, 2));
@@ -81,6 +80,22 @@ public class LunarTest {
         return specialDays;
     }
 
+    private JOption createData() {
+        LunarCalendarOption.CalendarDataConfig dataConfig = new LunarCalendarOption.CalendarDataConfig()
+                .setDayDataList(createDefaultDayData())
+                .setSpecialDays(createDefaultSpecialDays())
+                .setWeekDays(new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"})
+                .setRows(5)
+                .setCols(7);
+        LunarCalendarOption.ColorConfig colorConfig = new LunarCalendarOption.ColorConfig()
+                .setBackgroundColor(Color.white)
+                .setSpecialDayColor(new Color(0, 100, 0));
+        JTitle title = new JTitle();
+        title.setText("2024年3月日历");
+        LunarCalendarOption option = LunarCalendarOption.of("2024", "三月", colorConfig, title, dataConfig);
+        return option;
+    }
+
     @Test
     public void testBarChar1() throws IOException {
         LunarCalendarOption.CalendarDataConfig dataConfig = new LunarCalendarOption.CalendarDataConfig()
@@ -89,9 +104,7 @@ public class LunarTest {
                 .setWeekDays(new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"})
                 .setRows(5)
                 .setCols(7);
-        LunarCalendarOption.ColorConfig colorConfig = new LunarCalendarOption.ColorConfig()
-                .setBackgroundColor(null)
-                .setSpecialDayColor(new Color(0, 100, 0));
+        LunarCalendarOption.ColorConfig colorConfig = new LunarCalendarOption.ColorConfig();
         JTitle title = new JTitle();
         title.setText("2024年3月日历");
 //        title.setSubtext("自定义月份");
