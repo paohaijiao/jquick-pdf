@@ -1808,22 +1808,22 @@ Units: `px` (96 DPI, `1px = 0.75pt`), `pt`, `mm`, `cm`, `in`. Colors: names (`re
 
 > **The license depends on the version you use — this is the most important section of this document.**
 
-**Version 4.0.0 — AGPL-3.0.**
-4.0.0 and every earlier version were built on **iText 7 Core**, which is distributed under the **AGPL-3.0** copyleft license. AGPL-3.0 propagates to derivative works, so any version shipping iText 7 must itself be distributed under AGPL-3.0. The Apache-2.0 declaration published with some earlier releases was therefore **retracted for all versions ≤ 4.0.0**. Keeping AGPL-3.0 here is deliberate: it is what the iText 7 dependency requires.
+**Version below 4.0.0 — AGPL-3.0.**
+4.0.0   earlier version were built on **iText 7 Core**, which is distributed under the **AGPL-3.0** copyleft license. AGPL-3.0 propagates to derivative works, so any version shipping iText 7 must itself be distributed under AGPL-3.0. The Apache-2.0 declaration published with some earlier releases was therefore **retracted for all versions < 4.0.0**. Keeping AGPL-3.0 here is deliberate: it is what the iText 7 dependency requires.
 
-**Version 4.0.1 and above — Apache-2.0.**
-Starting with 4.0.1 the rendering core was migrated from iText 7 to **Apache PDFBox 3**, which is licensed under Apache-2.0. Removing the AGPL dependency is what allows jquick-pdf itself to be released under **Apache-2.0**, so **4.0.1 and every later version are Apache-2.0**.
+**Version 4.0.0 and above — Apache-2.0.**
+Starting with 4.0.0 the rendering core was migrated from iText 7 to **Apache PDFBox 3**, which is licensed under Apache-2.0. Removing the AGPL dependency is what allows jquick-pdf itself to be released under **Apache-2.0**, so **4.0.0 and every later version are Apache-2.0**.
 
 Why the migration matters:
 
-| Consequence | ≤ 4.0.0 (iText 7, AGPL-3.0) | ≥ 4.0.1 (PDFBox, Apache-2.0) |
-|---|---|---|
-| Linking into a closed-source product | Requires AGPL compliance or a paid iText license | Permitted, no source-disclosure obligation |
-| Network/SaaS use | AGPL section 13 obliges offering the source to users | No such obligation |
-| Output PDF notice | Carries the `Powered by iText` attribution notice | No iText notice, since no iText code is involved |
-| Recommended action | Upgrade | Use this line for new projects |
+| Consequence | < 4.0.0 (iText 7, AGPL-3.0)                          | ≥ 4.0.0 (PDFBox, Apache-2.0)                     |
+|---|------------------------------------------------------|--------------------------------------------------|
+| Linking into a closed-source product | Requires AGPL compliance or a paid iText license     | Permitted, no source-disclosure obligation       |
+| Network/SaaS use | AGPL section 13 obliges offering the source to users | No such obligation                               |
+| Output PDF notice | Carries the `Powered by iText` attribution notice    | No iText notice, since no iText code is involved |
+| Recommended action | Upgrade                                              | Use this line for new projects                   |
 
-Upgrading from `≤ 4.0.0` to `≥ 4.0.1` **removes** the AGPL obligation; downgrading re-introduces it. Full texts: [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
+Upgrading from `< 4.0.0` to `≥ 4.0.0` **removes** the AGPL obligation; downgrading re-introduces it. Full texts: [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
 
 ## Contribution Guide
 
