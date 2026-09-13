@@ -44,6 +44,7 @@ public class JPdfXTemplateVisitor extends JPdfXTextAreaVisitor {
         JQuickTemplateRenderModel renderModel = new JQuickTemplateRenderModel();
         renderModel.setTemplateKey(value);
         renderModel.setHtml(html);
+        JAssert.throwNewException("not support http template render");
         return renderModel;
     }
 }

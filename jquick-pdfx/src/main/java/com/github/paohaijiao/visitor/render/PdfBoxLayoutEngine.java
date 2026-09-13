@@ -15,9 +15,13 @@ import java.io.IOException;
 public class PdfBoxLayoutEngine implements AutoCloseable {
 
     private final PDDocument document;
+
     private final PDRectangle pageSize;
+
     private final JQuickRenderContext context;
+
     private PDPage page;
+
     private PDPageContentStream stream;
 
     public PdfBoxLayoutEngine(PDDocument document, PDRectangle pageSize, JQuickRenderContext context) throws IOException {
@@ -27,8 +31,7 @@ public class PdfBoxLayoutEngine implements AutoCloseable {
         newPage();
     }
 
-    public PdfBoxLayoutEngine(PDDocument document, PDRectangle pageSize, JQuickRenderContext context,
-                              PDPage page, PDPageContentStream stream) {
+    public PdfBoxLayoutEngine(PDDocument document, PDRectangle pageSize, JQuickRenderContext context, PDPage page, PDPageContentStream stream) {
         this.document = document;
         this.pageSize = pageSize == null ? PDRectangle.A4 : pageSize;
         this.context = context;

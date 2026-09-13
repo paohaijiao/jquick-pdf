@@ -28,14 +28,34 @@ import org.w3c.dom.svg.SVGDocument;
  */
 public class JSvgUtil {
 
-    public static float[] parseSvgDimensions(String svgContent) {
-        float[] dimensions = new float[]{100f, 100f}; // [宽度, 高度] 默认值
-
+    /**
+     * 解析 SVG 字符串，返回 DOM 文档。解析失败时返回 null。
+     * 复用返回值可避免同一段 SVG 被重复解析。
+     */
+    public static SVGDocument parse(String svgContent) {
+        if (svgContent == null || svgContent.isEmpty()) {
+            return null;
+        }
         try {
             String parser = XMLResourceDescriptor.getXMLParserClassName();
             SAXSVGDocumentFactory factory = new SAXSVGDocumentFactory(parser);
-            SVGDocument document = factory.createSVGDocument(null, new java.io.StringReader(svgContent));
+            return factory.createSVGDocument(null, new java.io.StringReader(svgContent));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
+    public static float[] parseSvgDimensions(String svgContent) {
+        return parseSvgDimensions(parse(svgContent));
+    }
+
+    public static float[] parseSvgDimensions(SVGDocument document) {
+        float[] dimensions = new float[]{100f, 100f}; // [宽度, 高度] 默认值
+        if (document == null) {
+            return dimensions;
+        }
+        try {
             org.w3c.dom.Element root = document.getRootElement();
             String widthAttr = root.getAttribute("width");
             String heightAttr = root.getAttribute("height");
