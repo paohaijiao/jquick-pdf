@@ -9,6 +9,8 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -68,7 +70,7 @@ public class TreeRenderer {
 
         if (!row.node.isRoot()) {
             float connectorX = x - element.getIndentSize() / 2f;
-            stream.setStrokingColor(230, 230, 230);
+            stream.setStrokingColor(rgb(230, 230, 230));
             stream.setLineWidth(0.3f);
             stream.moveTo(connectorX, top);
             stream.lineTo(connectorX, y + rowHeight / 2f);
@@ -112,7 +114,7 @@ public class TreeRenderer {
     private void drawArrow(PDPageContentStream stream, float x, float y, boolean expanded)
             throws IOException {
         float size = 6f;
-        stream.setStrokingColor(120, 120, 120);
+        stream.setStrokingColor(rgb(120, 120, 120));
         stream.setLineWidth(0.8f);
         if (expanded) {
             stream.moveTo(x - size / 2f, y + size / 3f);
@@ -140,6 +142,14 @@ public class TreeRenderer {
 
     private float fontSize(JQuickRenderContext context) {
         return context.getFontSize() > 0f ? context.getFontSize() : 11f;
+    }
+
+    /**
+     * PDFBox 3.x 只提供 0..1 分量的 {@code setStrokingColor(float,float,float)} 重载，
+     * 这里把 0..255 的 RGB 分量换算成 {@link PDColor} 后再写入，避免整棵树因参数越界而渲染失败。
+     */
+    private static PDColor rgb(int red, int green, int blue) {
+        return new PDColor(new float[]{red / 255f, green / 255f, blue / 255f}, PDDeviceRGB.INSTANCE);
     }
 
     private static final class NodeRow {

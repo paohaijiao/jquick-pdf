@@ -4,6 +4,7 @@ import com.github.paohaijiao.factory.JImageFactory;
 import com.github.paohaijiao.image.JBaseImageProvider;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
+import com.github.paohaijiao.visitor.render.PdfBoxUnitConverter;
 import lombok.Data;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -61,18 +62,7 @@ public class JQuickImageElementRender implements JQuickElementRender {
         if (style == null) {
             return;
         }
-        width = parseFloat(style.get("width"), width);
-        height = parseFloat(style.get("height"), height);
-    }
-
-    private float parseFloat(Object value, float defaultValue) {
-        if (value == null) {
-            return defaultValue;
-        }
-        try {
-            return Float.parseFloat(value.toString().replace("px", "").trim());
-        } catch (NumberFormatException e) {
-            return defaultValue;
-        }
+        width = PdfBoxUnitConverter.toPoint(style.get("width"), width);
+        height = PdfBoxUnitConverter.toPoint(style.get("height"), height);
     }
 }
