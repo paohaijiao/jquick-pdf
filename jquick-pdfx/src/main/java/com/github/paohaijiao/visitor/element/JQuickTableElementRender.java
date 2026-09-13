@@ -79,7 +79,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
                 wrappedLines.add(lines);
                 rowTextHeight = Math.max(rowTextHeight, lines.size() * lineHeight(cellFontSize) + padding * 2f);
             }
-            float currentRowHeight = Math.max(rowHeight, rowTextHeight);
+            float currentRowHeight = Math.max(resolveRowHeight(row), rowTextHeight);
             PdfBoxLayoutEngine layoutEngine = context.getLayoutEngine();
             if (layoutEngine != null) {
                 int pageNumber = context.getPageNumber();
@@ -105,6 +105,18 @@ public class JQuickTableElementRender implements JQuickElementRender {
             y = cellY;
         }
         context.setCursorY(y - 8f);
+    }
+
+    /**
+     * 行高：优先使用 {@code <tr style="height:...">} 为该行声明的行高，
+     * 未声明时回退到表格级行高（默认 28）。行内文本过高时由调用方再取最大值。
+     */
+    private float resolveRowHeight(JRowModel row) {
+        if (row.getStyle() == null) {
+            return rowHeight;
+        }
+        float declared = PdfBoxUnitConverter.toPoint(row.getStyle().get("height"), -1f);
+        return declared > 0f ? declared : rowHeight;
     }
 
     private void drawCell(PDPageContentStream stream, JStyleAttributes cellStyle, float x, float y,

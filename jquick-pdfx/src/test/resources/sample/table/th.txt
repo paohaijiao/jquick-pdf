@@ -1,0 +1,8 @@
+<pdf>
+<body>
+<table>
+<tr><th>'标题一'</th><th>'标题二'</th></tr>
+<tr><td>'数据一'</td><td>'数据二'</td></tr>
+</table>
+</body>
+</pdf>
