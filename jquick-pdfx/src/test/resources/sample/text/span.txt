@@ -1,0 +1,5 @@
+<pdf>
+<body>
+<span style="fontColor:blue">'内联文本'</span>
+</body>
+</pdf>

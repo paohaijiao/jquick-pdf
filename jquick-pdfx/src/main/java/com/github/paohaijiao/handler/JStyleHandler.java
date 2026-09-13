@@ -18,23 +18,17 @@ package com.github.paohaijiao.handler;
 import com.github.paohaijiao.factory.JStyleRendererFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.render.JStyleRenderer;
-import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.IElement;
 
 /**
- * packageName com.github.paohaijiao.handler
- *
- * @author Martin
- * @version 1.0.0
- * @className JStyleHandler
- * @date 2025/6/27
- * @description
+ * PDFBox style dispatch entry.
  */
 public class JStyleHandler {
 
-    public static void applyStyles(Document doc, IElement element, JStyleAttributes styles) {
-        if (doc == null || element == null || styles == null) return;
+    public static void applyStyles(Object element, JStyleAttributes styles) {
+        if (element == null || styles == null) {
+            return;
+        }
         JStyleRenderer renderer = JStyleRendererFactory.getRenderer(element);
-        renderer.applyStyles(doc, element, styles);
+        renderer.applyStyles(element, styles);
     }
 }

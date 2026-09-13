@@ -1,38 +1,20 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.event;
 
 import com.github.paohaijiao.config.JHeaderConfig;
-import com.itextpdf.kernel.events.Event;
-import com.itextpdf.kernel.events.IEventHandler;
-import com.itextpdf.kernel.events.PdfDocumentEvent;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.geom.Rectangle;
-import com.itextpdf.kernel.pdf.PdfPage;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
-import com.itextpdf.layout.properties.TextAlignment;
+import com.github.paohaijiao.enums.JAlign;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.font.PDFont;
 
-/**
- * packageName com.github.paohaijiao.event
- *
- * @author Martin
- * @version 1.0.0
- * @since 2025/7/20
- */
-public class JHeaderHandler implements IEventHandler {
+import java.io.IOException;
+
+public class JHeaderHandler {
 
     private final JHeaderConfig headerConfig;
 
@@ -40,80 +22,43 @@ public class JHeaderHandler implements IEventHandler {
         this.headerConfig = headerConfig;
     }
 
-    @Override
-    public void handleEvent(Event event) {
-        PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
-        PdfPage page = docEvent.getPage();
-        Rectangle pageSize = page.getPageSize();
-        PdfCanvas canvas = new PdfCanvas(page.newContentStreamBefore(),
-                page.getResources(),
-                docEvent.getDocument());
-        if (headerConfig.isEnabled()) {
-            drawHeader(canvas, pageSize, docEvent);
+    public void render(PDDocument document, PDPage page) throws IOException {
+        if (headerConfig == null || !headerConfig.isEnabled()) {
+            return;
         }
-        canvas.release();
-    }
+        PDRectangle pageSize = page.getMediaBox();
+        PDFont font = headerConfig.getFont().resolve(document);
+        String text = headerConfig.getText() == null ? "" : headerConfig.getText();
+        float y = pageSize.getUpperRightY() - headerConfig.getHeight() / 2f;
 
-    private void drawHeader(PdfCanvas canvas, Rectangle pageSize, PdfDocumentEvent docEvent) {
-        PdfFont font = headerConfig.getFont();
-        if (font == null) {
-            font = docEvent.getDocument().getDefaultFont();
-        }
-        float x = calculateXPosition(headerConfig.getAlignment(), pageSize);
-        float y = pageSize.getTop() - headerConfig.getHeight() / 2;
-        if (headerConfig.getBackgroundColor() != null) {
-            canvas.saveState()
-                    .setFillColor(headerConfig.getBackgroundColor())
-                    .rectangle(pageSize.getLeft(),
-                            pageSize.getTop() - headerConfig.getHeight(),
-                            pageSize.getWidth(),
-                            headerConfig.getHeight())
-                    .fill()
-                    .restoreState();
-        }
-
-//        if (headerConfig.getBorder() != null) {
-//            drawBorder(canvas, pageSize, pageSize.getTop() - headerConfig.getHeight(),
-//                    headerConfig.getBorder());
-//        }
-
-        canvas.beginText()
-                .setFontAndSize(font, headerConfig.getFontSize())
-                .setColor(headerConfig.getFontColor(), true)
-                .moveText(x, y)
-                .showText(headerConfig.getText())
-                .endText();
-
-//        if (headerConfig.getLogo() != null) {
-//            drawLogo(canvas, pageSize, headerConfig.getLogo());
-//        }
-    }
-
-
-    private float calculateXPosition(TextAlignment alignment, Rectangle pageSize) {
-        switch (alignment) {
-            case LEFT:
-                return pageSize.getLeft() + 20;
-            case RIGHT:
-                return pageSize.getRight() - 20;
-            case CENTER:
-            default:
-                return pageSize.getWidth() / 2;
+        try (PDPageContentStream stream = new PDPageContentStream(document, page,
+                PDPageContentStream.AppendMode.PREPEND, true, true)) {
+            if (headerConfig.getBackgroundColor() != null) {
+                stream.setNonStrokingColor(headerConfig.getBackgroundColor());
+                stream.addRect(pageSize.getLowerLeftX(),
+                        pageSize.getUpperRightY() - headerConfig.getHeight(),
+                        pageSize.getWidth(), headerConfig.getHeight());
+                stream.fill();
+            }
+            stream.beginText();
+            stream.setFont(font, headerConfig.getFontSize());
+            stream.setNonStrokingColor(headerConfig.getFontColor());
+            stream.newLineAtOffset(calculateXPosition(font, text, pageSize), y);
+            stream.showText(text);
+            stream.endText();
         }
     }
 
-//    private void drawBorder(PdfCanvas canvas, Rectangle pageSize, float y, BorderConfig border) {
-//        canvas.saveState()
-//                .setStrokeColor(border.getColor())
-//                .setLineWidth(border.getWidth())
-//                .moveTo(pageSize.getLeft(), y)
-//                .lineTo(pageSize.getRight(), y)
-//                .stroke()
-//                .restoreState();
-//    }
-//
-//    private void drawLogo(PdfCanvas canvas, Rectangle pageSize, ImageConfig logo) {
-//        // 实现Logo绘制逻辑
-//        // ...
-//    }
+    private float calculateXPosition(PDFont font, String text, PDRectangle pageSize)
+            throws IOException {
+        float width = font.getStringWidth(text) / 1000f * headerConfig.getFontSize();
+        JAlign alignment = headerConfig.getAlignment();
+        if (alignment == JAlign.right) {
+            return pageSize.getUpperRightX() - 20f - width;
+        }
+        if (alignment == JAlign.center || alignment == JAlign.justify) {
+            return pageSize.getLowerLeftX() + (pageSize.getWidth() - width) / 2f;
+        }
+        return pageSize.getLowerLeftX() + 20f;
+    }
 }

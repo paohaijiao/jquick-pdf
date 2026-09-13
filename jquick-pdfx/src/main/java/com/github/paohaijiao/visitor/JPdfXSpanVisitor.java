@@ -15,11 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.layout.element.Text;
+import com.github.paohaijiao.visitor.element.JQuickTextElementRender;
 
 
 /**
@@ -34,7 +33,7 @@ import com.itextpdf.layout.element.Text;
 public class JPdfXSpanVisitor extends JPdfXLayOutVisitor {
 
     @Override
-    public Text visitSpan(JQuickPDFParser.SpanContext ctx) {
+    public JQuickTextElementRender visitSpan(JQuickPDFParser.SpanContext ctx) {
         String value = "";
         if (null != ctx.value()) {
             Object val = visitValue(ctx.value());
@@ -54,10 +53,10 @@ public class JPdfXSpanVisitor extends JPdfXLayOutVisitor {
         if (ctx.rbr() != null) {
             value = value + "\n";
         }
-        Text text = new Text(JStringUtils.trim(value));
-        text.setFont(JFontProviderFactory.defualtFont());
-        super.buildStyle(text, style);
-        return text;
+        String trimmedValue = JStringUtils.trim(value);
+        JQuickTextElementRender textElement = new JQuickTextElementRender(trimmedValue, style);
+        super.buildStyle(textElement, style);
+        return textElement;
     }
 
 

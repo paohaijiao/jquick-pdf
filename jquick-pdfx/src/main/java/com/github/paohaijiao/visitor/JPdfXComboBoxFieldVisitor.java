@@ -15,14 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.model.JHtmlRenderModel;
+import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.layout.element.IElement;
-
-import java.util.List;
-
+import com.github.paohaijiao.visitor.element.JQuickComboBoxElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -36,19 +32,22 @@ import java.util.List;
 public class JPdfXComboBoxFieldVisitor extends JPdfXCheckBoxVisitor {
 
     @Override
-    public JHtmlRenderModel visitComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx) {
-        String style = "";
+    public JQuickComboBoxElementRender visitComboBoxField(JQuickPDFParser.ComboBoxFieldContext ctx) {
+        JStyleAttributes style;
         String value = "";
         if (ctx.styleEle() != null) {
-            style = ctx.styleEle().getText();
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
         }
         if (ctx.value() != null) {
-            value = ctx.value().getText();
+            Object val = visitValue(ctx.value());
+            if (val != null) {
+                value = val.toString();
+            }
         }
-        String html = String.format("<select %s><option  selected>%s</option></select>", style, JStringUtils.trim(value));
-        List<IElement> iElements = HtmlConverter.convertToElements(html, proper);
-        JHtmlRenderModel jHtmlRenderModel = new JHtmlRenderModel();
-        jHtmlRenderModel.setList(iElements);
-        return jHtmlRenderModel;
+        JQuickComboBoxElementRender comboBoxElement = new JQuickComboBoxElementRender(JStringUtils.trim(value), style);
+        super.buildStyle(comboBoxElement, style);
+        return comboBoxElement;
     }
 }

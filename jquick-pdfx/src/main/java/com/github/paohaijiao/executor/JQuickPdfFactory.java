@@ -22,7 +22,7 @@ import com.github.paohaijiao.config.JTemplateConfig;
 import com.github.paohaijiao.data.JGraphContainer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.param.JContext;
-import com.itextpdf.kernel.geom.PageSize;
+import com.github.paohaijiao.visitor.JPdfXCoreVisitor.PageSize;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -277,7 +277,8 @@ public class JQuickPdfFactory {
      * @example {@code factory.margins(36, 36, 36, 36);}
      */
     public JQuickPdfFactory margins(int top, int right, int bottom, int left) {
-        this.config.setMargins(Arrays.asList(top, right, bottom, left));
+        this.config.setMargins(Arrays.asList(
+                (float) top, (float) right, (float) bottom, (float) left));
         return this;
     }
 
@@ -292,7 +293,11 @@ public class JQuickPdfFactory {
         if (margins == null || margins.size() != 4) {
             throw new IllegalArgumentException("margins must have 4 elements");
         }
-        this.config.setMargins(margins);
+        this.config.setMargins(Arrays.asList(
+                margins.get(0).floatValue(),
+                margins.get(1).floatValue(),
+                margins.get(2).floatValue(),
+                margins.get(3).floatValue()));
         return this;
     }
 
@@ -531,8 +536,11 @@ public class JQuickPdfFactory {
      * @throws IOException if rendering fails
      */
     private static byte[] renderToBytes(String templateContent, JContext context, JPdfConfig config) throws IOException {
-        OutputStream outputStream=new JQuickPdfXExecutor(context, config).execute(templateContent);;
-        ByteArrayOutputStream baos = (ByteArrayOutputStream)outputStream;
+        OutputStream outputStream = new JQuickPdfXExecutor(context, config).execute(templateContent);
+        if (!(outputStream instanceof ByteArrayOutputStream)) {
+            throw new IOException("pdf render produced no output, please check the render log for the underlying error");
+        }
+        ByteArrayOutputStream baos = (ByteArrayOutputStream) outputStream;
         return baos.toByteArray();
     }
 }

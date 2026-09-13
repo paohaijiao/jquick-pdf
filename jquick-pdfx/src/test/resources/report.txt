@@ -30,7 +30,6 @@
       </table>
     </div>
   </div>
-  <template>&html</template>
   <div style="margin-bottom:15px">
     <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'历年财务数据（单位：万元）'</h2>
     <table style="width:600px; fontSize:10; marginTop:8px">
@@ -112,10 +111,8 @@
   <div style="margin-bottom:15px">
     <h2 style="color:#3498db; border-bottom:1px solid #3498db; padding-bottom:4px; font-size:13px; margin-bottom:10px">'信用评级雷达图'</h2>
     <div style="display:flex; justify-content:space-between; margin-top:10px">
-        <svg style="width:400px;height:400px">${svg}</svg>
-    </div>
-    <div style="display:flex; justify-content:space-between; margin-top:10px">
-      <div style="width:400px">
+      <svg style="width:400px;height:400px">${svg}</svg>
+      <div style="width:300px">
         <div style="backgroundColor:#f8f9fa; padding:15px; borderRadius:4px; height:230px; overflow-y:auto">
           <h3 style="color:#2c3e50; margin-top:0; fontSize:12; marginBottom:8px">'评级指标说明'</h3>
           <list style="list-style-type:none; padding-left:0; font-size:10px">

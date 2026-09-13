@@ -1,0 +1,79 @@
+package com.github.paohaijiao.visitor.context;
+
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
+import lombok.Builder;
+import lombok.Data;
+
+/**
+ * 渲染上下文
+ */
+@Data
+@Builder
+public class JQuickRenderContext {
+
+    private float x;
+
+    private float y;
+
+    private float width;
+
+    private float height;
+
+    private PDFont font;
+
+    private float fontSize;
+
+    private PDColor color;
+
+    private PDColor backgroundColor;
+
+    private float characterSpacing;
+
+    private float wordSpacing;
+
+    private float lineHeight;
+
+    private float pageWidth;
+
+    private float pageHeight;
+
+    private PDDocument document;
+
+    private float[] margins;
+
+    private TextAlign textAlign;
+
+    private VerticalAlign verticalAlign;
+
+    // 当前光标位置（用于流式布局）
+    private float cursorX;
+
+    private float cursorY;
+
+    /**
+     * 行内流中每一行的起始横坐标（段落左边界）。文本换行或遇到 {@code <br>} 后，
+     * 新的一行需要从这里开始，而不是沿用上一行的横向位置。
+     */
+    private float lineStartX;
+
+    // 分页信息
+    private int pageNumber;
+
+    private boolean isNewPage;
+
+    private PdfBoxLayoutEngine layoutEngine;
+
+    /** 是否启用 flex 行布局（display:flex），由 {@code JPdfConfig.layoutConfig} 控制。 */
+    private boolean flexLayout;
+
+    public enum TextAlign {
+        LEFT, CENTER, RIGHT, JUSTIFY
+    }
+
+    public enum VerticalAlign {
+        TOP, MIDDLE, BOTTOM
+    }
+}

@@ -101,7 +101,12 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
     public List<Object> visitElemValue(JQuickPDFParser.ElemValueContext ctx) {
         List<Object> elements = new ArrayList<>();
         if (ctx.value() != null) {
-            elements.add(trim(ctx.value().getText()));
+            // 必须走 visitValue：其中的 ${variable} 需要按上下文取值，
+            // 直接取 getText() 会把 ${name} 原样渲染成字面量。
+            Object value = visitValue(ctx.value());
+            if (value != null) {
+                elements.add(trim(String.valueOf(value)));
+            }
         } else if (null != ctx.element() && !ctx.element().isEmpty()) {
             for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
                 Object object = visitElement(elementContext);

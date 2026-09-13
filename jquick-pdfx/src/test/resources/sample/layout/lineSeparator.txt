@@ -1,0 +1,7 @@
+<pdf>
+<body>
+<p>'分隔线上方'</p>
+<lineSeparator style="strokeColor:red"></lineSeparator>
+<p>'分隔线下方'</p>
+</body>
+</pdf>

@@ -15,17 +15,9 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JImageFactory;
-import com.github.paohaijiao.image.JBaseImageProvider;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.io.image.ImageData;
-import com.itextpdf.io.image.ImageDataFactory;
-import com.itextpdf.layout.element.Image;
-import com.itextpdf.layout.properties.HorizontalAlignment;
-
-import java.net.MalformedURLException;
-
+import com.github.paohaijiao.visitor.element.JQuickImageElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -38,62 +30,28 @@ import java.net.MalformedURLException;
  */
 public class JPdfXImageVisitor extends JPdfXListVisitor {
 
-    public static Image buildImage() {
-        Image image = null;
-        try {
-            image = new Image(ImageDataFactory.create("path/to/image.jpg"));
-        } catch (MalformedURLException e) {
-            throw new RuntimeException(e);
+    @Override
+    public JQuickImageElementRender visitImage(JQuickPDFParser.ImageContext ctx) {
+        String src = null;
+        if (ctx.src() != null) {
+            src = visitSrc(ctx.src());
         }
-        image.setWidth(200); // 宽度
-        image.setHeight(100); // 高度
-        image.setAutoScale(true); // 自动缩放
-        image.setRotationAngle(Math.PI / 4); // 旋转45度
-        image.setOpacity(0.8f); // 透明度
-        // image.setBorder(new SolidBorder(Color.BLUE, 2)); // 边框
-        image.setHorizontalAlignment(HorizontalAlignment.CENTER); // 对齐方式
-        image.setMargins(10, 0, 10, 0); // 边距
+        String alt = null;
+        if (ctx.alt() != null) {
+            alt = visitAlt(ctx.alt());
+        }
+        String value = null;
+        if (ctx.value() != null) {
+            value = visitValue(ctx.value()).toString();
+        }
+        JStyleAttributes style;
+        if (ctx.styleEle() != null) {
+            style = visitStyleEle(ctx.styleEle());
+        } else {
+            style = new JStyleAttributes();
+        }
+        JQuickImageElementRender image = new JQuickImageElementRender(src, alt, value, style);
+        super.buildStyle(image, style);
         return image;
     }
-
-    @Override
-    public Image visitImage(JQuickPDFParser.ImageContext ctx) {
-        try {
-            String src = null;
-            if (ctx.src() != null) {
-                src = visitSrc(ctx.src());
-            }
-            String alt = null;
-            if (ctx.alt() != null) {
-                alt = visitAlt(ctx.alt());
-            }
-            String value = null;
-            if (ctx.value() != null) {
-                value = visitValue(ctx.value()).toString();
-            }
-            JStyleAttributes style = new JStyleAttributes();
-            if (null != ctx.styleEle()) {
-                style = visitStyleEle(ctx.styleEle());
-            } else {
-                style = new JStyleAttributes();
-            }
-            JBaseImageProvider imageProvider = JImageFactory.createProvider(src);
-            byte[] bytes = imageProvider.loadImage();
-            ImageData imageData = ImageDataFactory.create(bytes);
-            Image image = new Image(imageData);
-            if (null != alt) {
-                image.getAccessibilityProperties().setAlternateDescription(alt);
-            }
-            if (null != value) {
-                image.getAccessibilityProperties().setActualText(value);
-            }
-            // image.setMargins(-50, -60, -60, -60);
-            super.buildStyle(image, style);
-            return image;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
 }

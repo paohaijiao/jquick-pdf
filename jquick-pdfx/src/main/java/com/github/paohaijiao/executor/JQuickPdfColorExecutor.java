@@ -21,17 +21,17 @@ import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFLexer;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.visitor.JPdfXStyleVisitor;
-import com.itextpdf.kernel.colors.Color;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.Parser;
 import org.antlr.v4.runtime.TokenStream;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 
-public class JQuickPdfColorExecutor extends JAbstractAntlrExecutor<String, Color> {
-    private JContext context;
+public class JQuickPdfColorExecutor extends JAbstractAntlrExecutor<String, PDColor> {
+    private final JContext context;
 
     public JQuickPdfColorExecutor() {
-        this.context = new JContext();
+        this(new JContext());
     }
 
     public JQuickPdfColorExecutor(JContext context) {
@@ -49,11 +49,8 @@ public class JQuickPdfColorExecutor extends JAbstractAntlrExecutor<String, Color
     }
 
     @Override
-    protected Color parse(Parser parser) throws JAntlrExecutionException {
-        JQuickPDFParser calcParser = (JQuickPDFParser) parser;
-        JQuickPDFParser.ColorContext tree = calcParser.color();
-        JPdfXStyleVisitor visitor = new JPdfXStyleVisitor();
-        Color color = (Color) visitor.visit(tree);
-        return color;
+    protected PDColor parse(Parser parser) throws JAntlrExecutionException {
+        JQuickPDFParser.ColorContext tree = ((JQuickPDFParser) parser).color();
+        return new JPdfXStyleVisitor().visitColor(tree);
     }
 }

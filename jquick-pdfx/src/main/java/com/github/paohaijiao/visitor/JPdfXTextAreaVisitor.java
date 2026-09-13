@@ -15,12 +15,10 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.html2pdf.attach.impl.layout.form.element.TextArea;
-import com.itextpdf.layout.element.Paragraph;
+import com.github.paohaijiao.visitor.element.JQuickTextAreaElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -34,26 +32,19 @@ import com.itextpdf.layout.element.Paragraph;
 public class JPdfXTextAreaVisitor extends JPdfXTabVisitor {
 
     @Override
-    public TextArea visitTextArea(JQuickPDFParser.TextAreaContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
+    public JQuickTextAreaElementRender visitTextArea(JQuickPDFParser.TextAreaContext ctx) {
+        JStyleAttributes style;
+        if (ctx.styleEle() != null) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
         String value = "";
-        if (null != ctx.value()) {
+        if (ctx.value() != null) {
             value = ctx.value().getText();
         }
-        TextArea textArea = new TextArea(JStringUtils.trim(value));
-        Paragraph paragraph = new Paragraph();
-        paragraph.add(JStringUtils.trim(value));
-        paragraph.setFont(JFontProviderFactory.defualtFont());
-        textArea.setPlaceholder(paragraph);
-        textArea.setFont(JFontProviderFactory.defualtFont());
+        JQuickTextAreaElementRender textArea = new JQuickTextAreaElementRender(JStringUtils.trim(value), style);
         super.buildStyle(textArea, style);
         return textArea;
     }
-
-
 }

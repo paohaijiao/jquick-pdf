@@ -1,0 +1,50 @@
+<pdf>
+<body>
+<div style="background-color:lightgray;width:300px">'width:300px'</div>
+<div style="background-color:lightgray;height:300px">'height:300px'</div>
+<div style="background-color:lightgray;max-height:300px">'max-height:300px'</div>
+<div style="background-color:lightgray;min-height:300px">'min-height:300px'</div>
+<div style="background-color:lightgray;min-width:300px">'min-width:300px'</div>
+<div style="background-color:lightgray;max-width:300px">'max-width:300px'</div>
+
+<div style="background-color:lightgray;relative-position:'30px 30px 30px 30px'">'relative-position:30px 30px 30px 30px'</div>
+
+<span style="font:HELVETICA">'font:HELVETICA'</span>
+<p style="font-family-names:Helvetica,Arial">'font-family-names:Helvetica,Arial'</p>
+<span style="font-color:red">'font-color:red'</span>
+<p style="font-size:34">'font-size:34'</p>
+<p style="font-kerning:yes">'font-kerning:yes'</p>
+<p style="font-script:common">'font-script:common'</p>
+
+<div style="background-color:lightgray;text-alignment:left">'text-alignment:left'</div>
+<p style="character-spacing:30">'character-spacing:30'</p>
+<p style="word-spacing:30">'word-spacing:30'</p>
+<p style="split-characters:24">'split-characters:24'</p>
+<p style="text-rendering-mode:24">'text-rendering-mode:24'</p>
+<p style="base-direction:no_bidi">'base-direction:no_bidi'</p>
+
+<span style="bold:true">'bold:true'</span>
+<span style="italic:true">'italic:true'</span>
+<span style="line-through:true">'line-through:true'</span>
+<span style="underline:true">'underline:true'</span>
+
+<div style="background-color:red">'background-color:red'</div>
+<div style="background-color:lightgray;background-image:'D:/pdf/image.png'">'background-image:D:/pdf/image.png'</div>
+<div style="border:'solid 32px red'">'border:solid 32px red'</div>
+<div style="border-top:'solid 32px red'">'border-top:solid 32px red'</div>
+<div style="border-right:'solid 32px red'">'border-right:solid 32px red'</div>
+<div style="border-left:'solid 32px red'">'border-left:solid 32px red'</div>
+<div style="border-bottom:'solid 32px red'">'border-bottom:solid 32px red'</div>
+
+<div style="background-color:lightgray;border-radius:'32px 24px'">'border-radius:32px 24px'</div>
+<div style="background-color:lightgray;border-top-left-radius:'32px 24px'">'border-top-left-radius:32px 24px'</div>
+<div style="background-color:lightgray;border-top-right-radius:'32px 24px'">'border-top-right-radius:32px 24px'</div>
+<div style="background-color:lightgray;border-bottom-right-radius:'32px 24px'">'border-bottom-right-radius:32px 24px'</div>
+<div style="background-color:lightgray;border-bottom-left-radius:'32px 24px'">'border-bottom-left-radius:32px 24px'</div>
+
+<div style="background-color:red;opacity:0.5">'opacity:0.5'</div>
+<div style="background-color:lightgray;stroke-color:red;stroke-width:24">'stroke-color:red;stroke-width:24'</div>
+
+<div style="destination:hello">'destination:hello'</div>
+</body>
+</pdf>

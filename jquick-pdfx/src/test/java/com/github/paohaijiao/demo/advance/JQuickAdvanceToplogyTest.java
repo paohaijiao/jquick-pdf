@@ -42,6 +42,7 @@ import java.io.IOException;
  * @since 2025/11/4
  */
 public class JQuickAdvanceToplogyTest {
+
     public static final String  path= JQuickConstant.path;
 
     @Test

@@ -16,16 +16,15 @@
 package com.github.paohaijiao.model;
 
 import com.github.paohaijiao.enums.JBorder;
-import com.itextpdf.kernel.colors.Color;
 import lombok.Data;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 
 @Data
 public class JBorderModel {
-
 
     private JBorder border;
 
     private Float width;
 
-    private Color color;
+    private PDColor color;
 }

@@ -15,20 +15,15 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.color.JColorEnums;
+import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
+import com.github.paohaijiao.visitor.render.PdfBoxUnitConverter;
 import com.github.paohaijiao.enums.JBorder;
 import com.github.paohaijiao.exception.JAssert;
-import com.github.paohaijiao.executor.JQuickPdfStyleExecutor;
 import com.github.paohaijiao.executor.JQuickPdfUnitExecutor;
 import com.github.paohaijiao.model.JMarginModel;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.github.paohaijiao.unit.JUnitConverter;
-import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.DeviceRgb;
-import com.itextpdf.layout.properties.UnitValue;
-
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -46,16 +41,72 @@ import java.util.regex.Pattern;
 public class JPdfXStyleVisitor extends JPdfXValueVisitor {
     @Override
     public JStyleAttributes visitStyleEle(JQuickPDFParser.StyleEleContext ctx) {
-        if (null != ctx.style()) {
-            return visitStyle(ctx.style());
-        } else if (null != ctx.STRING()) {
-            String string = ctx.STRING().getText();
-            String value = JStringUtils.trim(string);
-            JQuickPdfStyleExecutor executor = new JQuickPdfStyleExecutor();
-            JStyleAttributes styleAttributes = executor.execute(value);
-            return styleAttributes;
+        if (null == ctx) {
+            return new JStyleAttributes();
         }
-        return new JStyleAttributes();
+        // 直接按分隔符拆分原始声明串，而不是复用语法树/样式执行器。
+        // 词法未定义十六进制颜色 token，形如 #3498db 的值会被截断
+        // （如 backgroundColor:#3498db 退化为 backgroundColor=3498），
+        // 导致背景、边框、字体颜色等样式静默丢失。
+        String raw = null != ctx.STRING() ? ctx.STRING().getText() : rawText(ctx.style());
+        return parseDeclarations(raw);
+    }
+
+    /** 返回语法树节点对应源码片段，保留词法阶段可能被丢弃的字符（如 #）。 */
+    private String rawText(org.antlr.v4.runtime.ParserRuleContext context) {
+        if (null == context || null == context.getStart() || null == context.getStop()) {
+            return null;
+        }
+        org.antlr.v4.runtime.Token start = context.getStart();
+        org.antlr.v4.runtime.CharStream input = start.getInputStream();
+        if (null == input) {
+            return context.getText();
+        }
+        return input.getText(org.antlr.v4.runtime.misc.Interval.of(
+                start.getStartIndex(), context.getStop().getStopIndex()));
+    }
+
+    /**
+     * 解析 CSS 声明串，形如 {@code color:#fff; padding:5px}。
+     *
+     * @param raw 原始声明串（可带引号）
+     * @return 声明键值集合，无法识别的片段会被忽略
+     */
+    private JStyleAttributes parseDeclarations(String raw) {
+        JStyleAttributes attributes = new JStyleAttributes();
+        if (null == raw) {
+            return attributes;
+        }
+        String text = stripQuotes(raw.trim());
+        for (String declaration : text.split(";")) {
+            String item = declaration.trim();
+            if (item.isEmpty()) {
+                continue;
+            }
+            int separator = item.indexOf(':');
+            if (separator <= 0) {
+                continue;
+            }
+            String key = item.substring(0, separator).trim();
+            String value = stripQuotes(item.substring(separator + 1).trim());
+            if (key.isEmpty() || value.isEmpty()) {
+                continue;
+            }
+            attributes.put(key, value);
+        }
+        return attributes;
+    }
+
+    private String stripQuotes(String text) {
+        if (null == text || text.length() < 2) {
+            return text;
+        }
+        char first = text.charAt(0);
+        char last = text.charAt(text.length() - 1);
+        if ((first == '\'' && last == '\'') || (first == '"' && last == '"')) {
+            return text.substring(1, text.length() - 1).trim();
+        }
+        return text;
     }
 
 
@@ -90,19 +141,19 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
     }
 
     @Override
-    public Color visitColor(JQuickPDFParser.ColorContext ctx) {
+    public PDColor visitColor(JQuickPDFParser.ColorContext ctx) {
         if (ctx == null) {
             return null; // or return a default color
         }
         if (ctx.getText().startsWith("#")) {
-            DeviceRgb rgb = JColorEnums.convertHexToRgb(ctx.getText());
+            PDColor rgb = PdfBoxRenderAdapter.color(ctx.getText(), null);
             return rgb;
         } else if (null != ctx.RGB_COLOR()) {
             String[] numbers = ctx.RGB_COLOR().getText().trim().replace("rgb(", "").replace(")", "").split(",");
             int r = Integer.parseInt(numbers[0].trim());
             int g = Integer.parseInt(numbers[1].trim());
             int b = Integer.parseInt(numbers[2].trim());
-            Color rgb = JColorEnums.colorOf(r, g, b);
+            PDColor rgb = PdfBoxRenderAdapter.color("rgb(" + r + "," + g + "," + b + ")", null);
             return rgb;
         } else if (null != ctx.CMYK_COLOR()) {
             String[] numbers = ctx.CMYK_COLOR().getText().trim().replace("cmyk(", "").replace(")", "").split(",");
@@ -110,7 +161,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             BigDecimal m = new BigDecimal(numbers[1]);
             BigDecimal y = new BigDecimal(numbers[2]);
             BigDecimal k = new BigDecimal(numbers[3]);
-            Color rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
+            PDColor rgb = PdfBoxRenderAdapter.color("cmyk(" + c + "," + m + "," + y + "," + k + ")", null);
             return rgb;
         } else if (null != ctx.CMYK_PERCENT()) {
             String[] numbers = ctx.CMYK_PERCENT().getText().trim().replace("cmyk(", "").replace(")", "").replace("%", "").split(",");
@@ -118,17 +169,17 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             BigDecimal m = new BigDecimal(numbers[1]);
             BigDecimal y = new BigDecimal(numbers[2]);
             BigDecimal k = new BigDecimal(numbers[3]);
-            Color rgb = JColorEnums.colorOfPercent(c.floatValue(), m.floatValue(), y.floatValue(), k.floatValue());
+            PDColor rgb = PdfBoxRenderAdapter.color("cmyk(" + c + "," + m + "," + y + "," + k + ")", null);
             return rgb;
         } else if (null != ctx.COLORENUM()) {
             String color = ctx.COLORENUM().getText().trim();
-            return JColorEnums.colorOf(color);
+            return PdfBoxRenderAdapter.color(color, null);
         }
         return null;
     }
 
     @Override
-    public UnitValue visitUnit(JQuickPDFParser.UnitContext ctx) {
+    public Float visitUnit(JQuickPDFParser.UnitContext ctx) {
         if (null != ctx.NUMBERUNIT()) {
             String unit = ctx.NUMBERUNIT().getText();
             Pattern pattern = Pattern.compile("\\d+\\.?\\d*");
@@ -138,7 +189,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
                 f = Float.parseFloat(matcher.group());
             }
             String code = unit.replaceAll("[0-9.]", "").trim();
-            UnitValue unitValue = JUnitConverter.create(f, code);
+            float unitValue = PdfBoxUnitConverter.toPoint(f + code, f);
             return unitValue;
         }
         return null;
@@ -158,10 +209,10 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         if (ctx.NUMBERUNIT() != null && ctx.NUMBERUNIT().size() == 4) {
             JQuickPdfUnitExecutor executor = new JQuickPdfUnitExecutor();
             String txt = ctx.NUMBERUNIT().get(0).getText();
-            UnitValue first = executor.execute(ctx.NUMBERUNIT().get(0).getText());
-            UnitValue second = executor.execute(ctx.NUMBERUNIT().get(1).getText());
-            UnitValue third = executor.execute(ctx.NUMBERUNIT().get(2).getText());
-            UnitValue four = executor.execute(ctx.NUMBERUNIT().get(3).getText());
+            float first = executor.execute(ctx.NUMBERUNIT().get(0).getText());
+            float second = executor.execute(ctx.NUMBERUNIT().get(1).getText());
+            float third = executor.execute(ctx.NUMBERUNIT().get(2).getText());
+            float four = executor.execute(ctx.NUMBERUNIT().get(3).getText());
             JMarginModel m = new JMarginModel();
             m.setFirst(first);
             m.setSecond(second);
@@ -171,6 +222,5 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
         }
         return null;
     }
-
 
 }

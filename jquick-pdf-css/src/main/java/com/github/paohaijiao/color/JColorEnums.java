@@ -15,74 +15,76 @@
  */
 package com.github.paohaijiao.color;
 
-import com.itextpdf.kernel.colors.Color;
-import com.itextpdf.kernel.colors.DeviceCmyk;
-import com.itextpdf.kernel.colors.DeviceRgb;
 import lombok.Getter;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceCMYK;
+import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
 
 @Getter
 public enum JColorEnums {
 
-    BLACK("black", DeviceRgb.BLACK),
+    BLACK("black", new PDColor(new float[]{0f, 0f, 0f}, PDDeviceRGB.INSTANCE)),
 
-    BLUE("blue", DeviceRgb.BLUE),
+    BLUE("blue", new PDColor(new float[]{0f, 0f, 1f}, PDDeviceRGB.INSTANCE)),
 
-    CYAN("cyan", new DeviceRgb(0, 255, 255)),
+    CYAN("cyan", new PDColor(new float[]{0f, 1f, 1f}, PDDeviceRGB.INSTANCE)),
 
-    DARK_GRAY("dark_gray", new DeviceRgb(64, 64, 64)),
+    DARK_GRAY("dark_gray", new PDColor(new float[]{64f/255f, 64f/255f, 64f/255f}, PDDeviceRGB.INSTANCE)),
 
-    GRAY("gray", new DeviceRgb(128, 128, 128)),
+    GRAY("gray", new PDColor(new float[]{128f/255f, 128f/255f, 128f/255f}, PDDeviceRGB.INSTANCE)),
 
-    GREEN("green", DeviceRgb.GREEN),
+    GREEN("green", new PDColor(new float[]{0f, 1f, 0f}, PDDeviceRGB.INSTANCE)),
 
-    LIGHT_GRAY("light_gray", new DeviceRgb(192, 192, 192)),
+    LIGHT_GRAY("light_gray", new PDColor(new float[]{192f/255f, 192f/255f, 192f/255f}, PDDeviceRGB.INSTANCE)),
 
-    MAGENTA("magenta", new DeviceRgb(255, 0, 255)),
+    MAGENTA("magenta", new PDColor(new float[]{1f, 0f, 1f}, PDDeviceRGB.INSTANCE)),
 
-    ORANGE("orange", new DeviceRgb(255, 200, 0)),
+    ORANGE("orange", new PDColor(new float[]{1f, 200f/255f, 0f}, PDDeviceRGB.INSTANCE)),
 
-    PINK("pink", new DeviceRgb(255, 175, 175)),
+    PINK("pink", new PDColor(new float[]{1f, 175f/255f, 175f/255f}, PDDeviceRGB.INSTANCE)),
 
-    RED("red", DeviceRgb.RED),
+    RED("red", new PDColor(new float[]{1f, 0f, 0f}, PDDeviceRGB.INSTANCE)),
 
-    WHITE("white", DeviceRgb.WHITE),
+    WHITE("white", new PDColor(new float[]{1f, 1f, 1f}, PDDeviceRGB.INSTANCE)),
 
-    YELLOW("yellow", new DeviceRgb(255, 255, 0)),
+    YELLOW("yellow", new PDColor(new float[]{1f, 1f, 0f}, PDDeviceRGB.INSTANCE)),
 
-    PURPLE("purple", new DeviceRgb(128, 0, 128)),
+    PURPLE("purple", new PDColor(new float[]{128f/255f, 0f, 128f/255f}, PDDeviceRGB.INSTANCE)),
 
-    BROWN("brown", new DeviceRgb(165, 42, 42)),
-    magenta("magenta", new DeviceRgb(255, 0, 255)),
+    BROWN("brown", new PDColor(new float[]{165f/255f, 42f/255f, 42f/255f}, PDDeviceRGB.INSTANCE)),
 
-    lime("lime", new DeviceRgb(0, 255, 0)),
 
-    maroon("maroon", new DeviceRgb(128, 0, 0)),
 
-    olive("olive", new DeviceRgb(128, 128, 0)),
+    LIME("lime", new PDColor(new float[]{0f, 1f, 0f}, PDDeviceRGB.INSTANCE)),  // 同GREEN
 
-    navy("navy", new DeviceRgb(0, 0, 128)),
 
-    teal("teal", new DeviceRgb(0, 128, 128)),
+    MAROON("maroon", new PDColor(new float[]{128f/255f, 0f, 0f}, PDDeviceRGB.INSTANCE)),
 
-    aqua("aqua", new DeviceRgb(0, 255, 255)),
+    OLIVE("olive", new PDColor(new float[]{128f/255f, 128f/255f, 0f}, PDDeviceRGB.INSTANCE)),
 
-    fuchsia("fuchsia", new DeviceRgb(255, 0, 255)),
+    NAVY("navy", new PDColor(new float[]{0f, 0f, 128f/255f}, PDDeviceRGB.INSTANCE)),
 
-    silver("silver", new DeviceRgb(192, 192, 192)),
+    TEAL("teal", new PDColor(new float[]{0f, 128f/255f, 128f/255f}, PDDeviceRGB.INSTANCE)),
 
-    GREY("grey", new DeviceRgb(128, 128, 128));
+    AQUA("aqua", new PDColor(new float[]{0f, 1f, 1f}, PDDeviceRGB.INSTANCE)),  // 同CYAN
+
+    FUCHSIA("fuchsia", new PDColor(new float[]{1f, 0f, 1f}, PDDeviceRGB.INSTANCE)), // 同MAGENTA
+
+    SILVER("silver", new PDColor(new float[]{192f/255f, 192f/255f, 192f/255f}, PDDeviceRGB.INSTANCE)),
+
+    GREY("grey", new PDColor(new float[]{128f/255f, 128f/255f, 128f/255f}, PDDeviceRGB.INSTANCE));
 
     private String code;
 
-    private Color color;
+    private PDColor color;
 
-    private JColorEnums(String code, Color color) {
+    private JColorEnums(String code, PDColor color) {
         this.code = code;
         this.color = color;
 
     }
 
-    public static Color colorOf(String color) {
+    public static PDColor colorOf(String color) {
         for (JColorEnums c : JColorEnums.values()) {
             if (c.code.equals(color)) {
                 return c.color;
@@ -91,42 +93,54 @@ public enum JColorEnums {
         return null;
     }
 
-    public static Color colorOf(Integer red, Integer green, Integer blue) {
-        return new DeviceRgb(red, green, blue);
+    public static PDColor colorOf(Integer red, Integer green, Integer blue) {
+        if (red == null || green == null || blue == null) {
+            return null;
+        }
+        if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
+            throw new IllegalArgumentException(String.format("RGB值必须在0-255范围内: red=%d, green=%d, blue=%d", red, green, blue));
+        }
+        return new PDColor(new float[]{red / 255f, green / 255f, blue / 255f}, PDDeviceRGB.INSTANCE);
     }
 
-    public static Color colorOf(Float c, Float m, Float y, Float k) {
-        DeviceCmyk cmykColor = new DeviceCmyk(c, m, y, k);
-        return cmykColor;
+    public static PDColor colorOf(Float c, Float m, Float y, Float k) {
+        if (c == null || m == null || y == null || k == null) {
+            return null;
+        }
+        if (c < 0 || c > 1 || m < 0 || m > 1 || y < 0 || y > 1 || k < 0 || k > 1) {
+            throw new IllegalArgumentException(String.format("CMYK值必须在0.0-1.0范围内: c=%.2f, m=%.2f, y=%.2f, k=%.2f", c, m, y, k));
+        }
+        return new PDColor(new float[]{c, m, y, k}, PDDeviceCMYK.INSTANCE
+        );
     }
 
-    public static Color colorOfPercent(Float c, Float m, Float y, Float k) {
-        float c1 = c / 100f;
-        float m1 = m / 100f;
-        float y1 = y / 100f;
-        float k1 = k / 100f;
-        DeviceCmyk cmykColor = new DeviceCmyk(c1, m1, y1, k1);
-        return cmykColor;
+    public static PDColor colorOfPercent(Float c, Float m, Float y, Float k) {
+        if (c < 0 || c > 100 || m < 0 || m > 100 || y < 0 || y > 100 || k < 0 || k > 100) {
+            throw new IllegalArgumentException(String.format("CMYK百分比必须在0.0-100.0范围内: c=%.2f%%, m=%.2f%%, y=%.2f%%, k=%.2f%%", c, m, y, k));
+        }
+        return new PDColor(new float[]{c / 100f, m / 100f, y / 100f, k / 100f}, PDDeviceCMYK.INSTANCE);
     }
 
-    public static DeviceRgb convertHexToRgb(String hexColor) {
-
+    public static PDColor convertHexToRgb(String hexColor) {
         String hex = hexColor.startsWith("#") ? hexColor.substring(1) : hexColor;
+        float r, g, b;
         switch (hex.length()) {
             case 3: // "#RGB"
-                int r = Integer.parseInt(hex.substring(0, 1), 16) * 17;
-                int g = Integer.parseInt(hex.substring(1, 2), 16) * 17;
-                int b = Integer.parseInt(hex.substring(2, 3), 16) * 17;
-                return new DeviceRgb(r, g, b);
+                r = Integer.parseInt(hex.substring(0, 1), 16) * 17 / 255f;
+                g = Integer.parseInt(hex.substring(1, 2), 16) * 17 / 255f;
+                b = Integer.parseInt(hex.substring(2, 3), 16) * 17 / 255f;
+                break;
 
             case 6: // "#RRGGBB"
-                int red = Integer.parseInt(hex.substring(0, 2), 16);
-                int green = Integer.parseInt(hex.substring(2, 4), 16);
-                int blue = Integer.parseInt(hex.substring(4, 6), 16);
-                return new DeviceRgb(red, green, blue);
+                r = Integer.parseInt(hex.substring(0, 2), 16) / 255f;
+                g = Integer.parseInt(hex.substring(2, 4), 16) / 255f;
+                b = Integer.parseInt(hex.substring(4, 6), 16) / 255f;
+                break;
 
             default:
                 throw new IllegalArgumentException("无效的16进制颜色格式: " + hexColor);
         }
+
+        return new PDColor(new float[]{r, g, b}, PDDeviceRGB.INSTANCE);
     }
 }

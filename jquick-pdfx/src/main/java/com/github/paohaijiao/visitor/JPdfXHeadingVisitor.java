@@ -15,19 +15,11 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.kernel.colors.ColorConstants;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.ILeafElement;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.element.TabStop;
-import com.itextpdf.layout.properties.TextAlignment;
+import com.github.paohaijiao.visitor.element.JQuickTextElementRender;
 
-import java.util.Arrays;
 import java.util.List;
-
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -40,111 +32,76 @@ import java.util.List;
  */
 public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
 
-    private static Paragraph createHeading(Paragraph heading, int level) {
-        heading.setFont(JFontProviderFactory.defualtFont());
-        switch (level) {
-            case 1: // H1
-                heading.setFontSize(24);
-                heading.setBold();
-                heading.setFontColor(ColorConstants.DARK_GRAY);
-                heading.setTextAlignment(TextAlignment.LEFT);
-                heading.setMarginTop(30);
-                heading.setMarginBottom(10);
-                break;
-            case 2: // H2
-                heading.setFontSize(20);
-                heading.setBold();
-                heading.setFontColor(ColorConstants.DARK_GRAY);
-                heading.setTextAlignment(TextAlignment.LEFT);
-                heading.setMarginTop(25);
-                heading.setMarginBottom(8);
-                break;
-            case 3: // H3
-                heading.setFontSize(16);
-                heading.setBold();
-                heading.setFontColor(ColorConstants.BLACK);
-                heading.setTextAlignment(TextAlignment.LEFT);
-                heading.setMarginTop(20);
-                heading.setMarginBottom(6);
-                break;
-            case 4: // H4
-                heading.setFontSize(14);
-                heading.setBold();
-                heading.setFontColor(ColorConstants.BLACK);
-                heading.setTextAlignment(TextAlignment.LEFT);
-                heading.setMarginTop(15);
-                heading.setMarginBottom(5);
-                break;
-            case 5: // H5
-                heading.setFontSize(12);
-                heading.setBold();
-                heading.setFontColor(ColorConstants.BLACK);
-                heading.setTextAlignment(TextAlignment.LEFT);
-                heading.setMarginTop(10);
-                heading.setMarginBottom(4);
-                break;
-            case 6: // H6
-                heading.setFontSize(10);
-                heading.setBold();
-                heading.setFontColor(ColorConstants.GRAY);
-                heading.setTextAlignment(TextAlignment.LEFT);
-                heading.setMarginTop(8);
-                heading.setMarginBottom(3);
-                break;
-            default:
-                heading.setFontSize(14);
-                heading.setBold();
-                heading.setFontColor(ColorConstants.BLACK);
-                heading.setTextAlignment(TextAlignment.LEFT);
-                heading.setMarginTop(15);
-                heading.setMarginBottom(5);
-        }
-        return heading;
-    }
-
     @Override
-    public Paragraph visitHeading(JQuickPDFParser.HeadingContext ctx) {
-        Integer number = 1;//default h1
+    public JQuickTextElementRender visitHeading(JQuickPDFParser.HeadingContext ctx) {
+        int level = 1;
         if (ctx.number() != null && !ctx.number().isEmpty()) {
-            String numberTxt = ctx.number().get(0).getText();
-            number = Integer.parseInt(numberTxt.toString());
+            level = Integer.parseInt(ctx.number().get(0).getText());
         }
         List<Object> value = null;
-        String text = "";
-        if (null != ctx.elemValue()) {
+        if (ctx.elemValue() != null) {
             value = visitElemValue(ctx.elemValue());
         }
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
+        JStyleAttributes style;
+        if (ctx.styleEle() != null) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        Paragraph paragraph = new Paragraph(trim(text));
-        paragraph.setFont(JFontProviderFactory.defualtFont());
-        createHeading(paragraph, number);
-        saveSub(paragraph, value);
-        super.buildStyle(paragraph, style);
-        return paragraph;
+        applyHeadingDefaults(style, level);
+        String text = buildHeadingText(value);
+        JQuickTextElementRender textElement = new JQuickTextElementRender(trim(text), style);
+        // <h1>~<h6> 是块级元素：排版时应用自身的上下外边距，与相邻块保持声明好的间距。
+        textElement.setBlockLevel(true);
+        super.buildStyle(textElement, style);
+        return textElement;
     }
 
-    private void saveSub(Paragraph paragraph, List<Object> list) {
-        list.forEach(e -> {
-            if (e instanceof String) {
-                paragraph.add((String) e);
+    private String buildHeadingText(List<Object> values) {
+        if (values == null || values.isEmpty()) {
+            return "";
+        }
+        StringBuilder builder = new StringBuilder();
+        for (Object value : values) {
+            if (value instanceof String) {
+                builder.append(value);
             }
-            if (e instanceof ILeafElement) {
-                paragraph.add((ILeafElement) e);
-            }
-            if (e instanceof IBlockElement) {
-                paragraph.add((IBlockElement) e);
-            }
-            if (e instanceof TabStop) {
-                TabStop tabStop = (TabStop) e;
-                paragraph.addTabStops(Arrays.asList(tabStop));
-            }
-        });
+        }
+        return builder.toString();
     }
 
-
+    private void applyHeadingDefaults(JStyleAttributes style, int level) {
+        style.putIfAbsent("font-weight", "bold");
+        style.putIfAbsent("text-align", "left");
+        switch (level) {
+            case 1:
+                style.putIfAbsent("font-size", "24");
+                style.putIfAbsent("line-height", "34");
+                break;
+            case 2:
+                style.putIfAbsent("font-size", "20");
+                style.putIfAbsent("line-height", "30");
+                break;
+            case 3:
+                style.putIfAbsent("font-size", "16");
+                style.putIfAbsent("line-height", "24");
+                break;
+            case 4:
+                style.putIfAbsent("font-size", "14");
+                style.putIfAbsent("line-height", "22");
+                break;
+            case 5:
+                style.putIfAbsent("font-size", "12");
+                style.putIfAbsent("line-height", "20");
+                break;
+            case 6:
+                style.putIfAbsent("font-size", "10");
+                style.putIfAbsent("line-height", "18");
+                break;
+            default:
+                style.putIfAbsent("font-size", "14");
+                style.putIfAbsent("line-height", "22");
+                break;
+        }
+    }
 }

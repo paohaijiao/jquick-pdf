@@ -1,0 +1,5 @@
+<pdf>
+<body>
+<comboBoxField style="fontColor:blue" checked>'提交'</comboBoxField>
+</body>
+</pdf>

@@ -17,10 +17,9 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JGraphConfig;
 import com.github.paohaijiao.exception.JAssert;
-import com.github.paohaijiao.extension.svg.SvgImage;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.element.IElement;
+import com.github.paohaijiao.visitor.element.JQuickSvgElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -33,29 +32,27 @@ import com.itextpdf.layout.element.IElement;
  */
 public class JPdfXSvgVisitor extends JPdfXTreeVisitor {
 
-
     @Override
-    public IElement visitSvg(JQuickPDFParser.SvgContext ctx) {
-        JStyleAttributes style = new JStyleAttributes();
-        if (null != ctx.styleEle()) {
+    public JQuickSvgElementRender visitSvg(JQuickPDFParser.SvgContext ctx) {
+        JStyleAttributes style;
+        if (ctx.styleEle() != null) {
             style = visitStyleEle(ctx.styleEle());
         } else {
             style = new JStyleAttributes();
         }
-        SvgImage svgImage = null;
+        String svgContent = null;
         if (ctx.variable() != null) {
             Object var = visitVariable(ctx.variable());
-            JAssert.notNull(var, "the svgImage variable ["+var+"] not  null");
-            svgImage = new SvgImage(var.toString());
+            JAssert.notNull(var, "the svgImage variable [" + var + "] not  null");
+            svgContent = var.toString();
         } else if (ctx.addressOf() != null) {
             String identify = ctx.addressOf().IDENTIFIER().getText();
             JGraphConfig graphConfig = this.config.getGraphConfig();
             JAssert.notNull(graphConfig, "the graph config not  null");
-            String content = graphConfig.drawGraph(identify);
-            svgImage = new SvgImage(content);
+            svgContent = graphConfig.drawGraph(identify);
         }
-        super.buildStyle(svgImage, style);
-        return svgImage;
+        JQuickSvgElementRender svg = new JQuickSvgElementRender(svgContent, style);
+        super.buildStyle(svg, style);
+        return svg;
     }
-
 }

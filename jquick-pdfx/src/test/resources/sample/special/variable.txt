@@ -1,0 +1,5 @@
+<pdf>
+<body>
+<p>'姓名: '${name}</p>
+</body>
+</pdf>

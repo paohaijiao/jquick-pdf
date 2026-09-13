@@ -1,0 +1,9 @@
+<pdf>
+<body>
+<list style="symbol:hahaha">
+<li>'选项1'</li>
+<li>'选项2'</li>
+<li>'选项3'</li>
+</list>
+</body>
+</pdf>

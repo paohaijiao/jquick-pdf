@@ -1,169 +1,164 @@
 /*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
 package com.github.paohaijiao.extension.tree;
 
-import com.itextpdf.kernel.colors.DeviceRgb;
-import com.itextpdf.kernel.geom.Rectangle;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
-import com.itextpdf.kernel.pdf.canvas.PdfCanvasConstants;
-import com.itextpdf.layout.Canvas;
-import com.itextpdf.layout.element.Paragraph;
-import com.itextpdf.layout.properties.UnitValue;
-import com.itextpdf.layout.properties.VerticalAlignment;
-import com.itextpdf.layout.renderer.DrawContext;
-import com.itextpdf.layout.renderer.IRenderer;
+import com.github.paohaijiao.visitor.context.JQuickRenderContext;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDFont;
+import org.apache.pdfbox.pdmodel.font.PDType1Font;
+import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
+import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import org.apache.pdfbox.pdmodel.graphics.color.PDDeviceRGB;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * packageName com.github.paohaijiao.extension.tree
- *
- * @author Martin
- * @version 1.0.0
- * @since 2025/7/20
+ * 在当前 PDFBox 页面流中绘制树形节点。
  */
-public class TreeRenderer extends com.itextpdf.layout.renderer.DivRenderer {
-    public TreeRenderer(TreeElement modelElement) {
-        super(modelElement);
+public class TreeRenderer {
+
+    private static final float HORIZONTAL_PADDING = 8f;
+    private static final float CHECKBOX_SIZE = 16f;
+    private static final float TEXT_GAP = 5f;
+
+    private final TreeElement element;
+
+    public TreeRenderer(TreeElement element) {
+        this.element = element;
     }
 
-    @Override
-    public IRenderer getNextRenderer() {
-        return new TreeRenderer((TreeElement) modelElement);
+    public void draw(PDPageContentStream stream, JQuickRenderContext context) throws IOException {
+        if (element.getRoot() == null || stream == null || context == null) {
+            return;
+        }
+        List<NodeRow> rows = new ArrayList<NodeRow>();
+        collectRows(element.getRoot(), 0, rows);
+        for (NodeRow row : rows) {
+            if (context.getLayoutEngine() != null) {
+                context.getLayoutEngine().ensureSpace(element.getNodeHeight(), false);
+                stream = context.getLayoutEngine().getStream();
+            }
+            drawRow(stream, context, row);
+        }
     }
 
-    @Override
-    public void draw(DrawContext drawContext) {
-        super.draw(drawContext);
-        TreeElement treeElement = (TreeElement) modelElement;
-        TreeNode root = treeElement.getRoot();
-        float indentSize = treeElement.getIndentSize();
-        float nodeHeight = treeElement.getNodeHeight();
-
-        Rectangle area = getOccupiedAreaBBox();
-        float startX = area.getX() + 15;
-        float startY = area.getY() + area.getHeight() - nodeHeight;
-
-        drawTree(drawContext, root, startX, startY, 0, indentSize, nodeHeight);
-    }
-
-    private void drawTree(DrawContext drawContext, TreeNode node, float x, float y,
-                          int level, float indentSize, float nodeHeight) {
-        drawCorrectedCheckboxNode(drawContext, node, x + level * indentSize, y, nodeHeight);
-
-        if (node.isExpanded() && !node.isLeaf()) {
-            float childY = y - nodeHeight;
+    private void collectRows(TreeNode node, int level, List<NodeRow> rows) {
+        rows.add(new NodeRow(node, level));
+        if (node.isExpanded()) {
             for (TreeNode child : node.getChildren()) {
-                drawTree(drawContext, child, x, childY, level + 1, indentSize, nodeHeight);
-                childY -= nodeHeight;
+                collectRows(child, level + 1, rows);
             }
         }
     }
 
-    private void drawCorrectedCheckboxNode(DrawContext drawContext, TreeNode node,
-                                           float x, float y, float nodeHeight) {
-        TreeElement treeElement = (TreeElement) modelElement;
-        PdfCanvas canvas = drawContext.getCanvas();
-        canvas.saveState();
-        canvas.setFillColor(treeElement.getHoverColor());
-        canvas.roundRectangle(x, y - nodeHeight, getOccupiedAreaBBox().getWidth() - x,
-                nodeHeight, 2);
-        canvas.fill();
-        canvas.restoreState();
-        if (!node.isRoot()) {
-            canvas.saveState();
-            canvas.setStrokeColor(new DeviceRgb(230, 230, 230));
-            canvas.setLineWidth(0.3f);
-            float connectorX = x - treeElement.getIndentSize() / 2;
-            canvas.moveTo(connectorX, y);
-            canvas.lineTo(connectorX, y - nodeHeight / 2);
-            canvas.lineTo(x, y - nodeHeight / 2);
-            canvas.stroke();
-            canvas.restoreState();
-        }
-        float checkboxSize = 16;
-        float checkboxPadding = (nodeHeight - checkboxSize) / 2;
-        drawCorrectedCheckbox(drawContext, node.isSelected(),
-                x + checkboxPadding, y - nodeHeight + checkboxPadding,
-                checkboxSize, checkboxSize);
-        Paragraph p = new Paragraph(node.getText())
-                .setFontSize(11)
-                .setFontColor(treeElement.getTextColor())
-                .setMargin(0)
-                .setPadding(0)
-                .setMarginLeft(checkboxSize + checkboxPadding * 2 + 5)
-                .setWidth(UnitValue.createPercentValue(100))
-                .setHeight(nodeHeight)
-                .setVerticalAlignment(VerticalAlignment.MIDDLE);
+    private void drawRow(PDPageContentStream stream, JQuickRenderContext context, NodeRow row)
+            throws IOException {
+        float rowHeight = element.getNodeHeight();
+        float x = context.getCursorX() + row.level * element.getIndentSize();
+        float top = context.getCursorY();
+        float y = top - rowHeight;
+        float rightMargin = context.getMargins() == null ? 0f : context.getMargins()[1];
+        float rowWidth = Math.max(0f, context.getPageWidth() - x - rightMargin);
 
-        Canvas nodeCanvas = new Canvas(drawContext.getCanvas(),
-                new Rectangle(x, y - nodeHeight,
-                        getOccupiedAreaBBox().getWidth() - x, nodeHeight));
-        nodeCanvas.add(p);
-        nodeCanvas.close();
-        if (!node.isLeaf()) {
-            float arrowSize = 8;
-            float arrowX = x + checkboxPadding + checkboxSize + 12;
-            float arrowY = y - nodeHeight / 2;
-            canvas.saveState();
-            canvas.setStrokeColor(new DeviceRgb(120, 120, 120));
-            canvas.setLineWidth(0.8f);
-            canvas.setLineCapStyle(PdfCanvasConstants.LineCapStyle.ROUND);
-            canvas.setLineJoinStyle(PdfCanvasConstants.LineJoinStyle.ROUND);
-            if (node.isExpanded()) {
-                canvas.moveTo(arrowX - arrowSize / 2, arrowY - arrowSize / 3);
-                canvas.lineTo(arrowX, arrowY + arrowSize / 3);
-                canvas.lineTo(arrowX + arrowSize / 2, arrowY - arrowSize / 3);
-            } else {
-                canvas.moveTo(arrowX - arrowSize / 3, arrowY - arrowSize / 2);
-                canvas.lineTo(arrowX + arrowSize / 3, arrowY);
-                canvas.lineTo(arrowX - arrowSize / 3, arrowY + arrowSize / 2);
-            }
-            canvas.stroke();
-            canvas.restoreState();
+        stream.setNonStrokingColor(element.getBackgroundColor());
+        stream.addRect(x, y, rowWidth, rowHeight);
+        stream.fill();
+
+        if (!row.node.isRoot()) {
+            float connectorX = x - element.getIndentSize() / 2f;
+            stream.setStrokingColor(rgb(230, 230, 230));
+            stream.setLineWidth(0.3f);
+            stream.moveTo(connectorX, top);
+            stream.lineTo(connectorX, y + rowHeight / 2f);
+            stream.lineTo(x, y + rowHeight / 2f);
+            stream.stroke();
         }
+
+        float checkboxY = y + (rowHeight - CHECKBOX_SIZE) / 2f;
+        drawCheckbox(stream, row.node.isSelected(), x + HORIZONTAL_PADDING, checkboxY);
+        float textX = x + HORIZONTAL_PADDING * 2f + CHECKBOX_SIZE + TEXT_GAP;
+        if (!row.node.isLeaf()) {
+            drawArrow(stream, x + HORIZONTAL_PADDING + CHECKBOX_SIZE + 7f,
+                    y + rowHeight / 2f, row.node.isExpanded());
+            textX += 12f;
+        }
+        drawText(stream, context, row.node.getText(), textX, y + (rowHeight - fontSize(context)) / 2f);
+        context.setCursorY(y);
     }
 
-    private void drawCorrectedCheckbox(DrawContext drawContext, boolean isSelected,
-                                       float x, float y, float width, float height) {
-        TreeElement treeElement = (TreeElement) modelElement;
-        PdfCanvas canvas = drawContext.getCanvas();
-        canvas.saveState();
-        canvas.setStrokeColor(treeElement.getCheckboxBorderColor());
-        canvas.setLineWidth(0.8f);
-        canvas.roundRectangle(x, y, width, height, treeElement.getCheckboxCornerRadius());
-        canvas.stroke();
-        if (isSelected) {
-            DeviceRgb color = new DeviceRgb(
-                    treeElement.getCheckboxSelectedColor().getColorValue()[0],
-                    treeElement.getCheckboxSelectedColor().getColorValue()[1],
-                    treeElement.getCheckboxSelectedColor().getColorValue()[2]
-            );
-            canvas.setFillColor(color);
-            canvas.roundRectangle(x + 0.5f, y + 0.5f, width - 1, height - 1,
-                    treeElement.getCheckboxCornerRadius());
-            canvas.fill();
-            canvas.setStrokeColor(treeElement.getCheckboxSelectedColor());
-            canvas.setLineWidth(1.5f);
-            canvas.setLineCapStyle(PdfCanvasConstants.LineCapStyle.ROUND);
-            float padding = width * 0.15f;
-            canvas.moveTo(x + padding, y + height / 2);
-            canvas.lineTo(x + width / 2, y + height - padding);
-            canvas.lineTo(x + width - padding, y + padding);
-            canvas.stroke();
+    private void drawCheckbox(PDPageContentStream stream, boolean selected, float x, float y)
+            throws IOException {
+        stream.setStrokingColor(element.getCheckboxBorderColor());
+        stream.setLineWidth(0.8f);
+        stream.addRect(x, y, CHECKBOX_SIZE, CHECKBOX_SIZE);
+        stream.stroke();
+        if (!selected) {
+            return;
         }
+        stream.setNonStrokingColor(element.getCheckboxSelectedColor());
+        stream.addRect(x + 0.5f, y + 0.5f, CHECKBOX_SIZE - 1f, CHECKBOX_SIZE - 1f);
+        stream.fill();
+        stream.setStrokingColor(element.getCheckboxSelectedColor());
+        stream.setLineWidth(1.5f);
+        float padding = CHECKBOX_SIZE * 0.2f;
+        stream.moveTo(x + padding, y + CHECKBOX_SIZE / 2f);
+        stream.lineTo(x + CHECKBOX_SIZE / 2f, y + CHECKBOX_SIZE - padding);
+        stream.lineTo(x + CHECKBOX_SIZE - padding, y + padding);
+        stream.stroke();
+    }
 
-        canvas.restoreState();
+    private void drawArrow(PDPageContentStream stream, float x, float y, boolean expanded)
+            throws IOException {
+        float size = 6f;
+        stream.setStrokingColor(rgb(120, 120, 120));
+        stream.setLineWidth(0.8f);
+        if (expanded) {
+            stream.moveTo(x - size / 2f, y + size / 3f);
+            stream.lineTo(x, y - size / 3f);
+            stream.lineTo(x + size / 2f, y + size / 3f);
+        } else {
+            stream.moveTo(x - size / 3f, y + size / 2f);
+            stream.lineTo(x + size / 3f, y);
+            stream.lineTo(x - size / 3f, y - size / 2f);
+        }
+        stream.stroke();
+    }
+
+    private void drawText(PDPageContentStream stream, JQuickRenderContext context,
+                          String text, float x, float y) throws IOException {
+        PDFont font = context.getFont() == null
+                ? new PDType1Font(Standard14Fonts.FontName.HELVETICA) : context.getFont();
+        stream.beginText();
+        stream.setFont(font, fontSize(context));
+        stream.setNonStrokingColor(element.getTextColor());
+        stream.newLineAtOffset(x, y);
+        stream.showText(text == null ? "" : text);
+        stream.endText();
+    }
+
+    private float fontSize(JQuickRenderContext context) {
+        return context.getFontSize() > 0f ? context.getFontSize() : 11f;
+    }
+
+    /**
+     * PDFBox 3.x 只提供 0..1 分量的 {@code setStrokingColor(float,float,float)} 重载，
+     * 这里把 0..255 的 RGB 分量换算成 {@link PDColor} 后再写入，避免整棵树因参数越界而渲染失败。
+     */
+    private static PDColor rgb(int red, int green, int blue) {
+        return new PDColor(new float[]{red / 255f, green / 255f, blue / 255f}, PDDeviceRGB.INSTANCE);
+    }
+
+    private static final class NodeRow {
+        private final TreeNode node;
+        private final int level;
+
+        private NodeRow(TreeNode node, int level) {
+            this.node = node;
+            this.level = level;
+        }
     }
 }

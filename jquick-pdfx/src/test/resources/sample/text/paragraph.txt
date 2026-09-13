@@ -1,0 +1,7 @@
+<pdf>
+<body>
+<p style="textAlignment:justify">'段落内容'</p>
+<p><span style="fontColor:blue">'段落内的内联文本'</span></p>
+<p style="color:red"><tab></tab><tab></tab>'制表符后的文本'</p>
+</body>
+</pdf>

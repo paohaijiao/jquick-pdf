@@ -17,12 +17,8 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.config.JTemplateConfig;
 import com.github.paohaijiao.exception.JAssert;
-import com.github.paohaijiao.model.JHtmlRenderModel;
+import com.github.paohaijiao.model.JQuickTemplateRenderModel;
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.html2pdf.HtmlConverter;
-import com.itextpdf.layout.element.IElement;
-
-import java.util.List;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -36,7 +32,7 @@ import java.util.List;
 public class JPdfXTemplateVisitor extends JPdfXTextAreaVisitor {
 
     @Override
-    public JHtmlRenderModel visitTemplate(JQuickPDFParser.TemplateContext ctx) {
+    public JQuickTemplateRenderModel visitTemplate(JQuickPDFParser.TemplateContext ctx) {
         String value = "";
         if (ctx.IDENTIFIER() != null) {
             value = ctx.IDENTIFIER().getText();
@@ -44,11 +40,11 @@ public class JPdfXTemplateVisitor extends JPdfXTextAreaVisitor {
         JTemplateConfig templateConfig = this.config.getTemplateConfig();
         JAssert.notNull(templateConfig, "template not found");
         String html = templateConfig.get(value);
-        List<IElement> iElements = HtmlConverter.convertToElements(html, proper);
-        JHtmlRenderModel jHtmlRenderModel = new JHtmlRenderModel();
-        jHtmlRenderModel.setList(iElements);
-        return jHtmlRenderModel;
+        JAssert.notNull(html, "template html not found");
+        JQuickTemplateRenderModel renderModel = new JQuickTemplateRenderModel();
+        renderModel.setTemplateKey(value);
+        renderModel.setHtml(html);
+        JAssert.throwNewException("not support http template render");
+        return renderModel;
     }
-
-
 }

@@ -1,0 +1,8 @@
+<pdf>
+<body>
+<list style="symbol:hahaha">
+<li style="fontColor:red">'红色选项'</li>
+<li>'普通选项'</li>
+</list>
+</body>
+</pdf>

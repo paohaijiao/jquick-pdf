@@ -1,477 +1,591 @@
-# 📄 JQuickPDF
+<p align="center">
+  <img src="./images/jquick-logo.svg" width="680" alt="jquick-pdf logo" />
+</p>
 
-> 最轻量、最纯粹的 Java PDF 生成库
+<h1 align="center">jquick-pdf</h1>
 
 <p align="center">
-  <a href="./README.md">简体中文</a> | <a href="./README-EN.md">English</a>
+  A pure-Java PDF toolkit that turns an HTML/CSS-like template into PDF documents — no browser, no WebKit, no external rendering engine.
 </p>
 
 <p align="center">
-  <a href="https://github.com/akullpp/awesome-java"><img src="https://img.shields.io/badge/Awesome-Java-ff69b4.svg" alt="Awesome Java"></a>
-  <a href="https://search.maven.org/artifact/io.github.paohaijiao/jquick-pdfx"><img src="https://img.shields.io/maven-central/v/io.github.paohaijiao/jquick-pdfx?style=flat-square" alt="Maven Central"></a>
-  <a href="https://github.com/paohaijiao/jquick-pdf/stargazers"><img src="https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=flat-square&logo=github&label=Stars" alt="Stars"></a>
-  <a href="https://github.com/paohaijiao/jquick-pdf/fork"><img src="https://img.shields.io/github/forks/paohaijiao/jquick-pdf.svg?style=flat-square&logo=github&label=Forks" alt="Forks"></a>
-  <a href="https://github.com/paohaijiao/jquick-pdf/issues"><img src="https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg?style=flat-square&logo=github&label=Issues" alt="Issues"></a>
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-AGPL--3.0-red.svg?style=flat-square" alt="License"></a>
+  <b>English</b> | <a href="./README_zh.md">简体中文</a>
 </p>
 
-> ⚡ 被 [Awesome Java](https://github.com/akullpp/awesome-java) 收录的 PDF 生成库
->
-> 如果这个项目对你有帮助，欢迎点个 Star ⭐
+<p align="center">
+  <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx"><img src="https://img.shields.io/maven-central/v/io.github.paohaijiao/jquick-pdfx.svg?style=for-the-badge&label=Maven%20Central" alt="Maven Central" /></a>
+  <a href="#version-matrix"><img src="https://img.shields.io/badge/license-Apache--2.0%20(%E2%89%A5%204.0.1)%20%7C%20AGPL--3.0%20(%E2%89%A4%204.0.0)-blue.svg?style=for-the-badge" alt="License" /></a>
+  <a href="https://github.com/paohaijiao/jquick-pdf"><img src="https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars" alt="GitHub stars" /></a>
+  <a href="https://github.com/paohaijiao/jquick-pdf/issues"><img src="https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg?style=for-the-badge&label=Issues" alt="GitHub issues" /></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-8%2B-orange.svg" alt="Java 8+" />
+  <img src="https://img.shields.io/badge/PDFBox-3.0.x-brightgreen.svg" alt="Apache PDFBox 3" />
+  <img src="https://img.shields.io/badge/ANTLR-4.x-blue.svg" alt="ANTLR 4" />
+</p>
 
 ---
 
-## 📝 前言
+## Table of Contents
 
-Java 生成 PDF，常见问题往往不在“能不能生成”，而在“能不能好写、好维护、好部署”。
-
-常见痛点包括：
-
-- 依赖浏览器或 WebKit，部署重
-- 模板语法难写，样式属性不清晰
-- 图表渲染分散，业务报表拼装成本高
-- SVG 矢量图嵌入麻烦
-- 表格、表单、分页、图片等能力经常需要自己拼
-
-**JQuickPDF** 就是为这些问题准备的。
-
-它希望用更轻的方式，解决 Java 业务文档、报表、信用报告、图文 PDF 的生成问题。
-
----
-
-## 🛠️ 项目介绍
-
-**JQuickPDF** 是一个轻量级 Java PDF 生成库，底层依赖 **iText 7**，提供类 HTML + CSS 的模板语法，并支持模板变量、图表、SVG、表格、表单、图片、自定义字体和分页能力。
-
-它适合这些业务场景：
-
-- 企业信用报告
-- 数据分析报告
-- 图文排版型 PDF
-- 带图表的业务报表
-- 模板驱动的通知单、合同、说明书
-
-项目特点很直接：
-
-- 纯 Java 实现
-- 不需要浏览器
-- 不需要 WebKit 外部渲染引擎
-- 支持与 Thymeleaf、FreeMarker 等模板引擎结合使用
-
----
-
-## ✨ 核心特性
-
-- 🚀 **纯 Java 生成 PDF**
-  - 不依赖浏览器
-  - 不依赖 WebKit
-  - 适合服务端直接生成
-- 🎨 **类 HTML + CSS 模板语法**
-  - 更接近前端开发习惯
-  - 文本、表格、图片、SVG 更容易组织
-- 🧩 **模板引擎友好**
-  - 支持 Thymeleaf
-  - 支持 FreeMarker
-  - 支持变量绑定与模板片段注入
-- 📊 **30+ 图表能力**
-  - 柱状图、饼图、雷达图、K 线、热力图、甘特图、词云、地图等
-- 🧾 **常见 PDF 元素完备**
-  - 文本
-  - 表格
-  - 表单
-  - 图片
-  - SVG
-  - 分页
-- 🔤 **支持字体配置**
-  - 适合中文业务文档输出
-- 🔗 **支持数据绑定**
-  - 模板与 Java 数据模型可组合使用
+- [Introduction](#introduction)
+- [Features](#features)
+- [Quick Start](#quick-start)
+  - [Requirements](#requirements)
+  - [Modules](#modules)
+  - [Maven dependency — 4.0.1 and above (Apache-2.0)](#maven-dependency--401-and-above-apache-20)
+  - [Maven dependency — 4.0.0 and below (AGPL-3.0, iText 7)](#maven-dependency--400-and-below-agpl-30-itext-7)
+  - [Hello world](#hello-world)
+- [Demo Gallery](#demo-gallery)
+  - [Image index: image → test class → method](#image-index-image--test-class--method)
+    - [1. Bar chart](#1-bar-chart--imagesbarchartsvg)
+    - [2. Line chart](#2-line-chart--imagesline_chartsvg)
+    - [3. Pie chart](#3-pie-chart--imagespie-chartsvg)
+    - [4. Radar chart](#4-radar-chart--imagesradar_chartsvg)
+    - [5. Box plot](#5-box-plot--imagesboxchartsvg)
+    - [6. Heat map](#6-heat-map--imagesheatmapsvg)
+    - [7. K-line (candlestick)](#7-k-line-candlestick--imagesk_chartsvg)
+    - [8. Scatter](#8-scatter--imagesscattersvg)
+    - [9. Bubble](#9-bubble--imagesbubblesvg)
+    - [10. Funnel](#10-funnel--imagesfunnelsvg)
+    - [11. Gauge](#11-gauge--imagesgaugesvg)
+    - [12. Gantt](#12-gantt--imagesganttsvg)
+    - [13. Calendar](#13-calendar--imagescalendarsvg)
+    - [14. Lunar calendar](#14-lunar-calendar--imageslunarsvg)
+    - [15. Word cloud](#15-word-cloud--imageswordcloudsvg)
+    - [16. Geo map](#16-geo-map--imagesgeosvg)
+    - [17. Relation graph](#17-relation-graph--imagesrelation_chartsvg)
+    - [18. Sunburst](#18-sunburst--imagessunburstsvg)
+    - [19. Treemap](#19-treemap--imagestreemapsvg)
+    - [20. Correlation matrix](#20-correlation-matrix--imagesmatrixsvg)
+    - [21. Stacked area](#21-stacked-area--imagesareasvg)
+    - [22. Line + bar combo](#22-line--bar-combo--imageslinebarsvg)
+    - [23. Multi line](#23-multi-line--imagesmultiplelinesvg)
+    - [24. Multi bar](#24-multi-bar--imagesfourbarsvg)
+    - [25. Horizontal bar](#25-horizontal-bar--imageshorizontalbarsvg)
+    - [26. Multi horizontal bar](#26-multi-horizontal-bar--imagesmhbarchartsvg)
+    - [27. Double radar](#27-double-radar--imagestworadarsvg)
+    - [28. Line + scatter](#28-line--scatter--imageslineradarsvg)
+    - [29. Circle / ring](#29-circle--ring--imagescircle-chartsvg)
+    - [30. Timeline](#30-timeline--imagestimelinesvg)
+    - [31. Advanced topology (microservice)](#31-advanced-topology-microservice--imagesadvance_topologysvg)
+    - [32. Cloud architecture topology](#32-cloud-architecture-topology--imagestoplogycloud_architecturesvg)
+    - [33. Data center topology](#33-data-center-topology--imagestoplogydatacenter_topologysvg)
+    - [34. Enterprise network topology](#34-enterprise-network-topology--imagestoplogyenterprise_networksvg)
+    - [35. Manual-layout topology](#35-manual-layout-topology--imagestoplogymanual_layout_topologysvg)
+    - [36. Credit report page](#36-credit-report-page--imagescredit_reportpng)
+  - [Demo 1 — Enterprise credit rating report (composite)](#demo-1--enterprise-credit-rating-report-composite)
+  - [Demo 2 — Bar chart (chart module)](#demo-2--bar-chart-chart-module)
+  - [Demo 3 — SVG chart embedded into a PDF page](#demo-3--svg-chart-embedded-into-a-pdf-page)
+  - [Element and style reference](#element-and-style-reference)
+- [Version Matrix](#version-matrix)
+- [License](#license)
+- [Contribution Guide](#contribution-guide)
 
 ---
 
-## 📦 快速开始
+## Introduction
 
-### 1. Maven 依赖
+**jquick-pdf** is the PDF toolkit of the JQuick ecosystem. It targets **generating, rendering and exporting** PDF documents from Java: write a template that looks like HTML with inline CSS, bind your data, and get a PDF back as a `byte[]`, a stream, or a file.
+
+Templates are parsed by an ANTLR4 grammar and drawn directly onto the page with [Apache PDFBox](https://pdfbox.apache.org/) — there is **no browser, no headless Chrome and no native library** in the pipeline, which makes the library easy to embed in a server, a scheduled job or a desktop application.
+
+The toolkit covers two layers:
+
+- **Document layer** (`jquick-pdfx`): an HTML/CSS-like template language (headings, paragraphs, blocks, lists, tables, forms, images, SVG) with data binding, pagination control, tables of contents, watermarks and encryption.
+- **Chart layer** (`jquick-pdf-svg`): 30+ chart types (bar, line, pie, radar, scatter, boxplot, heatmap, K-line, funnel, gauge, gantt, word cloud, geo map, sunburst, treemap, bubble, calendar, timeline, topology and more) rendered as vector graphics — bound into a document with a single placeholder.
+
+> **License boundary — read [Version Matrix](#version-matrix) before shipping.**
+> Version **4.0.0** is **AGPL-3.0** (iText 7 based). Version **4.0.1 and above** is **Apache-2.0** (migrated to Apache PDFBox, AGPL dependency removed).
+
+## Features
+
+- **Pure Java, no external engine** — no WebKit, no Chrome, no OS-level dependency; one JVM process is enough.
+- **HTML/CSS-like templates** — 14 elements plus a `style="..."` attribute on every element.
+- **Both naming conventions accepted** — camelCase (`minHeight`) and standard CSS kebab-case (`min-height`) are interchangeable, and may be mixed in one declaration.
+- **Data binding** — `${variable}` for bound values, `&{resource}` for registered resources (charts, templates, trees).
+- **30+ chart types** — the full chart gallery with preview images and the test class that generates each one is in the [Demo Gallery](#demo-gallery).
+- **Rich document capabilities** — automatic pagination, table of contents, header/footer, page counters, watermarks, PDF encryption.
+- **CJK ready** — a Chinese font is bundled (`jquick-pdf-font`), so CJK text renders without extra configuration.
+- **Small, modular artifacts** — depend on the parser/renderer only, then add charts, CSS or fonts as needed.
+- **Java 8 compatible** — released artifacts target Java 8 bytecode.
+
+## Quick Start
+
+### Requirements
+
+| Item | Version |
+|---|---|
+| JDK | 8 or higher |
+| Maven | 3.6 or higher (only needed to build from source) |
+| Runtime dependencies | Apache PDFBox 3.0.x, ANTLR4 runtime, SLF4J API (resolved transitively) |
+
+### Modules
+
+| Module (directory) | Artifact | Description |
+|---|---|---|
+| `jquick-pdfx` | `io.github.paohaijiao:jquick-pdfx` | Parser, renderers, layout engine and the entry point `JQuickPdfFactory`. Most users only need this artifact. |
+| `jquick-pdf-css` | `io.github.paohaijiao:jquick-pdf-css` | CSS model: style attributes, units and colors. |
+| `jquick-pdf-svg` | `io.github.paohaijiao:jquick-pdf-svg` | SVG / ECharts-style chart generation (30+ chart types). |
+| `jquick-pdf-data` | `io.github.paohaijiao:jquick-pdf-data` | Chart option model (`JOption`, `JChart`, `JTitle`, `JLegend`, ...). |
+| `jquick-pdf-font` | `io.github.paohaijiao:jquick-pdf-font` | Bundled CJK font resources. |
+
+### Maven dependency — 4.0.1 and above (Apache-2.0)
 
 ```xml
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
     <artifactId>jquick-pdfx</artifactId>
-    <version>最新版本</version>
+    <version>4.0.0</version>
 </dependency>
 ```
 
-### 2. 极简最小示例
+Chart support (optional):
 
-#### Java 代码
+```xml
+<dependency>
+    <groupId>io.github.paohaijiao</groupId>
+    <artifactId>jquick-pdf-svg</artifactId>
+    <version>4.0.0</version>
+</dependency>
+```
+
+### Maven dependency — 4.0.0 and below (AGPL-3.0, iText 7)
+
+```xml
+<dependency>
+    <groupId>io.github.paohaijiao</groupId>
+    <artifactId>jquick-pdfx</artifactId>
+    <version>4.0.0</version>
+</dependency>
+```
+
+> **License risk:** 4.0.0 and below are licensed under **AGPL-3.0** because they depend on **iText 7 Core**. Using them in a closed-source product requires full AGPL compliance or a commercial license from iText Group NV. PDFs produced by these versions carry the `Powered by iText` notice.
+> Migrate to **4.0.1 or later** to get **Apache-2.0** and drop the obligation — see [License](#license).
+
+### Hello world
 
 ```java
-import com.github.paohaijiao.config.JPdfConfig;
-import com.github.paohaijiao.config.JTemplateConfig;
 import com.github.paohaijiao.executor.JQuickPdfFactory;
 
-import java.io.FileOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
-public class Demo {
+public class HelloDemo {
+
     public static void main(String[] args) throws Exception {
-        JPdfConfig config = new JPdfConfig();
-        JTemplateConfig templateConfig = config.getTemplateConfig();
-        templateConfig.put("html", "<h1>Hello JQuickPDF</h1><p>这是一个最小示例。</p>");
-        config.setTemplateConfig(templateConfig);
+        String template = ""
+                + "<pdf>"
+                + "  <body>"
+                + "    <h1 style=\"fontSize:24;fontColor:blue\">'Hello jquick-pdf'</h1>"
+                + "    <p>'Customer: '${customer}</p>"
+                + "  </body>"
+                + "</pdf>";
 
-        String template = "<html><body><template>&html</template></body></html>";
+        byte[] pdf = JQuickPdfFactory.create()
+                .bind("customer", "Martin")
+                .executeContent(template);
 
-        byte[] pdf = new JQuickPdfFactory(config).executeContent(template);
-
-        try (FileOutputStream out = new FileOutputStream("demo.pdf")) {
-            out.write(pdf);
-        }
+        Files.write(Paths.get("hello.pdf"), pdf);
     }
 }
 ```
 
-#### 模板 XML 片段
+Three ways to feed a template, all returning `byte[]`:
 
-```xml
-<html>
-<body>
-  <template>&html</template>
-</body>
-</html>
-```
-
----
-
-## 📖 核心能力一览
-
-### 支持状态
-
-| 状态 | 含义 |
+| Method | Source |
 |---|---|
-| ✅ 已支持 | 已在仓库主流程中可用，并有示例 |
-| 🟡 迁移中 | 已有 visitor / 渲染骨架，正在从 iText 向 PDFBox 过渡 |
-| ⏳ 待支持 | 仓库中已有入口或类，但未完成完整接入 |
+| `executeContent(String)` | template text in memory |
+| `executeResource(String)` | classpath resource, e.g. `"report.txt"` |
+| `executeFile(String)` | file on disk, e.g. `"D:/templates/report.txt"` |
 
-### 元素清单
+Text nodes are always single-quoted (`'Hello jquick-pdf'`); `<pdf>` and `<html>` are both accepted as the document root.
 
-| 元素 | 状态 | 示例 / 说明 |
-|---|---|---|
-| `<paragraph>` | ✅ 已支持 | `sample/paragraph.txt` |
-| `<heading>` | ✅ 已支持 | `sample/heading.txt` |
-| `<span>` | ✅ 已支持 | `sample/span.txt` |
-| `<div>` | ✅ 已支持 | `sample/div.txt` |
-| `<list>` / `<li>` | ✅ 已支持 | `sample/list.txt` |
-| `<table>` / `<tr>` / `<td>` / `<th>` | ✅ 已支持 | `sample/table.txt` |
-| `<image>` | ✅ 已支持 | `sample/image.txt` |
-| `<svg>` | ✅ 已支持 | `sample/svg1.txt`、`sample/svg2.txt` |
-| `<areaBreak>` | ✅ 已支持 | `sample/areaBreak.txt` |
-| `<htmlPageBreak>` | ✅ 已支持 | `sample/htmlPageBreak.txt` |
-| `<lineSeparator>` | ✅ 已支持 | `sample/lineSeperator.txt` |
-| `<tab>` | ✅ 已支持 | `sample/tab.txt` |
-| `<button>` | ✅ 已支持 | `sample/button.txt` |
-| `<checkbox>` | ✅ 已支持 | `sample/checkbox.txt` |
-| `<comboBoxField>` | ✅ 已支持 | `sample/comboxFiled.txt` |
-| `<textArea>` | ✅ 已支持 | `sample/textArea.txt` |
-| `<tree>` | ✅ 已支持 | `sample/tree1.txt`、`sample/tree2.txt` |
-| `<template>` | 🟡 迁移中 | `sample/template.txt` |
-| `<inputField>` | ⏳ 待支持 | 当前仅有空 visitor，未接入完整 grammar |
-| `${variable}` | ✅ 已支持 | 用于变量占位绑定 |
+## Demo Gallery
 
-### 图形 Demo 索引
+Every image under `images/` is produced by a **real test class** in this repository. Each entry below shows the preview first and the key code that produces it second; the file path inside the code is the literal path the test writes (`D:\test\` by default, see `com.github.paohaijiao.demo.constant.JQuickConstant`). Long data lists are elided with `// ...`.
 
-| 图形 / 场景 | Demo 文件 |
-|---|---|
-| Area | `demo/area/JQuickAreaTest.java` |
-| Horizontal Bar | `demo/bar/JQuickHorizontalBarChartTest.java` |
-| Multiple Bar | `demo/bar/JQuickMutipleBarTest.java` |
-| Multiple Horizontal Bar | `demo/bar/JQuickMutipleHorizontalBarChartTest.java` |
-| Line Radar | `demo/bar/JQuickLineRadarChartTest.java` |
-| Bubble | `demo/bubble/JQuickBubbleTest.java` |
-| Calendar | `demo/calendar/JQuickCalendarTest.java` |
-| Circle / Donut | `demo/circle/JQuickCircleTest.java` |
-| Credit Report | `demo/creditreport/JQuickCreditReportTest.java` |
-| Funnel | `demo/funnel/JQuickFunnelTest.java` |
-| Gantt | `demo/gantt/JGanttTest.java` |
-| Geo / Map | `demo/geo/JGeoTest.java` |
-| Gauge | `demo/guage/JQuickGuageTest.java` |
-| Line Bar | `demo/linebar/JQuickLineBarTest.java` |
-| Multiple Line | `demo/linebar/JQuickMutipleLineTest.java` |
-| Lunar | `demo/lunar/JQuickLunarTest.java` |
-| Matrix | `demo/matrix/JQuickMatrixTest.java` |
-| TimeLine | `demo/other/JQuickTimeLineTest.java` |
-| Tree | `demo/other/JQuickTreeTest.java` |
-| TreeMap | `demo/other/JQuickTreeMapTest.java` |
-| Double Radar | `demo/radar/JQuickTwoRadarTest.java` |
-| Sunburst | `demo/sunburd/JQuickSunburdTest.java` |
-| Advanced Topology | `demo/advance/JQuickAdvanceToplogyTest.java` |
+### Image index: image → test class → method
 
-### 语法规则
+Two notes before the list:
 
-```string
-<element style="属性名1:值1; 属性名2:值2; ...">
-    内容
-</element>
-```
+1. `images/` is a curated copy: a few files were renamed when they were added to the repository, so the file name may differ from the literal path written by the test (for example `images/linebar.svg` ← `d://test/custom_chart.svg`). The path inside each code block is the authoritative value.
+2. `TreemapTest` is entirely commented out in the source, so the treemap preview corresponds to `JTreemapRendererExample#main` instead.
 
-### 元素
+#### 1. Bar chart — `images/barchart.svg`
 
-#### 文本元素
+![barchart](images/barchart.svg)
 
-| Element | Description | 示例代码 |
-|---|---|---|
-| `<p>` | 段落块(Paragraph) | `<p style="textAlignment:justify">'段落内容'</p>` |
-| `<h1>-<h6>` | 标题(带样式的段落) | `<h1 style="fontSize:24">'标题内容'</h1>` |
-| `<span>` | 内联文本容器(Chunk) | `<span style="fontColor:blue">'内联文本'</span>` |
-| `<br>` | 换行(Newline) | `<br type="after"></br>` |
-| `<tab>` | 制表符 | `<p><tab></tab><tab></tab><span>'制表符后的文本'</span></p>` |
-
-#### 布局元素
-
-| Element | Description | 示例代码 |
-|---|---|---|
-| `<div>` | 块容器(Div) | `<div style="width:100%">'块容器内容'</div>` |
-| `<areaBreak>` | 分节符(AreaBreak) | `<areaBreak></areaBreak>` |
-| `<htmlPageBreak>` | 显式分页符(NewPage) | `<htmlPageBreak style="fontColor:blue">'next_area'</htmlPageBreak>` |
-| `<lineSeparator>` | 分隔线 | `<lineSeparator style="strokeColor:red"></lineSeparator>` |
-
-#### 列表与表格元素
-
-| Element | Description | 示例代码 |
-|---|---|---|
-| `<list>` | 有序/无序列表(List) | `<list style="symbol:hahaha"><li>'选项1'</li></list>` |
-| `<li>` | 列表项(ListItem) | `<li style="fontColor:red">'选项1'</li>` |
-| `<table>` | 表格容器(Table) | `<table><tr><td>'数据'</td></tr></table>` |
-| `<tr>` | 表格行(TableRow) | `<tr style="height:30px"></tr>` |
-| `<td>` | 表格数据单元格(TableCell) | `<td style="fontColor:red">'数据'</td>` |
-| `<th>` | 表格标题单元格(TableCell) | `<th style="fontWeight:bold">'标题'</th>` |
-
-#### 表单元素
-
-| Element | Description | 示例代码 |
-|---|---|---|
-| `<button>` | 按钮(PushbuttonField) | `<button style="fontColor:blue">'提交'</button>` |
-| `<checkbox>` | 复选框(CheckboxField) | `<checkbox style="fontColor:blue" checked>'提交'</checkbox>` |
-| `<inputField>` | 文本输入框(TextField) | `<inputField style="fontColor:blue">'你好中国'</inputField>` |
-| `<comboBoxField>` | 下拉选择框(ComboBoxField) | `<comboBoxField style="fontColor:blue" checked>'提交'</comboBoxField>` |
-| `<textArea>` | 多行文本输入框(TextAreaField) | `<p><textArea>'你好中国'</textArea></p>` |
-
-#### 媒体元素
-
-| Element | Description | 示例代码 |
-|---|---|---|
-| `<image>` | 嵌入图片(Image) | `<image src="logo.png" style="width:200px;height:150px"></image>` |
-| `<svg>` | 矢量图形(PdfTemplate) | `<svg>${svg}</svg>` 或 `<svg>&{svg}</svg>` |
-
-#### 特殊元素
-
-| Element | Description | 示例代码 |
-|---|---|---|
-| `<template>` | 可重用模板内容 | `<template>&html</template>` |
-| `<tree>` | 树形结构数据 | `<tree>${tree}</tree>` 或 `<tree>tree</tree>` |
-| `${variable}` | 数据绑定占位符 | `<p>姓名: ${name}</p>` |
-
-#### 📋 完整属性表格（含示例代码）
-
-| 属性 | 示例值 | 说明 | 示例代码 |
-|------|--------|------|----------|
-| **边距属性** | | | |
-| `marginLeft` | `"1px"` | 左边距值 | `<div style="marginLeft:1px">内容</div>` |
-| `marginRight` | `"500px"` | 右边距值 | `<div style="marginRight:500px">内容</div>` |
-| `marginTop` | `"500px"` | 上边距值 | `<div style="marginTop:500px">内容</div>` |
-| `marginBottom` | `"500px"` | 下边距值 | `<div style="marginBottom:500px">内容</div>` |
-| `commonMargin` | `"100px"` | 所有边统一的边距 | `<div style="commonMargin:100px">内容</div>` |
-| `margins` | `"'20px 30px 40px 50px'"` | 上、右、下、左边距 | `<div style="margins:'20px 30px 40px 50px'">内容</div>` |
-| **内边距属性** | | | |
-| `paddingLeft` | `"50px"` | 左内边距值 | `<div style="paddingLeft:50px">内容</div>` |
-| `paddingRight` | `"50px"` | 右内边距值 | `<div style="paddingRight:50px">内容</div>` |
-| `paddingTop` | `"50px"` | 上内边距值 | `<div style="paddingTop:50px">内容</div>` |
-| `paddingBottom` | `"50px"` | 下内边距值 | `<div style="paddingBottom:50px">内容</div>` |
-| `commonPadding` | `"50px"` | 所有边统一的内边距 | `<div style="commonPadding:50px">内容</div>` |
-| `paddings` | `"50px 50px 60px 70px"` | 上、右、下、左内边距 | `<div style="paddings:50px 50px 60px 70px">内容</div>` |
-| **对齐与布局属性** | | | |
-| `verticalAlignment` | `"top"` | 垂直对齐方式(top/middle/bottom) | `<div style="verticalAlignment:top">内容</div>` |
-| `spacingRatio` | `"30"` | 元素之间的间距比例 | `<div style="spacingRatio:30">内容</div>` |
-| `keepTogether` | `"true"` | 是否保持元素在一起 | `<div style="keepTogether:true">内容</div>` |
-| `keepWithNext` | `"true"` | 是否与下一个元素保持在一起 | `<div style="keepWithNext:true">内容</div>` |
-| **尺寸属性** | | | |
-| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
-| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
-| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
-| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
-| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
-| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
-| **其他属性** | | | |
-| `angleInRadians` | `"30"` | 旋转角度(弧度) | `<div style="angleInRadians:30">内容</div>` |
-#### 📐 尺寸属性表格（含示例代码）
-
-| 属性 | 示例值 | 说明 | 示例代码 |
-|------|--------|------|----------|
-| `width` | `"300px"` | 元素宽度 | `<div style="width:300px">内容</div>` |
-| `height` | `"300px"` | 元素高度 | `<div style="height:300px">内容</div>` |
-| `maxHeight` | `"300px"` | 元素最大高度 | `<div style="maxHeight:300px">内容</div>` |
-| `minHeight` | `"300px"` | 元素最小高度 | `<div style="minHeight:300px">内容</div>` |
-| `minWidth` | `"300px"` | 元素最小宽度 | `<div style="minWidth:300px">内容</div>` |
-| `maxWidth` | `"300px"` | 元素最大宽度 | `<div style="maxWidth:300px">内容</div>` |
-
-#### 属性样式
-## 🎨 属性样式表格（含示例代码）
-
-| Property | 示例值 | 说明 | 示例代码 |
-|----------|--------|------|----------|
-| **位置与布局** | | | |
-| `relativePosition` | `"30px 30px 30px 30px"` | 相对位置值(左 上 右 下) | `<div style="relativePosition:'30px 30px 30px 30px'">内容</div>` |
-| **字体属性** | | | |
-| `font` | `"HELVETICA"` | 字体类型，参考 JFontEnum | `<span style="font:HELVETICA">文本</span>` |
-| `fontFamilyNames` | `"Helvetica"` | 字体家族名称(逗号分隔) | `<p style="fontFamilyNames:Helvetica,Arial">文本</p>` |
-| `fontColor` | `"red"` | 字体颜色，参考 JColorEnums 类 | `<span style="fontColor:red">红色文本</span>` |
-| `fontSize` | `"34"` | 字体大小 | `<p style="fontSize:34">大号文本</p>` |
-| `fontKerning` | `"yes"` | 字体字距调整设置 | `<p style="fontKerning:yes">调整字距文本</p>` |
-| `fontScript` | `"common"` | 字体脚本类型 | `<p style="fontScript:common">文本</p>` |
-| **文本样式** | | | |
-| `textAlignment` | `"left"` | 文本对齐方式，参考 JTextAlignment | `<div style="textAlignment:left">左对齐文本</div>` |
-| `characterSpacing` | `"30"` | 字符间距 | `<p style="characterSpacing:30">文本</p>` |
-| `wordSpacing` | `"30"` | 单词间距 | `<p style="wordSpacing:30">文本</p>` |
-| `splitCharacters` | `"24"` | 字符间距(同 characterSpacing) | `<p style="splitCharacters:24">文本</p>` |
-| `textRenderingMode` | `"24"` | 文本渲染模式 | `<p style="textRenderingMode:24">文本</p>` |
-| `baseDirection` | `"no_bidi"` | 文本基础方向 | `<p style="baseDirection:no_bidi">文本</p>` |
-| **文本装饰** | | | |
-| `bold` | `"true"` | 文本是否加粗 | `<span style="bold:true">粗体文本</span>` |
-| `italic` | `"true"` | 文本是否斜体 | `<span style="italic:true">斜体文本</span>` |
-| `lineThrough` | `"true"` | 文本是否有删除线 | `<span style="lineThrough:true">删除线文本</span>` |
-| `underline` | `"true"` | 文本是否有下划线 | `<span style="underline:true">下划线文本</span>` |
-| **背景与边框** | | | |
-| `backgroundColor` | `"red"` | 背景颜色，参考 JColorEnums 类 | `<div style="backgroundColor:red">内容</div>` |
-| `backgroundImage` | `"D:/pdf/image.png"` | 背景图片路径 | `<div style="backgroundImage:'D:/pdf/image.png'">内容</div>` |
-| `border` | `"solid 32px red"` | 边框样式(类型 宽度 颜色) | `<div style="border:'solid 32px red'">内容</div>` |
-| `borderTop` | `"solid 32px red"` | 上边框样式 | `<div style="borderTop:'solid 32px red'">内容</div>` |
-| `borderRight` | `"solid 32px red"` | 右边框样式 | `<div style="borderRight:'solid 32px red'">内容</div>` |
-| `borderLeft` | `"solid 32px red"` | 左边框样式 | `<div style="borderLeft:'solid 32px red'">内容</div>` |
-| `borderBottom` | `"solid 32px red"` | 下边框样式 | `<div style="borderBottom:'solid 32px red'">内容</div>` |
-| `borderRadius` | `"32px 24px"` | 边框圆角值 | `<div style="borderRadius:'32px 24px'">内容</div>` |
-| `borderBottomLeftRadius` | `"32px 24px"` | 左下边框圆角 | `<div style="borderBottomLeftRadius:'32px 24px'">内容</div>` |
-| `borderBottomRightRadius` | `"32px 24px"` | 右下边框圆角 | `<div style="borderBottomRightRadius:'32px 24px'">内容</div>` |
-| `borderTopRightRadius` | `"32px 24px"` | 右上边框圆角 | `<div style="borderTopRightRadius:'32px 24px'">内容</div>` |
-| `borderTopLeftRadius` | `"32px 24px"` | 左上边框圆角 | `<div style="borderTopLeftRadius:'32px 24px'">内容</div>` |
-| **效果与描边** | | | |
-| `opacity` | `"0.5"` | 元素透明度 | `<div style="opacity:0.5">半透明内容</div>` |
-| `strokeColor` | `"red"` | 描边颜色 | `<div style="strokeColor:red">内容</div>` |
-| `strokeWidth` | `"24"` | 描边宽度 | `<div style="strokeWidth:24">内容</div>` |
-| **锚点与目标** | | | |
-| `destination` | `"hello"` | 元素目标/锚点名称 | `<div style="destination:hello">内容</div>` |
-
-### 基础图形 API 查询
-
-> 这一节按“一个图形 + 一段 Java 代码”的方式整理，方便快速查找对应 API。完整版本请直接查看对应 demo 类。
-
-#### Area 面积图
-
-预览：![](./images/area.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/area/JQuickAreaTest.java`
+**Test Class:** `com.github.paohaijiao.BarCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 ```java
-JGraphContainer graphContainer = new JGraphContainer();
-graphContainer.setType(JChartType.AREA);
-
-JAreaChartData data = new JAreaChartData();
-data.setWidth(500);
-data.setHeight(400);
-data.setTitle("2024年度销售趋势");
-data.setXAxisTitle("月份");
-data.setYAxisTitle("销售额（万元）");
-data.setShowDataLabels(true);
-data.setSeriesList(Arrays.asList(new JSeriesData("销售额", values)));
-data.setXAxisLabels(labels);
-
 JOption option = new JOption();
-option.setData(data);
-graphContainer.setOption(option);
+option.title().text("销售数据").subtext("2023年度");
+option.tooltip().trigger(JTrigger.axis);
+JCategoryAxis xAxis = new JCategoryAxis();
+xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+option.xAxis(xAxis);
+option.yAxis(new JValueAxis());
+JBar bar = new JBar();
+bar.name("销量").data(5, 20, 36, 10, 10, 20);
+option.series(bar);
+JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
+jBarChartsRenderer.render(option, "D://test//barchart.svg");
+String str = jBarChartsRenderer.renderToString(option);
+System.out.println(str);
 ```
 
-#### Horizontal Bar 横向条形图
+#### 2. Line chart — `images/line_chart.svg`
 
-预览：![](./images/horizontalBar.svg)
+![line_chart](images/line_chart.svg)
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bar/JQuickHorizontalBarChartTest.java`
+**Test Class:** `com.github.paohaijiao.LineCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 ```java
-JGraphContainer graphContainer = new JGraphContainer();
-graphContainer.setType(JChartType.HorizontalBar);
-
-JHorizontalBarChartData chartData = new JHorizontalBarChartData();
-chartData.setTitleText("2024年度销售数据");
-chartData.setWidth(300);
-chartData.setHeight(400);
-chartData.addYAxisLabel("电子产品");
-chartData.addYAxisLabel("服装服饰");
-chartData.addBarData(new JHorizontalBarChartData.BarData("产品A", productAValues, JHorizontalBarChartData.COLOR_A));
-chartData.addBarData(new JHorizontalBarChartData.BarData("产品B", productBValues, JHorizontalBarChartData.COLOR_B));
-
 JOption option = new JOption();
-option.setData(chartData);
-graphContainer.setOption(option);
+option.title().text("销售数据折线图");
+option.tooltip().trigger(JTrigger.axis);
+JCategoryAxis xAxis = new JCategoryAxis();
+xAxis.data("1月", "2月", "3月", "4月", "5月", "6月", "7月");
+option.xAxis(xAxis);
+option.yAxis(new JValueAxis());
+JLine line = new JLine();
+line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
+option.series(line);
+JLineChartsRenderer renderer = new JLineChartsRenderer();
+renderer.render(option, "D://test//line_chart.svg");
 ```
 
-#### Bubble 气泡图
+#### 3. Pie chart — `images/pie-chart.svg`
 
-预览：![](./images/bubble.svg)
+![pie-chart](images/pie-chart.svg)
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bubble/JQuickBubbleTest.java`
+**Test Class:** `com.github.paohaijiao.PieCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 ```java
+JOption option = new JOption();
+option.title().text("销售占比").subtext("2023年度");
+option.tooltip().trigger(JTrigger.item);
+JPie pie = new JPie("销售占比");
+pie.data(
+        new JData().name("衬衫").value(35),
+        new JData().name("羊毛衫").value(20),
+        new JData().name("雪纺衫").value(15),
+        new JData().name("裤子").value(18),
+        new JData().name("高跟鞋").value(8),
+        new JData().name("袜子").value(4)
+);
+option.series(pie);
+JPieChartsRenderer renderer = new JPieChartsRenderer();
+renderer.render(option, "d://test//pie-chart.svg");
+```
+
+#### 4. Radar chart — `images/radar_chart.svg`
+
+![radar_chart](images/radar_chart.svg)
+
+**Test Class:** `com.github.paohaijiao.RadarCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+// 创建图表选项
+JOption option = new JOption();
+option.title().text("雷达图示例")
+        .subtext("预算 vs 开销对比")
+        .left("center")
+        .textStyle(new JTextStyle().color("#333"));
+// 设置提示框
+option.tooltip().trigger(JTrigger.item);
+// 设置雷达图指标
+JRadar radar = new JRadar();
+radar.indicator(
+        new JRadar.Indicator().name("销售").max(6500),
+        new JRadar.Indicator().name("管理").max(16000),
+        new JRadar.Indicator().name("信息技术").max(30000),
+        new JRadar.Indicator().name("客服").max(38000),
+        new JRadar.Indicator().name("研发").max(52000),
+        new JRadar.Indicator().name("市场").max(25000)
+);
+option.radar(radar);
+// 添加雷达图系列数据
+JRadarSeries budgetSeries = new JRadarSeries();
+budgetSeries.name("预算")
+        .type(JSeriesType.radar)
+        .data(4300, 10000, 28000, 35000, 50000, 19000);
+JRadarSeries actualSeries = new JRadarSeries();
+actualSeries.name("实际开销")
+        .type(JSeriesType.radar)
+        .data(5000, 14000, 28000, 31000, 42000, 21000);
+option.series(budgetSeries, actualSeries);
+JRadarChartsRenderer renderer = new JRadarChartsRenderer();
+renderer.render(option, "d://test//radar_chart.svg");
+```
+
+#### 5. Box plot — `images/boxchart.svg`
+
+![boxchart](images/boxchart.svg)
+
+**Test Class:** `com.github.paohaijiao.BoxPlotTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+JOption option = new JOption();
+option.title().text("销售数据分布");
+option.xAxis(new JCategoryAxis().data("一季度", "二季度", "三季度", "四季度"));
+option.series(new JBoxplot().data(
+        new Object[]{10, 15, 20, 25, 30},
+        new Object[]{12, 18, 22, 28, 35},
+        new Object[]{8, 14, 19, 26, 32},
+        new Object[]{11, 16, 21, 27, 33}
+));
+JBoxPlotChartRenderer jBarChartsRenderer = new JBoxPlotChartRenderer();
+jBarChartsRenderer.render(option, "D://test//boxchart.svg");
+```
+
+#### 6. Heat map — `images/heatmap.svg`
+
+![heatmap](images/heatmap.svg)
+
+**Test Class:** `com.github.paohaijiao.HeatMapCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+JOption option = new JOption();
+option.title("2023年月度温度分布热力图");
+option.xAxis(new JCategoryAxis()
+        .data("1月", "2月", "3月", "4月", "5月", "6月",
+                "7月", "8月", "9月", "10月", "11月", "12月"));
+option.yAxis(new JCategoryAxis()
+        .data("凌晨(0-6)", "早晨(6-9)", "上午(9-12)",
+                "中午(12-14)", "下午(14-18)", "晚上(18-24)"));
+JHeatmap heatmap = new JHeatmap();
+heatmap.data(
+        new Object[]{0, 0, -5.2}, new Object[]{0, 1, -3.8}, new Object[]{0, 2, 1.5},
+        new Object[]{0, 3, 4.2}, new Object[]{0, 4, 2.8}, new Object[]{0, 5, -2.1},
+        // ... remaining data points {1,*} to {10,*}
+        new Object[]{11, 0, -2.8}, new Object[]{11, 1, -0.5}, new Object[]{11, 2, 3.5},
+        new Object[]{11, 3, 6.8}, new Object[]{11, 4, 4.2}, new Object[]{11, 5, 0.0}
+);
+option.series(heatmap);
+JHeatMapChartRenderer renderer = new JHeatMapChartRenderer();
+renderer.render(option, "d://test//heatmap.svg");
+```
+
+#### 7. K-line (candlestick) — `images/k_chart.svg`
+
+![k_chart](images/k_chart.svg)
+
+**Test Class:** `com.github.paohaijiao.KCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+JOption option = new JOption();
+option.title().text("股票K线图(含数据)");
+option.tooltip().trigger(JTrigger.axis);
+JCategoryAxis xAxis = new JCategoryAxis();
+xAxis.data("01/01", "01/02", "01/03", "01/04", "01/05",
+        "01/06", "01/07", "01/08", "01/09", "01/10");
+option.xAxis(xAxis);
+option.yAxis(new JValueAxis());
+JCandlestick candlestick = new JCandlestick();
+candlestick.name("股价")
+        .data(
+                new Object[]{105.2, 108.5, 104.8, 109.1},
+                new Object[]{108.6, 107.8, 106.5, 109.5},
+                new Object[]{107.9, 105.3, 104.2, 108.0},
+                new Object[]{105.4, 106.1, 104.5, 107.2},
+                new Object[]{106.2, 104.8, 103.0, 107.5},
+                // ... remaining candles
+                new Object[]{110.4, 112.1, 109.5, 112.8}
+        );
+option.series(candlestick);
+JKChartsRenderer renderer = new JKChartsRenderer();
+renderer.render(option, "d://test//k_chart.svg");
+```
+
+#### 8. Scatter — `images/scatter.svg`
+
+![scatter](images/scatter.svg)
+
+**Test Class:** `com.github.paohaijiao.ScatterCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+JData[] data = new JData[]{
+        new JData().value(new Double[]{10.0, 8.04}),
+        new JData().value(new Double[]{8.07, 6.95}),
+        new JData().value(new Double[]{13.0, 7.58}),
+        new JData().value(new Double[]{9.05, 8.81}),
+        // ... remaining points
+        new JData().value(new Double[]{7.08, 5.82}),
+        new JData().value(new Double[]{5.02, 5.68})
+};
+JOption option = new JOption();
+option.title().text("散点图示例");
+option.tooltip().trigger(JTrigger.axis);
+option.xAxis(new JValueAxis().scale(true));
+option.yAxis(new JValueAxis().scale(true));
+JScatter scatter = new JScatter();
+scatter.symbolSize(20)
+        .data(data);
+option.series(scatter);
+JScatterChartsRenderer renderer = new JScatterChartsRenderer();
+renderer.render(option, "d://test//scatter.svg");
+```
+
+#### 9. Bubble — `images/bubble.svg`
+
+![bubble](images/bubble.svg)
+
+**Test Class:** `com.github.paohaijiao.BubbleTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+JTitle title = new JTitle();
+title.setText("空气质量指数 (AQI) 监测气泡图");
+title.setSubtext("图表说明：本气泡图展示了空气质量指数(AQI)的时间变化趋势。X轴表示日期，Y轴表示AQI数值，气泡大小反映PM2.5浓度，气泡颜色表示AQI等级。");
 JOption option = new JOption()
+        .title(title)
         .legend("优", "良", "轻度污染", "中度污染", "重度污染")
         .xAxis(new CategoryAxis().name("日期"))
         .yAxis(new ValueAxis().name("AQI数值"));
-
 ScatterSeries series = new ScatterSeries("空气质量监测");
-series.data(seriesData.toArray());
+List<Map<String, Object>> data = new ArrayList<>();
+Random random = new Random(42); // 固定种子以便重现
+String[] dates = {"01-01", "01-02", "01-03", "01-04", "01-05", "01-06", "01-07", "01-08", "01-09", "01-10", "01-11", "01-12", "01-13", "01-14", "01-15"};
+for (int i = 0; i < dates.length; i++) {
+    int aqi = 20 + random.nextInt(180); // AQI 20-200
+    double pm25 = 10 + random.nextDouble() * 150; // PM2.5 10-160
+    String category;
+    if (aqi <= 50) category = "优";
+    else if (aqi <= 100) category = "良";
+    else if (aqi <= 150) category = "轻度污染";
+    else if (aqi <= 200) category = "中度污染";
+    else category = "重度污染";
+    String name = String.format("日期:%s, AQI:%d, PM2.5:%.1f", dates[i], aqi, pm25);
+    Map<String, Object> dataPoint = new HashMap<>();
+    dataPoint.put("x", dates[i]);
+    dataPoint.put("y", aqi);
+    dataPoint.put("size", pm25);
+    dataPoint.put("category", category);
+    dataPoint.put("name", name);
+    data.add(dataPoint);
+}
+series.data(data.toArray());
 option.series(series);
-
-JGraphContainer graphContainer = new JGraphContainer();
-graphContainer.setType(JChartType.Bubble);
-graphContainer.setOption(option);
+JBubbleChartRenderer renderer = new JBubbleChartRenderer();
+renderer.render(option, "d://test//bubble.svg");
 ```
 
-#### Funnel 漏斗图
+#### 10. Funnel — `images/funnel.svg`
 
-预览：![](./images/funnel.svg)
+![funnel](images/funnel.svg)
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/funnel/JQuickFunnelTest.java`
+**Test Class:** `com.github.paohaijiao.FunelTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 ```java
-JGraphContainer graphContainer = new JGraphContainer();
-graphContainer.setType(JChartType.Funnel);
-
-JFunnelOption option = JFunnelOption.createDefaultFunnel()
+JFunnelOption option = JFunnelOption.createDefaultFunnel();
+JFunnelOption customOption = option
         .title(new Title().text("销售漏斗").subtext("2024年数据"))
-        .funnel(new Funnel().width(600).topY(80).bottomY(200).gap(2))
+        .funnel(new Funnel()
+                .width(600)
+                .topY(80)
+                .bottomY(200)
+                .gap(2)
+                .borderColor(Color.GRAY)
+        )
         .series(Collections.singletonList(
-                new Series().name("sales").type("funnel").data(Arrays.asList(
-                        new DataItem("展现", 10000),
-                        new DataItem("点击", 5000),
-                        new DataItem("咨询", 2000),
-                        new DataItem("订单", 500)
-                ))));
-
+                new Series()
+                        .name("sales")
+                        .type("funnel")
+                        .data(Arrays.asList(
+                                new DataItem("展现", 10000),
+                                new DataItem("点击", 5000),
+                                new DataItem("咨询", 2000),
+                                new DataItem("订单", 500)
+                        ))
+        ))
+        .colors(
+                new Color(12, 168, 223),
+                new Color(255, 153, 77),
+                new Color(80, 112, 221),
+                new Color(182, 214, 52)
+        );
+JFunnelChartRenderer renderer = new JFunnelChartRenderer();
 JOption jOption = new JOption();
-jOption.setFunnelOption(option);
-graphContainer.setOption(jOption);
+jOption.setFunnelOption(customOption);
+renderer.render(jOption, "d://test/funnel.svg");
 ```
 
-#### Calendar 日历图
+#### 11. Gauge — `images/gauge.svg`
 
-预览：![](./images/calendar.svg)
+![gauge](images/gauge.svg)
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/calendar/JQuickCalendarTest.java`
+**Test Class:** `com.github.paohaijiao.JGaugeTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+// 创建配置
+GuageConfig scoreConfig = GuageConfig.builder()
+        .score(75)  // 设置分数为75
+        .pointerColor(new Color(220, 80, 80))  // 红色指针
+        .backgroundColor(new Color(240, 240, 245))  // 浅灰色背景
+        .title("PERFORMANCE")
+        .build();
+JGuageOption option = JGuageOption.builder().scoreMeter(scoreConfig).build();
+JGuageRenderer renderer = new JGuageRenderer();
+JOption option1 = new JOption();
+option1.setGuageOption(option);
+renderer.render(option1, "d://test//gauge.svg");
+```
+
+#### 12. Gantt — `images/gantt.svg`
+
+![gantt](images/gantt.svg)
+
+**Test Class:** `com.github.paohaijiao.JGanttTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+JGanttOption option = new JGanttOption();
+option.setTitle(new JGanttOption.Title("Gantt of Airport Flight", "航班调度甘特图"));
+option.setFlightData(Arrays.asList(
+        new JGanttOption.FlightData("Y3683", "681", "X", 21, 0, 360, 0, 0.7),
+        new JGanttOption.FlightData("EKXAD", "682I", "W", 21, 0, 360, 1, 0.7),
+        new JGanttOption.FlightData("Y4682", "682O", "W", 21, 0, 360, 2, 0.7),
+        new JGanttOption.FlightData("Y4393", "682", "X", 21, 0, 360, 3, 0.7),
+        new JGanttOption.FlightData("Y2238", "683", "X", 21, 0, 360, 4, 0.7),
+        // ... remaining flights
+        new JGanttOption.FlightData("Y7421", "691", "X", 21, 0, 120, 8, 0.7),
+        new JGanttOption.FlightData("Y4619", "692", "X", 21, 0, 300, 9, 0.7)
+));
+option.setChartStyle(new JGanttOption.ChartStyle(
+        Color.WHITE,
+        new Color(146, 154, 186),
+        new Color(54, 140, 108),
+        new Color(80, 112, 221),
+        new Color(221, 179, 11),
+        new Font("微软雅黑", Font.BOLD, 18),
+        new Font("微软雅黑", Font.PLAIN, 12),
+        872,
+        282
+));
+option.setTimeRange(new JGanttOption.TimeRange(21, 3, new String[]{"21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00"}));
+JChartRenderer renderer = new JGanttChartRenderer();
+JOption jOption = new JOption();
+jOption.setGanttOption(option);
+renderer.render(jOption, "d://test//gantt.svg");
+```
+
+#### 13. Calendar — `images/calendar.svg`
+
+![calendar](images/calendar.svg)
+
+**Test Class:** `com.github.paohaijiao.CalendarTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 ```java
 Map<LocalDate, Integer> data = new HashMap<>();
-JCalendarOption calendarOption = new JCalendarOption(
-        "2024年活动日历",
-        "类似GitHub贡献图",
-        2024,
-        data,
+LocalDate startDate = LocalDate.of(2024, 1, 1);
+for (int i = 0; i < 365; i++) {
+    LocalDate date = startDate.plusDays(i);
+    int value = (int) (Math.random() * 15);
+    data.put(date, value);
+}
+JOption option = new JOption();
+JCalendarOption calendarOption = new JCalendarOption("2024年活动日历", "类似GitHub贡献图", 2024, data,
         new Color(235, 237, 240),
         new Color(32, 125, 222),
         new Color(232, 235, 240),
@@ -479,332 +593,191 @@ JCalendarOption calendarOption = new JCalendarOption(
         20,
         80
 );
-
-JOption option = new JOption();
 option.setJCalendarOption(calendarOption);
+JChartRenderer renderer = new JCalendarChartRenderer();
+renderer.render(option, "d://test//calendar.svg");
+String svgContent = renderer.renderToString(option);
+System.out.println("SVG内容长度: " + svgContent.length());
 ```
 
-#### Geo / Map 地图
+#### 14. Lunar calendar — `images/lunar.svg`
 
-预览：![](./images/geo.svg)
+![lunar](images/lunar.svg)
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/geo/JGeoTest.java`
-
-```java
-String geoJsonContent = readFromClasspath("sample/test.geojson");
-GeoOption geoOption = new GeoOption();
-geoOption.setGeoJsonContent(geoJsonContent);
-
-JOption option = new JOption();
-option.setGeoOption(geoOption);
-
-JGraphContainer graphContainer = new JGraphContainer();
-graphContainer.setType(JChartType.Geo);
-graphContainer.setOption(option);
-```
-
-#### Double Radar 双雷达图
-
-预览：![](./images/twoRadar.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/radar/JQuickTwoRadarTest.java`
+**Test Class:** `com.github.paohaijiao.LunarTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 ```java
-JGraphContainer graphContainer = new JGraphContainer();
-graphContainer.setType(JChartType.DoubleRadar);
-
-JDoubleRadarChartData chartData = new JDoubleRadarChartData();
-chartData.setWidth(1000);
-chartData.setHeight(600);
-chartData.setTitleText("多维度数据对比雷达图");
-chartData.setDimensions(Arrays.asList("维度A", "维度B", "维度C", "维度D", "维度E"));
-chartData.setLeftTitle("实验组数据");
-chartData.setRightTitle("对照组数据");
-chartData.setLeftRadar(leftRadar);
-chartData.setRightRadar(rightRadar);
-
-JOption option = new JOption();
-option.setData(chartData);
-graphContainer.setOption(option);
-```
-
-#### Circle / Donut 环形图
-
-预览：![](./images/pie-chart.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/circle/JQuickCircleTest.java`
-
-```java
-JGraphContainer graphContainer = new JGraphContainer();
-graphContainer.setType(JChartType.Circle);
-
-JCircleChartData chartData = new JCircleChartData();
-chartData.setWidth(500);
-chartData.setHeight(400);
-chartData.setTitleText("2024年度销售分布");
-chartData.setCenterTitle("总销售额");
-chartData.setCenterUnit("万");
-chartData.setSectorDataList(sectors);
-
-JOption option = new JOption();
-option.setData(chartData);
-graphContainer.setOption(option);
-```
-
-#### Gauge 仪表盘
-
-预览：![](./images/gauge.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/guage/JQuickGuageTest.java`
-
-```java
-GuageConfig scoreConfig = GuageConfig.builder()
-        .score(75)
-        .pointerColor(new Color(220, 80, 80))
-        .backgroundColor(new Color(240, 240, 245))
-        .title("PERFORMANCE")
-        .build();
-
-JGuageOption option = JGuageOption.builder().scoreMeter(scoreConfig).build();
-JOption jOption = new JOption();
-jOption.setGuageOption(option);
-```
-
-#### Gantt 甘特图
-
-预览：![](./images/gantt.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/gantt/JGanttTest.java`
-
-```java
-JGanttOption option = new JGanttOption();
-option.setTitle(new JGanttOption.Title("Gantt of Airport Flight", "航班调度甘特图"));
-option.setFlightData(Arrays.asList(
-        new JGanttOption.FlightData("Y3683", "681", "X", 21, 0, 360, 0, 0.7),
-        new JGanttOption.FlightData("EKXAD", "682I", "W", 21, 0, 360, 1, 0.7)
-));
-option.setTimeRange(new JGanttOption.TimeRange(21, 3, new String[]{"21:00", "22:00", "23:00", "00:00"}));
-
-JOption jOption = new JOption();
-jOption.setGanttOption(option);
-```
-
-#### Matrix 矩阵图
-
-预览：![](./images/Matrix.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/matrix/JQuickMatrixTest.java`
-
-```java
-double[][] correlationData = new double[][] {
-        {1.00, -0.20, 0.03},
-        {-0.20, 1.00, 0.36},
-        {0.03, 0.36, 1.00}
-};
-String[] dimensions = {"销售额", "广告费", "促销费"};
-
-JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
-        .title("销售因素相关系数矩阵", "各因素之间的相关性分析")
-        .dataset(correlationData)
-        .build();
-option.dataset().dimensions(dimensions);
-
-JOption jOption = new JOption();
-jOption.setCorrelationMatrixOption(option);
-```
-
-#### Line Bar 折线柱状组合图
-
-预览：![](./images/linebar.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/linebar/JQuickLineBarTest.java`
-
-```java
-JComboLineBarChartData data = JComboLineBarChartData.builder()
-        .width(1000)
-        .height(600)
-        .title("2024年上半年销售分析", "半年度数据报告")
-        .barData(sales)
-        .lineData(profits)
-        .xAxisLabels(months)
-        .leftAxisTitle("销售额（万元）")
-        .rightAxisTitle("利润率（%）")
-        .build();
-
-JOption option = new JOption();
-option.setData(data);
-```
-
-#### Multiple Line 多折线图
-
-预览：![](./images/multipleLine.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/linebar/JQuickMutipleLineTest.java`
-
-```java
-JMultiLineChartData chartData = new JMultiLineChartData();
-chartData.setXAxisLabels(months);
-chartData.setWidth(900);
-chartData.setHeight(600);
-chartData.setTitleText("2024年度产品销售趋势分析");
-chartData.setYAxisTitle("销售额（万元）");
-chartData.setLineDataList(Arrays.asList(lineA, lineB, lineC, lineD));
-chartData.updateMaxValues();
-
-JOption option = new JOption();
-option.setData(chartData);
-```
-
-#### Timeline 时间线
-
-预览：![](./images/timeline.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/other/JQuickTimeLineTest.java`
-
-```java
-JTimeLineData data = new JTimeLineData();
-data.setNodes(nodes);
-data.setMainTitle("MILESTONE TIMELINE");
-data.setSubtitle("2021-2023 关键里程碑节点");
-data.setFooterText("数据来源：年度报告 | 更新日期：2024年1月");
-data.setHeight(1300);
-data.setBoxWidth(200);
-data.setBoxHeight(90);
-
-JOption option = new JOption();
-option.setData(data);
-```
-
-#### Advanced Topology 高级拓扑图
-
-预览：![](./images/advance_topology.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/advance/JQuickAdvanceToplogyTest.java`
-
-```java
-JAdvancedTopologyData data = new JAdvancedTopologyData();
-data.setTitleText("微服务架构拓扑图");
-data.setSubtitleText("服务调用链路图");
-data.setWidth(1200);
-data.setHeight(800);
-data.setAutoLayout(true);
-data.setCurvedLinks(true);
-data.setShowDataFlow(true);
-
-data.getNodes().add(gateway);
-data.getLinks().add(link);
-
-JOption option = new JOption();
-option.setData(data);
-```
-
-#### Multiple Bar 多柱状图
-
-预览：![](./images/fourBar.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bar/JQuickMutipleBarTest.java`
-
-```java
-JGraphContainer graphContainer = new JGraphContainer();
-graphContainer.setType(JChartType.MultipleBar);
-
-JMultiBarChartData regionalData = new JMultiBarChartData();
-regionalData.setTitleText("2024年上半年各区域业绩对比（万元）");
-regionalData.setXAxisLabels(Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月"));
-regionalData.setXAxisTitle("月份");
-regionalData.setYAxisTitle("业绩（万元）");
-regionalData.setBarDataList(Arrays.asList(eastChina, southChina, northChina, westChina));
-
-JOption option = new JOption();
-option.setData(regionalData);
-```
-
-#### Multiple Horizontal Bar 多横向条形图
-
-预览：![](./images/horizontalBar.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bar/JQuickMutipleHorizontalBarChartTest.java`
-
-```java
-JHorizontalMultiBarChartData chartData = new JHorizontalMultiBarChartData();
-chartData.setTitleText("2024年度各产品销售数据");
-chartData.setXAxisTitle("销售额（万元）");
-chartData.setShowDataLabels(true);
-chartData.setLegendAtTop(true);
-chartData.addCategory("智能手机");
-chartData.addCategory("笔记本电脑");
-chartData.addSeries("品牌 A", productAValues, new Color(52, 73, 94));
-chartData.addSeries("品牌 B", productBValues, new Color(41, 128, 185));
-chartData.addSeries("品牌 C", productCValues, new Color(26, 188, 156));
-
-JOption option = new JOption();
-option.setData(chartData);
-```
-
-#### Line Radar 折线散点图
-
-预览：![](./images/lineRadar.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/bar/JQuickLineRadarChartTest.java`
-
-```java
-JLineScatterChartData data = new JLineScatterChartData();
-data.setTitleText("计划销售额 vs 实际完成额");
-data.setCategories(categories);
-data.setLineValues(lineValues);
-data.setScatterValues(scatterValues);
-data.setLineSeriesName("计划销售额");
-data.setScatterSeriesName("实际完成额");
-data.setMaxValue(500);
-data.setShowDataLabels(true);
-
-JOption option = new JOption();
-option.setData(data);
-```
-
-#### Lunar 农历日历图
-
-预览：![](./images/calendar.svg)
-
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/lunar/JQuickLunarTest.java`
-
-```java
+private static java.util.List<LunarCalendarOption.DayData> createDefaultDayData() {
+    java.util.List<LunarCalendarOption.DayData> defaultData = new ArrayList<>();
+    defaultData.add(new LunarCalendarOption.DayData(1, "初四", 0, 0));
+    defaultData.add(new LunarCalendarOption.DayData(2, "初五", 0, 1));
+    defaultData.add(new LunarCalendarOption.DayData(3, "初六", 0, 2));
+    // ... remaining day cells of the month
+    defaultData.add(new LunarCalendarOption.DayData(31, "初四", 4, 2));
+    return defaultData;
+}
+
+private static java.util.List<LunarCalendarOption.SpecialDay> createDefaultSpecialDays() {
+    java.util.List<LunarCalendarOption.SpecialDay> specialDays = new ArrayList<>();
+    specialDays.add(new LunarCalendarOption.SpecialDay("春分", 0, 6));
+    specialDays.add(new LunarCalendarOption.SpecialDay("清明", 3, 0));
+    return specialDays;
+}
+
+// test method body
 LunarCalendarOption.CalendarDataConfig dataConfig = new LunarCalendarOption.CalendarDataConfig()
         .setDayDataList(createDefaultDayData())
         .setSpecialDays(createDefaultSpecialDays())
         .setWeekDays(new String[]{"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"})
         .setRows(5)
         .setCols(7);
-
+LunarCalendarOption.ColorConfig colorConfig = new LunarCalendarOption.ColorConfig()
+        .setBackgroundColor(null)
+        .setSpecialDayColor(new Color(0, 100, 0));
+JTitle title = new JTitle();
+title.setText("2024年3月日历");
 LunarCalendarOption option = LunarCalendarOption.of("2024", "三月", colorConfig, title, dataConfig);
+JLunarCalendarRenderer renderer = new JLunarCalendarRenderer();
+renderer.render(option, "d://test//lunar.svg");
 ```
 
-#### Tree 树图
+#### 15. Word cloud — `images/wordcloud.svg`
 
-预览：![](./images/tree.svg)
+![wordcloud](images/wordcloud.svg)
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/other/JQuickTreeTest.java`
+**Test Class:** `com.github.paohaijiao.WordsCloudTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 ```java
-JTreeChartData data = new JTreeChartData();
-data.setWidth(1100);
-data.setHeight(750);
-data.setTitleText("XX集团组织架构图");
-data.setRootNodeWidth(240);
-data.setLevelNodeWidth(190);
-data.setHorizontalSpacing(70);
-data.setVerticalSpacing(60);
-data.setRootNode(root);
-
-JOption option = new JOption();
-option.setData(data);
+JOption option = new JOption()
+.title(new JTitle().text("热门编程语言"))
+.series(Arrays.asList(
+   new JWordCloudSeries("语言热度")
+       .data(Arrays.asList(
+           new JData("Java", 100),
+           new JData("Python", 85),
+           new JData("JavaScript", 75),
+           new JData("C++", 60),
+           new JData("Go", 50),
+           new JData("Rust", 45),
+           new JData("Kotlin", 40),
+           new JData("Swift", 35),
+           new JData("TypeScript", 30),
+           new JData("Scala", 25)
+   ))
+.minFontSize(20)
+.maxFontSize(60)
+.gridSize(10)
+.rotationStep(15)
+.rotationRange(90)
+.textStyle(new JItemStyle().color(Color.BLUE))
+));
+JWordCloudRenderer renderer = new JWordCloudRenderer();
+renderer.render(option, "d://test//wordcloud.svg");
 ```
 
-#### TreeMap 矩形树图
+#### 16. Geo map — `images/geo.svg`
 
-预览：![](./images/treemap.svg)
+![geo](images/geo.svg)
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/other/JQuickTreeMapTest.java`
+**Test Class:** `com.github.paohaijiao.GeoTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+private static String readFile(String filePath) throws IOException {
+    StringBuilder content = new StringBuilder();
+    try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        String line;
+        while ((line = br.readLine()) != null) {
+            content.append(line).append("\n");
+        }
+    }
+    return content.toString();
+}
+
+// test method body
+String geoJsonContent = readFile("d://sample//test.geojson");
+GeoOption option = new GeoOption();
+option.setGeoJsonContent(geoJsonContent);
+JGeoJsonRenderer renderer = new JGeoJsonRenderer();
+JOption jOption = new JOption();
+jOption.setGeoOption(option);
+renderer.render(jOption, "d://test/geo.svg");
+```
+
+#### 17. Relation graph — `images/relation_chart.svg`
+
+![relation_chart](images/relation_chart.svg)
+
+**Test Class:** `com.github.paohaijiao.RelationTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+JGsonOption option = new JGsonOption();
+option.title("Relationship Chart Test");
+// 创建图系列
+JGraph graph = new JGraph();
+graph.name("关系图");
+graph.layout(JLayout.force); // 使用力导向布局
+graph.force().repulsion(100); // 设置排斥力
+graph.draggable(true); // 节点可拖动
+// 添加节点 - 修正了ID问题
+List<JNode> nodes = new ArrayList<>();
+nodes.add(new JNode("1", "Node A").symbolSize(30).category(0));//id 1
+nodes.add(new JNode("2", "Node B").symbolSize(25).category(1));
+nodes.add(new JNode("3", "Node C").symbolSize(20).category(2));
+nodes.add(new JNode("4", "Node D").symbolSize(15).category(0));
+nodes.add(new JNode("5", "Node E").symbolSize(35).category(1));
+nodes.add(new JNode("6", "Node F").symbolSize(20).category(3));
+nodes.add(new JNode("7", "Node G").symbolSize(25).category(2));
+nodes.add(new JNode("8", "Node H").symbolSize(15).category(4));
+nodes.add(new JNode("9", "Node I").symbolSize(30).category(3));
+nodes.add(new JNode("10", "Node J").symbolSize(20).category(0));
+graph.setData(nodes);
+// ... links (14 JLink entries) and categories (5 JCategory entries)
+option.series(graph);
+option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
+JRelationChartRenderer renderer = new JRelationChartRenderer();
+renderer.render(option, "d://test//relation_chart.svg");
+```
+
+#### 18. Sunburst — `images/sunburst.svg`
+
+![sunburst](images/sunburst.svg)
+
+**Test Class:** `com.github.paohaijiao.SunBirdTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+```java
+JOption option = new JOption();
+// 设置标题
+JTitle title = new JTitle();
+title.setText("咖啡风味分析");
+option.setTitle(title);
+JSunburstData root = new JSunburstData("总数据", 1.0);
+JSunburstData main1 = new JSunburstData("电子产品", 0.4);
+JSunburstData main2 = new JSunburstData("服装", 0.3);
+JSunburstData main3 = new JSunburstData("食品", 0.3);
+// 第二层：子分类
+JSunburstData main1Sub1 = new JSunburstData("手机", 0.6);
+JSunburstData main1Sub2 = new JSunburstData("电脑", 0.4);
+JSunburstData main2Sub1 = new JSunburstData("男装", 0.5);
+JSunburstData main2Sub2 = new JSunburstData("女装", 0.5);
+JSunburstData main3Sub1 = new JSunburstData("生鲜", 0.4);
+JSunburstData main3Sub2 = new JSunburstData("零食", 0.6);
+// 第三层：孙分类
+main1Sub1.addChild(new JSunburstData("智能手机", 0.7));
+main1Sub1.addChild(new JSunburstData("功能手机", 0.3));
+// ... remaining addChild calls
+root.addChild(main1);
+root.addChild(main2);
+root.addChild(main3);
+option.setSunburstData(root);
+JSunburstChart chart = new JSunburstChart();
+chart.render(option, "d://test//sunburst.svg");
+```
+
+#### 19. Treemap — `images/treemap.svg`
+
+![treemap](images/treemap.svg)
+
+**Test Class:** `com.github.paohaijiao.JTreemapRendererExample` (module `jquick-pdf-svg`) | **Method:** `main(String[])` — no `@Test`, `TreemapTest` is fully commented out
 
 ```java
 JTreeMapNode root = createTestData();
@@ -813,628 +786,1075 @@ treemapOption.setRoot(root);
 treemapOption.setDepartmentColors(DEPARTMENT_COLORS);
 treemapOption.setCategoryColors(CATEGORY_COLORS);
 treemapOption.getDepartmentRules().add(new TreeMapMapping("开发", "技术部"));
-
-graphContainer.setType(JChartType.TreeMap);
+// ... remaining TreeMapMapping rules
 JOption option = new JOption();
 option.setTreemapOption(treemapOption);
+option.title("公司业务分布矩形树图（JTreemapRenderer）");
+JTreeMapRenderer renderer = new JTreeMapRenderer();
+String outputPath = "d://test//treemap.svg";
+renderer.render(option, outputPath);
+System.out.println("JTreemapRenderer 树形图生成成功！");
 ```
 
-#### Sunburst 旭日图
 
-预览：![](./images/sunburst.svg)
+#### 20. Correlation matrix — `images/Matrix.svg`
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/sunburd/JQuickSunburdTest.java`
+![Matrix](images/Matrix.svg)
+
+**Test Class:** `com.github.paohaijiao.JCollectionMatrixTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 ```java
-JSunburstData root = new JSunburstData("总数据", 1.0);
-JSunburstData main1 = new JSunburstData("电子产品", 0.4);
-main1.addChild(new JSunburstData("手机", 0.6));
-main1.addChild(new JSunburstData("电脑", 0.4));
-root.addChild(main1);
+double[][] correlationData = {
+        {1.00, -0.20, 0.03, -0.62, -0.54, -0.21, 0.63, 0.30},
+        {-0.20, 1.00, 0.36, -0.61, -0.26, 0.05, 0.16, 0.41},
+        {0.03, 0.36, 1.00, -0.74, -0.94, 0.71, -0.90, -0.66},
+        {-0.62, -0.61, -0.74, 1.00, 0.37, -0.66, 0.54, -0.66},
+        {-0.54, -0.26, -0.94, 0.37, 1.00, -0.05, -0.46, 0.71},
+        {-0.21, 0.05, 0.71, -0.66, -0.05, 1.00, -0.84, -0.40},
+        {0.63, 0.16, -0.90, 0.54, -0.46, -0.84, 1.00, -0.55},
+        {0.30, 0.41, -0.66, -0.66, 0.71, -0.40, -0.55, 1.00}
+};
+String[] dimensions = {"销售额", "广告费", "促销费", "竞品价", "季节指数", "GDP", "人口", "天气"};
+JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
+        .title("销售因素相关系数矩阵", "各因素之间的相关性分析")
+        .dataset(correlationData)
+        .build();
+option.dataset().dimensions(dimensions);
+JOption jOption = new JOption();
+jOption.setCorrelationMatrixOption(option);
+JCorrelationMatrixRenderer renderer = new JCorrelationMatrixRenderer();
+renderer.render(jOption, "d://test//Matrix.svg");
+```
 
+#### 21. Stacked area — `images/area.svg`
+
+![area](images/area.svg)
+
+**Test Class:** `com.github.paohaijiao.JAreaChartTest` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+```java
+List<Double> values = Arrays.asList(85.0, 120.0, 150.0, 210.0, 280.0, 350.0, 420.0, 400.0, 380.0, 450.0, 480.0, 520.0);
+List<String> labels = Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+JAreaChartData config = new JAreaChartData();
+config.setWidth(800);
+config.setHeight(500);
+config.setTitle("2024年度销售趋势");
+config.setSubtitle("数据来源：销售系统");
+config.setXAxisTitle("月份");
+config.setYAxisTitle("销售额（万元）");
+config.setLegendText("销售额");
+config.setShowDataLabels(true);
+config.setSeriesList(Arrays.asList(new JSeriesData("销售额", values)));
+config.setXAxisLabels(labels);
+config.setTheme(JTheme.DEFAULT);      // 默认主题
 JOption option = new JOption();
-option.setSunburstData(root);
+option.setData(config);
+JAreaChartRenderer renderer = new JAreaChartRenderer();
+renderer.render(option, "d://test//area.svg");
 ```
 
-#### Credit Report 综合示例
+#### 22. Line + bar combo — `images/linebar.svg`
 
-预览：当前仓库 `images/` 目录暂无企业信用报告整页效果图，现有视觉参考请见信用报告章节中的模板骨架与 SVG 图表预览。
+![linebar](images/linebar.svg)
 
-Demo：`jquick-pdfx/src/test/java/com/github/paohaijiao/demo/creditreport/JQuickCreditReportTest.java`
+**Test Class:** `com.github.paohaijiao.CombolTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+Note the file was renamed on import: the test writes `d://test/custom_chart.svg`, the preview is stored as `images/linebar.svg`.
 
 ```java
-JReader htmlReader = new JReSourceFileReader("html.txt");
-JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
-JPdfConfig config = new JPdfConfig();
-JTemplateConfig templateConfig = config.getTemplateConfig();
-templateConfig.put("html", htmlAdaptor.getRuleContent());
-config.setTemplateConfig(templateConfig);
+JOption jOption = new JOption();
+List<Double> sales = Arrays.asList(120.0, 135.0, 148.0, 162.0, 175.0, 190.0);
+List<Double> profits = Arrays.asList(15.0, 16.5, 18.0, 19.2, 21.0, 22.5);
+List<String> months = Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月");
+JComboLineBarChartData config = JComboLineBarChartData.builder()
+        .width(1000)
+        .height(600)
+        .title("2024年上半年销售分析", "半年度数据报告")
+        .barData(sales)
+        .lineData(profits)
+        .xAxisLabels(months)
+        .barColor(new Color(46, 204, 113))      // 绿色条形
+        .lineColor(new Color(155, 89, 182))     // 紫色折线
+        .leftAxisTitle("销售额（万元）")
+        .rightAxisTitle("利润率（%）")
+        .barLegendText("月销售额")
+        .lineLegendText("利润率")
+        .footerText("数据来源：财务系统")
+        .build();
+JComboLineBarChartRenderer customRenderer = new JComboLineBarChartRenderer();
+jOption.setData(config);
+customRenderer.render(jOption, "d://test/custom_chart.svg");
+```
 
-JReader svgReader = new JReSourceFileReader("radar.txt");
+#### 23. Multi line — `images/multipleLine.svg`
+
+![multipleLine](images/multipleLine.svg)
+
+**Test Class:** `com.github.paohaijiao.MutipleLineChartTest` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+```java
+List<String> months = Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+List<Double> productA = Arrays.asList(120.0, 135.0, 148.0, 162.0, 175.0, 190.0, 205.0, 218.0, 230.0, 245.0, 258.0, 270.0);
+List<Double> productB = Arrays.asList(95.0, 108.0, 112.0, 130.0, 125.0, 145.0, 150.0, 168.0, 172.0, 185.0, 190.0, 200.0);
+List<Double> productC = Arrays.asList(80.0, 82.0, 85.0, 88.0, 90.0, 92.0, 95.0, 98.0, 100.0, 102.0, 105.0, 108.0);
+List<Double> productD = Arrays.asList(45.0, 58.0, 72.0, 89.0, 105.0, 128.0, 150.0, 175.0, 198.0, 225.0, 248.0, 275.0);
+JMultiLineChartData chartData = new JMultiLineChartData();
+chartData.setXAxisLabels(months);
+chartData.setWidth(900);
+chartData.setHeight(600);
+chartData.setTitleText("2024年度产品销售趋势分析");
+chartData.setSubtitleText("各产品线月度销售额对比（单位：万元）");
+chartData.setYAxisTitle("销售额（万元）");
+chartData.setFooterText("数据来源：销售系统报表 | 统计时间：2024年1月-12月");
+chartData.setGridCount(6);
+chartData.setShowDataLabels(false);
+chartData.setShowInnerPoint(true);
+chartData.setPointRadius(5);
+chartData.setInnerPointRadius(2);
+chartData.setChartAreaColor(new Color(248, 249, 250));
+chartData.setAxisColor(Color.BLACK);
+chartData.setGridColor(new Color(220, 220, 220));
+chartData.setTextColor(Color.BLACK);
+chartData.setFooterColor(new Color(128, 128, 128));
+chartData.setValueWithPercent(false);
+chartData.setAutoCalculateMax(true);
+chartData.setRotateXAxisLabels(false);
+JMultiLineChartData.LineData lineA = new JMultiLineChartData.LineData();
+lineA.setName("产品A");
+lineA.setLegendText("产品A - 高端系列");
+lineA.setValues(productA);
+lineA.setLineColor(new Color(66, 133, 244));
+lineA.setLineWidth(2.5f);
+// ... lineB / lineC / lineD, same shape (产品B 中端系列, 产品C 入门系列, 产品D 创新系列)
+chartData.setLineDataList(Arrays.asList(lineA, lineB, lineC, lineD));
+chartData.updateMaxValues();
+JOption option = new JOption();
+JTitle title = new JTitle();
+title.setText("2024年度产品销售趋势分析");
+title.setSubtext("各产品线月度销售额对比");
+option.setTitle(title);
+option.setData(chartData);
+JMultiLineChartRenderer renderer = new JMultiLineChartRenderer();
+renderer.render(option, "d://test//multiple-line.svg");
+```
+
+#### 24. Multi bar — `images/fourBar.svg`
+
+![fourBar](images/fourBar.svg)
+
+**Test Class:** `com.github.paohaijiao.MutipleBarChartTest` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar5()`
+
+```java
+JMultiBarChartData regionalData = new JMultiBarChartData();
+regionalData.setTitleText("2024年上半年各区域业绩对比（万元）");
+regionalData.setSubtitleText("华东、华南、华北、西部四区表现");
+regionalData.setXAxisLabels(Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月"));
+regionalData.setXAxisTitle("月份");
+regionalData.setYAxisTitle("业绩（万元）");
+// 华东区域
+JMultiBarChartData.BarData eastChina = new JMultiBarChartData.BarData();
+eastChina.setLegendText("华东");
+eastChina.setBarColor(JMultiBarChartRenderer.COLOR_A);
+eastChina.setValues(Arrays.asList(120.5, 135.2, 148.0, 162.5, 175.3, 190.8));
+// ... southChina / northChina / westChina, same shape (华南/华北/西部, COLOR_B / COLOR_C / new Color(80, 180, 120))
+regionalData.setBarDataList(Arrays.asList(eastChina, southChina, northChina, westChina));
+JOption option = new JOption();
+option.setData(regionalData);
+JMultiBarChartRenderer renderer = new JMultiBarChartRenderer();
+renderer.render(option, "d://test//fourBar.svg");
+```
+
+#### 25. Horizontal bar — `images/horizontalBar.svg`
+
+![horizontalBar](images/horizontalBar.svg)
+
+**Test Class:** `com.github.paohaijiao.JHorizontalBarChart` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+```java
+JHorizontalBarChartData chartData = new JHorizontalBarChartData();
+chartData.setTitleText("2024年度销售数据");
+chartData.setSubtitleText("各产品线销售占比");
+chartData.setXAxisTitle("销售额（万元）");
+chartData.setYAxisTitle("产品类别");
+chartData.setValueWithPercent(false);
+chartData.setShowDataLabels(true);
+chartData.addYAxisLabel("电子产品");
+chartData.addYAxisLabel("服装服饰");
+chartData.addYAxisLabel("家居用品");
+chartData.addYAxisLabel("美妆个护");
+chartData.addYAxisLabel("食品饮料");
+java.util.List<Double> productAValues = Arrays.asList(85.5, 62.3, 45.8, 71.2, 93.6);
+java.util.List<Double> productBValues = Arrays.asList(45.2, 78.9, 52.1, 38.5, 67.4);
+chartData.addBarData(new JHorizontalBarChartData.BarData("产品A", productAValues, JHorizontalBarChartData.COLOR_A));
+chartData.addBarData(new JHorizontalBarChartData.BarData("产品B", productBValues, JHorizontalBarChartData.COLOR_B));
+JOption option = new JOption();
+option.setData(chartData);
+JHorizontalBarChartRenderer renderer = new JHorizontalBarChartRenderer();
+renderer.render(option, "d://test//horizontalBarChart.svg");
+```
+
+#### 26. Multi horizontal bar — `images/mhBarChart.svg`
+
+![mhBarChart](images/mhBarChart.svg)
+
+**Test Class:** `com.github.paohaijiao.JMutipleHorizontalBarChart` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+```java
+JHorizontalMultiBarChartData chartData = new JHorizontalMultiBarChartData();
+chartData.setTitleText("2024年度各产品销售数据");
+chartData.setSubtitleText("单位：万元");
+chartData.setXAxisTitle("销售额（万元）");
+chartData.setValueWithPercent(false);
+chartData.setShowDataLabels(true);
+chartData.setLegendAtTop(true);
+chartData.setGroupSpacingRatio(0.15);
+chartData.setBarSpacingRatio(0.2);
+chartData.addCategory("智能手机");
+chartData.addCategory("笔记本电脑");
+chartData.addCategory("平板电脑");
+chartData.addCategory("智能手表");
+chartData.addCategory("耳机音箱");
+List<Double> productAValues = Arrays.asList(125.5, 98.3, 65.8, 45.2, 78.6);
+List<Double> productBValues = Arrays.asList(88.2, 112.5, 72.1, 38.5, 55.3);
+List<Double> productCValues = Arrays.asList(45.6, 68.9, 52.4, 28.7, 42.1);
+chartData.addSeries("品牌 A", productAValues, new Color(52, 73, 94));    // 深灰蓝 #34495e
+chartData.addSeries("品牌 B", productBValues, new Color(41, 128, 185));   // 中蓝 #2980b9
+chartData.addSeries("品牌 C", productCValues, new Color(26, 188, 156));   // 薄荷绿 #1abc9c
+JOption option = new JOption();
+option.setData(chartData);
+JHorizontalMultiBarChartRenderer renderer = new JHorizontalMultiBarChartRenderer();
+renderer.render(option, "d://test//mhBarChart.svg");
+```
+
+#### 27. Double radar — `images/twoRadar.svg`
+
+![twoRadar](images/twoRadar.svg)
+
+**Test Class:** `com.github.paohaijiao.JTwoRadarChart` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+The full, unabridged source is in [Demo 3](#demo-3--svg-chart-embedded-into-a-pdf-page).
+
+```java
+JDoubleRadarChartData chartData = new JDoubleRadarChartData();
+chartData.setWidth(1000);
+chartData.setHeight(600);
+chartData.setTitleText("多维度数据对比雷达图");
+chartData.setSubtitleText("左右两组数据对比分析");
+chartData.setLeftTitle("实验组数据");
+chartData.setRightTitle("对照组数据");
+List<String> dimensions = Arrays.asList("维度A", "维度B", "维度C", "维度D", "维度E");
+chartData.setDimensions(dimensions);
+JDoubleRadarChartData.RadarData leftRadar = new JDoubleRadarChartData.RadarData();
+List<JDoubleRadarChartData.Series> leftSeriesList = new ArrayList<>();
+JDoubleRadarChartData.Series series1 = new JDoubleRadarChartData.Series();
+series1.setName("节点1");
+List<Double> values1 = Arrays.asList(85.0, 70.0, 65.0, 80.0, 75.0);
+series1.setValues(values1);
+series1.setColor(new Color(84, 112, 198));  // 蓝色
+leftSeriesList.add(series1);
+// ... 节点2 (黄色, left) and 节点3 / 节点4 (红色 / 绿色, right), same shape
+leftRadar.setSeriesList(leftSeriesList);
+chartData.setLeftRadar(leftRadar);
+chartData.setRightRadar(rightRadar);
+chartData.setGridLevels(4);
+chartData.setFillAlpha(70);
+chartData.setLineWidth(2.0f);
+chartData.setShowDataPoints(true);
+chartData.setLegendAtTop(false);
+chartData.setShowLegendSide(true);
+chartData.setFooterText("数据来源：示例数据");
+JOption option = new JOption();
+option.setData(chartData);
+JDoubleRadarChartRenderer renderer = new JDoubleRadarChartRenderer();
+renderer.render(option, "d://test//mutipleRadar.svg");
+```
+
+#### 28. Line + scatter — `images/lineRadar.svg`
+
+![lineRadar](images/lineRadar.svg)
+
+**Test Class:** `com.github.paohaijiao.JLineScatterrChartTest` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+```java
+List<String> categories = Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月",
+        "7月", "8月", "9月", "10月", "11月", "12月");
+List<Double> lineValues = Arrays.asList(100.0, 120.0, 140.0, 160.0, 70.0, 200.0,
+        290.0, 240.0, 130.0, 330.0, 100.0, 320.0);
+List<Double> scatterValues = Arrays.asList(85.0, 145.0, 20.0, 195.0, 155.0, 400.0,
+        180.0, 210.0, 40.0, 245.0, 275.0, 450.0);
+JLineScatterChartData data = new JLineScatterChartData();
+data.setTitleText("计划销售额 vs 实际完成额");
+data.setSubtitleText("2024年度销售趋势分析");
+data.setFooterText("数据来源：销售部月度报表");
+data.setCategories(categories);
+data.setLineValues(lineValues);
+data.setScatterValues(scatterValues);
+data.setLineSeriesName("计划销售额");
+data.setScatterSeriesName("实际完成额");
+data.setMaxValue(500);
+data.setGridCount(5);
+data.setShowDataLabels(true);
+JOption option = new JOption();
+option.setData(data);
+JLineScatterChartRenderer renderer = new JLineScatterChartRenderer();
+renderer.render(option, "d://test//lineRadar.svg");
+```
+
+#### 29. Circle / ring — `images/circle-chart.svg`
+
+![circle-chart](images/circle-chart.svg)
+
+**Test Class:** `com.github.paohaijiao.JCircleChartTest` (module `jquick-pdf-svg`) | **Method:** `testCircleChar1()`
+
+```java
+JCircleChartData chartData = new JCircleChartData();
+chartData.setWidth(500);
+chartData.setHeight(400);
+chartData.setTitleText("2024年度销售分布");
+chartData.setSubtitleText("按产品类别统计");
+chartData.setCenterTitle("总销售额");
+chartData.setCenterUnit("万");
+chartData.setFooterText("数据基于2024年度销售报告");
+List<JCircleChartData.SectorData> sectors = new ArrayList<>();
+sectors.add(new JCircleChartData.SectorData("产品A", 4480, new Color(46, 125, 100)));
+sectors.add(new JCircleChartData.SectorData("产品B", 3584, new Color(74, 144, 196)));
+sectors.add(new JCircleChartData.SectorData("产品C", 2816, new Color(91, 108, 142)));
+sectors.add(new JCircleChartData.SectorData("产品D", 1920, new Color(154, 172, 184)));
+chartData.setSectorDataList(sectors);
+JOption option = new JOption();
+option.setData(chartData);
+JCircleChartRenderer renderer = new JCircleChartRenderer();
+renderer.render(option, "d://test//circle-chart.svg");
+```
+
+#### 30. Timeline — `images/timeline.svg`
+
+![timeline](images/timeline.svg)
+
+**Test Class:** `com.github.paohaijiao.JMilestoneGraphTest` (module `jquick-pdf-svg`) | **Method:** `testStandardFlow()`
+
+```java
+JTimeLineData data = new JTimeLineData();
+List<JTimeLineData.FlowNode> nodes = new java.util.ArrayList<>();
+nodes.add(new JTimeLineData.FlowNode("项目启动", "•团队组建与立项|•市场调研完成|•战略规划制定", new Color(31, 78, 121), new Color(31, 78, 121)));
+nodes.add(new JTimeLineData.FlowNode("1000", "500", new Color(68, 114, 196), new Color(68, 114, 196)));
+nodes.add(new JTimeLineData.FlowNode("500", "里程碑达成", new Color(112, 173, 71), new Color(112, 173, 71)));
+nodes.add(new JTimeLineData.FlowNode("150%", "100%增长", new Color(237, 125, 49), new Color(237, 125, 49)));
+nodes.add(new JTimeLineData.FlowNode("100%", "50%完成率", new Color(79, 129, 189), new Color(79, 129, 189)));
+data.setNodes(nodes);
+data.setMainTitle("MILESTONE TIMELINE");
+data.setSubtitle("2021-2023 关键里程碑节点");
+data.setFooterText("数据来源：年度报告 | 更新日期：2024年1月");
+data.setHeight(1300);
+data.setBoxWidth(200);
+data.setBoxHeight(90);
+data.setStartX(100);
+data.setEndX(100);
+JOption option = new JOption();
+option.setData(data);
+JTimeLineRenderer renderer = new JTimeLineRenderer();
+renderer.render(option, "d://test//alternate_flow_1.svg");
+```
+
+#### 31. Advanced topology (microservice) — `images/advance_topology.svg`
+
+![advance_topology](images/advance_topology.svg)
+
+**Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateMicroserviceTopology()`
+
+```java
+JAdvancedTopologyData data = new JAdvancedTopologyData();
+data.setTitleText("微服务架构拓扑图");
+data.setSubtitleText("服务调用链路图");
+data.setFooterText("服务网格 | Istio");
+data.setWidth(1200);
+data.setHeight(800);
+data.setAutoLayout(true);
+data.setLayoutIterations(120);
+data.setCurvedLinks(true);
+data.setShowDataFlow(true);
+data.setFlowAnimationDuration(2000);
+// ... nodes and links (createNode(...) / addLink(...))
+JOption option = new JOption();
+JTitle title = new JTitle();
+title.setText("微服务架构拓扑");
+title.setSubtext("服务调用链路");
+option.setTitle(title);
+option.setData(data);
+JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
+renderer.render(option, "d://test//microservice_topology.svg");
+```
+
+#### 32. Cloud architecture topology — `images/toplogy/cloud_architecture.svg`
+
+![cloud_architecture](images/toplogy/cloud_architecture.svg)
+
+**Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateCloudArchitectureTopology()`
+
+```java
+JAdvancedTopologyData data = new JAdvancedTopologyData();
+data.setTitleText("云服务架构拓扑图");
+data.setSubtitleText("多区域高可用架构");
+data.setFooterText("AWS 云架构 | 生产环境");
+data.setWidth(1100);
+data.setHeight(750);
+data.setAutoLayout(true);
+data.setLayoutIterations(60);
+data.setBackgroundColor(new Color(245, 245, 250));
+// ... nodes and links (createNode(...) / addLink(...))
+JOption option = new JOption();
+JTitle title = new JTitle();
+title.setText("云服务架构拓扑");
+title.setSubtext("生产环境");
+option.setTitle(title);
+option.setData(data);
+JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
+renderer.render(option, "d://test//cloud_architecture.svg");
+```
+
+#### 33. Data center topology — `images/toplogy/datacenter_topology.svg`
+
+![datacenter_topology](images/toplogy/datacenter_topology.svg)
+
+**Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateDataCenterTopology()`
+
+```java
+JAdvancedTopologyData data = new JAdvancedTopologyData();
+data.setTitleText("数据中心网络拓扑图");
+data.setSubtitleText("典型的三层网络架构");
+data.setFooterText("© 2025 数据中心运维团队");
+data.setWidth(1000);
+data.setHeight(700);
+data.setAutoLayout(true);
+data.setLayoutIterations(80);
+// ... nodes and links (createNode(...) / addLink(...))
+JOption option = new JOption();
+JTitle title = new JTitle();
+title.setText("数据中心网络拓扑");
+title.setSubtext("三层网络架构");
+option.setTitle(title);
+option.setData(data);
+JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
+renderer.render(option, "d://test//datacenter_topology.svg");
+```
+
+#### 34. Enterprise network topology — `images/toplogy/enterprise_network.svg`
+
+![enterprise_network](images/toplogy/enterprise_network.svg)
+
+**Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateEnterpriseNetworkTopology()`
+
+```java
+JAdvancedTopologyData data = new JAdvancedTopologyData();
+data.setTitleText("企业网络拓扑图");
+data.setSubtitleText("总部-分支机构网络架构");
+data.setFooterText("VPN连接 | MPLS专线");
+data.setWidth(1000);
+data.setHeight(650);
+data.setAutoLayout(true);
+data.setLayoutIterations(100);
+// ... nodes and links (createNode(...) / addLink(...))
+JOption option = new JOption();
+JTitle title = new JTitle();
+title.setText("企业网络拓扑");
+title.setSubtext("总部-分支机构");
+option.setTitle(title);
+option.setData(data);
+JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
+renderer.render(option, "d://test//enterprise_network.svg");
+```
+
+#### 35. Manual-layout topology — `images/toplogy/manual_layout_topology.svg`
+
+![manual_layout_topology](images/toplogy/manual_layout_topology.svg)
+
+**Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateManualLayoutTopology()`
+
+```java
+JAdvancedTopologyData data = new JAdvancedTopologyData();
+data.setTitleText("自定义布局网络拓扑");
+data.setSubtitleText("手动控制节点位置");
+data.setFooterText("网络监控系统");
+data.setWidth(900);
+data.setHeight(600);
+data.setAutoLayout(false);  // 关闭自动布局
+data.setShowGrid(true);
+data.setGridSize(30);
+data.setCurvedLinks(false);
+data.setShowArrows(true);
+// ... nodes with explicit coordinates and links (createNode(...) / addLink(...))
+JOption option = new JOption();
+JTitle title = new JTitle();
+title.setText("自定义布局拓扑");
+title.setSubtext("手动控制节点位置");
+option.setTitle(title);
+option.setData(data);
+JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
+renderer.render(option, "d://test//manual_layout_topology.svg");
+```
+
+#### 36. Credit report page — `images/credit_report.png`
+
+![credit_report](images/credit_report.png)
+
+**Test Class:** `com.github.paohaijiao.demo.creditreport.JQuickCreditReportTest` (module `jquick-pdfx`) | **Method:** `reportByContent()`
+
+The full template and element list are in [Demo 1](#demo-1--enterprise-credit-rating-report-composite).
+
+```java
+FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
+JPdfConfig config = new JPdfConfig();
+// 开启 flex 行布局：宽度足够时，雷达图与其右侧的指标面板并排显示，
+// 而不是上下堆叠。
+config.getLayoutConfig().setFlexLayout(true);
+JReader fileReader = new JReSourceFileReader("report.txt");   // 文档模板
+JAdaptor adaptor = new JAdaptor(fileReader);
+JReader svgReader = new JReSourceFileReader("radar.txt");     // 图表的内联 SVG
 JAdaptor svgAdaptor = new JAdaptor(svgReader);
 JQuickPdfFactory factory = new JQuickPdfFactory(config);
-factory.bind("svg", svgAdaptor.getRuleContent());
-byte[] bytes = factory.executeResource("report.txt");
+factory.bind("svg", svgAdaptor.getRuleContent());             // ${svg} 占位符
+byte[] bytes = factory.executeContent(adaptor.getRuleContent());
+fileOutputStream.write(bytes);
 ```
----
 
-## 📚 API 与模板标签详解
+```xml
+<dependency>
+    <groupId>io.github.paohaijiao</groupId>
+    <artifactId>jquick-banner</artifactId>
+    <version>1.3.0</version>
+</dependency>
+```
 
-> 这一节分两部分：Java 核心 API，和 XML 模板标签与属性。
 
-### 1. Java 核心 API
 
-#### `JQuickPdfXExecutor`
+### Demo 1 — Enterprise credit rating report (composite)
 
-仓库中的主执行入口：
+![demo](images/jquick-logo.svg)
 
-- 支持空构造
-- 支持传入 `JContext`
-- 支持传入 `JPdfConfig`
-- 支持同时传入 `JContext` 和 `JPdfConfig`
+**Test Class:** `com.github.paohaijiao.demo.creditreport.JQuickCreditReportTest` | **Method:** `reportByContent()`
 
-常见构造方式：
+A full business document: banner block, key-value table, financial table, bulleted indicator list, an embedded SVG radar chart, flex two-column layout, and a footer — all from one template.
 
 ```java
-JQuickPdfXExecutor executor1 = new JQuickPdfXExecutor();
-JQuickPdfXExecutor executor2 = new JQuickPdfXExecutor(context);
-JQuickPdfXExecutor executor3 = new JQuickPdfXExecutor(config);
-JQuickPdfXExecutor executor4 = new JQuickPdfXExecutor(context, config);
-```
+package com.github.paohaijiao.demo.creditreport;
 
-主流程作用：
-
-- 解析模板文本
-- 构建 ANTLR 语法树
-- 进入 `JPdfXCommonVisitor` 渲染 PDF
-- 输出 `OutputStream`
-
-#### 常见配置对象
-
-| 配置对象 | 作用 | 说明 |
-|---|---|---|
-| `JPdfConfig` | PDF 总配置 | 页面、边距、字体、图表、模板等总入口 |
-| `JTemplateConfig` | 模板片段配置 | `templateConfig.put("html", htmlString)` |
-| `JGraphConfig` | 图表配置 | 为图表标签提供图形数据 |
-| `JTreeNodeConfig` | 树结构配置 | 为 tree 标签提供树数据 |
-| `JContext` | 变量上下文 | 传入 `${variable}` 所需数据 |
-
-#### `JPdfConfig` 常见字段
-
-| 字段 | 作用 |
-|---|---|
-| `defaultPageSize` | 默认页面尺寸 |
-| `margins` | 页面边距列表 |
-| `reverse` | 页面顺序控制 |
-| `catalogConfig` | 目录配置 |
-| `doc` | 文档配置 |
-| `pageConfig` | 页面配置 |
-| `headerConfig` | 页眉配置 |
-| `footerConfig` | 页脚配置 |
-| `watermarkConfig` | 水印配置 |
-| `fontConfig` | 字体配置 |
-| `securityConfig` | 安全配置 |
-| `graphConfig` | 图表配置 |
-| `comboBoxFieldConfig` | 下拉框配置 |
-| `treeConfig` | 树节点配置 |
-| `templateConfig` | 模板片段配置 |
-
-### 2. XML 模板标签与属性说明
-
-> 说明：仓库中的样式写法以实际示例为准，常见形式包括 `fontSize`、`marginBottom`、`backgroundColor`、`width`、`height` 等。下面除了属性表，还补了可直接复制的 demo 片段。
-
-#### 页面全局属性
-
-| 标签 | 属性名 | 说明 | 示例值 |
-|---|---|---|---|
-| `<pdf>` / `<html>` | `page-width` | 页面宽度，文档层配置项 | `595` |
-| `<pdf>` / `<html>` | `page-height` | 页面高度，文档层配置项 | `842` |
-| `<pdf>` / `<html>` | `margin-left` | 左边距 | `36` |
-| `<pdf>` / `<html>` | `margin-right` | 右边距 | `36` |
-| `<pdf>` / `<html>` | `margin-top` | 上边距 | `36` |
-| `<pdf>` / `<html>` | `margin-bottom` | 下边距 | `36` |
-| `<areaBreak>` | - | 强制分页 | - |
-| `<htmlPageBreak>` | - | 页面切换 | - |
-
-页面级 demo：
-
-```xml
-<pdf page-width="595" page-height="842" margin-left="36" margin-right="36" margin-top="36" margin-bottom="36">
-  <body>
-    <p>'第一页内容'</p>
-    <areaBreak></areaBreak>
-    <p>'第二页内容'</p>
-  </body>
-</pdf>
-```
-
-#### 容器 / 文本
-
-| 标签 | 属性名 | 说明 | 示例值 |
-|---|---|---|---|
-| `<div>` | `width` | 容器宽度 | `400px` |
-| `<div>` | `height` | 容器高度 | `230px` |
-| `<div>` | `padding` | 内边距 | `15px` |
-| `<div>` | `margin` | 外边距 | `30 0 20 0` |
-| `<div>` | `background` / `backgroundColor` | 背景色 | `#f8f9fa` |
-| `<div>` | `borderRadius` | 圆角 | `4px` |
-| `<div>` | `textAlignment` | 文本对齐 | `center` |
-| `<p>` / `<paragraph>` | `fontSize` | 字号 | `11` |
-| `<p>` / `<paragraph>` | `fontFamily` | 字体 | `微软雅黑` |
-| `<p>` / `<paragraph>` | `color` / `fontColor` | 字体颜色 | `#2c3e50` |
-| `<p>` / `<paragraph>` | `marginBottom` | 下边距 | `8px` |
-| `<heading>` | `fontSize` | 标题字号 | `20` |
-| `<heading>` | `fontWeight` | 字重 | `bold` |
-| `<span>` | `color` | 文本颜色 | `#3498db` |
-| `<span>` | `background` | 背景色 | `#ffffff` |
-
-容器 / 文本 demo：
-
-```xml
-<div style="textAlignment:center; marginBottom:12px; padding:12px; background:#3E6B9D; color:white; borderRadius:4px">
-  <h1 style="fontSize:20; fontWeight:bold; marginBottom:8px">'企业信用评级报告'</h1>
-  <p style="fontSize:11; margin:2px">'报告编号: CR-2023-08975'</p>
-  <p style="fontSize:11; margin:2px">
-    <span style="fontWeight:bold">'评估机构: '</span>
-    '四川省企业信用评估中心'
-  </p>
-</div>
-```
-
-#### 表格
-
-| 标签 | 属性名 | 说明 | 示例值 |
-|---|---|---|---|
-| `<table>` | `width` | 表格宽度 | `600px` |
-| `<table>` | `border` | 边框 | `1px solid #ddd` |
-| `<table>` | `cell-padding` / `padding` | 单元格内边距常见写法 | `8px` |
-| `<table>` | `cell-spacing` | 单元格间距 | `0` |
-| `<table>` | `fontSize` | 表格文本字号 | `10` |
-| `<td>` / `<th>` | `padding` | 单元格内边距 | `10px` |
-| `<td>` / `<th>` | `backgroundColor` | 单元格背景色 | `#f8f9fa` |
-
-表格 demo：
-
-```xml
-<table style="width:600px; fontSize:10; marginTop:8px">
-  <tr>
-    <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'财务指标'</th>
-    <th style="backgroundColor:#3498db; color:white; padding:6px; textAlign:center; border:1px solid #dee2e6">'2023年'</th>
-  </tr>
-  <tr>
-    <td style="backgroundColor:#f8f9fa; padding:5px; textAlign:left; border:1px solid #dee2e6">'营业收入'</td>
-    <td style="padding:5px; textAlign:right; border:1px solid #dee2e6">'25,680'</td>
-  </tr>
-</table>
-```
-
-#### 图片
-
-| 标签 | 属性名 | 说明 | 示例值 |
-|---|---|---|---|
-| `<image>` | `src` | 图片地址 | `https://...` |
-| `<image>` | `width` | 图片宽度 | `200px` |
-| `<image>` | `height` | 图片高度 | `300px` |
-| `<image>` | `alt` | 备用说明 | `logo` |
-
-图片 demo：
-
-```xml
-<div style="marginTop:10px; textAlignment:center">
-  <image src="https://bkimg.cdn.bcebos.com/pic/8b13632762d0f703918f27f985a2463d269759ee6fc7" style="width:240px;height:120px"></image>
-</div>
-```
-
-#### 图表
-
-| 标签 | 属性名 | 说明 | 示例值 |
-|---|---|---|---|
-| 图表配置节点 | `type` | 图表类型 | `RADAR` |
-| 图表配置节点 | `width` | 图表宽度 | `400` |
-| 图表配置节点 | `height` | 图表高度 | `400` |
-| 图表配置节点 | `data` | 图表数据来源 | `JGraphConfig` 绑定 |
-
-图表 demo：
-
-```xml
-<div style="margin-bottom:15px">
-  <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'信用评级雷达图'</h2>
-  <svg style="width:400px;height:400px">${svg}</svg>
-</div>
-```
-
-#### SVG
-
-| 标签 | 属性名 | 说明 | 示例值 |
-|---|---|---|---|
-| `<svg>` | `width` | 渲染宽度 | `400px` |
-| `<svg>` | `height` | 渲染高度 | `400px` |
-| `<svg>` | `viewBox` | SVG 视口范围 | `0 0 500 450` |
-| `<svg>` | `xmlns` | SVG 命名空间 | `http://www.w3.org/2000/svg` |
-
-SVG demo：
-
-```xml
-<pdf>
-  <body>
-    <svg style="width:400px;height:400px">${svg}</svg>
-  </body>
-</pdf>
-```
----
-
-## 🖼️ SVG 矢量图形数据准备
-
-JQuickPDF 支持把 SVG 字符串作为模板内容嵌入 PDF。
-
-内置 `chart` 能力是封装好的图表体系，适合直接用 Java 图表配置生成。`svg` 标签则更适合接入外部矢量图内容，例如业务图表、设计工具导出的静态图。
-
-### SVG 渲染效果展示
-
-> 下方图片均来自仓库 `images/` 目录，可直接作为 SVG 渲染效果参考。
-
-#### 基础图表
-
-| 图形 | 预览 |
-|---|---|
-| 柱状图 | ![](./images/barchart.svg) |
-| 折线图 | ![](./images/line_chart.svg) |
-| 饼图 | ![](./images/pie-chart.svg) |
-| 雷达图 | ![](./images/radar_chart.svg) |
-| 热力图 | ![](./images/heatmap.svg) |
-| 散点图 | ![](./images/scatter.svg) |
-| 箱线图 | ![](./images/boxchart.svg) |
-| 气泡图 | ![](./images/bubble.svg) |
-| 区域图 | ![](./images/area.svg) |
-| 漏斗图 | ![](./images/funnel.svg) |
-
-#### 组合与业务图表
-
-| 图形 | 预览 |
-|---|---|
-| 横向条形图 | ![](./images/horizontalBar.svg) |
-| 多重条形图 | ![](./images/fourBar.svg) |
-| 多重折线图 | ![](./images/multipleLine.svg) |
-| 折线条形组合图 | ![](./images/linebar.svg) |
-| 折线雷达图 | ![](./images/lineRadar.svg) |
-| 双雷达图 | ![](./images/twoRadar.svg) |
-| 矩形树图 | ![](./images/treemap.svg) |
-| 词云 | ![](./images/wordcloud.svg) |
-| 时间线 | ![](./images/timeline.svg) |
-| 甘特图 | ![](./images/gantt.svg) |
-
-#### 特殊场景图形
-
-| 图形 | 预览 |
-|---|---|
-| 仪表盘 | ![](./images/gauge.svg) |
-| 日历 | ![](./images/calendar.svg) |
-| K 线图 | ![](./images/k_chart.svg) |
-| 地图 | ![](./images/geo.svg) |
-| 关系图 | ![](./images/relation_chart.svg) |
-| 矩阵图 | ![](./images/Matrix.svg) |
-| 旭日图 | ![](./images/sunburst.svg) |
-| 树 | ![](./images/tree.svg) |
-| 高级拓扑图 | ![](./images/advance_topology.svg) |
-| 企业网络拓扑 | ![](./images/toplogy/enterprise_network.svg) |
-| 云架构拓扑 | ![](./images/toplogy/cloud_architecture.svg) |
-| 数据中心拓扑 | ![](./images/toplogy/datacenter_topology.svg) |
-| 手工布局拓扑 | ![](./images/toplogy/manual_layout_topology.svg) |
-
-### 方式一：手写原生 SVG 字符串
-
-适合简单图形、图标、结构固定的小图。
-
-```java
-import com.github.paohaijiao.param.JContext;
-
-JContext context = new JContext();
-context.put("svg", "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"120\" height=\"108\" viewBox=\"0 0 500 450\"><rect x=\"10\" y=\"10\" width=\"100\" height=\"50\" fill=\"#3498db\"/></svg>");
-```
-
-### 方式二：ECharts / 可视化工具导出 SVG
-
-这是业务报表里最常用的方式。
-
-你可以在前端或图表工具中生成 SVG，再把导出的 SVG 字符串传给模板。
-
-```java
-import com.github.paohaijiao.param.JContext;
-
-JContext context = new JContext();
-context.put("svg", svgContentFromEcharts);
-```
-
-### 方式三：读取本地 `.svg` 文件，再作为字符串传入
-
-注意不要直接把文件路径传给 `<svg>`，而是先读文件内容，再传字符串。
-
-```java
-import com.github.paohaijiao.param.JContext;
-
-JContext context = new JContext();
-context.put("svg", svgFileContent);
-```
-
-### 模板内嵌语法
-
-```xml
-<pdf>
-  <body>
-    <svg>${svg}</svg>
-  </body>
-</pdf>
-```
-
-或者你也可以给 `svg` 标签本身加尺寸控制：
-
-```xml
-<pdf>
-  <body>
-    <svg style="width:400px;height:400px">${svg}</svg>
-  </body>
-</pdf>
-```
-
-### Java 传参示例
-
-```java
-import com.github.paohaijiao.adaptor.JAdaptor;
-import com.github.paohaijiao.executor.JQuickPdfXExecutor;
-import com.github.paohaijiao.param.JContext;
-import com.github.paohaijiao.resouce.JReader;
-import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
-
-public class SvgDemo {
-    public static void main(String[] args) throws Exception {
-        JContext context = new JContext();
-        context.put("svg", svgContent);
-
-        JReader reader = new JReSourceFileReader("sample/svg1.txt");
-        JAdaptor adaptor = new JAdaptor(reader);
-
-        JQuickPdfXExecutor executor = new JQuickPdfXExecutor(context);
-        executor.execute(adaptor.getRuleContent());
-    }
-}
-```
-
-### 常见踩坑点
-
-- ⚠️ SVG 必须带完整命名空间：`xmlns="http://www.w3.org/2000/svg"`
-- ⚠️ 不要使用动画、脚本、交互逻辑，只使用静态 SVG
-- ⚠️ `viewBox` 要设置正确，否则可能拉伸变形
-- ⚠️ 不要直接传入 `.svg` 文件路径，应该先读取为字符串
-- ⚠️ `svg` 标签自身的 `width` / `height` 会影响最终渲染尺寸
-
----
-
-## 📊 支持图表概览
-
-| 图表类型 | 说明 |
-|---|---|
-| BAR | 柱状图 |
-| BOXPLOT | 箱线图 |
-| HEATMAP | 热力图 |
-| K | K 线图 / 蜡烛图 |
-| LINE | 折线图 |
-| PIE | 饼图 |
-| RADAR | 雷达图 |
-| RELATION | 关系图 |
-| SCATTER | 散点图 |
-| SUNBURST | 旭日图 |
-| Treemap | 矩形树图 |
-| Bubble | 气泡图 |
-| Calendar | 日历活动图 |
-| Lunar | 日历 |
-| Funnel | 漏斗图 |
-| CorrectionMatrix | 相关系数矩阵 |
-| Gantt | 甘特图 |
-| Gauge | 仪表盘 |
-| WordsCloud | 词云 |
-| GEO Json | 地图 |
-| Line Bar | 折线条形组合图 |
-| Multiple Line | 多重折线图 |
-| Multiple Bar | 多重条形图 |
-| AREA | 区域堆积图 |
-| HorizontalBar | 横向条形图 |
-| MutipleHorizontalBar | 多重横向条形图 |
-| DoubleRadar | 双雷达图 |
-| LineRadar | 折线雷达图 |
-| Circle | 环形图 |
-| AdvancedTopology | 高级拓扑图 |
-| TimeLine | 时间线 |
-| Tree | 树 |
-
----
-
-## 🎯 业务实战示例
-
-### 企业信用报告
-
-![](./pay/demo.png)
-
-仓库中已经提供企业信用报告相关示例：
-
-- `jquick-pdfx/src/test/java/com/github/paohaijiao/demo/creditreport/JQuickCreditReportTest.java`
-- `jquick-pdfx/src/test/resources/report.txt`
-- `jquick-pdfx/src/test/resources/html.txt`
-- `jquick-pdfx/src/test/resources/radar.txt`
-
-#### 业务 Demo 骨架说明
-
-这个案例包含：
-
-- 页面标题区
-- 企业基础信息表格
-- 模板片段插入
-- 财务指标表格
-- 多段经营说明
-- SVG 雷达图
-- 分页能力
-- 底部说明与签章区域
-
-#### 核心 Java 代码
-
-```java
 import com.github.paohaijiao.adaptor.JAdaptor;
 import com.github.paohaijiao.config.JPdfConfig;
-import com.github.paohaijiao.config.JTemplateConfig;
+import com.github.paohaijiao.demo.constant.JQuickConstant;
 import com.github.paohaijiao.executor.JQuickPdfFactory;
 import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
+import org.junit.Test;
 
-public class CreditReportDemo {
-    public static void main(String[] args) throws Exception {
-        JReader htmlReader = new JReSourceFileReader("html.txt");
-        JAdaptor htmlAdaptor = new JAdaptor(htmlReader);
+import java.io.FileOutputStream;
+import java.io.IOException;
 
-        JReader svgReader = new JReSourceFileReader("radar.txt");
-        JAdaptor svgAdaptor = new JAdaptor(svgReader);
+public class JQuickCreditReportTest {
 
+    public static final String path = JQuickConstant.path;   // "D:\\test\\"
+
+    @Test
+    public void reportByContent() throws IOException {
+        FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
         JPdfConfig config = new JPdfConfig();
-        JTemplateConfig templateConfig = config.getTemplateConfig();
-        templateConfig.put("html", htmlAdaptor.getRuleContent());
-        config.setTemplateConfig(templateConfig);
-
+        // Enable flex row layout: the radar chart and the metric panel beside it
+        // sit side by side instead of stacking when the width allows.
+        config.getLayoutConfig().setFlexLayout(true);
+        JReader fileReader = new JReSourceFileReader("report.txt");   // document template
+        JAdaptor adaptor = new JAdaptor(fileReader);
+        JReader svgReader = new JReSourceFileReader("radar.txt");     // inline SVG for the chart
+        JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        factory.bind("svg", svgAdaptor.getRuleContent());
-
-        byte[] pdf = factory.executeResource("report.txt");
+        factory.bind("svg", svgAdaptor.getRuleContent());             // ${svg} placeholder
+        byte[] bytes = factory.executeContent(adaptor.getRuleContent());
+        fileOutputStream.write(bytes);
     }
 }
 ```
 
-#### 模板骨架片段
+The two templates are shipped with the test sources:
 
-```xml
+- `jquick-pdfx/src/test/resources/report.txt` — the document template (excerpt below)
+- `jquick-pdfx/src/test/resources/radar.txt` — the inline SVG bound to `${svg}`
+
+```html
 <pdf>
   <body>
-    <div style="textAlignment:center; marginBottom:5px; padding:12px; background:#3E6B9D; color:white; borderRadius:4px">
-      <h1 style="fontSize:20; fontWeight:bold; marginBottom:8px">'企业信用评级报告'</h1>
-      <p style="fontSize:11; margin:2px">'报告编号: CR-2023-08975 | 评估日期: 2023年11月15日'</p>
-      <p style="fontSize:11; margin:2px">'评估机构: 四川省企业信用评估中心'</p>
+    <div style="textAlignment:center; marginBottom:5px; paddings:5px 5px 60px 70px; background:#3E6B9D; color:white; borderRadius:4px; position:relative">
+      <h1 style="textAlignment:center;color:white; marginBottom:8px; fontSize:20; fontWeight:bold">'企业信用评级报告'</h1>
+      <p style="textAlignment:center;color:rgba(255,255,255,0.9); fontSize:11; margin:2px">'报告编号: CR-2023-08975 | 评估日期: 2023年11月15日'</p>
     </div>
 
-    <table style="width:600px; fontSize:10; marginTop:8px">
+    <table style="width:600px;verticalAlignment:center; fontSize:10">
       <tr>
-        <td style="backgroundColor:#f8f9fa; padding:5px; width:150px">'统一信用代码'</td>
-        <td style="padding:5px; width:150px">'91110108MA01XX1234'</td>
-        <td style="backgroundColor:#f8f9fa; padding:5px; width:150px">'成立日期'</td>
-        <td style="padding:5px; width:150px">'2018年5月20日'</td>
+        <td style="backgroundColor:#f8f9fa;padding:5px; textAlign:left;width:150px;">'统一信用代码'</td>
+        <td style="backgroundColor:#f8f9fa;padding:5px;width:150px;">'91110108MA01XX1234'</td>
       </tr>
     </table>
 
-    <template>&html</template>
+    <list style="list-style-type:none; padding-left:0; font-size:11px">
+      <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #4CAF50; border-radius:0 4px 4px 0">
+        '营收增长率:连续三年保持40%以上增长，2023年达到25,680万元'
+      </li>
+    </list>
 
-    <div style="margin-bottom:15px">
-      <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'关键经营指标'</h2>
-      <list style="list-style-type:none; padding-left:0; font-size:11px">
-        <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #4CAF50">'营收增长率: 连续三年保持40%以上增长'</li>
-        <li style="margin-bottom:8px; padding:10px; background-color:#f8f9fa; border-left:4px solid #2196F3">'利润率提升: 盈利能力显著增强'</li>
-      </list>
-    </div>
-
-    <div style="margin-bottom:15px">
-      <h2 style="color:#3498db; borderBottom:1px solid #3498db; paddingBottom:4px; fontSize:13; marginBottom:10px">'信用评级雷达图'</h2>
+    <div style="display:flex; justify-content:space-between; margin-top:10px">
       <svg style="width:400px;height:400px">${svg}</svg>
-    </div>
-
-    <areaBreak></areaBreak>
-
-    <div style="margin-bottom:15px; background:#e3f2fd; padding:15px; borderRadius:4px; border-left:4px solid #2196F3">
-      <h2 style="color:#1565c0; fontSize:13; marginBottom:8px">'综合评价'</h2>
-      <p style="line-height:1.5; font-size:11px">'公司财务状况健康，经营能力突出，具备良好的发展潜力。'</p>
-    </div>
-
-    <div style="text-align:center; margin-top:15px; padding-top:12px; border-top:1px solid #dee2e6; color:#6c757d; font-size:9px">
-      <p>'本报告依据公开信息和专业评估模型生成，仅供参考'</p>
-      <p>'© 企业信用评估中心 | 签章区'</p>
+      <div style="width:300px">
+        <div style="backgroundColor:#f8f9fa; padding:15px; borderRadius:4px; height:230px; overflow-y:auto">
+          <h3 style="color:#2c3e50; margin-top:0; fontSize:12; marginBottom:8px">'评级指标说明'</h3>
+        </div>
+      </div>
     </div>
   </body>
 </pdf>
 ```
 
-> 完整源码与完整模板请直接查看仓库 demo 目录和 `report.txt` 资源文件。
+**Elements used and their supported properties**
+
+| Element | Purpose in this demo | Supported properties |
+|---|---|---|
+| `<pdf>` / `<body>` | document root and body container | root attributes of the template; `pageSize`, `margins` are configured through `JPdfConfig` |
+| `<div>` | banner, panels, flex row | `marginLeft`, `marginRight`, `marginTop`, `marginBottom`, `commonMargin`/`margins`, `paddingLeft`, `paddingRight`, `paddingTop`, `paddingBottom`, `commonPadding`/`paddings`, `width`, `height`, `minWidth`, `maxWidth`, `minHeight`, `maxHeight`, `backgroundColor`, `backgroundImage`, `border`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderRadius`, `borderTopLeftRadius`, `borderTopRightRadius`, `borderBottomRightRadius`, `borderBottomLeftRadius`, `opacity`, `strokeColor`, `strokeWidth`, `angleInRadians`, `textAlignment`, `verticalAlignment`, `relativePosition`, `spacingRatio`, `keepTogether`, `keepWithNext`, `display`, `flexDirection`, `justifyContent` |
+| `<h1>` `<h2>` `<h3>` | report title and section headings | `font`, `fontFamilyNames`, `fontSize`, `fontColor`, `bold`, `italic`, `underline`, `lineThrough`, `textAlignment`, `characterSpacing`, `wordSpacing`, `margin*`, `padding*`, `backgroundColor`, `border*`, plus every `<p>` property |
+| `<p>` | paragraphs, sub-titles | `font`, `fontFamilyNames`, `fontSize`, `fontColor`, `fontKerning`, `fontScript`, `bold`, `italic`, `underline`, `lineThrough`, `textAlignment`, `characterSpacing`, `wordSpacing`, `splitCharacters`, `textRenderingMode`, `baseDirection`, `margin*`, `padding*`, `backgroundColor`, `border*` |
+| `<span>` | inline runs inside list items | `font`, `fontColor`, `fontSize`, `bold`, `italic`, `underline`, `lineThrough`, `characterSpacing`, `wordSpacing`, `backgroundColor`, `border*`, `padding*`, `margin*` |
+| `<table>` `<tr>` `<th>` `<td>` | key-value block and financial table | `width`, `height`, `fontSize`, `fontColor`, `textAlignment`, `verticalAlignment`, `backgroundColor`, `padding*`, `margin*`, `border`, `borderTop`, `borderRight`, `borderBottom`, `borderLeft`, `borderRadius`, `bold`, `italic` |
+| `<list>` `<li>` | bulleted indicator list | `list-style-type`, `paddingLeft`, `marginBottom`, `backgroundColor`, `background-color`, `borderLeft`, `borderRadius`, `fontSize`, `fontColor`, `padding*` |
+| `<svg>` | embedded radar chart | `width`, `height`, `margin*`, `padding*`; content comes from `${svg}` (bound value) or `&{svg}` (registered resource) |
+
+### Demo 2 — Bar chart (chart module)
+
+![demo](images/barchart.svg)
+
+**Test Class:** `com.github.paohaijiao.BarCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+The same chart API used by the document demos, rendered standalone to an SVG file by the `jquick-pdf-svg` module.
+
+```java
+package com.github.paohaijiao;
+
+import com.github.paohaijiao.axis.JCategoryAxis;
+import com.github.paohaijiao.axis.JValueAxis;
+import com.github.paohaijiao.bar.JBarChartsRenderer;
+import com.github.paohaijiao.code.JTrigger;
+import com.github.paohaijiao.series.JBar;
+import org.junit.Test;
+
+import java.io.IOException;
+
+public class BarCharTest {
+
+    @Test
+    public void testBarChar1() throws IOException {
+        JOption option = new JOption();
+        option.title().text("销售数据").subtext("2023年度");
+        option.tooltip().trigger(JTrigger.axis);
+        JCategoryAxis xAxis = new JCategoryAxis();
+        xAxis.data("衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子");
+        option.xAxis(xAxis);
+        option.yAxis(new JValueAxis());
+        JBar bar = new JBar();
+        bar.name("销量").data(5, 20, 36, 10, 10, 20);
+        option.series(bar);
+        JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
+        jBarChartsRenderer.render(option, "D://test//barchart.svg");
+        String str = jBarChartsRenderer.renderToString(option);
+        System.out.println(str);
+    }
+}
+```
+
+**Elements used and their supported properties**
+
+| Element | Purpose in this demo | Supported properties |
+|---|---|---|
+| `<pdf>` / `<body>` | not used here — the renderer writes the SVG directly; embedding into a document only needs `<svg>&{svg}</svg>` | see Demo 1 |
+| `<svg>` | chart placeholder when embedded in a document | `width`, `height`, `margin*`, `padding*` |
+| `JOption` (chart option, not a DSL element) | container of the chart configuration | `title()`, `subtext()`, `tooltip()`, `legend()`, `xAxis()`, `yAxis()`, `series()`, `setData()` |
+| `JCategoryAxis` / `JValueAxis` | axes | `data(...)`, axis type via the concrete class |
+| `JBar` (series) | bar series | `name(...)`, `data(...)`; one subclass per chart type (`JLine`, `JPie`, `JScatter`, ...) |
+| `JBarChartsRenderer` | SVG renderer for this chart type | `render(option, path)`, `renderToString(option)` |
+
+### Demo 3 — SVG chart embedded into a PDF page
+
+![demo](images/twoRadar.svg)
+
+**Test Class:** `com.github.paohaijiao.JTwoRadarChart` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+The `<svg>` element paints a chart generated by `jquick-pdf-svg` as vector graphics inside the document — one chart, one placeholder, no image file round-trip. It takes two steps: build the chart, then register it and reference it from the template.
+
+**Step 1 — build the chart and render it to an SVG file:**
+
+```java
+package com.github.paohaijiao;
+
+import com.github.paohaijiao.combol.JDoubleRadarChartData;
+import com.github.paohaijiao.combol.JDoubleRadarChartRenderer;
+import org.junit.Test;
+
+import java.awt.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class JTwoRadarChart {
+    @Test
+    public void testMutipleChar1() throws IOException {
+        JDoubleRadarChartData chartData = new JDoubleRadarChartData();
+        chartData.setWidth(1000);
+        chartData.setHeight(600);
+        chartData.setTitleText("多维度数据对比雷达图");
+        chartData.setSubtitleText("左右两组数据对比分析");
+        chartData.setLeftTitle("实验组数据");
+        chartData.setRightTitle("对照组数据");
+        List<String> dimensions = Arrays.asList("维度A", "维度B", "维度C", "维度D", "维度E");
+        chartData.setDimensions(dimensions);
+        JDoubleRadarChartData.RadarData leftRadar = new JDoubleRadarChartData.RadarData();
+        List<JDoubleRadarChartData.Series> leftSeriesList = new ArrayList<>();
+        JDoubleRadarChartData.Series series1 = new JDoubleRadarChartData.Series();
+        series1.setName("节点1");
+        List<Double> values1 = Arrays.asList(85.0, 70.0, 65.0, 80.0, 75.0);
+        series1.setValues(values1);
+        series1.setColor(new Color(84, 112, 198));  // 蓝色
+        leftSeriesList.add(series1);
+        JDoubleRadarChartData.Series series2 = new JDoubleRadarChartData.Series();
+        series2.setName("节点2");
+        List<Double> values2 = Arrays.asList(70.0, 85.0, 80.0, 65.0, 70.0);
+        series2.setValues(values2);
+        series2.setColor(new Color(250, 200, 88));  // 黄色
+        leftSeriesList.add(series2);
+
+        leftRadar.setSeriesList(leftSeriesList);
+        chartData.setLeftRadar(leftRadar);
+        JDoubleRadarChartData.RadarData rightRadar = new JDoubleRadarChartData.RadarData();
+        List<JDoubleRadarChartData.Series> rightSeriesList = new ArrayList<>();
+        JDoubleRadarChartData.Series series3 = new JDoubleRadarChartData.Series();
+        series3.setName("节点3");
+        List<Double> values3 = Arrays.asList(90.0, 85.0, 88.0, 92.0, 87.0);
+        series3.setValues(values3);
+        series3.setColor(new Color(238, 102, 102));  // 红色
+        rightSeriesList.add(series3);
+        JDoubleRadarChartData.Series series4 = new JDoubleRadarChartData.Series();
+        series4.setName("节点4");
+        List<Double> values4 = Arrays.asList(75.0, 80.0, 72.0, 78.0, 82.0);
+        series4.setValues(values4);
+        series4.setColor(new Color(80, 180, 150));  // 绿色
+        rightSeriesList.add(series4);
+
+        rightRadar.setSeriesList(rightSeriesList);
+        chartData.setRightRadar(rightRadar);
+        chartData.setGridLevels(4);
+        chartData.setFillAlpha(70);
+        chartData.setLineWidth(2.0f);
+        chartData.setShowDataPoints(true);
+        chartData.setLegendAtTop(false);
+        chartData.setShowLegendSide(true);
+        chartData.setFooterText("数据来源：示例数据");
+        JOption option = new JOption();
+        option.setData(chartData);
+
+        JDoubleRadarChartRenderer renderer = new JDoubleRadarChartRenderer();
+        renderer.render(option, "d://test//mutipleRadar.svg");
+    }
+}
+```
+
+**Step 2 — put the same chart on a PDF page:**
+
+**Test Class:** `com.github.paohaijiao.demo.radar.JQuickTwoRadarTest` (module `jquick-pdfx`) | **Method:** `radar()`
+
+```java
+package com.github.paohaijiao.demo.radar;
+
+import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.combol.JDoubleRadarChartData;
+import com.github.paohaijiao.config.JGraphConfig;
+import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.data.JGraphContainer;
+import com.github.paohaijiao.enums.JChartType;
+import com.github.paohaijiao.executor.JQuickPdfFactory;
+import org.junit.Test;
+
+import java.awt.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class JQuickTwoRadarTest {
+
+    @Test
+    public void radar() throws IOException {
+        JGraphContainer graphContainer = new JGraphContainer();
+        graphContainer.setType(JChartType.DoubleRadar);        // which chart type to draw
+        JDoubleRadarChartData chartData = new JDoubleRadarChartData();
+        chartData.setWidth(1000);
+        chartData.setHeight(600);
+        chartData.setTitleText("多维度数据对比雷达图");
+        chartData.setSubtitleText("左右两组数据对比分析");
+        chartData.setLeftTitle("实验组数据");
+        chartData.setRightTitle("对照组数据");
+        List<String> dimensions = Arrays.asList("维度A", "维度B", "维度C", "维度D", "维度E");
+        chartData.setDimensions(dimensions);
+        JDoubleRadarChartData.RadarData leftRadar = new JDoubleRadarChartData.RadarData();
+        List<JDoubleRadarChartData.Series> leftSeriesList = new ArrayList<>();
+        JDoubleRadarChartData.Series series1 = new JDoubleRadarChartData.Series();
+        series1.setName("节点1");
+        List<Double> values1 = Arrays.asList(85.0, 70.0, 65.0, 80.0, 75.0);
+        series1.setValues(values1);
+        series1.setColor(new Color(84, 112, 198));  // 蓝色
+        leftSeriesList.add(series1);
+        JDoubleRadarChartData.Series series2 = new JDoubleRadarChartData.Series();
+        series2.setName("节点2");
+        List<Double> values2 = Arrays.asList(70.0, 85.0, 80.0, 65.0, 70.0);
+        series2.setValues(values2);
+        series2.setColor(new Color(250, 200, 88));  // 黄色
+        leftSeriesList.add(series2);
+
+        leftRadar.setSeriesList(leftSeriesList);
+        chartData.setLeftRadar(leftRadar);
+        JDoubleRadarChartData.RadarData rightRadar = new JDoubleRadarChartData.RadarData();
+        List<JDoubleRadarChartData.Series> rightSeriesList = new ArrayList<>();
+        JDoubleRadarChartData.Series series3 = new JDoubleRadarChartData.Series();
+        series3.setName("节点3");
+        List<Double> values3 = Arrays.asList(90.0, 85.0, 88.0, 92.0, 87.0);
+        series3.setValues(values3);
+        series3.setColor(new Color(238, 102, 102));  // 红色
+        rightSeriesList.add(series3);
+        JDoubleRadarChartData.Series series4 = new JDoubleRadarChartData.Series();
+        series4.setName("节点4");
+        List<Double> values4 = Arrays.asList(75.0, 80.0, 72.0, 78.0, 82.0);
+        series4.setValues(values4);
+        series4.setColor(new Color(80, 180, 150));  // 绿色
+        rightSeriesList.add(series4);
+
+        rightRadar.setSeriesList(rightSeriesList);
+        chartData.setRightRadar(rightRadar);
+        chartData.setGridLevels(4);
+        chartData.setFillAlpha(70);
+        chartData.setLineWidth(2.0f);
+        chartData.setShowDataPoints(true);
+        chartData.setLegendAtTop(false);
+        chartData.setShowLegendSide(true);
+        chartData.setFooterText("数据来源：示例数据");
+        JOption option = new JOption();
+        option.setData(chartData);
+        graphContainer.setOption(option);                     // attach the data model
+
+        JGraphConfig graphConfig = new JGraphConfig();
+        graphConfig.put("svg", graphContainer);               // register under the name "svg"
+        JPdfConfig config = new JPdfConfig();
+        config.setGraphConfig(graphConfig);
+
+        FileOutputStream fileOutputStream = new FileOutputStream("D:/test/two-radar.pdf");
+        JQuickPdfFactory factory = new JQuickPdfFactory(config);
+        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        fileOutputStream.write(bytes);
+    }
+}
+```
+
+The template it renders is three lines long — the placeholder name `svg` matches the name registered in `JGraphConfig`:
+
+```html
+<pdf>
+<body>
+<svg>&{svg}</svg>
+</body>
+</pdf>
+```
+
+`&{svg}` reads a **registered resource** (`JGraphConfig.put("svg", container)`, used here). `${svg}` reads a **bound string** (`factory.bind("svg", svgText)`, used by Demo 1). Both are accepted inside `<svg>`.
+
+**Chart types** — every value accepted by `JGraphContainer.setType(...)`:
+
+| Chart | `JChartType` value | Renderer (module `jquick-pdf-svg`) |
+|---|---|---|
+| Bar | `BAR` | `JBarChartsRenderer` |
+| Box plot | `BOXPLOT` | `JBoxPlotChartRenderer` |
+| Heat map | `HEATMAP` | `JHeatMapChartRenderer` |
+| K-line (candlestick) | `K` | `JKChartsRenderer` |
+| Line | `LINE` | `JLineChartsRenderer` |
+| Pie | `PIE` | `JPieChartsRenderer` |
+| Radar | `RADAR` | `JRadarChartsRenderer` |
+| Relation graph | `RELATION` | `JRelationChartRenderer` |
+| Scatter | `SCATTER` | `JScatterChartsRenderer` |
+| Sunburst | `SUNBURST` | `JSunburstChart` |
+| Word cloud | `WORDCLOUD` | `JWordCloudRenderer` |
+| Treemap | `TREEMAP` | `JTreeMapRenderer` |
+| Bubble | `Bubble` | `JBubbleChartRenderer` |
+| Calendar | `Calendar` | `JCalendarChartRenderer` |
+| Lunar calendar | `Lunar` | `JLunarCalendarRenderer` |
+| Funnel | `Funnel` | `JFunnelChartRenderer` |
+| Correlation matrix | `CorrectionMatrix` | `JCorrelationMatrixRenderer` |
+| Gantt | `Gantt` | `JGanttChartRenderer` |
+| Gauge (deprecated) | `Guage` | `JGuageRenderer` |
+| Geo map | `Geo` | `JGeoJsonRenderer` |
+| Line + bar combo | `LineBar` | `JComboLineBarChartRenderer` |
+| Multi line | `MultipleLine` | `JMultiLineChartRenderer` |
+| Multi bar | `MultipleBar` | `JMultiBarChartRenderer` |
+| Stacked area | `AREA` | `JAreaChartRenderer` |
+| Horizontal bar | `HorizontalBar` | `JHorizontalBarChartRenderer` |
+| Multi horizontal bar | `MutipleHorizontalBar` | `JHorizontalMultiBarChartRenderer` |
+| Double radar | `DoubleRadar` | `JDoubleRadarChartRenderer` |
+| Line-radar | `LineRadar` | `JLineScatterChartRenderer` |
+| Circle / ring | `Circle` | `JCircleChartRenderer` |
+| Advanced topology | `AdvancedTopology` | `JAdvancedTopologyRenderer` |
+| Timeline | `TimeLine` | `JTimeLineRenderer` |
+| Tree | `Tree` | `JTreeChartRenderer` |
+
+Any type can also be rendered to an SVG file or string directly, without a document:
+
+```java
+JOption option = new JOption();
+option.setData(chartData);                                  // same data model as above
+
+// to an SVG file
+JChartRendererFactory.renderChart(JChartType.DoubleRadar, option, "D:/test/chart.svg");
+
+// to an SVG string (e.g. to store it, or to bind it with ${svg})
+String svg = JChartRendererFactory.renderChart(JChartType.DoubleRadar, option);
+```
+
+**Elements and APIs used in this demo**
+
+| Element / API | Purpose | Supported properties / methods |
+|---|---|---|
+| `<svg>` | chart placeholder inside the template | `width`, `height`, `margin*`, `padding*`; content from `&{svg}` (registered) or `${svg}` (bound) |
+| `JGraphContainer` | carries the chart type and its data model | `setType(JChartType)`, `setOption(JOption)` |
+| `JGraphConfig` | resource registry of the document | `put("svg", container)` — the key is the placeholder name |
+| `JPdfConfig` | document configuration | `setGraphConfig(JGraphConfig)` |
+| `JOption` | chart option object | `setData(...)`, plus the fluent `title()`, `legend()`, `tooltip()`, `xAxis()`, `yAxis()`, `series()` |
+| `JChartRendererFactory` | renders any type without a document | `renderChart(JChartType, JOption)` → SVG string, `renderChart(JChartType, JOption, String path)` |
+| `JDoubleRadarChartData` | data model of this chart | `setWidth`, `setHeight`, `setTitleText`, `setSubtitleText`, `setLeftTitle`, `setRightTitle`, `setDimensions`, `setLeftRadar`, `setRightRadar`, `setGridLevels`, `setFillAlpha`, `setLineWidth`, `setShowDataPoints`, `setLegendAtTop`, `setShowLegendSide`, `setFooterText` |
+
+### Element and style reference
+
+**Elements** (`jquick-pdfx`, grammar-verified):
+
+| Element | Description |
+|---|---|
+| `<h1>` … `<h6>` | headings, six levels |
+| `<p>` | paragraph |
+| `<span>` | inline text run |
+| `<br>` / `<tab>` | line break / tab |
+| `<div>` | block container: background, border, padding, size, rotation, flex |
+| `<list>` / `<li>` | list container and list items |
+| `<table>` / `<tr>` / `<th>` / `<td>` | table, with per-cell styles |
+| `<image src="..." alt="...">` | raster image |
+| `<svg>` | vector graphics, `${svg}` / `&{svg}` |
+| `<tree>` | tree structure |
+| `<button>` / `<checkbox>` / `<comboBoxField>` / `<textArea>` | interactive form fields |
+| `<areaBreak>` / `<htmlPageBreak>` / `<lineSeparator>` | forced page break / HTML-style page break / horizontal rule |
+| `<template>` | reusable template fragment |
+
+**Style properties** — usable on any element; camelCase and kebab-case are interchangeable:
+
+| Property | Value | Usage and description |
+|---|---|---|
+| `width` | `"300px"` | Element width. `<div style="width:300px">content</div>` |
+| `height` | `"300px"` | Element height. `<div style="height:300px">content</div>` |
+| `maxHeight` | `"300px"` | Upper bound of the element height. `<div style="maxHeight:300px">content</div>` |
+| `minHeight` | `"300px"` | Lower bound of the element height. `<div style="minHeight:300px">content</div>` |
+| `minWidth` | `"300px"` | Lower bound of the element width. `<div style="minWidth:300px">content</div>` |
+| `maxWidth` | `"300px"` | Upper bound of the element width. `<div style="maxWidth:300px">content</div>` |
+| `relativePosition` | `"30px 30px 30px 30px"` | Offset of the element inside its box, in `left top right bottom` order. `<div style="relativePosition:30px 30px 30px 30px">content</div>` |
+| `font` | `"HELVETICA"` | Font face; values follow `JFontEnum`. `<span style="font:HELVETICA">text</span>` |
+| `fontFamilyNames` | `"Helvetica,Arial"` | Comma-separated font family list. `<p style="fontFamilyNames:Helvetica,Arial">text</p>` |
+| `fontColor` | `"red"` | Text colour; names follow `JColorEnums`. `<span style="fontColor:red">text</span>` |
+| `fontSize` | `"34"` | Font size. `<p style="fontSize:34">text</p>` |
+| `fontKerning` | `"yes"` | Whether kerning is applied. `<p style="fontKerning:yes">text</p>` |
+| `fontScript` | `"common"` | Unicode script of the text run. `<p style="fontScript:common">text</p>` |
+| `textAlignment` | `"left"` | Horizontal alignment; values follow `JTextAlignment`. `<div style="textAlignment:left">text</div>` |
+| `characterSpacing` | `"30"` | Extra spacing between characters. `<p style="characterSpacing:30">text</p>` |
+| `wordSpacing` | `"30"` | Extra spacing between words. `<p style="wordSpacing:30">text</p>` |
+| `splitCharacters` | `"24"` | Alias of `characterSpacing`. `<p style="splitCharacters:24">text</p>` |
+| `textRenderingMode` | `"24"` | How glyphs are painted (fill, stroke, clip...). `<p style="textRenderingMode:24">text</p>` |
+| `baseDirection` | `"no_bidi"` | Base direction of bidirectional text. `<p style="baseDirection:no_bidi">text</p>` |
+| `bold` | `"true"` | Bold text. `<span style="bold:true">text</span>` |
+| `italic` | `"true"` | Italic text. `<span style="italic:true">text</span>` |
+| `lineThrough` | `"true"` | Strikethrough text. `<span style="lineThrough:true">text</span>` |
+| `underline` | `"true"` | Underlined text. `<span style="underline:true">text</span>` |
+| `backgroundColor` | `"red"` | Fill colour behind the element; names follow `JColorEnums`. `<div style="backgroundColor:red">content</div>` |
+| `backgroundImage` | `"D:/pdf/image.png"` | Background image path. `<div style="backgroundImage:D:/pdf/image.png">content</div>` |
+| `border` | `"solid 32px red"` | Shorthand border written as `type width color`. `<div style="border:solid 32px red">content</div>` |
+| `borderTop` | `"solid 2px red"` | Top edge only, same syntax as `border`. `<div style="borderTop:solid 2px red">content</div>` |
+| `borderRight` | `"solid 2px red"` | Right edge only, same syntax as `border`. `<div style="borderRight:solid 2px red">content</div>` |
+| `borderLeft` | `"solid 2px red"` | Left edge only, same syntax as `border`. `<div style="borderLeft:solid 2px red">content</div>` |
+| `borderBottom` | `"solid 2px red"` | Bottom edge only, same syntax as `border`. `<div style="borderBottom:solid 2px red">content</div>` |
+| `borderRadius` | `"32px 24px"` | Corner radius, one to four values. `<div style="borderRadius:32px 24px">content</div>` |
+| `borderBottomLeftRadius` | `"12px"` | Radius of the bottom-left corner. `<div style="borderBottomLeftRadius:12px">content</div>` |
+| `borderBottomRightRadius` | `"12px"` | Radius of the bottom-right corner. `<div style="borderBottomRightRadius:12px">content</div>` |
+| `borderTopRightRadius` | `"12px"` | Radius of the top-right corner. `<div style="borderTopRightRadius:12px">content</div>` |
+| `borderTopLeftRadius` | `"12px"` | Radius of the top-left corner. `<div style="borderTopLeftRadius:12px">content</div>` |
+| `opacity` | `"0.5"` | Element opacity, `0`–`1`. `<div style="opacity:0.5">content</div>` |
+| `strokeColor` | `"red"` | Colour of the element outline. `<div style="strokeColor:red">content</div>` |
+| `strokeWidth` | `"24"` | Width of the element outline. `<div style="strokeWidth:24">content</div>` |
+| `destination` | `"hello"` | Named anchor that internal links jump to. `<div style="destination:hello">content</div>` |
+
+Units: `px` (96 DPI, `1px = 0.75pt`), `pt`, `mm`, `cm`, `in`. Colors: names (`red`, `blue`, `lightgray`, ...), `#RRGGBB`, `rgb()` / `rgba()`, `background:linear-gradient(...)`.
+
+## Version Matrix
+
+| Version range | PDF engine | License | Closed-source / commercial use |
+|---|---|---|---|
+| **≥ 4.0.1** | Apache PDFBox 3.x | **Apache License 2.0** | Allowed, no copyleft obligation |
+| **4.0.0 and below** (incl. 1.x, 2.x, 3.x) | iText 7 Core | **AGPL-3.0** | Requires a commercial license from iText Group NV, or full AGPL compliance |
+
+## License
+
+> **The license depends on the version you use — this is the most important section of this document.**
+
+**Version 4.0.0 — AGPL-3.0.**
+4.0.0 and every earlier version were built on **iText 7 Core**, which is distributed under the **AGPL-3.0** copyleft license. AGPL-3.0 propagates to derivative works, so any version shipping iText 7 must itself be distributed under AGPL-3.0. The Apache-2.0 declaration published with some earlier releases was therefore **retracted for all versions ≤ 4.0.0**. Keeping AGPL-3.0 here is deliberate: it is what the iText 7 dependency requires.
+
+**Version 4.0.1 and above — Apache-2.0.**
+Starting with 4.0.1 the rendering core was migrated from iText 7 to **Apache PDFBox 3**, which is licensed under Apache-2.0. Removing the AGPL dependency is what allows jquick-pdf itself to be released under **Apache-2.0**, so **4.0.1 and every later version are Apache-2.0**.
+
+Why the migration matters:
+
+| Consequence | ≤ 4.0.0 (iText 7, AGPL-3.0) | ≥ 4.0.1 (PDFBox, Apache-2.0) |
+|---|---|---|
+| Linking into a closed-source product | Requires AGPL compliance or a paid iText license | Permitted, no source-disclosure obligation |
+| Network/SaaS use | AGPL section 13 obliges offering the source to users | No such obligation |
+| Output PDF notice | Carries the `Powered by iText` attribution notice | No iText notice, since no iText code is involved |
+| Recommended action | Upgrade | Use this line for new projects |
+
+Upgrading from `≤ 4.0.0` to `≥ 4.0.1` **removes** the AGPL obligation; downgrading re-introduces it. Full texts: [LICENSE](./LICENSE) and [NOTICE](./NOTICE).
+
+## Contribution Guide
+
+Contributions are welcome — bug reports, feature requests and pull requests alike.
+
+1. Fork the repository and create a topic branch: `git checkout -b feature/my-feature`.
+2. Build and test locally:
+
+   ```bash
+   mvn clean install
+   mvn -pl jquick-pdfx -am test
+   ```
+
+   On headless machines (CI, containers):
+
+   ```bash
+   mvn -pl jquick-pdfx -am test \
+     -DargLine="-Djava.awt.headless=true -Dsun.java2d.d3d=false -Dsun.java2d.opengl=false"
+   ```
+
+3. Keep the existing style: pure Java, no new mandatory third-party runtime dependency, javadoc on public API.
+4. Add or update tests under `jquick-pdfx/src/test/java`; sample templates belong in `jquick-pdfx/src/test/resources/sample/`. If your change adds a demo image, add the image to `images/` and register the image → test class → method row in [Demo Gallery](#demo-gallery).
+5. Open a pull request describing the motivation and the behavior change.
+
+When reporting a bug, please include the template that reproduces it, the jquick-pdf version, and the produced PDF if possible.
 
 ---
 
-## 📌 ⚠️ 许可证重要追溯声明
-
-> **请务必阅读。**
-
-- **4.0.0 及以下所有版本，追溯生效为 AGPL-3.0。**
-- **此前标注的 Apache-2.0 声明正式撤销作废。**
-- 产生该变化的原因是：项目底层依赖 **iText 7**，而 iText 7 采用 **AGPL-3.0** 协议分发。
-- 对于开源项目：4.0.0 及以下版本，可在 **AGPL-3.0** 条款下免费使用。
-- ⚠️ 对于闭源商业项目：若直接集成本库用于闭源商业产品，需要向 **iText Group NV** 购买商业许可证。
-- 当前 Roadmap 正在评估迁移到 **Apache PDFBox**，未来计划发布更友好的 **Apache-2.0** 版本。
-- 使用本项目时，应注意保留 iText 相关署名与协议要求。
-
----
-
-## 🗺️ 后续规划 Roadmap
-
-- [ ] 评估迁移到 Apache PDFBox
-- [ ] 发布 Apache-2.0 友好版本
-- [ ] 持续完善模板与图表能力
-- [ ] 优化中文字体与排版体验
-- [ ] 补全更多业务场景示例
-
----
-
-## ❓ 常见疑问 FAQ
-
-### 1. JQuickPDF 适合什么场景？
-适合企业信用报告、业务报表、图文 PDF、图表型文档、模板化文档生成。
-
-### 2. 它需要浏览器吗？
-不需要。JQuickPDF 是纯 Java 实现，不依赖浏览器或 WebKit。
-
-### 3. 支持模板引擎吗？
-支持。可以与 Thymeleaf、FreeMarker 等模板引擎结合使用。
-
-### 4. 如何准备 SVG 数据？
-可以手写 SVG 字符串，也可以从 ECharts 或其它可视化工具导出 SVG，还可以读取本地 `.svg` 文件内容再传入模板。
-
-### 5. SVG 可以直接使用 ECharts 导出结果吗？
-可以。这是业务报表场景中非常常见的用法，前提是你传入的是完整 SVG 字符串，而不是文件路径。
-
----
-
-## ☕ 捐赠与支持
-
-如果这个项目对你有帮助，欢迎点个 Star ⭐。
-
-也欢迎通过仓库中的赞助方式支持作者。
-
----
-
-## 🤝 参与贡献
-
-欢迎提交 Issue、PR 和改进建议。
-
-你可以从这些方向参与：
-
-- 文档改进
-- 示例补充
-- 图表扩展
-- 模板能力完善
-- PDFBox 迁移与字体支持优化
-
----
-
-## 🔗 相关链接
-
-- GitHub: https://github.com/paohaijiao/jquick-pdf
-- Gitee: https://gitee.com/paohaijiao/jquick-pdf
-- Issues: https://github.com/paohaijiao/jquick-pdf/issues
-- 更新日志: [change.md](./change.md)
-
----
-
-## 📜 License
-
-本项目许可声明请见 [LICENSE](./LICENSE)。
-
-> 4.0.0 及以下版本追溯适用 AGPL-3.0。
+<p align="center">
+  Repository: <a href="https://github.com/paohaijiao/jquick-pdf">github.com/paohaijiao/jquick-pdf</a> ·
+  Issues: <a href="https://github.com/paohaijiao/jquick-pdf/issues">issues</a> ·
+  Maven Central: <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx">jquick-pdfx</a> ·
+  Author: Martin (goudingcheng@gmail.com)
+</p>

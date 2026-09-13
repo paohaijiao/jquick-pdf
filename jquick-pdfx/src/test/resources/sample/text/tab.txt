@@ -1,0 +1,5 @@
+<pdf>
+<body>
+<p><tab style="width:48px"></tab><tab></tab><span>'制表符后的文本'</span></p>
+</body>
+</pdf>

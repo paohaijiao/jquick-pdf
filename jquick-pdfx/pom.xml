@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.github.paohaijiao</groupId>
         <artifactId>jquick-pdf</artifactId>
-        <version>3.1.0</version>
+        <version>4.0.0</version>
     </parent>
 
     <artifactId>jquick-pdfx</artifactId>
@@ -15,6 +15,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.github.paohaijiao</groupId>
             <artifactId>jquick-banner</artifactId>
@@ -41,68 +45,12 @@
             <groupId>io.github.paohaijiao</groupId>
             <artifactId>jquick-pdf-font</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>svg</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>sign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>html2pdf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>itext7-core</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>font-asian</artifactId>
-        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>itext7-core</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>commons</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr4-runtime</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.antlr</groupId>
-            <artifactId>antlr4</artifactId>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
@@ -122,21 +70,16 @@
             <artifactId>batik-all</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-core</artifactId>
+            <version>1.0.10</version>
         </dependency>
         <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-pdfbox</artifactId>
+            <version>1.0.10</version>
         </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>svg</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>font-asian</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -146,18 +89,26 @@
             <artifactId>javelin-resource</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <description>
-        jquick-pdf is an enterprise-grade PDF generation framework built on top of iText 7 Core,
-        designed to simplify complex document generation while maintaining full access to iText's
-        powerful features
+        jquick-pdf is a pure-Java PDF toolkit for generating, rendering and exporting PDF documents
+        from an HTML/CSS-like template syntax, built on Apache PDFBox 3 instead of the legacy iText 7.
+        jquick-pdf 是纯 Java 的 PDF 工具库，用于 Java 场景下的 PDF 生成、渲染与导出，
+        底层采用 Apache PDFBox 3 替代旧版 iText 7。
     </description>
     <url>https://github.com/paohaijiao/jquick-pdf</url>
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
     <developers>
@@ -207,7 +158,7 @@
                     <compilerArgs>
                         <arg>-Xlint:none</arg>
                     </compilerArgs>
-                    <failOnError>false</failOnError>
+                    <failOnError>true</failOnError>
                     <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>

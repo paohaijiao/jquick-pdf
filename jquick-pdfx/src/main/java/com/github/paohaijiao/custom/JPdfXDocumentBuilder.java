@@ -15,20 +15,9 @@
  */
 package com.github.paohaijiao.custom;
 
-import com.itextpdf.layout.Document;
+import org.apache.pdfbox.pdmodel.PDDocument;
 
-/**
- * packageName com.github.paohaijiao.custom
- *
- * @author Martin
- * @version 1.0.0
- * @className JPdfXDocumentBuilder
- * @date 2025/6/22
- * @description
- */
 public abstract class JPdfXDocumentBuilder {
 
-
-    public abstract Document buildDocument();
-
+    public abstract PDDocument buildDocument();
 }

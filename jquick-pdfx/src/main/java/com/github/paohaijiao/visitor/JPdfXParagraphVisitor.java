@@ -15,13 +15,16 @@
  */
 package com.github.paohaijiao.visitor;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.util.JStringUtils;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.element.ILeafElement;
-import com.itextpdf.layout.element.Paragraph;
+import com.github.paohaijiao.visitor.element.JQuickElementRender;
+import com.github.paohaijiao.visitor.element.JQuickParagraphElementRender;
+import com.github.paohaijiao.visitor.element.JQuickTextElementRender;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -33,42 +36,68 @@ import com.itextpdf.layout.element.Paragraph;
  * @description
  */
 public class JPdfXParagraphVisitor extends JPdfXSpanVisitor {
+
     @Override
-    public Paragraph visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
-        String text = "";
-        Object value = null;
+    public JQuickElementRender visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
+        JStyleAttributes style = ctx.styleEle() != null ? visitStyleEle(ctx.styleEle()) : new JStyleAttributes();
+        style.putIfAbsent("line-height", "20");
+        StringBuilder text = new StringBuilder();
+        List<JQuickElementRender> children = new ArrayList<>();
+        boolean hasInlineElement = false;
         if (ctx.elemValue() != null) {
-            value = visitElemValue(ctx.elemValue());
-            if (null != value && value instanceof String) {
-                text = (String) value;
+            List<Object> values = visitElemValue(ctx.elemValue());
+            for (Object value : values) {
+                if (value instanceof JQuickElementRender) {
+                    // 行内子元素（<span>、<tab> 等）与裸文本可以混排，需按声明顺序保留。
+                    hasInlineElement = true;
+                    children.add((JQuickElementRender) value);
+                } else if (value != null) {
+                    String piece = JStringUtils.trim(String.valueOf(value));
+                    text.append(piece);
+                    if (!piece.isEmpty()) {
+                        children.add(new JQuickTextElementRender(piece));
+                    }
+                }
             }
         }
-        Paragraph h1 = new Paragraph(JStringUtils.trim(text));
-        h1.setFont(JFontProviderFactory.defualtFont());
-        saveSub(h1, value);
-        JStyleAttributes jStyleAttributes = new JStyleAttributes();
-        if (ctx.styleEle() != null) {
-            jStyleAttributes = visitStyleEle(ctx.styleEle());
+        if (!hasInlineElement) {
+            // 纯文本段落：直接复用文本渲染器。它是块级元素，排版时应用自身的上下外边距。
+            JQuickTextElementRender textElement = new JQuickTextElementRender(JStringUtils.trim(text.toString()), style);
+            textElement.setBlockLevel(true);
+            super.buildStyle(textElement, style);
+            return textElement;
         }
-        super.buildStyle(h1, jStyleAttributes);
-        return h1;
+        // 含行内子元素的段落（<span>、<tab> 等）：交给段落容器按行内流依次排布。
+        for (JQuickElementRender child : children) {
+            if (child instanceof JQuickTextElementRender) {
+                JQuickTextElementRender inlineText = (JQuickTextElementRender) child;
+                inlineText.setInline(true);
+                inheritStyle(inlineText, style);
+            }
+        }
+        JQuickParagraphElementRender paragraph = new JQuickParagraphElementRender(children, style);
+        super.buildStyle(paragraph, style);
+        return paragraph;
     }
 
-    private void saveSub(Paragraph paragraph, Object object) {
-        if (null != object && object instanceof java.util.List) {
-            java.util.List<Object> list = (java.util.List<Object>) object;
-            list.forEach(e -> {
-                if (e instanceof String) {
-                    paragraph.add((String) e);
-                }
-                if (e instanceof ILeafElement) {
-                    paragraph.add((ILeafElement) e);
-                }
-                if (e instanceof IBlockElement) {
-                    paragraph.add((IBlockElement) e);
-                }
-            });
+    /**
+     * 行内文本继承段落的样式（HTML 的样式继承语义）：仅补齐子元素未声明的属性，
+     * 并跳过段落的块级外边距与对齐方式，避免行内文本被段落再次定位。
+     */
+    private void inheritStyle(JQuickTextElementRender child, JStyleAttributes paragraphStyle) {
+        JStyleAttributes childStyle = child.getStyle();
+        if (childStyle == null) {
+            childStyle = new JStyleAttributes();
+            childStyle.putAll(paragraphStyle);
+            child.setStyle(childStyle);
+            return;
+        }
+        for (Map.Entry<String, String> entry : paragraphStyle.entrySet()) {
+            String key = entry.getKey();
+            if (key.startsWith("margin") || "textAlignment".equals(key) || "text-align".equals(key)) {
+                continue;
+            }
+            childStyle.putIfAbsent(key, entry.getValue());
         }
     }
-
 }

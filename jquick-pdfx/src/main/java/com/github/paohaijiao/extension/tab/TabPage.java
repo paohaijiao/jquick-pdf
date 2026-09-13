@@ -15,14 +15,8 @@
  */
 package com.github.paohaijiao.extension.tab;
 
-import com.github.paohaijiao.factory.JFontProviderFactory;
-import com.itextpdf.io.font.PdfEncodings;
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
-import com.itextpdf.layout.element.IBlockElement;
-import com.itextpdf.layout.font.FontProvider;
+import org.apache.pdfbox.pdmodel.font.PDFont;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,44 +28,41 @@ import java.util.List;
  * @since 2025/7/20
  */
 public class TabPage {
+
     private String title;
-    private List<IBlockElement> contents;
+
+    private List<Object> contents;
+
     private boolean active;
-    private PdfFont font;
+
+    private PDFont font;
 
     public TabPage(String title) {
-        this.title = title;
-        this.contents = new ArrayList<>();
-        this.active = false;
-        this.font = JFontProviderFactory.getFont(JFontProviderFactory.DEFAULT_FONT);
+        this(title, null);
     }
 
-    public TabPage(String title, PdfFont font) {
+    public TabPage(String title, PDFont font) {
         this.title = title;
         this.contents = new ArrayList<>();
         this.active = false;
         this.font = font;
     }
 
-    public void addContent(IBlockElement element) {
-        FontProvider fontProvider = new FontProvider();
-        String fontPath = "fonts/simhei.ttf";
-        fontProvider.addFont(fontPath, PdfEncodings.IDENTITY_H);
-        PdfFont font = null;
-        try {
-            font = PdfFontFactory.createFont(fontPath, PdfEncodings.IDENTITY_H);
+    public void addContent(Object element) {
+        if (element != null) {
             contents.add(element);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
         }
-
     }
 
     public String getTitle() {
         return title;
     }
 
-    public List<IBlockElement> getContents() {
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public List<Object> getContents() {
         return contents;
     }
 
@@ -83,7 +74,11 @@ public class TabPage {
         this.active = active;
     }
 
-    public PdfFont getFont() {
+    public PDFont getFont() {
         return font;
+    }
+
+    public void setFont(PDFont font) {
+        this.font = font;
     }
 }

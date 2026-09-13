@@ -16,7 +16,7 @@
 package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.parser.JQuickPDFParser;
-import com.itextpdf.layout.element.Paragraph;
+import com.github.paohaijiao.visitor.element.JQuickElementRender;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -34,7 +34,7 @@ public class JPdfXElementVisitor extends JPdfXTemplateVisitor {
     public Object visitElement(JQuickPDFParser.ElementContext ctx) {
         String text = ctx.getText();
         if (ctx.paragraph() != null) {
-            Paragraph paragraph = visitParagraph(ctx.paragraph());
+            JQuickElementRender paragraph = visitParagraph(ctx.paragraph());
             return paragraph;
         } else if (ctx.heading() != null) {
             return visitHeading(ctx.heading());

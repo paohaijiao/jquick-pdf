@@ -1,0 +1,31 @@
+<pdf>
+<body>
+<div style="margin-left:1px">margin-left-1px</div>
+<div style="margin-right:500px">margin-right-500px</div>
+<div style="margin-top:500px">margin-top-500px</div>
+<div style="margin-bottom:500px">margin-bottom-500px</div>
+<div style="common-margin:100px">common-margin-100px</div>
+<div style="margins:'20px 30px 40px 50px'">margins-'20px 30px 40px 50px'</div>
+
+<div style="padding-left:50px">padding-left-50px</div>
+<div style="padding-right:50px">padding-right-50px</div>
+<div style="padding-top:50px">padding-top-50px</div>
+<div style="padding-bottom:50px">padding-bottom-50px</div>
+<div style="common-padding:50px">common-padding-50px</div>
+<div style="paddings:'50px 50px 60px 70px'">paddings-'50px 50px 60px 70px'</div>
+
+<div style="vertical-alignment:top">vertical-alignment-top</div>
+<div style="spacing-ratio:30">spacing-ratio-30</div>
+<div style="keep-together:true">keep-together-true</div>
+<div style="keep-with-next:true">keep-with-next-true</div>
+
+<div style="width:300px">width-300px</div>
+<div style="height:300px">height-300px</div>
+<div style="max-height:300px">max-height-300px</div>
+<div style="min-height:300px">min-height-300px</div>
+<div style="min-width:300px">min-width-300px</div>
+<div style="max-width:300px">max-width-300px</div>
+
+<div style="angle-in-radians:30">angle-in-radians-30</div>
+</body>
+</pdf>

@@ -1,0 +1,33 @@
+<pdf>
+<body>
+<div style="marginLeft:1px">marginLeft-1px</div>
+<div style="marginRight:500px">marginRight-500px</div>
+<div style="marginTop:500px">marginTop-500px</div>
+<div style="marginBottom:500px">marginBottom-500px</div>
+<div style="commonMargin:100px">commonMargin-100px</div>
+<div style="margins:'20px 30px 40px 50px'">margins-'20px 30px 40px 50px'</div>
+<div style="paddingLeft:50px">paddingLeft-50px</div>
+<div style="paddingRight:50px">paddingRight-50px</div>
+<div style="paddingTop:50px">paddingTop-50px</div>
+<div style="paddingBottom:50px">paddingBottom-50px</div>
+<div style="commonPadding:50px">commonPadding-50px</div>
+<div style="paddings:'50px 50px 60px 70px'">paddings-'50px 50px 60px 70px'</div>
+<div style="backgroundColor:lightgray;height:120px;verticalAlignment:top">verticalAlignment-top</div>
+<div style="backgroundColor:lightgray;height:120px;verticalAlignment:middle">verticalAlignment-middle</div>
+<div style="backgroundColor:lightgray;height:120px;verticalAlignment:bottom">verticalAlignment-bottom</div>
+<div style="spacingRatio:30">spacingRatio-30</div>
+<div style="keepTogether:true">keepTogether-true</div>
+<div style="keepWithNext:true">keepWithNext-true</div>
+
+<!-- 尺寸属性 -->
+<div style="width:300px">width-300px</div>
+<div style="height:300px">height-300px</div>
+<div style="maxHeight:300px">maxHeight-300px</div>
+<div style="minHeight:300px">minHeight-300px</div>
+<div style="minWidth:300px">minWidth-300px</div>
+<div style="maxWidth:300px">maxWidth-300px</div>
+
+<!-- 其他属性 -->
+<div style="angleInRadians:30">angleInRadians-30</div>
+</body>
+</pdf>
