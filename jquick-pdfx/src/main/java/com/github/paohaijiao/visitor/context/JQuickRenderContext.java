@@ -60,6 +60,9 @@ public class JQuickRenderContext {
 
     private PdfBoxLayoutEngine layoutEngine;
 
+    /** 是否启用 flex 行布局（display:flex），由 {@code JPdfConfig.layoutConfig} 控制。 */
+    private boolean flexLayout;
+
     public enum TextAlign {
         LEFT, CENTER, RIGHT, JUSTIFY
     }

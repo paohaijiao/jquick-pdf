@@ -68,4 +68,6 @@ public class JPdfConfig {
 
     private JTemplateConfig templateConfig = new JTemplateConfig();
 
+    private JLayoutConfig layoutConfig = new JLayoutConfig();
+
 }

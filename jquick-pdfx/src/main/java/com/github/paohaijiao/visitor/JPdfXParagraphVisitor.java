@@ -52,6 +52,8 @@ public class JPdfXParagraphVisitor extends JPdfXSpanVisitor {
         }
         jStyleAttributes.putIfAbsent("line-height", "20");
         JQuickTextElementRender textElement = new JQuickTextElementRender(JStringUtils.trim(text), jStyleAttributes);
+        // <p> 是块级元素：排版时应用自身的上下外边距，与相邻块保持声明好的间距。
+        textElement.setBlockLevel(true);
         super.buildStyle(textElement, jStyleAttributes);
         return textElement;
     }

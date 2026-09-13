@@ -36,7 +36,7 @@ public class JQuickDivElementRender implements JQuickElementRender {
         float lineHeight = resolveLineHeight(context, model);
         float outerWidth = resolveOuterWidth(context, model);
         // 预估值仅用于提前预留空间；背景框的真实高度由子元素排版结果决定。
-        float estimatedHeight = resolveEstimatedHeight(model, lineHeight);
+        float estimatedHeight = resolveEstimatedHeight(context, model, lineHeight);
         float requiredHeight = estimatedHeight + model.getMarginTop() + model.getMarginBottom();
 
         if (layoutEngine != null) {
@@ -60,7 +60,7 @@ public class JQuickDivElementRender implements JQuickElementRender {
         if (hasVisibleBox(model)) {
             // 先按 div 的内容区位置试排版一次，量出子元素真实占用的高度，
             // 这样背景框的高度与位置就跟随子元素的实际排版结果，而不是凭空估算。
-            float contentHeight = measureContent(stream, context, contentX, contentTop, contentWidth, layoutEngine);
+            float contentHeight = measureContent(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
             float boxHeight = resolveBoxHeight(model, contentHeight);
             // 背景必须在文字之下：用真实高度绘制背景覆盖试排版结果，再重绘子元素。
             PdfBoxRenderAdapter.drawBox(context.getDocument(), stream, model, boxX, boxTop, outerWidth, boxHeight);
@@ -95,23 +95,16 @@ public class JQuickDivElementRender implements JQuickElementRender {
                 || model.getBorderLeft() != null;
     }
 
-    /** 试排版：在内容区位置绘制子元素以量取真实高度（关闭分页，结果随后被背景覆盖）。 */
+    /** 试排版：在内容区位置排出子元素以量取真实高度（关闭分页，结果随后被背景覆盖）。 */
     private float measureContent(PDPageContentStream stream, JQuickRenderContext context, float contentX,
-                                 float contentTop, float contentWidth, PdfBoxLayoutEngine layoutEngine)
-            throws IOException {
+                                 float contentTop, float contentWidth, PdfBoxLayoutEngine layoutEngine,
+                                 float lineHeight) throws IOException {
         boolean pagination = layoutEngine != null && layoutEngine.isPaginationEnabled();
         if (layoutEngine != null) {
             layoutEngine.setPaginationEnabled(false);
         }
         try {
-            applyContentBox(context, contentX, contentTop, contentWidth);
-            for (JQuickElementRender child : children) {
-                if (child == null) {
-                    continue;
-                }
-                child.draw(stream, context);
-            }
-            return Math.max(0f, contentTop - context.getCursorY());
+            return layoutContent(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
         } finally {
             if (layoutEngine != null) {
                 layoutEngine.setPaginationEnabled(pagination);
@@ -123,6 +116,20 @@ public class JQuickDivElementRender implements JQuickElementRender {
     private void drawChildren(PDPageContentStream stream, JQuickRenderContext context, float contentX,
                               float contentTop, float contentWidth, PdfBoxLayoutEngine layoutEngine,
                               float lineHeight) throws IOException {
+        layoutContent(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
+    }
+
+    /**
+     * 排出内容并返回其占用的高度。flex 容器按行排列子元素，其余按块级垂直堆叠。
+     * 分页是否生效由调用方控制（试排版阶段关闭分页）。
+     */
+    private float layoutContent(PDPageContentStream stream, JQuickRenderContext context, float contentX,
+                                float contentTop, float contentWidth, PdfBoxLayoutEngine layoutEngine,
+                                float lineHeight) throws IOException {
+        PdfBoxStyleModel model = PdfBoxStyleModel.from(style);
+        if (isFlexRow(context, model)) {
+            return layoutFlexRows(stream, context, model, contentX, contentTop, contentWidth, layoutEngine);
+        }
         applyContentBox(context, contentX, contentTop, contentWidth);
         for (JQuickElementRender child : children) {
             if (child == null) {
@@ -134,6 +141,187 @@ public class JQuickDivElementRender implements JQuickElementRender {
             }
             child.draw(stream, context);
         }
+        return Math.max(0f, contentTop - context.getCursorY());
+    }
+
+    /**
+     * flex 行布局：子元素依据声明的宽度排在同一行；一行放不下时按比例收缩（等价于 HTML 默认的
+     * flex-wrap:nowrap），若声明了 flex-wrap:wrap 则换行；剩余空间按 justifyContent 分配。
+     * <p>
+     * 每行作为整体预留分页空间并整体推进光标：行的实际高度取行内元素的最大值，
+     * 而不是最后一个子元素的底部，否则后续内容会与整行重叠。
+     */
+    private float layoutFlexRows(PDPageContentStream stream, JQuickRenderContext context, PdfBoxStyleModel model,
+                                 float contentX, float contentTop, float contentWidth,
+                                 PdfBoxLayoutEngine layoutEngine) throws IOException {
+        List<List<Integer>> rows = buildFlexRows(model, contentWidth);
+        float top = contentTop;
+        for (List<Integer> row : rows) {
+            if (layoutEngine != null) {
+                // 行内元素必须留在同一页：先按预估行高预留空间，避免同一行被分页拆散。
+                context.setCursorY(top);
+                int pageBefore = context.getPageNumber();
+                layoutEngine.ensureSpace(resolveRowEstimatedHeight(row), false);
+                stream = layoutEngine.getStream();
+                if (context.getPageNumber() != pageBefore) {
+                    top = context.getCursorY();
+                    contentX = context.getCursorX() + model.getMarginLeft() + model.getPaddingLeft();
+                }
+            }
+            float[] widths = resolveFlexWidths(row, contentWidth);
+            float[] positions = resolveFlexPositions(model, row, widths, contentX, contentWidth);
+            float rowHeight = 0f;
+            for (int k = 0; k < row.size(); k++) {
+                JQuickElementRender child = children.get(row.get(k));
+                context.setCursorX(positions[k]);
+                context.setCursorY(top);
+                context.setX(positions[k]);
+                context.setY(top);
+                context.setWidth(widths[k]);
+                context.setHeight(0f);
+                child.draw(stream, context);
+                rowHeight = Math.max(rowHeight, top - context.getCursorY());
+            }
+            top -= Math.max(rowHeight, 0f);
+            context.setCursorY(top);
+        }
+        return Math.max(0f, contentTop - top);
+    }
+
+    /** 行内元素声明高度的最大值，用于给整行预留分页空间；均未声明高度时返回 0（不预留）。 */
+    private float resolveRowEstimatedHeight(List<Integer> row) {
+        float tallest = 0f;
+        for (Integer index : row) {
+            tallest = Math.max(tallest, declaredItemHeight(children.get(index)));
+        }
+        return Math.max(tallest, 0f);
+    }
+
+    /** 依据子元素声明宽度组织 flex 行；未声明宽度的子元素独占一行。 */
+    private List<List<Integer>> buildFlexRows(PdfBoxStyleModel model, float contentWidth) {
+        String wrapValue = trim(model.getFlexWrap());
+        boolean wrap = "wrap".equalsIgnoreCase(wrapValue) || "wrap-reverse".equalsIgnoreCase(wrapValue);
+        List<List<Integer>> rows = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
+        float used = 0f;
+        for (int i = 0; i < children.size(); i++) {
+            if (children.get(i) == null) {
+                continue;
+            }
+            float baseWidth = declaredItemWidth(children.get(i));
+            if (baseWidth <= 0f) {
+                if (!current.isEmpty()) {
+                    rows.add(current);
+                    current = new ArrayList<>();
+                    used = 0f;
+                }
+                List<Integer> single = new ArrayList<>();
+                single.add(i);
+                rows.add(single);
+                continue;
+            }
+            if (wrap && !current.isEmpty() && used + baseWidth > contentWidth) {
+                rows.add(current);
+                current = new ArrayList<>();
+                used = 0f;
+            }
+            current.add(i);
+            used += baseWidth;
+        }
+        if (!current.isEmpty()) {
+            rows.add(current);
+        }
+        return rows;
+    }
+
+    /** 按声明宽度等比例收缩，使整行宽度不超过可用宽度。 */
+    private float[] resolveFlexWidths(List<Integer> row, float contentWidth) {
+        float[] bases = new float[row.size()];
+        float total = 0f;
+        for (int k = 0; k < row.size(); k++) {
+            float baseWidth = declaredItemWidth(children.get(row.get(k)));
+            bases[k] = baseWidth > 0f ? baseWidth : contentWidth;
+            total += bases[k];
+        }
+        float scale = total > contentWidth && total > 0f ? contentWidth / total : 1f;
+        float[] widths = new float[row.size()];
+        for (int k = 0; k < row.size(); k++) {
+            widths[k] = bases[k] * scale;
+        }
+        return widths;
+    }
+
+    /** 依据 justifyContent 计算行内每个子元素的起始 x。 */
+    private float[] resolveFlexPositions(PdfBoxStyleModel model, List<Integer> row, float[] widths,
+                                         float contentX, float contentWidth) {
+        float total = 0f;
+        for (float width : widths) {
+            total += width;
+        }
+        float free = Math.max(0f, contentWidth - total);
+        String justify = trim(model.getJustifyContent());
+        float startX = contentX;
+        float gap = 0f;
+        if ("center".equalsIgnoreCase(justify)) {
+            startX = contentX + free / 2f;
+        } else if ("flex-end".equalsIgnoreCase(justify) || "end".equalsIgnoreCase(justify)
+                || "right".equalsIgnoreCase(justify)) {
+            startX = contentX + free;
+        } else if ("space-between".equalsIgnoreCase(justify)) {
+            gap = row.size() > 1 ? free / (row.size() - 1) : 0f;
+        } else if ("space-around".equalsIgnoreCase(justify)) {
+            gap = !row.isEmpty() ? free / row.size() : 0f;
+            startX = contentX + gap / 2f;
+        }
+        float[] positions = new float[row.size()];
+        for (int k = 0; k < row.size(); k++) {
+            positions[k] = k == 0 ? startX : positions[k - 1] + widths[k - 1] + gap;
+        }
+        return positions;
+    }
+
+    /** 子元素声明的外部宽度（含左右外边距）；未声明时返回 -1。 */
+    private float declaredItemWidth(JQuickElementRender child) {
+        JStyleAttributes childStyle = child.getStyle();
+        if (childStyle == null) {
+            return -1f;
+        }
+        PdfBoxStyleModel childModel = PdfBoxStyleModel.from(childStyle);
+        if (childModel.getWidth() <= 0f) {
+            return -1f;
+        }
+        return childModel.getWidth() + childModel.getMarginLeft() + childModel.getMarginRight();
+    }
+
+    /** 子元素声明的外部高度（含内边距与上下外边距）；未声明时返回 -1，用于预留分页空间。 */
+    private float declaredItemHeight(JQuickElementRender child) {
+        JStyleAttributes childStyle = child.getStyle();
+        if (childStyle == null) {
+            return -1f;
+        }
+        PdfBoxStyleModel childModel = PdfBoxStyleModel.from(childStyle);
+        if (childModel.getHeight() <= 0f) {
+            return -1f;
+        }
+        return childModel.getHeight() + childModel.getPaddingTop() + childModel.getPaddingBottom()
+                + childModel.getMarginTop() + childModel.getMarginBottom();
+    }
+
+    /** 是否按 flex 行布局处理子元素：需要开启配置、声明 display:flex，且主轴为水平方向。 */
+    private boolean isFlexRow(JQuickRenderContext context, PdfBoxStyleModel model) {
+        if (!context.isFlexLayout() || children.isEmpty()) {
+            return false;
+        }
+        String display = trim(model.getDisplay());
+        if (!"flex".equalsIgnoreCase(display) && !"inline-flex".equalsIgnoreCase(display)) {
+            return false;
+        }
+        String direction = trim(model.getFlexDirection());
+        return !"column".equalsIgnoreCase(direction) && !"column-reverse".equalsIgnoreCase(direction);
+    }
+
+    private String trim(String value) {
+        return value == null ? null : value.trim();
     }
 
     private void applyContentBox(JQuickRenderContext context, float contentX, float contentTop, float contentWidth) {
@@ -159,9 +347,13 @@ public class JQuickDivElementRender implements JQuickElementRender {
 
     private float resolveOuterWidth(JQuickRenderContext context, PdfBoxStyleModel model) {
         float availableWidth = context.getWidth() > 0f ? context.getWidth() : pageContentWidth(context);
-        float width = model.getWidth() > 0f
-                ? model.getWidth()
-                : availableWidth - model.getMarginLeft() - model.getMarginRight();
+        float width;
+        if (model.getWidth() > 0f) {
+            // 声明宽度不得超过父级分配的宽度，保证 flex 行内按比例收缩能生效，同时避免溢出页面。
+            width = availableWidth > 0f ? Math.min(model.getWidth(), availableWidth) : model.getWidth();
+        } else {
+            width = availableWidth - model.getMarginLeft() - model.getMarginRight();
+        }
         if (model.getMinWidth() > 0f) {
             width = Math.max(width, model.getMinWidth());
         }
@@ -176,11 +368,24 @@ public class JQuickDivElementRender implements JQuickElementRender {
         return Math.max(0f, context.getPageWidth() - margins[1] - margins[3]);
     }
 
-    private float resolveEstimatedHeight(PdfBoxStyleModel model, float lineHeight) {
+    private float resolveEstimatedHeight(JQuickRenderContext context, PdfBoxStyleModel model, float lineHeight) {
         if (model.getHeight() > 0f) {
             return model.getHeight();
         }
-        float contentHeight = Math.max(lineHeight, children.size() * lineHeight);
+        float contentHeight;
+        if (isFlexRow(context, model)) {
+            // flex 容器中同一行的子元素高度取最大值，用声明高度中的最大者预留分页空间。
+            float tallest = 0f;
+            for (JQuickElementRender child : children) {
+                if (child == null) {
+                    continue;
+                }
+                tallest = Math.max(tallest, declaredItemHeight(child));
+            }
+            contentHeight = tallest > 0f ? tallest : lineHeight;
+        } else {
+            contentHeight = Math.max(lineHeight, children.size() * lineHeight);
+        }
         float height = contentHeight + model.getPaddingTop() + model.getPaddingBottom();
         if (model.getMinHeight() > 0f) {
             height = Math.max(height, model.getMinHeight());

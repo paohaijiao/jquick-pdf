@@ -19,6 +19,8 @@ public class JQuickCreditReportTest {
     public void reportByContent() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
         JPdfConfig config = new JPdfConfig();
+        // 开启 flex 行布局：雷达图与其右侧的指标说明面板在宽度允许时并排，而不是换行堆叠。
+        config.getLayoutConfig().setFlexLayout(true);
         JReader fileReader = new JReSourceFileReader("report.txt");
         JAdaptor adaptor = new JAdaptor(fileReader);
         JReader svgReader = new JReSourceFileReader("radar.txt");
@@ -32,6 +34,8 @@ public class JQuickCreditReportTest {
     public void reportByClassResourceFile() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
         JPdfConfig config = new JPdfConfig();
+        // 开启 flex 行布局：雷达图与其右侧的指标说明面板在宽度允许时并排，而不是换行堆叠。
+        config.getLayoutConfig().setFlexLayout(true);
         JReader svgReader = new JReSourceFileReader("radar.txt");
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory=new JQuickPdfFactory(config);
@@ -43,6 +47,8 @@ public class JQuickCreditReportTest {
     public void reportByFile() throws IOException {
         FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
         JPdfConfig config = new JPdfConfig();
+        // 开启 flex 行布局：雷达图与其右侧的指标说明面板在宽度允许时并排，而不是换行堆叠。
+        config.getLayoutConfig().setFlexLayout(true);
         JReader svgReader = new JReSourceFileReader("radar.txt");
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory=new JQuickPdfFactory(config);

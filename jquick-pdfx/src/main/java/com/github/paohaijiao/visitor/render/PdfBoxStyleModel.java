@@ -66,6 +66,11 @@ public class PdfBoxStyleModel {
     private String textRenderingMode;
     private String baseDirection;
     private String destination;
+    private String display;
+    private String flexDirection;
+    private String flexWrap;
+    private String justifyContent;
+    private String alignItems;
 
     public static PdfBoxStyleModel from(JStyleAttributes attributes) {
         PdfBoxStyleModel model = new PdfBoxStyleModel();
@@ -136,6 +141,11 @@ public class PdfBoxStyleModel {
         model.textRenderingMode = attributes.get("textRenderingMode");
         model.baseDirection = attributes.get("baseDirection");
         model.destination = attributes.get("destination");
+        model.display = first(attributes, "display", "display");
+        model.flexDirection = first(attributes, "flexDirection", "flex-direction");
+        model.flexWrap = first(attributes, "flexWrap", "flex-wrap");
+        model.justifyContent = first(attributes, "justifyContent", "justify-content");
+        model.alignItems = first(attributes, "alignItems", "align-items");
         return model;
     }
 

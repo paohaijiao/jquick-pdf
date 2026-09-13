@@ -26,6 +26,11 @@ public class JQuickTextElementRender implements JQuickElementRender {
     private float characterSpacing;
     private float wordSpacing;
     private boolean useContextPosition = true;
+    /**
+     * 是否为块级文本。块级文本（{@code <p>}、{@code <h1>}~{@code <h6>}）在排版时应用自身的上下外边距，
+     * 与 HTML 一致；行内文本（{@code <span>}）与容器直接承载的文本忽略外边距，避免与容器的外边距重复计算。
+     */
+    private boolean blockLevel;
 
     public JQuickTextElementRender(String content) {
         this.content = content;
@@ -51,7 +56,10 @@ public class JQuickTextElementRender implements JQuickElementRender {
         float drawX = useContextPosition ? context.getCursorX() : (x > 0 ? x : context.getX());
         // 光标代表“行的顶部”，而 PDF 文本按基线定位，因此绘制时下移一个 ascent，
         // 否则文字会整体高出所在容器（div 背景、表格单元格等）。
-        float lineTop = useContextPosition ? context.getCursorY() : (y > 0 ? y : context.getY());
+        // 块级文本先让出自身的外边距，使相邻块之间保持声明好的间距而不是贴在一起。
+        float marginTop = blockLevel ? model.getMarginTop() : 0f;
+        float marginBottom = blockLevel ? model.getMarginBottom() : 0f;
+        float lineTop = (useContextPosition ? context.getCursorY() : (y > 0 ? y : context.getY())) - marginTop;
         float textSize = model.getFontSize();
         // 行高按元素自身字号计算，避免大字号标题与小字号正文共用同一行距而重叠。
         float lineHeight = textSize > 0f
@@ -69,6 +77,6 @@ public class JQuickTextElementRender implements JQuickElementRender {
                 lineTop -= lineHeight;
             }
         }
-        context.setCursorY(lineTop);
+        context.setCursorY(lineTop - marginBottom);
     }
 }

@@ -162,6 +162,8 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                 .font(resolveDocumentFont())
                 .fontSize(12f)
                 .lineHeight(16f)
+                .flexLayout(config != null && config.getLayoutConfig() != null
+                        && config.getLayoutConfig().isFlexLayout())
                 .build();
     }
 
