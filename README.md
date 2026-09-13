@@ -137,7 +137,7 @@ The toolkit covers two layers:
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
     <artifactId>jquick-pdfx</artifactId>
-    <version>4.0.1</version>
+    <version>4.0.0</version>
 </dependency>
 ```
 
@@ -147,7 +147,7 @@ Chart support (optional):
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
     <artifactId>jquick-pdf-svg</artifactId>
-    <version>4.0.1</version>
+    <version>4.0.0</version>
 </dependency>
 ```
 

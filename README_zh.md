@@ -131,13 +131,13 @@
 | `jquick-pdf-data` | `io.github.paohaijiao:jquick-pdf-data` | 图表配置模型（`JOption`、`JChart`、`JTitle`、`JLegend` 等）。 |
 | `jquick-pdf-font` | `io.github.paohaijiao:jquick-pdf-font` | 内置 CJK 字体资源。 |
 
-### Maven 依赖 —— 4.0.1 及以上（Apache-2.0）
+### Maven 依赖 —— 4.0.0 及以上（Apache-2.0）
 
 ```xml
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
     <artifactId>jquick-pdfx</artifactId>
-    <version>4.0.1</version>
+    <version>4.0.0</version>
 </dependency>
 ```
 
@@ -147,7 +147,7 @@
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
     <artifactId>jquick-pdf-svg</artifactId>
-    <version>4.0.1</version>
+    <version>4.0.0</version>
 </dependency>
 ```
 
