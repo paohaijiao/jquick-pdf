@@ -25,6 +25,8 @@
   <img src="https://img.shields.io/badge/ANTLR-4.x-blue.svg" alt="ANTLR 4" />
 </p>
 
+⭐ 本项目已被 [Awesome Java](https://github.com/akullpp/awesome-java) 列表收录。
+
 ---
 
 ## 目录
@@ -97,7 +99,7 @@
 - **图表层**（`jquick-pdf-svg`）：30+ 种图表类型（柱状图、折线图、饼图、雷达图、散点图、箱线图、热力图、K 线、漏斗图、仪表盘、甘特图、词云、地图、旭日图、矩形树图、气泡图、日历图、时间轴、拓扑图等），以矢量图形渲染——在文档中用一个占位符即可绑定。
 
 > **协议边界 —— 上线前请先阅读 [版本对照表](#版本对照表)。**
-> **4.0.0** 版本为 **AGPL-3.0**（基于 iText 7）。**4.0.1 及以上**版本为 **Apache-2.0**（已迁移至 Apache PDFBox，移除 AGPL 依赖）。
+> **低于4.0.0** 版本为 **AGPL-3.0**（基于 iText 7）。**4.0.0 及以上**版本为 **Apache-2.0**（已迁移至 Apache PDFBox，移除 AGPL 依赖）。
 
 ## 核心特性
 
@@ -162,7 +164,7 @@
 ```
 
 > **协议风险：** 4.0.0 及以下使用 **AGPL-3.0**，原因是其依赖 **iText 7 Core**。在闭源产品中使用这些版本，需要完全遵守 AGPL 条款，或向 iText Group NV 购买商业许可。这些版本产出的 PDF 会带有 `Powered by iText` 标识。
-> 迁移到 **4.0.1 或更高版本**即可获得 **Apache-2.0** 并解除该义务——详见 [License](#license许可证)。
+> 迁移到 **4.0.0 或更高版本**即可获得 **Apache-2.0** 并解除该义务——详见 [License](#license许可证)。
 
 ### Hello world
 
@@ -1796,9 +1798,9 @@ String svg = JChartRendererFactory.renderChart(JChartType.DoubleRadar, option);
 
 ## 版本对照表
 
-| 版本区间 | PDF 引擎 | 许可证 | 闭源 / 商业使用 |
-|---|---|---|---|
-| **≥ 4.0.1** | Apache PDFBox 3.x | **Apache License 2.0** | 允许，无传染性义务 |
+| 版本区间                         | PDF 引擎 | 许可证 | 闭源 / 商业使用 |
+|------------------------------|---|---|---|
+| **≥ 4.0.0**                  | Apache PDFBox 3.x | **Apache License 2.0** | 允许，无传染性义务 |
 | **4.0.0 及以下**（含 1.x、2.x、3.x） | iText 7 Core | **AGPL-3.0** | 需向 iText Group NV 购买商业许可，或完全遵守 AGPL |
 
 ## License（许可证）

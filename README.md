@@ -25,6 +25,8 @@
   <img src="https://img.shields.io/badge/ANTLR-4.x-blue.svg" alt="ANTLR 4" />
 </p>
 
+⭐ This project is included in the [Awesome Java](https://github.com/akullpp/awesome-java) list.
+
 ---
 
 ## Table of Contents
@@ -97,7 +99,7 @@ The toolkit covers two layers:
 - **Chart layer** (`jquick-pdf-svg`): 30+ chart types (bar, line, pie, radar, scatter, boxplot, heatmap, K-line, funnel, gauge, gantt, word cloud, geo map, sunburst, treemap, bubble, calendar, timeline, topology and more) rendered as vector graphics — bound into a document with a single placeholder.
 
 > **License boundary — read [Version Matrix](#version-matrix) before shipping.**
-> Version **4.0.0** is **AGPL-3.0** (iText 7 based). Version **4.0.1 and above** is **Apache-2.0** (migrated to Apache PDFBox, AGPL dependency removed).
+> below **4.0.0** is **AGPL-3.0** (iText 7 based). Version **4.0.0 and above** is **Apache-2.0** (migrated to Apache PDFBox, AGPL dependency removed).
 
 ## Features
 
@@ -131,7 +133,7 @@ The toolkit covers two layers:
 | `jquick-pdf-data` | `io.github.paohaijiao:jquick-pdf-data` | Chart option model (`JOption`, `JChart`, `JTitle`, `JLegend`, ...). |
 | `jquick-pdf-font` | `io.github.paohaijiao:jquick-pdf-font` | Bundled CJK font resources. |
 
-### Maven dependency — 4.0.1 and above (Apache-2.0)
+### Maven dependency — 4.0.0 and above (Apache-2.0)
 
 ```xml
 <dependency>
@@ -162,7 +164,7 @@ Chart support (optional):
 ```
 
 > **License risk:** 4.0.0 and below are licensed under **AGPL-3.0** because they depend on **iText 7 Core**. Using them in a closed-source product requires full AGPL compliance or a commercial license from iText Group NV. PDFs produced by these versions carry the `Powered by iText` notice.
-> Migrate to **4.0.1 or later** to get **Apache-2.0** and drop the obligation — see [License](#license).
+> Migrate to **4.0.0 or later** to get **Apache-2.0** and drop the obligation — see [License](#license).
 
 ### Hello world
 
@@ -1799,9 +1801,9 @@ Units: `px` (96 DPI, `1px = 0.75pt`), `pt`, `mm`, `cm`, `in`. Colors: names (`re
 
 ## Version Matrix
 
-| Version range | PDF engine | License | Closed-source / commercial use |
-|---|---|---|---|
-| **≥ 4.0.1** | Apache PDFBox 3.x | **Apache License 2.0** | Allowed, no copyleft obligation |
+| Version range                             | PDF engine | License | Closed-source / commercial use |
+|-------------------------------------------|---|---|---|
+| **≥ 4.0.0**                               | Apache PDFBox 3.x | **Apache License 2.0** | Allowed, no copyleft obligation |
 | **4.0.0 and below** (incl. 1.x, 2.x, 3.x) | iText 7 Core | **AGPL-3.0** | Requires a commercial license from iText Group NV, or full AGPL compliance |
 
 ## License
