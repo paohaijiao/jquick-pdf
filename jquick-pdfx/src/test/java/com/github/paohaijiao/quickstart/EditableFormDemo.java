@@ -1,6 +1,6 @@
 package com.github.paohaijiao.quickstart;
-import com.github.paohaijiao.executor.JQuickPdfFactory; // 导入工厂
-import java.nio.file.*; // 导入文件工具
+import com.github.paohaijiao.executor.JQuickPdfFactory;
+import java.nio.file.*;
 
 public class EditableFormDemo { // 声明类
     public static void main(String[] args) throws Exception { // 声明入口

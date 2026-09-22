@@ -232,10 +232,7 @@ option.yAxis(new JValueAxis());
 JBar bar = new JBar();
 bar.name("销量").data(5, 20, 36, 10, 10, 20);
 option.series(bar);
-JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
-jBarChartsRenderer.render(option, "D://test//barchart.svg");
-String str = jBarChartsRenderer.renderToString(option);
-System.out.println(str);
+
 ```
 
 #### 2. Line chart — `images/line_chart.svg`
@@ -255,8 +252,7 @@ option.yAxis(new JValueAxis());
 JLine line = new JLine();
 line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
 option.series(line);
-JLineChartsRenderer renderer = new JLineChartsRenderer();
-renderer.render(option, "D://test//line_chart.svg");
+
 ```
 
 #### 3. Pie chart — `images/pie-chart.svg`
@@ -279,8 +275,7 @@ pie.data(
         new JData().name("袜子").value(4)
 );
 option.series(pie);
-JPieChartsRenderer renderer = new JPieChartsRenderer();
-renderer.render(option, "d://test//pie-chart.svg");
+
 ```
 
 #### 4. Radar chart — `images/radar_chart.svg`
@@ -319,8 +314,7 @@ actualSeries.name("实际开销")
         .type(JSeriesType.radar)
         .data(5000, 14000, 28000, 31000, 42000, 21000);
 option.series(budgetSeries, actualSeries);
-JRadarChartsRenderer renderer = new JRadarChartsRenderer();
-renderer.render(option, "d://test//radar_chart.svg");
+
 ```
 
 #### 5. Box plot — `images/boxchart.svg`
@@ -339,8 +333,7 @@ option.series(new JBoxplot().data(
         new Object[]{8, 14, 19, 26, 32},
         new Object[]{11, 16, 21, 27, 33}
 ));
-JBoxPlotChartRenderer jBarChartsRenderer = new JBoxPlotChartRenderer();
-jBarChartsRenderer.render(option, "D://test//boxchart.svg");
+
 ```
 
 #### 6. Heat map — `images/heatmap.svg`
@@ -367,8 +360,7 @@ heatmap.data(
         new Object[]{11, 3, 6.8}, new Object[]{11, 4, 4.2}, new Object[]{11, 5, 0.0}
 );
 option.series(heatmap);
-JHeatMapChartRenderer renderer = new JHeatMapChartRenderer();
-renderer.render(option, "d://test//heatmap.svg");
+
 ```
 
 #### 7. K-line (candlestick) — `images/k_chart.svg`
@@ -398,8 +390,7 @@ candlestick.name("股价")
                 new Object[]{110.4, 112.1, 109.5, 112.8}
         );
 option.series(candlestick);
-JKChartsRenderer renderer = new JKChartsRenderer();
-renderer.render(option, "d://test//k_chart.svg");
+
 ```
 
 #### 8. Scatter — `images/scatter.svg`
@@ -427,8 +418,7 @@ JScatter scatter = new JScatter();
 scatter.symbolSize(20)
         .data(data);
 option.series(scatter);
-JScatterChartsRenderer renderer = new JScatterChartsRenderer();
-renderer.render(option, "d://test//scatter.svg");
+
 ```
 
 #### 9. Bubble — `images/bubble.svg`
@@ -470,8 +460,8 @@ for (int i = 0; i < dates.length; i++) {
 }
 series.data(data.toArray());
 option.series(series);
-JBubbleChartRenderer renderer = new JBubbleChartRenderer();
-renderer.render(option, "d://test//bubble.svg");
+
+
 ```
 
 #### 10. Funnel — `images/funnel.svg`
@@ -508,10 +498,9 @@ JFunnelOption customOption = option
                 new Color(80, 112, 221),
                 new Color(182, 214, 52)
         );
-JFunnelChartRenderer renderer = new JFunnelChartRenderer();
 JOption jOption = new JOption();
 jOption.setFunnelOption(customOption);
-renderer.render(jOption, "d://test/funnel.svg");
+
 ```
 
 #### 11. Gauge — `images/gauge.svg`
@@ -529,10 +518,8 @@ GuageConfig scoreConfig = GuageConfig.builder()
         .title("PERFORMANCE")
         .build();
 JGuageOption option = JGuageOption.builder().scoreMeter(scoreConfig).build();
-JGuageRenderer renderer = new JGuageRenderer();
 JOption option1 = new JOption();
 option1.setGuageOption(option);
-renderer.render(option1, "d://test//gauge.svg");
 ```
 
 #### 12. Gantt — `images/gantt.svg`
@@ -566,10 +553,8 @@ option.setChartStyle(new JGanttOption.ChartStyle(
         282
 ));
 option.setTimeRange(new JGanttOption.TimeRange(21, 3, new String[]{"21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00"}));
-JChartRenderer renderer = new JGanttChartRenderer();
 JOption jOption = new JOption();
 jOption.setGanttOption(option);
-renderer.render(jOption, "d://test//gantt.svg");
 ```
 
 #### 13. Calendar — `images/calendar.svg`
@@ -596,10 +581,7 @@ JCalendarOption calendarOption = new JCalendarOption("2024年活动日历", "类
         80
 );
 option.setJCalendarOption(calendarOption);
-JChartRenderer renderer = new JCalendarChartRenderer();
-renderer.render(option, "d://test//calendar.svg");
-String svgContent = renderer.renderToString(option);
-System.out.println("SVG内容长度: " + svgContent.length());
+
 ```
 
 #### 14. Lunar calendar — `images/lunar.svg`
@@ -639,8 +621,7 @@ LunarCalendarOption.ColorConfig colorConfig = new LunarCalendarOption.ColorConfi
 JTitle title = new JTitle();
 title.setText("2024年3月日历");
 LunarCalendarOption option = LunarCalendarOption.of("2024", "三月", colorConfig, title, dataConfig);
-JLunarCalendarRenderer renderer = new JLunarCalendarRenderer();
-renderer.render(option, "d://test//lunar.svg");
+
 ```
 
 #### 15. Word cloud — `images/wordcloud.svg`
@@ -673,8 +654,7 @@ JOption option = new JOption()
 .rotationRange(90)
 .textStyle(new JItemStyle().color(Color.BLUE))
 ));
-JWordCloudRenderer renderer = new JWordCloudRenderer();
-renderer.render(option, "d://test//wordcloud.svg");
+
 ```
 
 #### 16. Geo map — `images/geo.svg`
@@ -699,10 +679,8 @@ private static String readFile(String filePath) throws IOException {
 String geoJsonContent = readFile("d://sample//test.geojson");
 GeoOption option = new GeoOption();
 option.setGeoJsonContent(geoJsonContent);
-JGeoJsonRenderer renderer = new JGeoJsonRenderer();
 JOption jOption = new JOption();
 jOption.setGeoOption(option);
-renderer.render(jOption, "d://test/geo.svg");
 ```
 
 #### 17. Relation graph — `images/relation_chart.svg`
@@ -736,8 +714,6 @@ graph.setData(nodes);
 // ... links (14 JLink entries) and categories (5 JCategory entries)
 option.series(graph);
 option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
-JRelationChartRenderer renderer = new JRelationChartRenderer();
-renderer.render(option, "d://test//relation_chart.svg");
 ```
 
 #### 18. Sunburst — `images/sunburst.svg`
@@ -771,8 +747,7 @@ root.addChild(main1);
 root.addChild(main2);
 root.addChild(main3);
 option.setSunburstData(root);
-JSunburstChart chart = new JSunburstChart();
-chart.render(option, "d://test//sunburst.svg");
+
 ```
 
 #### 19. Treemap — `images/treemap.svg`
@@ -792,10 +767,7 @@ treemapOption.getDepartmentRules().add(new TreeMapMapping("开发", "技术部")
 JOption option = new JOption();
 option.setTreemapOption(treemapOption);
 option.title("公司业务分布矩形树图（JTreemapRenderer）");
-JTreeMapRenderer renderer = new JTreeMapRenderer();
-String outputPath = "d://test//treemap.svg";
-renderer.render(option, outputPath);
-System.out.println("JTreemapRenderer 树形图生成成功！");
+
 ```
 
 
@@ -824,8 +796,7 @@ JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
 option.dataset().dimensions(dimensions);
 JOption jOption = new JOption();
 jOption.setCorrelationMatrixOption(option);
-JCorrelationMatrixRenderer renderer = new JCorrelationMatrixRenderer();
-renderer.render(jOption, "d://test//Matrix.svg");
+
 ```
 
 #### 21. Stacked area — `images/area.svg`
@@ -851,8 +822,7 @@ config.setXAxisLabels(labels);
 config.setTheme(JTheme.DEFAULT);      // 默认主题
 JOption option = new JOption();
 option.setData(config);
-JAreaChartRenderer renderer = new JAreaChartRenderer();
-renderer.render(option, "d://test//area.svg");
+
 ```
 
 #### 22. Line + bar combo — `images/linebar.svg`
@@ -883,9 +853,8 @@ JComboLineBarChartData config = JComboLineBarChartData.builder()
         .lineLegendText("利润率")
         .footerText("数据来源：财务系统")
         .build();
-JComboLineBarChartRenderer customRenderer = new JComboLineBarChartRenderer();
 jOption.setData(config);
-customRenderer.render(jOption, "d://test/custom_chart.svg");
+
 ```
 
 #### 23. Multi line — `images/multipleLine.svg`
@@ -936,8 +905,7 @@ title.setText("2024年度产品销售趋势分析");
 title.setSubtext("各产品线月度销售额对比");
 option.setTitle(title);
 option.setData(chartData);
-JMultiLineChartRenderer renderer = new JMultiLineChartRenderer();
-renderer.render(option, "d://test//multiple-line.svg");
+
 ```
 
 #### 24. Multi bar — `images/fourBar.svg`
@@ -962,8 +930,7 @@ eastChina.setValues(Arrays.asList(120.5, 135.2, 148.0, 162.5, 175.3, 190.8));
 regionalData.setBarDataList(Arrays.asList(eastChina, southChina, northChina, westChina));
 JOption option = new JOption();
 option.setData(regionalData);
-JMultiBarChartRenderer renderer = new JMultiBarChartRenderer();
-renderer.render(option, "d://test//fourBar.svg");
+
 ```
 
 #### 25. Horizontal bar — `images/horizontalBar.svg`
@@ -991,8 +958,7 @@ chartData.addBarData(new JHorizontalBarChartData.BarData("产品A", productAValu
 chartData.addBarData(new JHorizontalBarChartData.BarData("产品B", productBValues, JHorizontalBarChartData.COLOR_B));
 JOption option = new JOption();
 option.setData(chartData);
-JHorizontalBarChartRenderer renderer = new JHorizontalBarChartRenderer();
-renderer.render(option, "d://test//horizontalBarChart.svg");
+
 ```
 
 #### 26. Multi horizontal bar — `images/mhBarChart.svg`
@@ -1024,8 +990,7 @@ chartData.addSeries("品牌 B", productBValues, new Color(41, 128, 185));   // �
 chartData.addSeries("品牌 C", productCValues, new Color(26, 188, 156));   // 薄荷绿 #1abc9c
 JOption option = new JOption();
 option.setData(chartData);
-JHorizontalMultiBarChartRenderer renderer = new JHorizontalMultiBarChartRenderer();
-renderer.render(option, "d://test//mhBarChart.svg");
+
 ```
 
 #### 27. Double radar — `images/twoRadar.svg`
@@ -1067,8 +1032,7 @@ chartData.setShowLegendSide(true);
 chartData.setFooterText("数据来源：示例数据");
 JOption option = new JOption();
 option.setData(chartData);
-JDoubleRadarChartRenderer renderer = new JDoubleRadarChartRenderer();
-renderer.render(option, "d://test//mutipleRadar.svg");
+
 ```
 
 #### 28. Line + scatter — `images/lineRadar.svg`
@@ -1098,8 +1062,7 @@ data.setGridCount(5);
 data.setShowDataLabels(true);
 JOption option = new JOption();
 option.setData(data);
-JLineScatterChartRenderer renderer = new JLineScatterChartRenderer();
-renderer.render(option, "d://test//lineRadar.svg");
+
 ```
 
 #### 29. Circle / ring — `images/circle-chart.svg`
@@ -1125,8 +1088,7 @@ sectors.add(new JCircleChartData.SectorData("产品D", 1920, new Color(154, 172,
 chartData.setSectorDataList(sectors);
 JOption option = new JOption();
 option.setData(chartData);
-JCircleChartRenderer renderer = new JCircleChartRenderer();
-renderer.render(option, "d://test//circle-chart.svg");
+
 ```
 
 #### 30. Timeline — `images/timeline.svg`
@@ -1154,8 +1116,7 @@ data.setStartX(100);
 data.setEndX(100);
 JOption option = new JOption();
 option.setData(data);
-JTimeLineRenderer renderer = new JTimeLineRenderer();
-renderer.render(option, "d://test//alternate_flow_1.svg");
+
 ```
 
 #### 31. Advanced topology (microservice) — `images/advance_topology.svg`
@@ -1183,8 +1144,7 @@ title.setText("微服务架构拓扑");
 title.setSubtext("服务调用链路");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//microservice_topology.svg");
+
 ```
 
 #### 32. Cloud architecture topology — `images/toplogy/cloud_architecture.svg`
@@ -1210,8 +1170,7 @@ title.setText("云服务架构拓扑");
 title.setSubtext("生产环境");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//cloud_architecture.svg");
+
 ```
 
 #### 33. Data center topology — `images/toplogy/datacenter_topology.svg`
@@ -1236,8 +1195,7 @@ title.setText("数据中心网络拓扑");
 title.setSubtext("三层网络架构");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//datacenter_topology.svg");
+
 ```
 
 #### 34. Enterprise network topology — `images/toplogy/enterprise_network.svg`
@@ -1262,8 +1220,7 @@ title.setText("企业网络拓扑");
 title.setSubtext("总部-分支机构");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//enterprise_network.svg");
+
 ```
 
 #### 35. Manual-layout topology — `images/toplogy/manual_layout_topology.svg`
@@ -1291,8 +1248,7 @@ title.setText("自定义布局拓扑");
 title.setSubtext("手动控制节点位置");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//manual_layout_topology.svg");
+
 ```
 
 #### 36. Credit report page — `images/credit_report.png`
@@ -1331,7 +1287,7 @@ fileOutputStream.write(bytes);
 
 ### Demo 1 — Enterprise credit rating report (composite)
 
-![demo](images/jquick-logo.svg)
+![demo](images/credit_report.png)
 
 **Test Class:** `com.github.paohaijiao.demo.creditreport.JQuickCreditReportTest` | **Method:** `reportByContent()`
 
@@ -1556,9 +1512,6 @@ public class JTwoRadarChart {
         chartData.setFooterText("数据来源：示例数据");
         JOption option = new JOption();
         option.setData(chartData);
-
-        JDoubleRadarChartRenderer renderer = new JDoubleRadarChartRenderer();
-        renderer.render(option, "d://test//mutipleRadar.svg");
     }
 }
 ```

@@ -232,10 +232,7 @@ option.yAxis(new JValueAxis());
 JBar bar = new JBar();
 bar.name("销量").data(5, 20, 36, 10, 10, 20);
 option.series(bar);
-JBarChartsRenderer jBarChartsRenderer = new JBarChartsRenderer();
-jBarChartsRenderer.render(option, "D://test//barchart.svg");
-String str = jBarChartsRenderer.renderToString(option);
-System.out.println(str);
+
 ```
 
 #### 2. 折线图 — `images/line_chart.svg`
@@ -255,8 +252,7 @@ option.yAxis(new JValueAxis());
 JLine line = new JLine();
 line.name("销售额").data(120, 132, 101, 134, 90, 230, 210);
 option.series(line);
-JLineChartsRenderer renderer = new JLineChartsRenderer();
-renderer.render(option, "D://test//line_chart.svg");
+
 ```
 
 #### 3. 饼图 — `images/pie-chart.svg`
@@ -279,8 +275,7 @@ pie.data(
         new JData().name("袜子").value(4)
 );
 option.series(pie);
-JPieChartsRenderer renderer = new JPieChartsRenderer();
-renderer.render(option, "d://test//pie-chart.svg");
+
 ```
 
 #### 4. 雷达图 — `images/radar_chart.svg`
@@ -319,8 +314,7 @@ actualSeries.name("实际开销")
         .type(JSeriesType.radar)
         .data(5000, 14000, 28000, 31000, 42000, 21000);
 option.series(budgetSeries, actualSeries);
-JRadarChartsRenderer renderer = new JRadarChartsRenderer();
-renderer.render(option, "d://test//radar_chart.svg");
+
 ```
 
 #### 5. 盒须图 — `images/boxchart.svg`
@@ -339,8 +333,7 @@ option.series(new JBoxplot().data(
         new Object[]{8, 14, 19, 26, 32},
         new Object[]{11, 16, 21, 27, 33}
 ));
-JBoxPlotChartRenderer jBarChartsRenderer = new JBoxPlotChartRenderer();
-jBarChartsRenderer.render(option, "D://test//boxchart.svg");
+
 ```
 
 #### 6. 热力图 — `images/heatmap.svg`
@@ -367,8 +360,7 @@ heatmap.data(
         new Object[]{11, 3, 6.8}, new Object[]{11, 4, 4.2}, new Object[]{11, 5, 0.0}
 );
 option.series(heatmap);
-JHeatMapChartRenderer renderer = new JHeatMapChartRenderer();
-renderer.render(option, "d://test//heatmap.svg");
+
 ```
 
 #### 7. K 线图 — `images/k_chart.svg`
@@ -398,8 +390,7 @@ candlestick.name("股价")
                 new Object[]{110.4, 112.1, 109.5, 112.8}
         );
 option.series(candlestick);
-JKChartsRenderer renderer = new JKChartsRenderer();
-renderer.render(option, "d://test//k_chart.svg");
+
 ```
 
 #### 8. 散点图 — `images/scatter.svg`
@@ -427,8 +418,7 @@ JScatter scatter = new JScatter();
 scatter.symbolSize(20)
         .data(data);
 option.series(scatter);
-JScatterChartsRenderer renderer = new JScatterChartsRenderer();
-renderer.render(option, "d://test//scatter.svg");
+
 ```
 
 #### 9. 气泡图 — `images/bubble.svg`
@@ -470,8 +460,7 @@ for (int i = 0; i < dates.length; i++) {
 }
 series.data(data.toArray());
 option.series(series);
-JBubbleChartRenderer renderer = new JBubbleChartRenderer();
-renderer.render(option, "d://test//bubble.svg");
+
 ```
 
 #### 10. 漏斗图 — `images/funnel.svg`
@@ -508,10 +497,8 @@ JFunnelOption customOption = option
                 new Color(80, 112, 221),
                 new Color(182, 214, 52)
         );
-JFunnelChartRenderer renderer = new JFunnelChartRenderer();
 JOption jOption = new JOption();
 jOption.setFunnelOption(customOption);
-renderer.render(jOption, "d://test/funnel.svg");
 ```
 
 #### 11. 仪表盘 — `images/gauge.svg`
@@ -529,10 +516,8 @@ GuageConfig scoreConfig = GuageConfig.builder()
         .title("PERFORMANCE")
         .build();
 JGuageOption option = JGuageOption.builder().scoreMeter(scoreConfig).build();
-JGuageRenderer renderer = new JGuageRenderer();
 JOption option1 = new JOption();
 option1.setGuageOption(option);
-renderer.render(option1, "d://test//gauge.svg");
 ```
 
 #### 12. 甘特图 — `images/gantt.svg`
@@ -566,10 +551,8 @@ option.setChartStyle(new JGanttOption.ChartStyle(
         282
 ));
 option.setTimeRange(new JGanttOption.TimeRange(21, 3, new String[]{"21:00", "22:00", "23:00", "00:00", "01:00", "02:00", "03:00"}));
-JChartRenderer renderer = new JGanttChartRenderer();
 JOption jOption = new JOption();
 jOption.setGanttOption(option);
-renderer.render(jOption, "d://test//gantt.svg");
 ```
 
 #### 13. 日历图 — `images/calendar.svg`
@@ -596,10 +579,7 @@ JCalendarOption calendarOption = new JCalendarOption("2024年活动日历", "类
         80
 );
 option.setJCalendarOption(calendarOption);
-JChartRenderer renderer = new JCalendarChartRenderer();
 renderer.render(option, "d://test//calendar.svg");
-String svgContent = renderer.renderToString(option);
-System.out.println("SVG内容长度: " + svgContent.length());
 ```
 
 #### 14. 农历日历 — `images/lunar.svg`
@@ -639,8 +619,7 @@ LunarCalendarOption.ColorConfig colorConfig = new LunarCalendarOption.ColorConfi
 JTitle title = new JTitle();
 title.setText("2024年3月日历");
 LunarCalendarOption option = LunarCalendarOption.of("2024", "三月", colorConfig, title, dataConfig);
-JLunarCalendarRenderer renderer = new JLunarCalendarRenderer();
-renderer.render(option, "d://test//lunar.svg");
+
 ```
 
 #### 15. 词云 — `images/wordcloud.svg`
@@ -673,8 +652,7 @@ JOption option = new JOption()
 .rotationRange(90)
 .textStyle(new JItemStyle().color(Color.BLUE))
 ));
-JWordCloudRenderer renderer = new JWordCloudRenderer();
-renderer.render(option, "d://test//wordcloud.svg");
+
 ```
 
 #### 16. 地图 — `images/geo.svg`
@@ -699,10 +677,9 @@ private static String readFile(String filePath) throws IOException {
 String geoJsonContent = readFile("d://sample//test.geojson");
 GeoOption option = new GeoOption();
 option.setGeoJsonContent(geoJsonContent);
-JGeoJsonRenderer renderer = new JGeoJsonRenderer();
 JOption jOption = new JOption();
 jOption.setGeoOption(option);
-renderer.render(jOption, "d://test/geo.svg");
+
 ```
 
 #### 17. 关系图 — `images/relation_chart.svg`
@@ -736,8 +713,6 @@ graph.setData(nodes);
 // ... 连线（14 条 JLink）与分类（5 条 JCategory）
 option.series(graph);
 option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
-JRelationChartRenderer renderer = new JRelationChartRenderer();
-renderer.render(option, "d://test//relation_chart.svg");
 ```
 
 #### 18. 旭日图 — `images/sunburst.svg`
@@ -771,8 +746,7 @@ root.addChild(main1);
 root.addChild(main2);
 root.addChild(main3);
 option.setSunburstData(root);
-JSunburstChart chart = new JSunburstChart();
-chart.render(option, "d://test//sunburst.svg");
+
 ```
 
 #### 19. 矩形树图 — `images/treemap.svg`
@@ -792,10 +766,7 @@ treemapOption.getDepartmentRules().add(new TreeMapMapping("开发", "技术部")
 JOption option = new JOption();
 option.setTreemapOption(treemapOption);
 option.title("公司业务分布矩形树图（JTreemapRenderer）");
-JTreeMapRenderer renderer = new JTreeMapRenderer();
-String outputPath = "d://test//treemap.svg";
-renderer.render(option, outputPath);
-System.out.println("JTreemapRenderer 树形图生成成功！");
+
 ```
 
 #### 20. 相关矩阵 — `images/Matrix.svg`
@@ -823,8 +794,7 @@ JCorrelationMatrixOption option = JCorrelationMatrixOption.builder()
 option.dataset().dimensions(dimensions);
 JOption jOption = new JOption();
 jOption.setCorrelationMatrixOption(option);
-JCorrelationMatrixRenderer renderer = new JCorrelationMatrixRenderer();
-renderer.render(jOption, "d://test//Matrix.svg");
+
 ```
 
 #### 21. 区域堆叠图 — `images/area.svg`
@@ -850,8 +820,6 @@ config.setXAxisLabels(labels);
 config.setTheme(JTheme.DEFAULT);      // 默认主题
 JOption option = new JOption();
 option.setData(config);
-JAreaChartRenderer renderer = new JAreaChartRenderer();
-renderer.render(option, "d://test//area.svg");
 ```
 
 #### 22. 折线 + 条形组合图 — `images/linebar.svg`
@@ -882,9 +850,7 @@ JComboLineBarChartData config = JComboLineBarChartData.builder()
         .lineLegendText("利润率")
         .footerText("数据来源：财务系统")
         .build();
-JComboLineBarChartRenderer customRenderer = new JComboLineBarChartRenderer();
 jOption.setData(config);
-customRenderer.render(jOption, "d://test/custom_chart.svg");
 ```
 
 #### 23. 多重折线图 — `images/multipleLine.svg`
@@ -935,8 +901,7 @@ title.setText("2024年度产品销售趋势分析");
 title.setSubtext("各产品线月度销售额对比");
 option.setTitle(title);
 option.setData(chartData);
-JMultiLineChartRenderer renderer = new JMultiLineChartRenderer();
-renderer.render(option, "d://test//multiple-line.svg");
+
 ```
 
 #### 24. 多重条形图 — `images/fourBar.svg`
@@ -961,8 +926,7 @@ eastChina.setValues(Arrays.asList(120.5, 135.2, 148.0, 162.5, 175.3, 190.8));
 regionalData.setBarDataList(Arrays.asList(eastChina, southChina, northChina, westChina));
 JOption option = new JOption();
 option.setData(regionalData);
-JMultiBarChartRenderer renderer = new JMultiBarChartRenderer();
-renderer.render(option, "d://test//fourBar.svg");
+
 ```
 
 #### 25. 横向条形图 — `images/horizontalBar.svg`
@@ -990,8 +954,7 @@ chartData.addBarData(new JHorizontalBarChartData.BarData("产品A", productAValu
 chartData.addBarData(new JHorizontalBarChartData.BarData("产品B", productBValues, JHorizontalBarChartData.COLOR_B));
 JOption option = new JOption();
 option.setData(chartData);
-JHorizontalBarChartRenderer renderer = new JHorizontalBarChartRenderer();
-renderer.render(option, "d://test//horizontalBarChart.svg");
+
 ```
 
 #### 26. 多重横向条形图 — `images/mhBarChart.svg`
@@ -1023,8 +986,7 @@ chartData.addSeries("品牌 B", productBValues, new Color(41, 128, 185));   // �
 chartData.addSeries("品牌 C", productCValues, new Color(26, 188, 156));   // 薄荷绿 #1abc9c
 JOption option = new JOption();
 option.setData(chartData);
-JHorizontalMultiBarChartRenderer renderer = new JHorizontalMultiBarChartRenderer();
-renderer.render(option, "d://test//mhBarChart.svg");
+
 ```
 
 #### 27. 双雷达图 — `images/twoRadar.svg`
@@ -1066,8 +1028,7 @@ chartData.setShowLegendSide(true);
 chartData.setFooterText("数据来源：示例数据");
 JOption option = new JOption();
 option.setData(chartData);
-JDoubleRadarChartRenderer renderer = new JDoubleRadarChartRenderer();
-renderer.render(option, "d://test//mutipleRadar.svg");
+
 ```
 
 #### 28. 折线 + 散点图 — `images/lineRadar.svg`
@@ -1097,8 +1058,7 @@ data.setGridCount(5);
 data.setShowDataLabels(true);
 JOption option = new JOption();
 option.setData(data);
-JLineScatterChartRenderer renderer = new JLineScatterChartRenderer();
-renderer.render(option, "d://test//lineRadar.svg");
+
 ```
 
 #### 29. 环形图 — `images/circle-chart.svg`
@@ -1124,8 +1084,7 @@ sectors.add(new JCircleChartData.SectorData("产品D", 1920, new Color(154, 172,
 chartData.setSectorDataList(sectors);
 JOption option = new JOption();
 option.setData(chartData);
-JCircleChartRenderer renderer = new JCircleChartRenderer();
-renderer.render(option, "d://test//circle-chart.svg");
+
 ```
 
 #### 30. 时间线 — `images/timeline.svg`
@@ -1153,8 +1112,7 @@ data.setStartX(100);
 data.setEndX(100);
 JOption option = new JOption();
 option.setData(data);
-JTimeLineRenderer renderer = new JTimeLineRenderer();
-renderer.render(option, "d://test//alternate_flow_1.svg");
+
 ```
 
 #### 31. 高级拓扑图（微服务） — `images/advance_topology.svg`
@@ -1182,8 +1140,7 @@ title.setText("微服务架构拓扑");
 title.setSubtext("服务调用链路");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//microservice_topology.svg");
+
 ```
 
 #### 32. 云服务架构拓扑 — `images/toplogy/cloud_architecture.svg`
@@ -1209,8 +1166,7 @@ title.setText("云服务架构拓扑");
 title.setSubtext("生产环境");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//cloud_architecture.svg");
+
 ```
 
 #### 33. 数据中心拓扑 — `images/toplogy/datacenter_topology.svg`
@@ -1235,8 +1191,7 @@ title.setText("数据中心网络拓扑");
 title.setSubtext("三层网络架构");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//datacenter_topology.svg");
+
 ```
 
 #### 34. 企业网络拓扑 — `images/toplogy/enterprise_network.svg`
@@ -1261,8 +1216,7 @@ title.setText("企业网络拓扑");
 title.setSubtext("总部-分支机构");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//enterprise_network.svg");
+
 ```
 
 #### 35. 自定义布局拓扑 — `images/toplogy/manual_layout_topology.svg`
@@ -1290,8 +1244,7 @@ title.setText("自定义布局拓扑");
 title.setSubtext("手动控制节点位置");
 option.setTitle(title);
 option.setData(data);
-JAdvancedTopologyRenderer renderer = new JAdvancedTopologyRenderer();
-renderer.render(option, "d://test//manual_layout_topology.svg");
+
 ```
 
 #### 36. 信用报告页面 — `images/credit_report.png`
