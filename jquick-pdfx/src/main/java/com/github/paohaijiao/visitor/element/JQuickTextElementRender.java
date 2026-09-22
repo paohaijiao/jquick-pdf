@@ -59,21 +59,14 @@ public class JQuickTextElementRender implements JQuickElementRender {
         if (color != null) stream.setNonStrokingColor(color);
 
         float drawX = useContextPosition ? context.getCursorX() : (x > 0 ? x : context.getX());
-        // 光标代表“行的顶部”，而 PDF 文本按基线定位，因此绘制时下移一个 ascent，
-        // 否则文字会整体高出所在容器（div 背景、表格单元格等）。
-        // 块级文本先让出自身的外边距，使相邻块之间保持声明好的间距而不是贴在一起。
         float marginTop = blockLevel && !inline ? model.getMarginTop() : 0f;
         float marginBottom = blockLevel && !inline ? model.getMarginBottom() : 0f;
         float lineTop = (useContextPosition ? context.getCursorY() : (y > 0 ? y : context.getY())) - marginTop;
         float textSize = model.getFontSize();
-        // 行高按元素自身字号计算，避免大字号标题与小字号正文共用同一行距而重叠。
-        float lineHeight = textSize > 0f
-                ? textSize * 1.5f
-                : (context.getLineHeight() > 0 ? context.getLineHeight() : 18f);
+        float lineHeight = textSize > 0f ? textSize * 1.5f : (context.getLineHeight() > 0 ? context.getLineHeight() : 18f);
         float availableWidth = model.getWidth() > 0 ? model.getWidth() : context.getWidth();
         PDFont effectiveFont = PdfBoxRenderAdapter.resolveFont(model, font == null ? context.getFont() : font);
         float ascent = PdfBoxRenderAdapter.ascent(effectiveFont, textSize);
-        // 行内流中换行后的新行从容器左边界开始，块级文本则始终从自身左边界开始。
         float nextLineX = inline && context.getLineStartX() > 0f ? context.getLineStartX() : drawX;
         float lineX = drawX;
         float lastLineWidth = 0f;
@@ -94,8 +87,6 @@ public class JQuickTextElementRender implements JQuickElementRender {
             }
         }
         if (inline) {
-            // 行内文本：光标停在本行行顶并把横坐标推进到文本末尾，兄弟元素可继续排在同一行；
-            // 文本自带的换行（<br>）会让最后一行落空，光标自然被带到新的一行。
             context.setCursorX(lineX + lastLineWidth);
             context.setCursorY(lineTop + lineHeight);
             return;

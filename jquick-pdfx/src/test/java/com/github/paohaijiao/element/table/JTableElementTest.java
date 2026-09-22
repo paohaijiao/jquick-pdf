@@ -74,6 +74,21 @@ public class JTableElementTest {
         assertTrue("表格应至少占据一行行高", after.y - data.y >= 25f);
     }
 
+    /** 长表格：每行更新布局游标，底部空间不足时应换页并继续渲染后续行。 */
+    @Test
+    public void tableContinuesOnNewPage() throws IOException {
+        StringBuilder rows = new StringBuilder();
+        for (int i = 1; i <= 80; i++) {
+            rows.append("<tr><td>'row-").append(i).append("'</td><td>'description-"
+                    ).append(i).append("'</td></tr>");
+        }
+        byte[] pdf = new JQuickPdfFactory().executeContent("<pdf><body><table>" + rows + "</table></body></pdf>");
+        try (PDDocument document = Loader.loadPDF(pdf)) {
+            assertTrue("80 行表格应跨页输出", document.getNumberOfPages() > 1);
+            assertTrue("最后一行应写入 PDF", new PDFTextStripper().getText(document).contains("row-80"));
+        }
+    }
+
     /** 表格行：{@code <tr>} 声明的 height 决定该行行高，进而影响与下一行的间距。 */
     @Test
     public void tr() throws IOException {

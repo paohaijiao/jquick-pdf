@@ -6,6 +6,7 @@ import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
 import com.github.paohaijiao.visitor.render.PdfBoxStyleModel;
 import lombok.Data;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.font.PDFont;
 
 import java.io.IOException;
 import java.util.List;
@@ -64,6 +65,7 @@ public class JQuickParagraphElementRender implements JQuickElementRender {
             float childX = context.getCursorX();
             // 行内元素可用的宽度是整行剩余宽度，超出后文本自行换行。
             context.setWidth(Math.max(0f, right - childX));
+            stream.setFont(context.getFont(),context.getFontSize());
             child.draw(stream, context);
         }
         context.setWidth(savedWidth);

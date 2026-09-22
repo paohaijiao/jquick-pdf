@@ -103,6 +103,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
                 cellX += columnWidth;
             }
             y = cellY;
+            context.setCursorY(y);
         }
         context.setCursorY(y - 8f);
     }
