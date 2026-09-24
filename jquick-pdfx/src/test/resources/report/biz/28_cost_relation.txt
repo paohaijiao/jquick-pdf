@@ -1,0 +1,92 @@
+<pdf>
+<body>
+  <div style="borderBottom:2px solid #4E342E; paddingBottom:8px; marginBottom:12px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:150px">
+        <p style="color:#4E342E; fontSize:10; bold:true">'集团财务共享中心'</p>
+      </div>
+      <div style="width:250px; textAlignment:center">
+        <h1 style="color:#4E342E; fontSize:16; bold:true; textAlignment:center">'部门成本构成与流向'</h1>
+      </div>
+      <div style="width:150px; textAlignment:right">
+        <p style="color:#6c757d; fontSize:9">'2025年10月10日'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:12px">
+    <h2 style="color:#4E342E; fontSize:13; bold:true; marginBottom:6px">'一、成本构成与流向关系'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  一级成本中心 → 二级责任部门 → 成本归集终点（桑基图替代视图：节点 + 有向连线；数据来源：成本管控平台）'</p>
+  </div>
+
+  <div style="marginBottom:12px">
+    <h2 style="color:#4E342E; fontSize:13; bold:true; marginBottom:6px">'二、节点与流向对照'</h2>
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'一级成本中心'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'4 类'</td>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'成本归集终点'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'3 类'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'二级责任部门'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'4 个'</td>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'流向连线'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'16 条'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'人工成本流向部门'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'4 个'</td>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'采购与外包流向部门'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'3 个'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'资产折旧流向部门'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'2 个'</td>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'运营与能耗流向部门'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'2 个'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'研发中心归集终点'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'2 个'</td>
+        <td style="width:150px; backgroundColor:#F5F0EE; padding:6px; border:1px solid #DCE3EC">'生产制造部归集终点'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'1 个'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#4E342E; fontSize:13; bold:true; marginBottom:6px">'三、成本管控结论'</h2>
+    <list style="list-style-type:none; padding-left:0; fontSize:10">
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#F5F0EE; border-left:3px solid #4E342E">
+        '人工成本覆盖面最广：由研发中心、生产制造部、市场营销部、行政管理部四个部门共同承担，是唯一流向全部二级部门的成本项。'
+      </li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#F5F0EE; border-left:3px solid #4E342E">
+        '归集终点三元化：人力与采购类成本最终汇入主营业务成本，市场营销部与行政管理部汇入期间费用，研发中心另有一路指向研发资本化。'
+      </li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#F5F0EE; border-left:3px solid #4E342E">
+        '生产制造部为单一终点出口：其全部成本仅流向主营业务成本，成本归属清晰，便于按产品线直接分摊。'
+      </li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#F5F0EE; border-left:3px solid #4E342E">
+        '管控建议：按上图 16 条流向逐条核对成本归集口径，重点复核跨两个终点出口的研发中心成本分摊比例。'
+      </li>
+    </list>
+  </div>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8">'密级：内部'</p>
+    </div>
+    <div style="width:200px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8; opacity:0.8">'生成时间：2025年10月10日'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8">'编制：财务共享中心'</p>
+    </div>
+  </div>
+</body>
+</pdf>

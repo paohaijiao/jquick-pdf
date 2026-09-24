@@ -1,0 +1,86 @@
+<pdf>
+<body>
+  <div style="display:flex; justifyContent:space-between; marginBottom:10px; keepTogether:true">
+    <div style="width:300px">
+      <h1 style="color:#1B5E20; fontSize:18pt; bold:true; marginBottom:4pt">'季度指标完成度分析'</h1>
+      <p style="color:#5A6B7C; fontSize:9pt">'计划目标 vs 实际完成（营业收入，单位：万元）'</p>
+    </div>
+    <div style="width:240px; textAlignment:right; borderLeft:1px solid #B9C2CC; paddingLeft:10px">
+      <p style="color:#5A6B7C; fontSize:9pt">'统计周期：2024年1月 - 12月'</p>
+      <p style="color:#5A6B7C; fontSize:9pt">'编制单位：企业运营管理部'</p>
+      <p style="color:#5A6B7C; fontSize:9pt">'报送对象：年度经营分析会'</p>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#1B5E20; fontSize:13pt; bold:true; underline:true; marginBottom:6pt">'一、季度完成情况'</h2>
+    <table style="width:540px; fontSize:10pt">
+      <tr>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'季度'</th>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'计划目标（万元）'</th>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'实际完成（万元）'</th>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'完成率'</th>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'差额（万元）'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'Q1'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'3,000'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'3,200'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'106.7%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+200'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'Q2'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'3,400'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'3,480'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'102.4%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'+80'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'Q3'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'3,800'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'3,910'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'102.9%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+110'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'Q4'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'4,100'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'4,260'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'103.9%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'+160'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#1B5E20; color:white; bold:true; border:1px solid #1B5E20">'全年合计'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#1B5E20; color:white; bold:true; border:1px solid #1B5E20">'14,300'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#1B5E20; color:white; bold:true; border:1px solid #1B5E20">'14,850'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#1B5E20; color:white; bold:true; border:1px solid #1B5E20">'103.8%'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#1B5E20; color:white; bold:true; border:1px solid #1B5E20">'+550'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7FAF7; borderRadius:4px">
+    <h2 style="color:#1B5E20; fontSize:13pt; bold:true; underline:true; marginTop:0; marginBottom:6pt">'二、目标达成走势'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6pt">'图 1  2024年季度营业收入计划目标与实际完成对比（数据来源：财务共享中心）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#1B5E20; fontSize:13pt; bold:true; underline:true; marginBottom:6pt">'三、经营分析与结论'</h2>
+    <list style="paddingLeft:18px; fontSize:10pt" listType="ordered">
+      <li style="marginBottom:5px">'全年营业收入实际完成 14,850 万元，高于计划目标 14,300 万元 550 万元，整体完成率 103.8%，四个季度均超额达成。'</li>
+      <li style="marginBottom:5px">'实际完成额逐季走高：由 Q1 的 3,200 万元增至 Q4 的 4,260 万元，Q4 较 Q1 增长 33.1%，规模扩张趋势明确。'</li>
+      <li style="marginBottom:5px">'Q2 完成率 102.4% 为四个季度最低，主因二季度供应链交付延迟影响部分收入确认，缺口已在 Q3 补齐。'</li>
+      <li style="marginBottom:5px">'建议：将下年度计划目标适度前移至上半年，避免年末集中冲刺带来的产能与资源紧张。'</li>
+    </list>
+  </div>
+
+  <div style="textAlignment:center; marginTop:10px; paddingTop:10px; borderTop:1px solid #dee2e6; color:#6c757d; fontSize:8pt">
+    <p>'数据来源：企业运营管理系统（ERP） | 生成时间：2025年1月15日'</p>
+    <p>'内部资料 · 未经许可请勿外传'</p>
+  </div>
+</body>
+</pdf>

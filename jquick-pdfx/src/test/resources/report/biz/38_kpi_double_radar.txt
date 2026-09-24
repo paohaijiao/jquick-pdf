@@ -1,0 +1,87 @@
+<pdf>
+<body>
+  <div style="background:#6A1B9A; padding:14px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:300px">
+        <h1 style="color:white; fontSize:18; bold:true; marginBottom:4px">'多维度 KPI 双雷达对比'</h1>
+        <p style="color:#E6D3F0; fontSize:9">'本期（2024年）与去年同期（2023年）绩效得分对比'</p>
+      </div>
+      <div style="width:240px; textAlignment:right; borderLeft:1px solid #A96FBD; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计周期：2024年1月 - 2024年12月'</p>
+        <p style="color:#E6D3F0; fontSize:9">'考核维度：营收增长 / 成本控制 / 交付及时率 / 质量合格率 / 客户满意度'</p>
+        <p style="color:#E6D3F0; fontSize:9">'报送对象：年度绩效评审委员会'</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginBottom:6px">'一、各维度得分对比'</h2>
+  <div style="marginBottom:12px">
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <th style="width:150px; backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #D5BDE0">'考核维度'</th>
+        <th style="width:130px; backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #D5BDE0">'本期（2024年）'</th>
+        <th style="width:130px; backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #D5BDE0">'去年同期（2023年）'</th>
+        <th style="width:130px; backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #D5BDE0">'同比变动'</th>
+      </tr>
+      <tr>
+        <td style="border:1px solid #DCE3EC; borderLeft:3px solid #6A1B9A; padding:5px">'营收增长'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'88.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'81.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+7.0'</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #DCE3EC; borderLeft:3px solid #6A1B9A; padding:5px">'成本控制'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'92.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'85.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+7.0'</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #DCE3EC; borderLeft:3px solid #6A1B9A; padding:5px">'交付及时率'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'85.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'79.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+6.0'</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #DCE3EC; borderLeft:3px solid #6A1B9A; padding:5px">'质量合格率'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'95.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'90.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+5.0'</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #DCE3EC; borderLeft:3px solid #6A1B9A; padding:5px">'客户满意度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'80.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'76.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+4.0'</td>
+      </tr>
+      <tr>
+        <td style="border:1px solid #DCE3EC; borderLeft:3px solid #6A1B9A; padding:5px; bold:true">'平均得分'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC; bold:true">'88.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC; bold:true">'82.2'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC; bold:true">'+5.8'</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginBottom:6px">'二、双雷达得分对比'</h2>
+  <div style="marginBottom:12px">
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:4px">'图 1  左雷达为本期（2024年）得分，右雷达为去年同期（2023年）得分（数据来源：企业绩效管理系统）'</p>
+  </div>
+
+  <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginBottom:6px">'三、绩效复盘结论'</h2>
+  <list style="list-style-type:none; padding-left:0; fontSize:10">
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'本期平均得分 88.0 分，较去年同期 82.2 分提升 5.8 分，五个维度全部实现正增长。'</li>
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'质量合格率 95.0 分为本期最高，同比提升 5.0 分，是本年度表现最稳健的维度。'</li>
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'客户满意度 80.0 分为五个维度中最低，同比提升 4.0 分，仍是下一年度的改善重点。'</li>
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'交付及时率由 79.0 分升至 85.0 分，提升 6.0 分，交付周期压缩措施成效明显。'</li>
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'建议：将客户满意度拆分为响应时长与一次性解决率两个二级指标，按季度跟踪并纳入部门考核。'</li>
+  </list>
+
+  <div style="textAlignment:center; marginTop:10px; paddingTop:10px; borderTop:1px solid #dee2e6; color:#6c757d; fontSize:8">
+    <p>'数据来源：企业绩效管理系统 | 生成时间：2025年1月15日'</p>
+    <p>'内部资料 · 未经许可请勿外传'</p>
+  </div>
+</body>
+</pdf>

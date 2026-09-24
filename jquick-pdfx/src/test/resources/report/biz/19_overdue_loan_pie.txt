@@ -1,0 +1,86 @@
+<pdf>
+<body>
+  <div style="background:#FBECEC; border:1px solid #E8C4C4; borderLeft:6px solid #B71C1C; borderRadius:4px; padding:12px; marginBottom:10px; keepTogether:true">
+    <h1 style="color:#B71C1C; fontSize:17pt; bold:true; marginBottom:4px">'贷款五级分类资产质量报告'</h1>
+    <p style="color:#5A6B7C; fontSize:9pt">'报告编号：CR-2024-Q3-019 | 生成日期：2024年10月8日 | 数据截止：2024年9月30日'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #B71C1C; paddingLeft:8px; marginBottom:6px">
+      <h2 style="color:#B71C1C; fontSize:13pt; bold:true; marginTop:0px; marginBottom:0px">'一、资产质量概览'</h2>
+    </div>
+    <div style="background:#FBECEC; borderLeft:4px solid #B71C1C; padding:10px; borderRadius:3px; marginBottom:10px">
+      <p style="fontSize:10pt; color:#333; italic:true">'核心结论：三季度末信贷资产 9,080 笔，正常类占比 75.4%、关注类 13.7%，次级及以下不良资产合计 990 笔、占比 10.9%，整体质量可控，但不良处置压力仍然存在。'</p>
+    </div>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6px">'图 1  2024年三季度末贷款五级分类构成（数据来源：信贷资产管理系统）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #B71C1C; paddingLeft:8px; marginBottom:6px">
+      <h2 style="color:#B71C1C; fontSize:13pt; bold:true; marginTop:0px; marginBottom:0px">'二、五级分类明细'</h2>
+    </div>
+    <table style="width:560px; fontSize:10pt">
+      <tr>
+        <th style="width:150px; backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E8C4C4">'五级分类'</th>
+        <th style="width:140px; backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E8C4C4">'笔数（笔）'</th>
+        <th style="width:130px; backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E8C4C4">'占比'</th>
+        <th style="width:140px; backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E8C4C4">'风险状态'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #E8C4C4">'正常类'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'6,850'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'75.4%'</td>
+        <td style="padding:5px; textAlign:center; color:#1B5E20; bold:true; border:1px solid #E8C4C4">'达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #E8C4C4">'关注类'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'1,240'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'13.7%'</td>
+        <td style="padding:5px; textAlign:center; color:#BF360C; bold:true; border:1px solid #E8C4C4">'关注'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #E8C4C4">'次级类'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'560'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'6.2%'</td>
+        <td style="padding:5px; textAlign:center; color:#BF360C; bold:true; border:1px solid #E8C4C4">'预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #E8C4C4">'可疑类'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'280'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'3.1%'</td>
+        <td style="padding:5px; textAlign:center; color:#BF360C; bold:true; border:1px solid #E8C4C4">'预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #E8C4C4">'损失类'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'150'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #E8C4C4">'1.7%'</td>
+        <td style="padding:5px; textAlign:center; color:#BF360C; bold:true; border:1px solid #E8C4C4">'超标'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; bold:true; border:1px solid #E8C4C4">'合计'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #E8C4C4">'9,080'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #E8C4C4">'100.0%'</td>
+        <td style="padding:6px; textAlign:center; bold:true; border:1px solid #E8C4C4">'—'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #B71C1C; paddingLeft:8px; marginBottom:6px">
+      <h2 style="color:#B71C1C; fontSize:13pt; bold:true; marginTop:0px; marginBottom:0px">'三、风险管控建议'</h2>
+    </div>
+    <list style="paddingLeft:18px; fontSize:10pt" listType="ordered">
+      <li style="marginBottom:5px">'正常类占据绝对主导：正常类 6,850 笔、占比 75.4%，较关注类高出 61.7 个百分点，基础资产整体稳健。'</li>
+      <li style="marginBottom:5px">'关注类需前置管控：关注类 1,240 笔、占比 13.7%，一旦向下迁徙将直接推高不良，须按月跟踪迁徙率变化。'</li>
+      <li style="marginBottom:5px">'不良处置压力集中：次级 560 笔、可疑 280 笔、损失 150 笔，合计 990 笔、占比 10.9%，建议加快核销与清收进度。'</li>
+      <li style="marginBottom:5px">'总体目标：将关注类占比压降至 12% 以内，次级及以下不良占比控制在 9% 以内。'</li>
+      <li style="marginBottom:5px">'操作建议：对次级及以下 990 笔资产建立“一户一策”清收台账，按季度考核现金回收率。'</li>
+    </list>
+  </div>
+
+  <p style="textAlignment:center; color:#8a939b; fontSize:8pt; italic:true; marginTop:10px">'本报告仅供信贷资产质量分析使用 | 数据来源：信贷资产管理系统 | 编制部门：风险管理部'</p>
+</body>
+</pdf>

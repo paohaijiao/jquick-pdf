@@ -1,0 +1,94 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#ECEFF1; borderTop:3px solid #37474F; borderRadius:4px; keepTogether:true">
+    <h2 style="color:#37474F; marginTop:0px; marginBottom:6px; fontSize:15pt; bold:true; textAlignment:center">'资源使用率监控'</h2>
+    <p style="fontSize:9pt; color:#6c757d; textAlignment:center; marginBottom:6px">'统计周期：2025年9月 | 数据来源：政务云运维中心 | 指标：CPU / 内存 / 磁盘综合使用率'</p>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; textAlignment:center; marginTop:6px">'图 1  集群综合资源使用率仪表盘（当前值 78.0%）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #37474F; paddingLeft:8px; marginBottom:6px">
+      <h2 style="color:#37474F; fontSize:13pt; bold:true; marginTop:0px; marginBottom:0px">'二、节点资源使用明细'</h2>
+    </div>
+    <table style="width:560px; fontSize:9pt">
+      <tr>
+        <th style="width:160px; backgroundColor:#37474F; color:white; padding:6px; textAlign:center; border:1px solid #CFD8DC">'计算节点'</th>
+        <th style="width:105px; backgroundColor:#37474F; color:white; padding:6px; textAlign:center; border:1px solid #CFD8DC">'CPU 使用率'</th>
+        <th style="width:105px; backgroundColor:#37474F; color:white; padding:6px; textAlign:center; border:1px solid #CFD8DC">'内存使用率'</th>
+        <th style="width:105px; backgroundColor:#37474F; color:white; padding:6px; textAlign:center; border:1px solid #CFD8DC">'磁盘使用率'</th>
+        <th style="width:85px; backgroundColor:#37474F; color:white; padding:6px; textAlign:center; border:1px solid #CFD8DC">'状态'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #CFD8DC">'计算节点 N01'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'64.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'72.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'60.0%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #CFD8DC">'正常'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #CFD8DC">'计算节点 N02'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'86.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'89.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'66.0%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #CFD8DC">'预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #CFD8DC">'计算节点 N03'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'93.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'87.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'74.0%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #CFD8DC">'高水位'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #CFD8DC">'计算节点 N04'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'58.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'65.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'53.0%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #CFD8DC">'正常'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #CFD8DC">'计算节点 N05'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'80.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'83.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'71.0%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #CFD8DC">'关注'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #CFD8DC">'计算节点 N06'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'97.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'93.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #CFD8DC">'83.0%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #CFD8DC">'高水位'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#37474F; color:white; bold:true; border:1px solid #37474F">'集群加权均值'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#37474F; color:white; bold:true; border:1px solid #37474F">'79.7%'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#37474F; color:white; bold:true; border:1px solid #37474F">'81.5%'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#37474F; color:white; bold:true; border:1px solid #37474F">'67.8%'</td>
+        <td style="padding:6px; textAlign:center; backgroundColor:#37474F; color:white; bold:true; border:1px solid #37474F">'综合 78.0%'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #37474F; paddingLeft:8px; marginBottom:6px">
+      <h2 style="color:#37474F; fontSize:13pt; bold:true; marginTop:0px; marginBottom:0px">'三、容量管理与扩容建议'</h2>
+    </div>
+    <list style="listStyleType:disc; paddingLeft:16px; fontSize:10pt">
+      <li style="marginBottom:6px"><span style="bold:true; color:#37474F">'整体水位：'</span>'集群综合使用率 78.0%，CPU / 内存 / 磁盘加权均值分别为 79.7% / 81.5% / 67.8%，处于中等偏上水位。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#37474F">'高水位节点：'</span>'计算节点 N06 三项指标达 97.0% / 93.0% / 83.0%，N03 达 93.0% / 87.0% / 74.0%，均需优先扩容。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#37474F">'低效节点：'</span>'计算节点 N04 CPU 仅 58.0%、内存 65.0%，建议通过调度策略迁移部分负载以提升整体利用率。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#37474F">'内存是主要瓶颈：'</span>'内存加权均值 81.5% 高于 CPU 的 79.7%，扩容时应优先增加内存配额。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#37474F">'建议：'</span>'本周内为 N03、N06 各扩容 16 核 / 64GB，并将综合使用率预警阈值由 85% 下调至 80%。'</li>
+    </list>
+  </div>
+
+  <div style="textAlignment:center; marginTop:10px; paddingTop:10px; borderTop:1px solid #dee2e6; color:#6c757d; fontSize:8pt">
+    <p>'数据来源：政务云运维监控平台 | 生成时间：2025年9月30日'</p>
+    <p>'内部资料 · 未经许可请勿外传'</p>
+  </div>
+</body>
+</pdf>

@@ -1,0 +1,101 @@
+<pdf>
+<body>
+  <div style="background:#ECEFF1; border:1px solid #D6DEE8; borderLeft:6px solid #37474F; borderRadius:4px; padding:12px; marginBottom:10px; keepTogether:true">
+    <h1 style="color:#37474F; fontSize:17; bold:true; marginBottom:4px">'城东新区综合交通枢纽项目进度通报'</h1>
+    <p style="color:#5A6B7C; fontSize:9">'报告编号：ZD-2025-041 | 生成日期：2025年4月7日'</p>
+  </div>
+
+  <div style="backgroundColor:#ECEFF1; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+    <h2 style="color:#37474F; fontSize:13; bold:true; marginTop:0; marginBottom:0">'一、里程碑排期与进度执行'</h2>
+  </div>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svg}</svg>
+  </div>
+  <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  项目周次横轴上各里程碑的计划条与实际完成条对照（数据来源：市重点项目建设监管平台）'</p>
+
+  <div style="backgroundColor:#ECEFF1; padding:6px 10px; borderRadius:3px; marginBottom:6px; marginTop:10px">
+    <h2 style="color:#37474F; fontSize:13; bold:true; marginTop:0; marginBottom:0">'二、里程碑执行台账'</h2>
+  </div>
+  <table style="width:560px; fontSize:10">
+    <tr>
+      <td style="padding:6px; bold:true; backgroundColor:#ECEFF1; borderBottom:1px solid #B0BEC5">'里程碑'</td>
+      <td style="padding:6px; bold:true; backgroundColor:#ECEFF1; borderBottom:1px solid #B0BEC5">'计划完成'</td>
+      <td style="padding:6px; bold:true; backgroundColor:#ECEFF1; borderBottom:1px solid #B0BEC5">'实际完成'</td>
+      <td style="padding:6px; bold:true; textAlign:right; backgroundColor:#ECEFF1; borderBottom:1px solid #B0BEC5">'进度偏差'</td>
+      <td style="padding:6px; bold:true; backgroundColor:#ECEFF1; borderBottom:1px solid #B0BEC5">'状态'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'可研批复'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第1周'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第1周'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'0 天'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已完成 100%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'初步设计'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第2周'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第2周'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'0 天'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已完成 92%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'施工图审查'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第3周'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第3周'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'0 天'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已完成 80%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'招投标'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第3周'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第4周'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'+5 天'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'进行中 65%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'开工建设'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第4周'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第5周'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'+6 天'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'进行中 55%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'主体封顶'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第5周'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'未完成'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'—'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'进行中 38%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'竣工验收'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第6周'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'未开始'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'—'</td>
+      <td style="padding:5px; borderBottom:1px solid #E3E8EE">'计划中 20%'</td>
+    </tr>
+  </table>
+
+  <div style="backgroundColor:#ECEFF1; padding:6px 10px; borderRadius:3px; marginBottom:6px; marginTop:10px">
+    <h2 style="color:#37474F; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、进度研判与建议'</h2>
+  </div>
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:5px"><span style="bold:true; color:#37474F">'前期审批零偏差：'</span>'可研批复、初步设计、施工图审查三个里程碑均在第3周前按计划完成，前期手续办理效率较好。'</li>
+    <li style="marginBottom:5px"><span style="bold:true; color:#37474F">'招投标首次滞后：'</span>'因资格预审资料复核，招投标里程碑由计划第3周推迟至实际第4周（+5 天），成为后续开工延后的直接诱因。'</li>
+    <li style="marginBottom:5px"><span style="bold:true; color:#37474F">'滞后向下游传导：'</span>'开工建设由计划第4周推迟至第5周（+6 天），当前主体封顶仅完成 38%，存在 7—10 天的顺延风险。'</li>
+    <li style="marginBottom:5px"><span style="bold:true; color:#37474F">'建议措施：'</span>'对主体封顶节点实行周调度并加派夜间施工班组，同时提前启动竣工验收资料预审，确保总工期不突破第6周计划。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8">'密级：内部'</p>
+    </div>
+    <div style="width:180px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8; opacity:0.8">'生成时间：2025年4月7日'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8">'批准人：项目建设管理中心主任'</p>
+    </div>
+  </div>
+</body>
+</pdf>

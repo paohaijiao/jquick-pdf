@@ -1,0 +1,81 @@
+<pdf>
+<body>
+  <div style="textAlignment:center; marginBottom:10px; padding:14px; background:#2F5597; borderRadius:4px; keepTogether:true">
+    <h1 style="textAlignment:center; color:white; marginBottom:6px; fontSize:18pt; bold:true">'项目审批数量趋势月报'</h1>
+    <p style="color:white; fontSize:10pt; margin:2px">'统计周期：2024年1月 - 2024年12月'</p>
+    <p style="color:white; fontSize:10pt; margin:2px">'编制单位：市政务服务管理局 | 报送对象：项目监管联席会议'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#2F5597; fontSize:13pt; bold:true; marginBottom:6px">'一、月度审批数量趋势'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6px">'图 1  2024年1-12月受理 / 审批通过 / 退回补正项目数量（数据来源：市项目审批监管系统）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#2F5597; fontSize:13pt; bold:true; marginBottom:6px">'二、季度审批结果汇总'</h2>
+    <table style="width:560px; fontSize:10pt">
+      <tr>
+        <th style="width:120px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'季度'</th>
+        <th style="width:110px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'受理（件）'</th>
+        <th style="width:110px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'审批通过（件）'</th>
+        <th style="width:110px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'退回补正（件）'</th>
+        <th style="width:110px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'通过率'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'第一季度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'435'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'346'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'66'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'79.5%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'第二季度'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'492'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'400'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'74'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'81.3%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'第三季度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'553'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'456'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'80'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'82.5%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'第四季度'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'643'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'536'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'86'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EAF1F8; border:1px solid #DCE3EC">'83.4%'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; bold:true; border:1px solid #DCE3EC">'全年合计'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'2,123'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'1,738'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'306'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'81.9%'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#2F5597; fontSize:13pt; bold:true; marginBottom:6px">'三、审批运行结论'</h2>
+    <list style="listStyleType:disc; paddingLeft:16px; fontSize:10pt">
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'审批总量稳步上行：'</span>'全年受理项目 2,123 件、审批通过 1,738 件，四季度受理量较一季度增长 47.8%（643 件对 435 件）。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'通过率逐季提升：'</span>'通过率由一季度 79.5% 升至四季度 83.4%，全年 81.9%；退回补正占比由 15.2% 降至 13.4%。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'退回补正高位平稳：'</span>'全年退回补正 306 件，月均 25.5 件，四季度 86 件为年内高点，材料完整性仍是主要影响因素。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'年末高峰特征明显：'</span>'12月受理 226 件、审批通过 189 件，均为全年单月峰值，与年度项目集中申报节奏一致。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'建议：'</span>'在年末申报高峰前增设预审窗口，并完善线上材料校验规则，力争将退回补正占比压降至 12% 以内。'</li>
+    </list>
+  </div>
+
+  <div style="textAlignment:center; marginTop:10px; paddingTop:10px; borderTop:1px solid #dee2e6; color:#6c757d; fontSize:8pt">
+    <p>'数据来源：市项目审批监管系统 | 生成时间：2025年1月10日'</p>
+    <p>'内部资料 · 未经许可请勿外传'</p>
+  </div>
+</body>
+</pdf>

@@ -1,0 +1,84 @@
+<pdf>
+<body>
+  <div style="marginBottom:12px; borderBottom:4px solid #00695C; paddingBottom:8px">
+    <h1 style="color:#00695C; fontSize:19; bold:true; marginBottom:4px">'下属单位人员在岗率通报'</h1>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:290px">
+        <p style="color:#6c757d; fontSize:9">'副标题：各下属单位应到人数、实到人数与在岗率对比（单位：人）'</p>
+      </div>
+      <div style="width:250px; textAlignment:right">
+        <p style="color:#6c757d; fontSize:9">'统计周期：2024年9月1日 - 2024年9月30日 | 编制单位：市局人事教育处'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="borderLeft:4px solid #00695C; paddingLeft:8px; marginBottom:6px">
+    <h2 style="color:#00695C; fontSize:13; bold:true; marginTop:0; marginBottom:0">'一、各单位在岗情况'</h2>
+  </div>
+  <div style="marginBottom:12px">
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:4px">'图 1  各下属单位应到人数与实到人数对比（数据来源：勤务管理系统考勤模块）'</p>
+  </div>
+
+  <div style="borderLeft:4px solid #00695C; paddingLeft:8px; marginBottom:6px">
+    <h2 style="color:#00695C; fontSize:13; bold:true; marginTop:0; marginBottom:0">'二、关键指标明细'</h2>
+  </div>
+  <div style="marginBottom:12px">
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'应到人数合计（人）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'686'</td>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'实到人数合计（人）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'645'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'综合在岗率'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'94.0%'</td>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'较上月变动'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'+1.2 个百分点'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'在岗率最高单位'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'第三分局'</td>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'最高在岗率'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'96.3%'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'在岗率最低单位'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'第四分局'</td>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'最低在岗率'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'89.8%'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'缺岗人数合计（人）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'41'</td>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'缺岗率'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'6.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'达标单位数（≥94%）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'3'</td>
+        <td style="width:150px; backgroundColor:#E6F2F0; padding:5px; border:1px solid #DCE3EC">'预警单位数'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'2'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="borderLeft:4px solid #00695C; paddingLeft:8px; marginBottom:6px">
+    <h2 style="color:#00695C; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、分析结论'</h2>
+  </div>
+  <list style="paddingLeft:18px; fontSize:10" listType="ordered">
+    <li style="marginBottom:6px">'综合在岗率 94.0%：五个下属单位应到 686 人、实到 645 人，缺岗 41 人，整体在岗率 94.0%，较上月提升 1.2 个百分点。'</li>
+    <li style="marginBottom:6px">'第三分局在岗率最高（96.3%），第一分局 95.7%、第五分局 94.8% 均高于平均水平，勤务安排总体均衡。'</li>
+    <li style="marginBottom:6px">'第二分局（92.8%）与第四分局（89.8%）低于 94% 达标线，第四分局主要受 2 名业务骨干借调、1 人产假影响。'</li>
+    <li style="marginBottom:6px">'建议：对第四分局实行跨分局警力调剂，并将夜间值班岗位纳入下一轮补员计划，力争下月在岗率回升至 95% 以上。'</li>
+  </list>
+
+  <div style="textAlignment:center; marginTop:10px; paddingTop:10px; borderTop:1px solid #dee2e6; color:#6c757d; fontSize:8">
+    <p>'数据来源：勤务管理系统考勤模块 | 生成时间：2024年10月8日'</p>
+    <p>'内部资料 · 未经许可请勿外传'</p>
+  </div>
+</body>
+</pdf>

@@ -1,0 +1,183 @@
+<pdf>
+<body>
+  <div style="borderBottom:2px solid #1F4E79; paddingBottom:8px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:150px">
+        <p style="color:#1F4E79; fontSize:10pt; bold:true">'省公共信用信息平台'</p>
+      </div>
+      <div style="width:250px; textAlignment:center">
+        <h1 style="color:#1F4E79; fontSize:16pt; bold:true; textAlignment:center">'区域业务受理量分布'</h1>
+      </div>
+      <div style="width:150px; textAlignment:right">
+        <p style="color:#6c757d; fontSize:9pt">'2025年1月15日'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#1F4E79; fontSize:13pt; bold:true; borderBottom:1px solid #1F4E79; paddingBottom:3px; marginBottom:8px">'一、各市（州）业务受理量明细'</h2>
+    <table style="width:560px; fontSize:9pt">
+      <tr>
+        <td style="width:200px; bold:true; padding:6px 4px; borderBottom:1px solid #E3E8EE">'地区'</td>
+        <td style="width:130px; bold:true; padding:6px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'受理量（件）'</td>
+        <td style="width:110px; bold:true; padding:6px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'同比增长'</td>
+        <td style="width:120px; bold:true; padding:6px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'全省占比'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'成都市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'42,180'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'6.2%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'23.8%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'绵阳市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'14,260'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'9.4%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'8.0%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'宜宾市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'12,840'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'11.8%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'7.2%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'南充市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'11,520'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'7.6%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'6.5%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'泸州市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'10,360'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'8.9%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'5.8%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'凉山彝族自治州'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'9,180'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'12.6%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'5.2%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'达州市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'8,940'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'6.8%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'5.0%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'乐山市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'8,120'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'5.4%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'4.6%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'德阳市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'7,860'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'8.2%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'4.4%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'眉山市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'6,540'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'10.6%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3.7%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'遂宁市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'5,920'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'7.2%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3.3%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'内江市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'5,680'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'5.9%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3.2%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'自贡市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'5,240'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'4.8%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3.0%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'广元市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'4,860'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'9.1%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'2.7%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'巴中市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'4,320'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'11.2%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'2.4%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'雅安市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3,980'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'8.6%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'2.2%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'资阳市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3,760'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'6.4%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'2.1%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'广安市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3,520'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'7.8%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'2.0%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'攀枝花市'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3,240'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'3.6%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'1.8%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'甘孜藏族自治州'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'2,860'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'15.8%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'1.6%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px 4px; borderBottom:1px solid #E3E8EE">'阿坝藏族羌族自治州'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'2,410'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'14.2%'</td>
+        <td style="padding:5px 4px; textAlign:right; borderBottom:1px solid #E3E8EE">'1.4%'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px 4px; bold:true; borderBottom:2px solid #1F4E79">'全省合计（21个市州）'</td>
+        <td style="padding:6px 4px; textAlign:right; bold:true; borderBottom:2px solid #1F4E79">'177,590'</td>
+        <td style="padding:6px 4px; textAlign:right; bold:true; borderBottom:2px solid #1F4E79">'7.5%'</td>
+        <td style="padding:6px 4px; textAlign:right; bold:true; borderBottom:2px solid #1F4E79">'100.0%'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#1F4E79; fontSize:13pt; bold:true; borderBottom:1px solid #1F4E79; paddingBottom:3px; marginBottom:8px">'二、全省区域分布图'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6px">'图 1  四川省21个市（州）业务受理量分布（底图：四川省行政区划）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#1F4E79; fontSize:13pt; bold:true; borderBottom:1px solid #1F4E79; paddingBottom:3px; marginBottom:8px">'三、区域均衡分析'</h2>
+    <list style="listStyleType:none; paddingLeft:0px; fontSize:10pt">
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E8F0F7; borderLeft:3px solid #1F4E79"><span style="bold:true; color:#1F4E79">'成都平原经济区领跑：'</span>'成都市受理 42,180 件、占全省 23.8%，绵阳、德阳、眉山合计 28,660 件，四市合计占全省 39.9%。'</li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E8F0F7; borderLeft:3px solid #1F4E79"><span style="bold:true; color:#1F4E79">'民族地区增速领先：'</span>'甘孜藏族自治州同比增长 15.8%、阿坝藏族羌族自治州 14.2%、凉山彝族自治州 12.6%，均显著高于全省 7.5% 的平均增速。'</li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E8F0F7; borderLeft:3px solid #1F4E79"><span style="bold:true; color:#1F4E79">'尾部地区基数偏低：'</span>'阿坝 2,410 件、甘孜 2,860 件、攀枝花 3,240 件，三地合计仅占全省 4.8%，业务体量仍有较大提升空间。'</li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E8F0F7; borderLeft:3px solid #1F4E79"><span style="bold:true; color:#1F4E79">'增速分化明显：'</span>'21 个市（州）全部实现同比增长，但增速区间自 3.6%（攀枝花市）延伸至 15.8%（甘孜藏族自治州），区域间差异较大。'</li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E8F0F7; borderLeft:3px solid #1F4E79"><span style="bold:true; color:#1F4E79">'建议：'</span>'对攀枝花、自贡等低增速地区开展专项督导，同时将甘孜、阿坝的线上受理经验向全省推广，缩小区域服务能力差距。'</li>
+    </list>
+  </div>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8pt; marginTop:8px">'数据来源：省公共信用信息平台 | 统计口径：2024年1月 - 12月 | 生成时间：2025年1月15日'</p>
+</body>
+</pdf>

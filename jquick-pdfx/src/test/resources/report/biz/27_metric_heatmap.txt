@@ -1,0 +1,125 @@
+<pdf>
+<body>
+  <div style="marginBottom:12px; borderBottom:4px solid #4E342E; paddingBottom:8px; keepTogether:true">
+    <h1 style="color:#4E342E; fontSize:19; bold:true; marginBottom:4px">'业务指标热力矩阵'</h1>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:290px">
+        <p style="color:#6c757d; fontSize:9">'各业务线月度营业收入（单位：万元）'</p>
+      </div>
+      <div style="width:250px; textAlignment:right">
+        <p style="color:#6c757d; fontSize:9">'统计周期：2024年1月 - 6月 | 数据来源：运营数据中台'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; justifyContent:space-between; marginBottom:12px; keepTogether:true">
+    <div style="width:132px; minHeight:54px; background:#F5F0EE; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#4E342E; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'43,090'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'上半年营收合计（万元）'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#F5F0EE; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#1B5E20; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'2,860'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'峰值：支付结算6月'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#F5F0EE; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#BF360C; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'860'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'低谷：财富管理1月'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#F5F0EE; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#4E342E; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'14,960'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'最大业务线：支付结算'</p>
+    </div>
+  </div>
+
+  <div style="marginBottom:12px">
+    <div style="borderLeft:4px solid #4E342E; paddingLeft:8px; marginBottom:8px">
+      <h2 style="color:#4E342E; fontSize:13; bold:true; marginTop:0; marginBottom:0">'一、业务指标热力矩阵'</h2>
+    </div>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  四条业务线 1-6 月营业收入热力图（颜色越深营收越高；数据来源：运营数据中台）'</p>
+  </div>
+
+  <div style="marginBottom:12px">
+    <div style="borderLeft:4px solid #4E342E; paddingLeft:8px; marginBottom:8px">
+      <h2 style="color:#4E342E; fontSize:13; bold:true; marginTop:0; marginBottom:0">'二、分业务线月度营收明细'</h2>
+    </div>
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <th style="backgroundColor:#4E342E; color:white; padding:5px; textAlign:center; border:1px solid #DCE3EC">'业务线'</th>
+        <th style="backgroundColor:#4E342E; color:white; padding:5px; textAlign:center; border:1px solid #DCE3EC">'1月'</th>
+        <th style="backgroundColor:#4E342E; color:white; padding:5px; textAlign:center; border:1px solid #DCE3EC">'2月'</th>
+        <th style="backgroundColor:#4E342E; color:white; padding:5px; textAlign:center; border:1px solid #DCE3EC">'3月'</th>
+        <th style="backgroundColor:#4E342E; color:white; padding:5px; textAlign:center; border:1px solid #DCE3EC">'4月'</th>
+        <th style="backgroundColor:#4E342E; color:white; padding:5px; textAlign:center; border:1px solid #DCE3EC">'5月'</th>
+        <th style="backgroundColor:#4E342E; color:white; padding:5px; textAlign:center; border:1px solid #DCE3EC">'6月'</th>
+        <th style="backgroundColor:#4E342E; color:white; padding:5px; textAlign:center; border:1px solid #DCE3EC">'合计'</th>
+      </tr>
+      <tr>
+        <td style="width:96px; border:1px solid #DCE3EC; borderLeft:3px solid #4E342E; padding:5px">'零售金融'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1,860'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1,420'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'2,140'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'2,280'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'2,360'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'2,520'</td>
+        <td style="padding:5px; textAlign:right; bold:true; border:1px solid #DCE3EC">'12,580'</td>
+      </tr>
+      <tr>
+        <td style="width:96px; backgroundColor:#F5F0EE; border:1px solid #DCE3EC; borderLeft:3px solid #4E342E; padding:5px">'公司金融'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'1,240'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'980'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'1,680'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'1,820'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'1,940'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'2,160'</td>
+        <td style="padding:5px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'9,820'</td>
+      </tr>
+      <tr>
+        <td style="width:96px; border:1px solid #DCE3EC; borderLeft:3px solid #4E342E; padding:5px">'财富管理'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'860'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1,120'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'940'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'880'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'910'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1,020'</td>
+        <td style="padding:5px; textAlign:right; bold:true; border:1px solid #DCE3EC">'5,730'</td>
+      </tr>
+      <tr>
+        <td style="width:96px; backgroundColor:#F5F0EE; border:1px solid #DCE3EC; borderLeft:3px solid #4E342E; padding:5px">'支付结算'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'2,380'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'1,960'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'2,460'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'2,580'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'2,720'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'2,860'</td>
+        <td style="padding:5px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'14,960'</td>
+      </tr>
+      <tr>
+        <td style="width:96px; backgroundColor:#F5F0EE; border:1px solid #DCE3EC; borderLeft:3px solid #4E342E; padding:6px; bold:true">'合计'</td>
+        <td style="padding:6px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'6,340'</td>
+        <td style="padding:6px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'5,480'</td>
+        <td style="padding:6px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'7,220'</td>
+        <td style="padding:6px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'7,560'</td>
+        <td style="padding:6px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'7,930'</td>
+        <td style="padding:6px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'8,560'</td>
+        <td style="padding:6px; textAlign:right; bold:true; backgroundColor:#F5F0EE; border:1px solid #DCE3EC">'43,090'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #4E342E; paddingLeft:8px; marginBottom:8px">
+      <h2 style="color:#4E342E; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、业务洞察与资源建议'</h2>
+    </div>
+    <list style="list-style-type:none; padding-left:0; fontSize:10">
+      <li style="marginBottom:6px"><span style="bold:true; color:#4E342E">'规模格局：'</span>'支付结算 14,960 万元居首，零售金融 12,580 万元次之，两者合计占四线营收的 63.9%。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#4E342E">'淡旺季：'</span>'2月为全行业低谷（四线合计 5,480 万元），6月冲高至 8,560 万元，环比 1月增长 35.0%。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#4E342E">'财富管理承压：'</span>'上半年仅 5,730 万元，且3-5月连续低于千万元，是唯一未呈现单边上行的业务线。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#4E342E">'建议：'</span>'三季度将营销资源向财富管理倾斜，并把支付结算的旺季运维排期提前至 5 月中旬。'</li>
+    </list>
+    <p style="textAlignment:right; color:#8a939b; fontSize:8; marginTop:8px">'注：表格数值与热力图单元格一一对应，单位为万元，四舍五入至整数。'</p>
+  </div>
+</body>
+</pdf>

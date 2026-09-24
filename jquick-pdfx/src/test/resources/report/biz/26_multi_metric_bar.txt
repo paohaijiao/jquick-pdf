@@ -1,0 +1,68 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; borderBottom:1px solid #B9C2CC; paddingBottom:8px; keepTogether:true">
+    <h1 style="color:#3E6B9D; fontSize:17; bold:true; marginBottom:3px">'2024年上半年各区域业绩对比'</h1>
+    <p style="color:#6c757d; fontSize:9">'统计周期：2024年1月 - 6月 | 数据来源：集团经营分析平台 | 金额单位：万元'</p>
+  </div>
+
+  <div style="marginBottom:12px">
+    <h2 style="color:#3E6B9D; fontSize:13; bold:true; borderBottom:1px solid #3E6B9D; paddingBottom:3px; marginBottom:8px">'一、四区域业绩速览'</h2>
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; border:1px solid #DCE3EC">'华东上半年合计'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'932.3'</td>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; border:1px solid #DCE3EC">'华东6月单月'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'190.8'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; border:1px solid #DCE3EC">'华南上半年合计'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'815.7'</td>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; border:1px solid #DCE3EC">'华南6月单月'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'172.5'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; border:1px solid #DCE3EC">'华北上半年合计'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'682.9'</td>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; border:1px solid #DCE3EC">'华北6月单月'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'148.2'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; border:1px solid #DCE3EC">'西部上半年合计'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'478.2'</td>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; border:1px solid #DCE3EC">'西部6月单月'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #DCE3EC">'108.5'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; bold:true; border:1px solid #DCE3EC">'四区上半年合计'</td>
+        <td style="width:120px; padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'2,909.1'</td>
+        <td style="width:150px; backgroundColor:#EDF2F8; padding:6px; bold:true; border:1px solid #DCE3EC">'最高单月（华东6月）'</td>
+        <td style="width:120px; padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'190.8'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:12px">
+    <h2 style="color:#3E6B9D; fontSize:13; bold:true; borderBottom:1px solid #3E6B9D; paddingBottom:3px; marginBottom:8px">'二、月度分组柱状走势'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  1-6月四区域业绩分组对比（单位：万元；数据来源：集团经营分析平台）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#3E6B9D; fontSize:13; bold:true; borderBottom:1px solid #3E6B9D; paddingBottom:3px; marginBottom:8px">'三、经营分析结论'</h2>
+    <list style="paddingLeft:18px; fontSize:10" listType="ordered">
+      <li style="marginBottom:6px">'华东领跑：上半年累计 932.3 万元，占四区合计的 32.0%，1-6 月由 120.5 万元升至 190.8 万元，月均复合增长约 9.6%。'</li>
+      <li style="marginBottom:6px">'华南次之：累计 815.7 万元，6月单月 172.5 万元，与华东的差距稳定在 9%-19% 区间，未见明显收窄。'</li>
+      <li style="marginBottom:6px">'华北稳步上行：累计 682.9 万元，6月 148.2 万元，为四区中增速最均衡的区域。'</li>
+      <li style="marginBottom:6px">'西部基数偏低：累计 478.2 万元，仅为华东的 51.3%，但 5-6 月环比增速已回升至 12% 以上。'</li>
+      <li style="marginBottom:6px">'建议：下半年将西部大客户专项资源投入前置，力争全年区域差距收窄 5 个百分点。'</li>
+    </list>
+  </div>
+
+  <div style="textAlignment:center; marginTop:10px; paddingTop:10px; borderTop:1px solid #dee2e6; color:#6c757d; fontSize:8">
+    <p>'数据来源：集团经营分析平台 | 生成时间：2025年7月8日 | 单位：万元'</p>
+    <p>'内部资料 · 未经许可请勿外传'</p>
+  </div>
+</body>
+</pdf>

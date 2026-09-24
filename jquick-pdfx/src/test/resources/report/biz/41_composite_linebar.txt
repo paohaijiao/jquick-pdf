@@ -1,0 +1,104 @@
+<pdf>
+<body>
+  <div style="borderBottom:2px solid #6A1B9A; paddingBottom:8px; marginBottom:10px">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:150px">
+        <p style="color:#6A1B9A; fontSize:10; bold:true">'工业经济运行监测中心'</p>
+      </div>
+      <div style="width:250px; textAlignment:center">
+        <h1 style="color:#6A1B9A; fontSize:16; bold:true; textAlignment:center">'工业产值与能耗复合趋势分析'</h1>
+      </div>
+      <div style="width:150px; textAlignment:right">
+        <p style="color:#6c757d; fontSize:9">'2025年1月10日'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="backgroundColor:#F3EAF7; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+    <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginTop:0; marginBottom:0">'一、产值与能耗复合走势'</h2>
+  </div>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svg}</svg>
+  </div>
+  <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  2024年月度工业产值（柱，单位：亿元）与单位产值综合能耗（线，单位：千克标煤/万元），数据来源：工业经济运行监测平台'</p>
+
+  <areaBreak></areaBreak>
+
+  <div style="backgroundColor:#F3EAF7; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+    <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginTop:0; marginBottom:0">'二、月度产值与能耗明细'</h2>
+  </div>
+  <table style="width:560px; fontSize:10">
+    <tr>
+      <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'月份'</th>
+      <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'工业产值（亿元）'</th>
+      <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'单位产值能耗（千克标煤/万元）'</th>
+      <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'能耗环比'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'1月'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'42.6'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'392.0'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'—'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'2月'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'38.9'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'384.0'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'-2.0%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'3月'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'45.2'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'376.0'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'-2.1%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'4月'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'47.8'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'365.0'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'-2.9%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'6月'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'52.1'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'347.0'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'-2.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'9月'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'56.4'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'315.0'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'-2.9%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'12月'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'64.8'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'275.0'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'-4.5%'</td>
+    </tr>
+  </table>
+
+  <div style="backgroundColor:#F3EAF7; padding:6px 10px; borderRadius:3px; marginBottom:6px; marginTop:10px">
+    <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、增产降耗研判'</h2>
+  </div>
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#6A1B9A">'产值：'</span>'全年累计 625.3 亿元，同比增长 11.4%；12月单月 64.8 亿元为年内最高点，较年内低点（2月 38.9 亿元）高出 66.6%。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#6A1B9A">'能耗：'</span>'单位产值综合能耗由 1月 392.0 降至 12月 275.0 千克标煤/万元，累计降幅 29.8%，且下半年月度环比降幅持续扩大。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#6A1B9A">'脱钩：'</span>'产值增长 11.4% 而单位能耗下降 29.8%，综合能耗总量仅增约 1.1%，说明增长动能已由规模扩张转为效率提升。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#6A1B9A">'建议：'</span>'2月受春节停工影响为年内产值低点、能耗环比仅降 2.0%，建议对低负荷运行时段单独制定能效管控方案。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8">'密级：内部'</p>
+    </div>
+    <div style="width:180px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8; opacity:0.8">'生成时间：2025年1月10日'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8">'批准人：监测中心主任'</p>
+    </div>
+  </div>
+</body>
+</pdf>

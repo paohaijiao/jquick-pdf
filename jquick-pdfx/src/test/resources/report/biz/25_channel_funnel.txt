@@ -1,0 +1,94 @@
+<pdf>
+<body>
+  <div style="background:#FDF0EA; border:1px solid #E8CDBF; borderLeft:6px solid #BF360C; borderRadius:4px; padding:12px; marginBottom:12px; keepTogether:true">
+    <h1 style="color:#BF360C; fontSize:17; bold:true; marginBottom:4px">'注册渠道转化漏斗分析'</h1>
+    <p style="color:#7A5040; fontSize:9">'报告编号：MKT-2024-Q4-025 | 生成日期：2025年1月10日 | 统计周期：2024年全年'</p>
+  </div>
+
+  <div style="marginBottom:12px">
+    <h2 style="color:#BF360C; fontSize:13; bold:true; underline:true; marginBottom:8px">'一、各渠道新增注册漏斗'</h2>
+    <div style="display:flex; justifyContent:space-between; marginBottom:10px">
+      <div style="width:285px">
+        <div style="display:flex; justifyContent:center">
+          <svg style="width:285px">${svg}</svg>
+        </div>
+      </div>
+      <div style="width:265px">
+        <h3 style="color:#BF360C; fontSize:12; bold:true; marginBottom:6px">'漏斗读法'</h3>
+        <list style="listStyleType:disc; paddingLeft:14px; fontSize:9">
+          <li style="marginBottom:5px">'自上而下为四类注册渠道，条越长代表新增注册量越大。'</li>
+          <li style="marginBottom:5px">'广告投放为第一大来源，贡献约四成新增注册。'</li>
+          <li style="marginBottom:5px">'老客推荐量最小，但单客获取成本最低。'</li>
+          <li style="marginBottom:5px">'渠道合作居中，性价比介于两者之间。'</li>
+        </list>
+      </div>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  2024年信用平台新增注册用户渠道漏斗（单位：人；数据来源：用户增长看板）'</p>
+  </div>
+
+  <div style="marginBottom:12px">
+    <h2 style="color:#BF360C; fontSize:13; bold:true; underline:true; marginBottom:8px">'二、渠道投放效果明细'</h2>
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <th style="backgroundColor:#BF360C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'注册渠道'</th>
+        <th style="backgroundColor:#BF360C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'新增注册（人）'</th>
+        <th style="backgroundColor:#BF360C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'占比'</th>
+        <th style="backgroundColor:#BF360C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'单客获取成本（元）'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'广告投放'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'12,000'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'41.2%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'46'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#FDF0EA; border:1px solid #DCE3EC">'搜索引擎'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #DCE3EC">'8,600'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #DCE3EC">'29.6%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #DCE3EC">'32'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'渠道合作'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'5,400'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'18.6%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'28'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#FDF0EA; border:1px solid #DCE3EC">'老客推荐'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #DCE3EC">'3,100'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #DCE3EC">'10.6%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #DCE3EC">'12'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#BF360C; color:white; bold:true; border:1px solid #BF360C">'合计'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#BF360C; color:white; bold:true; border:1px solid #BF360C">'29,100'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#BF360C; color:white; bold:true; border:1px solid #BF360C">'100.0%'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#BF360C; color:white; bold:true; border:1px solid #BF360C">'35'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#BF360C; fontSize:13; bold:true; underline:true; marginBottom:8px">'三、投放策略建议'</h2>
+    <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+      <li style="marginBottom:6px">'结构结论：广告投放 12,000 人、搜索引擎 8,600 人，两者合计贡献 70.8% 的新增注册，是获客主渠道。'</li>
+      <li style="marginBottom:6px">'成本结论：老客推荐单客获取成本仅 12 元，不足广告投放（46 元）的三分之一，投入产出效率最高。'</li>
+      <li style="marginBottom:6px">'渠道合作 5,400 人、成本 28 元/人，处于量价均衡区间，可继续扩大合作方名单。'</li>
+      <li style="marginBottom:6px">'建议：将广告预算中约 10% 向老客推荐活动迁移，目标把推荐渠道占比由 10.6% 提升至 15%。'</li>
+    </list>
+  </div>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8">'密级：内部'</p>
+    </div>
+    <div style="width:200px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8; opacity:0.8">'生成时间：2025年1月10日'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8">'编制：用户增长部'</p>
+    </div>
+  </div>
+</body>
+</pdf>

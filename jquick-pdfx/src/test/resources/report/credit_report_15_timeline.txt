@@ -1,0 +1,190 @@
+<pdf>
+<body>
+  <div style="backgroundColor:#4E342E; borderRadius:4px; padding:16px; marginBottom:12px">
+    <h1 style="textAlignment:center; color:white; fontSize:21; bold:true; marginBottom:8px">'企业信用评级报告'</h1>
+    <p style="textAlignment:center; color:#efebe9; fontSize:10; margin:2px">'报告编号: CR-2023-08975 | 评估日期: 2023年11月15日'</p>
+    <p style="textAlignment:center; color:#efebe9; fontSize:10; margin:2px">'评估机构: 四川省企业信用评估中心'</p>
+  </div>
+
+  <div style="marginBottom:14px">
+    <h2 style="color:#4E342E; fontSize:14; bold:true; marginBottom:8px">'四川省泡海椒科技有限公司'</h2>
+    <div style="display:flex; justifyContent:space-between; marginBottom:8px">
+      <div style="width:190px; padding:8px; borderLeft:3px solid #8D6E63; backgroundColor:#efebe9">
+        <p style="fontSize:9; color:#6D4C41; marginBottom:2px">'统一信用代码'</p>
+        <p style="fontSize:11; bold:true; color:#4E342E">'91110108MA01XX1234'</p>
+      </div>
+      <div style="width:190px; padding:8px; borderLeft:3px solid #8D6E63; backgroundColor:#efebe9">
+        <p style="fontSize:9; color:#6D4C41; marginBottom:2px">'成立日期'</p>
+        <p style="fontSize:11; bold:true; color:#4E342E">'2018年5月20日'</p>
+      </div>
+      <div style="width:190px; padding:8px; borderLeft:3px solid #8D6E63; backgroundColor:#efebe9">
+        <p style="fontSize:9; color:#6D4C41; marginBottom:2px">'注册资本'</p>
+        <p style="fontSize:11; bold:true; color:#4E342E">'1000万元人民币'</p>
+      </div>
+    </div>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:190px; padding:8px; borderLeft:3px solid #8D6E63; backgroundColor:#efebe9">
+        <p style="fontSize:9; color:#6D4C41; marginBottom:2px">'法定代表人'</p>
+        <p style="fontSize:11; bold:true; color:#4E342E">'泡海椒'</p>
+      </div>
+      <div style="width:190px; padding:8px; borderLeft:3px solid #8D6E63; backgroundColor:#efebe9">
+        <p style="fontSize:9; color:#6D4C41; marginBottom:2px">'所属行业'</p>
+        <p style="fontSize:11; bold:true; color:#4E342E">'软件和信息技术服务业'</p>
+      </div>
+      <div style="width:190px; padding:8px; borderLeft:3px solid #8D6E63; backgroundColor:#efebe9">
+        <p style="fontSize:9; color:#6D4C41; marginBottom:2px">'企业规模'</p>
+        <p style="fontSize:11; bold:true; color:#4E342E">'中型（150-200人）'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:14px">
+    <h2 style="color:#6D4C41; fontSize:13; bold:true; marginBottom:10px">'历年财务数据（单位：万元）'</h2>
+    <table style="width:600px; fontSize:10">
+      <tr>
+        <th style="backgroundColor:#6D4C41; color:white; padding:6px; textAlignment:center">'财务指标'</th>
+        <th style="backgroundColor:#6D4C41; color:white; padding:6px; textAlignment:center">'2020年'</th>
+        <th style="backgroundColor:#6D4C41; color:white; padding:6px; textAlignment:center">'2021年'</th>
+        <th style="backgroundColor:#6D4C41; color:white; padding:6px; textAlignment:center">'2022年'</th>
+        <th style="backgroundColor:#6D4C41; color:white; padding:6px; textAlignment:center">'2023年'</th>
+        <th style="backgroundColor:#6D4C41; color:white; padding:6px; textAlignment:center">'增长率'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; bold:true; borderBottom:1px solid #d7ccc8">'营业收入'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'8,560'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'12,340'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'18,920'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'25,680'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8; color:#2e7d32; bold:true">'+44.2%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; bold:true; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'净利润'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'1,240'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'2,150'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'3,890'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'5,420'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8; color:#2e7d32; bold:true">'+63.8%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; bold:true; borderBottom:1px solid #d7ccc8">'总资产'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'15,800'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'22,450'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'31,200'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'42,800'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8; color:#2e7d32; bold:true">'+39.5%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; bold:true; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'净资产'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'9,200'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'13,800'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'19,500'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8">'26,400'</td>
+        <td style="padding:5px; textAlignment:right; backgroundColor:#f7f4f3; borderBottom:1px solid #d7ccc8; color:#2e7d32; bold:true">'+42.1%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; bold:true; borderBottom:1px solid #d7ccc8">'毛利率'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'42.5%'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'45.8%'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'48.2%'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8">'51.6%'</td>
+        <td style="padding:5px; textAlignment:right; borderBottom:1px solid #d7ccc8; color:#2e7d32; bold:true">'+9.1%'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:14px">
+    <h2 style="color:#6D4C41; fontSize:13; bold:true; marginBottom:10px">'关键经营指标'</h2>
+    <div style="display:flex; marginBottom:10px">
+      <div style="width:24px; paddingTop:4px">
+        <div style="width:12px; height:12px; borderRadius:6px; backgroundColor:#8D6E63"></div>
+      </div>
+      <div style="width:560px; fontSize:11">
+        <span style="bold:true; color:#4E342E">'营收增长率: '</span>
+        '连续三年保持40%以上增长，2023年达到25,680万元'
+      </div>
+    </div>
+    <div style="display:flex; marginBottom:10px">
+      <div style="width:24px; paddingTop:4px">
+        <div style="width:12px; height:12px; borderRadius:6px; backgroundColor:#8D6E63"></div>
+      </div>
+      <div style="width:560px; fontSize:11">
+        <span style="bold:true; color:#4E342E">'利润率提升: '</span>
+        '净利率从14.5%提升至21.1%，盈利能力显著增强'
+      </div>
+    </div>
+    <div style="display:flex; marginBottom:10px">
+      <div style="width:24px; paddingTop:4px">
+        <div style="width:12px; height:12px; borderRadius:6px; backgroundColor:#8D6E63"></div>
+      </div>
+      <div style="width:560px; fontSize:11">
+        <span style="bold:true; color:#4E342E">'研发投入: '</span>
+        '研发费用年均增长38.9%，占营收比例达13.3%'
+      </div>
+    </div>
+    <div style="display:flex; marginBottom:10px">
+      <div style="width:24px; paddingTop:4px">
+        <div style="width:12px; height:12px; borderRadius:6px; backgroundColor:#8D6E63"></div>
+      </div>
+      <div style="width:560px; fontSize:11">
+        <span style="bold:true; color:#4E342E">'人才结构: '</span>
+        '技术研发人员占比42%，硕士以上学历占35%'
+      </div>
+    </div>
+    <div style="display:flex; marginBottom:10px">
+      <div style="width:24px; paddingTop:4px">
+        <div style="width:12px; height:12px; borderRadius:6px; backgroundColor:#8D6E63"></div>
+      </div>
+      <div style="width:560px; fontSize:11">
+        <span style="bold:true; color:#4E342E">'客户质量: '</span>
+        '服务15家上市公司，客户续约率92%，大客户满意度4.8/5.0'
+      </div>
+    </div>
+    <div style="display:flex; marginBottom:10px">
+      <div style="width:24px; paddingTop:4px">
+        <div style="width:12px; height:12px; borderRadius:6px; backgroundColor:#8D6E63"></div>
+      </div>
+      <div style="width:560px; fontSize:11">
+        <span style="bold:true; color:#4E342E">'资产质量: '</span>
+        '资产负债率维持在38%左右，流动比率2.8，偿债能力良好'
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:14px">
+    <h2 style="color:#6D4C41; fontSize:13; bold:true; marginBottom:10px">'信用里程碑时间线'</h2>
+    <div style="textAlignment:center">
+      <svg style="width:440px;height:400px">${svg}</svg>
+    </div>
+    <div style="display:flex; flexWrap:wrap; justifyContent:center; marginTop:10px">
+      <div style="width:200px; textAlignment:center; fontSize:10">
+        <span style="bold:true; color:#4E342E">'财务状况(90分): '</span>
+        '营收稳定增长'
+      </div>
+      <div style="width:200px; textAlignment:center; fontSize:10">
+        <span style="bold:true; color:#4E342E">'经营能力(95分): '</span>
+        '客户留存率高'
+      </div>
+      <div style="width:200px; textAlignment:center; fontSize:10">
+        <span style="bold:true; color:#4E342E">'偿债能力(85分): '</span>
+        '负债率合理'
+      </div>
+      <div style="width:200px; textAlignment:center; fontSize:10">
+        <span style="bold:true; color:#4E342E">'发展潜力(92分): '</span>
+        '研发投入增加'
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:14px; background:linear-gradient(135deg, #efebe9 0%, #d7ccc8 100%); borderRadius:4px; padding:16px; borderLeft:4px solid #8D6E63">
+    <h2 style="color:#4E342E; fontSize:13; bold:true; marginBottom:8px">'综合评价'</h2>
+    <p style="textAlignment:justify; fontSize:11">
+      '四川省泡海椒科技有限公司作为国家级高新技术企业和专精特新"小巨人"企业，在云计算和大数据领域表现出色。公司财务状况健康，经营能力突出，技术创新能力强，具备良好的发展潜力。信用评级为AAA级，展望稳定。'
+    </p>
+  </div>
+
+  <div style="textAlignment:center; marginTop:12px">
+    <p style="fontSize:9; color:#a1887f">'本报告依据公开信息和专业评估模型生成，仅供参考 | 报告生成时间: 2025年09月06日'</p>
+    <p style="fontSize:9; color:#a1887f">'© 2023 企业信用评估中心 版权所有 | 认证编号: CE-2023-001'</p>
+  </div>
+</body>
+</pdf>

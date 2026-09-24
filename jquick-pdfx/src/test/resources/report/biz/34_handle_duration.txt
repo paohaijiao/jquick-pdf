@@ -1,0 +1,128 @@
+<pdf>
+<body>
+  <div style="borderBottom:2px solid #00695C; paddingBottom:8px; marginBottom:10px">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:150px">
+        <p style="color:#00695C; fontSize:10pt; bold:true">'市政务服务中心'</p>
+      </div>
+      <div style="width:250px; textAlignment:center">
+        <h1 style="color:#00695C; fontSize:16pt; bold:true; textAlignment:center">'业务办理时长分布报告'</h1>
+      </div>
+      <div style="width:150px; textAlignment:right">
+        <p style="color:#6c757d; fontSize:9pt">'2025年10月10日'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#00695C; fontSize:13pt; bold:true; underline:true; marginBottom:6pt">'一、关键效能指标'</h2>
+    <div style="display:flex; justifyContent:space-between; marginBottom:12px; keepTogether:true">
+      <div style="width:132px; minHeight:56px; background:#E6F2F0; borderRadius:4px; padding:8px; verticalAlignment:middle">
+        <p style="color:#00695C; fontSize:16pt; bold:true; textAlignment:center; marginBottom:2px">'24,270'</p>
+        <p style="color:#5A6B7C; fontSize:9pt; textAlignment:center">'本期办结业务量（件）'</p>
+      </div>
+      <div style="width:132px; minHeight:56px; background:#E6F2F0; borderRadius:4px; padding:8px; verticalAlignment:middle">
+        <p style="color:#00695C; fontSize:16pt; bold:true; textAlignment:center; marginBottom:2px">'34.2'</p>
+        <p style="color:#5A6B7C; fontSize:9pt; textAlignment:center">'平均办理时长（分钟）'</p>
+      </div>
+      <div style="width:132px; minHeight:56px; background:#E6F2F0; borderRadius:4px; padding:8px; verticalAlignment:middle">
+        <p style="color:#00695C; fontSize:16pt; bold:true; textAlignment:center; marginBottom:2px">'77.1%'</p>
+        <p style="color:#5A6B7C; fontSize:9pt; textAlignment:center">'45分钟内办结率'</p>
+      </div>
+      <div style="width:132px; minHeight:56px; background:#E6F2F0; borderRadius:4px; padding:8px; verticalAlignment:middle">
+        <p style="color:#BF360C; fontSize:16pt; bold:true; textAlignment:center; marginBottom:2px">'9.8%'</p>
+        <p style="color:#5A6B7C; fontSize:9pt; textAlignment:center">'超60分钟办结占比'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7FBFA; borderRadius:4px">
+    <h2 style="color:#00695C; fontSize:13pt; bold:true; underline:true; marginTop:0; marginBottom:6pt">'二、办理时长区间分布'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6pt">'图 1  办理时长区间分布（直方图替代视图：jquick-pdf 无直方图渲染器，以柱状图 BAR 按分箱呈现分布形态）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#00695C; fontSize:13pt; bold:true; underline:true; marginBottom:6pt">'三、区间明细与累计分布'</h2>
+    <table style="width:540px; fontSize:10pt">
+      <tr>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'办理时长区间'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'办件量（件）'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'占比'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'累计占比'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'评价'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'0-15分钟'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'4,120'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'17.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'17.0%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #DCE3EC">'达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'15-30分钟'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'8,360'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'34.4%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'51.4%'</td>
+        <td style="padding:5px; textAlign:center; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'30-45分钟'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'6,240'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'25.7%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'77.1%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #DCE3EC">'达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'45-60分钟'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'3,180'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'13.1%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'90.2%'</td>
+        <td style="padding:5px; textAlign:center; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'60-90分钟'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1,520'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'6.3%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'96.5%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #DCE3EC">'预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'90-120分钟'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'640'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'2.6%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'99.1%'</td>
+        <td style="padding:5px; textAlign:center; backgroundColor:#E6F2F0; border:1px solid #DCE3EC">'预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'120分钟以上'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'210'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'0.9%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'100.0%'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #DCE3EC">'预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#00695C; color:white; bold:true; border:1px solid #00695C">'全量合计'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#00695C; color:white; bold:true; border:1px solid #00695C">'24,270'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#00695C; color:white; bold:true; border:1px solid #00695C">'100.0%'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#00695C; color:white; bold:true; border:1px solid #00695C">'100.0%'</td>
+        <td style="padding:6px; textAlign:center; backgroundColor:#00695C; color:white; bold:true; border:1px solid #00695C">'达标率 77.1%'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#00695C; fontSize:13pt; bold:true; underline:true; marginBottom:6pt">'四、结论与改进建议'</h2>
+    <list style="listStyleType:disc; paddingLeft:16px; fontSize:10pt">
+      <li style="marginBottom:5px">'分布呈明显右偏：峰值落在 15-30 分钟区间（8,360 件、占 34.4%），30 分钟内办结占比 51.4%，45 分钟内达 77.1%。'</li>
+      <li style="marginBottom:5px">'整体效率改善：本期平均办理时长 34.2 分钟，较上年同期缩短约 4 分钟，窗口服务标准化成效显现。'</li>
+      <li style="marginBottom:5px">'长尾事项需分流：60 分钟以上共 2,370 件、占 9.8%，其中 120 分钟以上 210 件多集中于不动产登记、企业开办等复杂事项。'</li>
+      <li style="marginBottom:5px">'建议对 45 分钟以上区间占比高的窗口开展材料预审环节排查，并设立复杂事项专窗以压缩长尾时长。'</li>
+    </list>
+  </div>
+
+  <p style="textAlignment:center; color:#8a939b; fontSize:8pt; italic:true; marginTop:10px">'数据来源：政务大厅一窗受理平台 | 生成时间：2025年10月10日 | 密级：内部'</p>
+</body>
+</pdf>

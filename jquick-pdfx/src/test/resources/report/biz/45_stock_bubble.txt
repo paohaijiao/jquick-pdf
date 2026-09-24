@@ -1,0 +1,98 @@
+<pdf>
+<body>
+  <div style="background:#283593; padding:14px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:300px">
+        <h1 style="color:white; fontSize:18; bold:true; marginBottom:4px">'存量业务分层分析表'</h1>
+        <p style="color:#B9C0E8; fontSize:9">'账龄（月）× 综合收益率（%）× 存量规模'</p>
+      </div>
+      <div style="width:240px; textAlignment:right; borderLeft:1px solid #6E78C0; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计周期：截至2024年三季度末'</p>
+        <p style="color:#B9C0E8; fontSize:9">'编制单位：存量业务经营部'</p>
+        <p style="color:#B9C0E8; fontSize:9">'报送对象：资产结构分析例会'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; justifyContent:space-between; marginBottom:12px; keepTogether:true">
+    <div style="width:132px; minHeight:54px; background:#EAEBF8; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#283593; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'4,780'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'存量规模合计（万元）'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#EAEBF8; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#283593; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'5.12%'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'综合收益率'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#EAEBF8; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#283593; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'20.3'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'平均账龄（月）'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#EAEBF8; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#283593; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'64.4%'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'核心业务占比'</p>
+    </div>
+  </div>
+
+  <h2 style="color:#283593; fontSize:13; bold:true; borderBottom:1px solid #283593; paddingBottom:3px; marginBottom:8px">'一、存量业务分层气泡分布'</h2>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svg}</svg>
+  </div>
+  <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  分层气泡图：横轴为账龄（月），纵轴为综合收益率（%），气泡大小表示存量规模，颜色表示分层（核心 / 成长 / 观察）'</p>
+
+  <h2 style="color:#283593; fontSize:13; bold:true; borderBottom:1px solid #283593; paddingBottom:3px; marginBottom:8px; marginTop:10px">'二、分层关键指标一览'</h2>
+  <table style="width:540px; fontSize:10">
+    <tr>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'核心业务存量'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'3,080 万元'</td>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'核心业务占比'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'64.4%'</td>
+    </tr>
+    <tr>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'核心业务平均账龄'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'24.0 个月'</td>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'核心业务收益率'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'4.50%'</td>
+    </tr>
+    <tr>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'成长业务存量'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'1,620 万元'</td>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'成长业务占比'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'33.9%'</td>
+    </tr>
+    <tr>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'成长业务平均账龄'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'16.0 个月'</td>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'成长业务收益率'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'5.80%'</td>
+    </tr>
+    <tr>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'观察业务存量'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'650 万元'</td>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'观察业务占比'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'13.6%'</td>
+    </tr>
+    <tr>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'观察业务平均账龄'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'11.0 个月'</td>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC">'观察业务收益率'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC">'7.23%'</td>
+    </tr>
+    <tr>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC; bold:true">'分层合计存量'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC; bold:true">'4,780 万元'</td>
+      <td style="width:150px; backgroundColor:#EAEBF8; padding:5px; border:1px solid #DCE3EC; bold:true">'加权综合收益率'</td>
+      <td style="width:120px; padding:5px; textAlign:right; border:1px solid #DCE3EC; bold:true">'5.12%'</td>
+    </tr>
+  </table>
+
+  <h2 style="color:#283593; fontSize:13; bold:true; borderBottom:1px solid #283593; paddingBottom:3px; marginBottom:8px; marginTop:10px">'三、分层经营结论'</h2>
+  <list style="paddingLeft:18px; fontSize:10" listType=ordered>
+    <li style="marginBottom:5px"><span style="bold:true; color:#283593">'核心业务是收益基本盘但性价比偏低：'</span>'存量 3,080 万元占 64.4%，气泡最大、账龄最长（平均 24 个月），综合收益率 4.50% 为三层最低。'</li>
+    <li style="marginBottom:5px"><span style="bold:true; color:#283593">'成长业务性价比最优：'</span>'以 33.9% 的存量占比贡献 5.80% 的收益率，较核心业务高 1.30 个百分点，账龄 16 个月处于风险可控区间。'</li>
+    <li style="marginBottom:5px"><span style="bold:true; color:#283593">'观察业务高收益小规模：'</span>'收益率 7.23% 为三层最高，但存量仅 650 万元、账龄最短（平均 11 个月），客户稳定性与到期续作存在不确定性。'</li>
+    <li style="marginBottom:5px"><span style="bold:true; color:#283593">'结构性风险提示：'</span>'核心业务中账龄 24 个月以上的 2 户存量合计 2,220 万元，若收益率继续下行将拉低整体资产回报，建议适度向成长业务腾挪额度。'</li>
+  </list>
+
+  <p style="textAlignment:right; color:#8a939b; fontSize:8; marginTop:10px">'注：存量规模按期末本金余额统计，综合收益率按加权平均口径折算；分层标准详见《存量业务分层管理办法》。'</p>
+</body>
+</pdf>

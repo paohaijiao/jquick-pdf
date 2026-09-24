@@ -1,0 +1,130 @@
+<pdf>
+<body>
+  <div style="background:#EDF3ED; border:1px solid #D6DEE8; borderLeft:6px solid #1B5E20; borderRadius:4px; padding:12px; marginBottom:10px">
+    <h1 style="color:#1B5E20; fontSize:17pt; bold:true; marginBottom:4pt">'2024年合同签订趋势分析'</h1>
+    <p style="color:#5A6B7C; fontSize:9pt">'报告编号：FW-2024-012 | 统计周期：2024年1月 - 12月 | 生成日期：2025年1月10日'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="backgroundColor:#EDF3ED; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+      <h2 style="color:#1B5E20; fontSize:13pt; bold:true; marginTop:0; marginBottom:0">'一、月度签订与履约走势'</h2>
+    </div>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6pt">'图 1  月度签订合同数（柱）与平均履约率（线）双轴走势（数据来源：合同管理系统）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="backgroundColor:#EDF3ED; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+      <h2 style="color:#1B5E20; fontSize:13pt; bold:true; marginTop:0; marginBottom:0">'二、月度明细数据'</h2>
+    </div>
+    <table style="width:540px; fontSize:10pt">
+      <tr>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'月份'</th>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'签订合同数（份）'</th>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'环比变动'</th>
+        <th style="backgroundColor:#1B5E20; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'平均履约率'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'1月'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'186'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'—'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'82.6%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'2月'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'152'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'-18.3%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'79.8%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'3月'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'205'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+34.9%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'83.1%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'4月'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'228'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'+11.2%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'84.7%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'5月'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'216'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'-5.3%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'85.9%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'6月'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'241'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'+11.6%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'87.4%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'7月'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'258'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+7.1%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'88.6%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'8月'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'236'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'-8.5%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'87.8%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'9月'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'265'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+12.3%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'90.2%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'10月'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'289'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'+9.1%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'91.5%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'11月'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'302'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+4.5%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'93.3%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'12月'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'328'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'+8.6%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#EDF3ED; border:1px solid #DCE3EC">'95.2%'</td>
+      </tr>
+    </table>
+    <p style="fontSize:8pt; color:#8a939b; marginTop:4pt">'注：全年累计签订 2,906 份，平均履约率 87.5%；12月单月 328 份创年内新高。'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="backgroundColor:#EDF3ED; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+      <h2 style="color:#1B5E20; fontSize:13pt; bold:true; marginTop:0; marginBottom:0">'三、履约质量结论'</h2>
+    </div>
+    <list style="listStyleType:none; paddingLeft:0; fontSize:10pt">
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'签订量前低后高：上半年 1,228 份、下半年 1,678 份，四季度合计 919 份、占全年 31.6%。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'履约率稳步提升：由 1月 82.6% 升至 12月 95.2%，全年均值 87.5%，合同全生命周期管理成效显现。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'2月为全年低点：签订 152 份、履约率 79.8%，受春节假期与合同评审周期叠加影响，3月起同步回升。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'建议：四季度密集签订的合同将在未来 3-6 个月集中进入履约节点，需提前排布履约跟踪与法务资源。'</li>
+    </list>
+  </div>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8pt">'密级：内部'</p>
+    </div>
+    <div style="width:180px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8pt">'生成时间：2025年1月10日'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8pt">'批准人：法务总监'</p>
+    </div>
+  </div>
+</body>
+</pdf>

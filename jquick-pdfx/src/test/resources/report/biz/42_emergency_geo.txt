@@ -1,0 +1,117 @@
+<pdf>
+<body>
+  <div style="marginBottom:12px; borderBottom:4px solid #B71C1C; paddingBottom:8px">
+    <h1 style="color:#B71C1C; fontSize:19; bold:true; marginBottom:4px">'突发事件地域分布与响应时效'</h1>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:290px">
+        <p style="color:#6c757d; fontSize:9">'副标题：四川省21个市（州）事件起数与处置时效分析'</p>
+      </div>
+      <div style="width:250px; textAlignment:right">
+        <p style="color:#6c757d; fontSize:9">'统计周期：2024年1月 - 2024年12月 | 单位：起 / 分钟'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#FBECEC; borderLeft:4px solid #B71C1C; padding:10px; borderRadius:3px; marginBottom:10px">
+    <p style="fontSize:10; color:#333333; italic:true">'全省全年接报突发事件 1,562 起，其中成都平原经济区占三分之一以上；三州地区事件总量不高，但因路网密度低，平均响应时长约为成都的 3.5 倍，是时效短板所在。'</p>
+  </div>
+
+  <h2 style="color:#B71C1C; fontSize:13; bold:true; marginBottom:6px">'一、突发事件地域分布地图'</h2>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svg}</svg>
+  </div>
+  <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  四川省行政区划底图上的突发事件分布（底图：四川省 GeoJSON，共 21 个市/州；数据来源：省应急指挥平台接报处置系统）'</p>
+
+  <h2 style="color:#B71C1C; fontSize:13; bold:true; marginBottom:6px; marginTop:10px">'二、分市（州）事件与响应明细'</h2>
+  <table style="width:560px; fontSize:10">
+    <tr>
+      <th style="backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E7C9C9">'行政区划'</th>
+      <th style="backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E7C9C9">'事件起数（起）'</th>
+      <th style="backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E7C9C9">'占全省比重'</th>
+      <th style="backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E7C9C9">'较大以上事件'</th>
+      <th style="backgroundColor:#B71C1C; color:white; padding:6px; textAlign:center; border:1px solid #E7C9C9">'平均响应（分钟）'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'成都市'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'386'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'24.7%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'9'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'12'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'甘孜藏族自治州'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'214'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'13.7%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'12'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'46'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'凉山彝族自治州'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'186'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'11.9%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'8'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'38'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'阿坝藏族羌族自治州'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'142'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'9.1%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'6'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'42'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'雅安市'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'98'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'6.3%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'4'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'21'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'达州市'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'86'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'5.5%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'2'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'16'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'绵阳市'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'74'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'4.7%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'3'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'14'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'宜宾市'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'68'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'4.4%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'2'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'13'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'攀枝花市'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'41'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'2.6%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'1'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'19'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #E7C9C9; borderLeft:3px solid #B71C1C">'全省合计（21个市州）'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'1,562'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'100.0%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'52'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E7C9C9">'18'</td>
+    </tr>
+  </table>
+
+  <h2 style="color:#B71C1C; fontSize:13; bold:true; marginBottom:6px; marginTop:10px">'三、重点管控区域研判'</h2>
+  <list style="list-style-type:none; padding-left:0; fontSize:10">
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#FBECEC; borderLeft:3px solid #B71C1C"><span style="bold:true; color:#B71C1C">'成都平原经济区：'</span>'成都市单市 386 起、占全省 24.7%，与其人口密度和经济体量正相关，事件类型以城市内涝、火灾、燃气泄漏等城市型事件为主。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#FBECEC; borderLeft:3px solid #B71C1C"><span style="bold:true; color:#B71C1C">'三州时效短板：'</span>'甘孜平均响应 46 分钟、阿坝 42 分钟、凉山 38 分钟，均显著高于成都的 12 分钟，主要受路网密度与救援半径制约。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#FBECEC; borderLeft:3px solid #B71C1C"><span style="bold:true; color:#B71C1C">'较大以上事件集中：'</span>'全省 52 起中甘孜 12 起、成都 9 起、凉山 8 起，三地合计占比约 55.8%，建议列为一类管控单元。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#FBECEC; borderLeft:3px solid #B71C1C"><span style="bold:true; color:#B71C1C">'汛期风险叠加：'</span>'雅安、达州等川西川东暴雨区事件多集中在 7—8 月，建议汛期前完成救援物资前置与临时起降点核查。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; marginTop:8px">'数据来源：省应急指挥平台 / 突发事件接报处置系统 | 生成时间：2025年1月20日 | 密级：内部'</p>
+</body>
+</pdf>

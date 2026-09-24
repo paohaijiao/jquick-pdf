@@ -1,0 +1,91 @@
+<pdf>
+<body>
+  <div style="textAlignment:center; marginBottom:12px; padding:14px; background:#1F4E79; borderRadius:4px; keepTogether:true">
+    <h1 style="textAlignment:center; color:white; marginBottom:6px; fontSize:18; bold:true">'2024年度各部门预算执行进度'</h1>
+    <p style="textAlignment:center; color:white; fontSize:10; margin:2px">'预算下达额与已执行额对比（截至2024年9月30日，单位：万元）'</p>
+    <p style="textAlignment:center; color:#CFE0EF; fontSize:10; margin:2px">'编制单位：市财政局预算管理科 | 报送对象：市政府常务会议'</p>
+  </div>
+
+  <div style="marginBottom:12px">
+    <div style="backgroundColor:#E8F0F7; padding:6px 10px; borderRadius:3px; marginBottom:8px">
+      <h2 style="color:#1F4E79; fontSize:13; bold:true; marginTop:0; marginBottom:0">'一、各部门预算执行总体情况'</h2>
+    </div>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  五个业务部门预算下达与已执行对比（数据来源：预算管理一体化系统）'</p>
+  </div>
+
+  <div style="marginBottom:12px">
+    <div style="backgroundColor:#E8F0F7; padding:6px 10px; borderRadius:3px; marginBottom:8px">
+      <h2 style="color:#1F4E79; fontSize:13; bold:true; marginTop:0; marginBottom:0">'二、分部门预算执行明细'</h2>
+    </div>
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <th style="backgroundColor:#1F4E79; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'部门'</th>
+        <th style="backgroundColor:#1F4E79; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'预算下达（万元）'</th>
+        <th style="backgroundColor:#1F4E79; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'已执行（万元）'</th>
+        <th style="backgroundColor:#1F4E79; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'执行率'</th>
+        <th style="backgroundColor:#1F4E79; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'进度评价'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'教育局'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'12,800'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'11,260'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'87.97%'</td>
+        <td style="padding:5px; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'进度达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#E8F0F7; border:1px solid #DCE3EC">'卫健委'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E8F0F7; border:1px solid #DCE3EC">'9,600'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E8F0F7; border:1px solid #DCE3EC">'8,120'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E8F0F7; border:1px solid #DCE3EC">'84.58%'</td>
+        <td style="padding:5px; backgroundColor:#E8F0F7; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'正常推进'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'交通局'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'8,400'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'6,930'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'82.50%'</td>
+        <td style="padding:5px; color:#BF360C; bold:true; border:1px solid #DCE3EC">'预警关注'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#E8F0F7; border:1px solid #DCE3EC">'农业农村局'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E8F0F7; border:1px solid #DCE3EC">'6,200'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E8F0F7; border:1px solid #DCE3EC">'5,480'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#E8F0F7; border:1px solid #DCE3EC">'88.39%'</td>
+        <td style="padding:5px; backgroundColor:#E8F0F7; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'进度领先'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'民政局'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'5,100'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'4,320'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'84.71%'</td>
+        <td style="padding:5px; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'正常推进'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#E8F0F7; bold:true; border:1px solid #DCE3EC">'合计'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#E8F0F7; bold:true; border:1px solid #DCE3EC">'42,100'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#E8F0F7; bold:true; border:1px solid #DCE3EC">'36,110'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#E8F0F7; bold:true; border:1px solid #DCE3EC">'85.77%'</td>
+        <td style="padding:6px; backgroundColor:#E8F0F7; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'总体达标'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="backgroundColor:#E8F0F7; padding:6px 10px; borderRadius:3px; marginBottom:8px">
+      <h2 style="color:#1F4E79; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、进度分析与下半年建议'</h2>
+    </div>
+    <list style="list-style-type:none; padding-left:0; fontSize:10">
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:6px">'总体进度：五个部门预算下达合计 42,100 万元，已执行 36,110 万元，整体执行率 85.77%，略高于序时进度。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:6px">'领先部门：农业农村局 88.39%、教育局 87.97% 执行率居前两位，项目开工早、资金支付节奏快。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:6px">'预警部门：交通局执行率 82.50% 为五部门最低，低于整体水平 3.27 个百分点，主要受工程招标进度滞后影响。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:6px">'下半年建议：对交通局实行项目清单周调度；对执行率已超 87% 的部门，提示避免年末突击支出，确保资金使用合规。'</li>
+    </list>
+  </div>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; marginTop:8px">'数据来源：市财政局预算管理一体化系统 | 生成时间：2025年10月8日 | 密级：内部'</p>
+</body>
+</pdf>

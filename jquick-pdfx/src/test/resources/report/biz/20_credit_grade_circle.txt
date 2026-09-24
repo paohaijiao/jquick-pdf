@@ -1,0 +1,94 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; borderBottom:1px solid #B9C2CC; paddingBottom:8px; keepTogether:true">
+    <h1 style="color:#243B53; fontSize:17pt; bold:true; marginBottom:3px">'企业信用等级分布'</h1>
+    <p style="color:#6c757d; fontSize:9pt">'统计周期：2025年三季度 | 数据来源：信用信息平台评级库'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="backgroundColor:#E8F0F7; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+      <h2 style="color:#1F4E79; fontSize:13pt; bold:true; marginTop:0px; marginBottom:0px">'一、等级结构概览'</h2>
+    </div>
+    <div style="display:flex; justifyContent:space-between; marginBottom:10px">
+      <div style="width:285px">
+        <div style="display:flex; justifyContent:center">
+          <svg style="width:285px">${svg}</svg>
+        </div>
+      </div>
+      <div style="width:265px">
+        <h3 style="color:#1F4E79; fontSize:12pt; bold:true; marginBottom:6px">'指标说明'</h3>
+        <list style="listStyleType:disc; paddingLeft:14px; fontSize:9pt">
+          <li style="marginBottom:5px"><span style="bold:true; color:#1F4E79">'入库企业总数：'</span>'9,080 户，覆盖全省 21 个市（州）。'</li>
+          <li style="marginBottom:5px"><span style="bold:true; color:#1F4E79">'等级口径：'</span>'AAA / AA / A / BBB / BB 及以下共五档，按季度评级结果统计。'</li>
+          <li style="marginBottom:5px"><span style="bold:true; color:#1F4E79">'A 级占比最高：'</span>'A 级 3,180 户、占比 35.0%，是等级分布的主体。'</li>
+          <li style="marginBottom:5px"><span style="bold:true; color:#1F4E79">'优质主体储备：'</span>'AA 级及以上合计 3,740 户、占比 41.2%。'</li>
+          <li style="marginBottom:5px"><span style="bold:true; color:#1F4E79">'低等级主体：'</span>'BB 及以下 640 户、占比 7.0%，风险敞口整体可控。'</li>
+        </list>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="backgroundColor:#E8F0F7; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+      <h2 style="color:#1F4E79; fontSize:13pt; bold:true; marginTop:0px; marginBottom:0px">'二、等级明细数据'</h2>
+    </div>
+    <table style="width:540px; fontSize:9pt">
+      <tr>
+        <td style="width:150px; padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'入库企业总数'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #D6DEE8">'9,080 户'</td>
+        <td style="width:150px; padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'覆盖市（州）数'</td>
+        <td style="width:120px; padding:6px; textAlign:right; border:1px solid #D6DEE8">'21 个'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'AAA 级企业'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'1,280 户'</td>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'AAA 占比'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'14.1%'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'AA 级企业'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'2,460 户'</td>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'AA 占比'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'27.1%'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'A 级企业'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'3,180 户'</td>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'A 占比'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'35.0%'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'BBB 级企业'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'1,520 户'</td>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'BBB 占比'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'16.7%'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'BB 及以下企业'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'640 户'</td>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'BB 及以下占比'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'7.0%'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'AA 级及以上合计'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'3,740 户'</td>
+        <td style="padding:6px; backgroundColor:#E8F0F7; border:1px solid #D6DEE8">'AA 级及以上占比'</td>
+        <td style="padding:6px; textAlign:right; border:1px solid #D6DEE8">'41.2%'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="backgroundColor:#E8F0F7; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+      <h2 style="color:#1F4E79; fontSize:13pt; bold:true; marginTop:0px; marginBottom:0px">'三、结构特征与建议'</h2>
+    </div>
+    <list style="listStyleType:none; paddingLeft:0px; fontSize:10pt">
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px"><span style="bold:true; color:#1F4E79">'结构呈“中间大、两头小”：'</span>'A 级 35.0%、AA 级 27.1%，两档合计 62.1%，而 AAA 级仅 14.1%，高等级主体占比偏低。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px"><span style="bold:true; color:#1F4E79">'优质主体储备充足：'</span>'AA 级及以上共 3,740 户、占比 41.2%，为授信投放提供了较厚的客户基础。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px"><span style="bold:true; color:#1F4E79">'低等级主体可控：'</span>'BB 及以下 640 户、占比 7.0%，建议纳入年度复审名单并提高抽查比例。'</li>
+      <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px"><span style="bold:true; color:#1F4E79">'建议：'</span>'对 A 级企业开展“提级辅导”，力争两年内把 AA 级及以上占比提升至 50%。'</li>
+    </list>
+    <p style="textAlignment:right; color:#8a939b; fontSize:8pt">'注：等级数据按季度更新，占比四舍五入保留一位小数，合计可能存在 0.1 个百分点的尾差。'</p>
+  </div>
+</body>
+</pdf>

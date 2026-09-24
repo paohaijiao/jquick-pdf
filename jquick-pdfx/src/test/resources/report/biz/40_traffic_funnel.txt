@@ -1,0 +1,100 @@
+<pdf>
+<body>
+  <div style="textAlignment:center; marginBottom:10px; padding:14px; background:#006064; borderRadius:4px">
+    <h1 style="textAlignment:center; color:white; marginBottom:6px; fontSize:18; bold:true">'线上办件流程转化漏斗分析'</h1>
+    <p style="color:white; fontSize:10; margin:2px">'统计周期：2024年1月1日 - 2024年12月31日'</p>
+    <p style="color:white; fontSize:10; margin:2px">'编制单位：市政务服务中心 | 报送对象：政务服务优化专班'</p>
+  </div>
+
+  <div style="display:flex; justifyContent:space-between; marginBottom:12px; keepTogether:true">
+    <div style="width:132px; minHeight:54px; background:#E5F1F2; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#006064; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'128,000'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'页面访问量（次）'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#E5F1F2; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#006064; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'31,400'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'提交成功（次）'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#E5F1F2; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#006064; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'24.5%'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'全流程转化率'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#E5F1F2; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#BF360C; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'51,800'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'最大流失量（次）'</p>
+    </div>
+  </div>
+
+  <div style="borderLeft:4px solid #006064; paddingLeft:8px; marginBottom:6px">
+    <h2 style="color:#006064; fontSize:13; bold:true; marginTop:0; marginBottom:0">'一、办件流程转化漏斗'</h2>
+  </div>
+  <div style="marginBottom:12px">
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:4px">'图 1  访问、认证、填写、上传、提交五个环节的逐级递减（数据来源：政务服务平台埋点统计）'</p>
+  </div>
+
+  <div style="borderLeft:4px solid #006064; paddingLeft:8px; marginBottom:6px">
+    <h2 style="color:#006064; fontSize:13; bold:true; marginTop:0; marginBottom:0">'二、关键转化指标'</h2>
+  </div>
+  <div style="marginBottom:12px">
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'页面访问量（次）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'128,000'</td>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'提交成功（次）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'31,400'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'实名认证（次）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'76,200'</td>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'表单填写（次）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'51,800'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'材料上传（次）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'39,600'</td>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'全流程转化率'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'24.5%'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'访问→实名转化'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'59.5%'</td>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'实名→表单转化'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'68.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'表单→材料转化'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'76.4%'</td>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'材料→提交转化'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'79.3%'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'最大流失环节'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'访问→实名'</td>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'流失量（次）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'51,800'</td>
+      </tr>
+      <tr>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'最小流失环节'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'材料→提交'</td>
+        <td style="width:150px; backgroundColor:#E5F1F2; padding:5px; border:1px solid #DCE3EC">'流失量（次）'</td>
+        <td style="width:120px; textAlign:right; padding:5px; border:1px solid #DCE3EC">'8,200'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="borderLeft:4px solid #006064; paddingLeft:8px; marginBottom:6px">
+    <h2 style="color:#006064; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、堵点分析与优化建议'</h2>
+  </div>
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px">'按环节递减：访问 128,000 次、实名认证 76,200 次、表单填写 51,800 次、材料上传 39,600 次、提交成功 31,400 次，全流程转化率 24.5%。'</li>
+    <li style="marginBottom:6px">'第一堵点在认证环节：访问至实名认证仅转化 59.5%，流失 51,800 次，占全部流失量 96,600 次的 53.6%，是优化优先级最高的环节。'</li>
+    <li style="marginBottom:6px">'后端环节较为顺畅：实名至表单、表单至材料、材料至提交的转化率分别为 68.0%、76.4%、79.3%，逐级提升，尾部流失仅 8,200 次。'</li>
+    <li style="marginBottom:6px">'建议：简化实名认证路径、支持一次授权多次复用，并对表单填写过程增加暂存与引导，力争全流程转化率提升至 30% 以上。'</li>
+  </list>
+
+  <p style="textAlignment:right; color:#8a939b; fontSize:8">'注：环节转化率按上一环节为基数计算，全流程转化率为提交成功与页面访问量之比（31,400 / 128,000 = 24.5%）。'</p>
+</body>
+</pdf>

@@ -1,0 +1,95 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; borderBottom:1px solid #B9C2CC; paddingBottom:8px">
+    <h1 style="color:#243B53; fontSize:17pt; bold:true; marginBottom:3pt">'商户行业分布（旭日图）'</h1>
+    <p style="color:#6c757d; fontSize:9pt">'统计周期：2025年上半年 | 数据来源：收单商户管理系统 | 样本：存量商户 120,000 户'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #00695C; paddingLeft:8px; marginBottom:6px">
+      <h2 style="color:#00695C; fontSize:13pt; bold:true; marginTop:0; marginBottom:0">'一、行业结构总览'</h2>
+    </div>
+    <div style="display:flex; justifyContent:space-between; marginBottom:10px">
+      <div style="width:285px">
+        <div style="display:flex; justifyContent:center"><svg style="width:285px">${svg}</svg></div>
+      </div>
+      <div style="width:265px">
+        <h3 style="color:#00695C; fontSize:12pt; bold:true; marginBottom:6pt">'指标说明'</h3>
+        <list style="listStyleType:disc; paddingLeft:14px; fontSize:9pt">
+          <li style="marginBottom:5px">'内环为 5 个一级行业，外环为 10 个细分子行业。'</li>
+          <li style="marginBottom:5px">'批发零售占比 34.0%，为第一大类商户行业。'</li>
+          <li style="marginBottom:5px">'信息技术与制造业合计占比 33.0%。'</li>
+          <li style="marginBottom:5px">'子行业构成与环比数据见下方明细表。'</li>
+        </list>
+      </div>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true">'图 1  商户行业分布旭日图（旭日图即分层同心环：内环为一级行业、外环为细分子行业）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #00695C; paddingLeft:8px; marginBottom:6px">
+      <h2 style="color:#00695C; fontSize:13pt; bold:true; marginTop:0; marginBottom:0">'二、一级行业与环比明细'</h2>
+    </div>
+    <table style="width:540px; fontSize:10pt">
+      <tr>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'一级行业'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'存量商户（户）'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'占比'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'环比变动'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'结构评价'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'批发零售'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'40,800'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'34.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+2.6%'</td>
+        <td style="padding:5px; textAlign:center; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'住宿餐饮'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'26,400'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'22.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+4.1%'</td>
+        <td style="padding:5px; textAlign:center; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'信息技术'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'21,600'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'18.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+6.8%'</td>
+        <td style="padding:5px; textAlign:center; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'制造业'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'18,000'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'15.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+1.2%'</td>
+        <td style="padding:5px; textAlign:center; color:#BF360C; bold:true; border:1px solid #DCE3EC">'预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'其他'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'13,200'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'11.0%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+0.5%'</td>
+        <td style="padding:5px; textAlign:center; color:#BF360C; bold:true; border:1px solid #DCE3EC">'预警'</td>
+      </tr>
+    </table>
+    <p style="fontSize:8pt; color:#8a939b; marginTop:4pt">'注：占比合计 100.0%；结构评价以环比增速 2.0% 为达标线。'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <div style="borderLeft:4px solid #00695C; paddingLeft:8px; marginBottom:6px">
+      <h2 style="color:#00695C; fontSize:13pt; bold:true; marginTop:0; marginBottom:0">'三、结构特征与拓展建议'</h2>
+    </div>
+    <list style="listStyleType:disc; paddingLeft:16px; fontSize:10pt">
+      <li style="marginBottom:5px"><span style="bold:true; color:#00695C">'行业集中度：'</span>'批发零售与住宿餐饮合计占比 56.0%，构成存量商户的基本盘。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#00695C">'增速领跑：'</span>'信息技术占比 18.0%、环比 +6.8%，为五大行业中增速最快的一类。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#00695C">'子行业构成：'</span>'批发零售中食品饮料占 55%，住宿餐饮中正餐服务占 62%，均为各自主导子行业。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#00695C">'拓展建议：'</span>'制造业与其他行业环比增速低于 1.5%，建议将拓展资源向信息技术类商户倾斜。'</li>
+    </list>
+  </div>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8pt; marginTop:8px">'数据来源：收单核心系统 / 商户运营平台 | 统计截止：2025年6月30日 | 生成时间：2025年7月5日'</p>
+</body>
+</pdf>

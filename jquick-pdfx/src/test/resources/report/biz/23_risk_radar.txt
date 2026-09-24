@@ -1,0 +1,119 @@
+<pdf>
+<body>
+  <div style="background:#6A1B9A; padding:14px; borderRadius:4px; marginBottom:12px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:300px">
+        <h1 style="color:white; fontSize:18; bold:true; marginBottom:4px">'企业客户风险等级多维评估'</h1>
+        <p style="color:#E6D6EF; fontSize:9">'六维风险模型评分（满分100，分值越高越稳健）'</p>
+      </div>
+      <div style="width:240px; textAlignment:right; borderLeft:1px solid #8E5BA6; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'评估周期：2024年第四季度'</p>
+        <p style="color:#E6D6EF; fontSize:9">'编制单位：风险管理部信用评估岗'</p>
+        <p style="color:#E6D6EF; fontSize:9">'报送对象：信贷审查委员会'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; justifyContent:space-between; marginBottom:12px; keepTogether:true">
+    <div style="width:132px; minHeight:54px; background:#F3EAF7; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#6A1B9A; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'84.5'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'本期综合评分'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#F3EAF7; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#1B5E20; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'+1.7'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'较上期提升'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#F3EAF7; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#1B5E20; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'93'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'最高维度：历史履约'</p>
+    </div>
+    <div style="width:132px; minHeight:54px; background:#F3EAF7; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#BF360C; fontSize:16; bold:true; textAlignment:center; marginBottom:2px">'72'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'最低维度：行业景气度'</p>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginBottom:6px">'一、多维风险评分雷达图'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  企业客户六维风险评分（本期 vs 上期；数据来源：信用评估系统）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginBottom:6px">'二、六维评分明细'</h2>
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'评估维度'</th>
+        <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'本期评分'</th>
+        <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'上期评分'</th>
+        <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'环比变动'</th>
+        <th style="backgroundColor:#6A1B9A; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'状态评价'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'偿债能力'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'86'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'80'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+6'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'改善'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'盈利能力'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'78'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'83'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'-5'</td>
+        <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'小幅下滑'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'经营稳定性'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'88'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'82'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+6'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'改善'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'行业景气度'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'72'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'77'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'-5'</td>
+        <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'持续承压'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'担保充足度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'90'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'86'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+4'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'优'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'历史履约'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'93'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'89'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'+4'</td>
+        <td style="padding:5px; backgroundColor:#F3EAF7; border:1px solid #DCE3EC">'优'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#6A1B9A; fontSize:13; bold:true; marginBottom:6px">'三、评估结论与授信建议'</h2>
+    <list style="list-style-type:none; padding-left:0; fontSize:10">
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#F3EAF7; border-left:3px solid #6A1B9A">
+        '整体评级上调：本期六维综合评分84.5分，上期82.8分，环比提升1.7分，风险等级由B+上调至A（低风险）。'
+      </li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#F3EAF7; border-left:3px solid #6A1B9A">
+        '优势维度突出：历史履约93分、担保充足度90分、经营稳定性88分稳居优秀区间，履约记录扎实、增信措施充分。'
+      </li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#F3EAF7; border-left:3px solid #6A1B9A">
+        '短板维度预警：行业景气度72分、盈利能力78分均环比下降5分，是本期唯一两项走弱的指标，需持续跟踪。'
+      </li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#F3EAF7; border-left:3px solid #6A1B9A">
+        '授信建议：维持现有授信额度并允许上浮10%；将行业景气度纳入季度监测，连续两期低于70分即触发额度重检。'
+      </li>
+    </list>
+  </div>
+
+  <p style="textAlignment:center; color:#8a939b; fontSize:8; italic:true; marginTop:10px">'数据来源：信用评估系统（六维风险模型 V3.2） | 生成时间：2025年1月6日 | 密级：秘密'</p>
+</body>
+</pdf>

@@ -1,0 +1,97 @@
+<pdf>
+<body>
+  <div style="marginBottom:12px; borderBottom:4px solid #2F5597; paddingBottom:8px; keepTogether:true">
+    <h1 style="color:#2F5597; fontSize:19pt; bold:true; marginBottom:4px">'2024年工单处理时效趋势'</h1>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:290px">
+        <p style="color:#6c757d; fontSize:9pt">'副标题：受理 / 处理 / 办结 / 超期时长月度对比'</p>
+      </div>
+      <div style="width:250px; textAlignment:right">
+        <p style="color:#6c757d; fontSize:9pt">'统计周期：2024年1月 - 12月 | 单位：小时'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#2F5597; fontSize:13pt; bold:true; underline:true; marginBottom:6px">'一、处理时效月度走势'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6px">'图 1  2024年1-12月受理 / 处理 / 办结 / 超期工单平均时长（数据来源：工单管理系统）'</p>
+  </div>
+  <areaBreak></areaBreak>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#2F5597; fontSize:13pt; bold:true; underline:true; marginBottom:6px">'二、季度时效汇总'</h2>
+    <table style="width:560px; fontSize:10pt">
+      <tr>
+        <th style="width:120px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'季度'</th>
+        <th style="width:110px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'受理时长（小时）'</th>
+        <th style="width:110px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'处理时长（小时）'</th>
+        <th style="width:110px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'办结时长（小时）'</th>
+        <th style="width:110px; backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'超期时长（小时）'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #2F5597">'第一季度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'2.1'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'3.4'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'6.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'9.2'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #2F5597">'第二季度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1.7'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'2.8'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'5.1'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'7.6'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #2F5597">'第三季度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1.5'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'2.4'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'4.5'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'6.4'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #2F5597">'第四季度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1.2'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'2.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'3.5'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'5.1'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; bold:true; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #2F5597">'全年平均'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'1.6'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'2.7'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'4.8'</td>
+        <td style="padding:6px; textAlign:right; bold:true; border:1px solid #DCE3EC">'7.1'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#2F5597; fontSize:13pt; bold:true; underline:true; marginBottom:6px">'三、时效改进结论'</h2>
+    <list style="listStyleType:disc; paddingLeft:16px; fontSize:10pt">
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'端到端时效持续收敛：'</span>'平均办结时长由1月 6.2 小时降至12月 3.1 小时，降幅 50.0%。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'受理环节提速最明显：'</span>'平均受理时长由 2.4 小时降至 1.1 小时，四季度均值 1.2 小时，为全年最低水平。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'处理环节稳定下降：'</span>'平均处理时长从 3.6 小时降至 1.8 小时，四季度首次进入 2 小时区间。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'超期工单管控见效：'</span>'超期工单平均超期时长由 9.8 小时压降至 4.6 小时，降幅 53.1%。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'波动提示：'</span>'3月、8月办结时长出现小幅反弹（5.9 / 4.7 小时），与月中集中交办和系统升级窗口重叠，建议错峰安排。'</li>
+      <li style="marginBottom:5px"><span style="bold:true; color:#2F5597">'建议：'</span>'将全年目标设为办结时长不超过 3 小时，并把超期时长纳入部门月度服务质量考核。'</li>
+    </list>
+  </div>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8pt">'密级：内部'</p>
+    </div>
+    <div style="width:200px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8pt">'生成时间：2025年1月10日'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8pt">'批准人：政务服务热线中心主任'</p>
+    </div>
+  </div>
+</body>
+</pdf>

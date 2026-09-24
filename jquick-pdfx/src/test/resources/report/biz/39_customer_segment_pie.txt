@@ -1,0 +1,74 @@
+<pdf>
+<body>
+  <div style="background:#E9F0FA; border:1px solid #D6DEE8; borderLeft:6px solid #0D47A1; borderRadius:4px; padding:12px; marginBottom:10px">
+    <h1 style="color:#0D47A1; fontSize:17; bold:true; marginBottom:4px">'客户价值分层构成分析'</h1>
+    <p style="color:#5A6B7C; fontSize:9">'报告编号：CUS-2024-0918 | 生成日期：2024年10月10日 | 数据来源：客户经营分析平台'</p>
+  </div>
+
+  <h2 style="color:#0D47A1; fontSize:13; bold:true; underline:true; marginBottom:6px">'一、2024年活跃客户分层构成'</h2>
+  <div style="marginBottom:12px">
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:4px">'图 1  2024年活跃客户分层分布（单位：户，统计口径：近12个月有交易或服务记录的客户）'</p>
+  </div>
+
+  <h2 style="color:#0D47A1; fontSize:13; bold:true; underline:true; marginBottom:6px">'二、客户分层明细'</h2>
+  <div style="marginBottom:12px">
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <th style="width:150px; backgroundColor:#0D47A1; color:white; padding:6px; textAlign:center; border:1px solid #C3D5EC">'客户层级'</th>
+        <th style="width:130px; backgroundColor:#0D47A1; color:white; padding:6px; textAlign:center; border:1px solid #C3D5EC">'客户数（户）'</th>
+        <th style="width:130px; backgroundColor:#0D47A1; color:white; padding:6px; textAlign:center; border:1px solid #C3D5EC">'数量占比'</th>
+        <th style="width:130px; backgroundColor:#0D47A1; color:white; padding:6px; textAlign:center; border:1px solid #C3D5EC">'分层状态'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'战略客户'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'86'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'0.8%'</td>
+        <td style="padding:5px; textAlign:right; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'核心达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'重点客户'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'412'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'3.9%'</td>
+        <td style="padding:5px; textAlign:right; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'稳定达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'成长客户'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1,680'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'15.9%'</td>
+        <td style="padding:5px; textAlign:right; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'规模达标'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'一般客户'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'5,260'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'49.7%'</td>
+        <td style="padding:5px; textAlign:right; color:#BF360C; bold:true; border:1px solid #DCE3EC">'价值预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'潜在客户'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'3,140'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'29.7%'</td>
+        <td style="padding:5px; textAlign:right; color:#BF360C; bold:true; border:1px solid #DCE3EC">'转化预警'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; bold:true; border:1px solid #DCE3EC">'合计'</td>
+        <td style="padding:5px; textAlign:right; bold:true; border:1px solid #DCE3EC">'10,578'</td>
+        <td style="padding:5px; textAlign:right; bold:true; border:1px solid #DCE3EC">'100.0%'</td>
+        <td style="padding:5px; textAlign:right; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'整体达标'</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2 style="color:#0D47A1; fontSize:13; bold:true; underline:true; marginBottom:6px">'三、客户经营策略建议'</h2>
+  <list style="paddingLeft:18px; fontSize:10" listType="ordered">
+    <li style="marginBottom:6px">'分层结构呈金字塔形：一般客户 5,260 户占 49.7%，潜在客户 3,140 户占 29.7%，两者合计接近八成，构成长尾基本盘。'</li>
+    <li style="marginBottom:6px">'高价值客户占比偏低：战略客户仅 86 户占 0.8%，重点客户 412 户占 3.9%，两者合计 4.7%，却是收入贡献的核心来源。'</li>
+    <li style="marginBottom:6px">'成长客户 1,680 户占 15.9%，是向上晋级的核心蓄水池，应优先投放行业解决方案与专属客户经理资源。'</li>
+    <li style="marginBottom:6px">'建议：对一般客户与潜在客户实施自动化分层运营，将人工服务资源集中投向战略与重点客户，力争高价值客户占比提升至 6%。'</li>
+  </list>
+
+  <p style="textAlignment:center; color:#8a939b; fontSize:8; italic:true; marginTop:10px">'数据来源：客户经营分析平台 | 生成时间：2024年10月10日 | 密级：内部'</p>
+</body>
+</pdf>

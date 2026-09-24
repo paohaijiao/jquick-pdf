@@ -1,0 +1,136 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; borderBottom:1px solid #B9C2CC; paddingBottom:8px">
+    <h1 style="color:#37474F; fontSize:17; bold:true; marginBottom:3px">'政府投资项目状态分布'</h1>
+    <p style="color:#6c757d; fontSize:9">'统计周期：截至2024年9月30日 | 数据来源：政府投资项目监管平台 | 计量单位：亿元'</p>
+  </div>
+
+  <div style="backgroundColor:#ECEFF1; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+    <h2 style="color:#37474F; fontSize:13; bold:true; marginTop:0; marginBottom:0">'一、投资额构成总览'</h2>
+  </div>
+  <div style="background:#ECEFF1; borderLeft:4px solid #37474F; padding:10px; borderRadius:3px; marginBottom:10px">
+    <p style="fontSize:10; color:#333333; italic:true">'一句话核心结论：全口径项目投资额 1,000 亿元中，在建项目占 42.0%，已完工项目占 30.0%，两者合计超过七成，投资总体处于实物工作量形成的关键期。'</p>
+  </div>
+  <div style="marginBottom:12px">
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:4px">'图 1  各状态项目投资额矩形树图（矩形面积正比于投资额，同色系为一组状态）'</p>
+  </div>
+
+  <div style="backgroundColor:#ECEFF1; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+    <h2 style="color:#37474F; fontSize:13; bold:true; marginTop:0; marginBottom:0">'二、分状态投资明细'</h2>
+  </div>
+  <div style="marginBottom:12px">
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'状态'</td>
+        <td style="width:170px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'子项'</td>
+        <td style="width:140px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'投资额（亿元）'</td>
+        <td style="width:120px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'占总投资比'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'在建'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'市政工程'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'240'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'24.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'在建'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'交通工程'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'180'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'18.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'在建小计'</td>
+        <td style="width:170px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'在建合计'</td>
+        <td style="width:140px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'420'</td>
+        <td style="width:120px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'42.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'已完工'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'房建工程'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'190'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'19.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'已完工'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'水利工程'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'110'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'11.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'已完工小计'</td>
+        <td style="width:170px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'已完工合计'</td>
+        <td style="width:140px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'300'</td>
+        <td style="width:120px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'30.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'前期'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'规划设计'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'110'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'11.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'前期'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'征地拆迁'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'70'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'7.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'前期小计'</td>
+        <td style="width:170px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'前期合计'</td>
+        <td style="width:140px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'180'</td>
+        <td style="width:120px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'18.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'暂停'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'资金待落实'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'60'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'6.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'暂停'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'手续待补办'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'40'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'4.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'暂停小计'</td>
+        <td style="width:170px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'暂停合计'</td>
+        <td style="width:140px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'100'</td>
+        <td style="width:120px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'10.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'合计'</td>
+        <td style="width:170px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'八大类子项合计'</td>
+        <td style="width:140px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'1,000'</td>
+        <td style="width:120px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'100.0%'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="backgroundColor:#ECEFF1; padding:6px 10px; borderRadius:3px; marginBottom:6px">
+    <h2 style="color:#37474F; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、项目监管建议'</h2>
+  </div>
+  <list style="list-style-type:none; padding-left:0; fontSize:10">
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【投资结构】在建 420 亿元占 42.0%，市政工程与交通工程分别 240 亿元、180 亿元，是形成实物工作量的主力。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【竣工结转】已完工 300 亿元占 30.0%，房建工程 190 亿元为主，建议加快竣工结算与资产移交。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【前期推进】前期 180 亿元占 18.0%，其中征地拆迁 70 亿元，需重点打通用地手续办理环节。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【资金沉淀】暂停 100 亿元占 10.0%，资金待落实 60 亿元为主要成因，建议清单化开展资金撮合与手续补办。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8">'密级：内部'</p>
+    </div>
+    <div style="width:200px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8; opacity:0.8">'生成时间：2024年10月12日'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8">'批准人：项目监管处'</p>
+    </div>
+  </div>
+</body>
+</pdf>

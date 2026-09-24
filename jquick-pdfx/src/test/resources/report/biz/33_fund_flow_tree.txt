@@ -1,0 +1,90 @@
+<pdf>
+<body>
+  <div style="textAlignment:center; marginBottom:10px; padding:14px; background:#00695C; borderRadius:4px">
+    <h1 style="textAlignment:center; color:white; marginBottom:6pt; fontSize:18pt; bold:true">'集团资金流向结构图'</h1>
+    <p style="color:white; fontSize:10pt; margin:2px">'统计周期：2025年1月 - 6月 | 数据来源：集团资金管理中心资金池台账'</p>
+    <p style="color:white; fontSize:10pt; margin:2px">'编制单位：集团资金管理中心 | 报送对象：投融资决策委员会'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#00695C; fontSize:13pt; bold:true; marginBottom:6pt">'一、项目公司资金归集明细'</h2>
+    <table style="width:540px; fontSize:10pt">
+      <tr>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'项目公司'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'所属板块'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'归集资金（亿元）'</th>
+        <th style="backgroundColor:#00695C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'占比'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #00695C">'路桥项目公司'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'基础设施建设'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'96.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'20.5%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #00695C">'市政工程项目公司'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'基础设施建设'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'82.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'17.5%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #00695C">'轨道交通项目公司'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'基础设施建设'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'58.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'12.4%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #00695C">'新能源项目公司'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'产业投资'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'62.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'13.2%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #00695C">'智能制造项目公司'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'产业投资'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'48.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'10.3%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #00695C">'新材料项目公司'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'产业投资'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'38.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'8.1%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #00695C">'融资租赁公司'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'金融服务'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'48.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'10.3%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderTop:1px solid #DCE3EC; borderRight:1px solid #DCE3EC; borderBottom:1px solid #DCE3EC; borderLeft:3px solid #00695C">'供应链金融公司'</td>
+        <td style="padding:5px; border:1px solid #DCE3EC">'金融服务'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'36.0'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'7.7%'</td>
+      </tr>
+    </table>
+    <p style="fontSize:8pt; color:#8a939b; marginTop:4pt">'注：8 家项目公司合计归集 468.0 亿元，占比合计 100.0%。'</p>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7FBFA; borderRadius:4px">
+    <h2 style="color:#00695C; fontSize:13pt; bold:true; marginTop:0; marginBottom:6pt">'二、资金流向层级结构'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6pt">'图 1  集团总部 → 业务板块 → 项目公司三级资金流向树图（节点 12 个：1 个一级 + 3 个二级 + 8 个三级）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#00695C; fontSize:13pt; bold:true; marginBottom:6pt">'三、流向特征与管控建议'</h2>
+    <list style="list-style-type:none; padding-left:0; fontSize:10pt">
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E6F2F0; borderLeft:3px solid #00695C">'基础设施板块是资金沉淀主力：三家项目公司合计 236.0 亿元、占集团 50.4%，其中路桥项目公司单点占用 96.0 亿元，为全集团最大资金单元。'</li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E6F2F0; borderLeft:3px solid #00695C">'产业投资板块合计 148.0 亿元、占 31.6%，新能源项目公司 62.0 亿元为该板块最大节点，与集团战略投资方向一致。'</li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E6F2F0; borderLeft:3px solid #00695C">'金融服务板块资金效率最高：两家公司以 84.0 亿元资金支撑高周转运营，是集团资金效率的调节阀。'</li>
+      <li style="marginBottom:6px; padding:8px; backgroundColor:#E6F2F0; borderLeft:3px solid #00695C">'建议：对单一项目公司设置资金占用上限并纳入月度监控，重点关注前三大节点合计 240.0 亿元（占 51.3%）的集中度风险。'</li>
+    </list>
+  </div>
+
+  <p style="textAlignment:right; color:#8a939b; fontSize:8pt">'注：本表为集团内部资金管理报告附表，未经许可请勿外传。'</p>
+</body>
+</pdf>

@@ -1,0 +1,129 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#FDF0EA; borderTop:3px solid #BF360C; borderRadius:4px">
+    <h2 style="color:#BF360C; marginTop:0; marginBottom:6pt; fontSize:15pt; bold:true; textAlignment:center">'2024年12月预警事件时序分布'</h2>
+    <p style="fontSize:9pt; color:#6c757d; textAlignment:center; marginBottom:8pt">'统计周期：2024年12月1日 - 12月30日 | 数据来源：应急指挥预警平台 | 口径：预警等级分值（0-100）'</p>
+    <div style="background:#FFFFFF; borderLeft:4px solid #BF360C; padding:10px; borderRadius:3px; marginBottom:10px">
+      <p style="fontSize:10pt; color:#333333; italic:true">'核心结论：12月累计触发预警事件 24 起，平均等级分值 49.3 分；26日出现月度最高烈度预警（95分），第15-26天为事件高发集中窗口。'</p>
+    </div>
+    <div style="display:flex; justifyContent:center"><svg style="width:700pt">${svg}</svg></div>
+    <p style="fontSize:9pt; color:#6c757d; italic:true; marginTop:6pt; textAlignment:center">'图 1  预警事件时序散点图（共 24 起 · 横轴为第1~30天 · 纵轴为等级分值）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#BF360C; fontSize:13pt; bold:true; borderBottom:1px solid #BF360C; paddingBottom:3px; marginBottom:8pt">'一、高烈度预警事件明细'</h2>
+    <table style="width:540px; fontSize:10pt">
+      <tr>
+        <td style="width:80px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'发生日期'</td>
+        <td style="width:150px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'预警类型'</td>
+        <td style="width:80px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'等级分值'</td>
+        <td style="width:80px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'响应状态'</td>
+        <td style="width:150px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'处置时长（分钟）'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'12月09日'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'特种设备超限'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'68'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已闭环'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'42'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'12月15日'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'气象灾害预警'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'76'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已闭环'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'58'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'12月18日'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'危化品泄漏预警'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'88'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已闭环'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'96'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'12月19日'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'危化品仓储超温'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'61'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已闭环'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'35'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'12月24日'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'道路交通阻断'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'72'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已闭环'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'47'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'12月26日'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'地质灾害滑坡'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'95'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'处置中'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'132'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'12月28日'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'消防通道占用'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'63'</td>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'已闭环'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'29'</td>
+      </tr>
+    </table>
+    <p style="fontSize:8pt; color:#8a939b; marginTop:4pt">'注：上表列出等级分值 ≥60 分的高烈度事件共 7 起，占全月事件总数的 29.2%。'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#BF360C; fontSize:13pt; bold:true; borderBottom:1px solid #BF360C; paddingBottom:3px; marginBottom:8pt">'二、旬度烈度分布'</h2>
+    <table style="width:540px; fontSize:10pt">
+      <tr>
+        <td style="padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'统计时段'</td>
+        <td style="padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'事件数（起）'</td>
+        <td style="padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'占比'</td>
+        <td style="padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'平均分值'</td>
+        <td style="padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'最高分值'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第1~10天'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'7'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'29.2%'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'38.7'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'68'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第11~20天'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'9'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'37.5%'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'50.6'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'88'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'第21~30天'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'8'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'33.3%'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'57.0'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'95'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; borderBottom:1px solid #E3E8EE">'全月合计'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'24'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'100.0%'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'49.3'</td>
+        <td style="padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'95'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#BF360C; fontSize:13pt; bold:true; borderBottom:1px solid #BF360C; paddingBottom:3px; marginBottom:8pt">'三、研判与处置建议'</h2>
+    <list style="listStyleType:disc; paddingLeft:16px; fontSize:10pt">
+      <li style="marginBottom:5px">'事件频次平稳、烈度前低后高：全月共触发预警 24 起，覆盖 30 天中的 24 天；平均等级分值由上旬 38.7 分升至下旬 57.0 分。'</li>
+      <li style="marginBottom:5px">'红色级别事件 2 起：26日地质灾害预警 95 分、18日危化品泄漏预警 88 分，均已完成现场核查。'</li>
+      <li style="marginBottom:5px">'高发窗口集中：第15-26天累计 11 起、占全月 45.8%，与月度安全生产大检查窗口高度重合。'</li>
+      <li style="marginBottom:5px">'建议 12 月中旬起将应急值守级别由常态化调整为加强级，并对处置时长超过 60 分钟的 2 起事件开展流程复盘。'</li>
+    </list>
+  </div>
+
+  <p style="textAlignment:center; color:#8a939b; fontSize:8pt; italic:true; marginTop:10px">'数据来源：应急指挥预警平台预警监测模块 | 生成时间：2025年1月3日 | 密级：内部'</p>
+</body>
+</pdf>

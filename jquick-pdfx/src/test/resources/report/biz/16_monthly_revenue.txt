@@ -1,0 +1,109 @@
+<pdf>
+<body>
+  <div style="background:#2F5597; padding:14px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:300px">
+        <h1 style="color:white; fontSize:18; bold:true; marginBottom:4px">'月度营收统计'</h1>
+        <p style="color:#C7D6EA; fontSize:9; characterSpacing:0.5pt">'营业收入与净利润走势（单位：万元）'</p>
+      </div>
+      <div style="width:240px; textAlignment:right; borderLeft:1px solid #6E8FBF; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计周期：2024年1月 - 2024年12月'</p>
+        <p style="color:#C7D6EA; fontSize:9">'编制单位：集团财务部'</p>
+        <p style="color:#C7D6EA; fontSize:9">'报送对象：经营分析例会'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex; justifyContent:space-between; marginBottom:12px; keepTogether:true">
+    <div style="width:136px; minHeight:56px; background:#EAF1F8; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#2F5597; fontSize:17; bold:true; textAlignment:center; marginBottom:2px">'30,600'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'全年营业收入（万元）'</p>
+    </div>
+    <div style="width:136px; minHeight:56px; background:#EAF1F8; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#2F5597; fontSize:17; bold:true; textAlignment:center; marginBottom:2px">'4,321'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'全年净利润（万元）'</p>
+    </div>
+    <div style="width:136px; minHeight:56px; background:#EAF1F8; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#1B5E20; fontSize:17; bold:true; textAlignment:center; marginBottom:2px">'+18.6%'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'营收同比增幅'</p>
+    </div>
+    <div style="width:136px; minHeight:56px; background:#EAF1F8; borderRadius:4px; padding:8px; verticalAlignment:middle">
+      <p style="color:#BF360C; fontSize:17; bold:true; textAlignment:center; marginBottom:2px">'3,460'</p>
+      <p style="color:#5A6B7C; fontSize:9; textAlignment:center">'12月单月新高（万元）'</p>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #2F5597">
+    <h2 style="color:#2F5597; marginTop:0; marginBottom:6px; fontSize:13; bold:true; underline:true">'一、全年营收与利润走势'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  2024年1-12月营业收入与净利润走势（数据来源：集团财务核算系统）'</p>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#2F5597; marginBottom:6px; fontSize:13; bold:true">'二、季度营收汇总'</h2>
+    <table style="width:560px; fontSize:10">
+      <tr>
+        <th style="backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #C7D6EA">'季度'</th>
+        <th style="backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #C7D6EA">'营业收入（万元）'</th>
+        <th style="backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #C7D6EA">'净利润（万元）'</th>
+        <th style="backgroundColor:#2F5597; color:white; padding:6px; textAlign:center; border:1px solid #C7D6EA">'净利润率'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'第一季度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'5,720'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'723'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'12.6%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#F7F9FC; border:1px solid #DCE3EC">'第二季度'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F7F9FC; border:1px solid #DCE3EC">'7,150'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F7F9FC; border:1px solid #DCE3EC">'971'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F7F9FC; border:1px solid #DCE3EC">'13.6%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #DCE3EC">'第三季度'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'8,040'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'1,141'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'14.2%'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#F7F9FC; border:1px solid #DCE3EC">'第四季度'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F7F9FC; border:1px solid #DCE3EC">'9,690'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F7F9FC; border:1px solid #DCE3EC">'1,486'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#F7F9FC; border:1px solid #DCE3EC">'15.3%'</td>
+      </tr>
+      <tr>
+        <td style="padding:6px; backgroundColor:#2F5597; color:white; bold:true; border:1px solid #2F5597">'全年合计'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#2F5597; color:white; bold:true; border:1px solid #2F5597">'30,600'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#2F5597; color:white; bold:true; border:1px solid #2F5597">'4,321'</td>
+        <td style="padding:6px; textAlign:right; backgroundColor:#2F5597; color:white; bold:true; border:1px solid #2F5597">'14.1%'</td>
+      </tr>
+    </table>
+  </div>
+
+  <div style="marginBottom:10px">
+    <h2 style="color:#2F5597; marginBottom:6px; fontSize:13; bold:true">'三、经营分析结论'</h2>
+    <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+      <li style="marginBottom:6px"><span style="bold:true; color:#2F5597">'营收逐季走高：'</span>'四季度营收分别为 5,720 / 7,150 / 8,040 / 9,690 万元，环比增幅稳定在 12% 以上。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#2F5597">'盈利质量改善：'</span>'净利润率由一季度 12.6% 提升至四季度 15.3%，全年 14.1%，成本管控成效显现。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#2F5597">'12月创单月新高：'</span>'营业收入 3,460 万元、净利润 538 万元，为全年峰值，与年末集中交付确认收入有关。'</li>
+      <li style="marginBottom:6px"><span style="bold:true; color:#2F5597">'建议：'</span>'关注一季度基数偏低问题，2025年可将部分交付节点前移以平滑季节性波动。'</li>
+    </list>
+  </div>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8">'密级：内部'</p>
+    </div>
+    <div style="width:200px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8; opacity:0.8">'生成时间：2025年1月8日'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8">'批准人：财务总监'</p>
+    </div>
+  </div>
+</body>
+</pdf>

@@ -1,0 +1,64 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#E9F0FA; borderTop:3px solid #0D47A1; borderRadius:4px">
+    <h2 style="color:#0D47A1; marginTop:0; marginBottom:6px; fontSize:15; bold:true; textAlignment:center">'一、核心接口调用量走势'</h2>
+    <p style="fontSize:9; color:#6c757d; textAlignment:center; marginBottom:6px">'统计周期：2024年1月 - 2024年12月 | 数据来源：政务云API网关调用日志（单位：万次）'</p>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+  </div>
+
+  <h2 style="color:#0D47A1; fontSize:13; bold:true; underline:true; marginBottom:6px">'二、四类接口全年调用量汇总'</h2>
+  <table style="width:560px; fontSize:10">
+    <tr>
+      <th style="backgroundColor:#0D47A1; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'接口名称'</th>
+      <th style="backgroundColor:#0D47A1; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'全年调用量（万次）'</th>
+      <th style="backgroundColor:#0D47A1; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'同比增幅'</th>
+      <th style="backgroundColor:#0D47A1; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'峰值月份'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'身份核验'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'17,760'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+18.6%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'12月（1,740）'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E9F0FA; border:1px solid #DCE3EC">'数据查询'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#E9F0FA; border:1px solid #DCE3EC">'12,080'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#E9F0FA; border:1px solid #DCE3EC">'+22.4%'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#E9F0FA; border:1px solid #DCE3EC">'12月（1,205）'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'证照下载'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'6,023'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+31.2%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'12月（612）'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E9F0FA; border:1px solid #DCE3EC">'电子签章'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#E9F0FA; border:1px solid #DCE3EC">'3,843'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#E9F0FA; border:1px solid #DCE3EC">'+56.8%'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#E9F0FA; border:1px solid #DCE3EC">'12月（442）'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#0D47A1; color:white; bold:true; border:1px solid #0D47A1">'四类合计'</td>
+      <td style="padding:6px; textAlign:right; backgroundColor:#0D47A1; color:white; bold:true; border:1px solid #0D47A1">'39,706'</td>
+      <td style="padding:6px; textAlign:right; backgroundColor:#0D47A1; color:white; bold:true; border:1px solid #0D47A1">'+24.1%'</td>
+      <td style="padding:6px; textAlign:right; backgroundColor:#0D47A1; color:white; bold:true; border:1px solid #0D47A1">'12月（3,999）'</td>
+    </tr>
+  </table>
+
+  <h2 style="color:#0D47A1; fontSize:13; bold:true; underline:true; marginBottom:6px; marginTop:10px">'三、调用结构与容量研判'</h2>
+  <list style="list-style-type:none; padding-left:0; fontSize:10">
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'全年四类接口调用总量 39,706 万次（约 3.97 亿次），同比增长 24.1%，四季度为全年调用高峰。'</li>
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'电子签章同比增幅 56.8% 为四类最高，证照下载 31.2% 次之，反映「全程网办」事项扩容与电子证照复用率提升。'</li>
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'身份核验全年 17,760 万次、占全部调用量的 44.7%，是平台最主要流量入口，建议单独制定限流策略与容量冗余。'</li>
+    <li style="borderTop:1px dashed #C7C7C7; paddingTop:6px; marginBottom:4px">'2月为全年唯一环比下滑月份，受春节假期业务量回落影响；3月起快速恢复并重回上行通道，12月单月 3,999 万次创年内新高。'</li>
+  </list>
+
+  <div style="textAlignment:center; marginTop:10px; paddingTop:10px; borderTop:1px solid #dee2e6; color:#6c757d; fontSize:8">
+    <p>'数据来源：政务云API网关调用日志 | 生成时间：2024年12月31日'</p>
+    <p>'内部资料 · 未经许可请勿外传'</p>
+  </div>
+</body>
+</pdf>

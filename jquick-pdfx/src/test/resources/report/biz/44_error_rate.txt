@@ -1,0 +1,88 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; borderBottom:1px solid #B9C2CC; paddingBottom:8px">
+    <h1 style="color:#243B53; fontSize:17; bold:true; marginBottom:3px">'接口错误率监控报表'</h1>
+    <p style="color:#6c757d; fontSize:9">'统计周期：2025年2月1日 - 2025年2月28日 | 数据口径：核心接口调用（SLA 阈值：可用率 ≥ 99.9%）'</p>
+  </div>
+
+  <div style="borderLeft:4px solid #4A148C; paddingLeft:8px; marginBottom:6px">
+    <h2 style="color:#4A148C; fontSize:13; bold:true; marginTop:0; marginBottom:0">'一、接口 SLA 健康度'</h2>
+  </div>
+  <div style="display:flex; justifyContent:space-between; marginBottom:10px">
+    <div style="width:285px">
+      <div style="display:flex; justifyContent:center">
+        <svg style="width:285px">${svg}</svg>
+      </div>
+    </div>
+    <div style="width:265px">
+      <h3 style="color:#4A148C; fontSize:12; bold:true; marginBottom:6px">'评分说明'</h3>
+      <list style="listStyleType:disc; paddingLeft:14px; fontSize:9">
+        <li style="marginBottom:5px">'健康度评分 93 分（满分 100）'</li>
+        <li style="marginBottom:5px">'由可用率与错误率综合折算'</li>
+        <li style="marginBottom:5px">'24 小时自动刷新一次'</li>
+        <li style="marginBottom:5px">'低于 90 分触发告警'</li>
+      </list>
+    </div>
+  </div>
+
+  <div style="borderLeft:4px solid #4A148C; paddingLeft:8px; marginBottom:6px">
+    <h2 style="color:#4A148C; fontSize:13; bold:true; marginTop:0; marginBottom:0">'二、SLA 关键指标完成情况'</h2>
+  </div>
+  <table style="width:560px; fontSize:10">
+    <tr>
+      <th style="backgroundColor:#4A148C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'监控指标'</th>
+      <th style="backgroundColor:#4A148C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'本期值'</th>
+      <th style="backgroundColor:#4A148C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'SLA 目标'</th>
+      <th style="backgroundColor:#4A148C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'环比变化'</th>
+      <th style="backgroundColor:#4A148C; color:white; padding:6px; textAlign:center; border:1px solid #DCE3EC">'结论'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'接口可用率'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'99.93%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'≥99.90%'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+0.02pct'</td>
+      <td style="padding:5px; textAlign:right; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'达标'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'接口错误率'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'0.07%'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'≤0.10%'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'-0.02pct'</td>
+      <td style="padding:5px; textAlign:right; color:#1B5E20; bold:true; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'达标'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'P95 响应耗时'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'286 ms'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'≤300 ms'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+12 ms'</td>
+      <td style="padding:5px; textAlign:right; color:#BF360C; bold:true; border:1px solid #DCE3EC">'预警'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'5xx 错误次数'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'1,842 次'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'≤2,600 次'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'-316 次'</td>
+      <td style="padding:5px; textAlign:right; color:#1B5E20; bold:true; backgroundColor:#F1EAF6; border:1px solid #DCE3EC">'达标'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #DCE3EC">'健康度综合评分'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'93 分'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'≥90 分'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #DCE3EC">'+2 分'</td>
+      <td style="padding:5px; textAlign:right; color:#1B5E20; bold:true; border:1px solid #DCE3EC">'达标'</td>
+    </tr>
+  </table>
+
+  <div style="borderLeft:4px solid #4A148C; paddingLeft:8px; marginBottom:6px; marginTop:10px">
+    <h2 style="color:#4A148C; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、运维分析与建议'</h2>
+  </div>
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:5px">'本月 SLA 综合健康度 93 分，可用率 99.93% 高于 99.90% 目标，错误率 0.07% 低于 0.10% 阈值，五项指标中四项达标。'</li>
+    <li style="marginBottom:5px">'错误率环比下降 0.02pct、5xx 错误次数环比减少 316 次，主要受益于上月末上线的连接池扩容与慢 SQL 治理。'</li>
+    <li style="marginBottom:5px">'唯一需要盯防的是 P95 响应耗时环比上升 12ms 至 286ms，已逼近 300ms 目标线，2月25日压测期间曾瞬时触及 302ms。'</li>
+    <li style="marginBottom:5px">'建议对耗时上升最快的订单查询接口做缓存命中率排查，并在下一版本引入异步化改造，避免高峰时段击穿 SLA。'</li>
+  </list>
+
+  <p style="textAlignment:center; color:#8a939b; fontSize:8; italic:true; marginTop:10px">'数据来源：APM 应用性能监控平台 / 日志告警系统 · 生成时间：2025年3月3日 · 密级：内部'</p>
+</body>
+</pdf>

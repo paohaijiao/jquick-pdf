@@ -1,0 +1,263 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // jquick-pdf 元素与属性全集演示（第 47 份，独立于 16~46 的业务报表）
+  // 目的：把前面 31 份业务模板未覆盖到的元素与属性集中演示，便于对照查语法。
+  // 语法硬约束提醒：
+  //   1) 中文或含空格文本必须用单引号包裹，例如 '中文字符串'
+  //   2) 整个 style 串用双引号包裹，内部颜色可直接写 #RRGGBB
+  //   3) 注释只能用 // 行注释，不支持 <!-- --> 注释
+  //   4) <svg> 只声明 width，绝不声明 height，否则图形会被纵向拉伸
+  //   5) 带儿子属性的标签必须“style 在前”，例如 <list style="..." listType="ordered">
+  //   6) 表格单元格只取纯文本，单元格内的 <span> 等子元素会被静默丢弃（见第二组说明）
+  // ==========================================================================
+
+  // ---------- 页头：深色通栏 + 竖线分隔的双栏注记（与前 31 份的 7 种页头均不同）----------
+  <div style="background:#1A2733; padding:12px 16px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:330px">
+        <h1 style="color:white; fontSize:17pt; bold:true; marginBottom:2px">'元素与属性全集演示'</h1>
+        <p style="color:#9FB3C8; fontSize:8pt; characterSpacing:0.4pt">'ELEMENT & ATTRIBUTE GALLERY'</p>
+      </div>
+      <div style="width:250px; textAlignment:right; borderLeft:1px solid #3C5166; paddingLeft:10px">
+        <p style="color:#9FB3C8; fontSize:8pt">'第一组 标题层级　第二组 文本属性　第三组 列表三态'</p>
+        <p style="color:#9FB3C8; fontSize:8pt">'第四组 表单元素　第五组 结构元素　第六组 几何属性'</p>
+      </div>
+    </div>
+  </div>
+
+  // ---------- 第一组：h1 ~ h6 共 6 级标题元素（fontSize 逐级递减以便观察元素本身）----------
+  <div style="marginBottom:10px; borderLeft:3px solid #1A2733; paddingLeft:10px; keepTogether:true">
+    <h2 style="fontSize:13pt; bold:true; color:#1A2733; marginBottom:6px">'第一组　标题层级 h1 ~ h6'</h2>
+    <h1 style="fontSize:16pt; marginBottom:1px">'h1 一级标题'</h1>
+    <h2 style="fontSize:15pt; marginBottom:1px">'h2 二级标题'</h2>
+    <h3 style="fontSize:14pt; marginBottom:1px">'h3 三级标题'</h3>
+    <h4 style="fontSize:13pt; marginBottom:1px">'h4 四级标题'</h4>
+    <h5 style="fontSize:12pt; marginBottom:1px">'h5 五级标题'</h5>
+    <h6 style="fontSize:11pt; marginBottom:1px">'h6 六级标题'</h6>
+  </div>
+
+  // ---------- 第二组：文本属性（bold / italic / underline / lineThrough / 字距 / 词距 / 透明度 / 颜色）----------
+  <div style="marginBottom:10px; borderLeft:3px solid #1A2733; paddingLeft:10px; keepTogether:true">
+    <h2 style="fontSize:13pt; bold:true; color:#1A2733; marginBottom:6px">'第二组　文本属性（span 承载）'</h2>
+    <table style="width:600px; fontSize:9pt">
+      <tr>
+        <td style="width:90px; padding:5px; bold:true; backgroundColor:#E8EDF2; border:1px solid #D3DCE5">'属性名'</td>
+        <td style="width:210px; padding:5px; bold:true; backgroundColor:#E8EDF2; border:1px solid #D3DCE5">'写法'</td>
+        <td style="width:90px; padding:5px; bold:true; backgroundColor:#E8EDF2; border:1px solid #D3DCE5">'属性名'</td>
+        <td style="width:210px; padding:5px; bold:true; backgroundColor:#E8EDF2; border:1px solid #D3DCE5">'写法'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'bold'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'bold:true'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'wordSpacing'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'wordSpacing:8pt'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'italic'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'italic:true'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'opacity'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'opacity:0.35'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'underline'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'underline:true'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'color'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'color:#B71C1C'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'lineThrough'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'lineThrough:true'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'fontSize'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'fontSize:9pt'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'characterSpacing'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'characterSpacing:2pt'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'组合'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'bold+italic+underline+color'</td>
+      </tr>
+    </table>
+    // 坑点：表格单元格只取纯文本（mergeText 仅拼接 String 子节点），单元格里的 <span> 会被静默丢弃，
+    // 因此行内文本属性统一改由 <p> 承载行内 <span> 来演示，表格只列属性名与写法。
+    <p style="fontSize:8pt; color:#6c757d; italic:true; marginTop:4px; marginBottom:2px">'渲染效果（段落内「标签 span + 效果 span」混排，标签不着色，效果段各自带属性）'</p>
+    <p style="fontSize:9pt"><span style="color:#5A6B7C">'bold → '</span><span style="bold:true">'加粗文本'</span><tab style="width:70px"></tab><span style="color:#5A6B7C">'italic → '</span><span style="italic:true">'斜体文本'</span><tab style="width:70px"></tab><span style="color:#5A6B7C">'underline → '</span><span style="underline:true">'下划线文本'</span></p>
+    <p style="fontSize:9pt"><span style="color:#5A6B7C">'lineThrough → '</span><span style="lineThrough:true">'删除线文本'</span><tab style="width:50px"></tab><span style="color:#5A6B7C">'characterSpacing → '</span><span style="characterSpacing:2pt">'字距加宽'</span><tab style="width:50px"></tab><span style="color:#5A6B7C">'wordSpacing → '</span><span style="wordSpacing:8pt">'word spacing'</span></p>
+    <p style="fontSize:9pt"><span style="color:#5A6B7C">'opacity → '</span><span style="opacity:0.35">'半透明文本'</span><tab style="width:50px"></tab><span style="color:#5A6B7C">'color → '</span><span style="color:#B71C1C; bold:true">'着色且加粗'</span><tab style="width:50px"></tab><span style="color:#5A6B7C">'组合 → '</span><span style="bold:true; italic:true; underline:true; color:#1F4E79">'粗斜下划线三合一'</span></p>
+  </div>
+
+  // ---------- 第三组：列表三态（无序圆点 / 有序编号 / 无标记），三列 flex 并排 ----------
+  <div style="marginBottom:10px; borderLeft:3px solid #1A2733; paddingLeft:10px; keepTogether:true">
+    <h2 style="fontSize:13pt; bold:true; color:#1A2733; marginBottom:6px">'第三组　列表三态'</h2>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:172px">
+        <p style="fontSize:9pt; bold:true; color:#1F4E79; marginBottom:3px">'listStyleType:disc'</p>
+        <list style="listStyleType:disc; paddingLeft:14px; fontSize:9pt">
+          <li style="marginBottom:3px">'无序圆点第一项'</li>
+          <li style="marginBottom:3px">'无序圆点第二项'</li>
+          <li style="marginBottom:3px">'无序圆点第三项'</li>
+        </list>
+      </div>
+      <div style="width:172px">
+        <p style="fontSize:9pt; bold:true; color:#1F4E79; marginBottom:3px">'listType=ordered'</p>
+        <list style="paddingLeft:14px; fontSize:9pt" listType="ordered">
+          <li style="marginBottom:3px">'有序编号第一项'</li>
+          <li style="marginBottom:3px">'有序编号第二项'</li>
+          <li style="marginBottom:3px">'有序编号第三项'</li>
+        </list>
+      </div>
+      <div style="width:172px">
+        <p style="fontSize:9pt; bold:true; color:#1F4E79; marginBottom:3px">'listStyleType:none'</p>
+        <list style="listStyleType:none; paddingLeft:8px; fontSize:9pt">
+          <li style="marginBottom:3px">'无标记第一项'</li>
+          <li style="marginBottom:3px">'无标记第二项'</li>
+          <li style="marginBottom:3px">'无标记第三项'</li>
+        </list>
+      </div>
+    </div>
+  </div>
+
+  // ---------- 第四组：表单类元素（button / checkbox / comboBoxField / textArea）----------
+  <div style="marginBottom:10px; borderLeft:3px solid #1A2733; paddingLeft:10px; keepTogether:true">
+    <h2 style="fontSize:13pt; bold:true; color:#1A2733; marginBottom:6px">'第四组　表单元素'</h2>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:132px">
+        <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'button'</p>
+        <button style="width:120px; height:24px; backgroundColor:#2F5597; borderColor:#2F5597; color:white; fontSize:9pt">'提交审批'</button>
+      </div>
+      <div style="width:150px">
+        <p style="fontSize:8pt; color:#5A6B7C; marginBottom:2px">'checkbox（含 checked）'</p>
+        <checkbox style="width:10px; marginRight:6px; fontSize:9pt" checked>'已勾选项'</checkbox>
+        <checkbox style="width:10px; marginRight:6px; fontSize:9pt">'未勾选项'</checkbox>
+      </div>
+      <div style="width:160px">
+        <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'comboBoxField'</p>
+        <comboBoxField style="width:150px; height:24px; borderColor:#8FA8C0; paddingLeft:8px; fontSize:9pt">'2024年第四季度'</comboBoxField>
+      </div>
+    </div>
+    <div style="marginTop:8px">
+      <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'textArea（height 决定文本域高度，超出部分不绘制）'</p>
+      <textArea style="width:520px; height:44px; padding:6px; borderColor:#8FA8C0; fontSize:9pt">'审核意见：申报材料齐全，指标口径与本季度统计报表一致，同意进入下一审批环节。'</textArea>
+    </div>
+  </div>
+
+  // ---------- 第五组：结构元素（tree / tab / svg / lineSeparator）----------
+  <div style="marginBottom:10px; borderLeft:3px solid #1A2733; paddingLeft:10px; keepTogether:true">
+    <h2 style="fontSize:13pt; bold:true; color:#1A2733; marginBottom:6px">'第五组　结构元素'</h2>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:290px">
+        <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'tree（由 ${treeRoot} 绑定 Java 侧 TreeNode）'</p>
+        <tree style="fontSize:9pt">${treeRoot}</tree>
+      </div>
+      <div style="width:240px">
+        <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'tab（仅把光标右移 style.width，不绘制内容）'</p>
+        <p style="fontSize:9pt"><span>'第一列值'</span><tab style="width:70px"></tab><span>'第二列值'</span></p>
+        <p style="fontSize:9pt"><span>'报表名称'</span><tab style="width:70px"></tab><span>'季度汇总'</span></p>
+        <p style="fontSize:9pt"><span>'编制部门'</span><tab style="width:70px"></tab><span>'统计处'</span></p>
+      </div>
+    </div>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:620pt">${svg}</svg>
+    </div>
+    <p style="fontSize:8pt; color:#6c757d; italic:true; marginTop:4px">'svg 元素：${svg} 占位符注入 Java 侧渲染出的 SVG 文本，本图纵轴刻度按 8 档步长绘制'</p>
+    <lineSeparator style="strokeColor:#C3CDD8"></lineSeparator>
+    <p style="fontSize:8pt; color:#8a939b">'lineSeparator 元素：上方细线由该元素绘制，只读 style.strokeColor，标签内文本不参与渲染'</p>
+  </div>
+
+  // ---------- 第六组：几何与盒模型属性（四角圆角 / 尺寸约束 / 垂直对齐 / 相对定位 / 旋转）----------
+  // 第六组不声明 keepTogether：块高较大，若强制整体不跨页会在上一页尾部留出大片空白。
+  <div style="marginBottom:10px; borderLeft:3px solid #1A2733; paddingLeft:10px">
+    <h2 style="fontSize:13pt; bold:true; color:#1A2733; marginBottom:6px">'第六组　几何与盒模型属性'</h2>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:172px; minHeight:96px; background:#F2F5F8; border:1px solid #D3DCE5; borderRadius:4px; padding:8px; verticalAlignment:middle">
+        <p style="fontSize:9pt; bold:true; color:#1F4E79; marginBottom:2px">'统一圆角'</p>
+        <p style="fontSize:8pt; color:#5A6B7C">'borderRadius:4px'</p>
+      </div>
+      <div style="width:172px; minHeight:96px; background:#F2F5F8; border:1px solid #D3DCE5; borderTopLeftRadius:14px; borderBottomRightRadius:14px; padding:8px; verticalAlignment:middle">
+        <p style="fontSize:9pt; bold:true; color:#1F4E79; marginBottom:2px">'对角圆角'</p>
+        <p style="fontSize:8pt; color:#5A6B7C">'左上 + 右下各 14px'</p>
+      </div>
+      <div style="width:172px; minHeight:96px; background:#FDF3E7; border:1px solid #E8D3B0; borderRadius:4px; padding:8px; verticalAlignment:bottom">
+        <p style="fontSize:9pt; bold:true; color:#8A5B18; marginBottom:2px">'垂直对齐到底部'</p>
+        <p style="fontSize:8pt; color:#8A5B18">'verticalAlignment:bottom'</p>
+      </div>
+    </div>
+    <div style="marginTop:8px; border:1px dashed #B0BEC5; padding:8px">
+      <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'尺寸约束：width 声明 300px 但 maxWidth 压到 170px；minHeight 保证最小高度 34px'</p>
+      <div style="width:300px; maxWidth:170px; minHeight:34px; background:#EAF1F8; border:1px solid #C7D6EA; padding:6px">
+        <p style="fontSize:9pt; color:#2F5597">'盒模型尺寸约束演示'</p>
+      </div>
+    </div>
+    <div style="marginTop:8px; border:1px dashed #B0BEC5; padding:8px">
+      <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'相对定位：relativePosition:24px 0px 0px 0px，只做视觉偏移，不占用后续元素的位置'</p>
+      <div style="relativePosition:24px 0px 0px 0px; background:#E8EDF2; border:1px solid #9FB3C8; padding:6px">
+        <p style="fontSize:9pt; color:#1F4E79">'本盒相对原位向右偏移 24pt'</p>
+      </div>
+    </div>
+    <div style="marginTop:8px; border:1px dashed #B0BEC5; padding:8px">
+      <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'旋转：angleInRadians:0.0873 约等于 5 度'</p>
+      <p style="fontSize:12pt; bold:true; color:#B71C1C; angleInRadians:0.0873">'旋转 5 度的文本'</p>
+    </div>
+  </div>
+
+  // ---------- 第七组：分页元素对照表，并用 areaBreak 强制在此处换页 ----------
+  <areaBreak></areaBreak>
+
+  <div style="marginBottom:10px; keepTogether:true">
+    <h2 style="fontSize:13pt; bold:true; color:#1A2733; underline:true; marginBottom:6px">'第七组　分页与占位类元素（本页由 areaBreak 强制换页产生）'</h2>
+    <table style="width:540px; fontSize:9pt">
+      <tr>
+        <td style="width:170px; padding:5px; bold:true; backgroundColor:#E8EDF2; border:1px solid #D3DCE5">'元素 / 属性'</td>
+        <td style="padding:5px; bold:true; backgroundColor:#E8EDF2; border:1px solid #D3DCE5">'作用与写法'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'areaBreak'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'立即结束当前页，后续内容另起一页，标签内可空'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'htmlPageBreak'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'按 breakType 分页：next_page / next_area / last_page'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'keepTogether'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'声明该块整体不跨页，避免图与图注被拆开'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'tab'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'仅右移光标 style.width，用于同行分列对齐'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #D3DCE5">'template'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'当前实现直接抛出不支持异常，本页不做演示'</td>
+      </tr>
+    </table>
+    // htmlPageBreak 要求标签内必须有一个 IDENTIFIER，取值见 JHtmlPageBreakTypeEnums
+    <htmlPageBreak>next_page</htmlPageBreak>
+    <p style="fontSize:9pt; color:#5A6B7C">'本行位于 htmlPageBreak(next_page) 之后，应出现在新的一页顶部。'</p>
+    <h3 style="fontSize:11pt; bold:true; color:#1A2733; marginTop:10px; marginBottom:4px">'语法硬约束速查'</h3>
+    <list style="paddingLeft:16px; fontSize:9pt" listType="ordered">
+      <li style="marginBottom:3px">'中文文本或含空格的文本必须用单引号包裹，例如把中文串整体写在两个半角单引号之间'</li>
+      <li style="marginBottom:3px">'整个 style 串用双引号包裹，内部颜色可直接写 #RRGGBB，例如 color:#B71C1C'</li>
+      <li style="marginBottom:3px">'注释只支持双斜杠行注释，不支持尖括号包裹的 HTML 注释'</li>
+      <li style="marginBottom:3px">'svg 只声明 width（如 620pt），声明 height 会让图形纵向拉伸变形'</li>
+      <li style="marginBottom:3px">'带内置子属性的标签必须 style 在前，例如 list 的 listType 必须写在 style 之后'</li>
+      <li style="marginBottom:3px">'表格单元格只取纯文本，单元格内的行内子元素会被静默丢弃'</li>
+      <li style="marginBottom:3px">'verticalAlignment 需要同时声明 height / minHeight（盒高大于内容高）且有可见背景或边框才生效'</li>
+    </list>
+  </div>
+
+  // ---------- 页脚：左中右三栏 flex + lineSeparator 上边线 ----------
+  <lineSeparator style="strokeColor:#C3CDD8"></lineSeparator>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:180px">
+      <p style="color:#6c757d; fontSize:8pt">'jquick-pdf 元素与属性全集演示'</p>
+    </div>
+    <div style="width:170px; textAlignment:center">
+      <p style="color:#6c757d; fontSize:8pt; opacity:0.8">'生成时间：2025年1月15日'</p>
+    </div>
+    <div style="width:250px; textAlignment:right">
+      <p style="color:#6c757d; fontSize:8pt">'模板：47_element_attribute_gallery'</p>
+    </div>
+  </div>
+</body>
+</pdf>

@@ -40,6 +40,12 @@ public class JScatterChartsRenderer extends JAbstractChartRenderer {
 
     private static final double AXIS_PADDING_FACTOR = 0.1;
 
+    /**
+     * 期望的坐标轴刻度数量上限。刻度步长按数据范围除以该值向上取整，
+     * 避免值域较大时（如分值 0-100）逐格绘制刻度导致标签重叠不可读。
+     */
+    private static final int TARGET_TICK_COUNT = 8;
+
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
         svgGenerator.setPaint(BACKGROUND_COLOR);// 设置背景
@@ -96,16 +102,34 @@ public class JScatterChartsRenderer extends JAbstractChartRenderer {
 
         svgGenerator.drawLine(MARGIN, MARGIN, MARGIN, height - MARGIN);// 绘制Y轴
 
-        for (double x = Math.ceil(minX); x <= Math.floor(maxX); x++) {// 绘制X轴刻度
+        int tickStepX = tickStep(minX, maxX);
+        for (double x = Math.ceil(minX / tickStepX) * tickStepX; x <= maxX; x += tickStepX) {// 绘制X轴刻度
             int xPos = MARGIN + (int) ((x - minX) / (maxX - minX) * plotWidth);
             svgGenerator.drawLine(xPos, height - MARGIN, xPos, height - MARGIN + 5);
-            svgGenerator.drawString(String.format("%.1f", x), xPos - 10, height - MARGIN + 20);
+            svgGenerator.drawString(formatTick(x), xPos - 10, height - MARGIN + 20);
         }
-        for (double y = Math.ceil(minY); y <= Math.floor(maxY); y++) { // 绘制Y轴刻度
+        int tickStepY = tickStep(minY, maxY);
+        for (double y = Math.ceil(minY / tickStepY) * tickStepY; y <= maxY; y += tickStepY) { // 绘制Y轴刻度
             int yPos = height - MARGIN - (int) ((y - minY) / (maxY - minY) * plotHeight);
             svgGenerator.drawLine(MARGIN - 5, yPos, MARGIN, yPos);
-            svgGenerator.drawString(String.format("%.1f", y), MARGIN - 40, yPos + 5);
+            svgGenerator.drawString(formatTick(y), MARGIN - 40, yPos + 5);
         }
+    }
+
+    /** 按数据范围推算刻度步长，使刻度数量不超过 {@link #TARGET_TICK_COUNT}，且步长不小于 1。 */
+    private int tickStep(double min, double max) {
+        double range = max - min;
+        if (range <= 0) {
+            return 1;
+        }
+        return Math.max(1, (int) Math.ceil(range / TARGET_TICK_COUNT));
+    }
+
+    /** 整数值去掉多余小数位（10 而非 10.0），非整数保留一位小数。 */
+    private String formatTick(double value) {
+        return Math.abs(value - Math.rint(value)) < 1e-9
+                ? String.format("%.0f", value)
+                : String.format("%.1f", value);
     }
 
     private void drawScatters(SVGGraphics2D svgGenerator, List<JData> dataList, double minX, double maxX, double minY, double maxY, int width, int height, double symbolSize) {

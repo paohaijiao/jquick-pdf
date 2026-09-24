@@ -1,0 +1,97 @@
+<pdf>
+<body>
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#FDF0EA; borderTop:3px solid #BF360C; borderRadius:4px">
+    <h2 style="color:#BF360C; marginTop:0; marginBottom:6px; fontSize:15; bold:true; textAlignment:center">'告警数量周趋势时间线'</h2>
+    <p style="fontSize:9; color:#6c757d; textAlignment:center; marginBottom:8px">'统计周期：2024年第1周 - 第8周 | 数据来源：应急指挥平台（去重后告警数）'</p>
+    <div style="display:flex; justifyContent:space-between; marginBottom:4px">
+      <div style="width:285px">
+        <div style="display:flex; justifyContent:center">
+          <svg style="width:285px">${svg}</svg>
+        </div>
+        <p style="fontSize:8; color:#6c757d; textAlignment:center; marginTop:4px">'图 1  第1-8周告警数量与环比变化'</p>
+      </div>
+      <div style="width:265px">
+        <h3 style="color:#BF360C; fontSize:12; bold:true; marginBottom:6px">'趋势要点'</h3>
+        <list style="listStyleType:disc; paddingLeft:14px; fontSize:9">
+          <li style="marginBottom:5px">'八周告警合计 2,623 起，周均 328 起，整体呈高位震荡、无持续恶化。'</li>
+          <li style="marginBottom:5px">'第5周 278 起为八周最低，第7周 389 起为最高，峰谷差 111 起。'</li>
+          <li style="marginBottom:5px">'上升周与下降周各 4 周，环比波动区间为 -14.1% 至 +26.6%。'</li>
+          <li style="marginBottom:5px">'第6周环比 +26.6% 为最大增幅，与批量新设备入网时间点吻合。'</li>
+        </list>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="color:#BF360C; fontSize:13; bold:true; borderBottom:1px solid #BF360C; paddingBottom:3px; marginBottom:8px">'一、周度告警明细'</h2>
+  <div style="marginBottom:12px">
+    <table style="width:540px; fontSize:10">
+      <tr>
+        <th style="width:120px; backgroundColor:#BF360C; color:white; padding:6px; textAlign:center; border:1px solid #F3D3C4">'周次'</th>
+        <th style="width:140px; backgroundColor:#BF360C; color:white; padding:6px; textAlign:center; border:1px solid #F3D3C4">'告警数（起）'</th>
+        <th style="width:140px; backgroundColor:#BF360C; color:white; padding:6px; textAlign:center; border:1px solid #F3D3C4">'环比'</th>
+        <th style="width:140px; backgroundColor:#BF360C; color:white; padding:6px; textAlign:center; border:1px solid #F3D3C4">'累计告警（起）'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #F3D3C4">'第1周'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'328'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'+6.5%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'328'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'第2周'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'296'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'-9.8%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'624'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #F3D3C4">'第3周'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'341'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'+15.2%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'965'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'第4周'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'305'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'-10.6%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'1,270'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #F3D3C4">'第5周'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'278'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'-8.9%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'1,548'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'第6周'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'352'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'+26.6%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'1,900'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; border:1px solid #F3D3C4">'第7周'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'389'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'+10.5%'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #F3D3C4">'2,289'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'第8周'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'334'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'-14.1%'</td>
+        <td style="padding:5px; textAlign:right; backgroundColor:#FDF0EA; border:1px solid #F3D3C4">'2,623'</td>
+      </tr>
+    </table>
+  </div>
+
+  <h2 style="color:#BF360C; fontSize:13; bold:true; borderBottom:1px solid #BF360C; paddingBottom:3px; marginBottom:8px">'二、值班复盘要点'</h2>
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#BF360C">'峰值周：'</span>'第7周告警 389 起，为八周最高，环比 +10.5%，主要来自强降雨期间设备离线告警集中上报。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#BF360C">'谷值周：'</span>'第5周告警 278 起，为八周最低，环比 -8.9%，得益于节前专项巡检提前消除隐患。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#BF360C">'连续回落：'</span>'第4至第5周告警由 305 起降至 278 起，两周累计下降 8.9%，同期处置及时率稳步提升。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#BF360C">'月末反弹：'</span>'第6至第7周告警由 352 起升至 389 起，累计上升 10.5%，主因是批量新设备入网带来的阈值误报。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#BF360C">'建议：'</span>'复核第6至第7周的告警规则，压降误报比例，并将周告警量目标控制在 320 起以内。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; marginTop:8px">'数据来源：应急指挥平台 | 统计口径：去重后告警数 | 生成时间：2024年9月2日'</p>
+</body>
+</pdf>
