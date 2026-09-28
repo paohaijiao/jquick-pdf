@@ -78,12 +78,26 @@
         <td style="padding:5px; border:1px solid #D3DCE5">'bold+italic+underline+color'</td>
       </tr>
     </table>
-    // 坑点：表格单元格只取纯文本（mergeText 仅拼接 String 子节点），单元格里的 <span> 会被静默丢弃，
-    // 因此行内文本属性统一改由 <p> 承载行内 <span> 来演示，表格只列属性名与写法。
-    <p style="fontSize:8pt; color:#6c757d; italic:true; marginTop:4px; marginBottom:2px">'渲染效果（段落内「标签 span + 效果 span」混排，标签不着色，效果段各自带属性）'</p>
-    <p style="fontSize:9pt"><span style="color:#5A6B7C">'bold → '</span><span style="bold:true">'加粗文本'</span><tab style="width:70px"></tab><span style="color:#5A6B7C">'italic → '</span><span style="italic:true">'斜体文本'</span><tab style="width:70px"></tab><span style="color:#5A6B7C">'underline → '</span><span style="underline:true">'下划线文本'</span></p>
-    <p style="fontSize:9pt"><span style="color:#5A6B7C">'lineThrough → '</span><span style="lineThrough:true">'删除线文本'</span><tab style="width:50px"></tab><span style="color:#5A6B7C">'characterSpacing → '</span><span style="characterSpacing:2pt">'字距加宽'</span><tab style="width:50px"></tab><span style="color:#5A6B7C">'wordSpacing → '</span><span style="wordSpacing:8pt">'word spacing'</span></p>
-    <p style="fontSize:9pt"><span style="color:#5A6B7C">'opacity → '</span><span style="opacity:0.35">'半透明文本'</span><tab style="width:50px"></tab><span style="color:#5A6B7C">'color → '</span><span style="color:#B71C1C; bold:true">'着色且加粗'</span><tab style="width:50px"></tab><span style="color:#5A6B7C">'组合 → '</span><span style="bold:true; italic:true; underline:true; color:#1F4E79">'粗斜下划线三合一'</span></p>
+    // 坑点 1：表格单元格只取纯文本（mergeText 仅拼接 String 子节点），单元格里的 <span> 会被静默丢弃。
+    // 坑点 2：段落内 <tab> 与多个行内 <span> 混排时光标推进不可靠，会互相压字，
+    //        因此渲染效果改为「每行一个 <p>、段内只用 2 个 <span>（标签 + 效果）」的稳妥写法。
+    <p style="fontSize:8pt; color:#6c757d; italic:true; marginTop:4px; marginBottom:2px">'渲染效果（每行一个段落，段内两个 span：灰色标签 + 带属性的效果文本）'</p>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:290px">
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'bold → '</span><span style="bold:true">'加粗文本'</span></p>
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'italic → '</span><span style="italic:true">'斜体文本'</span></p>
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'underline → '</span><span style="underline:true">'下划线文本'</span></p>
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'lineThrough → '</span><span style="lineThrough:true">'删除线文本'</span></p>
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'fontSize → '</span><span style="fontSize:12pt; color:#1F4E79">'放大字号'</span></p>
+      </div>
+      <div style="width:290px">
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'characterSpacing → '</span><span style="characterSpacing:2pt">'字距加宽'</span></p>
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'wordSpacing → '</span><span style="wordSpacing:8pt">'word spacing'</span></p>
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'opacity → '</span><span style="opacity:0.35">'半透明文本'</span></p>
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'color → '</span><span style="color:#B71C1C; bold:true">'着色且加粗'</span></p>
+        <p style="fontSize:9pt"><span style="color:#5A6B7C">'组合 → '</span><span style="bold:true; italic:true; underline:true; color:#1F4E79">'粗斜下划线三合一'</span></p>
+      </div>
+    </div>
   </div>
 
   // ---------- 第三组：列表三态（无序圆点 / 有序编号 / 无标记），三列 flex 并排 ----------
@@ -150,10 +164,11 @@
         <tree style="fontSize:9pt">${treeRoot}</tree>
       </div>
       <div style="width:240px">
-        <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'tab（仅把光标右移 style.width，不绘制内容）'</p>
+        <p style="fontSize:8pt; color:#5A6B7C; marginBottom:4px">'tab（仅把光标右移 style.width，不绘制内容；width 必须带 px）'</p>
         <p style="fontSize:9pt"><span>'第一列值'</span><tab style="width:70px"></tab><span>'第二列值'</span></p>
         <p style="fontSize:9pt"><span>'报表名称'</span><tab style="width:70px"></tab><span>'季度汇总'</span></p>
         <p style="fontSize:9pt"><span>'编制部门'</span><tab style="width:70px"></tab><span>'统计处'</span></p>
+        <p style="fontSize:8pt; color:#8a939b; italic:true">'注意：tab 只在「纯 span 分列」的段落里可靠；若同一段还有多个带属性的 span，光标推进会出现压字，应改为每列一个 <p> 或使用表格。'</p>
       </div>
     </div>
     <div style="display:flex; justifyContent:center">

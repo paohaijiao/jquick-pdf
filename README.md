@@ -11,7 +11,11 @@
 <p align="center">
   <b>English</b> | <a href="./README_zh.md">简体中文</a>
 </p>
-
+<p align="center">
+  🌐 <a href="https://www.jquick.org">JQuick Website</a> ·
+  📖 <a href="https://github.com/paohaijiao">GitHub</a> ·
+  📦 <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx">Maven Central</a>
+</p>
 <p align="center">
   <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx"><img src="https://img.shields.io/maven-central/v/io.github.paohaijiao/jquick-pdfx.svg?style=for-the-badge&label=Maven%20Central" alt="Maven Central" /></a>
   <a href="#version-matrix"><img src="https://img.shields.io/badge/license-Apache--2.0%20(%E2%89%A5%204.0.0)%20%7C%20AGPL--3.0%20(%E2%89%A4%204.0.0)-blue.svg?style=for-the-badge" alt="License" /></a>
