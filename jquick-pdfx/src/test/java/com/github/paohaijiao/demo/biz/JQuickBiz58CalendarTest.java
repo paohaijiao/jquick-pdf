@@ -56,21 +56,24 @@ public class JQuickBiz58CalendarTest {
     @Test
     public void biz58Calendar() throws IOException {
         // 构造 2024 年全年每日订单金额数据
+        // calculateColor 中 ratio = value/10，因此需要将数据压缩到 0-10 区间
+        // 否则所有值都会变成最深色，看不出差异
         Map<LocalDate, Integer> data = new HashMap<>();
         Random random = new Random(88);
         LocalDate start = LocalDate.of(2024, 1, 1);
         LocalDate end = LocalDate.of(2024, 12, 31);
         for (LocalDate date = start; !date.isAfter(end); date = date.plusDays(1)) {
-            int base = 30 + random.nextInt(120);
-            // 季度末冲刺：3/6/9/12 月最后 5 天金额放大
+            // 基础值 0-4 分（对应 30-150 万）
+            int base = random.nextInt(5);
             int month = date.getMonthValue();
             int day = date.getDayOfMonth();
+            // 季度末冲刺：3/6/9/12 月最后 5 天为 7-10 分（深色）
             if ((month == 3 || month == 6 || month == 9 || month == 12) && day >= 26) {
-                base += 100 + random.nextInt(80);
+                base = 7 + random.nextInt(4);
             }
-            // 节假日低谷：春节（2 月 10-17）、国庆（10 月 1-7）
+            // 节假日低谷：春节、国庆为 0-1 分（最浅色）
             if ((month == 2 && day >= 10 && day <= 17) || (month == 10 && day >= 1 && day <= 7)) {
-                base = Math.max(5, base / 3);
+                base = random.nextInt(2);
             }
             data.put(date, base);
         }

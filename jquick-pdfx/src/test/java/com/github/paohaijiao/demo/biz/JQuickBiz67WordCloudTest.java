@@ -54,33 +54,39 @@ public class JQuickBiz67WordCloudTest {
     @Test
     public void biz67WordCloud() throws IOException {
         List<JData> wordList = new ArrayList<>();
-        // 正面高频词
-        wordList.add(new JData("稳定", 9800));
-        wordList.add(new JData("高效", 8600));
-        wordList.add(new JData("易用", 7500));
-        wordList.add(new JData("界面清晰", 6200));
-        wordList.add(new JData("响应快", 5800));
-        wordList.add(new JData("功能丰富", 5100));
-        wordList.add(new JData("体验好", 4700));
-        wordList.add(new JData("性价比高", 4300));
-        wordList.add(new JData("服务周到", 3900));
-        wordList.add(new JData("更新及时", 3500));
-        // 中性词
-        wordList.add(new JData("一般", 2800));
-        wordList.add(new JData("还可以", 2200));
-        wordList.add(new JData("有待提升", 1800));
-        // 需关注的负面词
-        wordList.add(new JData("卡顿", 1600));
-        wordList.add(new JData("闪退", 900));
-        wordList.add(new JData("加载慢", 700));
-        wordList.add(new JData("偶尔崩溃", 500));
-        wordList.add(new JData("耗电", 450));
-        wordList.add(new JData("广告多", 380));
+        // 词云视觉要点：头部词权重与尾部词拉开数量级差距，字体大小才有明显层次；
+        // 若权重过于接近（如都在 3000-10000），渲染出来大小趋同、布局像个矩形。
+        // 头部超高频词
+        wordList.add(new JData("稳定", 20000));
+        wordList.add(new JData("高效", 15000));
+        wordList.add(new JData("易用", 12000));
+        // 腰部中频词
+        wordList.add(new JData("界面清晰", 5000));
+        wordList.add(new JData("响应快", 4200));
+        wordList.add(new JData("功能丰富", 3600));
+        wordList.add(new JData("体验好", 3000));
+        wordList.add(new JData("性价比高", 2600));
+        wordList.add(new JData("服务周到", 2200));
+        wordList.add(new JData("更新及时", 1800));
+        // 尾部长尾低频词
+        wordList.add(new JData("一般", 800));
+        wordList.add(new JData("还可以", 600));
+        wordList.add(new JData("有待提升", 500));
+        wordList.add(new JData("卡顿", 400));
+        wordList.add(new JData("闪退", 300));
+        wordList.add(new JData("加载慢", 240));
+        wordList.add(new JData("偶尔崩溃", 200));
+        wordList.add(new JData("耗电", 160));
+        wordList.add(new JData("广告多", 120));
 
         JWordCloudSeries wordCloudSeries = new JWordCloudSeries("用户评价关键词");
         wordCloudSeries.data(wordList);
-        wordCloudSeries.minFontSize(14);
-        wordCloudSeries.maxFontSize(80);
+        wordCloudSeries.minFontSize(12);
+        wordCloudSeries.maxFontSize(96);
+        // 多种旋转角度（-45 / -15 / +15），避免全部水平排列显得像矩形列表
+        wordCloudSeries.rotationStep(30);
+        wordCloudSeries.rotationRange(90);
+        wordCloudSeries.gridSize(4);
 
         JOption option = new JOption();
         option.title("年度产品用户评价关键词词云", "样本量：50,000 条评价 | 字体大小代表出现频次");

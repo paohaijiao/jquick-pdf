@@ -75,8 +75,11 @@ public class JQuickBiz60KChartTest {
         };
 
         JCandlestick candlestick = new JCandlestick("日 K 线");
+        // 注意：JCandlestick.data(open, close, min, max) 内部 super.data(kData) 会把
+        // Object[] 按可变参数展开成 4 个独立元素，导致渲染器拿不到 Object[] 格式的 K 线数据。
+        // 这里直接向 data 列表中逐条添加 Object[]{open, close, min, max}。
         for (double[] d : kData) {
-            candlestick.data(d[0], d[1], d[2], d[3]);
+            candlestick.data().add(new Object[]{d[0], d[1], d[2], d[3]});
         }
 
         JOption option = new JOption();

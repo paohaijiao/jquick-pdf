@@ -57,21 +57,24 @@ public class JQuickBiz68TreeMapTest {
     private static final Map<String, Color> CATEGORY_COLORS = new HashMap<>();
 
     static {
-        DEPARTMENT_COLORS.put("主营业务", new Color(26, 35, 126));
-        DEPARTMENT_COLORS.put("创新业务", new Color(40, 53, 147));
-        DEPARTMENT_COLORS.put("支撑服务", new Color(57, 73, 171));
-        DEPARTMENT_COLORS.put("其他业务", new Color(92, 107, 192));
+        // 板块色：参考 ECharts 经典配色的柔和色系（蓝 / 绿 / 琥珀 / 紫），
+        // 饱和度适中、观感协调，同时四个色相差异明显便于区分
+        DEPARTMENT_COLORS.put("主营业务", new Color(84, 112, 198));   // #5470C6 柔和蓝
+        DEPARTMENT_COLORS.put("创新业务", new Color(145, 204, 117));  // #91CC75 柔和绿
+        DEPARTMENT_COLORS.put("支撑服务", new Color(250, 200, 88));   // #FAC858 柔和琥珀
+        DEPARTMENT_COLORS.put("其他业务", new Color(154, 96, 180));   // #9A60B4 柔和紫
 
-        CATEGORY_COLORS.put("软件产品", new Color(26, 35, 126));
-        CATEGORY_COLORS.put("硬件产品", new Color(30, 45, 140));
-        CATEGORY_COLORS.put("解决方案", new Color(35, 55, 155));
-        CATEGORY_COLORS.put("云服务", new Color(40, 53, 147));
-        CATEGORY_COLORS.put("AI 应用", new Color(45, 62, 160));
-        CATEGORY_COLORS.put("数据服务", new Color(50, 70, 175));
-        CATEGORY_COLORS.put("技术服务", new Color(57, 73, 171));
-        CATEGORY_COLORS.put("运维服务", new Color(65, 82, 180));
-        CATEGORY_COLORS.put("投资收益", new Color(92, 107, 192));
-        CATEGORY_COLORS.put("租金物业", new Color(110, 125, 200));
+        // 子类目色：在所属板块色相上做同色系深浅渐变，整体和谐统一
+        CATEGORY_COLORS.put("软件产品", new Color(62, 95, 168));
+        CATEGORY_COLORS.put("硬件产品", new Color(84, 112, 198));
+        CATEGORY_COLORS.put("解决方案", new Color(122, 147, 220));
+        CATEGORY_COLORS.put("云服务", new Color(111, 168, 87));
+        CATEGORY_COLORS.put("AI 应用", new Color(145, 204, 117));
+        CATEGORY_COLORS.put("数据服务", new Color(176, 222, 151));
+        CATEGORY_COLORS.put("技术服务", new Color(224, 168, 62));
+        CATEGORY_COLORS.put("运维服务", new Color(245, 203, 123));
+        CATEGORY_COLORS.put("投资收益", new Color(125, 74, 148));
+        CATEGORY_COLORS.put("租金物业", new Color(171, 127, 196));
     }
 
     @Test
