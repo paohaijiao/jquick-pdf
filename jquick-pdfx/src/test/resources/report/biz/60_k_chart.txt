@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 60 K线图（蜡烛图）Demo：展示一段时间内的开盘、收盘、最高、最低价格
+  <div style="background:#263238; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'某股票 2024 年 12 月日 K 线图'</h1>
+        <p style="color:#B0BEC5; fontSize:9">'红色/绿色实体表示当日涨跌，上下影线表示最高与最低价'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #546E7A; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'交易周期：2024 年 12 月'</p>
+        <p style="color:#B0BEC5; fontSize:9">'数据频率：日线'</p>
+        <p style="color:#B0BEC5; fontSize:9">'编制：投资研究部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #263238">
+    <h2 style="color:#263238; marginBottom:6px; fontSize:13; bold:true">'一、12 月日 K 线走势'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  K 线图：实体为开收盘价区间，上影线为最高价，下影线为最低价（数据来源：行情系统）'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#263238">'月初震荡上行：'</span>'连续收阳，成交量温和放大，多头占优。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#263238">'中旬高位回调：'</span>'出现长上影线，上方抛压较重，需警惕短期见顶。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#263238">'建议：'</span>'关注 20 日均线支撑，若有效跌破可考虑减仓避险。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：研究总监'</p>
+</body>
+</pdf>

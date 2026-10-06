@@ -1,0 +1,95 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 52 会议邀请函（正式函件版式）
+  // 版式要点：通篇以「居中标题 + 左对齐称谓 + 首行缩进正文 + 右对齐落款」的书信结构组织，
+  //           正文段间留白靠 marginBottom 控制；中段插入会议议程表与参会信息盒。
+  // 与 16~51 的差异：本项目唯一一份「函件 / 书信」版式——无通栏色带、无表格化信息栏，
+  //                 标题字距拉开、正文用全角空格缩进、落款整体右对齐。
+  // 语法约束：中文与含空格文本必须单引号包裹；段落缩进用两个全角空格（U+3000）实现。
+  // ==========================================================================
+
+  // ---------- 函件头：主办单位 + 居中大标题 + 编号 ----------
+  <div style="marginBottom:12px">
+    <p style="fontSize:9pt; color:#6c757d; textAlignment:center; marginBottom:10px">'××省数字经济产业协会'</p>
+    <h1 style="fontSize:20pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:8pt; marginBottom:6px">'邀 请 函'</h1>
+    <p style="fontSize:9pt; color:#8a939b; textAlignment:center">'编号：YQ-2024-0086'</p>
+  </div>
+  <lineSeparator style="strokeColor:#1F4E79"></lineSeparator>
+
+  // ---------- 称谓 ----------
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginTop:14px; marginBottom:10px">'尊敬的 ××× 先生 / 女士：'</p>
+
+  // ---------- 正文：三段，段首用两个全角空格缩进 ----------
+  <p style="fontSize:10pt; color:#333333; marginBottom:9px">'　　为深入贯彻落实全省数字经济高质量发展工作部署，推动数据要素与实体产业深度融合，我会定于 2025 年 1 月 18 日举办「2025 数字产业协同创新大会」。大会将围绕指标体系治理、数据资产入表、企业数字化转型路径等议题开展交流。'</p>
+  <p style="fontSize:10pt; color:#333333; marginBottom:9px">'　　鉴于贵单位在数据治理与平台建设领域积累了丰富实践经验，特诚挚邀请您拨冗出席本次大会，并作主题分享。您的参与将为与会单位提供宝贵借鉴，也将进一步促进产业界的交流与合作。'</p>
+  <p style="fontSize:10pt; color:#333333; marginBottom:12px">'　　现将会议有关事项函告如下，敬请查收并按期反馈参会回执。'</p>
+
+  // ---------- 会议议程：三列表 ----------
+  <h3 style="fontSize:11pt; bold:true; color:#1F4E79; marginBottom:5px">'一、会议议程'</h3>
+  <table style="width:540px; fontSize:9pt">
+    <tr>
+      <th style="width:120px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'时间'</th>
+      <th style="width:290px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'议程内容'</th>
+      <th style="width:130px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'主讲 / 主持'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'09:00 - 09:30'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'签到入场、参观成果展区'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'会务组'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'09:30 - 10:15'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'主旨报告：全省数字经济发展形势与政策解读'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'李×× 研究员'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'10:15 - 11:30'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'企业实践分享：指标体系治理与数据资产入表'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'贵单位等 4 家'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'11:30 - 12:00'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'圆桌对话与自由交流'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'协会秘书长'</td>
+    </tr>
+  </table>
+
+  // ---------- 参会信息盒：三栏并列 ----------
+  <h3 style="fontSize:11pt; bold:true; color:#1F4E79; marginTop:12px; marginBottom:5px">'二、参会信息'</h3>
+  <div style="border:1px solid #9FB3C8; background:#F7F9FC; padding:8px 10px">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:170px">
+        <p style="fontSize:9pt; color:#1F4E79; bold:true; marginBottom:2px">'会议时间'</p>
+        <p style="fontSize:9pt; color:#333333">'2025年1月18日 09:00'</p>
+      </div>
+      <div style="width:200px">
+        <p style="fontSize:9pt; color:#1F4E79; bold:true; marginBottom:2px">'会议地点'</p>
+        <p style="fontSize:9pt; color:#333333">'××国际会议中心 三楼多功能厅'</p>
+      </div>
+      <div style="width:170px">
+        <p style="fontSize:9pt; color:#1F4E79; bold:true; marginBottom:2px">'参会回执截止'</p>
+        <p style="fontSize:9pt; color:#333333">'2025年1月12日 17:00'</p>
+      </div>
+    </div>
+  </div>
+
+  // ---------- 结语与落款：落款整体右对齐 ----------
+  <p style="fontSize:10pt; color:#333333; marginTop:14px; marginBottom:4px">'　　特此邀请，敬请拨冗出席。'</p>
+  <p style="fontSize:10pt; color:#333333; textAlignment:right; marginTop:10px; marginBottom:3px">'××省数字经济产业协会'</p>
+  <p style="fontSize:10pt; color:#333333; textAlignment:right">'2025年1月6日'</p>
+
+  // ---------- 联络方式 ----------
+  <div style="marginTop:16px">
+    <lineSeparator style="strokeColor:#C3CDD8"></lineSeparator>
+    <div style="display:flex; justifyContent:space-between; marginTop:6px">
+      <div style="width:270px">
+        <p style="fontSize:8pt; color:#8a939b">'会务联络：张××　电话：138-0000-0000'</p>
+      </div>
+      <div style="width:270px; textAlignment:right">
+        <p style="fontSize:8pt; color:#8a939b">'回执邮箱：invite@example.org　传真：0000-66666666'</p>
+      </div>
+    </div>
+  </div>
+</body>
+</pdf>

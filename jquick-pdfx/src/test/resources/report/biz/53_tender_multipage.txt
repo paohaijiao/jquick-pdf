@@ -1,0 +1,175 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 53 投标文件（多页标书版式，4 页）
+  // 页序：封面 → 目录 → 投标函 + 企业业绩（含折线图）→ 技术方案 + 商务报价 + 页脚
+  // 分页手段：使用 <areaBreak></areaBreak> 显式结束当前页；每页内容靠自身版式区分，
+  //           不依赖自动分页，保证标书各章起始页稳定。
+  // 与 16~52 的差异：本项目唯一一份「显式多页 + 封面 + 目录」版式；
+  //                 封面信息表为无竖线、仅下划线的「填写式」表格，落款与页脚均右对齐。
+  // ==========================================================================
+
+  // ==================== 第 1 页　封面 ====================
+  <div style="border:2px solid #6B4A2F; padding:16px">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:300px">
+        <p style="fontSize:9pt; color:#B71C1C; bold:true">'项目编号：ZB-2024-1124'</p>
+      </div>
+      <div style="width:200px; textAlignment:right">
+        <p style="fontSize:9pt; color:#B71C1C; bold:true; characterSpacing:2pt">'密级：内部'</p>
+      </div>
+    </div>
+
+    <h1 style="fontSize:26pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:12pt; marginTop:60px; marginBottom:8px">'投 标 文 件'</h1>
+    <p style="fontSize:12pt; color:#5A6B7C; textAlignment:center; marginBottom:44px">'（技术标 · 商务标 合订本）'</p>
+
+    <table style="width:430px; fontSize:11pt">
+      <tr>
+        <td style="width:130px; padding:8px; textAlign:right; color:#5A6B7C">'项目名称：'</td>
+        <td style="padding:8px; bold:true; color:#1A2733; borderBottom:1px solid #5A6B7C">'××市智慧交通数据中台建设项目'</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; textAlign:right; color:#5A6B7C">'招标单位：'</td>
+        <td style="padding:8px; bold:true; color:#1A2733; borderBottom:1px solid #5A6B7C">'××市交通运输局'</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; textAlign:right; color:#5A6B7C">'投标单位：'</td>
+        <td style="padding:8px; bold:true; color:#1A2733; borderBottom:1px solid #5A6B7C">'××数字科技有限公司'</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; textAlign:right; color:#5A6B7C">'法定代表人：'</td>
+        <td style="padding:8px; bold:true; color:#1A2733; borderBottom:1px solid #5A6B7C">'赵××'</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; textAlign:right; color:#5A6B7C">'投标日期：'</td>
+        <td style="padding:8px; bold:true; color:#1A2733; borderBottom:1px solid #5A6B7C">'2024年12月20日'</td>
+      </tr>
+    </table>
+
+    <p style="fontSize:11pt; bold:true; color:#1A2733; textAlignment:center; marginTop:46px">'××数字科技有限公司'</p>
+    <p style="fontSize:10pt; color:#5A6B7C; textAlignment:center; marginTop:3px">'二〇二四年十二月'</p>
+  </div>
+  <areaBreak></areaBreak>
+
+  // ==================== 第 2 页　目录 ====================
+  <div style="borderBottom:3px solid #1F4E79; paddingBottom:5px; marginBottom:12px">
+    <h1 style="fontSize:18pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:6pt">'目　　录'</h1>
+  </div>
+  <table style="width:500px; fontSize:10pt">
+    <tr>
+      <th style="width:70px; padding:6px; backgroundColor:#E8EDF2; textAlign:center; border:1px solid #C3CDD8">'章次'</th>
+      <th style="padding:6px; backgroundColor:#E8EDF2; border:1px solid #C3CDD8">'内容'</th>
+      <th style="width:70px; padding:6px; backgroundColor:#E8EDF2; textAlign:center; border:1px solid #C3CDD8">'页码'</th>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'第一章'</td>
+      <td style="padding:6px; border:1px solid #D3DCE5">'投标函'</td>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'1'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'第二章'</td>
+      <td style="padding:6px; border:1px solid #D3DCE5">'企业类似项目业绩'</td>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'2'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'第三章'</td>
+      <td style="padding:6px; border:1px solid #D3DCE5">'技术方案与实施计划'</td>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'3'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'第四章'</td>
+      <td style="padding:6px; border:1px solid #D3DCE5">'商务报价与付款条件'</td>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'4'</td>
+    </tr>
+  </table>
+  <div style="borderLeft:3px solid #C3CDD8; paddingLeft:8px; marginTop:12px">
+    <p style="fontSize:9pt; color:#5A6B7C">'说明：本目录页码以正文章节页计，封面与目录页不计入正文页码；随标书同时提交《企业业绩对比图》一张（见第二章）。'</p>
+  </div>
+  <areaBreak></areaBreak>
+
+  // ==================== 第 3 页　第一章 + 第二章 ====================
+  <h1 style="fontSize:15pt; bold:true; color:#1F4E79; borderLeft:5px solid #1F4E79; paddingLeft:8px; marginBottom:8px">'第一章　投标函'</h1>
+  <p style="fontSize:10pt; color:#333333; marginBottom:8px">'　　致：××市交通运输局　根据贵方项目编号为 ZB-2024-1124 的招标文件要求，我方经认真研究招标文件全部内容，愿按招标文件规定的各项条件参加投标，并作出如下承诺：'</p>
+  <list style="paddingLeft:16px; fontSize:10pt" listType="ordered">
+    <li style="marginBottom:3px">'投标报价以第四章《商务报价》为准，总价包含设备、软件、实施与三年运维。'</li>
+    <li style="marginBottom:3px">'项目工期为合同签订之日起 180 日历天内完成初验。'</li>
+    <li style="marginBottom:3px">'我方已提交投标保证金，并接受招标文件规定的评标办法与合同条款。'</li>
+  </list>
+  <p style="fontSize:10pt; color:#333333; textAlignment:right; marginTop:12px; marginBottom:3px">'投标单位（公章）：××数字科技有限公司'</p>
+  <p style="fontSize:10pt; color:#333333; textAlignment:right; marginBottom:3px">'法定代表人或授权代表（签字）：____________'</p>
+  <p style="fontSize:10pt; color:#333333; textAlignment:right">'日期：2024年12月20日'</p>
+
+  <h1 style="fontSize:15pt; bold:true; color:#1F4E79; borderLeft:5px solid #1F4E79; paddingLeft:8px; marginTop:16px; marginBottom:8px">'第二章　企业类似项目业绩'</h1>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:660pt">${svg}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#6c757d; italic:true; textAlignment:center; marginTop:4px">'图 2-1  近三年同类项目合同额与验收合格率（合同额单位：万元）'</p>
+  <areaBreak></areaBreak>
+
+  // ==================== 第 4 页　第三章 + 第四章 + 页脚 ====================
+  <h1 style="fontSize:15pt; bold:true; color:#1F4E79; borderLeft:5px solid #1F4E79; paddingLeft:8px; marginBottom:8px">'第三章　技术方案与实施计划'</h1>
+  <p style="fontSize:10pt; color:#333333; marginBottom:6px">'　　我方按「数据接入层 - 指标计算层 - 服务输出层」三层架构组织本项目实施，各阶段交付物如下：'</p>
+  <list style="paddingLeft:16px; fontSize:10pt" listType="ordered">
+    <li style="marginBottom:3px">'需求调研阶段：完成业务调研报告、指标口径说明书、数据源清单。'</li>
+    <li style="marginBottom:3px">'平台建设阶段：完成数据接入、指标体系配置、质量稽核规则上线。'</li>
+    <li style="marginBottom:3px">'应用开发阶段：完成驾驶舱、专题分析、移动端三个应用模块。'</li>
+    <li style="marginBottom:3px">'试运行与验收阶段：完成压力测试、用户培训与等保测评整改。'</li>
+  </list>
+
+  <h1 style="fontSize:15pt; bold:true; color:#1F4E79; borderLeft:5px solid #1F4E79; paddingLeft:8px; marginTop:14px; marginBottom:8px">'第四章　商务报价与付款条件'</h1>
+  <table style="width:540px; fontSize:10pt">
+    <tr>
+      <th style="width:40px; padding:6px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+      <th style="width:250px; padding:6px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'报价内容'</th>
+      <th style="width:120px; padding:6px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'金额（万元）'</th>
+      <th style="width:130px; padding:6px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'付款节点'</th>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'1'</td>
+      <td style="padding:6px; border:1px solid #D3DCE5">'硬件设备与网络改造'</td>
+      <td style="padding:6px; textAlign:right; border:1px solid #D3DCE5">'268.00'</td>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'合同签订后 30%'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'2'</td>
+      <td style="padding:6px; border:1px solid #D3DCE5">'数据中台软件许可'</td>
+      <td style="padding:6px; textAlign:right; border:1px solid #D3DCE5">'196.00'</td>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'初验通过后 40%'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'3'</td>
+      <td style="padding:6px; border:1px solid #D3DCE5">'实施与定制开发服务'</td>
+      <td style="padding:6px; textAlign:right; border:1px solid #D3DCE5">'142.00'</td>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'终验通过后 20%'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'4'</td>
+      <td style="padding:6px; border:1px solid #D3DCE5">'三年运维服务费'</td>
+      <td style="padding:6px; textAlign:right; border:1px solid #D3DCE5">'84.00'</td>
+      <td style="padding:6px; textAlign:center; border:1px solid #D3DCE5">'按年支付 10%'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; border:1px solid #9FB3C8">'—'</td>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; color:#1F4E79; border:1px solid #9FB3C8">'投标总价（含税）'</td>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; textAlign:right; color:#B71C1C; border:1px solid #9FB3C8">'690.00'</td>
+      <td style="padding:6px; backgroundColor:#E8EDF2; border:1px solid #9FB3C8">'—'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#5A6B7C; marginTop:6px">'注：投标总价为人民币陆佰玖拾万元整，已包含增值税及三年质保期内的全部服务费用。'</p>
+
+  <div style="marginTop:16px">
+    <lineSeparator style="strokeColor:#C3CDD8"></lineSeparator>
+    <div style="display:flex; justifyContent:space-between; marginTop:5px">
+      <div style="width:180px">
+        <p style="fontSize:8pt; color:#8a939b">'××市智慧交通数据中台建设项目'</p>
+      </div>
+      <div style="width:180px; textAlignment:center">
+        <p style="fontSize:8pt; color:#8a939b">'投标文件 · 共 4 章'</p>
+      </div>
+      <div style="width:180px; textAlignment:right">
+        <p style="fontSize:8pt; color:#8a939b">'××数字科技有限公司'</p>
+      </div>
+    </div>
+  </div>
+</body>
+</pdf>

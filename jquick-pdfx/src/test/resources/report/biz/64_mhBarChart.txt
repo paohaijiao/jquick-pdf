@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 64 多重横向柱状图 Demo：多组系列以横向条形并列展示，适合类别较多的对比
+  <div style="background:#311B92; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'各产品线年度预算与实际支出对比'</h1>
+        <p style="color:#D1C4E9; fontSize:9">'横向分组条形图：预算 / 实际 / 偏差 三组数据并列'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #9575CD; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计年度：2024 年'</p>
+        <p style="color:#D1C4E9; fontSize:9">'单位：万元'</p>
+        <p style="color:#D1C4E9; fontSize:9">'编制：财务管理部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #311B92">
+    <h2 style="color:#311B92; marginBottom:6px; fontSize:13; bold:true">'一、各产品线预算执行情况'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  多重横向柱状图：每行一个产品线，三根条分别为预算、实际、偏差率'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#311B92">'产品线 A 执行良好：'</span>'实际支出与预算基本持平，偏差率控制在 5% 以内。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#311B92">'产品线 C 超支明显：'</span>'实际支出超出预算 18%，需专项分析超支原因。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#311B92">'建议：'</span>'对超支产品线启动预算复核，下年度适度调整预算基数。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：财务总监'</p>
+</body>
+</pdf>

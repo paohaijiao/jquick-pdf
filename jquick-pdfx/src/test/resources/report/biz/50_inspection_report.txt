@@ -1,0 +1,142 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 50 产品质量检验报告（报告类版式，含柱状图）
+  // 版式要点：页头左标题区 + 右「编号信息盒」；样品信息四列表；检验项目五列表；
+  //           实测/标准对比柱状图；绿底大字判定结论；三栏签字区 + 声明小字。
+  // 与 16~49 的差异：本项目唯一一份「结论判定」类版式，结论用整块绿底强调框，
+  //                 页头右侧为带边框的编号信息盒（前 34 份均为纯文字左右分栏）。
+  // 语法约束：svg 只写 width；表格单元格只取纯文本，行内样式属性请放在 <p>/<span> 上。
+  // ==========================================================================
+
+  // ---------- 页头：左标题区 + 右编号信息盒 ----------
+  <div style="display:flex; justifyContent:space-between; marginBottom:10px">
+    <div style="width:320px">
+      <h1 style="fontSize:13pt; bold:true; color:#1F4E79; characterSpacing:1pt; marginBottom:2px">'××省产品质量监督检验研究院'</h1>
+      <h2 style="fontSize:17pt; bold:true; color:#1A2733; textAlignment:center; marginBottom:2px">'产品质量检验报告'</h2>
+      <p style="fontSize:8pt; color:#6c757d; textAlignment:center">'（委托检验 · 依据 GB/T 755-2019、GB/T 1032-2012）'</p>
+    </div>
+    // 信息盒宽 235px：盒内可用宽度 219px（235 减去左右内边距），恰好容纳 9pt 下 16 个汉字
+    //（「委托单位：××机电设备有限公司」约 144pt / 200px）；盒宽 195px 时该行会折行成「…有限公 / 司」。
+    <div style="width:235px; border:1px solid #1F4E79; padding:8px">
+      <p style="fontSize:9pt; color:#1F4E79; bold:true; marginBottom:3px">'报告编号：JY-2024-1206'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginBottom:3px">'委托单位：××机电设备有限公司'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginBottom:3px">'检验类别：委托检验'</p>
+      <p style="fontSize:9pt; color:#5A6B7C">'签发日期：2024年12月20日'</p>
+    </div>
+  </div>
+
+  // ---------- 一、样品信息：标签底色 + 值左对齐 ----------
+  <h3 style="fontSize:11pt; bold:true; color:#1F4E79; borderBottom:1px solid #1F4E79; paddingBottom:2px; marginBottom:6px">'一、样品信息'</h3>
+  <table style="width:560px; fontSize:9pt">
+    <tr>
+      <td style="width:80px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'样品名称'</td>
+      <td style="width:200px; padding:5px; border:1px solid #C3CDD8">'三相异步电动机'</td>
+      <td style="width:80px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'规格型号'</td>
+      <td style="width:200px; padding:5px; border:1px solid #C3CDD8">'Y2-132M-4'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'样品编号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'YP-2024-1206-01'</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'样品数量'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'12 台（抽检 3 台）'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'受检单位'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'××机电设备有限公司'</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'到样日期'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'2024年12月10日'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'样品状态'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'包装完好，外观无损伤'</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'检验环境'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'温度 22℃　湿度 55%RH'</td>
+    </tr>
+  </table>
+
+  // ---------- 二、检验项目与结果：五列，判定列居中 ----------
+  <h3 style="fontSize:11pt; bold:true; color:#1F4E79; borderBottom:1px solid #1F4E79; paddingBottom:2px; marginTop:10px; marginBottom:6px">'二、检验项目与结果'</h3>
+  <table style="width:560px; fontSize:9pt">
+    <tr>
+      <th style="width:36px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+      <th style="width:130px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'检验项目'</th>
+      <th style="width:150px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'技术要求'</th>
+      <th style="width:150px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'检验结果'</th>
+      <th style="width:94px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'单项判定'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'1'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'绝缘电阻（冷态）'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'不小于 20 MΩ'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'480 MΩ'</td>
+      <td style="padding:5px; textAlign:center; color:#1E7A46; bold:true; border:1px solid #D3DCE5">'合格'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'2'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'耐电压试验'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'1min 无击穿闪络'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'无击穿、无闪络'</td>
+      <td style="padding:5px; textAlign:center; color:#1E7A46; bold:true; border:1px solid #D3DCE5">'合格'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'3'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'空载电流'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'不大于 5.6 A'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'4.8 A'</td>
+      <td style="padding:5px; textAlign:center; color:#1E7A46; bold:true; border:1px solid #D3DCE5">'合格'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'4'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'空载损耗'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'不大于 190 W'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'172 W'</td>
+      <td style="padding:5px; textAlign:center; color:#1E7A46; bold:true; border:1px solid #D3DCE5">'合格'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'5'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'效率（额定点）'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'不低于 87.0 %'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'89.4 %'</td>
+      <td style="padding:5px; textAlign:center; color:#1E7A46; bold:true; border:1px solid #D3DCE5">'合格'</td>
+    </tr>
+  </table>
+
+  // ---------- 检验结果可视化：以技术要求为基准线的对比柱状图 ----------
+  <div style="display:flex; justifyContent:center; marginTop:8px">
+    <svg style="width:640pt">${svg}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#6c757d; italic:true; textAlignment:center; marginTop:4px">'图 1  各检验项目实测值与标准限值对比（绝缘电阻按 1/20 比例折算显示）'</p>
+
+  // ---------- 判定结论：整块绿底强调 ----------
+  <div style="border:2px solid #1E7A46; background:#EAF5EF; padding:10px; marginTop:8px">
+    <h2 style="fontSize:15pt; bold:true; color:#1E7A46; textAlignment:center; characterSpacing:2pt">'判 定 结 论 ： 合 格'</h2>
+    <p style="fontSize:9pt; color:#333333; textAlignment:center; marginTop:4px">'所检 5 个项目全部符合 GB/T 755-2019《旋转电机 定额和性能》要求，本次检验判定为合格。'</p>
+  </div>
+
+  // ---------- 备注：有序列表 ----------
+  <h3 style="fontSize:11pt; bold:true; color:#1F4E79; marginTop:10px; marginBottom:4px">'三、备注'</h3>
+  <list style="paddingLeft:16px; fontSize:9pt" listType="ordered">
+    <li style="marginBottom:3px">'本报告仅对来样负责，未经本院书面同意不得部分复制。'</li>
+    <li style="marginBottom:3px">'检验依据为委托方提供的产品标准，标准变更时结果解释权归本院。'</li>
+    <li style="marginBottom:3px">'如对报告有异议，应于收到报告之日起 15 日内向本院提出书面复核申请。'</li>
+  </list>
+
+  // ---------- 签字区：三栏 + 声明小字 ----------
+  <div style="display:flex; justifyContent:space-between; marginTop:16px">
+    <div style="width:160px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'主检人（签字）'</p>
+    </div>
+    <div style="width:160px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'审核人（签字）'</p>
+    </div>
+    <div style="width:160px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'批准人（签字）'</p>
+    </div>
+  </div>
+  <div style="marginTop:10px">
+    <lineSeparator style="strokeColor:#C3CDD8"></lineSeparator>
+    <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:3px">'联系地址：××省××市××区检测路 8 号　　联系电话：0000-88888888　　报告查询：www.example-jy.cn'</p>
+  </div>
+</body>
+</pdf>

@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 59 四系列柱状图 Demo：同一维度下并列展示四个系列的数值对比
+  <div style="background:#E65100; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'分区域季度销售四系列对比'</h1>
+        <p style="color:#FFCCBC; fontSize:9">'华东 / 华北 / 华南 / 西部 四大区域，2024 年四季度各月销售额'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #FFAB91; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计周期：2024 年 10-12 月'</p>
+        <p style="color:#FFCCBC; fontSize:9">'单位：万元'</p>
+        <p style="color:#FFCCBC; fontSize:9">'编制：销售运营部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #E65100">
+    <h2 style="color:#E65100; marginBottom:6px; fontSize:13; bold:true">'一、各区域月度销售额对比'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  四系列分组柱状图：每组四根柱分别代表华东、华北、华南、西部销售额'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#E65100">'华东持续领先：'</span>'连续三个月销售额居首，12 月突破 900 万。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#E65100">'西部增速最快：'</span>'10 月至 12 月环比增长显著，市场拓展初见成效。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#E65100">'建议：'</span>'华北区域 12 月略有回落，需关注重点客户续约情况。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：销售总监'</p>
+</body>
+</pdf>

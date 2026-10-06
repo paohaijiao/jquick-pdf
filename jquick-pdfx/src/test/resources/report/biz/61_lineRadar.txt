@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 61 折线雷达混合图 Demo：折线展示时间序列趋势，雷达展示多维度能力分布
+  <div style="background:#00695C; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'城市综合发展评估折线雷达图'</h1>
+        <p style="color:#B2DFDB; fontSize:9">'折线：GDP 季度走势　雷达：五维发展指数得分'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #4DB6AC; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计年度：2024 年'</p>
+        <p style="color:#B2DFDB; fontSize:9">'评估对象：某市'</p>
+        <p style="color:#B2DFDB; fontSize:9">'编制：发改研究院'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #00695C">
+    <h2 style="color:#00695C; marginBottom:6px; fontSize:13; bold:true">'一、季度 GDP 走势与五维发展指数'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  折线雷达混合图：折线反映季度 GDP 增速，雷达散点反映创新、协调、绿色、开放、共享五维得分'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#00695C">'经济稳步增长：'</span>'四个季度 GDP 增速保持在合理区间，四季度小幅回升。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#00695C">'绿色指数突出：'</span>'五维中绿色发展得分最高，生态环境治理成效显著。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#00695C">'建议：'</span>'创新维度仍有提升空间，建议加大研发投入与人才引进力度。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：研究院院长'</p>
+</body>
+</pdf>

@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 65 多重折线图 Demo：多个系列以折线形式叠加展示同一时间维度的变化趋势
+  <div style="background:#006064; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'三大业务板块月度营收走势'</h1>
+        <p style="color:#B2EBF2; fontSize:9">'软件 / 硬件 / 服务 三条业务线，2024 年逐月营收对比'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #4DD0E1; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计周期：2024 年 1-12 月'</p>
+        <p style="color:#B2EBF2; fontSize:9">'单位：万元'</p>
+        <p style="color:#B2EBF2; fontSize:9">'编制：经营分析部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #006064">
+    <h2 style="color:#006064; marginBottom:6px; fontSize:13; bold:true">'一、各板块月度营收走势'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  多重折线图：三条折线分别代表软件、硬件、服务业务的月度营收'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#006064">'软件业务稳健增长：'</span>'全年保持稳定上升态势，12 月达到峰值。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#006064">'硬件业务波动较大：'</span>'受供应链影响，Q2 出现阶段性回落。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#006064">'服务业务增速最快：'</span>'同比增幅超过 30%，成为新的增长引擎。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：运营总监'</p>
+</body>
+</pdf>

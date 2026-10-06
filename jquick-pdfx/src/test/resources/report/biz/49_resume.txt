@@ -1,0 +1,107 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 49 个人简历（左深色侧栏 + 右主栏时间轴版式）
+  // 版式要点：整体为左右双栏，左栏 185px 深蓝底白字（姓名/联系方式/技能/证书），
+  //           右栏 345px 白底正文；工作与项目经历采用「时间 + 左色条」时间轴结构。
+  // 与 16~48 的差异：本项目唯一一份「深色整列侧栏 + 时间轴」版式，页头不做通栏标题，
+  //                 姓名落在左栏顶部，正文各小节统一使用「左侧竖条标题」。
+  // ==========================================================================
+  <div style="display:flex; justifyContent:space-between">
+
+    // ---------- 左栏：深色个人信息侧栏 ----------
+    <div style="width:185px; background:#23405C; padding:12px 10px">
+      <h1 style="color:white; fontSize:17pt; bold:true; characterSpacing:2pt; marginBottom:2px">'陈嘉禾'</h1>
+      // 侧栏可用宽度仅 165px（185px 减去左右内边距），每行文案都按「8pt 下不超过 19 个汉字」控制，
+      // 否则会折行，且折行点容易落在「求职意向：」这类标签的冒号后，读起来像两段错乱的文字。
+      <p style="color:#9FB3C8; fontSize:9pt; marginBottom:2px">'高级数据分析师'</p>
+      <p style="color:#9FB3C8; fontSize:8pt; marginBottom:8px">'求职意向：数据平台负责人'</p>
+      <lineSeparator style="strokeColor:#3C5166"></lineSeparator>
+
+      <p style="color:white; fontSize:10pt; bold:true; marginTop:8px; marginBottom:4px">'联系方式'</p>
+      <p style="color:#DCE6F0; fontSize:8pt; marginBottom:2px">'手机：138-0000-0000'</p>
+      <p style="color:#DCE6F0; fontSize:8pt; marginBottom:2px">'邮箱：chenjiahe@example.com'</p>
+      <p style="color:#DCE6F0; fontSize:8pt; marginBottom:2px">'城市：上海（可即时到岗）'</p>
+
+      <lineSeparator style="strokeColor:#3C5166"></lineSeparator>
+      <p style="color:white; fontSize:10pt; bold:true; marginTop:8px; marginBottom:4px">'核心技能'</p>
+      <list style="listStyleType:none; paddingLeft:2px; fontSize:8pt">
+        <li style="marginBottom:3px; color:#DCE6F0">'SQL / 数据建模　精通'</li>
+        <li style="marginBottom:3px; color:#DCE6F0">'Python / Pandas　熟练'</li>
+        <li style="marginBottom:3px; color:#DCE6F0">'指标体系设计　熟练'</li>
+        <li style="marginBottom:3px; color:#DCE6F0">'BI 可视化　熟练'</li>
+        <li style="marginBottom:3px; color:#DCE6F0">'AB 实验设计　了解'</li>
+      </list>
+
+      <lineSeparator style="strokeColor:#3C5166"></lineSeparator>
+      <p style="color:white; fontSize:10pt; bold:true; marginTop:8px; marginBottom:4px">'职业证书'</p>
+      <p style="color:#DCE6F0; fontSize:8pt; marginBottom:2px">'CDA 数据分析师（三级）'</p>
+      <p style="color:#DCE6F0; fontSize:8pt; marginBottom:2px">'PMP 项目管理专业人士'</p>
+      <p style="color:#DCE6F0; fontSize:8pt">'英语 CET-6（可读写技术文档）'</p>
+    </div>
+
+    // ---------- 右栏：白底正文，小节统一用「左侧竖条标题」 ----------
+    <div style="width:345px">
+
+      <h2 style="fontSize:12pt; bold:true; color:#1F4E79; borderLeft:4px solid #1F4E79; paddingLeft:6px; marginBottom:5px">'个人简介'</h2>
+      <p style="fontSize:9pt; color:#333333; marginBottom:6px">'7 年数据分析与数据平台建设经验，主导过 3 个从 0 到 1 的指标体系落地项目，覆盖零售、政务两类行业；擅长把业务口径翻译成可计算的指标定义，并推动数据质量治理闭环。'</p>
+
+      <h2 style="fontSize:12pt; bold:true; color:#1F4E79; borderLeft:4px solid #1F4E79; paddingLeft:6px; marginBottom:5px">'工作经历'</h2>
+      // 时间轴：左列 100px 恰好容纳「2018.03-2021.05」这类 15 个半角字符的日期（约 92px），
+      // 因此日期内的连接符两侧不留空格；留空格会使日期折成两行，年份与月份被拆散。
+      <div style="display:flex; justifyContent:space-between; marginBottom:8px">
+        <div style="width:100px">
+          <p style="fontSize:8pt; bold:true; color:#5A6B7C">'2021.06-至今'</p>
+        </div>
+        <div style="width:235px; borderLeft:2px solid #C3CDD8; paddingLeft:8px">
+          // 公司名与职位分两行写：两者拼在一行会超出 162pt 的可用宽度，折行后只剩一个「人」字
+          // 落在第二行，看起来像排版事故。
+          <p style="fontSize:10pt; bold:true; color:#1A2733; marginBottom:1px">'××数字科技有限公司'</p>
+          <p style="fontSize:9pt; color:#1F4E79">'数据平台负责人'</p>
+          <list style="listStyleType:disc; paddingLeft:14px; fontSize:8pt; color:#333333">
+            <li style="marginBottom:3px">'牵头搭建统一指标体系，消除口径冲突'</li>
+            <li style="marginBottom:3px">'建设指标血缘与稽核规则，缩短日报延迟'</li>
+            <li style="marginBottom:3px">'带 6 人团队交付经营分析看板'</li>
+          </list>
+        </div>
+      </div>
+      <div style="display:flex; justifyContent:space-between; marginBottom:8px">
+        <div style="width:100px">
+          <p style="fontSize:8pt; bold:true; color:#5A6B7C">'2018.03-2021.05'</p>
+        </div>
+        <div style="width:235px; borderLeft:2px solid #C3CDD8; paddingLeft:8px">
+          <p style="fontSize:10pt; bold:true; color:#1A2733; marginBottom:1px">'××连锁商业集团'</p>
+          <p style="fontSize:9pt; color:#1F4E79">'高级数据分析师'</p>
+          <list style="listStyleType:disc; paddingLeft:14px; fontSize:8pt; color:#333333">
+            <li style="marginBottom:3px">'负责门店经营分析，推动低效门店调整'</li>
+            <li style="marginBottom:3px">'搭建商品结构分析模型，压降滞销库存'</li>
+          </list>
+        </div>
+      </div>
+
+      <h2 style="fontSize:12pt; bold:true; color:#1F4E79; borderLeft:4px solid #1F4E79; paddingLeft:6px; marginBottom:5px">'项目经验'</h2>
+      <div style="display:flex; justifyContent:space-between; marginBottom:8px">
+        <div style="width:100px">
+          <p style="fontSize:8pt; bold:true; color:#5A6B7C">'2023.02-2023.11'</p>
+        </div>
+        <div style="width:235px; borderLeft:2px solid #C3CDD8; paddingLeft:8px">
+          <p style="fontSize:10pt; bold:true; color:#1A2733">'集团经营指标中台（项目负责人）'</p>
+          <p style="fontSize:8pt; color:#333333">'统一 320 个经营指标定义，交付指标检索、血缘追溯、异常预警三个模块。'</p>
+        </div>
+      </div>
+
+      <h2 style="fontSize:12pt; bold:true; color:#1F4E79; borderLeft:4px solid #1F4E79; paddingLeft:6px; marginBottom:5px">'教育背景'</h2>
+      <table style="width:335px; fontSize:8pt">
+        <tr>
+          <td style="width:100px; padding:4px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'2014.09-2018.06'</td>
+          <td style="padding:4px; border:1px solid #C3CDD8">'××大学　统计学　本科 / 学士'</td>
+        </tr>
+        <tr>
+          <td style="padding:4px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'主修课程'</td>
+          <td style="padding:4px; border:1px solid #C3CDD8">'概率论 / 多元统计 / 数据挖掘 / 计量经济'</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+</pdf>

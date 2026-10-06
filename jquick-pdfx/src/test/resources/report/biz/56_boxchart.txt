@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 56 盒须图（箱线图）Demo：用于展示多组数据的分布、四分位数与离群值
+  <div style="background:#1F4E79; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'产线质量指标分布盒须图'</h1>
+        <p style="color:#C7D6EA; fontSize:9">'各产线关键尺寸的最小/下四分位/中位数/上四分位/最大值与离群值'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #6E8FBF; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计周期：2024年 Q4'</p>
+        <p style="color:#C7D6EA; fontSize:9">'样本量：每条产线 200 件'</p>
+        <p style="color:#C7D6EA; fontSize:9">'编制：质量管理部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #1F4E79">
+    <h2 style="color:#1F4E79; marginBottom:6px; fontSize:13; bold:true">'一、各产线关键尺寸分布'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  盒须图：箱体上下沿为 Q1/Q3，中线为中位数，须线为极值，红点为离群值（数据来源：SPC 系统）'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#1F4E79">'产线 A、D 离散度小：'</span>'箱体窄、中位数居中，过程稳定性较好。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#1F4E79">'产线 C 中位数偏低：'</span>'整体均值低于目标值，需复核刀具磨损补偿参数。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#1F4E79">'离群点集中在 B 线：'</span>'建议排查 B 线首件检验与换型首件流程。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：质量总监'</p>
+</body>
+</pdf>

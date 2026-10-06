@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 67 词云图 Demo：以词语出现的频次决定字体大小，直观展示高频关键词
+  <div style="background:#212121; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'年度产品用户评价关键词词云'</h1>
+        <p style="color:#BDBDBD; fontSize:9">'字体越大代表出现频次越高，颜色区分不同情感倾向'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #616161; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'数据来源：用户评价系统'</p>
+        <p style="color:#BDBDBD; fontSize:9">'样本量：50,000 条评价'</p>
+        <p style="color:#BDBDBD; fontSize:9">'编制：用户研究部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #212121">
+    <h2 style="color:#212121; marginBottom:6px; fontSize:13; bold:true">'一、用户评价高频关键词'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  词云图：字体大小对应关键词出现频次，颜色随机区分（数据来源：NLP 分词统计）'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#212121">'正面高频词：'</span>'"稳定"、"高效"、"易用" 等词出现频次最高，用户对核心体验认可度高。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#212121">'需关注词：'</span>'"卡顿"、"闪退" 等词仍有一定出现量，需优化性能稳定性。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#212121">'建议：'</span>'针对负面高频词进行专项优化，并在发版说明中向用户同步改进结果。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：用户研究总监'</p>
+</body>
+</pdf>

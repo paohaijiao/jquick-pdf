@@ -1,0 +1,105 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 54 业务受理回执单（回执 / 签收类版式）
+  // 版式要点：细边框标题区（编号左、日期右）→ 受理信息四列表 → 灰底条小节标题 →
+  //           两列 checkbox 确认事项 → 裁剪线 + 客户留存联 → 双栏签字区 → 联次注记。
+  // 与 16~53 的差异：本项目唯一一份「回执 / 签收」版式，也是唯一使用 checkbox 表单元素
+  //                 的模板（47 号仅演示单个勾选项写法），并用线分隔出可裁剪的留存联。
+  // 语法约束：checkbox 自带 checked 属性时必须 style 在前：<checkbox style="..." checked>
+  // ==========================================================================
+
+  // ---------- 标题区：居中标题 + 编号 / 日期分列两端 ----------
+  <div style="border:1px solid #1F4E79; padding:10px">
+    <h1 style="fontSize:16pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:4pt; marginBottom:6px">'业务受理回执单'</h1>
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:250px">
+        <p style="fontSize:9pt; color:#5A6B7C">'回执编号：HZ-2024-1206-0186'</p>
+      </div>
+      <div style="width:250px; textAlignment:right">
+        // 右对齐长行必须拆开写：250px 容不下「受理日期 + 受理窗口」整句，自动折行会把
+        // 「综合服务 3 号窗口」拆成两行，视觉上像两条不同信息。
+        <p style="fontSize:9pt; color:#5A6B7C">'受理日期：2024年12月6日'</p>
+        <p style="fontSize:9pt; color:#5A6B7C">'受理窗口：综合服务 3 号窗口'</p>
+      </div>
+    </div>
+  </div>
+
+  // ---------- 小节标题：灰底通栏条（与其它模板的左侧竖条不同）----------
+  <div style="background:#E8EDF2; borderLeft:4px solid #1F4E79; padding:4px 8px; marginTop:10px; marginBottom:6px">
+    <p style="fontSize:10pt; bold:true; color:#1F4E79">'一、受理信息'</p>
+  </div>
+  <table style="width:560px; fontSize:9pt">
+    <tr>
+      <td style="width:80px; padding:5px; bold:true; color:#5A6B7C; borderBottom:1px solid #D3DCE5">'申请人'</td>
+      <td style="width:180px; padding:5px; borderBottom:1px solid #D3DCE5">'陈嘉禾'</td>
+      <td style="width:80px; padding:5px; bold:true; color:#5A6B7C; borderBottom:1px solid #D3DCE5">'联系电话'</td>
+      <td style="width:220px; padding:5px; borderBottom:1px solid #D3DCE5">'138-0000-0000'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; bold:true; color:#5A6B7C; borderBottom:1px solid #D3DCE5">'申请事项'</td>
+      <td style="padding:5px; borderBottom:1px solid #D3DCE5">'企业数据资产登记'</td>
+      <td style="padding:5px; bold:true; color:#5A6B7C; borderBottom:1px solid #D3DCE5">'业务类型'</td>
+      <td style="padding:5px; borderBottom:1px solid #D3DCE5">'首次登记'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; bold:true; color:#5A6B7C; borderBottom:1px solid #D3DCE5">'提交材料'</td>
+      <td style="padding:5px; borderBottom:1px solid #D3DCE5">'共 5 份（清单见附件）'</td>
+      <td style="width:100px; padding:5px; bold:true; color:#5A6B7C; borderBottom:1px solid #D3DCE5">'办结时限'</td>
+      <td style="padding:5px; borderBottom:1px solid #D3DCE5">'3 个工作日'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; bold:true; color:#5A6B7C; borderBottom:1px solid #D3DCE5">'当前状态'</td>
+      <td style="padding:5px; bold:true; color:#1E7A46; borderBottom:1px solid #D3DCE5">'已受理 · 待审核'</td>
+      <td style="padding:5px; bold:true; color:#5A6B7C; borderBottom:1px solid #D3DCE5">'查询方式'</td>
+      <td style="padding:5px; borderBottom:1px solid #D3DCE5">'凭回执编号在线查询办理进度'</td>
+    </tr>
+  </table>
+
+  // ---------- 确认事项：两列 checkbox，勾选项用 checked ----------
+  <div style="background:#E8EDF2; borderLeft:4px solid #1F4E79; padding:4px 8px; marginTop:10px; marginBottom:6px">
+    <p style="fontSize:10pt; bold:true; color:#1F4E79">'二、窗口已办事项确认'</p>
+  </div>
+  <div style="display:flex; justifyContent:space-between">
+    <div style="width:270px">
+      <p style="fontSize:9pt"><checkbox style="width:9px; marginRight:6px; fontSize:9pt" checked>'申请材料当场核对齐全'</checkbox></p>
+      <p style="fontSize:9pt"><checkbox style="width:9px; marginRight:6px; fontSize:9pt" checked>'受理通知书已交付申请人'</checkbox></p>
+      <p style="fontSize:9pt"><checkbox style="width:9px; marginRight:6px; fontSize:9pt" checked>'办结时限与查询方式已告知'</checkbox></p>
+    </div>
+    <div style="width:270px">
+      <p style="fontSize:9pt"><checkbox style="width:9px; marginRight:6px; fontSize:9pt">'已出具材料补正清单'</checkbox></p>
+      <p style="fontSize:9pt"><checkbox style="width:9px; marginRight:6px; fontSize:9pt">'需现场核查后另行通知'</checkbox></p>
+      <p style="fontSize:9pt"><checkbox style="width:9px; marginRight:6px; fontSize:9pt">'已收取费用并开具票据'</checkbox></p>
+    </div>
+  </div>
+
+  // ---------- 办理须知：有序列表 ----------
+  <div style="background:#E8EDF2; borderLeft:4px solid #1F4E79; padding:4px 8px; marginTop:10px; marginBottom:6px">
+    <p style="fontSize:10pt; bold:true; color:#1F4E79">'三、办理须知'</p>
+  </div>
+  <list style="paddingLeft:16px; fontSize:9pt" listType="ordered">
+    <li style="marginBottom:3px">'请妥善保管本回执，办理进度查询与结果领取均需提供回执编号。'</li>
+    <li style="marginBottom:3px">'审核过程中如需补充材料，将通过预留电话或短信通知，请保持畅通。'</li>
+    <li style="marginBottom:3px">'对办理结果有异议的，可在收到结果之日起 15 日内申请复核。'</li>
+  </list>
+
+  // ---------- 裁剪线 + 客户留存联 ----------
+  <div style="marginTop:14px">
+    <p style="fontSize:8pt; color:#B0BEC5; textAlignment:center; marginBottom:2px">'— — — — — — — — — — — — — — 沿 此 线 裁 剪 ， 以 下 为 客 户 留 存 联 — — — — — — — — — — — — — —'</p>
+    <lineSeparator style="strokeColor:#B0BEC5"></lineSeparator>
+    <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:4px">'客户留存联　回执编号：HZ-2024-1206-0186　　申请人：陈嘉禾　　受理日期：2024年12月6日　　承诺办结：3 个工作日'</p>
+  </div>
+
+  // ---------- 签字区：双栏 ----------
+  <div style="display:flex; justifyContent:space-between; marginTop:16px">
+    <div style="width:250px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'申请人（签收）　　　　　年　　月　　日'</p>
+    </div>
+    <div style="width:250px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'受理人（签章）　　　　　年　　月　　日'</p>
+    </div>
+  </div>
+
+  <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:12px">'本回执一式两联：第一联　受理窗口留存　　第二联　申请人留存（裁剪线以下部分）'</p>
+</body>
+</pdf>

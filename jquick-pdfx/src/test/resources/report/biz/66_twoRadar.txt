@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 66 双雷达图 Demo：左右两个雷达并列展示两组对象的多维度能力对比
+  <div style="background:#880E4F; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'两家供应商多维度能力双雷达对比'</h1>
+        <p style="color:#F8BBD0; fontSize:9">'左：供应商 A　右：供应商 B　维度：质量/价格/交付/服务/技术/响应'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #F48FB1; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'评估年度：2024 年'</p>
+        <p style="color:#F8BBD0; fontSize:9">'评估方式：综合打分（满分 100）'</p>
+        <p style="color:#F8BBD0; fontSize:9">'编制：采购管理部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #880E4F">
+    <h2 style="color:#880E4F; marginBottom:6px; fontSize:13; bold:true">'一、供应商 A 与 B 六维能力对比'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  双雷达图：左侧雷达为供应商 A，右侧雷达为供应商 B，六维评分对比'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#880E4F">'质量与技术：'</span>'供应商 A 在质量稳定性和技术实力上得分更高。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#880E4F">'价格与响应：'</span>'供应商 B 价格更具竞争力，响应速度更快。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#880E4F">'建议：'</span>'战略物资优先 A，通用类物资可引入 B 形成竞争，降低综合采购成本。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：采购总监'</p>
+</body>
+</pdf>

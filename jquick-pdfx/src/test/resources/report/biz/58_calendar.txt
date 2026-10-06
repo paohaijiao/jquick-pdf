@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 58 日历热力图 Demo：以日历形式展示某指标在一年中每日的分布（颜色深浅代表数值大小）
+  <div style="background:#4A148C; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'2024 年销售出单日历热力图'</h1>
+        <p style="color:#D1C4E9; fontSize:9">'颜色深浅代表当日订单金额，颜色越深金额越高'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #9575CD; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计年度：2024 年'</p>
+        <p style="color:#D1C4E9; fontSize:9">'业务条线：全部'</p>
+        <p style="color:#D1C4E9; fontSize:9">'编制：销售运营部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #4A148C">
+    <h2 style="color:#4A148C; marginBottom:6px; fontSize:13; bold:true">'一、全年出单热度分布'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  日历热力图：每个单元格为一日，颜色由浅紫到深紫对应订单金额由低到高'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#4A148C">'季度末出单集中：'</span>'3、6、9、12 月末深色单元格明显增多，与季度考核冲刺相关。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#4A148C">'节假日低谷：'</span>'春节、国庆假期订单量明显下降，颜色变浅。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#4A148C">'建议：'</span>'可在节前提前储备订单，平衡全年节奏，避免季度末过度承压。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：销售总监'</p>
+</body>
+</pdf>

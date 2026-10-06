@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 57 气泡图 Demo：X 轴为维度一、Y 轴为维度二、气泡大小为第三维度（权重）
+  <div style="background:#1B5E20; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'城市空气质量监测气泡图'</h1>
+        <p style="color:#C8E6C9; fontSize:9">'X 轴：日期　Y 轴：AQI 数值　气泡大小：PM2.5 浓度　颜色：空气质量等级'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #66BB6A; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'监测周期：2024年1月'</p>
+        <p style="color:#C8E6C9; fontSize:9">'监测站点：15 个国控点'</p>
+        <p style="color:#C8E6C9; fontSize:9">'编制：生态环境监测中心'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #1B5E20">
+    <h2 style="color:#1B5E20; marginBottom:6px; fontSize:13; bold:true">'一、1 月逐日 AQI 与 PM2.5 关系'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  气泡图：气泡越大代表 PM2.5 浓度越高，颜色由绿到紫对应 AQI 等级由优到重污染'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#1B5E20">'上旬整体优良：'</span>'1 月上旬 AQI 多在 100 以下，PM2.5 浓度较低。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#1B5E20">'中下旬污染加重：'</span>'受静稳天气影响，AQI 上升至轻度至中度污染区间，PM2.5 同步升高。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#1B5E20">'建议：'</span>'污染过程期间启动应急减排，加强工业源与移动源管控。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：监测中心主任'</p>
+</body>
+</pdf>

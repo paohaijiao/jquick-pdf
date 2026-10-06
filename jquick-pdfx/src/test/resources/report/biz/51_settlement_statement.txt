@@ -1,0 +1,143 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 51 工程材料结算单（财务结算类版式）
+  // 版式要点：细线标题区（标题居中，单号靠左、日期靠右）→ 甲乙双方并列双盒 →
+  //           费用明细五列表（末行高亮合计）→ 大写/小写金额条 → 收款账户盒 →
+  //           结算说明编号列表 → 底部「备注 + 盖章框（垂直居中）」。
+  // 与 16~50 的差异：本项目唯一一份「甲乙双方并列双盒 + 盖章框」版式；
+  //                 合计金额直接落在明细表末行（前 34 份合计均放在表外或段落里）。
+  // ==========================================================================
+
+  // ---------- 标题区：居中标题 + 上下细线，单号与日期分列两端 ----------
+  <div style="borderTop:3px solid #2F5597; borderBottom:1px solid #2F5597; padding:6px 0; marginBottom:10px">
+    <h1 style="fontSize:17pt; bold:true; color:#2F5597; textAlignment:center; characterSpacing:3pt">'工程材料结算单'</h1>
+  </div>
+  <div style="display:flex; justifyContent:space-between; marginBottom:8px">
+    <div style="width:280px">
+      <p style="fontSize:9pt; color:#5A6B7C">'结算单号：JS-2024-12-0186'</p>
+    </div>
+    <div style="width:280px; textAlignment:right">
+      // 右对齐的长行不要指望自动折行：280px 装不下「结算期间 + 结算日期」两项，
+      // 折行点会落在「结算日期」的冒号后，出现「结算日期 / ：2024年…」的错位。拆成两行更稳。
+      <p style="fontSize:9pt; color:#5A6B7C">'结算期间：2024年11月1日 - 11月30日'</p>
+      <p style="fontSize:9pt; color:#5A6B7C">'结算日期：2024年12月18日'</p>
+    </div>
+  </div>
+
+  // ---------- 甲乙双方：并列双盒，盒头深色条 ----------
+  <div style="display:flex; justifyContent:space-between; marginBottom:10px">
+    <div style="width:250px; border:1px solid #9FB3C8">
+      <div style="background:#2F5597; padding:4px 8px">
+        <p style="fontSize:10pt; bold:true; color:white">'甲方（发包单位）'</p>
+      </div>
+      <div style="padding:7px 8px">
+        <p style="fontSize:9pt; color:#333333; marginBottom:3px">'单位名称：××市政建设集团有限公司'</p>
+        <p style="fontSize:9pt; color:#333333; marginBottom:3px">'项目名称：××路地下管网改造工程'</p>
+        <p style="fontSize:9pt; color:#333333; marginBottom:3px">'项目经理：王涛　　电话：139-0000-0000'</p>
+        <p style="fontSize:9pt; color:#333333">'纳税人识别号：91310000××××××××'</p>
+      </div>
+    </div>
+    <div style="width:250px; border:1px solid #9FB3C8">
+      <div style="background:#2F5597; padding:4px 8px">
+        <p style="fontSize:10pt; bold:true; color:white">'乙方（供货单位）'</p>
+      </div>
+      <div style="padding:7px 8px">
+        <p style="fontSize:9pt; color:#333333; marginBottom:3px">'单位名称：××机电设备有限公司'</p>
+        <p style="fontSize:9pt; color:#333333; marginBottom:3px">'供货合同号：HT-2024-1124'</p>
+        <p style="fontSize:9pt; color:#333333; marginBottom:3px">'业务联系人：陈明　　电话：138-0000-0000'</p>
+        <p style="fontSize:9pt; color:#333333">'纳税人识别号：91320000××××××××'</p>
+      </div>
+    </div>
+  </div>
+
+  // ---------- 费用明细：五列 + 末行高亮合计 ----------
+  <h3 style="fontSize:11pt; bold:true; color:#2F5597; marginBottom:5px">'一、费用明细'</h3>
+  <table style="width:560px; fontSize:9pt">
+    <tr>
+      <th style="width:40px; padding:5px; backgroundColor:#2F5597; color:white; textAlign:center; border:1px solid #2F5597">'序号'</th>
+      <th style="width:210px; padding:5px; backgroundColor:#2F5597; color:white; textAlign:center; border:1px solid #2F5597">'费用项目'</th>
+      <th style="width:60px; padding:5px; backgroundColor:#2F5597; color:white; textAlign:center; border:1px solid #2F5597">'数量'</th>
+      <th style="width:110px; padding:5px; backgroundColor:#2F5597; color:white; textAlign:center; border:1px solid #2F5597">'单价（元）'</th>
+      <th style="width:140px; padding:5px; backgroundColor:#2F5597; color:white; textAlign:center; border:1px solid #2F5597">'金额（元）'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'1'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'低压配电柜（含基础槽钢）'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'4'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'8,650.00'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'34,600.00'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'2'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'铜芯电缆 YJV-4×25'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'860'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'68.50'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'58,910.00'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'3'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'三相异步电动机 Y2-132M-4'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'12'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'2,180.00'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'26,160.00'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'4'</td>
+      <td style="padding:5px; border:1px solid #D3DCE5">'不锈钢法兰 DN100 PN16'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'120'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'86.00'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'10,320.00'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; border:1px solid #9FB3C8">'—'</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; color:#2F5597; border:1px solid #9FB3C8">'合　计'</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; border:1px solid #9FB3C8">'—'</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; textAlign:right; color:#5A6B7C; border:1px solid #9FB3C8">'—'</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; textAlign:right; color:#B71C1C; border:1px solid #9FB3C8">'129,990.00'</td>
+    </tr>
+  </table>
+
+  // ---------- 金额条：大写 + 小写 ----------
+  <div style="border:1px solid #2F5597; background:#F7F9FC; padding:7px 10px; marginTop:6px">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:360px">
+        <p style="fontSize:10pt; color:#333333">'结算金额（大写）：壹拾贰万玖仟玖佰玖拾元整'</p>
+      </div>
+      <div style="width:190px; textAlignment:right">
+        <p style="fontSize:10pt; bold:true; color:#B71C1C">'小写：￥129,990.00'</p>
+      </div>
+    </div>
+  </div>
+
+  // ---------- 收款账户 + 结算说明：左右并排 ----------
+  <div style="display:flex; justifyContent:space-between; marginTop:10px">
+    <div style="width:268px; border:1px solid #9FB3C8; padding:7px 8px">
+      <p style="fontSize:10pt; bold:true; color:#2F5597; marginBottom:4px">'二、收款账户信息'</p>
+      <p style="fontSize:9pt; color:#333333; marginBottom:3px">'收款单位：××机电设备有限公司'</p>
+      <p style="fontSize:9pt; color:#333333; marginBottom:3px">'开户银行：××银行××支行营业部'</p>
+      <p style="fontSize:9pt; color:#333333">'银行账号：6222 0000 0000 0000 000'</p>
+    </div>
+    <div style="width:268px">
+      <p style="fontSize:10pt; bold:true; color:#2F5597; marginBottom:4px">'三、结算说明'</p>
+      <list style="paddingLeft:15px; fontSize:9pt" listType="ordered">
+        <li style="marginBottom:3px">'本结算单依据双方供货合同及现场验收记录编制。'</li>
+        <li style="marginBottom:3px">'付款方式：结算单确认后 30 日内电汇到账。'</li>
+        <li style="marginBottom:3px">'如对结算金额有异议，请于 5 个工作日内书面提出。'</li>
+      </list>
+    </div>
+  </div>
+
+  // ---------- 盖章区：左侧备注 + 右侧盖章框（垂直居中）----------
+  <div style="display:flex; justifyContent:space-between; marginTop:12px">
+    <div style="width:300px; borderLeft:3px solid #C3CDD8; paddingLeft:8px">
+      <p style="fontSize:8pt; color:#8a939b">'备注：本单一式肆份，甲方财务、甲方项目部、乙方财务、乙方业务各执壹份，加盖双方财务专用章后生效。'</p>
+    </div>
+    // 注意：verticalAlignment 需要盒子「有可见背景或边框」才生效；此处必须同时给背景色，
+    // 否则渲染器试排版阶段的文字不会被背景覆盖，会出现「（乙方盖章）」重复绘制。
+    <div style="width:190px; height:88px; border:1px solid #9FB3C8; background:#FBFCFD; verticalAlignment:middle">
+      <p style="fontSize:10pt; color:#9FB3C8; textAlignment:center">'（乙方盖章）'</p>
+    </div>
+  </div>
+</body>
+</pdf>

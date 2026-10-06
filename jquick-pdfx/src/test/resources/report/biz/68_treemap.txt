@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 68 矩形树图（Treemap）Demo：以嵌套矩形面积表示层级数据的数值大小
+  <div style="background:#1A237E; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'集团各板块营收占比矩形树图'</h1>
+        <p style="color:#C5CAE9; fontSize:9">'矩形面积代表营收规模，颜色区分不同业务板块'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #7986CB; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'统计年度：2024 年'</p>
+        <p style="color:#C5CAE9; fontSize:9">'单位：万元'</p>
+        <p style="color:#C5CAE9; fontSize:9">'编制：战略规划部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #1A237E">
+    <h2 style="color:#1A237E; marginBottom:6px; fontSize:13; bold:true">'一、各业务板块营收构成'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  矩形树图：面积越大代表营收占比越高，同色系子块为二级业务线'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#1A237E">'核心板块占比过半：'</span>'主营业务板块营收占集团总营收 55%，仍是压舱石。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#1A237E">'新兴业务成长快：'</span>'创新业务板块虽占比不高，但同比增速领先。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#1A237E">'建议：'</span>'在巩固核心业务同时，加大对新兴业务投入，优化营收结构。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：战略总监'</p>
+</body>
+</pdf>

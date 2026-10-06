@@ -1,0 +1,35 @@
+<pdf>
+<body>
+  // 63 农历日历 Demo：展示公历与农历对照、传统节日、节气等信息
+  <div style="background:#BF360C; padding:12px; borderRadius:4px; marginBottom:10px; keepTogether:true">
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:320px">
+        <h1 style="color:white; fontSize:17; bold:true; marginBottom:3px">'2024 年 5 月农历日历'</h1>
+        <p style="color:#FFCCBC; fontSize:9">'公历日期与农历日期对照，标注传统节日与节气'</p>
+      </div>
+      <div style="width:220px; textAlignment:right; borderLeft:1px solid #FFAB91; paddingLeft:10px">
+        <p style="color:white; fontSize:9">'展示月份：2024 年 5 月'</p>
+        <p style="color:#FFCCBC; fontSize:9">'农历：甲辰年四月'</p>
+        <p style="color:#FFCCBC; fontSize:9">'编制：行政人事部'</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="marginBottom:10px; padding:10px; backgroundColor:#F7F9FC; borderRadius:4px; borderTop:2px solid #BF360C">
+    <h2 style="color:#BF360C; marginBottom:6px; fontSize:13; bold:true">'一、公历农历对照'</h2>
+    <div style="display:flex; justifyContent:center">
+      <svg style="width:700pt">${svg}</svg>
+    </div>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:6px">'图 1  农历日历：上方数字为公历日期，下方小字为农历日期，特殊日期高亮标注'</p>
+  </div>
+
+  <list style="listStyleType:disc; paddingLeft:16px; fontSize:10">
+    <li style="marginBottom:6px"><span style="bold:true; color:#BF360C">'劳动节放假：'</span>'5 月 1 日至 5 日放假调休，共 5 天。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#BF360C">'立夏节气：'</span>'5 月 5 日立夏，标志夏季开始，气温明显升高。'</li>
+    <li style="marginBottom:6px"><span style="bold:true; color:#BF360C">'母亲节：'</span>'5 月 12 日（五月第二个星期日），提醒员工关怀家人。'</li>
+  </list>
+
+  <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>
+  <p style="color:#6c757d; fontSize:8; textAlignment:center; marginTop:6px">'生成时间：2025年1月6日　|　批准人：行政总监'</p>
+</body>
+</pdf>

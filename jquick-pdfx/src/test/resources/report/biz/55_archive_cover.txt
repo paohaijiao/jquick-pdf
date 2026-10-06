@@ -1,0 +1,78 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 55 档案案卷封面（档案封面版式）
+  // 版式要点：整页 3pt 粗外框 → 顶部全宗号 / 密级分列两端 → 中部超大字号题名区
+  //           （单位名 + 案卷类别 + 保管期限三级层次）→ 两列「标签 + 下划线值」案卷信息表
+  //           → 底部立卷人 / 检查人双栏 + 居中单位与年月。
+  // 与 16~54 的差异：本项目唯一一份「封面」版式——四周粗框、字号最大（22pt）、
+  //                 信息表用「下划线填写式」而非全边框，且无正文段落。
+  // ==========================================================================
+  <div style="border:3px solid #6B4A2F; padding:20px">
+
+    // ---------- 顶部：全宗号 与 密级 ----------
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:300px">
+        <p style="fontSize:9pt; color:#6B4A2F; bold:true">'全宗号：QZ-2024-018'</p>
+      </div>
+      <div style="width:200px; textAlignment:right">
+        <p style="fontSize:10pt; color:#B71C1C; bold:true; characterSpacing:3pt">'密级：内部'</p>
+      </div>
+    </div>
+
+    // ---------- 中部题名区：三级字号层次 ----------
+    <h1 style="fontSize:14pt; bold:true; color:#3E2A1A; textAlignment:center; marginTop:70px; marginBottom:8px">'××市交通运输局'</h1>
+    <h1 style="fontSize:22pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:10pt; marginBottom:10px">'基本建设项目档案'</h1>
+    <p style="fontSize:11pt; color:#6B4A2F; textAlignment:center; characterSpacing:4pt; marginBottom:56px">'（永 久 保 管）'</p>
+
+    // ---------- 案卷信息：四列「标签 + 下划线值」 ----------
+    <table style="width:470px; fontSize:10pt">
+      <tr>
+        <td style="width:90px; padding:7px; textAlignment:right; color:#5A6B7C">'案卷题名：'</td>
+        <td style="width:300px; padding:7px; color:#1A2733; borderBottom:1px solid #8C7A6B">'××路地下管网改造工程竣工资料'</td>
+      </tr>
+      <tr>
+        <td style="padding:7px; textAlignment:right; color:#5A6B7C">'编制单位：'</td>
+        <td style="padding:7px; color:#1A2733; borderBottom:1px solid #8C7A6B">'××市政建设集团有限公司'</td>
+      </tr>
+      <tr>
+        <td style="padding:7px; textAlignment:right; color:#5A6B7C">'编制日期：'</td>
+        <td style="padding:7px; color:#1A2733; borderBottom:1px solid #8C7A6B">'2024年12月20日'</td>
+      </tr>
+      <tr>
+        <td style="padding:7px; textAlignment:right; color:#5A6B7C">'归档年度：'</td>
+        <td style="padding:7px; color:#1A2733; borderBottom:1px solid #8C7A6B">'2024年度'</td>
+      </tr>
+      <tr>
+        <td style="padding:7px; textAlignment:right; color:#5A6B7C">'保管期限：'</td>
+        <td style="padding:7px; color:#1A2733; borderBottom:1px solid #8C7A6B">'永久'</td>
+      </tr>
+      <tr>
+        <td style="padding:7px; textAlignment:right; color:#5A6B7C">'案卷件数：'</td>
+        <td style="padding:7px; color:#1A2733; borderBottom:1px solid #8C7A6B">'共 6 件'</td>
+      </tr>
+      <tr>
+        <td style="padding:7px; textAlignment:right; color:#5A6B7C">'案卷页数：'</td>
+        <td style="padding:7px; color:#1A2733; borderBottom:1px solid #8C7A6B">'共 428 页（图纸 26 张）'</td>
+      </tr>
+      <tr>
+        <td style="padding:7px; textAlignment:right; color:#5A6B7C">'档案号：'</td>
+        <td style="padding:7px; bold:true; color:#6B4A2F; borderBottom:1px solid #8C7A6B">'JZ-2024-JS-0186'</td>
+      </tr>
+    </table>
+
+    // ---------- 底部：立卷 / 检查 双栏 ----------
+    <div style="display:flex; justifyContent:space-between; marginTop:64px">
+      <div style="width:230px; borderTop:1px solid #8C7A6B; paddingTop:5px">
+        <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'立卷人（签字）'</p>
+      </div>
+      <div style="width:230px; borderTop:1px solid #8C7A6B; paddingTop:5px">
+        <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'档案检查人（签字）'</p>
+      </div>
+    </div>
+
+    <p style="fontSize:10pt; color:#3E2A1A; textAlignment:center; marginTop:26px">'××市交通运输局档案室'</p>
+    <p style="fontSize:10pt; color:#6B4A2F; textAlignment:center; marginTop:3px">'二〇二四年十二月'</p>
+  </div>
+</body>
+</pdf>

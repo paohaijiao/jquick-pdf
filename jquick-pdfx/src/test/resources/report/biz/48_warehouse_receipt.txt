@@ -1,0 +1,145 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 48 物资入库单（三联式表单版式）
+  // 版式要点：整页套深色双线外框 → 页头左右分栏（左机构名+单据名 / 右单据编号栏）
+  //           → 四列表单式信息栏 → 八列入库明细表 → 大字金额合计条
+  //           → 蓝色左色条验收结论 → 四栏签字区 → 联次注记
+  // 与 16~47 的差异：这是本项目里第一份「单据/表单」类版式，全页带外框、右侧编号竖栏、
+  //                 四栏签字区，均为此模板独有。
+  // ==========================================================================
+  <div style="border:2px solid #1F4E79; padding:12px; keepTogether:true">
+
+    // ---------- 页头：左标题区 + 右编号区（编号区带左边线与浅底）----------
+    <div style="display:flex; justifyContent:space-between; borderBottom:2px solid #1F4E79; paddingBottom:8px; marginBottom:8px">
+      <div style="width:370px">
+        <h1 style="fontSize:16pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:1pt">'××市物资储备有限公司'</h1>
+        <h2 style="fontSize:13pt; bold:true; color:#1F4E79; textAlignment:center; marginTop:2px">'物 资 入 库 单'</h2>
+      </div>
+      <div style="width:200px; borderLeft:1px solid #9FB3C8; paddingLeft:10px">
+        <p style="fontSize:9pt; color:#5A6B7C">'单据编号：RK-2024-0186'</p>
+        <p style="fontSize:9pt; color:#5A6B7C; marginTop:3px">'入库日期：2024年12月18日'</p>
+        <p style="fontSize:9pt; color:#5A6B7C; marginTop:3px">'存放仓库：中心库 A 区'</p>
+      </div>
+    </div>
+
+    // ---------- 基础信息栏：标签底色 + 值右对齐，两行四列 ----------
+    <table style="width:560px; fontSize:9pt">
+      <tr>
+        <td style="width:80px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'供货单位'</td>
+        <td style="width:150px; padding:5px; border:1px solid #C3CDD8">'××机电设备有限公司'</td>
+        <td style="width:80px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'采购合同号'</td>
+        <td style="width:150px; padding:5px; border:1px solid #C3CDD8">'HT-2024-1124'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'验收人'</td>
+        <td style="padding:5px; border:1px solid #C3CDD8">'李伟'</td>
+        <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'随货单据'</td>
+        <td style="padding:5px; border:1px solid #C3CDD8">'送货单 / 质检书 各 1 份'</td>
+      </tr>
+    </table>
+
+    // ---------- 入库明细：八列，表头深底白字，数值列右对齐 ----------
+    <table style="width:560px; fontSize:9pt">
+      <tr>
+        <th style="width:34px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+        <th style="width:80px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'物资编码'</th>
+        <th style="width:126px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'物资名称'</th>
+        <th style="width:100px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'规格型号'</th>
+        <th style="width:40px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'单位'</th>
+        <th style="width:50px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'数量'</th>
+        <th style="width:60px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'单价'</th>
+        <th style="width:70px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'金额'</th>
+      </tr>
+      <tr>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'1'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'WZ-0012'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'三相异步电动机'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'Y2-132M-4'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'台'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'12'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'2,180.00'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'26,160.00'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'2'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'WZ-0037'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'低压配电柜'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'GGD-0.4kV'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'面'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'4'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'8,650.00'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'34,600.00'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'3'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'WZ-0058'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'铜芯电缆'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'YJV-4×25'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'米'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'860'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'68.50'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'58,910.00'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'4'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'WZ-0071'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'不锈钢法兰'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'DN100 PN16'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'片'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'120'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'86.00'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'10,320.00'</td>
+      </tr>
+      <tr>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'5'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'WZ-0093'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'工业润滑油'</td>
+        <td style="padding:5px; border:1px solid #D3DCE5">'L-CKC 220'</td>
+        <td style="padding:5px; textAlign:center; border:1px solid #D3DCE5">'桶'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'24'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'420.00'</td>
+        <td style="padding:5px; textAlign:right; border:1px solid #D3DCE5">'10,080.00'</td>
+      </tr>
+    </table>
+
+    // ---------- 金额合计条：浅底 + 上下细线，凸显合计 ----------
+    <div style="background:#E8EDF2; borderTop:1px solid #1F4E79; borderBottom:1px solid #1F4E79; padding:6px 10px; marginTop:2px">
+      <div style="display:flex; justifyContent:space-between">
+        <div style="width:330px">
+          <p style="fontSize:10pt; bold:true; color:#1F4E79">'合计金额（大写）：壹拾肆万零柒拾元整'</p>
+        </div>
+        <div style="width:220px; textAlignment:right">
+          <p style="fontSize:10pt; bold:true; color:#B71C1C">'小写合计：￥140,070.00'</p>
+        </div>
+      </div>
+    </div>
+
+    // ---------- 验收结论：左色条引述块 ----------
+    <div style="borderLeft:4px solid #2F5597; background:#F7F9FC; padding:8px 10px; marginTop:8px">
+      <p style="fontSize:9pt; color:#333333">'验收结论：外包装完好，实物数量与送货单一致，随机资料齐全；抽检 3 台电动机绝缘电阻、空载电流均符合 GB/T 755 要求，同意办理入库手续。'</p>
+    </div>
+
+    // ---------- 签字区：四栏等宽，每栏上边框 + 居中占位 ----------
+    <div style="display:flex; justifyContent:space-between; marginTop:14px">
+      <div style="width:130px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+        <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'保管员（签字）'</p>
+      </div>
+      <div style="width:130px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+        <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'验收人（签字）'</p>
+      </div>
+      <div style="width:130px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+        <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'仓库主管（签字）'</p>
+      </div>
+      <div style="width:130px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+        <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'财务复核（签字）'</p>
+      </div>
+    </div>
+
+    <div style="marginTop:12px">
+      <lineSeparator style="strokeColor:#C3CDD8"></lineSeparator>
+      <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:3px">'第一联　存根（仓库留存）　　第二联　财务（结算凭证）　　第三联　供货单位（对账凭证）'</p>
+    </div>
+  </div>
+</body>
+</pdf>
