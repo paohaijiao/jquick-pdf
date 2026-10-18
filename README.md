@@ -1259,7 +1259,7 @@ option.setData(data);
 
 ![credit_report](images/credit_report.png)
 
-**Test Class:** `com.github.paohaijiao.demo.creditreport.JQuickCreditReportTest` (module `jquick-pdfx`) | **Method:** `reportByContent()`
+**Test Class:** `com.github.paohaijiao.biz.report.JQuickCreditReportTest` (module `jquick-pdfx`) | **Method:** `reportByContent()`
 
 The full template and element list are in [Demo 1](#demo-1--enterprise-credit-rating-report-composite).
 
@@ -1293,7 +1293,7 @@ fileOutputStream.write(bytes);
 
 ![demo](images/credit_report.png)
 
-**Test Class:** `com.github.paohaijiao.demo.creditreport.JQuickCreditReportTest` | **Method:** `reportByContent()`
+**Test Class:** `com.github.paohaijiao.biz.report.JQuickCreditReportTest` | **Method:** `reportByContent()`
 
 A full business document: banner block, key-value table, financial table, bulleted indicator list, an embedded SVG radar chart, flex two-column layout, and a footer — all from one template.
 

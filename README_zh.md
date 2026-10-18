@@ -1255,7 +1255,7 @@ option.setData(data);
 
 ![credit_report](images/credit_report.png)
 
-**Test Class:** `com.github.paohaijiao.demo.creditreport.JQuickCreditReportTest` (module `jquick-pdfx`) | **Method:** `reportByContent()`
+**Test Class:** `com.github.paohaijiao.biz.report.JQuickCreditReportTest` (module `jquick-pdfx`) | **Method:** `reportByContent()`
 
 完整模板与元素清单见 [Demo 1](#demo-1--企业信用评级报告综合示例)。
 
@@ -1287,7 +1287,7 @@ fileOutputStream.write(bytes);
 
 ![demo](images/jquick-logo.svg)
 
-**Test Class:** `com.github.paohaijiao.demo.creditreport.JQuickCreditReportTest` | **Method:** `reportByContent()`
+**Test Class:** `com.github.paohaijiao.biz.report.JQuickCreditReportTest` | **Method:** `reportByContent()`
 
 一份完整的业务文档：横幅区块、键值表格、财务表格、带项目符号的指标列表、内嵌 SVG 雷达图、flex 双栏布局，以及页脚——全部来自同一份模板。
 
