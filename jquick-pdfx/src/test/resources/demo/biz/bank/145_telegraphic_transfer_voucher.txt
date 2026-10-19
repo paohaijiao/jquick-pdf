@@ -1,0 +1,179 @@
+<pdf>
+<body>
+  // 145 电汇 / 信汇凭证、付款委托书（bank 领域第 6 项）　视觉主题：群青·斑马·下线
+  // 版式组合：抬头=underline 信息区=chip 明细表=striped 段落=box 签章=two 落款=right
+  // 主色 #2E2B9D　辅色 #916227　浅底 #F1F1F6
+  // 电汇 / 信汇凭证与付款委托书：汇款路径、币种金额、汇率与各项手续费。
+
+  // 抬头：underline
+  <table style="width:100%; marginBottom:1px">
+    <tr>
+      <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#16147C; characterSpacing:3pt">'电汇 / 信汇凭证、付款委托书'</td>
+      <td style="padding:2px; textAlign:right; fontSize:7.5pt; color:#78838C">'凭证编号 '${voucherNo}'　　委托日期 '${entrustDate}'　　汇出行 '${bankName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#2E2B9D; thickness:2.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：strip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'凭证编号 / NO.'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'委托日期 / DATE'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'汇款方式'</td>
+      <td style="padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'汇出行 / REMITTING BANK'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${voucherNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${entrustDate}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${transferType}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #C0BFD6">${bankName}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'汇款人全称'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'汇款人账号'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'汇入行 / 收款行'</td>
+      <td style="padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'收款人全称'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${remitter}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${remitterAccount}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${payeeBank}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #C0BFD6">${payeeName}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'收款人账号'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'币种与金额'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'汇率'</td>
+      <td style="padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0BFD6">'款项用途'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${payeeAccount}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${amountInfo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C0BFD6">${exchangeRate}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #C0BFD6">${usage}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#2E2B9D; color:white; bold:true; fontSize:10pt; characterSpacing:2pt">'汇款与费用明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#2E2B9D; color:white; bold:true; textAlign:center; border:1px solid #2E2B9D">'序号'</th>
+      <th style="width:20%; padding:4px; backgroundColor:#2E2B9D; color:white; bold:true; textAlign:center; border:1px solid #2E2B9D">'费用项目'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#2E2B9D; color:white; bold:true; textAlign:center; border:1px solid #2E2B9D">'计费基数'</th>
+      <th style="width:12%; padding:4px; backgroundColor:#2E2B9D; color:white; bold:true; textAlign:center; border:1px solid #2E2B9D">'费率'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#2E2B9D; color:white; bold:true; textAlign:center; border:1px solid #2E2B9D">'金额（CNY）'</th>
+      <th style="width:12%; padding:4px; backgroundColor:#2E2B9D; color:white; bold:true; textAlign:center; border:1px solid #2E2B9D">'承担方'</th>
+      <th style="padding:4px; backgroundColor:#2E2B9D; color:white; bold:true; textAlign:center; border:1px solid #2E2B9D">'合计'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemAmount1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemName2}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemSpec2}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemUnit2}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemQty2}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemPrice2}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemAmount2}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemAmount3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemName4}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemSpec4}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemUnit4}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemQty4}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemPrice4}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemAmount4}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemAmount5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemName6}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemSpec6}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:left; border:1px solid #C0BFD6">${itemUnit6}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemQty6}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemPrice6}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:center; border:1px solid #C0BFD6">${itemAmount6}</td>
+      <td style="backgroundColor:#F1F1F6; padding:4px; textAlign:right; border:1px solid #C0BFD6">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F1F6; textAlign:center; border:1px solid #2E2B9D">'费用合计'</td>
+      <td style="padding:4px; backgroundColor:#F1F1F6; border:1px solid #2E2B9D">'—'</td>
+      <td style="padding:4px; backgroundColor:#F1F1F6; border:1px solid #2E2B9D">'—'</td>
+      <td style="padding:4px; backgroundColor:#F1F1F6; border:1px solid #2E2B9D">'—'</td>
+      <td style="padding:4px; backgroundColor:#F1F1F6; border:1px solid #2E2B9D">'—'</td>
+      <td style="padding:4px; backgroundColor:#F1F1F6; border:1px solid #2E2B9D">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F1F6; textAlign:right; border:1px solid #2E2B9D">'￥'${totalAmount}</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F1F1F6; bold:true; fontSize:9.5pt; color:#16147C; border:1px solid #C0BFD6">'费用合计'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #C0BFD6">${totalLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F1F1F6; bold:true; fontSize:9.5pt; color:#16147C; border:1px solid #C0BFD6">'备注 / REMARKS'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #C0BFD6">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#2E2B9D; border:1px dashed #2E2B9D">'（银行业务章 / 公章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#2E2B9D; border:1px dashed #2E2B9D">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #2E2B9D">'机构名称：'${bankName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #2E2B9D">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #2E2B9D">'业务日期：'${entrustDate}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #2E2B9D">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：right
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:24%; padding:4px">' '</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#16147C">'汇款人签章：'${remitterSign}</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#16147C">'银行经办：'${operator}</td>
+      <td style="padding:4px; textAlign:center; color:#16147C">'复核：'${reviewer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

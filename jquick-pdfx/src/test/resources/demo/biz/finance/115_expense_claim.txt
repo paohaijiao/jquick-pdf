@@ -1,0 +1,166 @@
+<pdf>
+<body>
+  // 115 费用报销单（finance 领域第 16 项）　视觉主题：秋香·斑马·下线
+  // 版式组合：抬头=underline 信息区=kv 明细表=striped 段落=box 签章=split 落款=table
+  // 主色 #5D7724　辅色 #273691　浅底 #F5F6F1
+  // 费用报销单：费用类别、发生日期、事由、票据张数与核定金额，含超标核定说明。
+
+  // 抬头：underline
+  <table style="width:100%; marginBottom:1px">
+    <tr>
+      <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#3E540F; characterSpacing:3pt">'费用报销单'</td>
+      <td style="padding:2px; textAlign:right; fontSize:7.5pt; color:#78838C">'报销单号 '${claimNo}'　　报销日期 '${claimDate}'　　报销部门 '${deptName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#5D7724; thickness:2.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F5F6F1; bold:true; border:1px solid #CFD5C0">'报销单号'</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">${claimNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F5F6F1; bold:true; border:1px solid #CFD5C0">'报销日期'</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">${claimDate}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F5F6F1; bold:true; border:1px solid #CFD5C0">'报销部门'</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">${deptName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F5F6F1; bold:true; border:1px solid #CFD5C0">'报销人'</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">${claimant}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F5F6F1; bold:true; border:1px solid #CFD5C0">'费用归属期'</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">${period}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F5F6F1; bold:true; border:1px solid #CFD5C0">'收款账户'</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">${payeeAccount}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F5F6F1; bold:true; border:1px solid #CFD5C0">'附件张数'</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">${attachCount}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F5F6F1; bold:true; border:1px solid #CFD5C0">'报销类型'</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">${claimType}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#5D7724; color:white; bold:true; fontSize:10pt; characterSpacing:2pt">'费用明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:16%; padding:4px; backgroundColor:#5D7724; color:white; bold:true; textAlign:center; border:1px solid #5D7724">'费用类别'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#5D7724; color:white; bold:true; textAlign:center; border:1px solid #5D7724">'发生日期'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#5D7724; color:white; bold:true; textAlign:center; border:1px solid #5D7724">'事由摘要'</th>
+      <th style="width:10%; padding:4px; backgroundColor:#5D7724; color:white; bold:true; textAlign:center; border:1px solid #5D7724">'票据张数'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#5D7724; color:white; bold:true; textAlign:center; border:1px solid #5D7724">'金额'</th>
+      <th style="padding:4px; backgroundColor:#5D7724; color:white; bold:true; textAlign:center; border:1px solid #5D7724">'核定金额'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CFD5C0">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemName2}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemSpec2}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:left; border:1px solid #CFD5C0">${itemUnit2}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemQty2}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemPrice2}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CFD5C0">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemName4}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemSpec4}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:left; border:1px solid #CFD5C0">${itemUnit4}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemQty4}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemPrice4}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CFD5C0">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemName6}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemSpec6}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:left; border:1px solid #CFD5C0">${itemUnit6}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:center; border:1px solid #CFD5C0">${itemQty6}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemPrice6}</td>
+      <td style="backgroundColor:#F5F6F1; padding:4px; textAlign:right; border:1px solid #CFD5C0">${itemAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F5F6F1; textAlign:center; border:1px solid #5D7724">'报销合计'</td>
+      <td style="padding:4px; backgroundColor:#F5F6F1; border:1px solid #5D7724">'—'</td>
+      <td style="padding:4px; backgroundColor:#F5F6F1; border:1px solid #5D7724">'—'</td>
+      <td style="padding:4px; backgroundColor:#F5F6F1; border:1px solid #5D7724">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F5F6F1; textAlign:right; border:1px solid #5D7724">'￥'${totalAmount}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F5F6F1; textAlign:right; border:1px solid #5D7724">'￥'${totalApproved}</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F5F6F1; bold:true; fontSize:9.5pt; color:#3E540F; border:1px solid #CFD5C0">'报销合计'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #CFD5C0">${totalLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F5F6F1; bold:true; fontSize:9.5pt; color:#3E540F; border:1px solid #CFD5C0">'备注'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #CFD5C0">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：split
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#5D7724; border:1px dashed #5D7724">'（公章 / 财务专用章占位）'</td>
+      <td style="padding:3px; textAlign:left; color:#5D7724; border:1px dashed #5D7724">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#78838C; border:1px dashed #5D7724">'单位名称：'${deptName}</td>
+      <td style="padding:3px; textAlign:left; color:#78838C; border:1px dashed #5D7724">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#78838C; border:1px dashed #5D7724">'签章日期：'${claimDate}</td>
+      <td style="padding:3px; textAlign:left; color:#78838C; border:1px dashed #5D7724">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #CFD5C0">'报销人：'${claimant}</td>
+      <td style="width:33%; padding:5px; border:1px solid #CFD5C0">'部门负责人：'${deptHead}</td>
+      <td style="padding:5px; border:1px solid #CFD5C0">'财务审核：'${auditorName}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

@@ -1,0 +1,170 @@
+<pdf>
+<body>
+  // 148 理财产品购买确认单 / 赎回回执（bank 领域第 9 项）　视觉主题：群青·密排·典式
+  // 版式组合：抬头=classic 信息区=grid2 明细表=compact 段落=box 签章=card 落款=plain
+  // 主色 #3732A3　辅色 #916427　浅底 #F1F1F6
+  // 理财购买确认单与赎回回执：产品代码、风险等级、业绩基准、份额与净值。
+
+  // 抬头：classic
+  <h1 style="fontSize:18pt; bold:true; color:#1D1885; textAlignment:center; characterSpacing:6pt">'理财产品购买确认单 / 赎回回执'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'确认单号 '${confirmNo}'　　确认日期 '${confirmDate}'　　销售机构 '${bankName}</p>
+  <lineSeparator style="color:#3732A3; thickness:1.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'确认单号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C0D5">${confirmNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'确认日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #C1C0D5">${confirmDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'销售机构'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C0D5">${bankName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'客户名称'</td>
+      <td style="padding:4px; border:1px solid #C1C0D5">${customerName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'客户账号'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C0D5">${customerAccount}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'产品名称'</td>
+      <td style="padding:4px; border:1px solid #C1C0D5">${productName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'产品代码 / 风险等级'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C0D5">${productCode}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'产品类型'</td>
+      <td style="padding:4px; border:1px solid #C1C0D5">${productType}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'业绩比较基准（年）'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C0D5">${benchmark}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'申购金额'</td>
+      <td style="padding:4px; border:1px solid #C1C0D5">${purchaseAmount}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'确认份额'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C0D5">${confirmShare}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'产品期限 / 到期日'</td>
+      <td style="padding:4px; border:1px solid #C1C0D5">${maturityInfo}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10pt; bold:true; color:#3732A3; marginBottom:3px; characterSpacing:2pt">'申购 / 赎回明细'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:2px; backgroundColor:#1D1885; color:white; bold:true; textAlign:center; border:1px solid #1D1885">'序号'</th>
+      <th style="width:14%; padding:2px; backgroundColor:#1D1885; color:white; bold:true; textAlign:center; border:1px solid #1D1885">'交易类型'</th>
+      <th style="width:13%; padding:2px; backgroundColor:#1D1885; color:white; bold:true; textAlign:center; border:1px solid #1D1885">'交易日期'</th>
+      <th style="width:15%; padding:2px; backgroundColor:#1D1885; color:white; bold:true; textAlign:center; border:1px solid #1D1885">'交易金额'</th>
+      <th style="width:15%; padding:2px; backgroundColor:#1D1885; color:white; bold:true; textAlign:center; border:1px solid #1D1885">'确认份额'</th>
+      <th style="width:12%; padding:2px; backgroundColor:#1D1885; color:white; bold:true; textAlign:center; border:1px solid #1D1885">'单位净值'</th>
+      <th style="padding:2px; backgroundColor:#1D1885; color:white; bold:true; textAlign:center; border:1px solid #1D1885">'状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemName1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemSpec1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemUnit1}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemQty1}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemPrice1}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemAmount1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemName2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemSpec2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemUnit2}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemQty2}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemPrice2}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemAmount2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemName3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemSpec3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemUnit3}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemQty3}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemPrice3}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemAmount3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemName4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemSpec4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemUnit4}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemQty4}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemPrice4}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemAmount4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemName5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemSpec5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemUnit5}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemQty5}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemPrice5}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemAmount5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemName6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemSpec6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemUnit6}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemQty6}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemPrice6}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFDFE5">${itemAmount6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFDFE5">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; bold:true; backgroundColor:#F1F1F6; textAlign:center; border:1px solid #3732A3">'申购合计'</td>
+      <td style="padding:2px; backgroundColor:#F1F1F6; border:1px solid #3732A3">'—'</td>
+      <td style="padding:2px; backgroundColor:#F1F1F6; border:1px solid #3732A3">'—'</td>
+      <td style="padding:2px; bold:true; backgroundColor:#F1F1F6; textAlign:right; border:1px solid #3732A3">'￥'${totalAmount}</td>
+      <td style="padding:2px; bold:true; backgroundColor:#F1F1F6; textAlign:right; border:1px solid #3732A3">${shareTotal}' 份'</td>
+      <td style="padding:2px; backgroundColor:#F1F1F6; border:1px solid #3732A3">'—'</td>
+      <td style="padding:2px; backgroundColor:#F1F1F6; border:1px solid #3732A3">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F1F1F6; bold:true; fontSize:9.5pt; color:#1D1885; border:1px solid #C1C0D5">'申购金额合计'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #C1C0D5">${totalLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F1F1F6; bold:true; fontSize:9.5pt; color:#1D1885; border:1px solid #C1C0D5">'风险提示'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #C1C0D5">${riskNote}</td>
+    </tr>
+  </table>
+
+  // 签章区：card
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F1F1F6; textAlign:center; color:#3732A3; border:1px solid #C1C0D5">'（银行业务章 / 公章占位）'</td>
+      <td style="padding:4px; backgroundColor:#F1F1F6; textAlign:center; color:#3732A3; border:1px solid #C1C0D5">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F1F1F6; textAlign:center; color:#78838C; border:1px solid #C1C0D5">'机构名称：'${bankName}</td>
+      <td style="padding:4px; backgroundColor:#F1F1F6; textAlign:center; color:#78838C; border:1px solid #C1C0D5">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F1F1F6; textAlign:center; color:#78838C; border:1px solid #C1C0D5">'业务日期：'${confirmDate}</td>
+      <td style="padding:4px; backgroundColor:#F1F1F6; textAlign:center; color:#78838C; border:1px solid #C1C0D5">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#1D1885; borderBottom:1px solid #C1C0D5">'客户签章：'${customerSign}</td>
+      <td style="width:33%; padding:4px; color:#1D1885; borderBottom:1px solid #C1C0D5">'理财经理：'${operator}</td>
+      <td style="padding:4px; color:#1D1885; borderBottom:1px solid #C1C0D5">'销售机构签章：'${bankSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

@@ -1,0 +1,161 @@
+<pdf>
+<body>
+  // 159 不动产登记受理单 / 不动产权证回执（gov 领域第 5 项）　视觉主题：天青·厚框·通栏
+  // 版式组合：抬头=banner 信息区=kv 明细表=solid 段落=plain 签章=right 落款=plain
+  // 主色 #237172　辅色 #912756　浅底 #F1F6F6
+  // 不动产登记受理单与不动产权回执：不动产单元号、坐落面积、材料清单与领证方式。
+
+  // 抬头：banner
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:58%; padding:8px; backgroundColor:#237172; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'不动产登记受理单 / 不动产权证回执'</td>
+      <td style="padding:8px; backgroundColor:#0E4E4F; color:white; textAlign:right; fontSize:7.5pt">'受理编号 '${acceptNo}'　　受理日期 '${acceptDate}'　　登记机构 '${orgName}</td>
+    </tr>
+  </table>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'受理编号 / NO.'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${acceptNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'受理日期 / DATE'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${acceptDate}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'登记机构'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${orgName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'登记类型'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${registerType}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'申请人 / 权利人'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${applicant}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'证件号码 / 信用代码'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${creditCode}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'不动产坐落'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${location}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'不动产单元号'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${unitNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'不动产权证号'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${certNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'建筑面积 / 用途'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${areaInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'登记费用'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${feeInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'领证日期 / 方式'</td>
+      <td style="padding:5px; border:1px solid #C0D5D5">${certInfo}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; bold:true; color:#0E4E4F; marginBottom:4px">'登记申请材料清单'</p>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#237172; color:white; bold:true; textAlign:center; border:1px solid #237172">'序号'</th>
+      <th style="width:28%; padding:4px; backgroundColor:#237172; color:white; bold:true; textAlign:center; border:1px solid #237172">'材料名称'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#237172; color:white; bold:true; textAlign:center; border:1px solid #237172">'材料形式'</th>
+      <th style="width:10%; padding:4px; backgroundColor:#237172; color:white; bold:true; textAlign:center; border:1px solid #237172">'份数'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#237172; color:white; bold:true; textAlign:center; border:1px solid #237172">'核验结果'</th>
+      <th style="padding:4px; backgroundColor:#237172; color:white; bold:true; textAlign:center; border:1px solid #237172">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0D5D5">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemName2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0D5D5">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemQty2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0D5D5">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemName4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0D5D5">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemQty4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0D5D5">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemName6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C0D5D5">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemQty6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C0D5D5">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#0E4E4F; marginBottom:3px">'登记结果'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${result}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#0E4E4F; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：right
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:32%; padding:5px; backgroundColor:#F1F6F6; fontSize:7.5pt; color:#78838C; border:1px solid #C0D5D5">'本联次加盖印章后有效，扫码可验真'</td>
+      <td style="padding:3px; textAlign:center; color:#237172; border:1px dashed #237172">'（行政审批专用章 / 公章占位）'　'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #237172">'受理机关：'${orgName}　'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #237172">'办结日期：'${acceptDate}　'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#0E4E4F; borderBottom:1px solid #C0D5D5">'受理人：'${acceptor}</td>
+      <td style="width:33%; padding:4px; color:#0E4E4F; borderBottom:1px solid #C0D5D5">'审核人：'${reviewer}</td>
+      <td style="padding:4px; color:#0E4E4F; borderBottom:1px solid #C0D5D5">'申请人签收：'${applicantSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

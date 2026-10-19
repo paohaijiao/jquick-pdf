@@ -1,0 +1,170 @@
+<pdf>
+<body>
+  // 122 固定资产购置发票（finance 领域第 23 项）　视觉主题：橄榄·疏朗·公文
+  // 版式组合：抬头=doc 信息区=strip 明细表=airy 段落=bar 签章=right 落款=table
+  // 主色 #48B61F　辅色 #432791　浅底 #F2F7F0
+  // 固定资产购置发票：资产名称、规格型号、数量单价与可抵扣进项税额，含折旧年限信息。
+
+  // 抬头：doc
+  <p style="fontSize:20pt; bold:true; color:#48B61F; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'固定资产购置发票'</p>
+  <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'发票代码 '${invoiceCode}'　　发票号码 '${invoiceNo}'　　开票日期 '${issueDate}</p>
+  <lineSeparator style="color:#48B61F; thickness:2f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：strip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'发票代码'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'发票号码'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'开票日期'</td>
+      <td style="padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'购买方名称'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C4D9BD">${invoiceCode}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C4D9BD">${invoiceNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C4D9BD">${issueDate}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #C4D9BD">${buyerName}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'购买方纳税人识别号'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'销售方名称'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'销售方纳税人识别号'</td>
+      <td style="padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'资产类别'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C4D9BD">${buyerTaxNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C4D9BD">${sellerName}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C4D9BD">${sellerTaxNo}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #C4D9BD">${assetType}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#432791">' '</td>
+      <td style="padding:3px; bold:true; fontSize:10.5pt; color:#2F930A">'固定资产购置明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:20%; padding:5px; backgroundColor:#F2F7F0; color:#2F930A; bold:true; textAlign:center; border:1px solid #C4D9BD">'资产名称'</th>
+      <th style="width:14%; padding:5px; backgroundColor:#F2F7F0; color:#2F930A; bold:true; textAlign:center; border:1px solid #C4D9BD">'规格型号'</th>
+      <th style="width:7%; padding:5px; backgroundColor:#F2F7F0; color:#2F930A; bold:true; textAlign:center; border:1px solid #C4D9BD">'单位'</th>
+      <th style="width:8%; padding:5px; backgroundColor:#F2F7F0; color:#2F930A; bold:true; textAlign:center; border:1px solid #C4D9BD">'数量'</th>
+      <th style="width:12%; padding:5px; backgroundColor:#F2F7F0; color:#2F930A; bold:true; textAlign:center; border:1px solid #C4D9BD">'单价'</th>
+      <th style="width:13%; padding:5px; backgroundColor:#F2F7F0; color:#2F930A; bold:true; textAlign:center; border:1px solid #C4D9BD">'金额'</th>
+      <th style="width:8%; padding:5px; backgroundColor:#F2F7F0; color:#2F930A; bold:true; textAlign:center; border:1px solid #C4D9BD">'税率'</th>
+      <th style="padding:5px; backgroundColor:#F2F7F0; color:#2F930A; bold:true; textAlign:center; border:1px solid #C4D9BD">'税额'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemName1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemUnit1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemAmount1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemRate1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemName2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemUnit2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemAmount2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemRate2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemName3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemUnit3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemAmount3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemRate3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemName4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemUnit4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemAmount4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemRate4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemName5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemUnit5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemAmount5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemRate5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; bold:true; backgroundColor:#F2F7F0; textAlign:center; border:1px solid #48B61F">'合　计'</td>
+      <td style="padding:5px; backgroundColor:#F2F7F0; border:1px solid #48B61F">'—'</td>
+      <td style="padding:5px; backgroundColor:#F2F7F0; border:1px solid #48B61F">'—'</td>
+      <td style="padding:5px; backgroundColor:#F2F7F0; border:1px solid #48B61F">'—'</td>
+      <td style="padding:5px; backgroundColor:#F2F7F0; border:1px solid #48B61F">'—'</td>
+      <td style="padding:5px; bold:true; backgroundColor:#F2F7F0; textAlign:right; border:1px solid #48B61F">'￥'${totalAmount}</td>
+      <td style="padding:5px; backgroundColor:#F2F7F0; border:1px solid #48B61F">'—'</td>
+      <td style="padding:5px; bold:true; backgroundColor:#F2F7F0; textAlign:right; border:1px solid #48B61F">'￥'${totalTax}</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#432791">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#2F930A">'价税合计'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#432791">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#2F930A">'税务与折旧'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${depLine}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#432791">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#2F930A">'备注'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：right
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:32%; padding:5px; backgroundColor:#F2F7F0; fontSize:7.5pt; color:#78838C; border:1px solid #C4D9BD">'本联次加盖印章后有效，扫码可验真'</td>
+      <td style="padding:3px; textAlign:center; color:#48B61F; border:1px dashed #48B61F">'（公章 / 财务专用章占位）'　'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #48B61F">'单位名称：'${sellerName}　'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #48B61F">'签章日期：'${issueDate}　'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #C4D9BD">'收款人：'${payee}</td>
+      <td style="width:33%; padding:5px; border:1px solid #C4D9BD">'复核：'${reviewer}</td>
+      <td style="padding:5px; border:1px solid #C4D9BD">'开票人：'${drawer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

@@ -1,0 +1,186 @@
+<pdf>
+<body>
+  // 154 保理业务应收账款清单 / 债权转让凭证（bank 领域第 15 项）　视觉主题：绛紫·厚框·典式
+  // 版式组合：抬头=classic 信息区=strip 明细表=solid 段落=box 签章=three 落款=right
+  // 主色 #5C2A72　辅色 #789127　浅底 #F4F1F6
+  // 保理业务应收账款清单与债权转让凭证：发票号、债务人、到期日与融资比例。
+
+  // 抬头：classic
+  <h1 style="fontSize:18pt; bold:true; color:#3E1351; textAlignment:center; characterSpacing:6pt">'保理业务应收账款清单 / 债权转让凭证'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'保理编号 '${factoringNo}'　　转让日期 '${transferDate}'　　保理商 '${factorName}</p>
+  <lineSeparator style="color:#5C2A72; thickness:1.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'保理编号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #CEC2D4">${factoringNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'转让日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #CEC2D4">${transferDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'保理商 / FACTOR'</td>
+      <td style="width:34%; padding:4px; border:1px solid #CEC2D4">${factorName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'保理类型'</td>
+      <td style="padding:4px; border:1px solid #CEC2D4">${factoringType}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'卖方 / 转让人'</td>
+      <td style="width:34%; padding:4px; border:1px solid #CEC2D4">${sellerName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'买方 / 债务人'</td>
+      <td style="padding:4px; border:1px solid #CEC2D4">${buyerName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'基础交易合同'</td>
+      <td style="width:34%; padding:4px; border:1px solid #CEC2D4">${baseContract}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'应收账款总额'</td>
+      <td style="padding:4px; border:1px solid #CEC2D4">${receivableTotal}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'保理融资比例'</td>
+      <td style="width:34%; padding:4px; border:1px solid #CEC2D4">${financeRatio}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'融资发放金额'</td>
+      <td style="padding:4px; border:1px solid #CEC2D4">${financeAmount}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'保理费率（年）'</td>
+      <td style="width:34%; padding:4px; border:1px solid #CEC2D4">${feeRate}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'应收账款到期日'</td>
+      <td style="padding:4px; border:1px solid #CEC2D4">${dueDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'登记机构'</td>
+      <td style="width:34%; padding:4px; border:1px solid #CEC2D4">${registerOrg}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'登记编号'</td>
+      <td style="padding:4px; border:1px solid #CEC2D4">${registerNo}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; bold:true; color:#3E1351; marginBottom:4px">'应收账款转让明细'</p>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#5C2A72; color:white; bold:true; textAlign:center; border:1px solid #5C2A72">'序号'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#5C2A72; color:white; bold:true; textAlign:center; border:1px solid #5C2A72">'发票号码'</th>
+      <th style="width:22%; padding:4px; backgroundColor:#5C2A72; color:white; bold:true; textAlign:center; border:1px solid #5C2A72">'债务人'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#5C2A72; color:white; bold:true; textAlign:center; border:1px solid #5C2A72">'应收账款金额'</th>
+      <th style="width:13%; padding:4px; backgroundColor:#5C2A72; color:white; bold:true; textAlign:center; border:1px solid #5C2A72">'到期日'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#5C2A72; color:white; bold:true; textAlign:center; border:1px solid #5C2A72">'融资金额'</th>
+      <th style="padding:4px; backgroundColor:#5C2A72; color:white; bold:true; textAlign:center; border:1px solid #5C2A72">'状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CEC2D4">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemAmount1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemName2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CEC2D4">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemQty2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemAmount2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CEC2D4">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemAmount3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemName4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CEC2D4">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemQty4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemAmount4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CEC2D4">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemAmount5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemName6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #CEC2D4">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemQty6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #CEC2D4">${itemAmount6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #CEC2D4">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F4F1F6; textAlign:center; border:1px solid #5C2A72">'应收账款合计'</td>
+      <td style="padding:4px; backgroundColor:#F4F1F6; border:1px solid #5C2A72">'—'</td>
+      <td style="padding:4px; backgroundColor:#F4F1F6; border:1px solid #5C2A72">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F4F1F6; textAlign:right; border:1px solid #5C2A72">'￥'${totalAmount}</td>
+      <td style="padding:4px; backgroundColor:#F4F1F6; border:1px solid #5C2A72">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F4F1F6; textAlign:right; border:1px solid #5C2A72">'￥'${financeTotal}</td>
+      <td style="padding:4px; backgroundColor:#F4F1F6; border:1px solid #5C2A72">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F4F1F6; bold:true; fontSize:9.5pt; color:#3E1351; border:1px solid #CEC2D4">'应收账款转让合计'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #CEC2D4">${totalLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F4F1F6; bold:true; fontSize:9.5pt; color:#3E1351; border:1px solid #CEC2D4">'保理融资款'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #CEC2D4">${financeLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F4F1F6; bold:true; fontSize:9.5pt; color:#3E1351; border:1px solid #CEC2D4">'备注 / REMARKS'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #CEC2D4">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：three
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#5C2A72; border:1px dashed #5C2A72">'（银行业务章 / 公章占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#5C2A72; border:1px dashed #5C2A72">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#5C2A72; border:1px dashed #5C2A72">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5C2A72">'机构名称：'${factorName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5C2A72">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5C2A72">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5C2A72">'业务日期：'${transferDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5C2A72">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5C2A72">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：right
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:24%; padding:4px">' '</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#3E1351">'卖方 / 转让人签章：'${sellerSign}</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#3E1351">'债务人确认：'${buyerSign}</td>
+      <td style="padding:4px; textAlign:center; color:#3E1351">'保理商签章：'${factorSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

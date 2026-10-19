@@ -1,0 +1,197 @@
+<pdf>
+<body>
+  // 150 企业征信查询报告 / 信用报告（bank 领域第 11 项）　视觉主题：紫棠·斑马·票式
+  // 版式组合：抬头=ticket 信息区=strip 明细表=striped 段落=plain 签章=three 落款=plain
+  // 主色 #52239F　辅色 #918727　浅底 #F3F0F7
+  // 征信查询报告与企业信用报告：授信余额、还款状态、逾期次数与公共记录。
+
+  // 抬头：ticket
+  <h1 style="fontSize:19pt; bold:true; color:#52239F; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'企业征信查询报告 / 信用报告'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'报告编号 '${reportNo}'　　报告日期 '${reportDate}'　　查询机构 '${orgName}</p>
+  <lineSeparator style="color:#52239F; thickness:2f"></lineSeparator>
+  <lineSeparator style="color:#52239F; thickness:0.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'报告编号 / REPORT NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BED7">${reportNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'报告日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #C8BED7">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'查询机构'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BED7">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'被查询主体'</td>
+      <td style="padding:4px; border:1px solid #C8BED7">${companyName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'统一社会信用代码'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BED7">${creditCode}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'查询原因'</td>
+      <td style="padding:4px; border:1px solid #C8BED7">${queryReason}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'查询操作员'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BED7">${operatorName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'信用评分 / 等级'</td>
+      <td style="padding:4px; border:1px solid #C8BED7">${creditScore}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'报告有效期'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BED7">${validUntil}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'信息概要'</td>
+      <td style="padding:4px; border:1px solid #C8BED7">${summary}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#52239F; color:white; bold:true; fontSize:10pt; characterSpacing:2pt">'信贷记录明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'序号'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'授信机构'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'业务类型'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'授信金额'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'余额'</th>
+      <th style="width:13%; padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'还款状态'</th>
+      <th style="padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'最近 24 月逾期'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C8BED7">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C8BED7">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C8BED7">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemAmount1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemName2}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:left; border:1px solid #C8BED7">${itemSpec2}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemUnit2}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:right; border:1px solid #C8BED7">${itemQty2}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:right; border:1px solid #C8BED7">${itemPrice2}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemAmount2}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C8BED7">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C8BED7">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C8BED7">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemAmount3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemName4}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:left; border:1px solid #C8BED7">${itemSpec4}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemUnit4}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:right; border:1px solid #C8BED7">${itemQty4}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:right; border:1px solid #C8BED7">${itemPrice4}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemAmount4}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C8BED7">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C8BED7">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C8BED7">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemAmount5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemName6}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:left; border:1px solid #C8BED7">${itemSpec6}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemUnit6}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:right; border:1px solid #C8BED7">${itemQty6}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:right; border:1px solid #C8BED7">${itemPrice6}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemAmount6}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F3F0F7; textAlign:center; border:1px solid #52239F">'授信余额合计'</td>
+      <td style="padding:4px; backgroundColor:#F3F0F7; border:1px solid #52239F">'—'</td>
+      <td style="padding:4px; backgroundColor:#F3F0F7; border:1px solid #52239F">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F3F0F7; textAlign:right; border:1px solid #52239F">'￥'${creditTotal}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F3F0F7; textAlign:right; border:1px solid #52239F">'￥'${totalAmount}</td>
+      <td style="padding:4px; backgroundColor:#F3F0F7; border:1px solid #52239F">'—'</td>
+      <td style="padding:4px; backgroundColor:#F3F0F7; border:1px solid #52239F">'—'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#52239F; color:white; bold:true; fontSize:10pt; characterSpacing:2pt">'公共记录与查询记录'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:24%; padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'记录类型'</th>
+      <th style="width:38%; padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'记录内容'</th>
+      <th style="padding:4px; backgroundColor:#52239F; color:white; bold:true; textAlign:center; border:1px solid #52239F">'发生 / 查询日期'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #C8BED7">${subName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C8BED7">${subContent1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${subDate1}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:left; border:1px solid #C8BED7">${subName2}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:left; border:1px solid #C8BED7">${subContent2}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${subDate2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #C8BED7">${subName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C8BED7">${subContent3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C8BED7">${subDate3}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:left; border:1px solid #C8BED7">${subName4}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:left; border:1px solid #C8BED7">${subContent4}</td>
+      <td style="backgroundColor:#F3F0F7; padding:4px; textAlign:center; border:1px solid #C8BED7">${subDate4}</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#370E7C; marginBottom:3px">'授信余额合计'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#370E7C; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：three
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#52239F; border:1px dashed #52239F">'（银行业务章 / 公章占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#52239F; border:1px dashed #52239F">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#52239F; border:1px dashed #52239F">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #52239F">'机构名称：'${orgName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #52239F">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #52239F">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #52239F">'业务日期：'${reportDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #52239F">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #52239F">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#370E7C; borderBottom:1px solid #C8BED7">'查询操作员：'${operatorName}</td>
+      <td style="width:33%; padding:4px; color:#370E7C; borderBottom:1px solid #C8BED7">'审核：'${reviewer}</td>
+      <td style="padding:4px; color:#370E7C; borderBottom:1px solid #C8BED7">'征信中心签章：'${orgSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

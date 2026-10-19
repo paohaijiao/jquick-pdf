@@ -1,0 +1,175 @@
+<pdf>
+<body>
+  // 135 出口退税申报单 / 退税回执单（customs 领域第 11 项）　视觉主题：宝蓝·斑马·通栏
+  // 版式组合：抬头=banner 信息区=kv 明细表=striped 段落=plain 签章=card 落款=table
+  // 主色 #133FC2　辅色 #914527　浅底 #EFF1F8
+  // 出口退税申报单与退税回执单：出口销售额折算、征退税率与应退税额。
+
+  // 抬头：banner
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:58%; padding:8px; backgroundColor:#133FC2; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'出口退税申报单 / 退税回执单'</td>
+      <td style="padding:8px; backgroundColor:#03299A; color:white; textAlign:right; fontSize:7.5pt">'申报流水号 '${declareNo}'　　申报日期 '${declareDate}'　　退税机关 '${taxOrg}</td>
+    </tr>
+  </table>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'申报流水号 / NO.'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${declareNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'申报日期 / DATE'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${declareDate}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'退税机关'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${taxOrg}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'纳税人识别号'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${taxNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'出口企业'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${companyName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'申报所属期'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${period}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'出口发票号码'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${invoiceNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'报关单号'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${declarationNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'退税率'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${refundRate}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF1F8; bold:true; border:1px solid #BAC3DB">'退税银行账户'</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">${bankAccount}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#133FC2; color:white; bold:true; fontSize:10pt; characterSpacing:2pt">'退税申报明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#133FC2; color:white; bold:true; textAlign:center; border:1px solid #133FC2">'序号'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#133FC2; color:white; bold:true; textAlign:center; border:1px solid #133FC2">'出口商品名称'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#133FC2; color:white; bold:true; textAlign:center; border:1px solid #133FC2">'出口销售额（USD）'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#133FC2; color:white; bold:true; textAlign:center; border:1px solid #133FC2">'折算人民币'</th>
+      <th style="width:10%; padding:4px; backgroundColor:#133FC2; color:white; bold:true; textAlign:center; border:1px solid #133FC2">'征税率'</th>
+      <th style="width:10%; padding:4px; backgroundColor:#133FC2; color:white; bold:true; textAlign:center; border:1px solid #133FC2">'退税率'</th>
+      <th style="padding:4px; backgroundColor:#133FC2; color:white; bold:true; textAlign:center; border:1px solid #133FC2">'应退税额'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC3DB">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemAmount1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemName2}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:left; border:1px solid #BAC3DB">${itemSpec2}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemUnit2}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemQty2}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemPrice2}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemAmount2}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC3DB">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemAmount3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemName4}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:left; border:1px solid #BAC3DB">${itemSpec4}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemUnit4}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemQty4}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemPrice4}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemAmount4}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC3DB">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemAmount5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemName6}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:left; border:1px solid #BAC3DB">${itemSpec6}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemUnit6}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemQty6}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemPrice6}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:center; border:1px solid #BAC3DB">${itemAmount6}</td>
+      <td style="backgroundColor:#EFF1F8; padding:4px; textAlign:right; border:1px solid #BAC3DB">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF1F8; textAlign:center; border:1px solid #133FC2">'应退税额合计'</td>
+      <td style="padding:4px; backgroundColor:#EFF1F8; border:1px solid #133FC2">'—'</td>
+      <td style="padding:4px; backgroundColor:#EFF1F8; border:1px solid #133FC2">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF1F8; textAlign:right; border:1px solid #133FC2">'￥'${totalAmount}</td>
+      <td style="padding:4px; backgroundColor:#EFF1F8; border:1px solid #133FC2">'—'</td>
+      <td style="padding:4px; backgroundColor:#EFF1F8; border:1px solid #133FC2">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF1F8; textAlign:right; border:1px solid #133FC2">'￥'${refundTotal}</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#03299A; marginBottom:3px">'出口销售额合计'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#03299A; marginBottom:3px">'应退税额合计'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${refundLine}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#03299A; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：card
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#EFF1F8; textAlign:center; color:#133FC2; border:1px solid #BAC3DB">'（报关专用章 / 海关验讫章占位）'</td>
+      <td style="padding:4px; backgroundColor:#EFF1F8; textAlign:center; color:#133FC2; border:1px solid #BAC3DB">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#EFF1F8; textAlign:center; color:#78838C; border:1px solid #BAC3DB">'申报单位：'${companyName}</td>
+      <td style="padding:4px; backgroundColor:#EFF1F8; textAlign:center; color:#78838C; border:1px solid #BAC3DB">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#EFF1F8; textAlign:center; color:#78838C; border:1px solid #BAC3DB">'签章日期：'${declareDate}</td>
+      <td style="padding:4px; backgroundColor:#EFF1F8; textAlign:center; color:#78838C; border:1px solid #BAC3DB">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #BAC3DB">'申报人：'${declarer}</td>
+      <td style="width:33%; padding:5px; border:1px solid #BAC3DB">'复核：'${reviewer}</td>
+      <td style="padding:5px; border:1px solid #BAC3DB">'退税机关受理：'${taxOfficer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

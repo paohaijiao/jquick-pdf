@@ -1,0 +1,135 @@
+<pdf>
+<body>
+  // 114 付款申请单（finance 领域第 15 项）　视觉主题：琥珀·厚框·票式
+  // 版式组合：抬头=ticket 信息区=strip 明细表=solid 段落=plain 签章=card 落款=plain
+  // 主色 #AAAD21　辅色 #275691　浅底 #F7F7F0
+  // 付款申请单：合同 / 订单号、对应发票号、已付与本次申请金额，多级审批签字栏。
+
+  // 抬头：ticket
+  <h1 style="fontSize:19pt; bold:true; color:#AAAD21; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'付款申请单'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'申请单号 '${applyNo}'　　申请日期 '${applyDate}'　　申请部门 '${deptName}</p>
+  <lineSeparator style="color:#AAAD21; thickness:2f"></lineSeparator>
+  <lineSeparator style="color:#AAAD21; thickness:0.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：strip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'申请单号'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'申请日期'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'申请部门'</td>
+      <td style="padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'申请人'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #D8D8BD">${applyNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #D8D8BD">${applyDate}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #D8D8BD">${deptName}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #D8D8BD">${applicant}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'收款单位'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'开户银行'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'银行账号'</td>
+      <td style="padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'付款方式'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #D8D8BD">${payeeName}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #D8D8BD">${payeeBank}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #D8D8BD">${payeeAccount}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #D8D8BD">${payMethod}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; bold:true; color:#888A0C; marginBottom:4px">'付款明细'</p>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:22%; padding:4px; backgroundColor:#AAAD21; color:white; bold:true; textAlign:center; border:1px solid #AAAD21">'费用项目'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#AAAD21; color:white; bold:true; textAlign:center; border:1px solid #AAAD21">'合同 / 订单号'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#AAAD21; color:white; bold:true; textAlign:center; border:1px solid #AAAD21">'对应发票号'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#AAAD21; color:white; bold:true; textAlign:center; border:1px solid #AAAD21">'已付金额'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#AAAD21; color:white; bold:true; textAlign:center; border:1px solid #AAAD21">'本次申请金额'</th>
+      <th style="padding:4px; backgroundColor:#AAAD21; color:white; bold:true; textAlign:center; border:1px solid #AAAD21">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemName2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemQty2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemName4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemQty4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D8D8BD">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D8D8BD">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #D8D8BD">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F7F7F0; textAlign:center; border:1px solid #AAAD21">'本次申请合计'</td>
+      <td style="padding:4px; backgroundColor:#F7F7F0; border:1px solid #AAAD21">'—'</td>
+      <td style="padding:4px; backgroundColor:#F7F7F0; border:1px solid #AAAD21">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F7F7F0; textAlign:right; border:1px solid #AAAD21">'￥'${totalPaid}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F7F7F0; textAlign:right; border:1px solid #AAAD21">'￥'${totalAmount}</td>
+      <td style="padding:4px; backgroundColor:#F7F7F0; border:1px solid #AAAD21">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#888A0C; marginBottom:3px">'付款合计'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#888A0C; marginBottom:3px">'付款事由'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${reason}</p>
+
+  // 签章区：card
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F7F7F0; textAlign:center; color:#AAAD21; border:1px solid #D8D8BD">'（公章 / 财务专用章占位）'</td>
+      <td style="padding:4px; backgroundColor:#F7F7F0; textAlign:center; color:#AAAD21; border:1px solid #D8D8BD">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F7F7F0; textAlign:center; color:#78838C; border:1px solid #D8D8BD">'单位名称：'${deptName}</td>
+      <td style="padding:4px; backgroundColor:#F7F7F0; textAlign:center; color:#78838C; border:1px solid #D8D8BD">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F7F7F0; textAlign:center; color:#78838C; border:1px solid #D8D8BD">'签章日期：'${applyDate}</td>
+      <td style="padding:4px; backgroundColor:#F7F7F0; textAlign:center; color:#78838C; border:1px solid #D8D8BD">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#888A0C; borderBottom:1px solid #D8D8BD">'申请人：'${applicant}</td>
+      <td style="width:33%; padding:4px; color:#888A0C; borderBottom:1px solid #D8D8BD">'部门负责人：'${deptHead}</td>
+      <td style="padding:4px; color:#888A0C; borderBottom:1px solid #D8D8BD">'财务复核：'${auditorName}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

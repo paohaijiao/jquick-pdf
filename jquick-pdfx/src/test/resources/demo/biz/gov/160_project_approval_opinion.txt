@@ -1,0 +1,172 @@
+<pdf>
+<body>
+  // 160 项目立项批复 / 可行性研究报告评审意见书（gov 领域第 6 项）　视觉主题：靛蓝·斑马·典式
+  // 版式组合：抬头=classic 信息区=grid2 明细表=striped 段落=box 签章=card 落款=table
+  // 主色 #1469A1　辅色 #91272E　浅底 #EFF4F8
+  // 项目立项批复与可研评审意见书：投资构成、评审意见与批复有效期。
+
+  // 抬头：classic
+  <h1 style="fontSize:18pt; bold:true; color:#034A79; textAlignment:center; characterSpacing:6pt">'项目立项批复 / 可行性研究报告评审意见书'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'批复文号 '${approvalNo}'　　批复日期 '${approvalDate}'　　批复机关 '${orgName}</p>
+  <lineSeparator style="color:#1469A1; thickness:1.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'批复文号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BBCEDA">${approvalNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'批复日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #BBCEDA">${approvalDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'批复机关'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BBCEDA">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'项目名称'</td>
+      <td style="padding:4px; border:1px solid #BBCEDA">${projectName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'项目代码'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BBCEDA">${projectCode}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'项目单位'</td>
+      <td style="padding:4px; border:1px solid #BBCEDA">${companyName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'建设地点'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BBCEDA">${location}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'项目总投资'</td>
+      <td style="padding:4px; border:1px solid #BBCEDA">${totalInvest}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'建设性质 / 行业'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BBCEDA">${buildType}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'建设期'</td>
+      <td style="padding:4px; border:1px solid #BBCEDA">${buildPeriod}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'评审专家组组长'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BBCEDA">${expertLeader}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF4F8; bold:true; border:1px solid #BBCEDA">'评审结论'</td>
+      <td style="padding:4px; border:1px solid #BBCEDA">${reviewResult}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#1469A1; color:white; bold:true; fontSize:10pt; characterSpacing:2pt">'投资构成与评审意见明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#1469A1; color:white; bold:true; textAlign:center; border:1px solid #1469A1">'序号'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#1469A1; color:white; bold:true; textAlign:center; border:1px solid #1469A1">'工程或费用名称'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#1469A1; color:white; bold:true; textAlign:center; border:1px solid #1469A1">'投资额（万元）'</th>
+      <th style="width:11%; padding:4px; backgroundColor:#1469A1; color:white; bold:true; textAlign:center; border:1px solid #1469A1">'占比'</th>
+      <th style="width:22%; padding:4px; backgroundColor:#1469A1; color:white; bold:true; textAlign:center; border:1px solid #1469A1">'评审意见'</th>
+      <th style="padding:4px; backgroundColor:#1469A1; color:white; bold:true; textAlign:center; border:1px solid #1469A1">'结论'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BBCEDA">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemQty1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemName2}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemSpec2}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:right; border:1px solid #BBCEDA">${itemUnit2}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemQty2}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemPrice2}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BBCEDA">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemQty3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemName4}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemSpec4}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:right; border:1px solid #BBCEDA">${itemUnit4}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemQty4}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemPrice4}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BBCEDA">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemQty5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemName6}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemSpec6}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:right; border:1px solid #BBCEDA">${itemUnit6}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemQty6}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:left; border:1px solid #BBCEDA">${itemPrice6}</td>
+      <td style="backgroundColor:#EFF4F8; padding:4px; textAlign:center; border:1px solid #BBCEDA">${itemAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF4F8; textAlign:center; border:1px solid #1469A1">'总投资合计'</td>
+      <td style="padding:4px; backgroundColor:#EFF4F8; border:1px solid #1469A1">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF4F8; textAlign:right; border:1px solid #1469A1">'￥'${totalAmount}' 万元'</td>
+      <td style="padding:4px; backgroundColor:#EFF4F8; border:1px solid #1469A1">'—'</td>
+      <td style="padding:4px; backgroundColor:#EFF4F8; border:1px solid #1469A1">'—'</td>
+      <td style="padding:4px; backgroundColor:#EFF4F8; border:1px solid #1469A1">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#EFF4F8; bold:true; fontSize:9.5pt; color:#034A79; border:1px solid #BBCEDA">'项目总投资合计'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BBCEDA">${totalLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#EFF4F8; bold:true; fontSize:9.5pt; color:#034A79; border:1px solid #BBCEDA">'批复意见'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BBCEDA">${approvalOpinion}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#EFF4F8; bold:true; fontSize:9.5pt; color:#034A79; border:1px solid #BBCEDA">'备注 / REMARKS'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BBCEDA">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：card
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#EFF4F8; textAlign:center; color:#1469A1; border:1px solid #BBCEDA">'（行政审批专用章 / 公章占位）'</td>
+      <td style="padding:4px; backgroundColor:#EFF4F8; textAlign:center; color:#1469A1; border:1px solid #BBCEDA">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#EFF4F8; textAlign:center; color:#78838C; border:1px solid #BBCEDA">'受理机关：'${orgName}</td>
+      <td style="padding:4px; backgroundColor:#EFF4F8; textAlign:center; color:#78838C; border:1px solid #BBCEDA">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#EFF4F8; textAlign:center; color:#78838C; border:1px solid #BBCEDA">'办结日期：'${approvalDate}</td>
+      <td style="padding:4px; backgroundColor:#EFF4F8; textAlign:center; color:#78838C; border:1px solid #BBCEDA">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #BBCEDA">'评审专家组长：'${expertLeader}</td>
+      <td style="width:33%; padding:5px; border:1px solid #BBCEDA">'经办人：'${operator}</td>
+      <td style="padding:5px; border:1px solid #BBCEDA">'批复机关签章：'${orgSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

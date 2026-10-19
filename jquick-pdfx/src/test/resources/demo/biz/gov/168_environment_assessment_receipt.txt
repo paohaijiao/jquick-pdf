@@ -1,0 +1,147 @@
+<pdf>
+<body>
+  // 168 环境影响评价备案回执 / 安全评价验收单据（gov 领域第 14 项）　视觉主题：绛紫·密排·票式
+  // 版式组合：抬头=ticket 信息区=grid2 明细表=compact 段落=plain 签章=right 落款=plain
+  // 主色 #8711AB　辅色 #719127　浅底 #F6EFF8
+  // 项目环评备案回执与安评验收单据：废气废水噪声固废与安全设施验收结论。
+
+  // 抬头：ticket
+  <h1 style="fontSize:19pt; bold:true; color:#8711AB; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'环境影响评价备案回执 / 安全评价验收单据'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'备案编号 '${recordNo}'　　备案日期 '${recordDate}'　　备案机关 '${orgName}</p>
+  <lineSeparator style="color:#8711AB; thickness:2f"></lineSeparator>
+  <lineSeparator style="color:#8711AB; thickness:0.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'备案编号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D3BADB">${recordNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'备案日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #D3BADB">${recordDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'备案机关'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D3BADB">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'项目名称'</td>
+      <td style="padding:4px; border:1px solid #D3BADB">${projectName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'建设单位'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D3BADB">${companyName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'建设地点'</td>
+      <td style="padding:4px; border:1px solid #D3BADB">${location}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'环评文件类型'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D3BADB">${eiaType}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'环评结论'</td>
+      <td style="padding:4px; border:1px solid #D3BADB">${eiaConclusion}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'安评报告类型'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D3BADB">${siaType}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'安评结论'</td>
+      <td style="padding:4px; border:1px solid #D3BADB">${siaConclusion}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'项目投资 / 环保投资'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D3BADB">${investInfo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'备案有效期'</td>
+      <td style="padding:4px; border:1px solid #D3BADB">${validUntil}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10pt; bold:true; color:#8711AB; marginBottom:3px; characterSpacing:2pt">'环评与安评验收明细'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:2px; backgroundColor:#630381; color:white; bold:true; textAlign:center; border:1px solid #630381">'序号'</th>
+      <th style="width:24%; padding:2px; backgroundColor:#630381; color:white; bold:true; textAlign:center; border:1px solid #630381">'评价 / 验收项目'</th>
+      <th style="width:22%; padding:2px; backgroundColor:#630381; color:white; bold:true; textAlign:center; border:1px solid #630381">'标准要求'</th>
+      <th style="width:22%; padding:2px; backgroundColor:#630381; color:white; bold:true; textAlign:center; border:1px solid #630381">'建设 / 验收情况'</th>
+      <th style="width:12%; padding:2px; backgroundColor:#630381; color:white; bold:true; textAlign:center; border:1px solid #630381">'验收结论'</th>
+      <th style="padding:2px; backgroundColor:#630381; color:white; bold:true; textAlign:center; border:1px solid #630381">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemName1}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemSpec1}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemUnit1}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemQty1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemPrice1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemName2}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemSpec2}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemUnit2}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemQty2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemPrice2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemName3}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemSpec3}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemUnit3}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemQty3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemPrice3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemName4}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemSpec4}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemUnit4}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemQty4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemPrice4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemName5}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemSpec5}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemUnit5}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemQty5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemPrice5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemName6}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemSpec6}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemUnit6}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E3DFE5">${itemQty6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemPrice6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E3DFE5">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#630381; marginBottom:3px">'备案结论'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${recordConclusion}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#630381; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：right
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:32%; padding:5px; backgroundColor:#F6EFF8; fontSize:7.5pt; color:#78838C; border:1px solid #D3BADB">'本联次加盖印章后有效，扫码可验真'</td>
+      <td style="padding:3px; textAlign:center; color:#8711AB; border:1px dashed #8711AB">'（行政审批专用章 / 公章占位）'　'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #8711AB">'受理机关：'${orgName}　'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #8711AB">'办结日期：'${recordDate}　'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#630381; borderBottom:1px solid #D3BADB">'建设单位签章：'${companySign}</td>
+      <td style="width:33%; padding:4px; color:#630381; borderBottom:1px solid #D3BADB">'经办人：'${operator}</td>
+      <td style="padding:4px; color:#630381; borderBottom:1px solid #D3BADB">'备案机关签章：'${orgSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

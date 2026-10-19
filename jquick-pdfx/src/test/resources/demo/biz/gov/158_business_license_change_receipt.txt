@@ -1,0 +1,143 @@
+<pdf>
+<body>
+  // 158 营业执照变更 / 备案回执（gov 领域第 4 项）　视觉主题：靛蓝·密排·公文
+  // 版式组合：抬头=doc 信息区=strip 明细表=compact 段落=bar 签章=two 落款=table
+  // 主色 #2098A8　辅色 #91274C　浅底 #F0F6F7
+  // 营业执照变更回执与备案回执：变更项目的前后对比与核准日期。
+
+  // 抬头：doc
+  <p style="fontSize:20pt; bold:true; color:#2098A8; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'营业执照变更 / 备案回执'</p>
+  <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'回执编号 '${receiptNo}'　　核准日期 '${approveDate}'　　登记机关 '${orgName}</p>
+  <lineSeparator style="color:#2098A8; thickness:2f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'回执编号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BDD5D8">${receiptNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'核准日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #BDD5D8">${approveDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'登记机关'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BDD5D8">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'企业名称'</td>
+      <td style="padding:4px; border:1px solid #BDD5D8">${companyName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'统一社会信用代码'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BDD5D8">${creditCode}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'变更 / 备案类型'</td>
+      <td style="padding:4px; border:1px solid #BDD5D8">${changeType}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'原执照注册号'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BDD5D8">${oldRegNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'新执照注册号'</td>
+      <td style="padding:4px; border:1px solid #BDD5D8">${newRegNo}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'申请日期 / 受理编号'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BDD5D8">${acceptInfo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'办理结果'</td>
+      <td style="padding:4px; border:1px solid #BDD5D8">${result}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10pt; bold:true; color:#2098A8; marginBottom:3px; characterSpacing:2pt">'变更 / 备案事项明细'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:2px; backgroundColor:#0C7684; color:white; bold:true; textAlign:center; border:1px solid #0C7684">'序号'</th>
+      <th style="width:18%; padding:2px; backgroundColor:#0C7684; color:white; bold:true; textAlign:center; border:1px solid #0C7684">'变更项目'</th>
+      <th style="width:26%; padding:2px; backgroundColor:#0C7684; color:white; bold:true; textAlign:center; border:1px solid #0C7684">'变更前'</th>
+      <th style="width:26%; padding:2px; backgroundColor:#0C7684; color:white; bold:true; textAlign:center; border:1px solid #0C7684">'变更后'</th>
+      <th style="padding:2px; backgroundColor:#0C7684; color:white; bold:true; textAlign:center; border:1px solid #0C7684">'变更日期'</th>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemName1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemSpec1}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemUnit1}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemQty1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemName2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemSpec2}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemUnit2}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemQty2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemName3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemSpec3}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemUnit3}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemQty3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemName4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemSpec4}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemUnit4}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemQty4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemName5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemSpec5}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemUnit5}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemQty5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemName6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemSpec6}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemUnit6}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE4E5">${itemQty6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE4E5">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#91274C">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#0C7684">'办理结果'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${result}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#91274C">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#0C7684">'备注 / REMARKS'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#2098A8; border:1px dashed #2098A8">'（行政审批专用章 / 公章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#2098A8; border:1px dashed #2098A8">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #2098A8">'受理机关：'${orgName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #2098A8">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #2098A8">'办结日期：'${approveDate}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #2098A8">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #BDD5D8">'登记经办人：'${operator}</td>
+      <td style="width:33%; padding:5px; border:1px solid #BDD5D8">'核准人：'${approver}</td>
+      <td style="padding:5px; border:1px solid #BDD5D8">'企业签收：'${companySign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

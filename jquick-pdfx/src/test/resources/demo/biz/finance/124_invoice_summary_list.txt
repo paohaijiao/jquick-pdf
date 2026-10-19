@@ -1,0 +1,135 @@
+<pdf>
+<body>
+  // 124 开票汇总清单（finance 领域第 25 项）　视觉主题：松绿·厚框·典式
+  // 版式组合：抬头=classic 信息区=grid2 明细表=solid 段落=box 签章=two 落款=table
+  // 主色 #11B024　辅色 #6C2791　浅底 #EFF8F0
+  // 开票汇总清单：按票种汇总开票份数、不含税金额、税额与价税合计，与申报表核对。
+
+  // 抬头：classic
+  <h1 style="fontSize:18pt; bold:true; color:#038712; textAlignment:center; characterSpacing:6pt">'开票汇总清单'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'汇总期间 '${period}'　　开票单位 '${sellerName}'　　汇总单号 '${summaryNo}</p>
+  <lineSeparator style="color:#11B024; thickness:1.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF8F0; bold:true; border:1px solid #BADBBE">'汇总单号'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BADBBE">${summaryNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF8F0; bold:true; border:1px solid #BADBBE">'汇总期间'</td>
+      <td style="padding:4px; border:1px solid #BADBBE">${period}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF8F0; bold:true; border:1px solid #BADBBE">'开票单位'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BADBBE">${sellerName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF8F0; bold:true; border:1px solid #BADBBE">'纳税人识别号'</td>
+      <td style="padding:4px; border:1px solid #BADBBE">${sellerTaxNo}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF8F0; bold:true; border:1px solid #BADBBE">'发票份数'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BADBBE">${invoiceCount}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF8F0; bold:true; border:1px solid #BADBBE">'作废份数'</td>
+      <td style="padding:4px; border:1px solid #BADBBE">${voidCount}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF8F0; bold:true; border:1px solid #BADBBE">'红冲份数'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BADBBE">${redCount}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#EFF8F0; bold:true; border:1px solid #BADBBE">'填报人'</td>
+      <td style="padding:4px; border:1px solid #BADBBE">${preparer}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; bold:true; color:#038712; marginBottom:4px">'按票种汇总'</p>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:24%; padding:4px; backgroundColor:#11B024; color:white; bold:true; textAlign:center; border:1px solid #11B024">'发票种类'</th>
+      <th style="width:12%; padding:4px; backgroundColor:#11B024; color:white; bold:true; textAlign:center; border:1px solid #11B024">'开票份数'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#11B024; color:white; bold:true; textAlign:center; border:1px solid #11B024">'不含税金额'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#11B024; color:white; bold:true; textAlign:center; border:1px solid #11B024">'税额'</th>
+      <th style="padding:4px; backgroundColor:#11B024; color:white; bold:true; textAlign:center; border:1px solid #11B024">'价税合计'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #BADBBE">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BADBBE">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #BADBBE">${itemName2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BADBBE">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemQty2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #BADBBE">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BADBBE">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #BADBBE">${itemName4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BADBBE">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemQty4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #BADBBE">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BADBBE">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BADBBE">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF8F0; textAlign:center; border:1px solid #11B024">'本期合计'</td>
+      <td style="padding:4px; backgroundColor:#EFF8F0; border:1px solid #11B024">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF8F0; textAlign:right; border:1px solid #11B024">'￥'${totalAmount}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF8F0; textAlign:right; border:1px solid #11B024">'￥'${totalTax}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF8F0; textAlign:right; border:1px solid #11B024">'￥'${totalWithTax}</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#EFF8F0; bold:true; fontSize:9.5pt; color:#038712; border:1px solid #BADBBE">'本期不含税金额合计'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BADBBE">${totalLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#EFF8F0; bold:true; fontSize:9.5pt; color:#038712; border:1px solid #BADBBE">'备注'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BADBBE">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#11B024; border:1px dashed #11B024">'（公章 / 财务专用章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#11B024; border:1px dashed #11B024">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #11B024">'单位名称：'${sellerName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #11B024">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #11B024">'签章日期：'${period}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #11B024">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #BADBBE">'填报人：'${preparer}</td>
+      <td style="width:33%; padding:5px; border:1px solid #BADBBE">'复核：'${reviewer}</td>
+      <td style="padding:5px; border:1px solid #BADBBE">'财务负责人：'${drawer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

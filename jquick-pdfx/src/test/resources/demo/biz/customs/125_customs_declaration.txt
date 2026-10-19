@@ -1,0 +1,181 @@
+<pdf>
+<body>
+  // 125 中华人民共和国海关进口货物报关单（customs 领域第 1 项）　视觉主题：天青·斑马·竖栏
+  // 版式组合：抬头=side 信息区=chip 明细表=striped 段落=bar 签章=three 落款=right
+  // 主色 #17786C　辅色 #912765　浅底 #F0F7F6
+  // 进出口货物报关单（海关清单）：商品编号 HS、数量单位、原产国、成交单价与总价。
+
+  // 抬头：side
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:5px; padding:0px; backgroundColor:#17786C">' '</td>
+      <td style="width:56%; padding:6px; bold:true; fontSize:14.5pt; color:#075047; characterSpacing:3pt">'中华人民共和国海关进口货物报关单'</td>
+      <td style="padding:6px; textAlign:right; fontSize:7.5pt; color:#78838C">'海关编号 '${declarationNo}'　　申报日期 '${declareDate}'　　申报口岸 '${portName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#DFE5E4; thickness:1f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：strip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'海关编号'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'申报日期'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'申报口岸'</td>
+      <td style="padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'境内收货人'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDD8D5">${declarationNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDD8D5">${declareDate}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDD8D5">${portName}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BDD8D5">${consignee}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'境外发货人'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'消费使用单位'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'运输方式 / 工具'</td>
+      <td style="padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'贸易方式 / 征免性质'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDD8D5">${shipper}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDD8D5">${endUser}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDD8D5">${transport}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BDD8D5">${tradeMode}</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'许可证号 / 合同号'</td>
+      <td style="padding:3px; backgroundColor:#F0F7F6; bold:true; textAlign:center; border:1px solid #BDD8D5">'件数 / 毛重 / 净重'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:center; border:1px solid #BDD8D5">${contractNo}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BDD8D5">${packageInfo}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#17786C; color:white; bold:true; fontSize:10pt; characterSpacing:2pt">'报关商品明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#17786C; color:white; bold:true; textAlign:center; border:1px solid #17786C">'项号'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#17786C; color:white; bold:true; textAlign:center; border:1px solid #17786C">'商品编号（HS）'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#17786C; color:white; bold:true; textAlign:center; border:1px solid #17786C">'商品名称规格'</th>
+      <th style="width:13%; padding:4px; backgroundColor:#17786C; color:white; bold:true; textAlign:center; border:1px solid #17786C">'数量 / 单位'</th>
+      <th style="width:13%; padding:4px; backgroundColor:#17786C; color:white; bold:true; textAlign:center; border:1px solid #17786C">'原产国 / 目的国'</th>
+      <th style="width:13%; padding:4px; backgroundColor:#17786C; color:white; bold:true; textAlign:center; border:1px solid #17786C">'单价（USD）'</th>
+      <th style="padding:4px; backgroundColor:#17786C; color:white; bold:true; textAlign:center; border:1px solid #17786C">'总价（USD）'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BDD8D5">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemAmount1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemName2}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemSpec2}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:left; border:1px solid #BDD8D5">${itemUnit2}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemQty2}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemPrice2}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemAmount2}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BDD8D5">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemAmount3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemName4}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemSpec4}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:left; border:1px solid #BDD8D5">${itemUnit4}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemQty4}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemPrice4}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemAmount4}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BDD8D5">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemAmount5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemName6}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemSpec6}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:left; border:1px solid #BDD8D5">${itemUnit6}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemQty6}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:center; border:1px solid #BDD8D5">${itemPrice6}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemAmount6}</td>
+      <td style="backgroundColor:#F0F7F6; padding:4px; textAlign:right; border:1px solid #BDD8D5">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F0F7F6; textAlign:center; border:1px solid #17786C">'成交总价'</td>
+      <td style="padding:4px; backgroundColor:#F0F7F6; border:1px solid #17786C">'—'</td>
+      <td style="padding:4px; backgroundColor:#F0F7F6; border:1px solid #17786C">'—'</td>
+      <td style="padding:4px; backgroundColor:#F0F7F6; border:1px solid #17786C">'—'</td>
+      <td style="padding:4px; backgroundColor:#F0F7F6; border:1px solid #17786C">'—'</td>
+      <td style="padding:4px; backgroundColor:#F0F7F6; border:1px solid #17786C">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F0F7F6; textAlign:right; border:1px solid #17786C">'USD '${totalAmount}</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#912765">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#075047">'成交总价'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#912765">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#075047">'备注'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：three
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#17786C; border:1px dashed #17786C">'（报关专用章 / 海关验讫章占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#17786C; border:1px dashed #17786C">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#17786C; border:1px dashed #17786C">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #17786C">'申报单位：'${consignee}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #17786C">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #17786C">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #17786C">'签章日期：'${declareDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #17786C">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #17786C">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：right
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:24%; padding:4px">' '</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#075047">'申报人：'${declarer}</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#075047">'复核：'${reviewer}</td>
+      <td style="padding:4px; textAlign:center; color:#075047">'海关验讫：'${customsOfficer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

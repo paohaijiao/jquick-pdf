@@ -1,0 +1,178 @@
+<pdf>
+<body>
+  // 182 来料质检单 / 成品质量检验报告单（supply 领域第 3 项）　视觉主题：金橙·疏朗·公文
+  // 版式组合：抬头=doc 信息区=strip 明细表=airy 段落=bar 签章=split 落款=plain
+  // 主色 #C4A718　辅色 #276A91　浅底 #F8F6EF
+  // 来料质检单与成品质量检验报告单：检验项目、标准要求、实测结果与判定。
+
+  // 抬头：doc
+  <p style="fontSize:20pt; bold:true; color:#C4A718; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'来料质检单 / 成品质量检验报告单'</p>
+  <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'检验单号 '${inspectNo}'　　检验日期 '${inspectDate}'　　检验部门 '${deptName}</p>
+  <lineSeparator style="color:#C4A718; thickness:2f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'检验单号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #DAD5BB">${inspectNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'检验日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #DAD5BB">${inspectDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'检验部门 / 检验类型'</td>
+      <td style="width:34%; padding:4px; border:1px solid #DAD5BB">${deptName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'供应商 / 生产批次'</td>
+      <td style="padding:4px; border:1px solid #DAD5BB">${supplierName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'物料 / 产品名称'</td>
+      <td style="width:34%; padding:4px; border:1px solid #DAD5BB">${materialName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'送检数量 / 抽检数量'</td>
+      <td style="padding:4px; border:1px solid #DAD5BB">${qtyInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'检验依据'</td>
+      <td style="width:34%; padding:4px; border:1px solid #DAD5BB">${standard}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'测量设备 / 环境'</td>
+      <td style="padding:4px; border:1px solid #DAD5BB">${deviceInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'检验员 / 审核'</td>
+      <td style="width:34%; padding:4px; border:1px solid #DAD5BB">${inspectorInfo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'检验结论'</td>
+      <td style="padding:4px; border:1px solid #DAD5BB">${conclusion}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#276A91">' '</td>
+      <td style="padding:3px; bold:true; fontSize:10.5pt; color:#9F8505">'检验项目明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:5px; backgroundColor:#F8F6EF; color:#9F8505; bold:true; textAlign:center; border:1px solid #DAD5BB">'序号'</th>
+      <th style="width:20%; padding:5px; backgroundColor:#F8F6EF; color:#9F8505; bold:true; textAlign:center; border:1px solid #DAD5BB">'检验项目'</th>
+      <th style="width:22%; padding:5px; backgroundColor:#F8F6EF; color:#9F8505; bold:true; textAlign:center; border:1px solid #DAD5BB">'标准要求'</th>
+      <th style="width:20%; padding:5px; backgroundColor:#F8F6EF; color:#9F8505; bold:true; textAlign:center; border:1px solid #DAD5BB">'实测结果'</th>
+      <th style="width:12%; padding:5px; backgroundColor:#F8F6EF; color:#9F8505; bold:true; textAlign:center; border:1px solid #DAD5BB">'判定'</th>
+      <th style="padding:5px; backgroundColor:#F8F6EF; color:#9F8505; bold:true; textAlign:center; border:1px solid #DAD5BB">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName7}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec7}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit7}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty7}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice7}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount7}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName8}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec8}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit8}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty8}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice8}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount8}</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#276A91">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#9F8505">'检验结论'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${conclusion}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#276A91">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#9F8505">'处置意见'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${handleAdvice}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#276A91">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#9F8505">'备注 / REMARKS'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：split
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#C4A718; border:1px dashed #C4A718">'（企业公章 / 合同专用章占位）'</td>
+      <td style="padding:3px; textAlign:left; color:#C4A718; border:1px dashed #C4A718">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#78838C; border:1px dashed #C4A718">'单位名称：'${deptName}</td>
+      <td style="padding:3px; textAlign:left; color:#78838C; border:1px dashed #C4A718">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#78838C; border:1px dashed #C4A718">'单据日期：'${inspectDate}</td>
+      <td style="padding:3px; textAlign:left; color:#78838C; border:1px dashed #C4A718">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#9F8505; borderBottom:1px solid #DAD5BB">'检验员：'${inspector}</td>
+      <td style="width:33%; padding:4px; color:#9F8505; borderBottom:1px solid #DAD5BB">'质量审核：'${auditor}</td>
+      <td style="padding:4px; color:#9F8505; borderBottom:1px solid #DAD5BB">'供应商确认：'${supplierSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

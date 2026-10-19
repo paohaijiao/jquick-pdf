@@ -1,0 +1,154 @@
+<pdf>
+<body>
+  // 162 专项资金验收单 / 绩效评价回执（gov 领域第 8 项）　视觉主题：宝蓝·疏朗·票式
+  // 版式组合：抬头=ticket 信息区=strip 明细表=airy 段落=plain 签章=two 落款=table
+  // 主色 #293979　辅色 #914A27　浅底 #F1F2F6
+  // 专项资金验收单与绩效评价回执：指标目标值与实际完成值、分值得分与等次。
+
+  // 抬头：ticket
+  <h1 style="fontSize:19pt; bold:true; color:#293979; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'专项资金验收单 / 绩效评价回执'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'验收编号 '${acceptNo}'　　验收日期 '${acceptDate}'　　组织单位 '${orgName}</p>
+  <lineSeparator style="color:#293979; thickness:2f"></lineSeparator>
+  <lineSeparator style="color:#293979; thickness:0.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'验收编号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C5D5">${acceptNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'验收日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #C1C5D5">${acceptDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'组织单位'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C5D5">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'专项资金名称'</td>
+      <td style="padding:4px; border:1px solid #C1C5D5">${fundName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'项目 / 课题名称'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C5D5">${projectName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'项目承担单位'</td>
+      <td style="padding:4px; border:1px solid #C1C5D5">${companyName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'立项文号 / 编号'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C5D5">${projectNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'专项资金总额'</td>
+      <td style="padding:4px; border:1px solid #C1C5D5">${fundAmount}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'验收方式'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C5D5">${acceptWay}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'绩效评价等级'</td>
+      <td style="padding:4px; border:1px solid #C1C5D5">${perfLevel}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'验收结论'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C1C5D5">${conclusion}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; border:1px solid #C1C5D5">' '</td>
+      <td style="padding:4px; border:1px solid #C1C5D5">' '</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#914A27">' '</td>
+      <td style="padding:3px; bold:true; fontSize:10.5pt; color:#122058">'绩效评价指标明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:5px; backgroundColor:#F1F2F6; color:#122058; bold:true; textAlign:center; border:1px solid #C1C5D5">'序号'</th>
+      <th style="width:22%; padding:5px; backgroundColor:#F1F2F6; color:#122058; bold:true; textAlign:center; border:1px solid #C1C5D5">'评价指标'</th>
+      <th style="width:16%; padding:5px; backgroundColor:#F1F2F6; color:#122058; bold:true; textAlign:center; border:1px solid #C1C5D5">'目标值'</th>
+      <th style="width:18%; padding:5px; backgroundColor:#F1F2F6; color:#122058; bold:true; textAlign:center; border:1px solid #C1C5D5">'实际完成值'</th>
+      <th style="width:12%; padding:5px; backgroundColor:#F1F2F6; color:#122058; bold:true; textAlign:center; border:1px solid #C1C5D5">'分值 / 得分'</th>
+      <th style="padding:5px; backgroundColor:#F1F2F6; color:#122058; bold:true; textAlign:center; border:1px solid #C1C5D5">'评价等次'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#122058; marginBottom:3px">'验收结论'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${conclusion}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#122058; marginBottom:3px">'绩效评价结论'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${perfConclusion}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#122058; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#293979; border:1px dashed #293979">'（行政审批专用章 / 公章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#293979; border:1px dashed #293979">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #293979">'受理机关：'${orgName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #293979">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #293979">'办结日期：'${acceptDate}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #293979">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #C1C5D5">'验收组长：'${groupLeader}</td>
+      <td style="width:33%; padding:5px; border:1px solid #C1C5D5">'项目单位签章：'${companySign}</td>
+      <td style="padding:5px; border:1px solid #C1C5D5">'组织单位签章：'${orgSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

@@ -1,0 +1,135 @@
+<pdf>
+<body>
+  // 121 成品油出库单（finance 领域第 22 项）　视觉主题：松绿·素雅·下线
+  // 版式组合：抬头=underline 信息区=chip 明细表=light 段落=box 签章=three 落款=plain
+  // 主色 #3A8431　辅色 #542791　浅底 #F2F6F1
+  // 成品油出库单：罐号、出库数量（升）、实测密度与折算重量（吨），三方签字。
+
+  // 抬头：underline
+  <table style="width:100%; marginBottom:1px">
+    <tr>
+      <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#206518; characterSpacing:3pt">'成品油出库单'</td>
+      <td style="padding:2px; textAlign:right; fontSize:7.5pt; color:#78838C">'出库单号 '${outNo}'　　出库日期 '${outDate}'　　油库 '${depotName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#3A8431; thickness:2.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：chip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:4px; border:1px solid #C3D4C2">'出库单号：'${outNo}</td>
+      <td style="width:25%; padding:4px; border:1px solid #C3D4C2">'出库日期：'${outDate}</td>
+      <td style="width:25%; padding:4px; border:1px solid #C3D4C2">'油库 / 加油站：'${depotName}</td>
+      <td style="padding:4px; border:1px solid #C3D4C2">'提货单位：'${buyerName}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:4px; border:1px solid #C3D4C2">'运输车辆：'${plateNo}</td>
+      <td style="width:25%; padding:4px; border:1px solid #C3D4C2">'经办人：'${operator}</td>
+      <td style="width:25%; padding:4px; border:1px solid #C3D4C2">'关联发票号码：'${invoiceNo}</td>
+      <td style="padding:4px; border:1px solid #C3D4C2">'出库类型：'${outType}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F2F6F1; bold:true; fontSize:10pt; color:#206518">'出库明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:20%; padding:4px; backgroundColor:#F2F6F1; color:#206518; bold:true; textAlign:center; border:1px solid #C3D4C2">'油品名称'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#F2F6F1; color:#206518; bold:true; textAlign:center; border:1px solid #C3D4C2">'牌号 / 规格'</th>
+      <th style="width:10%; padding:4px; backgroundColor:#F2F6F1; color:#206518; bold:true; textAlign:center; border:1px solid #C3D4C2">'罐号'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#F2F6F1; color:#206518; bold:true; textAlign:center; border:1px solid #C3D4C2">'出库数量（升）'</th>
+      <th style="width:12%; padding:4px; backgroundColor:#F2F6F1; color:#206518; bold:true; textAlign:center; border:1px solid #C3D4C2">'密度（kg/L）'</th>
+      <th style="padding:4px; backgroundColor:#F2F6F1; color:#206518; bold:true; textAlign:center; border:1px solid #C3D4C2">'折算重量（吨）'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5DF">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5DF">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5DF">${itemName2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemQty2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5DF">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5DF">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5DF">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5DF">${itemName4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemQty4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5DF">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5DF">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5DF">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5DF">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F2F6F1; textAlign:center; border:1px solid #3A8431">'出库合计'</td>
+      <td style="padding:4px; backgroundColor:#F2F6F1; border:1px solid #3A8431">'—'</td>
+      <td style="padding:4px; backgroundColor:#F2F6F1; border:1px solid #3A8431">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F2F6F1; textAlign:right; border:1px solid #3A8431">${totalQty}' 升'</td>
+      <td style="padding:4px; backgroundColor:#F2F6F1; border:1px solid #3A8431">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F2F6F1; textAlign:right; border:1px solid #3A8431">${totalWeight}' 吨'</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F2F6F1; bold:true; fontSize:9.5pt; color:#206518; border:1px solid #C3D4C2">'备注'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #C3D4C2">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：three
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#3A8431; border:1px dashed #3A8431">'（公章 / 财务专用章占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#3A8431; border:1px dashed #3A8431">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#3A8431; border:1px dashed #3A8431">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #3A8431">'单位名称：'${depotName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #3A8431">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #3A8431">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #3A8431">'签章日期：'${outDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #3A8431">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #3A8431">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#206518; borderBottom:1px solid #C3D4C2">'油库保管：'${payee}</td>
+      <td style="width:33%; padding:4px; color:#206518; borderBottom:1px solid #C3D4C2">'提货人：'${reviewer}</td>
+      <td style="padding:4px; color:#206518; borderBottom:1px solid #C3D4C2">'承运人：'${drawer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

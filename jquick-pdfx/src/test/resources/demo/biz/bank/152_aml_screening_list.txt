@@ -1,0 +1,171 @@
+<pdf>
+<body>
+  // 152 反洗钱交易筛查清单 / 可疑交易报告单（bank 领域第 13 项）　视觉主题：紫棠·疏朗·公文
+  // 版式组合：抬头=doc 信息区=grid2 明细表=airy 段落=bar 签章=card 落款=right
+  // 主色 #511699　辅色 #919027　浅底 #F3F0F7
+  // 反洗钱交易筛查清单与可疑交易单据：命中规则、风险等级与处置结论。
+
+  // 抬头：doc
+  <p style="fontSize:20pt; bold:true; color:#511699; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'反洗钱交易筛查清单 / 可疑交易报告单'</p>
+  <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'筛查批次 '${batchNo}'　　筛查日期 '${screenDate}'　　报送机构 '${orgName}</p>
+  <lineSeparator style="color:#511699; thickness:2f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'筛查批次 / BATCH NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C9BCDA">${batchNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'筛查日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #C9BCDA">${screenDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'报送机构'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C9BCDA">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'筛查规则集'</td>
+      <td style="padding:4px; border:1px solid #C9BCDA">${ruleSet}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'筛查范围'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C9BCDA">${scope}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'命中交易笔数'</td>
+      <td style="padding:4px; border:1px solid #C9BCDA">${hitCount}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'已上报笔数'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C9BCDA">${reportCount}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'排除笔数'</td>
+      <td style="padding:4px; border:1px solid #C9BCDA">${excludeCount}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'风险等级分布'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C9BCDA">${riskLevel}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C9BCDA">'分析员'</td>
+      <td style="padding:4px; border:1px solid #C9BCDA">${analyst}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#919027">' '</td>
+      <td style="padding:3px; bold:true; fontSize:10.5pt; color:#360571">'可疑交易明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:5px; backgroundColor:#F3F0F7; color:#360571; bold:true; textAlign:center; border:1px solid #C9BCDA">'序号'</th>
+      <th style="width:20%; padding:5px; backgroundColor:#F3F0F7; color:#360571; bold:true; textAlign:center; border:1px solid #C9BCDA">'客户名称'</th>
+      <th style="width:26%; padding:5px; backgroundColor:#F3F0F7; color:#360571; bold:true; textAlign:center; border:1px solid #C9BCDA">'交易行为特征'</th>
+      <th style="width:14%; padding:5px; backgroundColor:#F3F0F7; color:#360571; bold:true; textAlign:center; border:1px solid #C9BCDA">'交易金额'</th>
+      <th style="width:16%; padding:5px; backgroundColor:#F3F0F7; color:#360571; bold:true; textAlign:center; border:1px solid #C9BCDA">'命中规则'</th>
+      <th style="padding:5px; backgroundColor:#F3F0F7; color:#360571; bold:true; textAlign:center; border:1px solid #C9BCDA">'处置结论'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemQty1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemQty2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemQty3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemQty4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemQty5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit6}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #E8EBEE">${itemQty6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; bold:true; backgroundColor:#F3F0F7; textAlign:center; border:1px solid #511699">'命中金额合计'</td>
+      <td style="padding:5px; backgroundColor:#F3F0F7; border:1px solid #511699">'—'</td>
+      <td style="padding:5px; backgroundColor:#F3F0F7; border:1px solid #511699">'—'</td>
+      <td style="padding:5px; bold:true; backgroundColor:#F3F0F7; textAlign:right; border:1px solid #511699">'￥'${totalAmount}</td>
+      <td style="padding:5px; backgroundColor:#F3F0F7; border:1px solid #511699">'—'</td>
+      <td style="padding:5px; backgroundColor:#F3F0F7; border:1px solid #511699">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#919027">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#360571">'命中交易金额合计'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#919027">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#360571">'处置说明'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${handleNote}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#919027">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#360571">'备注 / REMARKS'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：card
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F3F0F7; textAlign:center; color:#511699; border:1px solid #C9BCDA">'（银行业务章 / 公章占位）'</td>
+      <td style="padding:4px; backgroundColor:#F3F0F7; textAlign:center; color:#511699; border:1px solid #C9BCDA">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F3F0F7; textAlign:center; color:#78838C; border:1px solid #C9BCDA">'机构名称：'${orgName}</td>
+      <td style="padding:4px; backgroundColor:#F3F0F7; textAlign:center; color:#78838C; border:1px solid #C9BCDA">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F3F0F7; textAlign:center; color:#78838C; border:1px solid #C9BCDA">'业务日期：'${screenDate}</td>
+      <td style="padding:4px; backgroundColor:#F3F0F7; textAlign:center; color:#78838C; border:1px solid #C9BCDA">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：right
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:24%; padding:4px">' '</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#360571">'分析员：'${analyst}</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#360571">'合规负责人：'${complianceOfficer}</td>
+      <td style="padding:4px; textAlign:center; color:#360571">'报送机构签章：'${orgSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

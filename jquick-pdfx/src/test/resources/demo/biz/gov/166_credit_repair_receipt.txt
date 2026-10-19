@@ -1,0 +1,164 @@
+<pdf>
+<body>
+  // 166 联合奖惩清单 / 失信修复受理单（gov 领域第 12 项）　视觉主题：紫棠·素雅·典式
+  // 版式组合：抬头=classic 信息区=strip 明细表=light 段落=box 签章=two 落款=plain
+  // 主色 #5B1EB1　辅色 #918C27　浅底 #F3F0F7
+  // 联合奖惩清单与失信修复受理单：奖惩措施、实施部门、执行状态与修复时限。
+
+  // 抬头：classic
+  <h1 style="fontSize:18pt; bold:true; color:#400A8D; textAlignment:center; characterSpacing:6pt">'联合奖惩清单 / 失信修复受理单'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'受理编号 '${acceptNo}'　　受理日期 '${acceptDate}'　　受理机关 '${orgName}</p>
+  <lineSeparator style="color:#5B1EB1; thickness:1.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'受理编号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BDD9">${acceptNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'受理日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #C8BDD9">${acceptDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'受理机关'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BDD9">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'申请主体'</td>
+      <td style="padding:4px; border:1px solid #C8BDD9">${companyName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'统一社会信用代码'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BDD9">${creditCode}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'失信行为类别'</td>
+      <td style="padding:4px; border:1px solid #C8BDD9">${dishonestType}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'原失信记录文号'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BDD9">${recordNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'失信认定日期'</td>
+      <td style="padding:4px; border:1px solid #C8BDD9">${recordDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'已履行情况'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BDD9">${performInfo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'修复申请类型'</td>
+      <td style="padding:4px; border:1px solid #C8BDD9">${repairType}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'受理结论'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C8BDD9">${acceptResult}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'最短公示期届满日'</td>
+      <td style="padding:4px; border:1px solid #C8BDD9">${minPublicDate}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F3F0F7; bold:true; fontSize:10pt; color:#400A8D">'联合奖惩措施清单'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#F3F0F7; color:#400A8D; bold:true; textAlign:center; border:1px solid #C8BDD9">'序号'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#F3F0F7; color:#400A8D; bold:true; textAlign:center; border:1px solid #C8BDD9">'奖惩措施名称'</th>
+      <th style="width:20%; padding:4px; backgroundColor:#F3F0F7; color:#400A8D; bold:true; textAlign:center; border:1px solid #C8BDD9">'实施部门'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#F3F0F7; color:#400A8D; bold:true; textAlign:center; border:1px solid #C8BDD9">'措施类型'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#F3F0F7; color:#400A8D; bold:true; textAlign:center; border:1px solid #C8BDD9">'执行状态'</th>
+      <th style="padding:4px; backgroundColor:#F3F0F7; color:#400A8D; bold:true; textAlign:center; border:1px solid #C8BDD9">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemName2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemQty2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemName4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemQty4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemName6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E1DFE5">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemQty6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E1DFE5">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F3F0F7; bold:true; fontSize:9.5pt; color:#400A8D; border:1px solid #C8BDD9">'受理结论'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #C8BDD9">${acceptResult}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F3F0F7; bold:true; fontSize:9.5pt; color:#400A8D; border:1px solid #C8BDD9">'办理时限'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #C8BDD9">${timeLimit}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F3F0F7; bold:true; fontSize:9.5pt; color:#400A8D; border:1px solid #C8BDD9">'备注 / REMARKS'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #C8BDD9">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#5B1EB1; border:1px dashed #5B1EB1">'（行政审批专用章 / 公章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#5B1EB1; border:1px dashed #5B1EB1">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5B1EB1">'受理机关：'${orgName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #5B1EB1">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5B1EB1">'办结日期：'${acceptDate}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #5B1EB1">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#400A8D; borderBottom:1px solid #C8BDD9">'受理人：'${acceptor}</td>
+      <td style="width:33%; padding:4px; color:#400A8D; borderBottom:1px solid #C8BDD9">'审核人：'${reviewer}</td>
+      <td style="padding:4px; color:#400A8D; borderBottom:1px solid #C8BDD9">'申请主体签章：'${companySign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

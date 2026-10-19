@@ -1,0 +1,170 @@
+<pdf>
+<body>
+  // 176 医疗费用报销申请单 / 保险理赔核算清单（medical 领域第 7 项）　视觉主题：天青·素雅·公文
+  // 版式组合：抬头=doc 信息区=grid2 明细表=light 段落=bar 签章=right 落款=table
+  // 主色 #348C8D　辅色 #912756　浅底 #F1F6F6
+  // 医疗费用报销申请单与理赔核算清单：申请金额、医保已付、免赔额与核定赔付。
+
+  // 抬头：doc
+  <p style="fontSize:20pt; bold:true; color:#348C8D; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'医疗费用报销申请单 / 保险理赔核算清单'</p>
+  <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'理赔编号 '${claimNo}'　　申请日期 '${applyDate}'　　保险公司 '${insurerName}</p>
+  <lineSeparator style="color:#348C8D; thickness:2f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'理赔编号 / CLAIM NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2D4D4">${claimNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'申请日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #C2D4D4">${applyDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'保险公司 / 机构'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2D4D4">${insurerName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'保单号 / 险种'</td>
+      <td style="padding:4px; border:1px solid #C2D4D4">${policyNo}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'被保险人 / 投保人'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2D4D4">${insuredInfo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'身份证号 / 联系手机'</td>
+      <td style="padding:4px; border:1px solid #C2D4D4">${idCard}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'就诊医院 / 科室'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2D4D4">${hospitalInfo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'出险原因 / 诊断'</td>
+      <td style="padding:4px; border:1px solid #C2D4D4">${accidentInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'申请赔付金额'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2D4D4">${claimAmount}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C2D4D4">'开户银行 / 账号'</td>
+      <td style="padding:4px; border:1px solid #C2D4D4">${bankInfo}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F1F6F6; bold:true; fontSize:10pt; color:#1A6E70">'理赔核算明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#F1F6F6; color:#1A6E70; bold:true; textAlign:center; border:1px solid #C2D4D4">'序号'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#F1F6F6; color:#1A6E70; bold:true; textAlign:center; border:1px solid #C2D4D4">'费用类别'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#F1F6F6; color:#1A6E70; bold:true; textAlign:center; border:1px solid #C2D4D4">'申请金额'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#F1F6F6; color:#1A6E70; bold:true; textAlign:center; border:1px solid #C2D4D4">'医保已付'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#F1F6F6; color:#1A6E70; bold:true; textAlign:center; border:1px solid #C2D4D4">'免赔额扣除'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#F1F6F6; color:#1A6E70; bold:true; textAlign:center; border:1px solid #C2D4D4">'核定赔付额'</th>
+      <th style="padding:4px; backgroundColor:#F1F6F6; color:#1A6E70; bold:true; textAlign:center; border:1px solid #C2D4D4">'核定结论'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5E5">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemAmount1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemName2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5E5">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemQty2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemAmount2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5E5">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemAmount3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemName4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5E5">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemQty4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemAmount4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5E5">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemAmount5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemName6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE5E5">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemQty6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE5E5">${itemAmount6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE5E5">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F6F6; textAlign:center; border:1px solid #348C8D">'核算合计'</td>
+      <td style="padding:4px; backgroundColor:#F1F6F6; border:1px solid #348C8D">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F6F6; textAlign:right; border:1px solid #348C8D">'￥'${totalFee}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F6F6; textAlign:right; border:1px solid #348C8D">'￥'${fundPaid}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F6F6; textAlign:right; border:1px solid #348C8D">'￥'${deductible}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F6F6; textAlign:right; border:1px solid #348C8D">'￥'${totalAmount}</td>
+      <td style="padding:4px; backgroundColor:#F1F6F6; border:1px solid #348C8D">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#912756">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#1A6E70">'理赔核算结论'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#912756">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#1A6E70">'备注 / REMARKS'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：right
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:32%; padding:5px; backgroundColor:#F1F6F6; fontSize:7.5pt; color:#78838C; border:1px solid #C2D4D4">'本联次加盖印章后有效，扫码可验真'</td>
+      <td style="padding:3px; textAlign:center; color:#348C8D; border:1px dashed #348C8D">'（医疗机构公章 / 财务专用章占位）'　'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #348C8D">'医疗机构：'${insurerName}　'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #348C8D">'出具日期：'${applyDate}　'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #C2D4D4">'申请人：'${applicantSign}</td>
+      <td style="width:33%; padding:5px; border:1px solid #C2D4D4">'理赔经办：'${operator}</td>
+      <td style="padding:5px; border:1px solid #C2D4D4">'核赔人：'${claimOfficer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

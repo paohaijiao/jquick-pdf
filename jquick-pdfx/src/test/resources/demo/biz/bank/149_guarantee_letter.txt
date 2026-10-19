@@ -1,0 +1,154 @@
+<pdf>
+<body>
+  // 149 保函开立凭证 / 履约保函回执（bank 领域第 10 项）　视觉主题：紫棠·厚框·竖栏
+  // 版式组合：抬头=side 信息区=chip 明细表=solid 段落=bar 签章=two 落款=table
+  // 主色 #3F1190　辅色 #918627　浅底 #F2EFF8
+  // 保函开立凭证与履约保函回执：担保范围、金额、有效期、减额与索赔条款。
+
+  // 抬头：side
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:5px; padding:0px; backgroundColor:#3F1190">' '</td>
+      <td style="width:56%; padding:6px; bold:true; fontSize:14.5pt; color:#270367; characterSpacing:3pt">'保函开立凭证 / 履约保函回执'</td>
+      <td style="padding:6px; textAlign:right; fontSize:7.5pt; color:#78838C">'保函编号 '${guaranteeNo}'　　开立日期 '${issueDate}'　　开立行 '${bankName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#E1DFE5; thickness:1f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：strip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'保函编号 / NO.'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'开立日期 / DATE'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'开立银行'</td>
+      <td style="padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'保函种类'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${guaranteeNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${issueDate}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${bankName}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #C6BBDA">${guaranteeType}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'申请人 / 被保证人'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'受益人'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'基础合同名称'</td>
+      <td style="padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'基础合同编号 / 金额'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${applicant}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${beneficiary}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${baseContract}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #C6BBDA">${contractInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'担保金额（大写）'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'担保金额（小写）'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'保函有效期'</td>
+      <td style="padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'索赔条件'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${amountInWords}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${amount}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #C6BBDA">${validPeriod}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #C6BBDA">${claimCondition}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; bold:true; color:#270367; marginBottom:4px">'保函条款明细'</p>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#3F1190; color:white; bold:true; textAlign:center; border:1px solid #3F1190">'序号'</th>
+      <th style="width:22%; padding:4px; backgroundColor:#3F1190; color:white; bold:true; textAlign:center; border:1px solid #3F1190">'条款项目'</th>
+      <th style="width:32%; padding:4px; backgroundColor:#3F1190; color:white; bold:true; textAlign:center; border:1px solid #3F1190">'条款内容'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#3F1190; color:white; bold:true; textAlign:center; border:1px solid #3F1190">'金额 / 比例'</th>
+      <th style="padding:4px; backgroundColor:#3F1190; color:white; bold:true; textAlign:center; border:1px solid #3F1190">'是否有效'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C6BBDA">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemName2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C6BBDA">${itemQty2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C6BBDA">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemName4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C6BBDA">${itemQty4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C6BBDA">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemName6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #C6BBDA">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C6BBDA">${itemQty6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C6BBDA">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#918627">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#270367">'法律声明'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${legalNote}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#918627">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#270367">'备注 / REMARKS'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#3F1190; border:1px dashed #3F1190">'（银行业务章 / 公章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#3F1190; border:1px dashed #3F1190">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #3F1190">'机构名称：'${bankName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #3F1190">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #3F1190">'业务日期：'${issueDate}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #3F1190">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #C6BBDA">'申请人签章：'${applicantSign}</td>
+      <td style="width:33%; padding:5px; border:1px solid #C6BBDA">'开立行签章：'${bankSign}</td>
+      <td style="padding:5px; border:1px solid #C6BBDA">'复核：'${reviewer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

@@ -1,0 +1,146 @@
+<pdf>
+<body>
+  // 132 原产地证书 / 普惠制原产地证（C/O & FORM A）（customs 领域第 8 项）　视觉主题：宝蓝·疏朗·票式
+  // 版式组合：抬头=ticket 信息区=grid2 明细表=airy 段落=plain 签章=split 落款=plain
+  // 主色 #365292　辅色 #913F27　浅底 #F1F3F6
+  // 原产地证书与普惠制原产地证 FORM A：原产地标准、HS 编码与签证机构声明。
+
+  // 抬头：ticket
+  <h1 style="fontSize:19pt; bold:true; color:#365292; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'原产地证书 / 普惠制原产地证（C/O & FORM A）'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'证书号 '${certNo}'　　签发日期 '${issueDate}'　　签发机构 '${issueOrg}</p>
+  <lineSeparator style="color:#365292; thickness:2f"></lineSeparator>
+  <lineSeparator style="color:#365292; thickness:0.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'证书编号 / CERT NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2C7D4">${certNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'证书类型'</td>
+      <td style="padding:4px; border:1px solid #C2C7D4">${certType}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'签发日期 / DATE'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2C7D4">${issueDate}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'签发机构 / ISSUED BY'</td>
+      <td style="padding:4px; border:1px solid #C2C7D4">${issueOrg}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'出口商 / EXPORTER'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2C7D4">${exporter}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'进口商 / IMPORTER'</td>
+      <td style="padding:4px; border:1px solid #C2C7D4">${importer}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'原产国 / ORIGIN'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2C7D4">${originCountry}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'运输方式与路线'</td>
+      <td style="padding:4px; border:1px solid #C2C7D4">${transportRoute}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'发票号 / 日期'</td>
+      <td style="width:34%; padding:4px; border:1px solid #C2C7D4">${invoiceInfo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'目的国 / 给惠国'</td>
+      <td style="padding:4px; border:1px solid #C2C7D4">${destCountry}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#913F27">' '</td>
+      <td style="padding:3px; bold:true; fontSize:10.5pt; color:#1B3675">'货物明细 / DESCRIPTION OF GOODS'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:8%; padding:5px; backgroundColor:#F1F3F6; color:#1B3675; bold:true; textAlign:center; border:1px solid #C2C7D4">'项号 / NO.'</th>
+      <th style="width:14%; padding:5px; backgroundColor:#F1F3F6; color:#1B3675; bold:true; textAlign:center; border:1px solid #C2C7D4">'唛头 / MARKS'</th>
+      <th style="width:26%; padding:5px; backgroundColor:#F1F3F6; color:#1B3675; bold:true; textAlign:center; border:1px solid #C2C7D4">'品名 / DESCRIPTION'</th>
+      <th style="width:14%; padding:5px; backgroundColor:#F1F3F6; color:#1B3675; bold:true; textAlign:center; border:1px solid #C2C7D4">'HS 编码'</th>
+      <th style="width:12%; padding:5px; backgroundColor:#F1F3F6; color:#1B3675; bold:true; textAlign:center; border:1px solid #C2C7D4">'数量 / QTY'</th>
+      <th style="padding:5px; backgroundColor:#F1F3F6; color:#1B3675; bold:true; textAlign:center; border:1px solid #C2C7D4">'原产地标准'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemSpec6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#1B3675; marginBottom:3px">'声明 / DECLARATION'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${declaration}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#1B3675; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：split
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#365292; border:1px dashed #365292">'（报关专用章 / 海关验讫章占位）'</td>
+      <td style="padding:3px; textAlign:left; color:#365292; border:1px dashed #365292">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#78838C; border:1px dashed #365292">'申报单位：'${issueOrg}</td>
+      <td style="padding:3px; textAlign:left; color:#78838C; border:1px dashed #365292">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#78838C; border:1px dashed #365292">'签章日期：'${issueDate}</td>
+      <td style="padding:3px; textAlign:left; color:#78838C; border:1px dashed #365292">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#1B3675; borderBottom:1px solid #C2C7D4">'申报人 / DECLARANT：'${declarer}</td>
+      <td style="width:33%; padding:4px; color:#1B3675; borderBottom:1px solid #C2C7D4">'签证机构签章：'${issuerSign}</td>
+      <td style="padding:4px; color:#1B3675; borderBottom:1px solid #C2C7D4">'签发地点日期：'${issuePlace}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

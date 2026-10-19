@@ -1,0 +1,179 @@
+<pdf>
+<body>
+  // 116 差旅报销清单 / 费用明细清单（finance 领域第 17 项）　视觉主题：秋香·素雅·公文
+  // 版式组合：抬头=doc 信息区=grid2 明细表=light 段落=bar 签章=two 落款=right
+  // 主色 #78A714　辅色 #273691　浅底 #F5F8EF
+  // 差旅报销清单 / 费用明细清单：按日期城市逐笔列示交通、住宿、市内交通、补助与其他费用。
+
+  // 抬头：doc
+  <p style="fontSize:20pt; bold:true; color:#78A714; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'差旅报销清单 / 费用明细清单'</p>
+  <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'清单编号 '${listNo}'　　出差期间 '${period}'　　出差人 '${traveler}</p>
+  <lineSeparator style="color:#78A714; thickness:2f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'清单编号'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D0DABB">${listNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'出差期间'</td>
+      <td style="padding:4px; border:1px solid #D0DABB">${period}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'出差人'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D0DABB">${traveler}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'出差地点'</td>
+      <td style="padding:4px; border:1px solid #D0DABB">${destination}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'出差事由'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D0DABB">${purpose}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'随行人员'</td>
+      <td style="padding:4px; border:1px solid #D0DABB">${companions}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'审批单号'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D0DABB">${approvalNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'附件张数'</td>
+      <td style="padding:4px; border:1px solid #D0DABB">${attachCount}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'所属部门'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D0DABB">${deptName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; border:1px solid #D0DABB">' '</td>
+      <td style="padding:4px; border:1px solid #D0DABB">' '</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F5F8EF; bold:true; fontSize:10pt; color:#588004">'差旅费用明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:12%; padding:4px; backgroundColor:#F5F8EF; color:#588004; bold:true; textAlign:center; border:1px solid #D0DABB">'日期'</th>
+      <th style="width:12%; padding:4px; backgroundColor:#F5F8EF; color:#588004; bold:true; textAlign:center; border:1px solid #D0DABB">'城市'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#F5F8EF; color:#588004; bold:true; textAlign:center; border:1px solid #D0DABB">'项目'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#F5F8EF; color:#588004; bold:true; textAlign:center; border:1px solid #D0DABB">'说明'</th>
+      <th style="width:9%; padding:4px; backgroundColor:#F5F8EF; color:#588004; bold:true; textAlign:center; border:1px solid #D0DABB">'票据数'</th>
+      <th style="padding:4px; backgroundColor:#F5F8EF; color:#588004; bold:true; textAlign:center; border:1px solid #D0DABB">'金额'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3E5DF">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemName2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemQty2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3E5DF">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3E5DF">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemName4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemQty4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3E5DF">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3E5DF">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemName6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemQty6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3E5DF">${itemAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemName7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemSpec7}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemUnit7}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemQty7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemPrice7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3E5DF">${itemAmount7}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemName8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemSpec8}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemUnit8}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E3E5DF">${itemQty8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E3E5DF">${itemPrice8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3E5DF">${itemAmount8}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F5F8EF; textAlign:center; border:1px solid #78A714">'差旅费用合计'</td>
+      <td style="padding:4px; backgroundColor:#F5F8EF; border:1px solid #78A714">'—'</td>
+      <td style="padding:4px; backgroundColor:#F5F8EF; border:1px solid #78A714">'—'</td>
+      <td style="padding:4px; backgroundColor:#F5F8EF; border:1px solid #78A714">'—'</td>
+      <td style="padding:4px; backgroundColor:#F5F8EF; border:1px solid #78A714">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F5F8EF; textAlign:right; border:1px solid #78A714">'￥'${totalAmount}</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#273691">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#588004">'差旅费用合计'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#273691">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#588004">'备注'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78A714; border:1px dashed #78A714">'（公章 / 财务专用章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#78A714; border:1px dashed #78A714">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #78A714">'单位名称：'${deptName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #78A714">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #78A714">'签章日期：'${period}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #78A714">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：right
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:24%; padding:4px">' '</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#588004">'出差人：'${traveler}</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#588004">'部门负责人：'${deptHead}</td>
+      <td style="padding:4px; textAlign:center; color:#588004">'财务审核：'${auditorName}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

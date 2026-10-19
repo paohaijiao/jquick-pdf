@@ -1,0 +1,193 @@
+<pdf>
+<body>
+  // 177 健康体检筛查报告单 / 体检项目清单（medical 领域第 8 项）　视觉主题：靛蓝·疏朗·通栏
+  // 版式组合：抬头=banner 信息区=chip 明细表=airy 段落=plain 签章=card 落款=plain
+  // 主色 #15577A　辅色 #912734　浅底 #F0F5F7
+  // 体检健康筛查报告单与体检项目清单：体检项目、结果、参考范围与健康指导。
+
+  // 抬头：banner
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:58%; padding:8px; backgroundColor:#15577A; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'健康体检筛查报告单 / 体检项目清单'</td>
+      <td style="padding:8px; backgroundColor:#063751; color:white; textAlign:right; fontSize:7.5pt">'体检编号 '${checkupNo}'　　体检日期 '${checkupDate}'　　体检机构 '${orgName}</td>
+    </tr>
+  </table>
+
+  // 信息区：strip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'体检编号 / NO.'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'体检日期 / DATE'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'体检机构 / 类型'</td>
+      <td style="padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'体检人姓名 / 性别 / 年龄'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDCFD9">${checkupNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDCFD9">${checkupDate}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDCFD9">${orgName}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BDCFD9">${personInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'身份证号 / 工号'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'所属单位 / 部门'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'体检项目总数'</td>
+      <td style="padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'主检医师 / 审核'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDCFD9">${idCard}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDCFD9">${companyInfo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BDCFD9">${itemCount}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BDCFD9">${chiefDoctor}</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'总体结论'</td>
+      <td style="padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'报告发放日期'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:center; border:1px solid #BDCFD9">${conclusion}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BDCFD9">${issueDate}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#912734">' '</td>
+      <td style="padding:3px; bold:true; fontSize:10.5pt; color:#063751">'体检项目与结果明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:5px; backgroundColor:#F0F5F7; color:#063751; bold:true; textAlign:center; border:1px solid #BDCFD9">'序号'</th>
+      <th style="width:20%; padding:5px; backgroundColor:#F0F5F7; color:#063751; bold:true; textAlign:center; border:1px solid #BDCFD9">'体检项目'</th>
+      <th style="width:16%; padding:5px; backgroundColor:#F0F5F7; color:#063751; bold:true; textAlign:center; border:1px solid #BDCFD9">'检查结果'</th>
+      <th style="width:11%; padding:5px; backgroundColor:#F0F5F7; color:#063751; bold:true; textAlign:center; border:1px solid #BDCFD9">'单位'</th>
+      <th style="width:17%; padding:5px; backgroundColor:#F0F5F7; color:#063751; bold:true; textAlign:center; border:1px solid #BDCFD9">'参考范围'</th>
+      <th style="width:10%; padding:5px; backgroundColor:#F0F5F7; color:#063751; bold:true; textAlign:center; border:1px solid #BDCFD9">'提示'</th>
+      <th style="padding:5px; backgroundColor:#F0F5F7; color:#063751; bold:true; textAlign:center; border:1px solid #BDCFD9">'检查科室'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName7}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec7}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit7}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty7}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice7}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount7}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax7}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName8}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec8}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit8}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty8}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice8}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount8}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax8}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName9}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec9}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit9}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty9}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice9}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount9}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax9}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName10}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec10}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit10}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty10}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice10}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount10}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemTax10}</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#063751; marginBottom:3px">'健康指导建议'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${advice}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#063751; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：card
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F0F5F7; textAlign:center; color:#15577A; border:1px solid #BDCFD9">'（医疗机构公章 / 财务专用章占位）'</td>
+      <td style="padding:4px; backgroundColor:#F0F5F7; textAlign:center; color:#15577A; border:1px solid #BDCFD9">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F0F5F7; textAlign:center; color:#78838C; border:1px solid #BDCFD9">'医疗机构：'${orgName}</td>
+      <td style="padding:4px; backgroundColor:#F0F5F7; textAlign:center; color:#78838C; border:1px solid #BDCFD9">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F0F5F7; textAlign:center; color:#78838C; border:1px solid #BDCFD9">'出具日期：'${issueDate}</td>
+      <td style="padding:4px; backgroundColor:#F0F5F7; textAlign:center; color:#78838C; border:1px solid #BDCFD9">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#063751; borderBottom:1px solid #BDCFD9">'主检医师：'${chiefDoctor}</td>
+      <td style="width:33%; padding:4px; color:#063751; borderBottom:1px solid #BDCFD9">'审核医师：'${auditor}</td>
+      <td style="padding:4px; color:#063751; borderBottom:1px solid #BDCFD9">'体检机构签章：'${orgSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

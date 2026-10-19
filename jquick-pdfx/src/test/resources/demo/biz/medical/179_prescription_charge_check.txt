@@ -1,0 +1,192 @@
+<pdf>
+<body>
+  // 179 药品处方单 / 处方收费核对单（medical 领域第 10 项）　视觉主题：宝蓝·厚框·竖栏
+  // 版式组合：抬头=side 信息区=kv 明细表=solid 段落=bar 签章=three 落款=right
+  // 主色 #1351BC　辅色 #913827　浅底 #EFF2F8
+  // 药品处方单与处方收费核对单：药品名称规格、用法用量、金额与四查十对结果。
+
+  // 抬头：side
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:5px; padding:0px; backgroundColor:#1351BC">' '</td>
+      <td style="width:56%; padding:6px; bold:true; fontSize:14.5pt; color:#033893; characterSpacing:3pt">'药品处方单 / 处方收费核对单'</td>
+      <td style="padding:6px; textAlign:right; fontSize:7.5pt; color:#78838C">'处方编号 '${prescNo}'　　开具日期 '${prescDate}'　　医疗机构 '${hospitalName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#DFE1E5; thickness:1f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'处方编号 / NO.'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${prescNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'开具日期 / DATE'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${prescDate}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'医疗机构 / 科室'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${hospitalName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'处方类型'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${prescType}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'患者姓名 / 性别 / 年龄'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${patientInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'门诊号 / 病案号'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${clinicNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'临床诊断'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${diagnosis}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'医师 / 药师'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${doctorInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'处方有效期'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${validDays}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'收费核对人'</td>
+      <td style="padding:5px; border:1px solid #BAC6DB">${checker}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; bold:true; color:#033893; marginBottom:4px">'处方药品明细'</p>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#1351BC; color:white; bold:true; textAlign:center; border:1px solid #1351BC">'序号'</th>
+      <th style="width:20%; padding:4px; backgroundColor:#1351BC; color:white; bold:true; textAlign:center; border:1px solid #1351BC">'药品名称'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#1351BC; color:white; bold:true; textAlign:center; border:1px solid #1351BC">'规格 / 剂型'</th>
+      <th style="width:10%; padding:4px; backgroundColor:#1351BC; color:white; bold:true; textAlign:center; border:1px solid #1351BC">'数量'</th>
+      <th style="width:20%; padding:4px; backgroundColor:#1351BC; color:white; bold:true; textAlign:center; border:1px solid #1351BC">'用法用量'</th>
+      <th style="width:12%; padding:4px; backgroundColor:#1351BC; color:white; bold:true; textAlign:center; border:1px solid #1351BC">'金额'</th>
+      <th style="padding:4px; backgroundColor:#1351BC; color:white; bold:true; textAlign:center; border:1px solid #1351BC">'医保类别'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemQty1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC6DB">${itemAmount1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemName2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemQty2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC6DB">${itemAmount2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemQty3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC6DB">${itemAmount3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemName4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemQty4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC6DB">${itemAmount4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemQty5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC6DB">${itemAmount5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemName6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemQty6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BAC6DB">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #BAC6DB">${itemAmount6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BAC6DB">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF2F8; textAlign:center; border:1px solid #1351BC">'处方金额合计'</td>
+      <td style="padding:4px; backgroundColor:#EFF2F8; border:1px solid #1351BC">'—'</td>
+      <td style="padding:4px; backgroundColor:#EFF2F8; border:1px solid #1351BC">'—'</td>
+      <td style="padding:4px; backgroundColor:#EFF2F8; border:1px solid #1351BC">'—'</td>
+      <td style="padding:4px; backgroundColor:#EFF2F8; border:1px solid #1351BC">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#EFF2F8; textAlign:right; border:1px solid #1351BC">'￥'${totalAmount}</td>
+      <td style="padding:4px; backgroundColor:#EFF2F8; border:1px solid #1351BC">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#913827">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#033893">'处方金额合计'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#913827">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#033893">'收费核对结果'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${checkLine}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#913827">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#033893">'备注 / REMARKS'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：three
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#1351BC; border:1px dashed #1351BC">'（医疗机构公章 / 财务专用章占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#1351BC; border:1px dashed #1351BC">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#1351BC; border:1px dashed #1351BC">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #1351BC">'医疗机构：'${hospitalName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #1351BC">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #1351BC">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #1351BC">'出具日期：'${prescDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #1351BC">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #1351BC">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：right
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:24%; padding:4px">' '</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#033893">'医师：'${doctor}</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#033893">'药师核对：'${pharmacist}</td>
+      <td style="padding:4px; textAlign:center; color:#033893">'收费核对：'${checker}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

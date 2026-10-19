@@ -1,0 +1,174 @@
+<pdf>
+<body>
+  // 163 中标通知书 / 投标报名回执（gov 领域第 9 项）　视觉主题：宝蓝·密排·下线
+  // 版式组合：抬头=underline 信息区=kv 明细表=compact 段落=box 签章=three 落款=right
+  // 主色 #183DA9　辅色 #914527　浅底 #F0F2F7
+  // 招投标中标通知书与投标报名回执：中标价、工期、评审得分与签约提示。
+
+  // 抬头：underline
+  <table style="width:100%; marginBottom:1px">
+    <tr>
+      <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#062683; characterSpacing:3pt">'中标通知书 / 投标报名回执'</td>
+      <td style="padding:2px; textAlign:right; fontSize:7.5pt; color:#78838C">'通知书编号 '${noticeNo}'　　发出日期 '${issueDate}'　　招标人 '${tenderee}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#183DA9; thickness:2.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'通知书编号 / NO.'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${noticeNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'发出日期 / DATE'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${issueDate}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'招标人 / TENDEREE'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${tenderee}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'招标代理机构'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${agencyName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'招标项目名称'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${projectName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'招标编号 / 标段'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${bidNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'招标方式'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${bidMethod}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'中标人 / WINNER'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${winner}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'中标价'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${bidPrice}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'工期 / 质量目标'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${durationInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'项目经理 / 证书'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${managerInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BCC3DA">'投标报名编号'</td>
+      <td style="padding:5px; border:1px solid #BCC3DA">${signupNo}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10pt; bold:true; color:#183DA9; marginBottom:3px; characterSpacing:2pt">'中标内容与投标情况明细'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:2px; backgroundColor:#062683; color:white; bold:true; textAlign:center; border:1px solid #062683">'序号'</th>
+      <th style="width:24%; padding:2px; backgroundColor:#062683; color:white; bold:true; textAlign:center; border:1px solid #062683">'分部分项 / 投标单位'</th>
+      <th style="width:15%; padding:2px; backgroundColor:#062683; color:white; bold:true; textAlign:center; border:1px solid #062683">'投标报价（万元）'</th>
+      <th style="width:13%; padding:2px; backgroundColor:#062683; color:white; bold:true; textAlign:center; border:1px solid #062683">'工期（日历天）'</th>
+      <th style="width:12%; padding:2px; backgroundColor:#062683; color:white; bold:true; textAlign:center; border:1px solid #062683">'评审得分'</th>
+      <th style="padding:2px; backgroundColor:#062683; color:white; bold:true; textAlign:center; border:1px solid #062683">'排名 / 结论'</th>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemName1}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE0E5">${itemSpec1}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFE0E5">${itemUnit1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemQty1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemPrice1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemName2}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE0E5">${itemSpec2}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFE0E5">${itemUnit2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemQty2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemPrice2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemName3}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE0E5">${itemSpec3}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFE0E5">${itemUnit3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemQty3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemPrice3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemName4}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE0E5">${itemSpec4}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFE0E5">${itemUnit4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemQty4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemPrice4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemName5}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE0E5">${itemSpec5}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFE0E5">${itemUnit5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemQty5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemPrice5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemName6}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #DFE0E5">${itemSpec6}</td>
+      <td style="padding:2px; textAlign:right; border:1px solid #DFE0E5">${itemUnit6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemQty6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemPrice6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #DFE0E5">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F0F2F7; bold:true; fontSize:9.5pt; color:#062683; border:1px solid #BCC3DA">'中标结果'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BCC3DA">${resultNote}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F0F2F7; bold:true; fontSize:9.5pt; color:#062683; border:1px solid #BCC3DA">'签约提示'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BCC3DA">${signNote}</td>
+    </tr>
+  </table>
+
+  // 签章区：three
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#183DA9; border:1px dashed #183DA9">'（行政审批专用章 / 公章占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#183DA9; border:1px dashed #183DA9">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#183DA9; border:1px dashed #183DA9">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #183DA9">'受理机关：'${tenderee}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #183DA9">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #183DA9">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #183DA9">'办结日期：'${issueDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #183DA9">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #183DA9">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：right
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:24%; padding:4px">' '</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#062683">'招标人签章：'${tendereeSign}</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#062683">'代理机构签章：'${agencySign}</td>
+      <td style="padding:4px; textAlign:center; color:#062683">'中标人签收：'${winnerSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

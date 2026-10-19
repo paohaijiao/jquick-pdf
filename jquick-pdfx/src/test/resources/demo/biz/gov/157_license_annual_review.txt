@@ -1,0 +1,159 @@
+<pdf>
+<body>
+  // 157 许可证年度审查申报表 / 年审回执（gov 领域第 3 项）　视觉主题：天青·疏朗·下线
+  // 版式组合：抬头=underline 信息区=chip 明细表=airy 段落=box 签章=split 落款=plain
+  // 主色 #0F9987　辅色 #912766　浅底 #EFF8F7
+  // 许可证年审申报表与年审回执：逐项审验项目的上年 / 本年度对比与结论。
+
+  // 抬头：underline
+  <table style="width:100%; marginBottom:1px">
+    <tr>
+      <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#026E60; characterSpacing:3pt">'许可证年度审查申报表 / 年审回执'</td>
+      <td style="padding:2px; textAlign:right; fontSize:7.5pt; color:#78838C">'申报编号 '${applyNo}'　　申报日期 '${applyDate}'　　年审机关 '${orgName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#0F9987; thickness:2.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：strip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'申报编号 / NO.'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'申报日期 / DATE'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'年审机关'</td>
+      <td style="padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'许可证名称'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BADBD7">${applyNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BADBD7">${applyDate}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BADBD7">${orgName}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BADBD7">${licenseName}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'许可证编号'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'持证单位'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'统一社会信用代码'</td>
+      <td style="padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'年审年度'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BADBD7">${licenseNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BADBD7">${holderName}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BADBD7">${creditCode}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BADBD7">${reviewYear}</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'上年度审验结论'</td>
+      <td style="padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'联系人 / 电话'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:center; border:1px solid #BADBD7">${lastResult}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BADBD7">${contactInfo}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#912766">' '</td>
+      <td style="padding:3px; bold:true; fontSize:10.5pt; color:#026E60">'年审申报项目明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:5px; backgroundColor:#EFF8F7; color:#026E60; bold:true; textAlign:center; border:1px solid #BADBD7">'序号'</th>
+      <th style="width:24%; padding:5px; backgroundColor:#EFF8F7; color:#026E60; bold:true; textAlign:center; border:1px solid #BADBD7">'审验项目'</th>
+      <th style="width:22%; padding:5px; backgroundColor:#EFF8F7; color:#026E60; bold:true; textAlign:center; border:1px solid #BADBD7">'上年度情况'</th>
+      <th style="width:22%; padding:5px; backgroundColor:#EFF8F7; color:#026E60; bold:true; textAlign:center; border:1px solid #BADBD7">'本年度情况'</th>
+      <th style="width:12%; padding:5px; backgroundColor:#EFF8F7; color:#026E60; bold:true; textAlign:center; border:1px solid #BADBD7">'审验结论'</th>
+      <th style="padding:5px; backgroundColor:#EFF8F7; color:#026E60; bold:true; textAlign:center; border:1px solid #BADBD7">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemQty6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemPrice6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#EFF8F7; bold:true; fontSize:9.5pt; color:#026E60; border:1px solid #BADBD7">'年审结论'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BADBD7">${reviewConclusion}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#EFF8F7; bold:true; fontSize:9.5pt; color:#026E60; border:1px solid #BADBD7">'备注 / REMARKS'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BADBD7">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：split
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#0F9987; border:1px dashed #0F9987">'（行政审批专用章 / 公章占位）'</td>
+      <td style="padding:3px; textAlign:left; color:#0F9987; border:1px dashed #0F9987">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#78838C; border:1px dashed #0F9987">'受理机关：'${orgName}</td>
+      <td style="padding:3px; textAlign:left; color:#78838C; border:1px dashed #0F9987">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:left; color:#78838C; border:1px dashed #0F9987">'办结日期：'${applyDate}</td>
+      <td style="padding:3px; textAlign:left; color:#78838C; border:1px dashed #0F9987">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#026E60; borderBottom:1px solid #BADBD7">'年审经办人：'${operator}</td>
+      <td style="width:33%; padding:4px; color:#026E60; borderBottom:1px solid #BADBD7">'审核人：'${reviewer}</td>
+      <td style="padding:4px; color:#026E60; borderBottom:1px solid #BADBD7">'持证单位签章：'${holderSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

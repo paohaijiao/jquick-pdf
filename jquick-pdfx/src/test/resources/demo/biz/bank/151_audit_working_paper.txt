@@ -1,0 +1,182 @@
+<pdf>
+<body>
+  // 151 金融审计工作底稿 / 函证回执单（bank 领域第 12 项）　视觉主题：绛紫·素雅·下线
+  // 版式组合：抬头=underline 信息区=kv 明细表=light 段落=box 签章=right 落款=table
+  // 主色 #4D246B　辅色 #869127　浅底 #F4F1F6
+  // 金融审计工作底稿与函证回执单：账面金额、回函金额、差异与审计结论。
+
+  // 抬头：underline
+  <table style="width:100%; marginBottom:1px">
+    <tr>
+      <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#300F48; characterSpacing:3pt">'金融审计工作底稿 / 函证回执单'</td>
+      <td style="padding:2px; textAlign:right; fontSize:7.5pt; color:#78838C">'底稿索引 '${indexNo}'　　编制日期 '${prepareDate}'　　审计机构 '${firmName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#4D246B; thickness:2.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'底稿索引 / INDEX'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${indexNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'编制日期 / DATE'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${prepareDate}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'审计机构'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${firmName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'被审计单位'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${companyName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'审计期间'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${auditPeriod}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'审计项目'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${auditItem}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'函证编号'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${confirmNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'被函证单位'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${confirmee}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'编制人 / 复核人'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${preparerInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'底稿页数'</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">${pageInfo}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F4F1F6; bold:true; fontSize:10pt; color:#300F48">'函证项目明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#F4F1F6; color:#300F48; bold:true; textAlign:center; border:1px solid #CCC1D5">'序号'</th>
+      <th style="width:20%; padding:4px; backgroundColor:#F4F1F6; color:#300F48; bold:true; textAlign:center; border:1px solid #CCC1D5">'函证项目'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#F4F1F6; color:#300F48; bold:true; textAlign:center; border:1px solid #CCC1D5">'账面金额'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#F4F1F6; color:#300F48; bold:true; textAlign:center; border:1px solid #CCC1D5">'回函金额'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#F4F1F6; color:#300F48; bold:true; textAlign:center; border:1px solid #CCC1D5">'差异'</th>
+      <th style="width:13%; padding:4px; backgroundColor:#F4F1F6; color:#300F48; bold:true; textAlign:center; border:1px solid #CCC1D5">'回函方式'</th>
+      <th style="padding:4px; backgroundColor:#F4F1F6; color:#300F48; bold:true; textAlign:center; border:1px solid #CCC1D5">'结论'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E2DFE5">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemAmount1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemName2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E2DFE5">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemQty2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemAmount2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E2DFE5">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemAmount3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemName4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E2DFE5">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemQty4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemAmount4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E2DFE5">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemAmount5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemName6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #E2DFE5">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemQty6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E2DFE5">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemAmount6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E2DFE5">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F4F1F6; textAlign:center; border:1px solid #4D246B">'函证金额合计'</td>
+      <td style="padding:4px; backgroundColor:#F4F1F6; border:1px solid #4D246B">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F4F1F6; textAlign:right; border:1px solid #4D246B">'￥'${totalAmount}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F4F1F6; textAlign:right; border:1px solid #4D246B">'￥'${confirmTotal}</td>
+      <td style="padding:4px; backgroundColor:#F4F1F6; border:1px solid #4D246B">'—'</td>
+      <td style="padding:4px; backgroundColor:#F4F1F6; border:1px solid #4D246B">'—'</td>
+      <td style="padding:4px; backgroundColor:#F4F1F6; border:1px solid #4D246B">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F4F1F6; bold:true; fontSize:9.5pt; color:#300F48; border:1px solid #CCC1D5">'账面金额合计'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #CCC1D5">${totalLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F4F1F6; bold:true; fontSize:9.5pt; color:#300F48; border:1px solid #CCC1D5">'审计结论'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #CCC1D5">${conclusion}</td>
+    </tr>
+  </table>
+
+  // 签章区：right
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:32%; padding:5px; backgroundColor:#F4F1F6; fontSize:7.5pt; color:#78838C; border:1px solid #CCC1D5">'本联次加盖印章后有效，扫码可验真'</td>
+      <td style="padding:3px; textAlign:center; color:#4D246B; border:1px dashed #4D246B">'（银行业务章 / 公章占位）'　'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #4D246B">'机构名称：'${firmName}　'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:32%%; padding:4px">' '</td>
+      <td style="padding:3px; textAlign:center; color:#78838C; border:1px dashed #4D246B">'业务日期：'${prepareDate}　'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #CCC1D5">'编制人：'${preparer}</td>
+      <td style="width:33%; padding:5px; border:1px solid #CCC1D5">'复核人：'${reviewer}</td>
+      <td style="padding:5px; border:1px solid #CCC1D5">'被函证单位签章：'${confirmeeSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

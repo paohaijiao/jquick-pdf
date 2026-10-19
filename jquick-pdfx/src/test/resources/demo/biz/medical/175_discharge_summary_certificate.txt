@@ -1,0 +1,177 @@
+<pdf>
+<body>
+  // 175 出院小结 / 疾病诊断证明书（medical 领域第 6 项）　视觉主题：靛蓝·斑马·下线
+  // 版式组合：抬头=underline 信息区=kv 明细表=striped 段落=box 签章=three 落款=plain
+  // 主色 #207182　辅色 #912746　浅底 #F0F6F7
+  // 出院小结与疾病诊断证明书：入出院诊断、手术操作、住院诊疗用药与出院医嘱。
+
+  // 抬头：underline
+  <table style="width:100%; marginBottom:1px">
+    <tr>
+      <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#0C4F5D; characterSpacing:3pt">'出院小结 / 疾病诊断证明书'</td>
+      <td style="padding:2px; textAlign:right; fontSize:7.5pt; color:#78838C">'证明书编号 '${certNo}'　　出院日期 '${dischargeDate}'　　医疗机构 '${hospitalName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#207182; thickness:2.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'证明书编号 / NO.'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${certNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'入院 / 出院日期'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${admitDischarge}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'住院天数'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${stayDays}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'医疗机构 / 科室'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${hospitalName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'患者姓名 / 性别 / 年龄'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${patientInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'身份证号 / 病案号'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${idInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'入院诊断'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${admissionDiagnosis}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'出院诊断'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${dischargeDiagnosis}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'手术 / 操作名称'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${operationName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'出院时情况'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${dischargeStatus}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'主治医师 / 科主任'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${doctorInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'出院日期'</td>
+      <td style="padding:5px; border:1px solid #BFD3D7">${dischargeDate}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#207182; color:white; bold:true; fontSize:10pt; characterSpacing:2pt">'住院期间主要诊疗与用药'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#207182; color:white; bold:true; textAlign:center; border:1px solid #207182">'序号'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#207182; color:white; bold:true; textAlign:center; border:1px solid #207182">'诊疗 / 用药项目'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#207182; color:white; bold:true; textAlign:center; border:1px solid #207182">'执行时间'</th>
+      <th style="width:20%; padding:4px; backgroundColor:#207182; color:white; bold:true; textAlign:center; border:1px solid #207182">'用法 / 剂量'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#207182; color:white; bold:true; textAlign:center; border:1px solid #207182">'疗效 / 结果'</th>
+      <th style="padding:4px; backgroundColor:#207182; color:white; bold:true; textAlign:center; border:1px solid #207182">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemQty1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemName2}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemSpec2}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemUnit2}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemQty2}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemPrice2}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemQty3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemName4}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemSpec4}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemUnit4}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemQty4}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemPrice4}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemQty5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemName6}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemSpec6}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemUnit6}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemQty6}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:left; border:1px solid #BFD3D7">${itemPrice6}</td>
+      <td style="backgroundColor:#F0F6F7; padding:4px; textAlign:center; border:1px solid #BFD3D7">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F0F6F7; bold:true; fontSize:9.5pt; color:#0C4F5D; border:1px solid #BFD3D7">'出院医嘱'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BFD3D7">${dischargeAdvice}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F0F6F7; bold:true; fontSize:9.5pt; color:#0C4F5D; border:1px solid #BFD3D7">'备注 / REMARKS'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #BFD3D7">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：three
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#207182; border:1px dashed #207182">'（医疗机构公章 / 财务专用章占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#207182; border:1px dashed #207182">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#207182; border:1px dashed #207182">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #207182">'医疗机构：'${hospitalName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #207182">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #207182">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #207182">'出具日期：'${dischargeDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #207182">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #207182">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#0C4F5D; borderBottom:1px solid #BFD3D7">'主治医师：'${doctor}</td>
+      <td style="width:33%; padding:4px; color:#0C4F5D; borderBottom:1px solid #BFD3D7">'科主任：'${deptHead}</td>
+      <td style="padding:4px; color:#0C4F5D; borderBottom:1px solid #BFD3D7">'医疗机构签章：'${hospitalSign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

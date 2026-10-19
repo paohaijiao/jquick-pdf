@@ -1,0 +1,145 @@
+<pdf>
+<body>
+  // 106 出租汽车专用发票 / 网约车行程单（finance 领域第 7 项）　视觉主题：朱砂·素雅·典式
+  // 版式组合：抬头=classic 信息区=strip 明细表=light 段落=box 签章=card 落款=table
+  // 主色 #A46524　辅色 #278D91　浅底 #F7F4F0
+  // 出租车小票与网约车行程单：含上下车时间地点、车牌号、里程计价与平台服务费。
+
+  // 抬头：classic
+  <h1 style="fontSize:18pt; bold:true; color:#82490E; textAlignment:center; characterSpacing:6pt">'出租汽车专用发票 / 网约车行程单'</h1>
+  <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'发票代码 '${invoiceCode}'　　发票号码 '${invoiceNo}'　　行程日期 '${rideDate}</p>
+  <lineSeparator style="color:#A46524; thickness:1.5f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'发票代码'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D7CBBE">${invoiceCode}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'发票号码'</td>
+      <td style="padding:4px; border:1px solid #D7CBBE">${invoiceNo}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'行程日期'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D7CBBE">${rideDate}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'上车时间 / 下车时间'</td>
+      <td style="padding:4px; border:1px solid #D7CBBE">${rideTime}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'上车地点'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D7CBBE">${startPlace}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'下车地点'</td>
+      <td style="padding:4px; border:1px solid #D7CBBE">${endPlace}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'车牌号码'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D7CBBE">${plateNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'驾驶员 / 驾驶员证号'</td>
+      <td style="padding:4px; border:1px solid #D7CBBE">${driverName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'销售方名称'</td>
+      <td style="width:34%; padding:4px; border:1px solid #D7CBBE">${sellerName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; border:1px solid #D7CBBE">' '</td>
+      <td style="padding:4px; border:1px solid #D7CBBE">' '</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F7F4F0; bold:true; fontSize:10pt; color:#82490E">'行程费用明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:30%; padding:4px; backgroundColor:#F7F4F0; color:#82490E; bold:true; textAlign:center; border:1px solid #D7CBBE">'费用项目'</th>
+      <th style="width:22%; padding:4px; backgroundColor:#F7F4F0; color:#82490E; bold:true; textAlign:center; border:1px solid #D7CBBE">'计价依据'</th>
+      <th style="width:12%; padding:4px; backgroundColor:#F7F4F0; color:#82490E; bold:true; textAlign:center; border:1px solid #D7CBBE">'数量'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#F7F4F0; color:#82490E; bold:true; textAlign:center; border:1px solid #D7CBBE">'单价'</th>
+      <th style="padding:4px; backgroundColor:#F7F4F0; color:#82490E; bold:true; textAlign:center; border:1px solid #D7CBBE">'金额'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #E5E2DF">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #E5E2DF">${itemName2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemQty2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #E5E2DF">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #E5E2DF">${itemName4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemQty4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:left; border:1px solid #E5E2DF">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E5E2DF">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E5E2DF">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F7F4F0; textAlign:center; border:1px solid #A46524">'合　计'</td>
+      <td style="padding:4px; backgroundColor:#F7F4F0; border:1px solid #A46524">'—'</td>
+      <td style="padding:4px; backgroundColor:#F7F4F0; border:1px solid #A46524">'—'</td>
+      <td style="padding:4px; backgroundColor:#F7F4F0; border:1px solid #A46524">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F7F4F0; textAlign:right; border:1px solid #A46524">'￥'${totalAmount}</td>
+    </tr>
+  </table>
+
+  // 段落：box
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F7F4F0; bold:true; fontSize:9.5pt; color:#82490E; border:1px solid #D7CBBE">'金额合计'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #D7CBBE">${totalLine}</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:150px; padding:5px; backgroundColor:#F7F4F0; bold:true; fontSize:9.5pt; color:#82490E; border:1px solid #D7CBBE">'备注'</td>
+      <td style="padding:5px; fontSize:9pt; border:1px solid #D7CBBE">${remark}</td>
+    </tr>
+  </table>
+
+  // 签章区：card
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F7F4F0; textAlign:center; color:#A46524; border:1px solid #D7CBBE">'（公章 / 财务专用章占位）'</td>
+      <td style="padding:4px; backgroundColor:#F7F4F0; textAlign:center; color:#A46524; border:1px solid #D7CBBE">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F7F4F0; textAlign:center; color:#78838C; border:1px solid #D7CBBE">'单位名称：'${sellerName}</td>
+      <td style="padding:4px; backgroundColor:#F7F4F0; textAlign:center; color:#78838C; border:1px solid #D7CBBE">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F7F4F0; textAlign:center; color:#78838C; border:1px solid #D7CBBE">'签章日期：'${rideDate}</td>
+      <td style="padding:4px; backgroundColor:#F7F4F0; textAlign:center; color:#78838C; border:1px solid #D7CBBE">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #D7CBBE">'收款人：'${payee}</td>
+      <td style="width:33%; padding:5px; border:1px solid #D7CBBE">'复核：'${reviewer}</td>
+      <td style="padding:5px; border:1px solid #D7CBBE">'开票人：'${drawer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

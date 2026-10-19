@@ -1,0 +1,181 @@
+<pdf>
+<body>
+  // 167 公文流转签收单 / 办件办结回执（gov 领域第 13 项）　视觉主题：紫棠·疏朗·竖栏
+  // 版式组合：抬头=side 信息区=kv 明细表=airy 段落=bar 签章=three 落款=table
+  // 主色 #4E227A　辅色 #8D9127　浅底 #F4F1F6
+  // 公文流转签收单与办件办结回执：流转环节、签收人、时间与办理意见。
+
+  // 抬头：side
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:5px; padding:0px; backgroundColor:#4E227A">' '</td>
+      <td style="width:56%; padding:6px; bold:true; fontSize:14.5pt; color:#320E56; characterSpacing:3pt">'公文流转签收单 / 办件办结回执'</td>
+      <td style="padding:6px; textAlign:right; fontSize:7.5pt; color:#78838C">'公文编号 '${docNo}'　　办结日期 '${finishDate}'　　主办单位 '${orgName}</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#E2DFE5; thickness:1f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'公文编号 / DOC NO.'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${docNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'公文标题'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${docTitle}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'主办单位'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${orgName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'公文种类 / 密级'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${docType}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'成文日期 / 印发日期'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${issueInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'办件编号'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${caseNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'承办处室 / 承办人'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${undertakerInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'流转范围'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${flowScope}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'办结结论'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${finishResult}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'归档编号'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${archiveNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'紧急程度'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${urgency}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'办结日期'</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">${finishDate}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#8D9127">' '</td>
+      <td style="padding:3px; bold:true; fontSize:10.5pt; color:#320E56">'公文流转签收明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:5px; backgroundColor:#F4F1F6; color:#320E56; bold:true; textAlign:center; border:1px solid #CBBFD6">'序号'</th>
+      <th style="width:20%; padding:5px; backgroundColor:#F4F1F6; color:#320E56; bold:true; textAlign:center; border:1px solid #CBBFD6">'流转环节'</th>
+      <th style="width:24%; padding:5px; backgroundColor:#F4F1F6; color:#320E56; bold:true; textAlign:center; border:1px solid #CBBFD6">'签收单位 / 签收人'</th>
+      <th style="width:17%; padding:5px; backgroundColor:#F4F1F6; color:#320E56; bold:true; textAlign:center; border:1px solid #CBBFD6">'签收时间'</th>
+      <th style="width:16%; padding:5px; backgroundColor:#F4F1F6; color:#320E56; bold:true; textAlign:center; border:1px solid #CBBFD6">'办理意见'</th>
+      <th style="padding:5px; backgroundColor:#F4F1F6; color:#320E56; bold:true; textAlign:center; border:1px solid #CBBFD6">'状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty1}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty2}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty3}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty4}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty5}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemName6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemSpec6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemUnit6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemQty6}</td>
+      <td style="padding:5px; textAlign:left; border:1px solid #E8EBEE">${itemPrice6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #E8EBEE">${itemAmount6}</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#8D9127">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#320E56">'办结结论'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${finishResult}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#8D9127">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#320E56">'备注 / REMARKS'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：three
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#4E227A; border:1px dashed #4E227A">'（行政审批专用章 / 公章占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#4E227A; border:1px dashed #4E227A">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#4E227A; border:1px dashed #4E227A">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #4E227A">'受理机关：'${orgName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #4E227A">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #4E227A">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #4E227A">'办结日期：'${finishDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #4E227A">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #4E227A">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：table
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:33%; padding:5px; border:1px solid #CBBFD6">'承办人：'${undertaker}</td>
+      <td style="width:33%; padding:5px; border:1px solid #CBBFD6">'处室负责人：'${deptHead}</td>
+      <td style="padding:5px; border:1px solid #CBBFD6">'归档人：'${archivist}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

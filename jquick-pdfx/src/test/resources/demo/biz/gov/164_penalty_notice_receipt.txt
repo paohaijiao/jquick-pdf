@@ -1,0 +1,171 @@
+<pdf>
+<body>
+  // 164 行政处罚告知书 / 罚款缴款回执（gov 领域第 10 项）　视觉主题：群青·厚框·公文
+  // 版式组合：抬头=doc 信息区=grid2 明细表=solid 段落=bar 签章=card 落款=plain
+  // 主色 #1E1C73　辅色 #916127　浅底 #F1F0F7
+  // 行政处罚告知书与缴款回执：违法事实、证据材料、裁量情节与救济途径。
+
+  // 抬头：doc
+  <p style="fontSize:20pt; bold:true; color:#1E1C73; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'行政处罚告知书 / 罚款缴款回执'</p>
+  <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'告知书文号 '${noticeNo}'　　告知日期 '${noticeDate}'　　执法机关 '${orgName}</p>
+  <lineSeparator style="color:#1E1C73; thickness:2f; marginBottom:8px"></lineSeparator>
+
+  // 信息区：grid2
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'告知书文号 / NO.'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BFBFD7">${noticeNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'告知日期 / DATE'</td>
+      <td style="padding:4px; border:1px solid #BFBFD7">${noticeDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'执法机关'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BFBFD7">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'当事人 / 单位'</td>
+      <td style="padding:4px; border:1px solid #BFBFD7">${partyName}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'统一社会信用代码'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BFBFD7">${creditCode}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'违法行为'</td>
+      <td style="padding:4px; border:1px solid #BFBFD7">${violation}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'违反条款'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BFBFD7">${violateClause}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'处罚依据'</td>
+      <td style="padding:4px; border:1px solid #BFBFD7">${penaltyBasis}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'拟处罚内容'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BFBFD7">${penaltyContent}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'罚款金额'</td>
+      <td style="padding:4px; border:1px solid #BFBFD7">${penaltyAmount}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'陈述申辩期限'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BFBFD7">${defenseDeadline}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'缴款期限 / 账户'</td>
+      <td style="padding:4px; border:1px solid #BFBFD7">${payInfo}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; bold:true; color:#0B0A4C; marginBottom:4px">'违法事实与处罚裁量明细'</p>
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:4px; backgroundColor:#1E1C73; color:white; bold:true; textAlign:center; border:1px solid #1E1C73">'序号'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#1E1C73; color:white; bold:true; textAlign:center; border:1px solid #1E1C73">'违法事实'</th>
+      <th style="width:22%; padding:4px; backgroundColor:#1E1C73; color:white; bold:true; textAlign:center; border:1px solid #1E1C73">'证据材料'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1E1C73; color:white; bold:true; textAlign:center; border:1px solid #1E1C73">'裁量情节'</th>
+      <th style="width:14%; padding:4px; backgroundColor:#1E1C73; color:white; bold:true; textAlign:center; border:1px solid #1E1C73">'裁量幅度'</th>
+      <th style="padding:4px; backgroundColor:#1E1C73; color:white; bold:true; textAlign:center; border:1px solid #1E1C73">'处罚结论'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemName1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemQty1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemName2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemQty2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemName3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemQty3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemName4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemQty4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemName5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemQty5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemName6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #BFBFD7">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemQty6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFBFD7">${itemAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F0F7; textAlign:center; border:1px solid #1E1C73">'罚款金额合计'</td>
+      <td style="padding:4px; backgroundColor:#F1F0F7; border:1px solid #1E1C73">'—'</td>
+      <td style="padding:4px; backgroundColor:#F1F0F7; border:1px solid #1E1C73">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F0F7; textAlign:right; border:1px solid #1E1C73">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F0F7; textAlign:right; border:1px solid #1E1C73">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F1F0F7; textAlign:right; border:1px solid #1E1C73">'￥'${penaltyAmount}</td>
+    </tr>
+  </table>
+
+  // 段落：bar
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#916127">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#0B0A4C">'拟处罚内容'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${penaltyContent}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#916127">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#0B0A4C">'救济途径'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remedyNote}</p>
+  <table style="width:100%; marginBottom:2px">
+    <tr>
+      <td style="width:4px; padding:0px; backgroundColor:#916127">' '</td>
+      <td style="padding:2px; bold:true; fontSize:10.5pt; color:#0B0A4C">'备注 / REMARKS'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：card
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F1F0F7; textAlign:center; color:#1E1C73; border:1px solid #BFBFD7">'（行政审批专用章 / 公章占位）'</td>
+      <td style="padding:4px; backgroundColor:#F1F0F7; textAlign:center; color:#1E1C73; border:1px solid #BFBFD7">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F1F0F7; textAlign:center; color:#78838C; border:1px solid #BFBFD7">'受理机关：'${orgName}</td>
+      <td style="padding:4px; backgroundColor:#F1F0F7; textAlign:center; color:#78838C; border:1px solid #BFBFD7">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; backgroundColor:#F1F0F7; textAlign:center; color:#78838C; border:1px solid #BFBFD7">'办结日期：'${noticeDate}</td>
+      <td style="padding:4px; backgroundColor:#F1F0F7; textAlign:center; color:#78838C; border:1px solid #BFBFD7">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#0B0A4C; borderBottom:1px solid #BFBFD7">'执法人员：'${officer}</td>
+      <td style="width:33%; padding:4px; color:#0B0A4C; borderBottom:1px solid #BFBFD7">'执法证号：'${officerNo}</td>
+      <td style="padding:4px; color:#0B0A4C; borderBottom:1px solid #BFBFD7">'当事人签收：'${partySign}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

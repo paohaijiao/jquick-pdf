@@ -1,0 +1,175 @@
+<pdf>
+<body>
+  // 141 单位银行账户对账单 / 流水明细单（bank 领域第 2 项）　视觉主题：宝蓝·素雅·通栏
+  // 版式组合：抬头=banner 信息区=chip 明细表=light 段落=plain 签章=two 落款=plain
+  // 主色 #144088　辅色 #913627　浅底 #F0F3F7
+  // 对公账户对账单与流水明细单：期初期末余额、逐笔收入支出与余额。
+
+  // 抬头：banner
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:58%; padding:8px; backgroundColor:#144088; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'单位银行账户对账单 / 流水明细单'</td>
+      <td style="padding:8px; backgroundColor:#05275F; color:white; textAlign:right; fontSize:7.5pt">'账号 '${accountNo}'　　对账期间 '${period}'　　户名 '${accountName}</td>
+    </tr>
+  </table>
+
+  // 信息区：strip
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'账户名称 / ACCOUNT NAME'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'银行账号 / ACCOUNT NO.'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'开户银行'</td>
+      <td style="padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'对账期间 / PERIOD'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BCC7DA">${accountName}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BCC7DA">${accountNo}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BCC7DA">${bankName}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BCC7DA">${period}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'账户类型'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'币种 / CCY'</td>
+      <td style="width:25%; padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'期初余额'</td>
+      <td style="padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'期末余额'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BCC7DA">${accountType}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BCC7DA">${currency}</td>
+      <td style="width:25%; padding:3px; textAlign:center; border:1px solid #BCC7DA">${openBalance}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BCC7DA">${closeBalance}</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'对账单编号'</td>
+      <td style="padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'打印日期'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:3px; textAlign:center; border:1px solid #BCC7DA">${statementNo}</td>
+      <td style="padding:3px; textAlign:center; border:1px solid #BCC7DA">${printDate}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F0F3F7; bold:true; fontSize:10pt; color:#05275F">'账户流水明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:12%; padding:4px; backgroundColor:#F0F3F7; color:#05275F; bold:true; textAlign:center; border:1px solid #BCC7DA">'交易日'</th>
+      <th style="width:12%; padding:4px; backgroundColor:#F0F3F7; color:#05275F; bold:true; textAlign:center; border:1px solid #BCC7DA">'凭证号'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#F0F3F7; color:#05275F; bold:true; textAlign:center; border:1px solid #BCC7DA">'摘要'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#F0F3F7; color:#05275F; bold:true; textAlign:center; border:1px solid #BCC7DA">'收入金额'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#F0F3F7; color:#05275F; bold:true; textAlign:center; border:1px solid #BCC7DA">'支出金额'</th>
+      <th style="padding:4px; backgroundColor:#F0F3F7; color:#05275F; bold:true; textAlign:center; border:1px solid #BCC7DA">'余额'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemSpec1}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE1E5">${itemUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemName2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemSpec2}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE1E5">${itemUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemQty2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemPrice2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemSpec3}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE1E5">${itemUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemName4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemSpec4}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE1E5">${itemUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemQty4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemPrice4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemSpec5}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE1E5">${itemUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemName6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemSpec6}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE1E5">${itemUnit6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemQty6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemPrice6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemName7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemSpec7}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE1E5">${itemUnit7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemQty7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemPrice7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemAmount7}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemName8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #DFE1E5">${itemSpec8}</td>
+      <td style="padding:4px; textAlign:left; border:1px solid #DFE1E5">${itemUnit8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemQty8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemPrice8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #DFE1E5">${itemAmount8}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; backgroundColor:#F0F3F7; textAlign:center; border:1px solid #144088">'本月合计'</td>
+      <td style="padding:4px; backgroundColor:#F0F3F7; border:1px solid #144088">'—'</td>
+      <td style="padding:4px; backgroundColor:#F0F3F7; border:1px solid #144088">'—'</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F0F3F7; textAlign:right; border:1px solid #144088">'￥'${totalIn}</td>
+      <td style="padding:4px; bold:true; backgroundColor:#F0F3F7; textAlign:right; border:1px solid #144088">'￥'${totalOut}</td>
+      <td style="padding:4px; backgroundColor:#F0F3F7; border:1px solid #144088">'—'</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#05275F; marginBottom:3px">'本月收入合计'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#05275F; marginBottom:3px">'支出与余额'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${balanceLine}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#05275F; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#144088; border:1px dashed #144088">'（银行业务章 / 公章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#144088; border:1px dashed #144088">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #144088">'机构名称：'${bankName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #144088">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #144088">'业务日期：'${printDate}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #144088">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#05275F; borderBottom:1px solid #BCC7DA">'银行签章：'${bankSign}</td>
+      <td style="width:33%; padding:4px; color:#05275F; borderBottom:1px solid #BCC7DA">'企业财务核对：'${reviewer}</td>
+      <td style="padding:4px; color:#05275F; borderBottom:1px solid #BCC7DA">'制表：'${preparer}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

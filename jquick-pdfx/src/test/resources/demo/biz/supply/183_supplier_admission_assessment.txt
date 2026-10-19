@@ -1,0 +1,176 @@
+<pdf>
+<body>
+  // 183 供应商准入资料 / 履约考核清单（supply 领域第 4 项）　视觉主题：秋香·密排·通栏
+  // 版式组合：抬头=banner 信息区=kv 明细表=compact 段落=plain 签章=two 落款=right
+  // 主色 #5F8A1E　辅色 #272E91　浅底 #F4F7F0
+  // 供应商准入资料与履约考核清单：质量、交付、成本、服务、技术、合规六维评分。
+
+  // 抬头：banner
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:58%; padding:8px; backgroundColor:#5F8A1E; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'供应商准入资料 / 履约考核清单'</td>
+      <td style="padding:8px; backgroundColor:#41650B; color:white; textAlign:right; fontSize:7.5pt">'准入编号 '${admissionNo}'　　考核期间 '${period}'　　采购方 '${buyerName}</td>
+    </tr>
+  </table>
+
+  // 信息区：kv
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'准入编号 / NO.'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${admissionNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'考核期间 / PERIOD'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${period}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'采购方 / 考核部门'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${buyerName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'供应商名称'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${supplierName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'统一社会信用代码'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${creditCode}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'准入类别 / 等级'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${admissionType}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'供应品类'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${supplyCategory}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'考核方式'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${assessWay}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'考核得分 / 等级'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${scoreInfo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'考核结论'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${conclusion}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'考核人 / 审核'</td>
+      <td style="padding:5px; border:1px solid #CDD7BE">${assessorInfo}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10pt; bold:true; color:#5F8A1E; marginBottom:3px; characterSpacing:2pt">'履约考核指标明细'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:7%; padding:2px; backgroundColor:#41650B; color:white; bold:true; textAlign:center; border:1px solid #41650B">'序号'</th>
+      <th style="width:18%; padding:2px; backgroundColor:#41650B; color:white; bold:true; textAlign:center; border:1px solid #41650B">'考核维度'</th>
+      <th style="width:22%; padding:2px; backgroundColor:#41650B; color:white; bold:true; textAlign:center; border:1px solid #41650B">'考核指标'</th>
+      <th style="width:15%; padding:2px; backgroundColor:#41650B; color:white; bold:true; textAlign:center; border:1px solid #41650B">'目标值'</th>
+      <th style="width:15%; padding:2px; backgroundColor:#41650B; color:white; bold:true; textAlign:center; border:1px solid #41650B">'实际值'</th>
+      <th style="width:10%; padding:2px; backgroundColor:#41650B; color:white; bold:true; textAlign:center; border:1px solid #41650B">'得分'</th>
+      <th style="padding:2px; backgroundColor:#41650B; color:white; bold:true; textAlign:center; border:1px solid #41650B">'等级'</th>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemName1}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemSpec1}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemUnit1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemQty1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemPrice1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemAmount1}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemTax1}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemName2}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemSpec2}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemUnit2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemQty2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemPrice2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemAmount2}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemTax2}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemName3}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemSpec3}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemUnit3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemQty3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemPrice3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemAmount3}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemTax3}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemName4}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemSpec4}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemUnit4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemQty4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemPrice4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemAmount4}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemTax4}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemName5}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemSpec5}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemUnit5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemQty5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemPrice5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemAmount5}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemTax5}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemName6}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemSpec6}</td>
+      <td style="padding:2px; textAlign:left; border:1px solid #E2E5DF">${itemUnit6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemQty6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemPrice6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemAmount6}</td>
+      <td style="padding:2px; textAlign:center; border:1px solid #E2E5DF">${itemTax6}</td>
+    </tr>
+    <tr>
+      <td style="padding:2px; bold:true; backgroundColor:#F4F7F0; textAlign:center; border:1px solid #5F8A1E">'考核得分合计'</td>
+      <td style="padding:2px; backgroundColor:#F4F7F0; border:1px solid #5F8A1E">'—'</td>
+      <td style="padding:2px; backgroundColor:#F4F7F0; border:1px solid #5F8A1E">'—'</td>
+      <td style="padding:2px; backgroundColor:#F4F7F0; border:1px solid #5F8A1E">'—'</td>
+      <td style="padding:2px; backgroundColor:#F4F7F0; border:1px solid #5F8A1E">'—'</td>
+      <td style="padding:2px; bold:true; backgroundColor:#F4F7F0; textAlign:right; border:1px solid #5F8A1E">${totalAmount}' 分'</td>
+      <td style="padding:2px; bold:true; backgroundColor:#F4F7F0; textAlign:right; border:1px solid #5F8A1E">${grade}' 级'</td>
+    </tr>
+  </table>
+
+  // 段落：plain
+  <p style="fontSize:10.5pt; bold:true; color:#41650B; marginBottom:3px">'考核得分合计'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#41650B; marginBottom:3px">'考核结论'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${conclusion}</p>
+  <p style="fontSize:10.5pt; bold:true; color:#41650B; marginBottom:3px">'备注 / REMARKS'</p>
+  <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
+
+  // 签章区：two
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#5F8A1E; border:1px dashed #5F8A1E">'（企业公章 / 合同专用章占位）'</td>
+      <td style="padding:4px; textAlign:center; color:#5F8A1E; border:1px dashed #5F8A1E">'（骑缝章 / 二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5F8A1E">'单位名称：'${buyerName}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #5F8A1E">'骑缝章沿右边线骑缝加盖'</td>
+    </tr>
+    <tr>
+      <td style="width:50%; padding:4px; textAlign:center; color:#78838C; border:1px dashed #5F8A1E">'单据日期：'${period}</td>
+      <td style="padding:4px; textAlign:center; color:#78838C; border:1px dashed #5F8A1E">'二维码打印于右上角方框内'</td>
+    </tr>
+  </table>
+
+  // 落款：right
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:24%; padding:4px">' '</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#41650B">'考核人：'${assessor}</td>
+      <td style="width:38%; padding:4px; textAlign:center; color:#41650B">'采购负责人：'${purchaseHead}</td>
+      <td style="padding:4px; textAlign:center; color:#41650B">'质量负责人：'${qcHead}</td>
+    </tr>
+  </table>
+</body>
+</pdf>
