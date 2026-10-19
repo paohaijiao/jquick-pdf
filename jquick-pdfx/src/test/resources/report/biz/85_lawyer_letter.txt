@@ -1,0 +1,57 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 85 律师函（模板文件化版本，长文本自动分页，文末律所公章 + 律师签章）
+  // 陈述条款逐条 bind：statement1~3；诉求逐条 bind：demand1~3
+  // ==========================================================================
+
+  <h1 style="fontSize:17pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:3pt">${lawFirm}</h1>
+  <p style="fontSize:8.5pt; color:#5A6B7C; textAlignment:center">'地址：××市××区××路 168 号　电话：021-8888-0000　邮箱：law@example.com'</p>
+  <div style="borderBottom:2px solid #1A2733; marginTop:6px; marginBottom:12px"></div>
+
+  <h2 style="fontSize:22pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:10pt; marginBottom:4px">'律 师 函'</h2>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:right; marginBottom:12px">${letterNo}</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginBottom:2px">${recipientUnit}'：'</p>
+  <p style="fontSize:9pt; color:#5A6B7C; marginBottom:8px">'（地址：'${recipientAddress}'）'</p>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">${lawFirm}'系依法设立并有效存续的律师事务所，现接受 ××数字科技有限公司（以下称“委托人”）的委托，指派 '${lawyerName}' 律师就下列事宜向你方发出本函。'</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginTop:10px; marginBottom:4px">'一、事由'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">${subject}</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginTop:10px; marginBottom:4px">'二、事实与法律依据'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'（1）'${statement1}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'（2）'${statement2}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'（3）'${statement3}</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginTop:10px; marginBottom:4px">'三、本所意见与要求'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'基于上述事实与法律规定，本所代表委托人向你方提出如下要求：'</p>
+  <list style="fontSize:10.5pt; color:#333333; listStyleType:decimal; marginLeft:20px">
+    <li>${demand1}</li>
+    <li>${demand2}</li>
+    <li>${demand3}</li>
+  </list>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:6px">'如你方在上述期限内未予答复或协商，委托人将依法采取包括但不限于提起诉讼、申请财产保全等法律措施，由此产生的一切法律后果及费用（含律师费、诉讼费、保全费）均由你方承担。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:4px">'特此函告。'</p>
+
+  <div style="display:flex; justifyContent:space-between; marginTop:24px">
+    <div style="width:200px; textAlignment:center">
+      <image src='D:/test/image/85_seal.png' style="width:100px; height:100px"></image>
+      <p style="fontSize:10.5pt; bold:true; color:#1A2733; textAlignment:center">${lawFirm}</p>
+    </div>
+    <div style="width:200px">
+      <image src='D:/test/image/85_sign.png' style="width:110px; height:52px"></image>
+      <p style="fontSize:10.5pt; color:#333333">'承办律师：'${lawyerName}</p>
+      <p style="fontSize:9pt; color:#5A6B7C">'执业证号：'${lawyerLicense}</p>
+      <p style="fontSize:10.5pt; color:#333333; marginTop:6px">${issueDate}</p>
+    </div>
+  </div>
+
+  <div style="borderTop:1px solid #C3CDD8; marginTop:18px; paddingTop:5px">
+    <p style="fontSize:8pt; color:#8a939b; textAlignment:center">${contact}</p>
+  </div>
+
+</body>
+</pdf>

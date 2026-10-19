@@ -1,0 +1,68 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 87 中标通知书（模板文件化版本，正式公文版式，预留招标单位公章）
+  // ==========================================================================
+
+  <!-- 红头 -->
+  <h1 style="fontSize:18pt; bold:true; color:#B71C1C; textAlignment:center; characterSpacing:4pt">${tenderer}</h1>
+  <div style="borderBottom:2px solid #B71C1C; marginTop:5px"></div>
+  <div style="borderBottom:1px solid #B71C1C; marginTop:2px; marginBottom:14px"></div>
+
+  <h2 style="fontSize:20pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:8pt">'中 标 通 知 书'</h2>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:right; marginTop:4px; marginBottom:12px">${noticeNo}</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginBottom:6px">${winner}'：'</p>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'我单位「'${projectName}'」（招标编号：'${tenderNo}'）已于 2026 年 10 月 12 日完成开标、评标工作。经评标委员会评审推荐并报我单位确认，确定贵单位为该项目中标单位。现将中标结果通知如下：'</p>
+
+  <table style="width:100%; fontSize:10pt; marginTop:8px; marginBottom:8px">
+    <tr>
+      <td style="width:88px; padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'项目名称'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${projectName}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'中标单位'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${winner}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'中标金额'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">'人民币 ￥'${amount}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'大写金额'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${amountWords}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'中标工期'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${duration}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'项目负责人'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${projectManager}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'请贵单位于收到本通知书之日起 30 日内，携带营业执照副本、法定代表人身份证明、授权委托书及本项目投标文件正本一份，到我单位签订合同。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'逾期未签订合同或未按要求提交资料的，我单位有权取消其中标资格，并按评标结果顺位确定下一中标候选人。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:6px">'特此通知。'</p>
+
+  <!-- 落款 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:22px">
+    <div style="width:220px">
+      <p style="fontSize:8.5pt; color:#8a939b">'抄送：××市公共资源交易中心'</p>
+      <p style="fontSize:8.5pt; color:#8a939b">'××市财政局政府采购监督处'</p>
+    </div>
+    <div style="width:230px; textAlignment:center">
+      <image src='D:/test/image/87_seal.png' style="width:100px; height:100px"></image>
+      <p style="fontSize:10.5pt; bold:true; color:#1A2733; textAlignment:center">${tenderer}</p>
+      <p style="fontSize:10.5pt; color:#333333; textAlignment:center; marginTop:2px">${issueDate}</p>
+    </div>
+  </div>
+
+  <div style="borderTop:1px solid #B71C1C; marginTop:20px; paddingTop:5px">
+    <p style="fontSize:8pt; color:#8a939b; textAlignment:center">'地址：××市××区××路 128 号　联系电话：0571-8888-1234　传真：0571-8888-1235'</p>
+  </div>
+
+</body>
+</pdf>

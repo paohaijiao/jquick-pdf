@@ -1,0 +1,43 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 89 奖学金证书（模板文件化版本，金色双框，预留学校公章）
+  // ==========================================================================
+  <div style="border:3px solid #B8860B; padding:9px">
+  <div style="border:1px solid #D4AF37; padding:18px">
+
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:200px">
+        <p style="fontSize:11pt; bold:true; color:#8C6D3F; characterSpacing:2pt">${schoolName}</p>
+      </div>
+      <div style="width:200px; textAlignment:right">
+        <p style="fontSize:8.5pt; color:#8C6D3F">'证书编号：'${certNo}</p>
+      </div>
+    </div>
+
+    <h1 style="fontSize:44pt; bold:true; color:#B8860B; textAlignment:center; characterSpacing:18pt; marginTop:22px">'荣 誉 证 书'</h1>
+    <p style="fontSize:10pt; color:#A08A6A; textAlignment:center; characterSpacing:5pt">'CERTIFICATE OF HONOR'</p>
+    <lineSeparator style="strokeColor:#D4AF37; marginTop:8px"></lineSeparator>
+
+    <p style="fontSize:13pt; color:#333333; textAlignment:center; marginTop:24px">'兹授予'</p>
+    <p style="fontSize:28pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:6pt; marginTop:4px">${studentName}</p>
+    <p style="fontSize:11.5pt; color:#333333; textAlignment:center; marginTop:10px">'同学 '${academicYear}' 学年「'${awardName}'」荣誉称号，'</p>
+    <p style="fontSize:11.5pt; color:#333333; textAlignment:center">'以表彰其在学业与综合素质方面的优异表现。'</p>
+    <p style="fontSize:11.5pt; color:#333333; textAlignment:center; marginTop:8px">'特发此证，以资鼓励。'</p>
+
+    <div style="display:flex; justifyContent:space-between; marginTop:26px">
+      <div style="width:300px">
+        <p style="fontSize:9pt; color:#8a939b">'本证书可在校学生工作管理系统在线验证'</p>
+        <p style="fontSize:9pt; color:#8a939b; marginTop:3px">'查询地址：https://example.edu.cn/honor'</p>
+      </div>
+      <div style="width:230px; textAlignment:center">
+        <image src='D:/test/image/89_seal.png' style="width:104px; height:104px"></image>
+        <p style="fontSize:10.5pt; bold:true; color:#8C6D3F; textAlignment:center">${schoolName}</p>
+        <p style="fontSize:10.5pt; color:#333333; textAlignment:center; marginTop:2px">${issueDate}</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</body>
+</pdf>

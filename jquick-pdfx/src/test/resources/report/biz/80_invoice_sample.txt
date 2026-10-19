@@ -1,0 +1,144 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 80 增值税普通发票票样（模板文件 + bind 数据注入版，模拟票样，非真实发票）
+  // 合计行不支持 colspan，空位逐列 '—' 占位
+  // ==========================================================================
+
+  <div style="border:2px solid #8C3B3B; padding:10px">
+    // ---------- 标题与编号 ----------
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:100px">
+        <image src='D:/test/image/80_logo.png' style="width:44px; height:44px"></image>
+      </div>
+      <div style="width:300px; textAlignment:center">
+        <h1 style="fontSize:19pt; bold:true; color:#8C3B3B; characterSpacing:5pt">'增值税普通发票'</h1>
+        <p style="fontSize:9pt; color:#8C3B3B; textAlignment:center; characterSpacing:2pt">'（票　样）'</p>
+      </div>
+      <div style="width:110px; textAlignment:right">
+        <p style="fontSize:8pt; color:#5A6B7C">'发票代码：000000000000'</p>
+        <p style="fontSize:8pt; color:#5A6B7C; marginTop:3px">'发票号码：'${invoiceNo}</p>
+        <p style="fontSize:8pt; color:#5A6B7C; marginTop:3px">'开票日期：'${invoiceDate}</p>
+      </div>
+    </div>
+
+    // ---------- 购买方（不支持 colspan，统一两列结构） ----------
+    <table style="width:100%; fontSize:8.5pt; marginTop:6px">
+      <tr>
+        <td style="width:52px; padding:4px; backgroundColor:#F7EFEF; bold:true; color:#8C3B3B; border:1px solid #8C3B3B">'名　称'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B; bold:true">${buyerName}</td>
+      </tr>
+      <tr>
+        <td style="width:52px; padding:4px; border:1px solid #8C3B3B">'税　号'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${buyerTaxNo}</td>
+      </tr>
+      <tr>
+        <td style="width:52px; padding:4px; border:1px solid #8C3B3B">'地址电话'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${buyerAddressPhone}</td>
+      </tr>
+      <tr>
+        <td style="width:52px; padding:4px; border:1px solid #8C3B3B">'开户行'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${buyerBankAccount}</td>
+      </tr>
+      <tr>
+        <td style="width:52px; padding:4px; backgroundColor:#F7EFEF; bold:true; color:#8C3B3B; border:1px solid #8C3B3B">'名　称'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B; bold:true">${sellerName}</td>
+      </tr>
+      <tr>
+        <td style="width:52px; padding:4px; border:1px solid #8C3B3B">'税　号'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${sellerTaxNo}</td>
+      </tr>
+      <tr>
+        <td style="width:52px; padding:4px; border:1px solid #8C3B3B">'地址电话'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${sellerAddressPhone}</td>
+      </tr>
+      <tr>
+        <td style="width:52px; padding:4px; border:1px solid #8C3B3B">'开户行'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${sellerBankAccount}</td>
+      </tr>
+    </table>
+
+    // ---------- 明细 ----------
+    <table style="width:100%; fontSize:8.5pt; marginTop:2px">
+      <tr>
+        <th style="width:150px; padding:4px; backgroundColor:#F7EFEF; color:#8C3B3B; textAlign:center; border:1px solid #8C3B3B">'货物或应税劳务名称'</th>
+        <th style="width:70px; padding:4px; backgroundColor:#F7EFEF; color:#8C3B3B; textAlign:center; border:1px solid #8C3B3B">'规格型号'</th>
+        <th style="width:34px; padding:4px; backgroundColor:#F7EFEF; color:#8C3B3B; textAlign:center; border:1px solid #8C3B3B">'单位'</th>
+        <th style="width:40px; padding:4px; backgroundColor:#F7EFEF; color:#8C3B3B; textAlign:center; border:1px solid #8C3B3B">'数量'</th>
+        <th style="width:60px; padding:4px; backgroundColor:#F7EFEF; color:#8C3B3B; textAlign:center; border:1px solid #8C3B3B">'单价'</th>
+        <th style="width:70px; padding:4px; backgroundColor:#F7EFEF; color:#8C3B3B; textAlign:center; border:1px solid #8C3B3B">'金额'</th>
+        <th style="padding:4px; backgroundColor:#F7EFEF; color:#8C3B3B; textAlign:center; border:1px solid #8C3B3B">'税率'</th>
+      </tr>
+      <tr>
+        <td style="padding:4px; border:1px solid #8C3B3B">${d1_name}</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${d1_spec}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">${d1_unit}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d1_qty}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d1_price}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d1_amount}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">${taxRateText}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; border:1px solid #8C3B3B">${d2_name}</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${d2_spec}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">${d2_unit}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d2_qty}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d2_price}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d2_amount}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">${taxRateText}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; border:1px solid #8C3B3B">${d3_name}</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">${d3_spec}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">${d3_unit}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d3_qty}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d3_price}</td>
+        <td style="padding:4px; textAlign:right; border:1px solid #8C3B3B">${d3_amount}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">${taxRateText}</td>
+      </tr>
+      // 合计行（不支持 colspan，中间列 '—' 占位）
+      <tr>
+        <td style="padding:4px; border:1px solid #8C3B3B; bold:true">'合计'</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B; bold:true; textAlign:right">${amountWithoutTax}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'　'</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; border:1px solid #8C3B3B">'价税合计（大写）：'${totalInWords}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+        <td style="padding:4px; border:1px solid #8C3B3B; bold:true; textAlign:right; color:#8C3B3B">'￥'${total}</td>
+        <td style="padding:4px; textAlign:center; border:1px solid #8C3B3B">'—'</td>
+      </tr>
+    </table>
+
+    // ---------- 税额与备注 ----------
+    <table style="width:100%; fontSize:8.5pt">
+      <tr>
+        <td style="padding:4px; border:1px solid #8C3B3B; width:130px">'不含税金额：￥'${amountWithoutTax}</td>
+        <td style="padding:4px; border:1px solid #8C3B3B; width:110px">'税额：￥'${taxAmount}</td>
+        <td style="padding:4px; border:1px solid #8C3B3B">'备注：'${remark}</td>
+      </tr>
+    </table>
+
+    // ---------- 底部：开票人 + 销售方章 ----------
+    <div style="display:flex; justifyContent:space-between; marginTop:8px">
+      <div style="width:250px">
+        <p style="fontSize:8.5pt; color:#5A6B7C">'收款人：王芳　　复核：李静　　开票人：陈立'</p>
+        <p style="fontSize:8.5pt; color:#5A6B7C; marginTop:4px">'销售方：（盖章）'</p>
+        <p style="fontSize:7.5pt; color:#8a939b; marginTop:10px">'本票样由系统生成，仅供开发调试与样式验证，不具有任何税务效力。'</p>
+      </div>
+      <div style="width:150px; textAlignment:center">
+        <image src='D:/test/image/80_seal.png' style="width:92px; height:92px"></image>
+        <p style="fontSize:8pt; color:#8C3B3B; textAlignment:center">'发票专用章（票样）'</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</pdf>

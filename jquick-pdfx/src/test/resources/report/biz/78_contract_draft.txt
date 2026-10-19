@@ -1,0 +1,120 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 78 合同协议初稿（模板文件 + bind 数据注入版）
+  // 条款逐条 bind 为 clauseN_title / clauseN_p1~p3（正文最多 3 段，缺段绑空串）
+  // ==========================================================================
+
+  // ---------- 抬头 ----------
+  <h1 style="fontSize:19pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:4pt">${title}</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:10px">'合同编号：'${contractNo}</p>
+
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <td style="width:100px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'甲方（委托方）'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyALine1}</td>
+    </tr>
+    <tr>
+      <td style="width:100px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'　'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyALine2}</td>
+    </tr>
+    <tr>
+      <td style="width:100px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'乙方（承接方）'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyBLine1}</td>
+    </tr>
+    <tr>
+      <td style="width:100px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'　'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyBLine2}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10pt; color:#333333; textIndent:20pt; marginTop:10px; marginBottom:8px">'甲乙双方本着平等自愿、诚实信用的原则，经友好协商，就 PDF 报表引擎项目达成如下协议，共同遵守。'</p>
+
+  // ---------- 条款（第一条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 一 条　'${clause1Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause1P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause1P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause1P3}</p>
+
+  // ---------- 条款（第二条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 二 条　'${clause2Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause2P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause2P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause2P3}</p>
+
+  // ---------- 条款（第三条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 三 条　'${clause3Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause3P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause3P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause3P3}</p>
+
+  // ---------- 条款（第四条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 四 条　'${clause4Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause4P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause4P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause4P3}</p>
+
+  // ---------- 条款（第五条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 五 条　'${clause5Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause5P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause5P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause5P3}</p>
+
+  // ---------- 条款（第六条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 六 条　'${clause6Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause6P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause6P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause6P3}</p>
+
+  // ---------- 条款（第七条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 七 条　'${clause7Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause7P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause7P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause7P3}</p>
+
+  // ---------- 条款（第八条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 八 条　'${clause8Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause8P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause8P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause8P3}</p>
+
+  // ---------- 条款（第九条） ----------
+  <p style="fontSize:10.5pt; bold:true; color:#1A2733; marginTop:7px; marginBottom:3px">'第 九 条　'${clause9Title}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause9P1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause9P2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">${clause9P3}</p>
+
+  // ---------- 金额与有效期 ----------
+  <table style="width:100%; fontSize:9.5pt; marginTop:10px">
+    <tr>
+      <td style="width:90px; padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'合同总金额'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8; bold:true; color:#B71C1C">${totalAmountLine}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'合同有效期'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${validPeriod}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginTop:8px">'本合同一式肆份，甲乙双方各执贰份，具有同等法律效力，自双方签字盖章之日起生效。'</p>
+
+  // ---------- 双方盖章（图片由 Java 生成到固定路径，src 按字面量引用） ----------
+  <div style="display:flex; justifyContent:space-between; marginTop:22px">
+    <div style="width:225px">
+      <p style="fontSize:10pt; bold:true; color:#1A2733">'甲方（盖章）'</p>
+      <p style="fontSize:9pt; color:#333333; marginTop:3px">${partyAName}</p>
+      <image src='D:/test/image/78_seal_a.png' style="width:96px; height:96px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C">'法定代表人（签字）：'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:5px">'日期：　　　　年　　月　　日'</p>
+    </div>
+    <div style="width:225px">
+      <p style="fontSize:10pt; bold:true; color:#1A2733">'乙方（盖章）'</p>
+      <p style="fontSize:9pt; color:#333333; marginTop:3px">${partyBName}</p>
+      <image src='D:/test/image/78_seal_b.png' style="width:96px; height:96px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C">'法定代表人（签字）：'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:5px">'日期：　　　　年　　月　　日'</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

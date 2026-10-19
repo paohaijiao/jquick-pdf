@@ -1,0 +1,152 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 93 安全生产责任书（多页条款 + 骑缝章 + 文末双方签字盖章）
+  // 版本：模板文件化版本（全部数据由 JQuickPdfFactory.bind 注入，无实体类）
+  // 版式要点：
+  //   1) 页眉显示责任书编号；页脚「第 %d 页」
+  //   2) 正文条目由 Java 侧拼装为多行文本后一次 bind 注入（${termsBody}），
+  //      模板只保留版式结构，条目数量变化无需改模板
+  //   3) 表格统一 width:100%，铺满版心，右侧不留空白
+  //   4) 骑缝章 4 条细图由 Java 侧切章生成，分别 bind 为 ridge0~ridge3
+  // ==========================================================================
+
+  <!-- 标题 -->
+  <h1 style="fontSize:20pt; bold:true; color:#7A1F1F; textAlignment:center; characterSpacing:6pt">'安 全 生 产 责 任 书'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:10px">'编号：'${docNo}</p>
+
+  <!-- 责任主体信息（两列布局：标签 + 内容，铺满版心） -->
+  <table style="width:100%; fontSize:9.5pt; marginBottom:9px">
+    <tr>
+      <td style="width:90px; padding:5px; backgroundColor:#F4E6E6; bold:true; border:1px solid #D8C3C3">'责任单位'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">${unit}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F4E6E6; bold:true; border:1px solid #D8C3C3">'责任人'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">${personLine}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F4E6E6; bold:true; border:1px solid #D8C3C3">'身份证号'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">${idLine}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F4E6E6; bold:true; border:1px solid #D8C3C3">'责任期限'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">${period}</td>
+    </tr>
+  </table>
+
+  <!-- 前言 -->
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'为全面落实安全生产主体责任，防范和减少生产安全事故，保障从业人员的生命安全与身体健康，根据《中华人民共和国安全生产法》《生产安全事故报告和调查处理条例》等法律法规，本单位与责任人签订本责任书，明确双方安全生产职责与考核要求。'</p>
+
+  <!-- 一、责任目标 -->
+  <h2 style="fontSize:11pt; bold:true; color:#7A1F1F; borderLeft:3px solid #7A1F1F; paddingLeft:6px; marginTop:10px; marginBottom:5px">'一、安全生产责任目标'</h2>
+  <table style="width:100%; fontSize:9pt; marginBottom:6px">
+    <tr>
+      <th style="width:38%; padding:5px; backgroundColor:#7A1F1F; color:white; textAlign:center; border:1px solid #7A1F1F">'考核指标'</th>
+      <th style="width:22%; padding:5px; backgroundColor:#7A1F1F; color:white; textAlign:center; border:1px solid #7A1F1F">'目标值'</th>
+      <th style="padding:5px; backgroundColor:#7A1F1F; color:white; textAlign:center; border:1px solid #7A1F1F">'考核方式'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #D8C3C3">'生产安全事故死亡人数'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D8C3C3">'0 人'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">'事故台账 + 政府通报'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #D8C3C3">'较大及以上事故'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D8C3C3">'0 起'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">'事故调查报告'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #D8C3C3">'重伤事故率'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D8C3C3">'≤0.3‰'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">'工伤认定数据'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #D8C3C3">'隐患整改闭环率'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D8C3C3">'100%'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">'隐患排查系统记录'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #D8C3C3">'安全教育培训覆盖率'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D8C3C3">'100%'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">'培训签到与考核成绩'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #D8C3C3">'特种作业持证上岗率'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D8C3C3">'100%'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">'证件台账抽查'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #D8C3C3">'安全投入占产值比例'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D8C3C3">'≥1.5%'</td>
+      <td style="padding:5px; border:1px solid #D8C3C3">'财务专项账目'</td>
+    </tr>
+  </table>
+
+  <!-- 二、责任条款（每条两个变量：条标题 + 正文，均为 Java 侧 bind 注入） -->
+  <h2 style="fontSize:11pt; bold:true; color:#7A1F1F; borderLeft:3px solid #7A1F1F; paddingLeft:6px; marginTop:10px; marginBottom:5px">'二、安全生产责任条款'</h2>
+
+  <p style="fontSize:10.5pt; bold:true; color:#7A1F1F; textIndent:21pt; marginTop:6px; marginBottom:2px">${clauseTitle1}</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText1}</p>
+
+  <p style="fontSize:10.5pt; bold:true; color:#7A1F1F; textIndent:21pt; marginTop:6px; marginBottom:2px">${clauseTitle2}</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText2}</p>
+
+  <p style="fontSize:10.5pt; bold:true; color:#7A1F1F; textIndent:21pt; marginTop:6px; marginBottom:2px">${clauseTitle3}</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText3}</p>
+
+  <p style="fontSize:10.5pt; bold:true; color:#7A1F1F; textIndent:21pt; marginTop:6px; marginBottom:2px">${clauseTitle4}</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText4}</p>
+
+  <p style="fontSize:10.5pt; bold:true; color:#7A1F1F; textIndent:21pt; marginTop:6px; marginBottom:2px">${clauseTitle5}</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText5}</p>
+
+  <p style="fontSize:10.5pt; bold:true; color:#7A1F1F; textIndent:21pt; marginTop:6px; marginBottom:2px">${clauseTitle6}</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText6}</p>
+
+  <p style="fontSize:10.5pt; bold:true; color:#7A1F1F; textIndent:21pt; marginTop:6px; marginBottom:2px">${clauseTitle7}</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText7}</p>
+
+  <p style="fontSize:10.5pt; bold:true; color:#7A1F1F; textIndent:21pt; marginTop:6px; marginBottom:2px">${clauseTitle8}</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText8}</p>
+
+  <!-- 三、考核与追责 -->
+  <h2 style="fontSize:11pt; bold:true; color:#7A1F1F; borderLeft:3px solid #7A1F1F; paddingLeft:6px; marginTop:10px; marginBottom:5px">'三、考核与责任追究'</h2>
+  <list style="fontSize:10pt; color:#333333; listStyleType:decimal; marginLeft:20px">
+    <li>'考核周期为每季度一次，由单位安全生产管理委员会组织，考核结果纳入年度绩效评价。'</li>
+    <li>'完成全部责任目标且全年无事故的，给予安全生产专项奖励；连续两个季度考核优秀的，优先推荐评优。'</li>
+    <li>'未完成责任目标或发生责任事故的，视情节轻重给予通报批评、扣减绩效、调整岗位等处理。'</li>
+    <li>'因失职渎职造成重大事故的，依法承担行政责任与民事责任；构成犯罪的，移交司法机关处理。'</li>
+  </list>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:8px">'本责任书一式两份，责任单位与责任人各持一份，自双方签字盖章之日起生效，有效期与责任期限一致。未尽事宜由双方协商解决。'</p>
+
+  <!-- 骑缝章条 -->
+  <!-- 骑缝章条（图片由 Demo 生成到固定路径 D:/test/image/，此处按字面量引用；
+       注：当前渲染引擎的 image src 仅支持字面量路径，不解析 ${var} 变量） -->
+  <p style="fontSize:8pt; color:#8a939b; marginTop:10px">'骑缝章：本页右侧竖排为骑缝章条，打印后沿装订线裁切，与各页边缘切口叠合可还原为完整印章。'</p>
+  <div style="display:flex; justifyContent:flex-start; marginTop:2px">
+    <image src='D:/test/image/93_ridge_0.png' style="width:15px; height:96px"></image>
+    <image src='D:/test/image/93_ridge_1.png' style="width:15px; height:96px"></image>
+    <image src='D:/test/image/93_ridge_2.png' style="width:15px; height:96px"></image>
+    <image src='D:/test/image/93_ridge_3.png' style="width:15px; height:96px"></image>
+  </div>
+
+  <!-- 双方签字盖章 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:20px">
+    <div style="width:49%; border:1px dashed #C3A0A0; padding:8px">
+      <p style="fontSize:9.5pt; bold:true; color:#7A1F1F">'责任单位（盖章）'</p>
+      <p style="fontSize:9pt; color:#5A6B7C">${unit}</p>
+      <image src='D:/test/image/93_seal.png' style="width:96px; height:96px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C">'日期：'${signDate}</p>
+    </div>
+    <div style="width:49%; border:1px dashed #C3A0A0; padding:8px">
+      <p style="fontSize:9.5pt; bold:true; color:#7A1F1F">'责任人（签字）'</p>
+      <p style="fontSize:9pt; color:#5A6B7C">${responsiblePerson}'　'${personPost}</p>
+      <image src='D:/test/image/93_sign.png' style="width:116px; height:56px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C">'日期：'${signDate}</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

@@ -1,0 +1,82 @@
+<pdf>
+<body>
+  // ============================================================
+  // 69 个人简历（A4 竖版，单栏全宽布局）
+  // 版本：v2.2 布局修复（本引擎嵌套 div 双栏无法可靠横向排列，
+  //       旧版右侧整列空白；现改为顶部深蓝横条 + 全宽正文，
+  //       时间轴 flex 子项均为固定 px 宽，可横向排列）
+  // 数据全部由 JQuickPdfFactory.bind 注入，无实体类
+  // 头像由 Demo 生成到 D:/test/image/69_avatar.png，image src 只支持字面量
+  // ============================================================
+
+  <!-- 顶部深蓝横条 -->
+  <div style="backgroundColor:#23405C; padding:14px 12px; marginBottom:10px">
+    <image src='D:/test/image/69_avatar.png' style="width:60px; height:72px"></image>
+    <p style="color:white; fontSize:18pt; bold:true; characterSpacing:3pt; marginTop:8px">${name}</p>
+    <p style="color:#9FB3C8; fontSize:9.5pt; marginBottom:6px">${jobTitle}</p>
+    <p style="color:#DCE6F0; fontSize:8pt; marginBottom:2px">'性别：'${gender}'　　手机：'${phone}'　　邮箱：'${email}</p>
+    <p style="color:#DCE6F0; fontSize:8pt; marginBottom:2px">'住址：'${address}</p>
+    <p style="color:#DCE6F0; fontSize:8pt; marginTop:4px">${tagLine}</p>
+    <p style="color:#9FB3C8; fontSize:8pt; marginTop:4px">${expectLine}</p>
+    <p style="color:#DCE6F0; fontSize:8pt; marginTop:5px">'专业技能：'${skill1}'　·　'${skill2}'　·　'${skill3}'　·　'${skill4}'　·　'${skill5}</p>
+  </div>
+
+  <!-- 自我评价 -->
+  <p style="fontSize:12pt; bold:true; color:#1F4E79; borderLeft:4px solid #1F4E79; paddingLeft:6px; marginBottom:5px">'自我评价'</p>
+  <p style="fontSize:9pt; color:#333333; marginBottom:8px">${selfEvaluation}</p>
+
+  <!-- 工作经历（时间轴 flex：96+376=472，固定 px 宽） -->
+  <p style="fontSize:12pt; bold:true; color:#1F4E79; borderLeft:4px solid #1F4E79; paddingLeft:6px; marginBottom:5px">'工作经历'</p>
+
+  <div style="display:flex; justifyContent:flex-start; marginBottom:8px">
+    <div style="width:96px"><p style="fontSize:8pt; bold:true; color:#5A6B7C">${workPeriod1}</p></div>
+    <div style="width:376px; borderLeft:2px solid #C3CDD8; paddingLeft:8px">
+      <p style="fontSize:10pt; bold:true; color:#1A2733; marginBottom:1px">${workTitle1}</p>
+      <p style="fontSize:9pt; color:#1F4E79; marginBottom:2px">${workSubtitle1}</p>
+      <p style="fontSize:8pt; color:#333333; marginBottom:2px">'· '${workDetail11}</p>
+      <p style="fontSize:8pt; color:#333333; marginBottom:2px">'· '${workDetail12}</p>
+      <p style="fontSize:8pt; color:#333333; marginBottom:2px">'· '${workDetail13}</p>
+    </div>
+  </div>
+
+  <div style="display:flex; justifyContent:flex-start; marginBottom:8px">
+    <div style="width:96px"><p style="fontSize:8pt; bold:true; color:#5A6B7C">${workPeriod2}</p></div>
+    <div style="width:376px; borderLeft:2px solid #C3CDD8; paddingLeft:8px">
+      <p style="fontSize:10pt; bold:true; color:#1A2733; marginBottom:1px">${workTitle2}</p>
+      <p style="fontSize:9pt; color:#1F4E79; marginBottom:2px">${workSubtitle2}</p>
+      <p style="fontSize:8pt; color:#333333; marginBottom:2px">'· '${workDetail21}</p>
+      <p style="fontSize:8pt; color:#333333; marginBottom:2px">'· '${workDetail22}</p>
+    </div>
+  </div>
+
+  <!-- 项目经历 -->
+  <p style="fontSize:12pt; bold:true; color:#1F4E79; borderLeft:4px solid #1F4E79; paddingLeft:6px; marginBottom:5px; marginTop:4px">'项目经历'</p>
+
+  <div style="display:flex; justifyContent:flex-start; marginBottom:8px">
+    <div style="width:96px"><p style="fontSize:8pt; bold:true; color:#5A6B7C">${projectPeriod1}</p></div>
+    <div style="width:376px; borderLeft:2px solid #C3CDD8; paddingLeft:8px">
+      <p style="fontSize:10pt; bold:true; color:#1A2733; marginBottom:1px">${projectTitle1}</p>
+      <p style="fontSize:9pt; color:#1F4E79; marginBottom:2px">${projectSubtitle1}</p>
+      <p style="fontSize:8pt; color:#333333; marginBottom:2px">'· '${projectDetail11}</p>
+    </div>
+  </div>
+
+  <div style="display:flex; justifyContent:flex-start; marginBottom:8px">
+    <div style="width:96px"><p style="fontSize:8pt; bold:true; color:#5A6B7C">${projectPeriod2}</p></div>
+    <div style="width:376px; borderLeft:2px solid #C3CDD8; paddingLeft:8px">
+      <p style="fontSize:10pt; bold:true; color:#1A2733; marginBottom:1px">${projectTitle2}</p>
+      <p style="fontSize:9pt; color:#1F4E79; marginBottom:2px">${projectSubtitle2}</p>
+      <p style="fontSize:8pt; color:#333333; marginBottom:2px">'· '${projectDetail21}</p>
+    </div>
+  </div>
+
+  <!-- 教育经历 -->
+  <p style="fontSize:12pt; bold:true; color:#1F4E79; borderLeft:4px solid #1F4E79; paddingLeft:6px; marginBottom:5px; marginTop:4px">'教育经历'</p>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <td style="width:104px; padding:4px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">${eduPeriod1}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${eduTitle1}'　'${eduSubtitle1}</td>
+    </tr>
+  </table>
+</body>
+</pdf>

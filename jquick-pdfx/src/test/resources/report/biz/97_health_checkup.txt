@@ -1,0 +1,450 @@
+<pdf>
+<body>
+  <!-- 97 健康体检报告（图文混排 + SVG 趋势图 + 明细跨页 + 体检中心章） -->
+  <!-- 版本：模板文件化版本（全部数据由 JQuickPdfFactory.bind 注入，无实体类） -->
+  <!-- 说明：明细 41 行逐格占位；印章/签名 src 为字面量路径；${trendSvg} 为 SVG 变量 -->
+
+  <h1 style="fontSize:19pt; bold:true; color:#0E5A4A; textAlignment:center; characterSpacing:6pt">'健 康 体 检 报 告'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:8px">${center}'　'${packageName}</p>
+  <lineSeparator style="color:#0E5A4A; thickness:1.5f; marginBottom:8px"></lineSeparator>
+
+  <!-- 基本信息 -->
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:80px; padding:5px; backgroundColor:#E4F0EC; bold:true; border:1px solid #CDDCD6">'体检编号'</td>
+      <td style="padding:5px; border:1px solid #CDDCD6">${reportNo}</td>
+      <td style="width:90px; padding:5px; backgroundColor:#E4F0EC; bold:true; border:1px solid #CDDCD6">'体检日期'</td>
+      <td style="padding:5px; border:1px solid #CDDCD6">${checkDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E4F0EC; bold:true; border:1px solid #CDDCD6">'姓名'</td>
+      <td style="padding:5px; border:1px solid #CDDCD6">${personLine}</td>
+      <td style="padding:5px; backgroundColor:#E4F0EC; bold:true; border:1px solid #CDDCD6">'性别 / 年龄'</td>
+      <td style="padding:5px; border:1px solid #CDDCD6">${genderAge}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E4F0EC; bold:true; border:1px solid #CDDCD6">'部门'</td>
+      <td style="padding:5px; border:1px solid #CDDCD6">${department}</td>
+      <td style="padding:5px; backgroundColor:#E4F0EC; bold:true; border:1px solid #CDDCD6">'体检套餐'</td>
+      <td style="padding:5px; border:1px solid #CDDCD6">${packageName}</td>
+    </tr>
+  </table>
+
+  <!-- 基础指标卡 -->
+  <p style="fontSize:10pt; bold:true; color:#0E5A4A; marginBottom:4px">'基础指标'</p>
+  <div style="display:flex; justifyContent:space-between; marginBottom:8px">
+    <div style="width:24%; border:1px solid #CDDCD6; padding:5px">
+      <p style="fontSize:8pt; color:#5A6B7C">'BMI 指数'</p>
+      <p style="fontSize:14pt; bold:true; color:#0E5A4A">${bmi}</p>
+      <p style="fontSize:7pt; color:#8a939b">'18.5 ~ 23.9'</p>
+    </div>
+    <div style="width:24%; border:1px solid #CDDCD6; padding:5px">
+      <p style="fontSize:8pt; color:#5A6B7C">'血压 (mmHg)'</p>
+      <p style="fontSize:14pt; bold:true; color:#0E5A4A">${bloodPressure}</p>
+      <p style="fontSize:7pt; color:#8a939b">'90/60 ~ 140/90'</p>
+    </div>
+    <div style="width:24%; border:1px solid #CDDCD6; padding:5px">
+      <p style="fontSize:8pt; color:#5A6B7C">'心率 (次/分)'</p>
+      <p style="fontSize:14pt; bold:true; color:#0E5A4A">${heartRate}</p>
+      <p style="fontSize:7pt; color:#8a939b">'60 ~ 100'</p>
+    </div>
+    <div style="width:24%; border:1px solid #CDDCD6; padding:5px">
+      <p style="fontSize:8pt; color:#5A6B7C">'视力（左/右）'</p>
+      <p style="fontSize:14pt; bold:true; color:#0E5A4A">${vision}</p>
+      <p style="fontSize:7pt; color:#8a939b">'≥ 1.0'</p>
+    </div>
+  </div>
+
+  <!-- 近三年趋势（SVG 由 Java 侧图表 API 生成后 bind 注入） -->
+  <p style="fontSize:10pt; bold:true; color:#0E5A4A; marginBottom:3px">'近三年关键指标趋势（体重 kg / 收缩压 mmHg）'</p>
+  <svg style="width:479pt">${trendSvg}</svg>
+
+  <!-- 检查项目明细 -->
+  <p style="fontSize:10pt; bold:true; color:#0E5A4A; marginTop:8px; marginBottom:4px">'检查项目明细'</p>
+  <table style="width:100%; fontSize:8pt">
+    <tr>
+      <th style="width:46px; padding:4px; backgroundColor:#0E5A4A; color:white; textAlign:center; border:1px solid #0E5A4A">'科室'</th>
+      <th style="width:128px; padding:4px; backgroundColor:#0E5A4A; color:white; textAlign:center; border:1px solid #0E5A4A">'检查项目'</th>
+      <th style="width:116px; padding:4px; backgroundColor:#0E5A4A; color:white; textAlign:center; border:1px solid #0E5A4A">'检查结果'</th>
+      <th style="width:108px; padding:4px; backgroundColor:#0E5A4A; color:white; textAlign:center; border:1px solid #0E5A4A">'参考范围'</th>
+      <th style="width:44px; padding:4px; backgroundColor:#0E5A4A; color:white; textAlign:center; border:1px solid #0E5A4A">'单位'</th>
+      <th style="width:37px; padding:4px; backgroundColor:#0E5A4A; color:white; textAlign:center; border:1px solid #0E5A4A">'提示'</th>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup1}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName1}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult1}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef1}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit1}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag1}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup2}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName2}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult2}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef2}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit2}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag2}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup3}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName3}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult3}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef3}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit3}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag3}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup4}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName4}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult4}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef4}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit4}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag4}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup5}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName5}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult5}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef5}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit5}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag5}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup6}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName6}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult6}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef6}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit6}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag6}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup7}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName7}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult7}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef7}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit7}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag7}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup8}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName8}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult8}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef8}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit8}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag8}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup9}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName9}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult9}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef9}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit9}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag9}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup10}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName10}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult10}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef10}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit10}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag10}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup11}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName11}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult11}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef11}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit11}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag11}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup12}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName12}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult12}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef12}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit12}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag12}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup13}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName13}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult13}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef13}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit13}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag13}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup14}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName14}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult14}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef14}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit14}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag14}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup15}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName15}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult15}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef15}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit15}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag15}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup16}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName16}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult16}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef16}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit16}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag16}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup17}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName17}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult17}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef17}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit17}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag17}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup18}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName18}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult18}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef18}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit18}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag18}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup19}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName19}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult19}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef19}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit19}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag19}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup20}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName20}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult20}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef20}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit20}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag20}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup21}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName21}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult21}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef21}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit21}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag21}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup22}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName22}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult22}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef22}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit22}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag22}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup23}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName23}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult23}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef23}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit23}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag23}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup24}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName24}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult24}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef24}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit24}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag24}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup25}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName25}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult25}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef25}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit25}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag25}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup26}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName26}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult26}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef26}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit26}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag26}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup27}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName27}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult27}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef27}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit27}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag27}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup28}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName28}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult28}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef28}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit28}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag28}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup29}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName29}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult29}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef29}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit29}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag29}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup30}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName30}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult30}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef30}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit30}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag30}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup31}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName31}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult31}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef31}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit31}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag31}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup32}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName32}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult32}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef32}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit32}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag32}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup33}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName33}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult33}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef33}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit33}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag33}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup34}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName34}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult34}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef34}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit34}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag34}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup35}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName35}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult35}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef35}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit35}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag35}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup36}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName36}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult36}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef36}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit36}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag36}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup37}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName37}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult37}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef37}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit37}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag37}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup38}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName38}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult38}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef38}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit38}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag38}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup39}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName39}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult39}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef39}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit39}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag39}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup40}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName40}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult40}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef40}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit40}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag40}</td>
+    </tr>
+    <tr>
+      <td style="width:46px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itGroup41}</td>
+      <td style="width:128px; padding:3px; border:1px solid #CDDCD6">${itName41}</td>
+      <td style="width:116px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itResult41}</td>
+      <td style="width:108px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itRef41}</td>
+      <td style="width:44px; padding:3px; textAlign:center; border:1px solid #CDDCD6">${itUnit41}</td>
+      <td style="width:37px; padding:3px; textAlign:center; border:1px solid #CDDCD6; color:#2E6B4F">${itFlag41}</td>
+    </tr>  </table>
+
+  <!-- 异常项小结 + 体检专用章 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:70%">
+      <p style="fontSize:10pt; bold:true; color:#B71C1C; marginBottom:3px">'异常项小结（共 '${abnormalCount}' 项）'</p>
+      <p style="fontSize:8.5pt; color:#333333; marginBottom:2px">${concl1}</p>
+      <p style="fontSize:8.5pt; color:#333333; marginBottom:2px">${concl2}</p>
+      <p style="fontSize:8.5pt; color:#333333; marginBottom:2px">${concl3}</p>
+      <p style="fontSize:8.5pt; color:#333333; marginBottom:2px">${concl4}</p>
+      <p style="fontSize:8.5pt; color:#333333; marginBottom:2px">${concl5}</p>
+      <p style="fontSize:8.5pt; color:#333333; marginBottom:2px">${concl6}</p>
+      <p style="fontSize:8.5pt; color:#333333; marginBottom:2px">${concl7}</p>
+      <p style="fontSize:8.5pt; color:#333333; marginBottom:2px">${concl8}</p>
+    </div>
+    <div style="width:28%">
+      <image src='D:/test/image/97_seal.png' style="width:96px; height:96px"></image>
+      <p style="fontSize:8pt; color:#5A6B7C">'体检专用章'</p>
+    </div>
+  </div>
+
+  <!-- 健康指导建议 -->
+  <p style="fontSize:10pt; bold:true; color:#0E5A4A; marginTop:8px; marginBottom:3px">'健康指导建议'</p>
+  <list style="fontSize:9pt; color:#333333; listStyleType:decimal; marginLeft:18px">
+    <li>${sugg1}</li>
+    <li>${sugg2}</li>
+    <li>${sugg3}</li>
+    <li>${sugg4}</li>
+    <li>${sugg5}</li>
+    <li>${sugg6}</li>
+    <li>${sugg7}</li>
+  </list>
+
+  <!-- 总检医师与报告日期 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:14px">
+    <div style="width:48%">
+      <p style="fontSize:9pt; color:#5A6B7C">'总检医师'</p>
+      <image src='D:/test/image/97_sign.png' style="width:110px; height:54px"></image>
+      <p style="fontSize:9pt; color:#333333">${doctor}'　主检医师'</p>
+    </div>
+    <div style="width:48%">
+      <p style="fontSize:9pt; color:#5A6B7C">'报告日期'</p>
+      <p style="fontSize:9pt; color:#333333">${checkDate}</p>
+      <p style="fontSize:8pt; color:#8a939b; marginTop:12px">${centerAddress}</p>
+    </div>
+  </div>
+
+  <p style="fontSize:7.5pt; color:#8a939b; marginTop:6px">'说明：本报告仅对所检项目负责，不能替代临床诊断。如检出异常，请携带本报告至相关科室进一步诊治。报告结果请妥善保管，注意个人隐私。'</p>
+
+</body>
+</pdf>

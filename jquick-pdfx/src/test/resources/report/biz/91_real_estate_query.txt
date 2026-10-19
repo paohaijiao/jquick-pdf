@@ -1,0 +1,112 @@
+<pdf>
+<body>
+// ==========================================================================
+// 91 不动产登记信息查询结果告知单（模板文件 + bind 数据注入版）
+// 版式：政务蓝抬头 + 标题 → 查询人与标的物信息表 → 权利信息表 → 限制信息表
+//       → 告知事项 → 落款 + 查询专用章
+// 说明：引擎不支持 colspan，跨列信息拆为多行两列展示；表格 width:100% 铺满版心
+// ==========================================================================
+
+<h1 style="fontSize:16pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:3pt">${issueOrg}</h1>
+<div style="borderBottom:2px solid #1F4E79; marginTop:5px; marginBottom:12px"></div>
+<h1 style="fontSize:17pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:2pt">'不动产登记信息查询结果告知单'</h1>
+<p style="fontSize:9pt; color:#5A6B7C; textAlignment:right; marginTop:4px; marginBottom:8px">'查询单号：'${queryNo}</p>
+
+// 查询人与标的物
+<table style="width:100%; fontSize:9pt">
+  <tr>
+    <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'查询人'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${queryPerson}</td>
+    <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'证件号码'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${idNo}</td>
+  </tr>
+  <tr>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'查询时间'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${queryTime}</td>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'查询类型'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">'权属及限制状况查询'</td>
+  </tr>
+  <tr>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'不动产坐落'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${location}</td>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'单元号'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${unitNo}</td>
+  </tr>
+</table>
+
+// 一、权利信息
+<h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'一、权利信息'</h2>
+<table style="width:100%; fontSize:9pt">
+  <tr>
+    <th style="width:15%; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'权利人'</th>
+    <th style="width:28%; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'权利类型'</th>
+    <th style="width:23%; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'权利性质'</th>
+    <th style="width:14%; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'用途'</th>
+    <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'面积'</th>
+  </tr>
+  <tr>
+    <td style="padding:5px; border:1px solid #C3CDD8">'陈嘉禾'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">'国有建设用地使用权/房屋所有权'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">'出让/市场化商品房'</td>
+    <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'住宅'</td>
+    <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">'128.60㎡'</td>
+  </tr>
+  <tr>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'权证信息'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${rightsInfo1}</td>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'登记时间'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${rightsInfo2}</td>
+  </tr>
+  <tr>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'共有情况'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${rightsInfo3}</td>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'使用期限'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${rightsInfo4}</td>
+  </tr>
+</table>
+
+// 二、限制信息
+<h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'二、限制信息'</h2>
+<table style="width:100%; fontSize:9pt">
+  <tr>
+    <th style="width:16%; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'限制类型'</th>
+    <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'限制内容'</th>
+    <th style="width:13%; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'状态'</th>
+    <th style="width:17%; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'登记时间'</th>
+  </tr>
+  <tr>
+    <td style="padding:5px; border:1px solid #C3CDD8">'抵押权'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">'××银行××支行，被担保主债权 320 万元'</td>
+    <td style="padding:5px; textAlign:center; color:#B71C1C; bold:true; border:1px solid #C3CDD8">'有效'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">'2023-05-12'</td>
+  </tr>
+  <tr>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'其他限制'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${restrictionInfo}</td>
+    <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'—'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+  </tr>
+</table>
+
+// 三、告知事项
+<h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'三、告知事项'</h2>
+<p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">'1. 本告知单所载信息来源于不动产登记簿，查询时点为 '${queryTime}'，仅供查询人参考。'</p>
+<p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">'2. 本告知单不作为权属证明使用，权利归属以不动产登记簿记载为准。'</p>
+<p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">'3. 如对本查询结果有异议，可自收到本告知单之日起 30 日内申请复查。'</p>
+<p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:3px">'4. 未经权利人同意，任何单位和个人不得将本告知单信息用于其他用途。'</p>
+
+// 落款
+<div style="display:flex; justifyContent:space-between; marginTop:20px">
+  <div style="width:46%">
+    <p style="fontSize:8.5pt; color:#8a939b">'查询窗口：××市不动产登记中心 3 号窗口'</p>
+    <p style="fontSize:8.5pt; color:#8a939b; marginTop:3px">'经办人：林静　　复核人：周敏'</p>
+  </div>
+  <div style="width:48%; textAlignment:center">
+    <image src='D:/test/image/91_seal.png' style="width:100px; height:100px"></image>
+    <p style="fontSize:10pt; bold:true; color:#1A2733; textAlignment:center">${issueOrg}</p>
+    <p style="fontSize:10pt; color:#333333; textAlignment:center">${issueDate}</p>
+  </div>
+</div>
+
+</body>
+</pdf>

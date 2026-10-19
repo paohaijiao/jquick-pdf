@@ -1,0 +1,250 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 88 学生成绩单（模板文件化版本，21 门课程跨页表格，底部教务处公章）
+  // 课程行由 Java 逐行 bind：courseLine1~21（课程名　学分　成绩　绩点　备注）
+  // ==========================================================================
+
+  <h1 style="fontSize:14pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:4pt">'××大学 教务管理系统'</h1>
+  <h2 style="fontSize:19pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:6pt; marginTop:4px">'学 生 成 绩 单'</h2>
+  <p style="fontSize:8.5pt; color:#5A6B7C; textAlignment:center; marginBottom:8px">'ACADEMIC TRANSCRIPT　·　'${term}</p>
+
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <td style="width:70px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'姓名'</td>
+      <td style="width:120px; padding:5px; border:1px solid #C3CDD8">${studentName}</td>
+      <td style="width:70px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'学号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${studentNo}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'院系'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${college}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'专业'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${major}</td>
+    </tr>
+  </table>
+
+  <!-- 成绩表：第 1 页（1~20 门） -->
+  <table style="width:100%; fontSize:8.5pt; marginTop:6px">
+    <tr>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:7%">'序号'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:45%">'课程名称'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:10%">'学分'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:10%">'成绩'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:13%">'绩点'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'7'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark7}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'8'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark8}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'9'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName9}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit9}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore9}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint9}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark9}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'10'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName10}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit10}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore10}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint10}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark10}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'11'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName11}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit11}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore11}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint11}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark11}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'12'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName12}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit12}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore12}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint12}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark12}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'13'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName13}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit13}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore13}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint13}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark13}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'14'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName14}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit14}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore14}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint14}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark14}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'15'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName15}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit15}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore15}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint15}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark15}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'16'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName16}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit16}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore16}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint16}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark16}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'17'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName17}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit17}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore17}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint17}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark17}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'18'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName18}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit18}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore18}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint18}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark18}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'19'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName19}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit19}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore19}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint19}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark19}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'20'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName20}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit20}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore20}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint20}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark20}</td>
+    </tr>
+  </table>
+
+  <areaBreak></areaBreak>
+
+  <!-- 成绩表：第 2 页（第 21 门 + 汇总） -->
+  <p style="fontSize:8.5pt; color:#5A6B7C; marginBottom:4px">${studentName}'　'${studentNo}'　（续表）'</p>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:7%">'序号'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:45%">'课程名称'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:10%">'学分'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:10%">'成绩'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:13%">'绩点'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'21'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${courseName21}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseCredit21}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseScore21}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${coursePoint21}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${courseRemark21}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:4px">
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8; width:120px">'总学分'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8; width:110px">${totalCredit}</td>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8; width:120px">'平均绩点 GPA'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8; bold:true; color:#B71C1C">${gpa}</td>
+    </tr>
+  </table>
+
+  <div style="borderLeft:3px solid #2F5597; backgroundColor:#F7F9FC; padding:6px 8px; marginTop:8px">
+    <p style="fontSize:8pt; color:#5A6B7C">'绩点换算：90 分及以上 4.0；85-89 为 3.7；82-84 为 3.3；78-81 为 3.0；75-77 为 2.7；72-74 为 2.3；68-71 为 2.0；64-67 为 1.5；60-63 为 1.0；60 分以下为 0。'</p>
+    <p style="fontSize:8pt; color:#5A6B7C">'GPA = Σ(学分 × 绩点) / Σ学分，计算结果四舍五入保留两位小数。'</p>
+  </div>
+
+  <div style="display:flex; justifyContent:space-between; marginTop:16px">
+    <div style="width:250px">
+      <p style="fontSize:8.5pt; color:#8a939b">'本成绩单由教务管理系统生成，加盖教务处公章后生效。'</p>
+      <p style="fontSize:8.5pt; color:#8a939b; marginTop:3px">'打印日期：'${issueDate}</p>
+      <p style="fontSize:8.5pt; color:#8a939b; marginTop:3px">'校验码：EDU-'${studentNo}'-'${term}</p>
+    </div>
+    <div style="width:180px; textAlignment:center">
+      <image src='D:/test/image/88_seal.png' style="width:96px; height:96px"></image>
+      <p style="fontSize:9pt; bold:true; color:#1A2733; textAlignment:center">'××大学教务处'</p>
+      <p style="fontSize:9pt; color:#333333; textAlignment:center">${issueDate}</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

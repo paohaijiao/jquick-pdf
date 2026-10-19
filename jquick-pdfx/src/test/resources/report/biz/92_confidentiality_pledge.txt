@@ -1,0 +1,68 @@
+<pdf>
+<body>
+// ==========================================================================
+// 92 保密承诺书（模板文件 + bind 数据注入版）
+// 版式：标题 + 编号 → 承诺人信息表 → 前言 → 承诺条款（clauseTitle1~6 / clauseText1~6）
+//       → 承诺声明 → 左「承诺人（签字）」右「所属单位（盖章）」双占位
+// ==========================================================================
+
+<h1 style="fontSize:20pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:8pt">'保 密 承 诺 书'</h1>
+<p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:10px">'编号：'${pledgeNo}</p>
+
+// 承诺人信息
+<table style="width:100%; fontSize:9.5pt; marginBottom:8px">
+  <tr>
+    <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'承诺人'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${personName}</td>
+    <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'所属单位'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${department}</td>
+  </tr>
+  <tr>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'岗位'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${position}</td>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'签署日期'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${signDate}</td>
+  </tr>
+</table>
+
+// 前言
+<p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'本人因工作需要，将接触 '${department}' 的保密信息。为明确保密义务、防范信息泄露风险，本人郑重承诺如下：'</p>
+
+// 承诺条款
+<p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:5px; marginBottom:3px">${clauseTitle1}</p>
+<p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText1}</p>
+
+<p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:5px; marginBottom:3px">${clauseTitle2}</p>
+<p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText2}</p>
+
+<p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:5px; marginBottom:3px">${clauseTitle3}</p>
+<p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText3}</p>
+
+<p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:5px; marginBottom:3px">${clauseTitle4}</p>
+<p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText4}</p>
+
+<p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:5px; marginBottom:3px">${clauseTitle5}</p>
+<p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText5}</p>
+
+<p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:5px; marginBottom:3px">${clauseTitle6}</p>
+<p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${clauseText6}</p>
+
+// 声明
+<p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:10px">'本人已完整阅读并理解上述承诺内容，自愿承担因违反承诺而产生的全部法律责任。本承诺书自签署之日起生效，保密义务不因劳动关系解除或岗位变动而终止。'</p>
+
+// 双占位
+<div style="display:flex; justifyContent:space-between; marginTop:22px">
+  <div style="width:49%; border:1px dashed #9FB3C8; padding:8px">
+    <p style="fontSize:9.5pt; bold:true; color:#1F4E79">'承诺人（签字）'</p>
+    <image src='D:/test/image/92_sign.png' style="width:110px; height:52px"></image>
+    <p style="fontSize:9pt; color:#5A6B7C">'日期：'${signDate}</p>
+  </div>
+  <div style="width:49%; border:1px dashed #9FB3C8; padding:8px">
+    <p style="fontSize:9.5pt; bold:true; color:#1F4E79">'所属单位（盖章）'</p>
+    <image src='D:/test/image/92_seal.png' style="width:92px; height:92px"></image>
+    <p style="fontSize:9pt; color:#5A6B7C">${department}</p>
+  </div>
+</div>
+
+</body>
+</pdf>

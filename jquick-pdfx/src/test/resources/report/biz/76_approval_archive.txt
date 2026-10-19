@@ -1,0 +1,187 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 76 审批归档报告（模板文件 + bind 数据注入版）
+  // 数据全部由 JQuickPdfFactory.bind 注入；流程记录逐条 bind 为 recN_xxx
+  // ==========================================================================
+
+  <h1 style="fontSize:18pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:4pt">'审 批 归 档 报 告'</h1>
+  <p style="fontSize:8.5pt; color:#5A6B7C; textAlignment:center; marginBottom:8px">'本报告由 OA 系统自动生成，归档后不可修改'</p>
+
+  // ---------- 审批概况 ----------
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'审批单号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${approvalNo}</td>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'申请人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${applicant}</td>
+    </tr>
+    <tr>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'申请时间'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${applyTime}</td>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'流程节点数'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${nodeCount}</td>
+    </tr>
+  </table>
+
+  // ---------- 一、审批流程记录 ----------
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:12px; marginBottom:5px">'一、审批流程记录'</h2>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="width:30px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+      <th style="width:100px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'审批节点'</th>
+      <th style="width:70px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'审批人'</th>
+      <th style="width:56px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'审批结果'</th>
+      <th style="width:175px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'审批意见'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'处理时间'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec1_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec1_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec1_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec1_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec1_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec2_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec2_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec2_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec2_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec2_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec3_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec3_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#B71C1C; border:1px solid #C3CDD8">${rec3_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec3_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec3_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec4_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec4_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec4_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec4_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec4_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec5_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec5_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec5_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec5_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec5_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec6_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec6_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec6_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec6_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec6_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'7'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec7_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec7_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec7_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec7_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec7_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'8'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec8_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec8_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#5A6B7C; border:1px solid #C3CDD8">${rec8_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec8_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec8_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'9'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec9_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec9_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec9_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec9_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec9_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'10'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec10_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec10_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec10_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec10_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec10_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'11'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec11_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec11_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec11_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec11_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec11_time}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'12'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec12_node}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec12_approver}</td>
+      <td style="padding:4px; textAlign:center; bold:true; border:1px solid #C3CDD8">${rec12_result}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec12_opinion}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${rec12_time}</td>
+    </tr>
+  </table>
+
+  // ---------- 二、申请内容 ----------
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:12px; marginBottom:5px">'二、申请内容'</h2>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${applyPara1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${applyPara2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${applyPara3}</p>
+
+  // ---------- 三、附件说明 ----------
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:12px; marginBottom:5px">'三、附件说明'</h2>
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <th style="width:36px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+      <th style="width:300px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'附件名称'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'归档状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${att1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'已归档'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${att2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'已归档'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${att3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'已归档'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${att4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'已归档'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${att5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'已归档'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${att6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'已归档'</td>
+    </tr>
+  </table>
+
+  <div style="marginTop:14px">
+    <p style="fontSize:8.5pt; color:#8a939b">'归档信息：本报告与流程审批记录一并存入电子档案系统，保存期限 10 年，调阅需经档案管理员授权。'</p>
+  </div>
+
+</body>
+</pdf>

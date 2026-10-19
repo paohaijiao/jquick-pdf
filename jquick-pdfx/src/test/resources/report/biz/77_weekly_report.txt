@@ -1,0 +1,151 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 77 项目周报（模板文件 + bind 数据注入版）
+  // SVG 图表由 Java 侧渲染后 bind 为 ${progressSvg}；任务逐条 bind 为 twN_xxx / nwN_xxx
+  // ==========================================================================
+
+  // ---------- 页头 ----------
+  <div style="display:flex; justifyContent:space-between; borderBottom:2px solid #1F4E79; paddingBottom:6px; marginBottom:8px">
+    <div style="width:330px">
+      <h1 style="fontSize:18pt; bold:true; color:#1F4E79; characterSpacing:3pt">'项目周报'</h1>
+      <p style="fontSize:9pt; color:#5A6B7C">${projectName}</p>
+    </div>
+    <div style="width:160px; textAlignment:right">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'周报编号'</p>
+      <p style="fontSize:9.5pt; bold:true; color:#1A2733">${reportNo}</p>
+      <p style="fontSize:8.5pt; color:#5A6B7C; marginTop:3px">${period}</p>
+    </div>
+  </div>
+
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <td style="width:70px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'汇报人'</td>
+      <td style="width:150px; padding:5px; border:1px solid #C3CDD8">${reporter}</td>
+      <td style="width:70px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'汇报周期'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${period}</td>
+    </tr>
+  </table>
+
+  // ---------- SVG 进度图（变量由 Java 侧 bind，svg 变量可用） ----------
+  <div style="marginTop:6px">
+    <svg style="width:470pt">${progressSvg}</svg>
+  </div>
+
+  // ---------- 一、本周工作内容 ----------
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'一、本周工作内容'</h2>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="width:32px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+      <th style="width:285px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'工作事项'</th>
+      <th style="width:60px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'负责人'</th>
+      <th style="width:50px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'进度'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw1_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw1_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${tw1_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${tw1_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw2_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw2_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${tw2_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${tw2_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw3_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw3_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${tw3_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1F4E79; border:1px solid #C3CDD8">${tw3_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw4_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw4_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${tw4_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1F4E79; border:1px solid #C3CDD8">${tw4_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw5_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw5_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${tw5_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1F4E79; border:1px solid #C3CDD8">${tw5_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw6_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${tw6_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${tw6_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#B71C1C; border:1px solid #C3CDD8">${tw6_status}</td>
+    </tr>
+  </table>
+
+  // ---------- 二、下周工作计划 ----------
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'二、下周工作计划'</h2>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="width:32px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+      <th style="width:285px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'工作事项'</th>
+      <th style="width:60px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'负责人'</th>
+      <th style="width:50px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'进度'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw1_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw1_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${nw1_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1F4E79; border:1px solid #C3CDD8">${nw1_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw2_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw2_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${nw2_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1F4E79; border:1px solid #C3CDD8">${nw2_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw3_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw3_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${nw3_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1F4E79; border:1px solid #C3CDD8">${nw3_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw4_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw4_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${nw4_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1F4E79; border:1px solid #C3CDD8">${nw4_status}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw5_name}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${nw5_owner}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${nw5_progress}</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1F4E79; border:1px solid #C3CDD8">${nw5_status}</td>
+    </tr>
+  </table>
+
+  // ---------- 三、风险与问题 ----------
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'三、风险与问题'</h2>
+  <div style="borderLeft:4px solid #B71C1C; background:#FFF5F5; padding:7px 9px; marginBottom:6px">
+    <p style="fontSize:9pt; color:#333333; marginBottom:3px">${risk1}</p>
+    <p style="fontSize:9pt; color:#333333; marginBottom:3px">${risk2}</p>
+    <p style="fontSize:9pt; color:#333333; marginBottom:3px">${risk3}</p>
+  </div>
+
+  // ---------- 四、备注 ----------
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'四、备注'</h2>
+  <p style="fontSize:9pt; color:#333333; marginBottom:4px">${remark}</p>
+
+  <p style="fontSize:8pt; color:#8a939b; textAlignment:right; marginTop:10px">'本报告由项目管理系统自动汇总，汇报人：'${reporter}</p>
+
+</body>
+</pdf>

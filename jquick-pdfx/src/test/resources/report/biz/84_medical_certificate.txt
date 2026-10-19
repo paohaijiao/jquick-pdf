@@ -1,0 +1,67 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 84 医疗器械产品合格证（模板文件化版本，单页卡片式双线边框）
+  // 数据全部由 JQuickPdfFactory.bindAll 注入
+  // ==========================================================================
+  <div style="border:2px solid #1B5E20; padding:12px">
+  <div style="border:1px solid #A5C6A8; padding:12px">
+
+    <h1 style="fontSize:20pt; bold:true; color:#1B5E20; textAlignment:center; characterSpacing:8pt">'产品合格证'</h1>
+    <p style="fontSize:8pt; color:#5A6B7C; textAlignment:center; marginBottom:8px">'CERTIFICATE OF CONFORMITY'</p>
+    <p style="fontSize:8.5pt; color:#5A6B7C; textAlignment:right">'编号：'${certNo}</p>
+
+    <table style="width:100%; fontSize:8.5pt; marginTop:4px">
+      <tr>
+        <td style="width:78px; padding:4px; backgroundColor:#F0F7F0; bold:true; border:1px solid #A5C6A8">'产品名称'</td>
+        <td style="padding:4px; border:1px solid #A5C6A8">${productName}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; backgroundColor:#F0F7F0; bold:true; border:1px solid #A5C6A8">'型号规格'</td>
+        <td style="padding:4px; border:1px solid #A5C6A8">${model}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; backgroundColor:#F0F7F0; bold:true; border:1px solid #A5C6A8">'生产批号'</td>
+        <td style="padding:4px; border:1px solid #A5C6A8">${batchNo}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; backgroundColor:#F0F7F0; bold:true; border:1px solid #A5C6A8">'生产日期'</td>
+        <td style="padding:4px; border:1px solid #A5C6A8">${produceDate}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; backgroundColor:#F0F7F0; bold:true; border:1px solid #A5C6A8">'有效期至'</td>
+        <td style="padding:4px; border:1px solid #A5C6A8">${validUntil}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; backgroundColor:#F0F7F0; bold:true; border:1px solid #A5C6A8">'生产企业'</td>
+        <td style="padding:4px; border:1px solid #A5C6A8">${manufacturer}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; backgroundColor:#F0F7F0; bold:true; border:1px solid #A5C6A8">'生产许可证'</td>
+        <td style="padding:4px; border:1px solid #A5C6A8">${licenseNo}</td>
+      </tr>
+      <tr>
+        <td style="padding:4px; backgroundColor:#F0F7F0; bold:true; border:1px solid #A5C6A8">'生产地址'</td>
+        <td style="padding:4px; border:1px solid #A5C6A8">${address}</td>
+      </tr>
+    </table>
+
+    <p style="fontSize:8pt; color:#333333; textIndent:16pt; marginTop:8px">'本产品经检验，符合产品技术要求及相关标准规定，准予出厂。'</p>
+
+    <div style="display:flex; justifyContent:space-between; marginTop:10px">
+      <div style="width:150px">
+        <p style="fontSize:9pt; color:#333333; marginTop:26px">'检验员：'${inspector}</p>
+        <p style="fontSize:8.5pt; color:#5A6B7C; marginTop:6px">'检验日期：'${produceDate}</p>
+      </div>
+      <div style="width:150px; textAlignment:center">
+        <image src='D:/test/image/84_seal.png' style="width:84px; height:84px"></image>
+        <p style="fontSize:8pt; color:#1B5E20; textAlignment:center">'质检合格章'</p>
+      </div>
+    </div>
+
+    <p style="fontSize:7pt; color:#8a939b; textAlignment:center; marginTop:8px">'请妥善保存本证，凭此证享受售后服务'</p>
+
+  </div>
+  </div>
+</body>
+</pdf>

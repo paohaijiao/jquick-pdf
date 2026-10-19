@@ -1,0 +1,112 @@
+<pdf>
+<body>
+  <div style="display:flex; justifyContent:space-between; borderBottom:2px solid #1F4E79; paddingBottom:8px; marginBottom:8px">
+    <div style="width:120px">
+      <image src='D:/test/image/71_logo.png' style="width:52px; height:52px"></image>
+    </div>
+    <div style="width:300px">
+      <h1 style="fontSize:20pt; bold:true; color:#1F4E79; characterSpacing:3pt">'商务报价单'</h1>
+      <p style="fontSize:9pt; color:#5A6B7C">'××数字科技有限公司'</p>
+    </div>
+    <div style="width:150px; textAlignment:right">
+      <p style="fontSize:9pt; color:#5A6B7C">'报价单号'</p>
+      <p style="fontSize:10pt; bold:true; color:#1A2733">${quoteNo}</p>
+    </div>
+  </div>
+
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'客户名称'</td>
+      <td style="width:170px; padding:5px; border:1px solid #C3CDD8">${customer}</td>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'联系人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${contact}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'联系电话'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${phone}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'报价日期'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${quoteDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'有效期至'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${validUntil}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:34px">'序号'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:150px">'产品名称'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:100px">'规格型号'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:44px">'数量'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:70px">'单价'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:80px">'金额'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemName1}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemSpec1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemQty1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemPrice1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true">${itemAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemName2}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemSpec2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemQty2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemPrice2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true">${itemAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemName3}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemSpec3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemQty3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemPrice3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true">${itemAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemName4}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemSpec4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemQty4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemPrice4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true">${itemAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemName5}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemSpec5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemQty5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${itemPrice5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true">${itemAmount5}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:4px">
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8; width:120px">'合计金额（大写）'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${totalWords}</td>
+      <td style="padding:6px; border:1px solid #C3CDD8; textAlign:right; width:150px; color:#B71C1C; bold:true">'￥'${totalAmount}</td>
+    </tr>
+  </table>
+
+  <div style="borderLeft:4px solid #2F5597; background:#F7F9FC; padding:7px 9px; marginTop:8px">
+    <p style="fontSize:9pt; color:#333333">'备注：'${remark}</p>
+  </div>
+
+  <div style="display:flex; justifyContent:space-between; marginTop:22px">
+    <div style="width:300px">
+      <p style="fontSize:9pt; color:#5A6B7C">'报价单位：××数字科技有限公司'</p>
+      <p style="fontSize:9pt; color:#5A6B7C">'报价人：王××　　联系电话：021-0000-0000'</p>
+    </div>
+    <div style="width:200px; textAlignment:center">
+      <image src='D:/test/image/71_seal.png' style="width:96px; height:96px"></image>
+      <p style="fontSize:9pt; color:#B71C1C; textAlignment:center">'（电子公章）'</p>
+    </div>
+  </div>
+</body>
+</pdf>

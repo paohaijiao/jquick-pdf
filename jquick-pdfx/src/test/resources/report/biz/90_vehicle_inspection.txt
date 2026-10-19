@@ -1,0 +1,212 @@
+// ==========================================================================
+<pdf>
+<body>
+// 90 机动车安全技术检验报告（模板文件 + bind 数据注入版）
+// 版式：检测站抬头 + 报告标题 → 车辆与车主信息表 → 检测项目明细（每 20 行重复表头）
+//       → 检验结论 → 检验员 / 审核人 + 检测专用章
+// 说明：表格统一 width:100% 铺满版心；明细行由 Java 侧循环 bind（item1_1 ~ item20_5）
+// ==========================================================================
+
+// 抬头
+<h1 style="fontSize:15pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:3pt">${inspectOrg}</h1>
+<h1 style="fontSize:17pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:4pt; marginTop:3px">'机动车安全技术检验报告'</h1>
+<p style="fontSize:8.5pt; color:#5A6B7C; textAlignment:right; marginBottom:6px">'报告编号：'${reportNo}</p>
+
+// 车辆与车主信息
+<table style="width:100%; fontSize:9pt">
+  <tr>
+    <td style="width:76px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'号牌号码'</td>
+    <td style="width:140px; padding:5px; border:1px solid #C3CDD8">${plateNo}</td>
+    <td style="width:76px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'车辆类型'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${vehicleType}</td>
+  </tr>
+  <tr>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'所有人'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${ownerName}</td>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'联系电话'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${ownerPhone}</td>
+  </tr>
+  <tr>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'检验日期'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">${inspectDate}</td>
+    <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'检验类别'</td>
+    <td style="padding:5px; border:1px solid #C3CDD8">'定期检验（安全技术）'</td>
+  </tr>
+</table>
+
+// 检测项目明细：每 20 行重复一次表头（一页 20 行）
+<table style="width:100%; fontSize:8.5pt; marginTop:6px">
+  <tr>
+    <th style="width:32px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+    <th style="width:26%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'检测项目'</th>
+    <th style="width:29%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'标准要求'</th>
+    <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'实测值'</th>
+    <th style="width:57px; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'判定'</th>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item1_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item1_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item1_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item1_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item1_5color}; border:1px solid #C3CDD8">${item1_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item2_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item2_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item2_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item2_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item2_5color}; border:1px solid #C3CDD8">${item2_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item3_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item3_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item3_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item3_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item3_5color}; border:1px solid #C3CDD8">${item3_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item4_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item4_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item4_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item4_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item4_5color}; border:1px solid #C3CDD8">${item4_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item5_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item5_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item5_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item5_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item5_5color}; border:1px solid #C3CDD8">${item5_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item6_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item6_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item6_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item6_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item6_5color}; border:1px solid #C3CDD8">${item6_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item7_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item7_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item7_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item7_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item7_5color}; border:1px solid #C3CDD8">${item7_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item8_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item8_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item8_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item8_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item8_5color}; border:1px solid #C3CDD8">${item8_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item9_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item9_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item9_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item9_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item9_5color}; border:1px solid #C3CDD8">${item9_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item10_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item10_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item10_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item10_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item10_5color}; border:1px solid #C3CDD8">${item10_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item11_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item11_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item11_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item11_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item11_5color}; border:1px solid #C3CDD8">${item11_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item12_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item12_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item12_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item12_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item12_5color}; border:1px solid #C3CDD8">${item12_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item13_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item13_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item13_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item13_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item13_5color}; border:1px solid #C3CDD8">${item13_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item14_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item14_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item14_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item14_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item14_5color}; border:1px solid #C3CDD8">${item14_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item15_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item15_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item15_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item15_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item15_5color}; border:1px solid #C3CDD8">${item15_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item16_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item16_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item16_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item16_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item16_5color}; border:1px solid #C3CDD8">${item16_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item17_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item17_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item17_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item17_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item17_5color}; border:1px solid #C3CDD8">${item17_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item18_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item18_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item18_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item18_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item18_5color}; border:1px solid #C3CDD8">${item18_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item19_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item19_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item19_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item19_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item19_5color}; border:1px solid #C3CDD8">${item19_5}</td>
+  </tr>
+  <tr>
+    <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${item20_1}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item20_2}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item20_3}</td>
+    <td style="padding:4px; border:1px solid #C3CDD8">${item20_4}</td>
+    <td style="padding:4px; textAlign:center; bold:true; color:${item20_5color}; border:1px solid #C3CDD8">${item20_5}</td>
+  </tr>
+</table>
+
+// 检验结论
+<table style="width:100%; fontSize:10pt; marginTop:4px">
+  <tr>
+    <td style="padding:8px; backgroundColor:${conclusionBg}; border:1px solid #C3CDD8; textAlignment:center; bold:true; color:${conclusionColor}">'检验结论：'${conclusion}</td>
+  </tr>
+</table>
+
+<p style="fontSize:8.5pt; color:#5A6B7C; marginTop:6px">'本次共检验 '${totalCount}' 项，合格 '${passCount}' 项，不合格 '${failCount}' 项。'</p>
+
+// 签章
+<div style="display:flex; justifyContent:space-between; marginTop:16px">
+  <div style="width:62%">
+    <p style="fontSize:9pt; color:#5A6B7C">'检验员：'${inspector}'　　审核人：'${reviewer}</p>
+    <p style="fontSize:8.5pt; color:#8a939b; marginTop:4px">'本报告仅对所检车辆当次状态负责，报告有效期 6 个月。'</p>
+    <p style="fontSize:8.5pt; color:#8a939b; marginTop:3px">'检验日期：'${inspectDate}</p>
+  </div>
+  <div style="width:34%; textAlignment:center">
+    <image src='D:/test/image/90_seal.png' style="width:92px; height:92px"></image>
+    <p style="fontSize:9pt; bold:true; color:#1A2733; textAlignment:center">${inspectOrg}</p>
+    <p style="fontSize:8pt; color:#B71C1C; textAlignment:center">'检测专用章'</p>
+  </div>
+</div>
+
+</body>
+</pdf>

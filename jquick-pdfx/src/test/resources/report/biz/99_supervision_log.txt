@@ -1,0 +1,323 @@
+<pdf>
+<body>
+  <!-- 99 监理日志（封面 + 4 个记录日，每日一页；数据全部由 bind 注入，无实体类） -->
+  <!-- 版式：封面信息表 → 每日天气表 → 施工明细表（6 行）→ 材料进场 → 检查问题 → 三人签字栏 -->
+
+  <!-- 封面标题 -->
+  <h1 style="fontSize:24pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:14pt; marginTop:54px">'监 理 日 志'</h1>
+  <p style="fontSize:10pt; color:#5A6B7C; textAlignment:center; marginTop:4px; marginBottom:10px">'SUPERVISION　DAILY　LOG'</p>
+  <lineSeparator style="color:#1F4E79; thickness:1.5f; marginBottom:14px"></lineSeparator>
+
+  <!-- 工程信息表（铺满版心） -->
+  <table style="width:100%; fontSize:10pt; marginBottom:12px">
+    <tr>
+      <td style="width:96px; padding:7px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'工程名称'</td>
+      <td style="padding:7px; border:1px solid #C3CDD8">${projectName}</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'监理单位'</td>
+      <td style="padding:7px; border:1px solid #C3CDD8">${supervisionUnit}</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'施工单位'</td>
+      <td style="padding:7px; border:1px solid #C3CDD8">${builderUnit}</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'日志编号'</td>
+      <td style="padding:7px; border:1px solid #C3CDD8">${logNo}</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'记录期间'</td>
+      <td style="padding:7px; border:1px solid #C3CDD8">${period}</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'日志册页数'</td>
+      <td style="padding:7px; border:1px solid #C3CDD8">${dayCountLine}</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'总监理工程师'</td>
+      <td style="padding:7px; border:1px solid #C3CDD8">${chief}</td>
+    </tr>
+  </table>
+
+  <!-- 封面说明 -->
+  <p style="fontSize:10pt; color:#333333; textIndent:20pt; marginBottom:5px">'本日志册记录了 '${period}' 期间本工程主要施工部位的施工情况、材料与设备进场、旁站监理、质量与安全检查情况及处理意见。日志由监理工程师逐日填写，总监理工程师审核签字后归档，作为工程验收、质量评定与竣工结算的监理依据。'</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:20pt; marginBottom:5px">'日志实行一日一页、当日填写制度。记录内容应真实、完整、可追溯，与《监理月报》《旁站监理记录表》《平行检验记录》相互印证；如需修改，须由监理工程师在修改处签字确认并注明日期，不得涂改、撕页。'</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:20pt; marginBottom:5px">'本册共 '${dayCountLine}'，按记录日期先后顺序编排，页码连续。'</p>
+
+  <!-- 封面盖章与签字 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:34px">
+    <div style="width:48%; textAlignment:center">
+      <p style="fontSize:9.5pt; color:#5A6B7C">'监理单位（盖章）'</p>
+      <image src='D:/test/image/99_seal.png' style="width:104px; height:104px"></image>
+      <p style="fontSize:9.5pt; color:#333333">${supervisionUnit}</p>
+    </div>
+    <div style="width:48%; textAlignment:center">
+      <p style="fontSize:9.5pt; color:#5A6B7C">'总监理工程师（签字）'</p>
+      <image src='D:/test/image/99_sign.png' style="width:118px; height:56px"></image>
+      <p style="fontSize:9.5pt; color:#333333">${chief}</p>
+    </div>
+  </div>
+
+  <!-- ========== 第 1 天 ========== -->
+  <areaBreak></areaBreak>
+  <div style="display:flex; justifyContent:space-between; marginBottom:4px">
+    <div><h2 style="fontSize:13pt; bold:true; color:#1F4E79">'监理日志　'${d1Date}'（'${d1Weekday}'）'</h2></div>
+    <div><p style="fontSize:8.5pt; color:#5A6B7C">'记录序号 1 / '${dayTotal}</p></div>
+  </div>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:5px">
+    <tr>
+      <th style="width:22%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'天气（上 / 下午）'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'气温'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'风力'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Weather}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Temp}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Wind}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${d1Status}</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; bold:true; color:#1F4E79; marginBottom:2px">'一、施工部位与施工内容'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:2px">
+    <tr>
+      <th style="width:5%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序'</th>
+      <th style="width:19%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工部位'</th>
+      <th style="width:30%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工内容'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'投入人力'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'投入机械'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'质量检查情况'</th>
+    </tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Part1}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Content1}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Labor1}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Machine1}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Quality1}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Part2}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Content2}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Labor2}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Machine2}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Quality2}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Part3}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Content3}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Labor3}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Machine3}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Quality3}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Part4}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Content4}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Labor4}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Machine4}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Quality4}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Part5}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Content5}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Labor5}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Machine5}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Quality5}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Part6}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Content6}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Labor6}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d1Machine6}</td><td style="padding:4px; border:1px solid #C3CDD8">${d1Quality6}</td></tr>
+  </table>
+  <p style="fontSize:9.5pt; bold:true; color:#1F4E79; marginTop:5px; marginBottom:2px">'二、材料 / 设备进场情况'</p>
+  <list style="fontSize:8.5pt; color:#333333; listStyleType:decimal; marginLeft:20px">
+    <li>${d1Material1}</li>
+    <li>${d1Material2}</li>
+  </list>
+  <p style="fontSize:9.5pt; bold:true; color:#B71C1C; marginTop:5px; marginBottom:2px">'三、检查发现问题及处理意见'</p>
+  <table style="width:100%; fontSize:8pt">
+    <tr>
+      <th style="width:6%; padding:4px; backgroundColor:#B71C1C; color:white; textAlign:center; border:1px solid #B71C1C">'序号'</th>
+      <th style="padding:4px; backgroundColor:#B71C1C; color:white; textAlign:center; border:1px solid #B71C1C">'问题描述与处理意见'</th>
+    </tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'1'</td><td style="padding:4px; border:1px solid #E0C0C0">${d1Issue1}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'2'</td><td style="padding:4px; border:1px solid #E0C0C0">${d1Issue2}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'3'</td><td style="padding:4px; border:1px solid #E0C0C0">${d1Issue3}</td></tr>
+  </table>
+  <div style="display:flex; justifyContent:space-between; marginTop:14px">
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'监理工程师'</p><p style="fontSize:8.5pt; color:#333333">${supervisor}</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'总监理工程师'</p><p style="fontSize:8.5pt; color:#333333">${chief}</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'施工单位签收'</p><p style="fontSize:8.5pt; color:#333333">${d1Receiver}</p>
+    </div>
+  </div>
+  <p style="fontSize:7.5pt; color:#8A939B; marginTop:5px">'注：本页记录如有修改，须由监理工程师在修改处签字确认；旁站记录另附《旁站监理记录表》。'</p>
+
+  <!-- ========== 第 2 天 ========== -->
+  <areaBreak></areaBreak>
+  <div style="display:flex; justifyContent:space-between; marginBottom:4px">
+    <div><h2 style="fontSize:13pt; bold:true; color:#1F4E79">'监理日志　'${d2Date}'（'${d2Weekday}'）'</h2></div>
+    <div><p style="fontSize:8.5pt; color:#5A6B7C">'记录序号 2 / '${dayTotal}</p></div>
+  </div>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:5px">
+    <tr>
+      <th style="width:22%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'天气（上 / 下午）'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'气温'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'风力'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Weather}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Temp}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Wind}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${d2Status}</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; bold:true; color:#1F4E79; marginBottom:2px">'一、施工部位与施工内容'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:2px">
+    <tr>
+      <th style="width:5%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序'</th>
+      <th style="width:19%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工部位'</th>
+      <th style="width:30%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工内容'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'投入人力'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'投入机械'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'质量检查情况'</th>
+    </tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Part1}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Content1}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Labor1}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Machine1}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Quality1}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Part2}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Content2}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Labor2}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Machine2}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Quality2}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Part3}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Content3}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Labor3}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Machine3}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Quality3}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Part4}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Content4}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Labor4}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Machine4}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Quality4}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Part5}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Content5}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Labor5}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Machine5}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Quality5}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Part6}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Content6}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Labor6}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d2Machine6}</td><td style="padding:4px; border:1px solid #C3CDD8">${d2Quality6}</td></tr>
+  </table>
+  <p style="fontSize:9.5pt; bold:true; color:#1F4E79; marginTop:5px; marginBottom:2px">'二、材料 / 设备进场情况'</p>
+  <list style="fontSize:8.5pt; color:#333333; listStyleType:decimal; marginLeft:20px">
+    <li>${d2Material1}</li>
+    <li>${d2Material2}</li>
+  </list>
+  <p style="fontSize:9.5pt; bold:true; color:#B71C1C; marginTop:5px; marginBottom:2px">'三、检查发现问题及处理意见'</p>
+  <table style="width:100%; fontSize:8pt">
+    <tr>
+      <th style="width:6%; padding:4px; backgroundColor:#B71C1C; color:white; textAlign:center; border:1px solid #B71C1C">'序号'</th>
+      <th style="padding:4px; backgroundColor:#B71C1C; color:white; textAlign:center; border:1px solid #B71C1C">'问题描述与处理意见'</th>
+    </tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'1'</td><td style="padding:4px; border:1px solid #E0C0C0">${d2Issue1}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'2'</td><td style="padding:4px; border:1px solid #E0C0C0">${d2Issue2}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'3'</td><td style="padding:4px; border:1px solid #E0C0C0">${d2Issue3}</td></tr>
+  </table>
+  <div style="display:flex; justifyContent:space-between; marginTop:14px">
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'监理工程师'</p><p style="fontSize:8.5pt; color:#333333">${supervisor}</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'总监理工程师'</p><p style="fontSize:8.5pt; color:#333333">${chief}</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'施工单位签收'</p><p style="fontSize:8.5pt; color:#333333">${d2Receiver}</p>
+    </div>
+  </div>
+  <p style="fontSize:7.5pt; color:#8A939B; marginTop:5px">'注：本页记录如有修改，须由监理工程师在修改处签字确认；旁站记录另附《旁站监理记录表》。'</p>
+
+  <!-- ========== 第 3 天 ========== -->
+  <areaBreak></areaBreak>
+  <div style="display:flex; justifyContent:space-between; marginBottom:4px">
+    <div><h2 style="fontSize:13pt; bold:true; color:#1F4E79">'监理日志　'${d3Date}'（'${d3Weekday}'）'</h2></div>
+    <div><p style="fontSize:8.5pt; color:#5A6B7C">'记录序号 3 / '${dayTotal}</p></div>
+  </div>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:5px">
+    <tr>
+      <th style="width:22%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'天气（上 / 下午）'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'气温'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'风力'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Weather}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Temp}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Wind}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${d3Status}</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; bold:true; color:#1F4E79; marginBottom:2px">'一、施工部位与施工内容'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:2px">
+    <tr>
+      <th style="width:5%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序'</th>
+      <th style="width:19%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工部位'</th>
+      <th style="width:30%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工内容'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'投入人力'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'投入机械'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'质量检查情况'</th>
+    </tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Part1}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Content1}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Labor1}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Machine1}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Quality1}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Part2}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Content2}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Labor2}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Machine2}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Quality2}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Part3}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Content3}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Labor3}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Machine3}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Quality3}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Part4}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Content4}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Labor4}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Machine4}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Quality4}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Part5}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Content5}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Labor5}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Machine5}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Quality5}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Part6}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Content6}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Labor6}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d3Machine6}</td><td style="padding:4px; border:1px solid #C3CDD8">${d3Quality6}</td></tr>
+  </table>
+  <p style="fontSize:9.5pt; bold:true; color:#1F4E79; marginTop:5px; marginBottom:2px">'二、材料 / 设备进场情况'</p>
+  <list style="fontSize:8.5pt; color:#333333; listStyleType:decimal; marginLeft:20px">
+    <li>${d3Material1}</li>
+    <li>${d3Material2}</li>
+  </list>
+  <p style="fontSize:9.5pt; bold:true; color:#B71C1C; marginTop:5px; marginBottom:2px">'三、检查发现问题及处理意见'</p>
+  <table style="width:100%; fontSize:8pt">
+    <tr>
+      <th style="width:6%; padding:4px; backgroundColor:#B71C1C; color:white; textAlign:center; border:1px solid #B71C1C">'序号'</th>
+      <th style="padding:4px; backgroundColor:#B71C1C; color:white; textAlign:center; border:1px solid #B71C1C">'问题描述与处理意见'</th>
+    </tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'1'</td><td style="padding:4px; border:1px solid #E0C0C0">${d3Issue1}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'2'</td><td style="padding:4px; border:1px solid #E0C0C0">${d3Issue2}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'3'</td><td style="padding:4px; border:1px solid #E0C0C0">${d3Issue3}</td></tr>
+  </table>
+  <div style="display:flex; justifyContent:space-between; marginTop:14px">
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'监理工程师'</p><p style="fontSize:8.5pt; color:#333333">${supervisor}</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'总监理工程师'</p><p style="fontSize:8.5pt; color:#333333">${chief}</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'施工单位签收'</p><p style="fontSize:8.5pt; color:#333333">${d3Receiver}</p>
+    </div>
+  </div>
+  <p style="fontSize:7.5pt; color:#8A939B; marginTop:5px">'注：本页记录如有修改，须由监理工程师在修改处签字确认；旁站记录另附《旁站监理记录表》。'</p>
+
+  <!-- ========== 第 4 天 ========== -->
+  <areaBreak></areaBreak>
+  <div style="display:flex; justifyContent:space-between; marginBottom:4px">
+    <div><h2 style="fontSize:13pt; bold:true; color:#1F4E79">'监理日志　'${d4Date}'（'${d4Weekday}'）'</h2></div>
+    <div><p style="fontSize:8.5pt; color:#5A6B7C">'记录序号 4 / '${dayTotal}</p></div>
+  </div>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:5px">
+    <tr>
+      <th style="width:22%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'天气（上 / 下午）'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'气温'</th>
+      <th style="width:18%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'风力'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工状态'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Weather}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Temp}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Wind}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${d4Status}</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; bold:true; color:#1F4E79; marginBottom:2px">'一、施工部位与施工内容'</p>
+  <table style="width:100%; fontSize:7.5pt; marginBottom:2px">
+    <tr>
+      <th style="width:5%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序'</th>
+      <th style="width:19%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工部位'</th>
+      <th style="width:30%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'施工内容'</th>
+      <th style="width:16%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'投入人力'</th>
+      <th style="width:15%; padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'投入机械'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'质量检查情况'</th>
+    </tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Part1}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Content1}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Labor1}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Machine1}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Quality1}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Part2}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Content2}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Labor2}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Machine2}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Quality2}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Part3}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Content3}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Labor3}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Machine3}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Quality3}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Part4}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Content4}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Labor4}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Machine4}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Quality4}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Part5}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Content5}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Labor5}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Machine5}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Quality5}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Part6}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Content6}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Labor6}</td><td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${d4Machine6}</td><td style="padding:4px; border:1px solid #C3CDD8">${d4Quality6}</td></tr>
+  </table>
+  <p style="fontSize:9.5pt; bold:true; color:#1F4E79; marginTop:5px; marginBottom:2px">'二、材料 / 设备进场情况'</p>
+  <list style="fontSize:8.5pt; color:#333333; listStyleType:decimal; marginLeft:20px">
+    <li>${d4Material1}</li>
+    <li>${d4Material2}</li>
+  </list>
+  <p style="fontSize:9.5pt; bold:true; color:#B71C1C; marginTop:5px; marginBottom:2px">'三、检查发现问题及处理意见'</p>
+  <table style="width:100%; fontSize:8pt">
+    <tr>
+      <th style="width:6%; padding:4px; backgroundColor:#B71C1C; color:white; textAlign:center; border:1px solid #B71C1C">'序号'</th>
+      <th style="padding:4px; backgroundColor:#B71C1C; color:white; textAlign:center; border:1px solid #B71C1C">'问题描述与处理意见'</th>
+    </tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'1'</td><td style="padding:4px; border:1px solid #E0C0C0">${d4Issue1}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'2'</td><td style="padding:4px; border:1px solid #E0C0C0">${d4Issue2}</td></tr>
+    <tr><td style="padding:4px; textAlign:center; border:1px solid #E0C0C0">'3'</td><td style="padding:4px; border:1px solid #E0C0C0">${d4Issue3}</td></tr>
+  </table>
+  <div style="display:flex; justifyContent:space-between; marginTop:14px">
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'监理工程师'</p><p style="fontSize:8.5pt; color:#333333">${supervisor}</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'总监理工程师'</p><p style="fontSize:8.5pt; color:#333333">${chief}</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:3px; textAlignment:center">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'施工单位签收'</p><p style="fontSize:8.5pt; color:#333333">${d4Receiver}</p>
+    </div>
+  </div>
+  <p style="fontSize:7.5pt; color:#8A939B; marginTop:5px">'注：本页记录如有修改，须由监理工程师在修改处签字确认；旁站记录另附《旁站监理记录表》。'</p>
+
+</body>
+</pdf>

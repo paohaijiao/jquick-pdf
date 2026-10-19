@@ -1,0 +1,158 @@
+<pdf>
+<body>
+  <h1 style="fontSize:19pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:4pt">'客户月度对账单'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:8px">'STATEMENT OF ACCOUNT　·　'${month}</p>
+
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'客户名称'</td>
+      <td style="width:180px; padding:5px; border:1px solid #C3CDD8">${customer}</td>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'对账月份'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${month}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'账单编号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${billNo}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'币种'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'人民币（CNY）'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="padding:6px; backgroundColor:#F7F9FC; bold:true; color:#1F4E79; border:1px solid #C3CDD8; width:160px">'期初余额（'${monthShort}' 月初）'</td>
+      <td style="padding:6px; backgroundColor:#F7F9FC; textAlign:right; bold:true; border:1px solid #C3CDD8">'￥'${openingBalance}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:8.5pt; marginTop:6px">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:34px">'序号'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:110px">'交易时间'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:200px">'项目'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:80px">'金额'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:70px">'方向'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t1}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t2}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t3}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t4}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t5}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t6}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s6}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d6}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'7'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t7}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s7}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a7}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d7}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'8'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t8}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s8}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a8}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d8}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'9'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t9}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s9}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a9}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d9}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'10'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t10}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s10}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a10}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d10}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'11'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t11}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s11}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a11}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d11}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'12'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t12}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s12}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a12}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d12}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'13'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${t13}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${s13}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${a13}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${d13}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:4px">
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8; textAlign:center; backgroundColor:#F7F9FC; color:#5A6B7C; width:25%">'本期增加'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8; textAlign:center; backgroundColor:#F7F9FC; color:#5A6B7C; width:25%">'本期减少'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8; textAlign:center; backgroundColor:#F7F9FC; color:#5A6B7C; width:25%">'期末余额'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8; textAlign:center; backgroundColor:#F7F9FC; color:#5A6B7C; width:25%">'应结金额'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #C3CDD8; textAlign:center; bold:true; color:#B71C1C; fontSize:11pt">'￥'${totalIncrease}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8; textAlign:center; bold:true; color:#1B5E20; fontSize:11pt">'￥'${totalDecrease}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8; textAlign:center; bold:true; color:#1F4E79; fontSize:11pt">'￥'${closingBalance}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8; textAlign:center; bold:true; color:#1F4E79; fontSize:11pt">'￥'${closingBalance}</td>
+    </tr>
+  </table>
+
+  <div style="borderLeft:4px solid #2F5597; background:#F7F9FC; padding:7px 9px; marginTop:8px">
+    <p style="fontSize:8.5pt; color:#333333">'说明：本对账单统计 '${month}' 期间全部交易。「本期增加」为借方发生额合计，「本期减少」为贷方发生额合计，期末余额 = 期初余额 + 本期增加 - 本期减少。'</p>
+    <p style="fontSize:8.5pt; color:#333333">'请贵司于收到本对账单之日起 7 个工作日内核对并签章回传，逾期未回复视为无异议。'</p>
+  </div>
+
+  <div style="display:flex; justifyContent:space-between; marginTop:26px">
+    <div style="width:230px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'客户方（盖章）：　　　　　　'</p>
+    </div>
+    <div style="width:230px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'财务专用章：　　　　　　　　'</p>
+    </div>
+  </div>
+</body>
+</pdf>

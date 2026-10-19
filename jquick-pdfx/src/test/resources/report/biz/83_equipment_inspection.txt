@@ -1,0 +1,220 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 83 设备巡检报告单（模板文件化版本）
+  // 数据全部由 JQuickPdfFactory.bindAll 注入：基本信息 + 巡检项 itemRow1~40 + 异常描述 abnormalLine1~3
+  // 版式：页头单据名 + 基本信息表 → 巡检项目表（每 20 行重复表头）→ 异常描述 → 结论 → 签字 + 专用章
+  // ==========================================================================
+
+  <!-- 页头 -->
+  <div style="display:flex; justifyContent:space-between; borderBottom:2px solid #1F4E79; paddingBottom:6px; marginBottom:8px">
+    <div style="width:320px">
+      <h1 style="fontSize:17pt; bold:true; color:#1F4E79; characterSpacing:3pt">'设备巡检报告单'</h1>
+      <p style="fontSize:8.5pt; color:#5A6B7C">'设备巡检管理系统　·　自动生成'</p>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'巡检单号'</p>
+      <p style="fontSize:9.5pt; bold:true; color:#1A2733">${inspectionNo}</p>
+    </div>
+  </div>
+
+  <!-- 基本信息 -->
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'设备编号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${equipmentNo}</td>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'设备名称'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${equipmentName}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'巡检地点'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${location}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'巡检日期'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${inspectDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'巡检人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${inspector}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'审核人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${reviewer}</td>
+    </tr>
+  </table>
+
+  <!-- 巡检项目表：第 1 页（1~20 项） -->
+  <table style="width:100%; fontSize:8.5pt; marginTop:6px">
+    <tr>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:6%">'序号'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:25%">'检查项'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:36%">'判定标准'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:10%">'状态'</th>
+      <th style="padding:4px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'外观检查'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'无变形、无锈蚀、铭牌清晰'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'运行电流'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'不超过额定电流 110%'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'实测 86A / 额定 92A'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'三相电压平衡'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'不平衡度 ≤ 2%'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'实测 0.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'轴承温度'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'≤ 75℃'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#B71C1C; border:1px solid #C3CDD8">'异常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'后轴承 82℃，偏高'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'绕组温度'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'≤ 105℃'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'78℃'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'振动值'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'≤ 4.5 mm/s'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#B71C1C; border:1px solid #C3CDD8">'异常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'水平方向 5.2 mm/s'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'7'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'润滑油位'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'在上下限之间'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'8'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'密封状况'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'无渗漏'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#B71C1C; border:1px solid #C3CDD8">'异常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'轴端轻微渗油'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'9'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'冷却风扇'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'运转正常无异响'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'10'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'接地电阻'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'≤ 4Ω'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'1.8Ω'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'11'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'控制柜清洁'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'无积尘、无虫害'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'12'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'接线端子'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'紧固无松动、无过热变色'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'13'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'绝缘电阻'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'≥ 0.5MΩ'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'12MΩ'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'14'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'接触器动作'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'吸合可靠、无粘连'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'15'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'热继电器整定'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'与电机铭牌匹配'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'整定 95A'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'16'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'变频器参数'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'与运行工况一致'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'17'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'安全防护罩'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'完整、固定可靠'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'18'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'急停按钮'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'动作有效'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'现场测试'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'19'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'仪表显示'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'数值正常、无报警'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'20'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'运行声音'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">'无异常噪音'</td>
+      <td style="padding:4px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">'正常'</td>
+      <td style="padding:4px; border:1px solid #C3CDD8"></td>
+    </tr>
+  </table>
+
+  <!-- 异常情况描述 -->
+  <div style="borderLeft:4px solid #B71C1C; backgroundColor:#FFF5F5; padding:7px 9px; marginTop:10px">
+    <p style="fontSize:9pt; bold:true; color:#B71C1C; marginBottom:3px">'异常情况描述'</p>
+    <p style="fontSize:9pt; color:#333333; marginBottom:2px">${abnormalLine1}</p>
+    <p style="fontSize:9pt; color:#333333; marginBottom:2px">${abnormalLine2}</p>
+    <p style="fontSize:9pt; color:#333333; marginBottom:2px">${abnormalLine3}</p>
+  </div>
+
+  <!-- 结论 -->
+  <p style="fontSize:9pt; color:#333333; marginTop:8px">'巡检结论：本次共检查 '${totalCount}' 项，其中异常 '${abnormalCount}' 项，设备整体运行状态可接受，异常项已下发整改单。'</p>
+
+  <!-- 签字 + 印章 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:18px">
+    <div style="width:180px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'巡检人（签字）：'${inspector}</p>
+    </div>
+    <div style="width:180px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'审核人（签字）：'${reviewer}</p>
+    </div>
+    <div style="width:140px; textAlignment:center">
+      <image src='D:/test/image/83_seal.png' style="width:86px; height:86px"></image>
+      <p style="fontSize:8pt; color:#B71C1C; textAlignment:center">'巡检专用章'</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

@@ -1,0 +1,55 @@
+<pdf>
+<body>
+  <div style="display:flex; justifyContent:space-between; borderBottom:2px solid #B71C1C; paddingBottom:6px">
+    <div style="width:80px">
+      <image src='D:/test/image/74_logo.png' style="width:40px; height:40px"></image>
+    </div>
+    <div style="width:300px; textAlignment:center">
+      <h1 style="fontSize:18pt; bold:true; color:#B71C1C; characterSpacing:3pt">${companyName}</h1>
+    </div>
+    <div style="width:80px; textAlignment:right">
+      <p style="fontSize:8pt; color:#B71C1C">'人力资源部'</p>
+    </div>
+  </div>
+  <div style="borderBottom:1px solid #B71C1C; marginTop:2px; marginBottom:12px"></div>
+
+  <h2 style="fontSize:17pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:6pt; marginTop:6px">'入 职 通 知 书'</h2>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:14px">${noticeNo}</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginBottom:6px">${employeeName}' 先生/女士：'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'您好！感谢您对我司的信任与关注。经综合评估，我司决定录用您担任 '${position}' 一职。现将有关入职事宜通知如下，请按期办理报到手续。'</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginTop:10px; marginBottom:4px">'一、报到时间与地点'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:3px">'报到时间：'${checkInTime}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:3px">'报到地址：'${checkInAddress}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:3px">'请携带本通知书打印件，于报到当日 9:30 前到前台登记，由人力资源部安排后续流程。'</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginTop:10px; marginBottom:4px">'二、薪资待遇'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:3px">${salaryInfo}</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginTop:10px; marginBottom:4px">'三、报到所需材料'</p>
+  <list style="listStyleType:decimal; paddingLeft:26px; fontSize:10.5pt; color:#333333">
+    <li style="marginBottom:3px">${material1}</li>
+    <li style="marginBottom:3px">${material2}</li>
+    <li style="marginBottom:3px">${material3}</li>
+    <li style="marginBottom:3px">${material4}</li>
+    <li style="marginBottom:3px">${material5}</li>
+    <li style="marginBottom:3px">${material6}</li>
+  </list>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginTop:10px; marginBottom:4px">'四、其他事项'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'如您因特殊原因无法按期报到，请提前 3 个工作日致电人力资源部说明情况；逾期未报到且未作说明的，视为放弃录用资格，本通知书自动失效。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'本通知书自签发之日起 15 日内有效，请妥善保管，不得转借他人。'</p>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:12px">'特此通知。'</p>
+
+  <div style="marginTop:26px">
+    <p style="fontSize:10.5pt; bold:true; color:#1A2733; textAlignment:right">${companyName}' 人力资源部'</p>
+    <p style="fontSize:10.5pt; color:#333333; textAlignment:right; marginTop:4px">${issueDate}</p>
+  </div>
+
+  <div style="borderTop:1px solid #B71C1C; marginTop:22px; paddingTop:5px">
+    <p style="fontSize:8pt; color:#8a939b; textAlignment:center">${companyName}'　地址：××市××区××路 88 号　电话：021-0000-0000　网址：www.example.com'</p>
+  </div>
+</body>
+</pdf>

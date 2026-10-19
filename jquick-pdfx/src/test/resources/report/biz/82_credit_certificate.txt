@@ -1,0 +1,67 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 82 银行资信证明（银行红头制式公文，单页，右下角业务专用章）
+  // 版本：模板文件化版本（全部数据由 JQuickPdfFactory.bind 注入，无实体类）
+  // 版式要点：
+  //   1) 银行红头双线 + 标题居中
+  //   2) 信息表 width:100% 铺满版心
+  //   3) 印章 src 为字面量路径（引擎不解析 src 变量）
+  // ==========================================================================
+
+  <h1 style="fontSize:17pt; bold:true; color:#B71C1C; textAlignment:center; characterSpacing:4pt">${bankName}</h1>
+  <div style="borderBottom:2px solid #B71C1C; marginTop:5px"></div>
+  <div style="borderBottom:1px solid #B71C1C; marginTop:2px; marginBottom:14px"></div>
+
+  <h2 style="fontSize:20pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:8pt; marginBottom:4px">'资 信 证 明'</h2>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:right; marginBottom:10px">'编号：'${certNo}</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginBottom:6px">${customerName}'：'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'应贵单位申请，现就贵单位在我行开立账户及资信情况证明如下：'</p>
+
+  <table style="width:100%; fontSize:10pt; marginTop:8px; marginBottom:8px">
+    <tr>
+      <td style="width:110px; padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'客户名称'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${customerName}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'证件号码'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${idNo}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'账户账号'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${accountNo}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'账户类型'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${accountType}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'存款余额'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${balance}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FDF2F2; bold:true; border:1px solid #D9B3B3">'开户日期'</td>
+      <td style="padding:6px; border:1px solid #D9B3B3">${openDate}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'截至 '${issueDate}' 止，贵单位上述账户资金往来正常，信用状况良好，在我行无不良记录、无未结清的逾期贷款及欠息。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:4px">'本证明自开具之日起 '${validUntil}' 内有效，仅用于证明贵单位资信状况，不作其他用途。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:8px">'特此证明。'</p>
+
+  <div style="display:flex; justifyContent:space-between; marginTop:24px">
+    <div style="width:44%">
+      <p style="fontSize:8.5pt; color:#8a939b">'说明：本证明仅对所列账户在证明时点的状态负责，'</p>
+      <p style="fontSize:8.5pt; color:#8a939b">'不构成我行对客户未来偿付能力的担保。'</p>
+    </div>
+    <div style="width:48%; paddingLeft:110px">
+      <image src='D:/test/image/82_seal.png' style="width:100px; height:100px"></image>
+      <p style="fontSize:10.5pt; bold:true; color:#1A2733; textAlignment:center">${bankName}</p>
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'业务专用章'</p>
+      <p style="fontSize:10.5pt; color:#333333; textAlignment:center; marginTop:2px">${issueDate}</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

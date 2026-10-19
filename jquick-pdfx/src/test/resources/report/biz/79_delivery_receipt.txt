@@ -1,0 +1,128 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 79 交付收货回执（模板文件 + bind 数据注入版）
+  // 明细逐条 bind 为 itN_xxx；不支持 colspan，地址行空位用 '—' 占位
+  // ==========================================================================
+
+  // ---------- 页头 ----------
+  <div style="display:flex; justifyContent:space-between; borderBottom:2px solid #1F4E79; paddingBottom:6px; marginBottom:8px">
+    <div style="width:320px">
+      <h1 style="fontSize:18pt; bold:true; color:#1F4E79; characterSpacing:3pt">'交付收货回执'</h1>
+    </div>
+    <div style="width:180px; textAlignment:right">
+      <p style="fontSize:8.5pt; color:#5A6B7C">'回执单号'</p>
+      <p style="fontSize:10pt; bold:true; color:#1A2733">${receiptNo}</p>
+    </div>
+  </div>
+
+  // ---------- 收货信息 ----------
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'收货单位'</td>
+      <td style="width:170px; padding:5px; border:1px solid #C3CDD8">${receiverUnit}</td>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'联系人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${contact}</td>
+    </tr>
+    <tr>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'收货地址'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${address}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8; color:#C3CDD8">'—'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8; color:#C3CDD8">'—'</td>
+    </tr>
+    <tr>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'交付日期'</td>
+      <td style="width:170px; padding:5px; border:1px solid #C3CDD8">${deliveryDate}</td>
+      <td style="width:78px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'明细项数'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${itemCount}</td>
+    </tr>
+  </table>
+
+  // ---------- 交付明细 ----------
+  <table style="width:100%; fontSize:8.5pt; marginTop:6px">
+    <tr>
+      <th style="width:34px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'序号'</th>
+      <th style="width:190px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'交付物名称'</th>
+      <th style="width:110px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'规格型号'</th>
+      <th style="width:40px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'单位'</th>
+      <th style="width:45px; padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'数量'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it1_name}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it1_spec}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${it1_unit}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${it1_qty}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it1_remark}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it2_name}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it2_spec}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${it2_unit}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${it2_qty}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it2_remark}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it3_name}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it3_spec}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${it3_unit}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${it3_qty}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it3_remark}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it4_name}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it4_spec}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${it4_unit}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${it4_qty}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it4_remark}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it5_name}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it5_spec}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${it5_unit}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${it5_qty}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it5_remark}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it6_name}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it6_spec}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${it6_unit}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${it6_qty}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${it6_remark}</td>
+    </tr>
+  </table>
+
+  // ---------- 交付说明 ----------
+  <div style="borderLeft:4px solid #2F5597; background:#F7F9FC; padding:7px 9px; marginTop:8px">
+    <p style="fontSize:8.5pt; color:#333333">'1. 请收货人当面清点数量、检查外观与包装，确认无误后在下方签收栏签字。'</p>
+    <p style="fontSize:8.5pt; color:#333333">'2. 如发现短缺、破损或型号不符，请在备注栏注明，并于 24 小时内书面通知交付方。'</p>
+    <p style="fontSize:8.5pt; color:#333333">'3. 本回执一式两联，交付方与收货单位各执一联，签字盖章后生效。'</p>
+  </div>
+
+  // ---------- 签收栏（签名图片由 Java 生成到固定路径） ----------
+  <div style="display:flex; justifyContent:space-between; marginTop:16px">
+    <div style="width:155px; border:1px solid #C3CDD8; padding:7px">
+      <p style="fontSize:9pt; bold:true; color:#1F4E79">'交付人'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:16px">'签字：'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:8px">'日期：'</p>
+    </div>
+    <div style="width:155px; border:1px solid #C3CDD8; padding:7px">
+      <p style="fontSize:9pt; bold:true; color:#1F4E79">'收货人'</p>
+      <image src='D:/test/image/79_sign.png' style="width:90px; height:44px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:4px">'日期：'</p>
+    </div>
+    <div style="width:155px; border:1px solid #C3CDD8; padding:7px">
+      <p style="fontSize:9pt; bold:true; color:#1F4E79">'收货单位（盖章）'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:16px">'　　　　　　　'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:8px">'日期：'</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

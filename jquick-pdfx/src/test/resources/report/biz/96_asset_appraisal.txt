@@ -1,0 +1,191 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 96 资产评估摘要报告（封面 + 声明/正文多页 + 机构章 + 双评估师签章）
+  // 版本：模板文件化版本（全部数据由 JQuickPdfFactory.bind 注入，无实体类）
+  // 版式要点：
+  //   1) 封面 → areaBreak → 声明与正文
+  //   2) 结论表 9 行逐格占位（aCat1..aCat9），合计行逐列占位（不支持 colspan）
+  //   3) 印章 / 签名 src 为字面量路径（引擎不解析 src 变量）
+  // ==========================================================================
+
+  <!-- 封面 -->
+  <p style="fontSize:9pt; color:#8a939b; textAlignment:center; marginTop:20px">${institution}</p>
+  <p style="fontSize:9pt; color:#8a939b; textAlignment:center">'ASSET APPRAISAL REPORT'</p>
+  <p style="fontSize:26pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:8pt; marginTop:56px">'资产评估报告'</p>
+  <p style="fontSize:14pt; color:#2E5B8A; textAlignment:center; characterSpacing:6pt; marginTop:10px">'（摘　要）'</p>
+  <div style="marginTop:60px; marginLeft:96px; marginRight:96px">
+    <lineSeparator style="color:#2E5B8A; thickness:1.5f; marginBottom:12px"></lineSeparator>
+    <table style="width:70%; fontSize:10pt; marginBottom:5px">
+      <tr>
+        <td style="width:110px; padding:3px; bold:true; color:#2E5B8A">'报告编号'</td>
+        <td style="padding:3px; color:#1A2733">${reportNo}</td>
+      </tr>
+      <tr>
+        <td style="padding:3px; bold:true; color:#2E5B8A">'委托人'</td>
+        <td style="padding:3px; color:#1A2733">${client}</td>
+      </tr>
+      <tr>
+        <td style="padding:3px; bold:true; color:#2E5B8A">'产权持有人'</td>
+        <td style="padding:3px; color:#1A2733">${owner}</td>
+      </tr>
+      <tr>
+        <td style="padding:3px; bold:true; color:#2E5B8A">'评估目的'</td>
+        <td style="padding:3px; color:#1A2733">${purpose}</td>
+      </tr>
+      <tr>
+        <td style="padding:3px; bold:true; color:#2E5B8A">'评估基准日'</td>
+        <td style="padding:3px; color:#1A2733">${baseDate}</td>
+      </tr>
+      <tr>
+        <td style="padding:3px; bold:true; color:#2E5B8A">'评估机构'</td>
+        <td style="padding:3px; color:#1A2733">${institution}</td>
+      </tr>
+    </table>
+    <lineSeparator style="color:#2E5B8A; thickness:1.5f; marginTop:12px"></lineSeparator>
+  </div>
+  <p style="fontSize:11pt; bold:true; color:#1A2733; textAlignment:center; marginTop:76px">${reportDate}</p>
+
+  <!-- 声明页 -->
+  <areaBreak></areaBreak>
+  <h2 style="fontSize:11.5pt; bold:true; color:#1F4E79; borderBottom:1px solid #C3CDD8; paddingBottom:2px; marginTop:12px; marginBottom:6px">'评估机构及评估师声明'</h2>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">'一、我们在本报告中对评估对象价值进行估算并发表专业意见，所出具的评估结论受本报告中假设与限制条件的限定。'</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">'二、委托人及产权持有人已向我们提供本次评估所需的全部资料，并对其真实性、完整性、合法性负责。'</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">'三、我们遵循独立、客观、公正的原则，按照资产评估准则的规定执行评估程序，与评估对象及各方当事人不存在任何利害关系。'</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">'四、本报告仅供委托人为实现本次评估目的使用，未经我们书面同意，不得向他人提供或公开披露，亦不得用于其他任何目的。'</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt">'五、本报告由两名资产评估师签字并加盖评估机构公章后方可使用，复印件、摘录件未加盖印章的无效。'</p>
+
+  <!-- 一、评估对象与评估范围 -->
+  <h2 style="fontSize:11.5pt; bold:true; color:#1F4E79; borderBottom:1px solid #C3CDD8; paddingBottom:2px; marginTop:12px; marginBottom:6px">'一、评估对象与评估范围'</h2>
+  <table style="width:100%; fontSize:9.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:80px; padding:5px; backgroundColor:#EDF1F6; bold:true; border:1px solid #C3CDD8">'评估对象'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${scope}</td>
+      <td style="width:80px; padding:5px; backgroundColor:#EDF1F6; bold:true; border:1px solid #C3CDD8">'评估方法'</td>
+      <td style="width:130px; padding:5px; border:1px solid #C3CDD8">'资产基础法为主，市场法交叉验证'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#EDF1F6; bold:true; border:1px solid #C3CDD8">'价值类型'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${valueType}</td>
+      <td style="padding:5px; backgroundColor:#EDF1F6; bold:true; border:1px solid #C3CDD8">'基准日'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${baseDate}</td>
+    </tr>
+  </table>
+
+  <!-- 二、评估结论 -->
+  <h2 style="fontSize:11.5pt; bold:true; color:#1F4E79; borderBottom:1px solid #C3CDD8; paddingBottom:2px; marginTop:12px; marginBottom:6px">'二、评估结论'</h2>
+  <p style="fontSize:10pt; color:#333333; textIndent:19pt; marginBottom:6px">'经实施评估程序，截至评估基准日 '${baseDate}'，委托评估资产的账面价值为 '${totalBook}' 元，评估价值为 '${totalEval}' 元，增值额为 '${totalIncrement}' 元。汇总情况见下表：'</p>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="padding:5px; backgroundColor:#2E5B8A; color:white; textAlign:center; border:1px solid #2E5B8A">'资产类别'</th>
+      <th style="padding:5px; backgroundColor:#2E5B8A; color:white; textAlign:center; border:1px solid #2E5B8A; width:96px">'评估方法'</th>
+      <th style="padding:5px; backgroundColor:#2E5B8A; color:white; textAlign:center; border:1px solid #2E5B8A; width:96px">'账面价值（元）'</th>
+      <th style="padding:5px; backgroundColor:#2E5B8A; color:white; textAlign:center; border:1px solid #2E5B8A; width:96px">'评估价值（元）'</th>
+      <th style="padding:5px; backgroundColor:#2E5B8A; color:white; textAlign:center; border:1px solid #2E5B8A; width:72px">'增值率'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8; color:#B71C1C">${aRate1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8; color:#1B5E20">${aRate2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8; color:#1B5E20">${aRate3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8; color:#1B5E20">${aRate4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">'0%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8; color:#B71C1C">${aRate6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8; color:#B71C1C">${aRate7}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8; color:#1B5E20">${aRate8}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; border:1px solid #C3CDD8">${aCat9}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${aMethod9}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aBook9}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${aEval9}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">'0%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8; bold:true; backgroundColor:#EDF1F6">'合计'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8; backgroundColor:#EDF1F6">'—'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true; backgroundColor:#EDF1F6">${totalBook}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true; backgroundColor:#EDF1F6">${totalEval}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true; backgroundColor:#EDF1F6">${totalRate}</td>
+    </tr>
+  </table>
+
+  <!-- 三、特别事项说明 -->
+  <h2 style="fontSize:11.5pt; bold:true; color:#1F4E79; borderBottom:1px solid #C3CDD8; paddingBottom:2px; marginTop:12px; marginBottom:6px">'三、特别事项说明'</h2>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${note1}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${note2}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${note3}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${note4}</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${note5}</p>
+
+  <!-- 四、使用限制 -->
+  <h2 style="fontSize:11.5pt; bold:true; color:#1F4E79; borderBottom:1px solid #C3CDD8; paddingBottom:2px; marginTop:12px; marginBottom:6px">'四、报告使用限制'</h2>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">'本报告评估结论使用有效期为自评估基准日起一年，即 '${validPeriod}'。超过有效期使用本报告的，评估结论不再成立。'</p>
+  <p style="fontSize:9.5pt; color:#333333; textIndent:19pt">'本摘要仅为报告正文的组成部分，完整内容以《资产评估报告》正文及附件为准。'</p>
+
+  <!-- 五、评估机构与评估师 -->
+  <h2 style="fontSize:11.5pt; bold:true; color:#1F4E79; borderBottom:1px solid #C3CDD8; paddingBottom:2px; marginTop:12px; marginBottom:6px">'五、评估机构与评估师'</h2>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:49%; border:1px solid #C3CDD8; padding:8px">
+      <p style="fontSize:9.5pt; bold:true; color:#1F4E79">'评估机构（盖章）'</p>
+      <p style="fontSize:9pt; color:#333333">${institution}</p>
+      <image src='D:/test/image/96_seal.png' style="width:96px; height:96px"></image>
+      <p style="fontSize:8pt; color:#5A6B7C">${address}</p>
+      <p style="fontSize:8.5pt; color:#5A6B7C">'报告日：'${reportDate}</p>
+    </div>
+    <div style="width:49%; border:1px solid #C3CDD8; padding:8px">
+      <p style="fontSize:9.5pt; bold:true; color:#1F4E79">'注册资产评估师签章'</p>
+      <image src='D:/test/image/96_sign_a.png' style="width:104px; height:52px"></image>
+      <p style="fontSize:8.5pt; color:#333333">${appraiserA}'　'${certNoA}</p>
+      <image src='D:/test/image/96_sign_b.png' style="width:104px; height:52px"></image>
+      <p style="fontSize:8.5pt; color:#333333">${appraiserB}'　'${certNoB}</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

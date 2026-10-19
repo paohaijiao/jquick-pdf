@@ -1,0 +1,281 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 81 工程竣工结算书（多页长文档、骑缝章、明细跨页）
+  // 版本：模板文件化版本（全部数据由 JQuickPdfFactory.bind 注入，无实体类）
+  // 版式要点：
+  //   1) 页眉显示项目名称；页脚「第 %d 页」
+  //   2) 明细表 17 行、变更表 4 行逐格占位（spName1..spName17 / chNo1..chNo4）
+  //   3) 表格 width:100%；不支持 colspan，合计行逐列占位
+  //   4) 印章 / 骑缝章条 src 为字面量路径（引擎不解析 src 变量）
+  // ==========================================================================
+
+  <h1 style="fontSize:20pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:6pt">'工程竣工结算书'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:10px">'结算书编号：'${settlementNo}</p>
+
+  <!-- 封面信息 -->
+  <table style="width:100%; fontSize:9.5pt">
+    <tr>
+      <td style="width:110px; padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'工程名称'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${projectName}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'建设单位'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${ownerUnit}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'施工单位'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${builderUnit}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'结算日期'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${settlementDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'合同金额'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${contractAmount}</td>
+    </tr>
+  </table>
+
+  <!-- 一、分项工程结算明细 -->
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'一、分项工程结算明细'</h2>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:36px">'序号'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'分项工程名称'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:40px">'单位'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:64px">'工程量'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:76px">'综合单价'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:88px">'合价（元）'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName1}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName2}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName3}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName4}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName5}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice5}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName6}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit6}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty6}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice6}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'7'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName7}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit7}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty7}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice7}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount7}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'8'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName8}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit8}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty8}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice8}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount8}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'9'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName9}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit9}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty9}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice9}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount9}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'10'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName10}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit10}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty10}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice10}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount10}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'11'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName11}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit11}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty11}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice11}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount11}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'12'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName12}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit12}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty12}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice12}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount12}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'13'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName13}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit13}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty13}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice13}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount13}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'14'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName14}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit14}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty14}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice14}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount14}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'15'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName15}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit15}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty15}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice15}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount15}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'16'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName16}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit16}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty16}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice16}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount16}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'17'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${spName17}</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${spUnit17}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spQty17}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spPrice17}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${spAmount17}</td>
+    </tr>
+  </table>
+
+  <!-- 二、签证变更清单 -->
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'二、签证变更清单'</h2>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:70px">'编号'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'变更内容'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:110px">'金额（元）'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${chNo1}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chContent1}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${chAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${chNo2}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chContent2}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${chAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${chNo3}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chContent3}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${chAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">${chNo4}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chContent4}</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8">${chAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #C3CDD8; bold:true">'签证变更合计'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true">${chTotal}</td>
+    </tr>
+  </table>
+
+  <!-- 三、结算总金额 -->
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'三、结算总金额'</h2>
+  <table style="width:100%; fontSize:9.5pt">
+    <tr>
+      <td style="width:100px; padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'大写金额'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8; bold:true; color:#B71C1C">${totalWords}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'小写金额'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8; bold:true; color:#B71C1C">'￥'${totalPlain}</td>
+    </tr>
+  </table>
+  <p style="fontSize:8.5pt; color:#5A6B7C; marginTop:6px">'说明：本结算书依据施工合同、竣工图纸、现场签证及变更指令编制，经建设、施工双方核对确认后作为竣工结算与工程款支付的依据。'</p>
+
+  <!-- 四、编制与审核 -->
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:10px; marginBottom:5px">'四、编制与审核'</h2>
+  <div style="display:flex; justifyContent:space-between; marginTop:4px">
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'编制人：'${compiler}</p>
+      <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:16px">'（签字）'</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'审核人：'${reviewer}</p>
+      <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:16px">'（签字）'</p>
+    </div>
+    <div style="width:32%; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'审批人：'${approver}</p>
+      <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:16px">'（签字）'</p>
+    </div>
+  </div>
+
+  <!-- 双方公章 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:18px">
+    <div style="width:49%">
+      <p style="fontSize:9pt; color:#5A6B7C">'建设单位（盖章）'</p>
+      <p style="fontSize:9pt; bold:true; color:#1A2733">${ownerUnit}</p>
+      <image src='D:/test/image/81_seal_owner.png' style="width:92px; height:92px"></image>
+    </div>
+    <div style="width:49%">
+      <p style="fontSize:9pt; color:#5A6B7C">'施工单位（盖章）'</p>
+      <p style="fontSize:9pt; bold:true; color:#1A2733">${builderUnit}</p>
+      <image src='D:/test/image/81_seal_builder.png' style="width:92px; height:92px"></image>
+    </div>
+  </div>
+
+  <!-- 骑缝章细条 -->
+  <div style="marginTop:10px">
+    <p style="fontSize:7.5pt; color:#8a939b">'骑缝章条（打印后沿右侧装订线裁切，与各页边缘切口拼合形成骑缝章）：'</p>
+    <div style="display:flex; justifyContent:space-between; marginTop:3px">
+      <image src='D:/test/image/81_ridge_0.png' style="width:14px; height:92px"></image>
+      <image src='D:/test/image/81_ridge_1.png' style="width:14px; height:92px"></image>
+      <image src='D:/test/image/81_ridge_2.png' style="width:14px; height:92px"></image>
+      <image src='D:/test/image/81_ridge_3.png' style="width:14px; height:92px"></image>
+    </div>
+  </div>
+
+</body>
+</pdf>

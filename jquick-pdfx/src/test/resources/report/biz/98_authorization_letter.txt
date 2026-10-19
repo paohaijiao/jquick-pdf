@@ -1,0 +1,109 @@
+<pdf>
+<body>
+  <!-- 98 授权委托书（多页正文 + 骑缝章 + 双签字盖章；数据由 bind 注入，无实体类） -->
+  <!-- 版式：标题 + 双方信息表 + 委托事项 + 条款逐条占位 + 骑缝章条 + 落款双栏 -->
+
+  <h1 style="fontSize:21pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:10pt">'授 权 委 托 书'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:10px">'编号：'${docNo}</p>
+
+  <!-- 双方信息 -->
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:86px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'委托人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${principal}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'信用代码'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${principalId}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'住所地'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${principalAddress}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'法定代表人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${legalPerson}</td>
+      <td style="width:86px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'联系电话'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${agentPhone}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'受托人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${agent}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'职务'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${agentPost}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'身份证号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${agentId}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'授权期限'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${period}</td>
+    </tr>
+  </table>
+
+  <!-- 委托事由 -->
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'委托人 '${principal}' 因业务需要，特委托 '${agent}' 作为其合法代理人，代为办理下列事项，并对代理人在授权范围内实施的行为承担法律责任：'</p>
+
+  <!-- 一、委托事项 -->
+  <p style="fontSize:10.5pt; bold:true; color:#1F4E79; textIndent:21pt; marginTop:6px; marginBottom:3px">'一、委托事项'</p>
+  <list style="fontSize:10pt; color:#333333; listStyleType:decimal; marginLeft:24px">
+    <li>${matter1}</li>
+    <li>${matter2}</li>
+    <li>${matter3}</li>
+    <li>${matter4}</li>
+    <li>${matter5}</li>
+  </list>
+
+  <!-- 二、授权权限 -->
+  <p style="fontSize:10.5pt; bold:true; color:#1F4E79; textIndent:21pt; marginTop:7px; marginBottom:3px">'二、授权权限'</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${articleText1}</p>
+
+  <!-- 三、授权期限 -->
+  <p style="fontSize:10.5pt; bold:true; color:#1F4E79; textIndent:21pt; marginTop:7px; marginBottom:3px">'三、授权期限'</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${articleText2}</p>
+
+  <!-- 四、转委托限制 -->
+  <p style="fontSize:10.5pt; bold:true; color:#1F4E79; textIndent:21pt; marginTop:7px; marginBottom:3px">'四、转委托限制'</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${articleText3}</p>
+
+  <!-- 五、责任承担 -->
+  <p style="fontSize:10.5pt; bold:true; color:#1F4E79; textIndent:21pt; marginTop:7px; marginBottom:3px">'五、责任承担'</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${articleText4}</p>
+
+  <!-- 六、附则 -->
+  <p style="fontSize:10.5pt; bold:true; color:#1F4E79; textIndent:21pt; marginTop:7px; marginBottom:3px">'六、附则'</p>
+  <p style="fontSize:10pt; color:#333333; textIndent:21pt; marginBottom:3px">${articleText5}</p>
+
+  <!-- 声明 -->
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:10px">'本委托书自委托人与受托人签字（盖章）之日起生效，至授权期限届满或委托事项办理完毕之日终止。委托人有权在期限届满前书面通知撤销本委托，撤销前已实施的代理行为继续有效。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:4px">'本委托书一式三份，委托人、受托人各持一份，另一份用于办理委托事项，具有同等法律效力。'</p>
+
+  <!-- 骑缝章条（src 字面量，图片由 Java 生成） -->
+  <p style="fontSize:8pt; color:#8a939b; marginTop:10px">'骑缝章：本页右侧竖排为骑缝章条，打印后沿装订线裁切，与各页边缘切口叠合可还原为完整印章。'</p>
+  <div style="display:flex; justifyContent:flex-start; marginTop:2px">
+    <image src='D:/test/image/98_ridge_0.png' style="width:15px; height:96px"></image>
+    <image src='D:/test/image/98_ridge_1.png' style="width:15px; height:96px"></image>
+    <image src='D:/test/image/98_ridge_2.png' style="width:15px; height:96px"></image>
+    <image src='D:/test/image/98_ridge_3.png' style="width:15px; height:96px"></image>
+  </div>
+
+  <!-- 落款双栏 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:16px">
+    <div style="width:49%; border:1px dashed #9FB3C8; padding:8px">
+      <p style="fontSize:9.5pt; bold:true; color:#1F4E79">'委托人（盖章）'</p>
+      <p style="fontSize:9pt; color:#333333">${principal}</p>
+      <image src='D:/test/image/98_seal.png' style="width:92px; height:92px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C">'法定代表人（签字）'</p>
+      <image src='D:/test/image/98_legal_sign.png' style="width:104px; height:50px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C">'日期：'${signDate}</p>
+    </div>
+    <div style="width:49%; border:1px dashed #9FB3C8; padding:8px">
+      <p style="fontSize:9.5pt; bold:true; color:#1F4E79">'受托人（签字）'</p>
+      <p style="fontSize:9pt; color:#333333">${agent}'　'${agentPost}</p>
+      <image src='D:/test/image/98_agent_sign.png' style="width:112px; height:54px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C">'身份证号：'${agentId}</p>
+      <p style="fontSize:9pt; color:#5A6B7C">'日期：'${signDate}</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

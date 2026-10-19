@@ -1,0 +1,142 @@
+<pdf>
+<body>
+  <h1 style="fontSize:19pt; bold:true; color:#1F4E79; textAlignment:center; characterSpacing:5pt">'项 目 验 收 单'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:8px">'PROJECT ACCEPTANCE CERTIFICATE'</p>
+
+  <table style="width:100%; fontSize:9pt">
+    <tr>
+      <td style="width:70px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'项目名称'</td>
+      <td style="width:178px; padding:5px; border:1px solid #C3CDD8">${projectName}</td>
+      <td style="width:70px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'合同编号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${contractNo}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'验收时间'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${acceptanceDate}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:70px">'项目'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:178px">'甲方（建设单位）'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:178px">'乙方（承建单位）'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'单位名称'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyAName}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyBName}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'项目联系人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyAContact}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyBContact}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'联系电话'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyAPhone}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyBPhone}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'通讯地址'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyAAddress}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${partyBAddress}</td>
+    </tr>
+  </table>
+
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:12px; marginBottom:5px">'一、验收项清单'</h2>
+  <table style="width:100%; fontSize:8.5pt">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:36px">'编号'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:110px">'验收项'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:185px">'验收标准'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:70px">'验收结果'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:94px">'备注'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkName1}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkStd1}</td>
+      <td style="padding:5px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${chkResult1}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkRemark1}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkName2}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkStd2}</td>
+      <td style="padding:5px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${chkResult2}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkRemark2}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkName3}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkStd3}</td>
+      <td style="padding:5px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${chkResult3}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkRemark3}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkName4}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkStd4}</td>
+      <td style="padding:5px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${chkResult4}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkRemark4}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkName5}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkStd5}</td>
+      <td style="padding:5px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${chkResult5}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkRemark5}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkName6}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkStd6}</td>
+      <td style="padding:5px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${chkResult6}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkRemark6}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'7'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkName7}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkStd7}</td>
+      <td style="padding:5px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${chkResult7}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkRemark7}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #C3CDD8">'8'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkName8}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkStd8}</td>
+      <td style="padding:5px; textAlign:center; bold:true; color:#1B5E20; border:1px solid #C3CDD8">${chkResult8}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${chkRemark8}</td>
+    </tr>
+  </table>
+
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:12px; marginBottom:5px">'二、验收结论'</h2>
+  <div style="borderLeft:4px solid #2F5597; background:#F7F9FC; padding:8px 10px">
+    <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${conclusion1}</p>
+    <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${conclusion2}</p>
+    <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${conclusion3}</p>
+    <p style="fontSize:9.5pt; color:#333333; textIndent:19pt; marginBottom:4px">${conclusion4}</p>
+  </div>
+
+  <h2 style="fontSize:11pt; bold:true; color:#1F4E79; borderLeft:3px solid #1F4E79; paddingLeft:6px; marginTop:14px; marginBottom:5px">'三、双方确认'</h2>
+  <div style="display:flex; justifyContent:space-between">
+    <div style="width:230px; border:1px solid #C3CDD8; padding:8px">
+      <p style="fontSize:9pt; bold:true; color:#1F4E79">'甲方（建设单位）'</p>
+      <p style="fontSize:9pt; color:#333333; marginTop:2px">${partyAName}</p>
+      <image src='D:/test/image/73_sign_a.png' style="width:110px; height:54px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:4px">'授权代表（签字）：'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:6px">'日期：　　　　年　　月　　日'</p>
+    </div>
+    <div style="width:230px; border:1px solid #C3CDD8; padding:8px">
+      <p style="fontSize:9pt; bold:true; color:#1F4E79">'乙方（承建单位）'</p>
+      <p style="fontSize:9pt; color:#333333; marginTop:2px">${partyBName}</p>
+      <image src='D:/test/image/73_sign_b.png' style="width:110px; height:54px"></image>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:4px">'授权代表（签字）：'</p>
+      <p style="fontSize:9pt; color:#5A6B7C; marginTop:6px">'日期：　　　　年　　月　　日'</p>
+    </div>
+  </div>
+</body>
+</pdf>

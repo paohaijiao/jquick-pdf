@@ -1,0 +1,63 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 75 离职证明（单页公文：标题 + 声明正文 + 核验信息表 + 落款盖章）
+  // 版本：模板文件化版本（全部数据由 JQuickPdfFactory.bind 注入，无实体类）
+  // 版式要点：
+  //   1) 正文逐段占位，变量置于单引号外
+  //   2) 信息表 width:100% 铺满版心
+  //   3) 印章图片 src 为字面量路径（引擎不解析 src 变量）
+  // ==========================================================================
+
+  <h1 style="fontSize:20pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:8pt">'离 职 证 明'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:4px">${certNo}</p>
+  <lineSeparator style="strokeColor:#C3CDD8"></lineSeparator>
+
+  <!-- 声明正文 -->
+  <p style="fontSize:11pt; color:#333333; textIndent:22pt; marginTop:14px; lineHeight:1.9">${line1}</p>
+  <p style="fontSize:11pt; color:#333333; textIndent:22pt; marginBottom:4px">${line2}</p>
+  <p style="fontSize:11pt; color:#333333; textIndent:22pt; marginBottom:4px">${line3}</p>
+
+  <!-- 核验信息表 -->
+  <table style="width:100%; fontSize:10pt; marginTop:12px; marginBottom:12px">
+    <tr>
+      <td style="width:26%; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'员工姓名'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${employeeName}</td>
+      <td style="width:26%; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'身份证号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${idCard}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'入职日期'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${entryDate}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'离职日期'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${leaveDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'离职前岗位'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${position}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'解除方式'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${terminateReason}</td>
+    </tr>
+  </table>
+
+  <!-- 解除说明 -->
+  <p style="fontSize:11pt; color:#333333; textIndent:22pt; marginBottom:5px">${line4}</p>
+  <p style="fontSize:11pt; color:#333333; textIndent:22pt; marginBottom:5px">'工资、经济补偿已结清，双方不存在任何劳动争议及未了结的债权债务。'</p>
+  <p style="fontSize:11pt; color:#333333; textIndent:22pt; marginBottom:5px">'该员工在职期间工作表现良好，已按公司规定完成工作交接与财物归还。'</p>
+  <p style="fontSize:11pt; color:#333333; textIndent:22pt; marginTop:10px; marginBottom:5px">'特此证明。'</p>
+
+  <!-- 落款 + 公章 -->
+  <div style="display:flex; justifyContent:space-between; marginTop:26px">
+    <div style="width:44%">
+      <p style="fontSize:9pt; color:#8a939b">'本证明仅用于入职背景核验，'</p>
+      <p style="fontSize:9pt; color:#8a939b">'涂改无效，复印无效。'</p>
+    </div>
+    <div style="width:48%; paddingLeft:330px">
+      <image src='D:/test/image/75_seal.png' style="width:100px; height:100px"></image>
+      <p style="fontSize:10.5pt; bold:true; color:#1A2733; textAlignment:center">${companyName}</p>
+      <p style="fontSize:10.5pt; color:#333333; textAlignment:center; marginTop:2px">${issueDate}</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

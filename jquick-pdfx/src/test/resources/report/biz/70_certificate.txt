@@ -1,0 +1,40 @@
+<pdf>
+<body>
+  <div style="border:3px solid #8C6D3F; padding:10px">
+  <div style="border:1px solid #C9A961; padding:20px">
+
+    <div style="display:flex; justifyContent:space-between">
+      <div style="width:120px">
+        <image src='D:/test/image/70_logo.png' style="width:56px; height:56px"></image>
+      </div>
+      <div style="width:520px; textAlignment:right">
+        <p style="fontSize:12pt; bold:true; color:#8C6D3F; characterSpacing:2pt">${issuer}</p>
+        <p style="fontSize:9pt; color:#5A6B7C">'证书编号：'${certNo}</p>
+      </div>
+    </div>
+
+    <h1 style="fontSize:40pt; bold:true; color:#8C6D3F; textAlignment:center; characterSpacing:14pt; marginTop:18px">'结 业 证 书'</h1>
+    <p style="fontSize:11pt; color:#A08A6A; textAlignment:center; characterSpacing:4pt">'CERTIFICATE OF COMPLETION'</p>
+    <lineSeparator style="strokeColor:#C9A961; marginTop:8px"></lineSeparator>
+
+    <p style="fontSize:12pt; color:#333333; textAlignment:center; marginTop:26px">'兹证明'</p>
+    <p style="fontSize:22pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:3pt; marginTop:6px">${studentName}</p>
+    <p style="fontSize:9pt; color:#7A7A7A; textAlignment:center">'身份证号：'${idCard}</p>
+    <p style="fontSize:12pt; color:#333333; textAlignment:center; marginTop:14px">'于 '${graduateDate}' 完成「'${courseName}'」全部课程，'</p>
+    <p style="fontSize:12pt; color:#333333; textAlignment:center">'培训时长 '${duration}'，经考核成绩合格，准予结业。'</p>
+    <p style="fontSize:12pt; color:#333333; textAlignment:center; marginTop:6px">'特发此证。'</p>
+
+    <div style="display:flex; justifyContent:space-between; marginTop:34px">
+      <div style="width:260px">
+        <p style="fontSize:10pt; color:#5A6B7C">'结业日期：'${graduateDate}</p>
+      </div>
+      <div style="width:230px; textAlignment:center">
+        <image src='D:/test/image/70_seal.png' style="width:110px; height:110px"></image>
+        <p style="fontSize:10pt; bold:true; color:#8C6D3F; textAlignment:center; marginTop:2px">${issuer}'（盖章）'</p>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</body>
+</pdf>

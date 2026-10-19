@@ -1,0 +1,80 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 86 投标函（模板文件化版本，两页：投标函正文 / 法人身份与授权 + 签章区）
+  // 承诺条款逐条 bind：commitment1~5
+  // ==========================================================================
+
+  <!-- 第 1 页：投标函 -->
+  <h1 style="fontSize:19pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:8pt">'投 标 函'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:12px">'招标编号：'${tenderNo}</p>
+
+  <p style="fontSize:11pt; bold:true; color:#1A2733; marginBottom:6px">'致：'${tenderer}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'1. 我方已详细审阅「'${projectName}'」招标文件的全部内容，包括澄清、修改文件，我方完全理解并接受招标文件的各项条款。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'2. 我方愿意按照招标文件的要求，承担本项目的全部工作，投标报价如下表。'</p>
+
+  <table style="width:100%; fontSize:10pt; marginTop:4px; marginBottom:6px">
+    <tr>
+      <td style="width:110px; padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'投标报价'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8; bold:true; color:#B71C1C">'人民币 ￥'${bidAmount}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'大写金额'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${bidAmountWords}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'计划工期'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${duration}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'投标有效期'</td>
+      <td style="padding:6px; border:1px solid #C3CDD8">${validPeriod}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginBottom:5px">'3. 我方承诺：'</p>
+  <list style="fontSize:10.5pt; color:#333333; listStyleType:decimal; marginLeft:20px">
+    <li>${commitment1}</li>
+    <li>${commitment2}</li>
+    <li>${commitment3}</li>
+    <li>${commitment4}</li>
+    <li>${commitment5}</li>
+  </list>
+
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:6px">'投标人（盖章）：'${bidder}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:4px">'法定代表人或授权代表（签字）：'${legalPerson}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:4px">${bidDate}</p>
+
+  <!-- 第 2 页：法人身份与授权 -->
+  <areaBreak></areaBreak>
+  <h1 style="fontSize:17pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:6pt">'法定代表人身份证明'</h1>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:12px">'投标人名称：'${bidder}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt">'法定代表人姓名：'${legalPerson}'　　身份证号：'${legalIdNo}</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:6px">'兹证明上述人员系我单位法定代表人，特此证明。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textAlignment:right; marginTop:16px">'投标人（盖章）：'${bidder}</p>
+  <p style="fontSize:10.5pt; color:#333333; textAlignment:right; marginTop:4px">${bidDate}</p>
+
+  <h1 style="fontSize:17pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:6pt; marginTop:20px">'授 权 委 托 书'</h1>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:12px">'本人 '${legalPerson}' 系 '${bidder}' 的法定代表人，现委托 '${authorizedAgent}' 为我方代理人，代表我方参加「'${projectName}'」的投标活动。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt">'代理人权限：签署投标文件、参加开标、澄清答疑、签订合同及相关事宜，其法律后果由我方承担。'</p>
+  <p style="fontSize:10.5pt; color:#333333; textIndent:21pt; marginTop:6px">'委托期限：自本委托书签署之日起至本项目招标活动结束止。'</p>
+
+  <!-- 签章双占位区 -->
+  <div style="marginTop:24px">
+    <p style="fontSize:9pt; color:#8a939b; textAlignment:center">'— 以下为签章区，请打印后加盖公章并由法定代表人签字 —'</p>
+  </div>
+  <div style="display:flex; justifyContent:space-between; marginTop:8px">
+    <div style="width:210px; border:1px dashed #9FB3C8; padding:8px; textAlignment:center">
+      <p style="fontSize:9pt; color:#5A6B7C">'投标人公章（占位）'</p>
+      <image src='D:/test/image/86_seal.png' style="width:96px; height:96px"></image>
+      <p style="fontSize:8.5pt; color:#8a939b">${bidder}</p>
+    </div>
+    <div style="width:210px; border:1px dashed #9FB3C8; padding:8px; textAlignment:center">
+      <p style="fontSize:9pt; color:#5A6B7C">'法定代表人签字（占位）'</p>
+      <image src='D:/test/image/86_sign.png' style="width:110px; height:54px"></image>
+      <p style="fontSize:8.5pt; color:#8a939b">${bidDate}</p>
+    </div>
+  </div>
+
+</body>
+</pdf>

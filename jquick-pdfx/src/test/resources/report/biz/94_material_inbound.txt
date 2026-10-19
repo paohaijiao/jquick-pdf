@@ -1,0 +1,310 @@
+<pdf>
+<body>
+  // ==========================================================================
+  // 94 物资入库单（模板文件化版本，明细长表跨页重复表头，合计行逐列占位）
+  // 明细行由 Java 逐行 bind：iCode1~20 / iName1~20 / iSpec1~20 / iUnit1~20
+  //                            / iQty1~20 / iPrice1~20 / iAmount1~20
+  // ==========================================================================
+
+  <h1 style="fontSize:19pt; bold:true; color:#1A2733; textAlignment:center; characterSpacing:6pt">'物 资 入 库 单'</h1>
+  <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center; marginBottom:8px">'INBOUND RECEIPT　'${orderNo}</p>
+
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:72px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'入库单号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${orderNo}</td>
+      <td style="width:72px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'入库日期'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${inboundDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'供应商'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${supplier}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'入库仓库'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${warehouse}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'采购单号'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${purchaseNo}</td>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'经办人'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${operator}'　　'${keeper}</td>
+    </tr>
+  </table>
+
+  <!-- 明细表：第 1 页（1~18 项） -->
+  <table style="width:100%; fontSize:8pt">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:5%">'序'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:13%">'物资编码'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:22%">'物资名称'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:19%">'规格型号'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:7%">'单位'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:9%">'数量'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:12%">'单价'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'金额'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'1'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode1}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName1}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec1}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice1}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount1}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'2'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode2}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName2}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec2}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice2}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount2}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'3'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode3}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName3}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec3}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice3}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount3}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'4'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode4}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName4}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec4}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice4}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount4}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'5'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode5}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName5}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec5}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice5}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount5}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'6'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode6}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName6}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec6}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice6}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount6}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'7'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode7}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName7}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec7}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice7}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount7}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'8'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode8}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName8}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec8}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice8}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount8}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'9'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode9}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName9}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec9}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit9}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty9}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice9}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount9}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'10'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode10}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName10}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec10}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit10}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty10}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice10}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount10}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'11'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode11}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName11}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec11}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit11}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty11}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice11}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount11}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'12'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode12}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName12}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec12}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit12}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty12}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice12}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount12}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'13'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode13}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName13}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec13}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit13}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty13}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice13}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount13}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'14'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode14}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName14}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec14}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit14}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty14}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice14}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount14}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'15'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode15}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName15}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec15}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit15}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty15}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice15}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount15}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'16'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode16}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName16}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec16}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit16}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty16}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice16}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount16}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'17'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode17}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName17}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec17}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit17}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty17}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice17}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount17}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'18'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode18}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName18}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec18}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit18}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty18}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice18}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount18}</td>
+    </tr>
+  </table>
+
+  <areaBreak></areaBreak>
+
+  <!-- 明细表：第 2 页（续表 19~20 + 合计行，逐列占位不用 colspan） -->
+  <p style="fontSize:8.5pt; color:#5A6B7C; marginBottom:4px">${orderNo}'　（续表）'</p>
+  <table style="width:100%; fontSize:8pt">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:5%">'序'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:13%">'物资编码'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:22%">'物资名称'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:19%">'规格型号'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:7%">'单位'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:9%">'数量'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79; width:12%">'单价'</th>
+      <th style="padding:5px; backgroundColor:#1F4E79; color:white; textAlign:center; border:1px solid #1F4E79">'金额'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'19'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode19}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName19}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec19}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit19}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty19}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice19}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount19}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">'20'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iCode20}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iName20}</td>
+      <td style="padding:4px; border:1px solid #C3CDD8">${iSpec20}</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C3CDD8">${iUnit20}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iQty20}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iPrice20}</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C3CDD8">${iAmount20}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8; bold:true">'合计'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true">${totalQty}</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">'—'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #C3CDD8; bold:true; color:#B71C1C">${totalAmount}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:76px; padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'金额大写'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8; bold:true; color:#B71C1C">${amountWords}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#E8EDF2; bold:true; border:1px solid #C3CDD8">'验收结论'</td>
+      <td style="padding:5px; border:1px solid #C3CDD8">${acceptResult}</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:space-between; marginTop:12px">
+    <div style="width:150px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'送货人：'${supplier}</p>
+      <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:14px">'（签字）'</p>
+    </div>
+    <div style="width:150px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'验收人：'${operator}</p>
+      <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:14px">'（签字）'</p>
+    </div>
+    <div style="width:150px; borderTop:1px solid #5A6B7C; paddingTop:4px">
+      <p style="fontSize:9pt; color:#5A6B7C; textAlignment:center">'保管员：'${keeper}</p>
+      <p style="fontSize:8pt; color:#8a939b; textAlignment:center; marginTop:14px">'（签字）'</p>
+    </div>
+  </div>
+
+  <div style="display:flex; justifyContent:flex-end; marginTop:6px">
+    <div style="width:170px; textAlignment:center">
+      <image src='D:/test/image/94_seal.png' style="width:92px; height:92px"></image>
+      <p style="fontSize:8pt; color:#5A6B7C">${warehouse}' 入库专用章'</p>
+    </div>
+  </div>
+
+  <p style="fontSize:7.5pt; color:#8a939b; marginTop:4px">'说明：本单一式三联，第一联仓库留存，第二联财务记账，第三联供应商回执。'</p>
+
+</body>
+</pdf>
