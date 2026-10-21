@@ -4,10 +4,10 @@
     <parent>
         <groupId>io.github.paohaijiao</groupId>
         <artifactId>javelin</artifactId>
-        <version>2.7.0</version>
+        <version>2.8.0</version>
     </parent>
     <artifactId>jquick-pdf</artifactId>
-    <version>4.2.0</version>
+    <version>4.3.0</version>
     <packaging>pom</packaging>
     <modules>
         <module>jquick-pdf-svg</module>
@@ -38,7 +38,7 @@
             <dependency>
                 <groupId>io.github.paohaijiao</groupId>
                 <artifactId>jquick-banner</artifactId>
-                <version>1.4.0</version>
+                <version>1.5.0</version>
             </dependency>
             <dependency>
                 <groupId>io.github.paohaijiao</groupId>
