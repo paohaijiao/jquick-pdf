@@ -65,17 +65,21 @@ public class JQuickTextElementRender implements JQuickElementRender {
         float textSize = model.getFontSize();
         float lineHeight = textSize > 0f ? textSize * 1.5f : (context.getLineHeight() > 0 ? context.getLineHeight() : 18f);
         float availableWidth = model.getWidth() > 0 ? model.getWidth() : context.getWidth();
-        PDFont effectiveFont = PdfBoxRenderAdapter.resolveFont(model, font == null ? context.getFont() : font);
+        // 解析 fontFamilyNames 回退链：绘制与测量均按链内逐字符命中字体执行，
+        // 支持同一元素内多语言混排（如 Noto Sans Arabic 段落里的英文、中文）。
+        java.util.List<PDFont> fontChain = PdfBoxRenderAdapter.resolveFontChain(model,
+                font == null ? context.getFont() : font, context.getDocument());
+        PDFont effectiveFont = fontChain.get(0);
         float ascent = PdfBoxRenderAdapter.ascent(effectiveFont, textSize);
         float nextLineX = inline && context.getLineStartX() > 0f ? context.getLineStartX() : drawX;
         float lineX = drawX;
         float lastLineWidth = 0f;
         for (String rawLine : text.split("\\n", -1)) {
-            for (String line : PdfBoxRenderAdapter.wrapText(effectiveFont, rawLine, model.getFontSize(),
+            for (String line : PdfBoxRenderAdapter.wrapText(fontChain, rawLine, model.getFontSize(),
                     availableWidth, model.getCharacterSpacing(), model.getWordSpacing())) {
                 if (!line.isEmpty()) {
-                    PdfBoxRenderAdapter.drawText(stream, model, effectiveFont, line, lineX, lineTop - ascent, availableWidth);
-                    lastLineWidth = PdfBoxRenderAdapter.textWidth(effectiveFont, line, model.getFontSize(),
+                    PdfBoxRenderAdapter.drawText(stream, model, fontChain, line, lineX, lineTop - ascent, availableWidth);
+                    lastLineWidth = PdfBoxRenderAdapter.textWidth(fontChain, line, model.getFontSize(),
                             model.getCharacterSpacing(), model.getWordSpacing());
                 } else {
                     lastLineWidth = 0f;

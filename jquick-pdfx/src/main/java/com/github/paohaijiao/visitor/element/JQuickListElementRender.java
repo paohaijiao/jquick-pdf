@@ -6,6 +6,7 @@ import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
 import com.github.paohaijiao.visitor.render.PdfBoxStyleModel;
 import com.github.paohaijiao.visitor.render.PdfBoxUnitConverter;
 import lombok.Data;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
@@ -121,14 +122,14 @@ public class JQuickListElementRender implements JQuickElementRender {
             for (List<Run> line : lines) {
                 float x = textX;
                 for (Run run : line) {
-                    x += drawRun(stream, baseFont, run, x, baseline, fontSize);
+                    x += drawRun(stream, baseFont, run, x, baseline, fontSize, context.getDocument());
                 }
                 baseline -= lineHeight;
             }
             if (markerVisible) {
                 String marker = ordered ? (i + 1) + "." : "•";
                 drawRun(stream, baseFont, new Run(marker, item.getStyle()), cursorX,
-                        boxTop - model.getPaddingTop() - fontSize, fontSize);
+                        boxTop - model.getPaddingTop() - fontSize, fontSize, context.getDocument());
             }
             y = boxTop - boxHeight - marginBottom;
         }
@@ -181,14 +182,14 @@ public class JQuickListElementRender implements JQuickElementRender {
 
     /** 绘制单个行内片段，返回其占用的宽度。 */
     private float drawRun(PDPageContentStream stream, PDFont baseFont, Run run, float x, float baseline,
-                          float itemFontSize) throws IOException {
+                          float itemFontSize, PDDocument document) throws IOException {
         if (run.getText() == null || run.getText().isEmpty()) {
             return 0f;
         }
         PdfBoxStyleModel model = PdfBoxStyleModel.from(run.getStyle());
         model.setFontSize(resolveFontSize(run.getStyle(), itemFontSize));
         model.setTextAlignment("left");
-        PDFont font = PdfBoxRenderAdapter.resolveFont(model, baseFont);
+        PDFont font = PdfBoxRenderAdapter.resolveFont(model, baseFont, document);
         PdfBoxRenderAdapter.drawText(stream, model, font, run.getText(), x, baseline, 0f);
         return PdfBoxRenderAdapter.textWidth(font, run.getText(), model.getFontSize(),
                 model.getCharacterSpacing(), model.getWordSpacing());

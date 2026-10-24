@@ -31,8 +31,7 @@ public class JResourceFontProvider implements JFontProvider {
             while ((length = input.read(buffer)) != -1) {
                 output.write(buffer, 0, length);
             }
-            return PDType0Font.load(document,
-                    new ByteArrayInputStream(output.toByteArray()));
+            return PDType0Font.load(document, new ByteArrayInputStream(output.toByteArray()));
         }
     }
 }

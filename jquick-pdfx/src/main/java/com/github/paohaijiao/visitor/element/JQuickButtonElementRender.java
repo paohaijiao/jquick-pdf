@@ -6,6 +6,7 @@ import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.util.JStringUtils;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import lombok.Data;
+import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
@@ -57,7 +58,7 @@ public class JQuickButtonElementRender implements JQuickElementRender {
             // 文本走共享适配器：字体取自上下文（CJK 字体，支持中文），
             // 颜色按 fontColor → color 解析，并过滤字体缺失的字符避免整页渲染中断。
             PdfBoxStyleModel model = PdfBoxStyleModel.from(style);
-            PDFont font = PdfBoxRenderAdapter.resolveFont(model, context.getFont());
+            PDFont font = PdfBoxRenderAdapter.resolveFont(model, context.getFont(), context.getDocument());
             float textWidth = PdfBoxRenderAdapter.textWidth(font, content, model.getFontSize(),
                     model.getCharacterSpacing(), model.getWordSpacing());
             float textX = x + Math.max(paddingX, (width - textWidth) / 2f);

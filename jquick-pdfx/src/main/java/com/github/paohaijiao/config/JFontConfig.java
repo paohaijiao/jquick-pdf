@@ -29,4 +29,15 @@ public class JFontConfig {
      * fonts from font files and does not use iText CJK encoding values.
      */
     private String defaultEncoding = "UniGB-UCS2-H";
+
+    /**
+     * 注册自定义字体家族：模板中 fontFamilyNames 回退链里的自定义家族名
+     * （如 Noto Sans Arabic）按名字命中这里注册的字体文件，缺字时向后回退。
+     *
+     * @param familyName 模板中声明的家族名，大小写不敏感
+     * @param file       字体文件路径（磁盘路径或 classpath 资源路径）
+     */
+    public void registerFont(String familyName, String file) {
+        com.github.paohaijiao.font.JFontRegistry.register(familyName, file);
+    }
 }

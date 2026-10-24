@@ -6,6 +6,7 @@ import com.github.paohaijiao.model.table.JRowModel;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
 import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
+import com.github.paohaijiao.visitor.render.PdfBoxStyleModel;
 import com.github.paohaijiao.visitor.render.PdfBoxUnitConverter;
 import lombok.Data;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -67,6 +68,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
                 continue;
             }
             List<List<String>> wrappedLines = new ArrayList<>();
+            List<List<PDFont>> cellChains = new ArrayList<>();
             float rowTextHeight = 0f;
             for (int columnIndex = 0; columnIndex < columns.size(); columnIndex++) {
                 JColumnModel column = columns.get(columnIndex);
@@ -74,8 +76,13 @@ public class JQuickTableElementRender implements JQuickElementRender {
                 float padding = resolvePadding(column.getStyle());
                 float cellFontSize = resolveFontSize(column.getStyle(), tableFontSize);
                 float contentWidth = Math.max(1f, columnWidth - padding * 2f);
-                List<String> lines = wrapText(font, PdfBoxRenderAdapter.sanitizeFontText(font, mergeText(column.getObject())),
-                        cellFontSize, contentWidth);
+                // 单元格按自身 fontFamilyNames 回退链解析字体：表头中文、正文阿拉伯文
+                // 各自命中正确字体，而不是统一使用表格级默认字体。
+                List<PDFont> cellChain = PdfBoxRenderAdapter.resolveFontChain(
+                        PdfBoxStyleModel.from(column.getStyle()), font, context.getDocument());
+                cellChains.add(cellChain);
+                List<String> lines = PdfBoxRenderAdapter.wrapText(cellChain, mergeText(column.getObject()),
+                        cellFontSize, contentWidth, 0f, 0f);
                 wrappedLines.add(lines);
                 rowTextHeight = Math.max(rowTextHeight, lines.size() * lineHeight(cellFontSize) + padding * 2f);
             }
@@ -98,7 +105,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
                 boolean header = "th".equalsIgnoreCase(column.getType());
                 boolean striped = !header && rowIndex % 2 == 1;
                 drawCell(stream, column.getStyle(), cellX, cellY, columnWidth, currentRowHeight, header, striped);
-                drawCellText(stream, font, column, cellX, cellY, columnWidth, currentRowHeight,
+                drawCellText(stream, cellChains.get(columnIndex), column, cellX, cellY, columnWidth, currentRowHeight,
                         wrappedLines.get(columnIndex), tableFontSize);
                 cellX += columnWidth;
             }
@@ -142,9 +149,9 @@ public class JQuickTableElementRender implements JQuickElementRender {
         }
     }
 
-    private void drawCellText(PDPageContentStream stream, PDFont font, JColumnModel column, float x, float y,
+    private void drawCellText(PDPageContentStream stream, List<PDFont> cellChain, JColumnModel column, float x, float y,
                               float width, float height, List<String> lines, float tableFontSize) throws IOException {
-        if (lines == null || lines.isEmpty()) {
+        if (lines == null || lines.isEmpty() || cellChain == null || cellChain.isEmpty()) {
             return;
         }
         JStyleAttributes cellStyle = column.getStyle();
@@ -152,7 +159,6 @@ public class JQuickTableElementRender implements JQuickElementRender {
         float padding = resolvePadding(cellStyle);
         float lineHeight = lineHeight(fontSize);
         float contentWidth = Math.max(0f, width - padding * 2f);
-        String alignment = resolveTextAlign(cellStyle);
         boolean header = "th".equalsIgnoreCase(column.getType());
         String colorValue = cellStyle == null ? null
                 : (cellStyle.get("color") != null ? cellStyle.get("color") : cellStyle.get("fontColor"));
@@ -160,28 +166,28 @@ public class JQuickTableElementRender implements JQuickElementRender {
                 ? PdfBoxRenderAdapter.color("WHITE")
                 : PdfBoxRenderAdapter.color("#333333");
         PDColor color = PdfBoxRenderAdapter.color(colorValue, defaultColor);
+        PdfBoxStyleModel cellModel = PdfBoxStyleModel.from(cellStyle);
+        cellModel.setFontSize(fontSize);
+        // 单元格未声明颜色时沿用表格默认色；drawText 按 textAlignment/baseDirection
+        // 自行完成对齐与 RTL 连写重排，并按回退链逐字符选字绘制。
+        cellModel.setFontColor(color == null ? null : toColorValue(colorValue, header));
         float baseline = y + height - padding - fontSize;
         for (int i = 0; i < lines.size(); i++) {
             String line = lines.get(i);
             if (line.isEmpty()) {
                 continue;
             }
-            float lineWidth = textWidth(font, line, fontSize);
-            float drawX = x + padding;
-            if ("center".equalsIgnoreCase(alignment)) {
-                drawX += Math.max(0f, (contentWidth - lineWidth) / 2f);
-            } else if ("right".equalsIgnoreCase(alignment)) {
-                drawX += Math.max(0f, contentWidth - lineWidth);
-            }
-            stream.beginText();
-            stream.setFont(font, fontSize);
-            if (color != null) {
-                stream.setNonStrokingColor(color);
-            }
-            stream.setTextMatrix(Matrix.getTranslateInstance(drawX, baseline - i * lineHeight));
-            stream.showText(line);
-            stream.endText();
+            PdfBoxRenderAdapter.drawText(stream, cellModel, cellChain, line,
+                    x + padding, baseline - i * lineHeight, contentWidth);
         }
+    }
+
+    /** 单元格文本颜色值：优先使用声明值，缺省时表头白色、正文深灰。 */
+    private String toColorValue(String declared, boolean header) {
+        if (declared != null && !declared.trim().isEmpty()) {
+            return declared.trim();
+        }
+        return header ? "WHITE" : "#333333";
     }
 
     /**

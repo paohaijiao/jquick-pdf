@@ -1,6 +1,8 @@
 package com.github.paohaijiao.visitor.render;
 
 import com.github.paohaijiao.enums.JFontEnum;
+import com.github.paohaijiao.font.JFontRegistry;
+import com.github.paohaijiao.font.JFontSpec;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -16,10 +18,18 @@ import org.apache.pdfbox.util.Matrix;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
+import java.util.WeakHashMap;
 
 /** PDFBox drawing adapter for the public jquick-pdf style contract. */
 public final class PdfBoxRenderAdapter {
+
+    /** 按文档缓存的已解析自定义字体，避免同一段落/单元格重复加载字体文件。 */
+    private static final Map<PDDocument, Map<String, PDFont>> DOCUMENT_FONTS =
+            Collections.synchronizedMap(new WeakHashMap<PDDocument, Map<String, PDFont>>());
 
     private PdfBoxRenderAdapter() {
     }
@@ -60,16 +70,35 @@ public final class PdfBoxRenderAdapter {
 
     public static void drawText(PDPageContentStream stream, PdfBoxStyleModel style, PDFont fallbackFont,
                                 String text, float x, float baseline, float availableWidth) throws IOException {
-        if (text == null || text.isEmpty()) {
+        drawText(stream, style, java.util.Collections.singletonList(fallbackFont), text, x, baseline, availableWidth);
+    }
+
+    /**
+     * 回退链绘制：先做 RTL 连写与视觉重排（声明 {@code baseDirection:rtl} 时），
+     * 再按「逐字符第一个能编码它的字体」把文本切成若干段，各段用各自的字体顺序绘制。
+     * 同一元素内可以混排任意语言（如 Noto Sans Arabic 段落里的英文、中文），
+     * 不再因单一字体缺字形而输出 '?' 或空格。
+     */
+    public static void drawText(PDPageContentStream stream, PdfBoxStyleModel style, java.util.List<PDFont> chain,
+                                String text, float x, float baseline, float availableWidth) throws IOException {
+        if (text == null || text.isEmpty() || chain == null || chain.isEmpty()) {
             return;
         }
-        PDFont font = resolveFont(style, fallbackFont);
-        String safeText = sanitizeFontText(font, text);
+        String safeText = sanitizeFontText(chain, text);
         if (safeText.isEmpty()) {
             return;
         }
+        if ("rtl".equalsIgnoreCase(style.getBaseDirection())) {
+            safeText = JArabicShaping.reorderRtl(JArabicShaping.shape(safeText));
+        }
         float fontSize = style.getFontSize();
-        float textWidth = measure(font, safeText, fontSize, style.getCharacterSpacing(), style.getWordSpacing());
+        float characterSpacing = style.getCharacterSpacing();
+        float wordSpacing = style.getWordSpacing();
+        java.util.List<TextRun> runs = segment(chain, safeText);
+        float textWidth = 0f;
+        for (TextRun run : runs) {
+            textWidth += measure(run.font, run.text, fontSize, characterSpacing, wordSpacing);
+        }
         float drawX = x + style.getRelativeLeft() - style.getRelativeRight();
         if ("center".equalsIgnoreCase(style.getTextAlignment())) {
             drawX += Math.max(0f, (availableWidth - textWidth) / 2f);
@@ -78,23 +107,28 @@ public final class PdfBoxRenderAdapter {
         }
         stream.saveGraphicsState();
         applyOpacity(stream, style.getOpacity());
-        stream.beginText();
-        stream.setFont(font, fontSize);
         stream.setNonStrokingColor(color(style.getFontColor(), black()));
-        stream.setCharacterSpacing(style.getCharacterSpacing());
-        stream.setWordSpacing(style.getWordSpacing());
         stream.setRenderingMode(renderingMode(style.getTextRenderingMode()));
         if (style.getStrokeColor() != null) {
             stream.setStrokingColor(color(style.getStrokeColor(), black()));
             stream.setLineWidth(style.getStrokeWidth());
         }
-        if (style.getAngleInRadians() != 0f) {
-            stream.setTextMatrix(Matrix.getRotateInstance(style.getAngleInRadians(), drawX, baseline));
-        } else {
-            stream.setTextMatrix(Matrix.getTranslateInstance(drawX, baseline));
+        float cursor = drawX;
+        for (TextRun run : runs) {
+            float runWidth = measure(run.font, run.text, fontSize, characterSpacing, wordSpacing);
+            stream.beginText();
+            stream.setFont(run.font, fontSize);
+            stream.setCharacterSpacing(characterSpacing);
+            stream.setWordSpacing(wordSpacing);
+            if (style.getAngleInRadians() != 0f) {
+                stream.setTextMatrix(Matrix.getRotateInstance(style.getAngleInRadians(), cursor, baseline));
+            } else {
+                stream.setTextMatrix(Matrix.getTranslateInstance(cursor, baseline));
+            }
+            stream.showText(run.text);
+            stream.endText();
+            cursor += runWidth;
         }
-        stream.showText(safeText);
-        stream.endText();
         if (style.isUnderline() || style.isLineThrough()) {
             stream.setStrokingColor(color(style.getFontColor(), black()));
             stream.setLineWidth(Math.max(0.5f, fontSize / 18f));
@@ -104,11 +138,80 @@ public final class PdfBoxRenderAdapter {
         stream.restoreGraphicsState();
     }
 
+    /** 同字体连续文本段：每段在绘制时切换到自己的字体。 */
+    private static final class TextRun {
+        private final PDFont font;
+        private final String text;
+
+        private TextRun(PDFont font, String text) {
+            this.font = font;
+            this.text = text;
+        }
+    }
+
+    /** 逐字符挑第一个能编码它的字体，把文本切成连续同字体的段。 */
+    private static java.util.List<TextRun> segment(java.util.List<PDFont> chain, String text) {
+        java.util.List<TextRun> runs = new java.util.ArrayList<TextRun>();
+        PDFont currentFont = null;
+        StringBuilder current = new StringBuilder();
+        int index = 0;
+        while (index < text.length()) {
+            int codePoint = text.codePointAt(index);
+            int charCount = Character.charCount(codePoint);
+            String piece = text.substring(index, index + charCount);
+            PDFont font = fontFor(chain, piece);
+            if (font != currentFont) {
+                if (current.length() > 0) {
+                    runs.add(new TextRun(currentFont, current.toString()));
+                    current.setLength(0);
+                }
+                currentFont = font;
+            }
+            current.append(piece);
+            index += charCount;
+        }
+        if (current.length() > 0) {
+            runs.add(new TextRun(currentFont, current.toString()));
+        }
+        return runs;
+    }
+
+    /** 回退链中第一个能编码该文本的字体；全部缺失时返回链首（字符已被清洗替换）。 */
+    private static PDFont fontFor(java.util.List<PDFont> chain, String text) {
+        for (PDFont font : chain) {
+            if (encodable(font, text)) {
+                return font;
+            }
+        }
+        return chain.get(0);
+    }
+
     public static float textWidth(PDFont font, String text, float fontSize, float characterSpacing, float wordSpacing) throws IOException {
-        if (font == null || text == null || text.isEmpty()) {
+        java.util.List<PDFont> chain = font == null
+                ? new java.util.ArrayList<PDFont>()
+                : java.util.Collections.singletonList(font);
+        return textWidth(chain, text, fontSize, characterSpacing, wordSpacing);
+    }
+
+    /** 回退链宽度：逐字符用各自命中的字体测量，混排文本不再因主字体缺字形而估宽失真。 */
+    public static float textWidth(java.util.List<PDFont> chain, String text, float fontSize,
+                                  float characterSpacing, float wordSpacing) {
+        if (chain == null || chain.isEmpty() || text == null || text.isEmpty()) {
             return 0f;
         }
-        return measure(font, sanitizeFontText(font, text), fontSize, characterSpacing, wordSpacing);
+        String safe = sanitizeFontText(chain, text);
+        float total = 0f;
+        int index = 0;
+        while (index < safe.length()) {
+            int codePoint = safe.codePointAt(index);
+            int charCount = Character.charCount(codePoint);
+            String piece = safe.substring(index, index + charCount);
+            total += width(fontFor(chain, piece), piece, fontSize, 0f, 0f);
+            index += charCount;
+        }
+        int spaces = 0;
+        for (int i = 0; i < safe.length(); i++) if (safe.charAt(i) == ' ') spaces++;
+        return total + Math.max(0, safe.length() - 1) * characterSpacing + spaces * wordSpacing;
     }
 
     /**
@@ -138,7 +241,19 @@ public final class PdfBoxRenderAdapter {
      * 例如内置 SimHei 子集缺少 © (U+00A9) 等符号，替换为 (C) 比输出 '?' 更接近原文。
      */
     public static String sanitizeFontText(PDFont font, String text) {
-        if (font == null || text == null || text.isEmpty()) {
+        java.util.List<PDFont> chain = font == null
+                ? new java.util.ArrayList<PDFont>()
+                : java.util.Collections.singletonList(font);
+        return sanitizeFontText(chain, text);
+    }
+
+    /**
+     * 过滤回退链内所有字体都无法编码的码点：任一字体能编码的字符全部保留，
+     * 无法编码的替换为等价可显示写法（? -> 空格 -> 丢弃逐级降级），
+     * 避免 {@code showText}/{@code getStringWidth} 抛异常导致渲染中断。
+     */
+    public static String sanitizeFontText(java.util.List<PDFont> chain, String text) {
+        if (chain == null || chain.isEmpty() || text == null || text.isEmpty()) {
             return text;
         }
         StringBuilder builder = null;
@@ -146,27 +261,44 @@ public final class PdfBoxRenderAdapter {
         while (index < text.length()) {
             int codePoint = text.codePointAt(index);
             int charCount = Character.charCount(codePoint);
-            boolean supported;
-            try {
-                font.getStringWidth(text.substring(index, index + charCount));
-                supported = true;
-            } catch (Exception e) {
-                supported = false;
-            }
-            if (supported) {
-                if (builder != null) {
-                    builder.append(text, index, index + charCount);
-                }
-            } else {
+            String piece = text.substring(index, index + charCount);
+            if (!encodableInChain(chain, piece)) {
                 if (builder == null) {
                     builder = new StringBuilder(text.length());
                     builder.append(text, 0, index);
                 }
-                builder.append(symbolFallback(codePoint));
+                String replacement = symbolFallback(codePoint);
+                if (!encodableInChain(chain, replacement)) {
+                    replacement = " ";
+                    if (!encodableInChain(chain, replacement)) {
+                        replacement = "";
+                    }
+                }
+                builder.append(replacement);
+            } else if (builder != null) {
+                builder.append(piece);
             }
             index += charCount;
         }
         return builder == null ? text : builder.toString();
+    }
+
+    private static boolean encodableInChain(java.util.List<PDFont> chain, String text) {
+        for (PDFont font : chain) {
+            if (encodable(font, text)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean encodable(PDFont font, String text) {
+        try {
+            font.getStringWidth(text);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     /** 字体缺失符号时的等价写法，避免直接输出 '?'。 */
@@ -206,26 +338,39 @@ public final class PdfBoxRenderAdapter {
      */
     public static java.util.List<String> wrapText(PDFont font, String text, float fontSize, float maxWidth,
                                                   float characterSpacing, float wordSpacing) {
-        java.util.List<String> lines = new java.util.ArrayList<>();
+        java.util.List<PDFont> chain = font == null
+                ? new java.util.ArrayList<PDFont>()
+                : java.util.Collections.singletonList(font);
+        return wrapText(chain, text, fontSize, maxWidth, characterSpacing, wordSpacing);
+    }
+
+    /** 回退链折行：逐字符按命中字体的真实宽度测量，支持任意语言混排的换行。 */
+    public static java.util.List<String> wrapText(java.util.List<PDFont> chain, String text, float fontSize,
+                                                  float maxWidth, float characterSpacing, float wordSpacing) {
+        java.util.List<String> lines = new java.util.ArrayList<String>();
         if (text == null || text.isEmpty()) {
             lines.add("");
             return lines;
         }
-        if (font == null || maxWidth <= 0f) {
+        if (chain == null || chain.isEmpty() || maxWidth <= 0f) {
             lines.add(text);
             return lines;
         }
-        String safe = sanitizeFontText(font, text);
         StringBuilder current = new StringBuilder();
-        for (int i = 0; i < safe.length(); i++) {
-            char character = safe.charAt(i);
-            current.append(character);
-            if (current.length() > 1 && width(font, current.toString(), fontSize, characterSpacing, wordSpacing) > maxWidth) {
-                current.deleteCharAt(current.length() - 1);
+        int index = 0;
+        while (index < text.length()) {
+            int codePoint = text.codePointAt(index);
+            int charCount = Character.charCount(codePoint);
+            String piece = text.substring(index, index + charCount);
+            current.append(piece);
+            if (current.length() > charCount
+                    && textWidth(chain, current.toString(), fontSize, characterSpacing, wordSpacing) > maxWidth) {
+                current.setLength(current.length() - charCount);
                 lines.add(current.toString());
                 current.setLength(0);
-                current.append(character);
+                current.append(piece);
             }
+            index += charCount;
         }
         if (current.length() > 0) {
             lines.add(current.toString());
@@ -319,16 +464,86 @@ public final class PdfBoxRenderAdapter {
     }
 
     public static PDFont resolveFont(PdfBoxStyleModel style, PDFont fallback) {
-        String name = style.getFont() == null ? style.getFontFamilyNames() : style.getFont();
-        if (name == null) return fallback == null ? new PDType1Font(Standard14Fonts.FontName.HELVETICA) : fallback;
-        String value = name.split(",")[0].trim().toUpperCase(Locale.ROOT).replace('-', '_');
+        return resolveFont(style, fallback, null);
+    }
+
+    public static PDFont resolveFont(PdfBoxStyleModel style, PDFont fallback, PDDocument document) {
+        return resolveFontChain(style, fallback, document).get(0);
+    }
+
+    /**
+     * 按 fontFamilyNames 回退链解析候选字体列表：链中每个名称先命中 PDF 标准 14 字体，
+     * 再查找已注册的外部字体家族（config.fontConfig().registerFont），最后追加调用方
+     * 默认字体兜底。绘制时逐字符在链内挑第一个能编码该字符的字体。
+     */
+    public static java.util.List<PDFont> resolveFontChain(PdfBoxStyleModel style, PDFont fallback, PDDocument document) {
+        java.util.List<PDFont> chain = new java.util.ArrayList<PDFont>();
+        String names = style.getFont() == null ? style.getFontFamilyNames() : style.getFont();
+        if (names != null) {
+            for (String token : names.split(",")) {
+                PDFont font = resolveToken(token.trim(), style, document);
+                if (font != null && !containsFont(chain, font)) {
+                    chain.add(font);
+                }
+            }
+        }
+        if (fallback != null && !containsFont(chain, fallback)) {
+            chain.add(fallback);
+        }
+        if (chain.isEmpty()) {
+            chain.add(new PDType1Font(Standard14Fonts.FontName.HELVETICA));
+        }
+        return chain;
+    }
+
+    private static boolean containsFont(java.util.List<PDFont> chain, PDFont font) {
+        for (PDFont candidate : chain) {
+            if (candidate.getName().equals(font.getName())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** 解析回退链中的单个家族名：标准 14 字体或注册表中的外部字体。 */
+    private static PDFont resolveToken(String name, PdfBoxStyleModel style, PDDocument document) {
+        if (name == null || name.isEmpty()) {
+            return null;
+        }
+        String value = name.toUpperCase(Locale.ROOT).replace('-', '_');
         if (style.isBold()) value += "_BOLD";
         if (style.isItalic()) value += style.isBold() ? "ITALIC" : "_OBLIQUE";
         try {
             JFontEnum font = JFontEnum.valueOf(value);
             return new PDType1Font(Standard14Fonts.FontName.valueOf(font.getFontName().toUpperCase(Locale.ROOT).replace('-', '_')));
         } catch (IllegalArgumentException ignored) {
-            return fallback == null ? new PDType1Font(Standard14Fonts.FontName.HELVETICA) : fallback;
+            // 非 PDF 标准 14 字体名，继续走注册表。
+        }
+        JFontSpec spec = JFontRegistry.find(name);
+        if (spec != null && document != null) {
+            return resolveRegistered(spec, document);
+        }
+        return null;
+    }
+
+    private static PDFont resolveRegistered(JFontSpec spec, PDDocument document) {
+        Map<String, PDFont> fonts = DOCUMENT_FONTS.get(document);
+        if (fonts == null) {
+            fonts = new HashMap<String, PDFont>();
+            DOCUMENT_FONTS.put(document, fonts);
+        }
+        synchronized (fonts) {
+            PDFont cached = fonts.get(spec.getName());
+            if (cached != null) {
+                return cached;
+            }
+            try {
+                PDFont loaded = spec.resolve(document);
+                fonts.put(spec.getName(), loaded);
+                return loaded;
+            } catch (IOException e) {
+                return null;
+            }
         }
     }
 

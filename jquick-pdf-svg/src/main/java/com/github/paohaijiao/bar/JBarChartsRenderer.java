@@ -68,7 +68,16 @@ public class JBarChartsRenderer extends JAbstractChartRenderer {
             g2d.drawLine(chartX - 5, y, chartX, y);
         }
 
-        g2d.setPaint(new Color(65, 105, 225));
+        // 支持 series.itemStyle.color 自定义柱条颜色（ECharts 语义），未设置时使用默认蓝色
+        Color barColor = new Color(65, 105, 225);
+        if (barSeries.getItemStyle() != null && barSeries.getItemStyle().getColor() != null) {
+            try {
+                barColor = Color.decode(String.valueOf(barSeries.getItemStyle().getColor()));
+            } catch (NumberFormatException ignore) {
+                // 颜色串非法时回退默认色
+            }
+        }
+        g2d.setPaint(barColor);
         for (int i = 0; i < barCount; i++) {
             int value = ((Number) data.get(i)).intValue();
             int barHeight = (int) ((double) value / maxValue * chartHeight);
@@ -78,7 +87,7 @@ public class JBarChartsRenderer extends JAbstractChartRenderer {
             g2d.setPaint(Color.BLACK);
             String valueLabel = String.valueOf(value);
             g2d.drawString(valueLabel, x + barWidth / 2 - g2d.getFontMetrics().stringWidth(valueLabel) / 2, y - 5);
-            g2d.setPaint(new Color(65, 105, 225));
+            g2d.setPaint(barColor);
         }
     }
 
