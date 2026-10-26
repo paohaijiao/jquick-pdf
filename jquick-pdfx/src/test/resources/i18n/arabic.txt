@@ -1,0 +1,29 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#145a32;fontFamilyNames:SimHei,Helvetica">'阿拉伯文 PDF 渲染示例 Arabic PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'阿拉伯文与汉文、英文混排 · Arabic mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;baseDirection:rtl;textAlignment:right;fontFamilyNames:Noto Sans Arabic,Helvetica">'مرحبا بالعالم هذه صفحة اختبار باللغة العربية'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'阿拉伯文自右向左书写，字母按词首、词中、词尾位置连写成词。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'Arabic script is written right to left with contextual letter joining.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#145a32;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'阿拉伯语'</th>
+      <th style="backgroundColor:#145a32;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'拉丁转写'</th>
+      <th style="backgroundColor:#145a32;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:right;baseDirection:rtl;fontFamilyNames:Noto Sans Arabic,Helvetica">'مرحبا'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'marhaban'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'你好'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:right;baseDirection:rtl;fontFamilyNames:Noto Sans Arabic,Helvetica">'شكرا لك'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'shukran lak'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'谢谢'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:SimHei,Helvetica">'RTL 段落通过 baseDirection:rtl 声明右到左书写方向，配合 textAlignment:right 靠右对齐'</p>
+</body>
+</pdf>

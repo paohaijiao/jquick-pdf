@@ -1,0 +1,29 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#008080;fontFamilyNames:SimHei,Helvetica">'维吾尔文 PDF 渲染示例 Uyghur PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'维吾尔文与汉文、英文混排 · Uyghur mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;baseDirection:rtl;textAlignment:right;fontFamilyNames:Noto Sans Arabic,Helvetica">'ياخشىمۇسىز بۇ ئۇيغۇر تىلىدىكى سىناق بەت ە'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'维吾尔文使用阿拉伯字母书写，自右向左（RTL）连写。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'Uyghur is written right to left with Arabic script and cursive joining.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#008080;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'维吾尔语'</th>
+      <th style="backgroundColor:#008080;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'拉丁转写'</th>
+      <th style="backgroundColor:#008080;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:right;baseDirection:rtl;fontFamilyNames:Noto Sans Arabic,Helvetica">'سالام'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'salam'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'你好'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:right;baseDirection:rtl;fontFamilyNames:Noto Sans Arabic,Helvetica">'رەھمەت سىزگە'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'rehmet sizge'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'谢谢'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:SimHei,Helvetica">'RTL 段落通过 baseDirection:rtl 声明右到左书写方向，配合 textAlignment:right 靠右对齐'</p>
+</body>
+</pdf>

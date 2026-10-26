@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#935116;fontFamilyNames:SimHei,Helvetica">'德语 PDF 渲染示例 German PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'德文与汉文、英文混排 · German mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:13;fontFamilyNames:Noto Sans,Helvetica">'Guten Tag! Dies ist eine deutsche Testseite für die PDF-Erzeugung.'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'德语使用变元音字母 Ä Ö Ü 与特殊字母 ß，名词首字母大写。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'German uses umlauts Ä Ö Ü, the sharp s ß, and capitalizes nouns.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#935116;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Deutsch'</th>
+      <th style="backgroundColor:#935116;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+      <th style="backgroundColor:#935116;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'English'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'Guten Morgen'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'早上好'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Good morning'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'Vielen Dank'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'非常感谢'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Many thanks'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'Auf Wiedersehen'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'再见'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Goodbye'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,Helvetica">'ÄÖÜ äöü ß Straße Grüße Fußball Ärger Öl über · umlaut case test'</p>
+</body>
+</pdf>

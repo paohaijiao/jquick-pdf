@@ -1,0 +1,216 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（العربية 版）
+  // 单语种独立报告：全篇仅阿拉伯语，所有阿语元素均声明 baseDirection:rtl + textAlignment:right
+  // 视觉主题「沙漠琥珀·RTL奢华式」：深棕 #5C4326　琥珀金 #B9861C　沙色底 #FBF5E9　沙线 #E3D3AE
+
+  // 抬头：深棕横幅 + 琥珀金字
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="padding:12px 8px; backgroundColor:#5C4326; color:#E8C878; bold:true; fontSize:17pt; textAlignment:right; baseDirection:rtl; borderBottom:4px solid #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'البنك العالمي الموحد · ملخص التقرير السنوي للعمليات العالمية'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 8px; backgroundColor:#FBF5E9; color:#5C4326; bold:true; fontSize:9.5pt; textAlignment:right; baseDirection:rtl; borderLeft:1px solid #E3D3AE; borderRight:1px solid #E3D3AE; borderBottom:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الأشهر التسعة الأولى من عام 2026 · على أساس المجموعة الموحدة'</td>
+    </tr>
+  </table>
+
+  // 信息区：沙色标签 + 金色右边线
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#FBF5E9; bold:true; color:#5C4326; border:1px solid #E3D3AE; borderRight:3px solid #B9861C; baseDirection:rtl; textAlignment:right; fontFamilyNames:Noto Sans Arabic,Helvetica">'رقم التقرير'</td>
+      <td style="width:34%; padding:4px; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">${reportNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#FBF5E9; bold:true; color:#5C4326; border:1px solid #E3D3AE; borderRight:3px solid #B9861C; baseDirection:rtl; textAlignment:right; fontFamilyNames:Noto Sans Arabic,Helvetica">'تاريخ التقرير'</td>
+      <td style="padding:4px; border:1px solid #E3D3AE; baseDirection:rtl; textAlignment:right; fontFamilyNames:Noto Sans Arabic,Helvetica">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#FBF5E9; bold:true; color:#5C4326; border:1px solid #E3D3AE; borderRight:3px solid #B9861C; baseDirection:rtl; textAlignment:right; fontFamilyNames:Noto Sans Arabic,Helvetica">'الجهة المصدرة'</td>
+      <td style="width:34%; padding:4px; border:1px solid #E3D3AE; baseDirection:rtl; textAlignment:right; fontFamilyNames:Noto Sans Arabic,Helvetica">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#FBF5E9; bold:true; color:#5C4326; border:1px solid #E3D3AE; borderRight:3px solid #B9861C; baseDirection:rtl; textAlignment:right; fontFamilyNames:Noto Sans Arabic,Helvetica">'نطاق البيانات'</td>
+      <td style="padding:4px; border:1px solid #E3D3AE; baseDirection:rtl; textAlignment:right; fontFamilyNames:Noto Sans Arabic,Helvetica">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI 区：深棕表头 + 沙色数值
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'إجمالي الأصول'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'التسوية عبر الحدود'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'الفروع العالمية'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'الدول والمناطق'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; bold:true; color:#5C4326; border:1px solid #E3D3AE; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic,Helvetica">${totalAssets}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#5C4326; border:1px solid #E3D3AE; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic,Helvetica">${crossBorderSettlement}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#5C4326; border:1px solid #E3D3AE; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic,Helvetica">${globalBranches}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#5C4326; border:1px solid #E3D3AE; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic,Helvetica">${countries}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FBF5E9; color:#5C4326; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الدخل التشغيلي'</td>
+      <td style="padding:6px; backgroundColor:#FBF5E9; color:#5C4326; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'صافي الربح'</td>
+      <td style="padding:6px; backgroundColor:#FBF5E9; color:#5C4326; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'عدد الموظفين'</td>
+      <td style="padding:6px; backgroundColor:#FBF5E9; color:#5C4326; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'عدد العملاء'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; bold:true; color:#5C4326; border:1px solid #E3D3AE; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic,Helvetica">${revenue}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#5C4326; border:1px solid #E3D3AE; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic,Helvetica">${netProfit}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#5C4326; border:1px solid #E3D3AE; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic,Helvetica">${employees}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#5C4326; border:1px solid #E3D3AE; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic,Helvetica">${customers}</td>
+    </tr>
+  </table>
+
+  // 一、章节标题：沙底 + 金色右边竖条
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#FBF5E9; color:#5C4326; bold:true; fontSize:10pt; baseDirection:rtl; textAlignment:right; borderRight:6px solid #B9861C; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'أولا: نظرة عامة على الأداء'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10pt; baseDirection:rtl; textAlignment:right; marginBottom:4px; fontFamilyNames:Noto Sans Arabic,Helvetica">'خلال الأشهر التسعة الأولى من عام 2026، واصل البنك نموذج التشغيل الموحد بين الداخل والخارج وبين العملة المحلية والعملات الأجنبية وبين الإنترنت والفروع، وسجل حجم الأعمال عبر الحدود مستوى قياسيا للفترة نفسها. ساهم السوق الصيني الرئيسي بنسبة 45.2 في المئة من دخل المجموعة التشغيلي، وساهمت منطقة آسيا والمحيط الهادي والشرق الأوسط وأوروبا مجتمعة بنسبة 39.7 في المئة. وارتفعت التسوية عبر الحدود باليوان بنسبة 21.4 في المئة على أساس سنوي، فيما تلقى مركز خدمة العملاء متعدد اللغات 4.6 مليون مكالمة بمعدل رضا بلغ 96.3 في المئة.'</p>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9C8A66; italic:true; textAlignment:right; baseDirection:rtl; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans Arabic,Helvetica">'الشكل 1  الدخل التشغيلي حسب المناطق خلال الأشهر التسعة الأولى من 2026 (مئة مليون يوان، المصدر: المنصة المالية المشتركة للمجموعة)'</p>
+
+  // 二、الشبكة العالمية
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#FBF5E9; color:#5C4326; bold:true; fontSize:10pt; baseDirection:rtl; textAlignment:right; borderRight:6px solid #B9861C; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'ثانيا: الشبكة العالمية'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10pt; baseDirection:rtl; textAlignment:right; marginBottom:4px; fontFamilyNames:Noto Sans Arabic,Helvetica">'حتى 30 سبتمبر 2026، شغّل البنك 1286 فرعا و3470 جهاز خدمة ذاتية في 68 دولة ومنطقة. وتوفر ستة مراكز إقليمية الخدمات الكاملة لعملاء الشركات والأفراد بالعملة واللغة المحليين، وتُقبل جميع مستندات التجارة الدولية باللغات السبع: الصينية والإنجليزية والعربية والروسية والفرنسية والألمانية واليابانية دون رسوم ترجمة إضافية.'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'المنطقة'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'المركز الإقليمي'</th>
+      <th style="width:28%; padding:4px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'لغات الخدمة'</th>
+      <th style="padding:4px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'عدد الفروع'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'آسيا والمحيط الهادي'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'سنغافورة'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الإنجليزية والصينية واليابانية'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الشرق الأوسط وشمال إفريقيا'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'دبي'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'العربية والإنجليزية والفرنسية'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'أوروبا'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'فرانكفورت'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الألمانية والفرنسية والإنجليزية'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'روسيا ودول الكومنولث'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'موسكو'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الروسية والإنجليزية'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'اليابان'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'طوكيو'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'اليابانية والإنجليزية'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الأمريكتان'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'نيويورك'</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الإنجليزية والإسبانية'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'260'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9C8A66; italic:true; textAlignment:right; baseDirection:rtl; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans Arabic,Helvetica">'الشكل 2  التركيبة العملية للتسوية عبر الحدود خلال الأشهر التسعة الأولى من 2026 (حصة من حجم التسوية، المصدر: نظام التسوية عبر الحدود)'</p>
+
+  // 三、التفاصيل الإقليمية
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#FBF5E9; color:#5C4326; bold:true; fontSize:10pt; baseDirection:rtl; textAlignment:right; borderRight:6px solid #B9861C; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'ثالثا: التفاصيل الإقليمية للأعمال'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'المنطقة'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'الدخل (مئة مليون يوان)'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'التسوية (مئة مليون يوان)'</th>
+      <th style="padding:4px; backgroundColor:#5C4326; color:#E8C878; bold:true; textAlign:center; baseDirection:rtl; border:1px solid #5C4326; fontFamilyNames:Noto Sans Arabic,Helvetica">'النمو السنوي'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الصين الرئيسية'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'986'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'6,420'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; bold:true; color:#B9861C; fontFamilyNames:Noto Sans,Helvetica">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'آسيا والمحيط الهادي (دون الصين)'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'412'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'2,760'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; bold:true; color:#B9861C; fontFamilyNames:Noto Sans,Helvetica">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'أوروبا'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'268'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'1,890'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; bold:true; color:#B9861C; fontFamilyNames:Noto Sans,Helvetica">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الشرق الأوسط'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'186'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'1,240'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; bold:true; color:#B9861C; fontFamilyNames:Noto Sans,Helvetica">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'اليابان'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'174'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'980'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E3D3AE; bold:true; color:#B9861C; fontFamilyNames:Noto Sans,Helvetica">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'روسيا ودول الكومنولث'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'154'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; fontFamilyNames:Noto Sans,Helvetica">'690'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF5E9; border:1px solid #E3D3AE; bold:true; color:#B9861C; fontFamilyNames:Noto Sans,Helvetica">'+21.4%'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9C8A66; italic:true; textAlignment:right; baseDirection:rtl; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans Arabic,Helvetica">'الشكل 3  الحجم الشهري للأعمال عبر الحدود من يناير إلى أكتوبر 2026 (مئة مليون يوان، المصدر: منصة مراقبة الأعمال العالمية)'</p>
+
+  // 签章区：金棕虚线框
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; baseDirection:rtl; color:#5C4326; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'(مكان ختم البنك / الختم الرسمي)'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; baseDirection:rtl; color:#5C4326; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'(مكان ختم التجليد / رمز الاستجابة)'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; baseDirection:rtl; color:#5C4326; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'(مكان رمز الاستجابة السريعة)'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:5px; textAlign:center; baseDirection:rtl; color:#9C8A66; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'الجهة: '${orgName}</td>
+      <td style="width:33%; padding:5px; textAlign:center; baseDirection:rtl; color:#9C8A66; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'يوضع ختم التجليد على طول الحافة اليمنى'</td>
+      <td style="width:33%; padding:5px; textAlign:center; baseDirection:rtl; color:#9C8A66; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'التحقق بمسح رمز الاستجابة'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:5px; textAlign:center; baseDirection:rtl; color:#9C8A66; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'تاريخ العملية: '${reportDate}</td>
+      <td style="width:33%; padding:5px; textAlign:center; baseDirection:rtl; color:#9C8A66; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'يطبع رمز الاستجابة في الإطار أعلى اليمين'</td>
+      <td style="width:33%; padding:5px; textAlign:center; baseDirection:rtl; color:#9C8A66; border:1px dashed #B9861C; fontFamilyNames:Noto Sans Arabic,Helvetica">'المقاس 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; baseDirection:rtl; textAlignment:right; color:#5C4326; borderBottom:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الإعداد: '${preparedBy}</td>
+      <td style="width:33%; padding:4px; baseDirection:rtl; textAlignment:right; color:#5C4326; borderBottom:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'المراجعة: '${reviewedBy}</td>
+      <td style="padding:4px; baseDirection:rtl; textAlignment:right; color:#5C4326; borderBottom:1px solid #E3D3AE; fontFamilyNames:Noto Sans Arabic,Helvetica">'الإصدار: '${issuedBy}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:8pt; color:#A5946F; italic:true; textAlignment:right; baseDirection:rtl; marginTop:8px; fontFamilyNames:Noto Sans Arabic,Helvetica">'إخلاء مسؤولية: يقدم هذا الملخص للمرجعية للمؤسسات المرخصة فقط، وتخضع جميع البيانات المالية للتقرير السنوي المدقق للمجموعة.'</p>
+</body>
+</pdf>

@@ -1,0 +1,211 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（Русский 版）
+  // 单语种独立报告：全篇仅俄语，图表标题/图例亦为俄语
+  // 视觉主题「玫红庄重·对称横幅式」：主色 #A61E4D　辅色 #4A6FA5　浅底 #FBEFF3　描边 #E4C2CE
+
+  // 抬头：满幅玫红横幅 + 白字居中
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:12px 8px; backgroundColor:#A61E4D; color:white; bold:true; fontSize:18pt; textAlign:center; characterSpacing:3pt; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Глобальный Юнион Банк'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 8px; backgroundColor:#FBEFF3; color:#A61E4D; bold:true; fontSize:10pt; textAlign:center; borderLeft:1px solid #A61E4D; borderRight:1px solid #A61E4D; borderBottom:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Сводка глобальной деятельности · Первые три квартала 2026 года · консолидированная отчётность группы'</td>
+    </tr>
+  </table>
+
+  // 信息区：对称双列细框
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#FBEFF3; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Номер отчёта'</td>
+      <td style="width:34%; padding:4px; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${reportNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#FBEFF3; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Дата отчёта'</td>
+      <td style="padding:4px; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#FBEFF3; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Составитель'</td>
+      <td style="width:34%; padding:4px; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#FBEFF3; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Охват данных'</td>
+      <td style="padding:4px; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI 区：上下粗玫红压线、玫红/白交替
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; borderTop:4px solid #4A6FA5; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Совокупные активы'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; borderTop:4px solid #4A6FA5; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Трансграничные расчёты'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; borderTop:4px solid #4A6FA5; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Отделения в мире'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; borderTop:4px solid #4A6FA5; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Страны и регионы'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${totalAssets}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${crossBorderSettlement}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${globalBranches}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${countries}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#FBEFF3; color:#A61E4D; bold:true; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Операционный доход'</td>
+      <td style="padding:6px; backgroundColor:#FBEFF3; color:#A61E4D; bold:true; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Чистая прибыль'</td>
+      <td style="padding:6px; backgroundColor:#FBEFF3; color:#A61E4D; bold:true; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Сотрудники'</td>
+      <td style="padding:6px; backgroundColor:#FBEFF3; color:#A61E4D; bold:true; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Клиенты'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${revenue}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${netProfit}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${employees}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#A61E4D; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">${customers}</td>
+    </tr>
+  </table>
+
+  // 一、概览：居中双线标题（上下玫红粗线夹住）
+  <lineSeparator style="color:#A61E4D; thickness:2f"></lineSeparator>
+  <p style="fontSize:11pt; bold:true; color:#A61E4D; textAlignment:center; characterSpacing:2pt; marginBottom:4px; fontFamilyNames:Noto Sans,Helvetica">'1. Обзор результатов деятельности'</p>
+  <lineSeparator style="color:#A61E4D; thickness:2f; marginBottom:6px"></lineSeparator>
+  <p style="fontSize:9.5pt; textAlignment:center; marginBottom:4px; fontFamilyNames:Noto Sans,Helvetica">'В первые три квартала 2026 года банк продолжал единую модель обслуживания на материке и за рубежом, в валюте и в мультивалютном режиме, онлайн и офлайн, доведя объём трансграничных операций до рекордного уровня за аналогичный период. Материковый Китай обеспечил 45,2% операционного дохода группы, а Азиатско-Тихоокеанский регион, Ближний Восток и Европа в совокупности — 39,7%. Объём трансграничных расчётов в юанях вырос на 21,4% в годовом исчислении, многоязычный клиентский центр обработал 4,6 миллиона звонков при уровне удовлетворённости 96,3%.'</p>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9C7280; italic:true; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans,Helvetica">'Рисунок 1  Операционный доход по регионам за первые три квартала 2026 года (млн юаней, источник: единая финансовая платформа группы)'</p>
+
+  // 二、国际网络
+  <lineSeparator style="color:#A61E4D; thickness:2f"></lineSeparator>
+  <p style="fontSize:11pt; bold:true; color:#A61E4D; textAlignment:center; characterSpacing:2pt; marginBottom:4px; fontFamilyNames:Noto Sans,Helvetica">'2. Международная сеть'</p>
+  <lineSeparator style="color:#A61E4D; thickness:2f; marginBottom:6px"></lineSeparator>
+  <p style="fontSize:9.5pt; textAlignment:center; marginBottom:4px; fontFamilyNames:Noto Sans,Helvetica">'По состоянию на 30 сентября 2026 года банк располагал 1 286 отделениями и 3 470 устройствами самообслуживания в 68 странах и регионах. Шесть региональных хабов предоставляют полный спектр услуг для корпоративных и частных клиентов на местной валюте и местном языке; все документы международной торговли принимаются на китайском, английском, арабском, русском, французском, немецком и японском языках без дополнительной платы за перевод.'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Регион'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Региональный хаб'</th>
+      <th style="width:28%; padding:4px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Языки обслуживания'</th>
+      <th style="padding:4px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Отделений'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Азиатско-Тихоокеанский регион'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Сингапур'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'англ., кит., яп.'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Ближний Восток и Северная Африка'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Дубай'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'араб., англ., фр.'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Европа'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Франкфурт'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'нем., фр., англ.'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Россия и СНГ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Москва'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'рус., англ.'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Япония'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Токио'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'яп., англ.'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Америка'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Нью-Йорк'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'англ., исп.'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'260'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9C7280; italic:true; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans,Helvetica">'Рисунок 2  Валютная структура трансграничных расчётов за первые три квартала 2026 года (доля в объёме расчётов, источник: система трансграничных расчётов)'</p>
+
+  // 三、区域明细
+  <lineSeparator style="color:#A61E4D; thickness:2f"></lineSeparator>
+  <p style="fontSize:11pt; bold:true; color:#A61E4D; textAlignment:center; characterSpacing:2pt; marginBottom:4px; fontFamilyNames:Noto Sans,Helvetica">'3. Детализация по регионам'</p>
+  <lineSeparator style="color:#A61E4D; thickness:2f; marginBottom:6px"></lineSeparator>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Регион'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Доход (млн юаней)'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Расчёты (млн юаней)'</th>
+      <th style="padding:4px; backgroundColor:#A61E4D; color:white; bold:true; textAlign:center; border:1px solid #A61E4D; fontFamilyNames:Noto Sans,Helvetica">'Рост к прошлому году'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Материковый Китай'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'986'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'6,420'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'+18,2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'АТР (без Китая)'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'412'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'2,760'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'+15,6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Европа'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'268'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'1,890'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'+12,3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Ближний Восток'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'186'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'1,240'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'+18,6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Япония'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'174'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'980'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'+14,8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Россия и СНГ'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'154'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'690'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBEFF3; border:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'+21,4%'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9C7280; italic:true; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans,Helvetica">'Рисунок 3  Ежемесячный объём трансграничных операций с января по октябрь 2026 года (млн юаней, источник: платформа мониторинга глобального бизнеса)'</p>
+
+  // 签章区：对称双线框
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#A61E4D; borderTop:2px solid #A61E4D; borderBottom:2px solid #A61E4D; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'(Место для печати банка / гербовой печати)'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#A61E4D; borderTop:2px solid #A61E4D; borderBottom:2px solid #A61E4D; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'(Место для прошивочной печати / QR)'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#A61E4D; borderTop:2px solid #A61E4D; borderBottom:2px solid #A61E4D; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'(Место для QR-кода)'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9C7280; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Организация: '${orgName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9C7280; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Прошивочная печать ставится вдоль правого края'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9C7280; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Проверка по QR-коду'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9C7280; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; borderBottom:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Дата операции: '${reportDate}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9C7280; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; borderBottom:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'QR-код печатается в рамке в правом верхнем углу'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9C7280; borderLeft:1px solid #E4C2CE; borderRight:1px solid #E4C2CE; borderBottom:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Размер 22 мм × 22 мм'</td>
+    </tr>
+  </table>
+
+  // 落款：居中对称
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#A61E4D; borderBottom:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Составитель: '${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#A61E4D; borderBottom:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Проверил: '${reviewedBy}</td>
+      <td style="padding:4px; textAlign:center; color:#A61E4D; borderBottom:1px solid #E4C2CE; fontFamilyNames:Noto Sans,Helvetica">'Утвердил: '${issuedBy}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:8pt; color:#A88A93; italic:true; textAlign:center; marginTop:8px; fontFamilyNames:Noto Sans,Helvetica">'Отказ от ответственности: настоящая сводка предназначена только для уполномоченных организаций; все финансовые данные подлежат сверке с проверенной годовой отчётностью группы.'</p>
+</body>
+</pdf>

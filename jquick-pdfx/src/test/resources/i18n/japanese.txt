@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#b03a2e;fontFamilyNames:SimHei,Helvetica">'日本語 PDF レンダリングサンプル Japanese PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'日文与中文、英文混排 · Japanese mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:13;fontFamilyNames:Noto Sans JP,Helvetica">'こんにちは世界！これは日本語のテストページです。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'日语由平假名、片假名和汉字组成，混排时依赖日文字体的假名字形。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'Japanese combines hiragana, katakana and kanji in one line.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#b03a2e;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'日本語'</th>
+      <th style="backgroundColor:#b03a2e;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+      <th style="backgroundColor:#b03a2e;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'English'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans JP,Helvetica">'おはようございます'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'早上好'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Good morning'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans JP,Helvetica">'ありがとうございます'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'谢谢'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Thank you'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans JP,Helvetica">'さようなら'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'再见'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Goodbye'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans JP,Helvetica">'あいうえお かきくけこ アイウエオ カキクケコ っ ゃ ゅ ょ · kana case test'</p>
+</body>
+</pdf>

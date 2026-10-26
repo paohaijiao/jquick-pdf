@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#6c3483;fontFamilyNames:SimHei,Helvetica">'法语 PDF 渲染示例 French PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'法文与汉文、英文混排 · French mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:13;fontFamilyNames:Noto Sans,Helvetica">'Bonjour le monde ! Ceci est une page de test en français.'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'法语使用带变音符号的拉丁字母：é è ê ë à â ç ù î ô û。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'French uses accented Latin letters such as é, è, ê and ç.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#6c3483;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Français'</th>
+      <th style="backgroundColor:#6c3483;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+      <th style="backgroundColor:#6c3483;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'English'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'Bonjour'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'你好'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Hello'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'Merci beaucoup'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'非常感谢'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Thank you very much'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'À bientôt'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'回头见'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'See you soon'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,Helvetica">'À Â Ä É È Ê Ë Î Ï Ô Ö Ù Û Ü Ç œ æ · accented Latin case test'</p>
+</body>
+</pdf>

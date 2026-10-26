@@ -1,0 +1,174 @@
+<pdf>
+<body>
+  // frame theme: #1B2A4A / #B08D57 / #F4EFE3
+  <lineSeparator style="color:#B08D57; thickness:4f"></lineSeparator>
+  <h1 style="fontSize:18pt; bold:true; color:#1B2A4A; textAlignment:center; marginTop:6px; marginBottom:2px; fontFamilyNames:Noto Sans Mongolian">'ᠠᠮᠪᠠ ᠮᠡᠨᡤᡤᡠᠨ ᠪᠣᠣ ᡳ ᠠᠨᡳᠶᠠ ᡴᠠᠯᡳᠴᡠᠨ ᠪᡳᡨᡥᠡ'</h1>
+  <p style="fontSize:9.5pt; color:#8A7B5E; textAlignment:center; fontFamilyNames:Noto Sans Mongolian">'2026 ᠠᠨᡳᠶᠠ ᡠᠶᡠᠨ ᠪᡳᠶᠠ ᡳ ᠸᠡᠰᡳᠮᠪᡠᠷᠡ'</p>
+  <lineSeparator style="color:#1B2A4A; thickness:1f; marginBottom:8px"></lineSeparator>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4EFE3; bold:true; color:#1B2A4A; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠪᡳᡨᡥᠡ ᡳ ᡤᠡᠪᡠ'</td>
+      <td style="width:34%; padding:4px; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${reportNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4EFE3; bold:true; color:#1B2A4A; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠠᠨᡳᠶᠠ ᠪᡳᠶᠠ ᡳᠨᠡᠨᡤᡤᡳ'</td>
+      <td style="padding:4px; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F4EFE3; bold:true; color:#1B2A4A; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠠᠷᠠᠷᠠ ᠪᠣᠣ'</td>
+      <td style="width:34%; padding:4px; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F4EFE3; bold:true; color:#1B2A4A; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᡩᠠᠯᠪᠠ'</td>
+      <td style="padding:4px; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${dataScope}</td>
+    </tr>
+  </table>
+  <table style="width:100%%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#1B2A4A; color:#FFFFFF; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᡠᠵᠡᠨ ᠮᠡᠨᡤᡤᡠᠨ'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#1B2A4A; color:#FFFFFF; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᠵᠡᠴᠡᠨ ᡴᠠᠯᡳᠴᡠᠨ'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#1B2A4A; color:#FFFFFF; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᡨᡠᠯᠡᠷᡤᡳ ᠪᠣᠣ'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#1B2A4A; color:#FFFFFF; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᡤᡠᠷᡠᠨ ᠪᠠ'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#3A3123; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${totalAssets}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#3A3123; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${crossBorderSettlement}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#3A3123; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${globalBranches}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#3A3123; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#F4EFE3; color:#1B2A4A; bold:true; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᡴᠠᠯᡳᠴᡠᠨ ᠮᠡᠨᡤᡤᡠᠨ'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#F4EFE3; color:#1B2A4A; bold:true; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠰᠠᡳᠨ ᠮᠡᠨᡤᡤᡠᠨ'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#F4EFE3; color:#1B2A4A; bold:true; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠨᡳᠶᠠᠯᠮᠠ'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#F4EFE3; color:#1B2A4A; bold:true; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᡳᠷᡤᠡᠨ'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#3A3123; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${revenue}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#3A3123; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${netProfit}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#3A3123; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${employees}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#3A3123; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">${customers}</td>
+    </tr>
+  </table>
+  <table style="width:100%%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#B08D57; color:#3A3123; bold:true; fontSize:10pt; borderLeft:4px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᡠᠵᠡᠨ ᡴᠠᠯᡳᠴᡠᠨ ᡳ ᠪᠠᡩᠠᠷᠠᠨ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; color:#3A3123; marginBottom:4px; fontFamilyNames:Noto Sans Mongolian">'2026 ᠠᠨᡳᠶᠠ ᡴᠠᠯᡳᠴᡠᠨ ᠠᠮᠪᠠ ᠪᠠᡩᠠᠷᠠᠨ᠉ ᠨᡳᡴᠠᠨ ᠪᠠ ᡳ ᡴᠠᠯᡳᠴᡠᠨ ᡠᠵᠡᠨ᠉ ᡨᡠᠯᠡᠷᡤᡳ ᠵᠡᠴᠡᠨ ᡩᠡ ᡨᡠᠮᠡᠨ ᠪᠣᠣ ᠪᡳ᠉ ᠮᠡᠨᡤᡤᡠᠨ ᡩᠡ ᠨᡳᠶᠠᠯᠮᠠ ᠠᠮᠪᠠ᠉ ᡴᠠᠯᡳᠴᡠᠨ ᡳ ᠮᠡᠨᡤᡤᡠᠨ ᡨᡠᠮᠡᠨ ᠶᠠᠨ᠉ ᠰᠠᡳᠨ ᠮᠡᠨᡤᡤᡠᠨ ᠰᠠᡳᠨ᠉'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:660pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8A7B5E; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans Mongolian">'ᠪᠠ ᡳ ᡴᠠᠯᡳᠴᡠᠨ ᠮᠡᠨᡤᡤᡠᠨ'</p>
+  <table style="width:100%%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#B08D57; color:#3A3123; bold:true; fontSize:10pt; borderLeft:4px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᡨᡠᠯᠡᠷᡤᡳ ᠵᠡᠴᠡᠨ ᡳ ᠪᠣᠣ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; color:#3A3123; marginBottom:4px; fontFamilyNames:Noto Sans Mongolian">'1,286 ᠪᠣᠣ ᠪᡳ᠉ 68 ᡤᡠᠷᡠᠨ ᠪᠠ ᡩᠡ ᡴᠠᠯᡳᠴᡠᠨ ᠪᡳ᠉ ᡨᡠᠮᠡᠨ ᠨᡳᠶᠠᠯᠮᠠ ᡴᠠᠯᡳᠴᡠᠨ ᠪᠡ ᠠᠯᡤᡳᠮᠪᡠᠮᠪᡳ᠉ ᠮᠡᠨᡤᡤᡠᠨ ᡳ ᡥᠠᠴᡠᠨ ᠠᠮᠪᠠ᠉'</p>
+  <table style="width:100%%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:30%%; padding:4px; backgroundColor:#1B2A4A; color:white; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᡤᡠᠷᡠᠨ'</th>
+      <th style="width:30%%; padding:4px; backgroundColor:#1B2A4A; color:white; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᠠᠮᠪᠠ ᠪᠠ'</th>
+      <th style="width:40%%; padding:4px; backgroundColor:#1B2A4A; color:white; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᠪᠣᠣ'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠨᡳᡴᠠᠨ'</td>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠪᠡᡤᡳᠨᡤ'</td>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠣᠷᡠᠰᠠ ᡤᡠᠷᡠᠨ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠮᠣᠰᡴᠣ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠹᠠᠯᠠᠨᠰᠡ ᡤᡠᠷᡠᠨ'</td>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠪᠠᠷᡳᠰ'</td>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᡳᠨᡤᡤᡳᠷᡳ ᡤᡠᠷᡠᠨ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠯᠣᠨᡩᠣᠨ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'260'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠨᡳᠶᠠᠨ ᡤᡠᠷᡠᠨ'</td>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᡨᠣᡴᡳᠣ'</td>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'74'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:400pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8A7B5E; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans Mongolian">'ᠵᠡᠴᠡᠨ ᡴᠠᠯᡳᠴᡠᠨ ᡳ ᠡᠷᡳᠨ'</p>
+  <table style="width:100%%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#B08D57; color:#3A3123; bold:true; fontSize:10pt; borderLeft:4px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᠪᠠ ᡳ ᡴᠠᠯᡳᠴᡠᠨ ᡠᠵᠡᠨ'</td>
+    </tr>
+  </table>
+  <table style="width:100%%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%%; padding:4px; backgroundColor:#1B2A4A; color:white; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᠪᠠ'</th>
+      <th style="width:28%%; padding:4px; backgroundColor:#1B2A4A; color:white; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᡴᠠᠯᡳᠴᡠᠨ ᠮᠡᠨᡤᡤᡠᠨ'</th>
+      <th style="width:28%%; padding:4px; backgroundColor:#1B2A4A; color:white; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᠵᠡᠴᠡᠨ ᡴᠠᠯᡳᠴᡠᠨ'</th>
+      <th style="width:16%%; padding:4px; backgroundColor:#1B2A4A; color:white; bold:true; textAlign:center; border:2px solid #1B2A4A; fontFamilyNames:Noto Sans Mongolian">'ᠪᠠᡩᠠᠷᠠᠨ'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠨᡳᡴᠠᠨ'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'986'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'6,420'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᡨᡠᠯᠡᠷᡤᡳ ᠵᠡᠴᠡᠨ'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'412'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'2,760'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠹᠠᠯᠠᠨᠰᠡ ᡤᡠᠷᡠᠨ'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'268'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'1,890'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠣᠷᡠᠰᠠ ᡤᡠᠷᡠᠨ'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'186'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'1,240'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠨᡳᠶᠠᠨ ᡤᡠᠷᡠᠨ'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'174'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'980'</td>
+      <td style="padding:4px; textAlign:right; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᡳᠨᡤᡤᡳᠷᡳ ᡤᡠᠷᡠᠨ'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'154'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'690'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F4EFE3; border:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'+21.4%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:660pt">${svgLine}</svg>
+  </div>
+  <table style="width:100%%; fontSize:8pt; marginBottom:6px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#1B2A4A; border:2px dashed #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠪᠣᠣ ᡩᠣᠮᠪᡳ ᠪᠠ'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#1B2A4A; border:2px dashed #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠵᠡᠴᠡᠨ ᡩᠣᠮᠪᡳ ᠪᠠ'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#1B2A4A; border:2px dashed #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠠᡴᡩᠠᠷᠠ ᠪᠠ'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#8A7B5E; border:2px dashed #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠠᠷᠠᠷᠠ'${orgName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#8A7B5E; border:2px dashed #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠵᠡᠴᠡᠨ ᡩᠣᠮᠪᡳ ᠪᠠ'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#8A7B5E; border:2px dashed #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠠᡴᡩᠠᠷᠠ ᠪᠠ'</td>
+    </tr>
+  </table>
+  <table style="width:100%%; fontSize:9pt; marginTop:4px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#1B2A4A; borderBottom:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠠᠷᠠᠷᠠ'${preparedBy}</td>
+      <td style="width:33%; padding:4px; color:#1B2A4A; borderBottom:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠠᡴᡩᠠᠷᠠ'${reviewedBy}</td>
+      <td style="padding:4px; color:#1B2A4A; borderBottom:2px solid #B08D57; fontFamilyNames:Noto Sans Mongolian">'ᠠᠯᡤᡳᠪᡠᠷᠡ'${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:8pt; color:#8A7B5E; marginTop:6px; fontFamilyNames:Noto Sans Mongolian">'ᠡᠷᠡ ᠪᡳᡨᡥᠡ ᡩᠠᠮᡠ ᠠᡴᡩᠠᡴᠠ ᠨᡳᠶᠠᠯᠮᠠ ᠪᠡ ᡨᠠᠮᠪᡠᠮᠪᡳ᠉ ᡠᠵᠡᠨ ᠮᠡᠨᡤᡤᡠᠨ ᡳ ᠪᡳᡨᡥᠡ ᠰᠠᡳᠨ᠉'</p>
+  <p style="fontFamilyNames:Noto Sans Mongolian; angleInRadians:-1.5708; fontSize:13pt; characterSpacing:2; color:#1B2A4A; marginTop:12px">'ᠰᠠᡳᠨ ᠪᠠᡩᠠᠷᠠᠨ ᡨᠠᡳᠹᡳᠨ ᠡᠯᡥᠡ'</p>
+</body>
+</pdf>

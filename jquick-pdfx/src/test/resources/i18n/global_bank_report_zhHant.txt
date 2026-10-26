@@ -1,0 +1,203 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（繁體中文版）　视觉主题：朱砂鎏金·礼仪式
+  // 单语种独立报告：全篇仅繁體中文　主色朱砂 #9E2B25　鎏金 #C9A227　宣纸底 #FDF8EF
+
+  <h1 style="fontSize:20pt; bold:true; color:#9E2B25; textAlignment:center; characterSpacing:10pt; marginTop:6px; marginBottom:2px; fontFamilyNames:Noto Sans TC">'環球匯通銀行'</h1>
+  <p style="fontSize:12pt; bold:true; color:#C9A227; textAlignment:center; characterSpacing:6pt; marginBottom:2px; fontFamilyNames:Noto Sans TC">'全球經營年報摘要'</p>
+  <p style="fontSize:9pt; color:#3B2B20; textAlignment:center; fontFamilyNames:Noto Sans TC">'2026 年前三季度 · 集團合併口徑'</p>
+  <lineSeparator style="color:#C9A227; thickness:1.5f"></lineSeparator>
+  <lineSeparator style="color:#9E2B25; thickness:3f; marginBottom:10px"></lineSeparator>
+
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <td style="width:16%; padding:4px; bold:true; color:#9E2B25; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'報告編號'</td>
+      <td style="width:34%; padding:4px; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">${reportNo}</td>
+      <td style="width:16%; padding:4px; bold:true; color:#9E2B25; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'報告日期'</td>
+      <td style="padding:4px; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; color:#9E2B25; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'編製機構'</td>
+      <td style="padding:4px; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">${orgName}</td>
+      <td style="padding:4px; bold:true; color:#9E2B25; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'資料範圍'</td>
+      <td style="padding:4px; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">${dataScope}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginBottom:10px">
+    <tr>
+      <td style="width:25%; padding:8px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontSize:12pt; fontFamilyNames:Noto Sans TC">${totalAssets}</td>
+      <td style="width:25%; padding:8px; backgroundColor:#FDF8EF; color:#9E2B25; bold:true; textAlign:center; fontSize:12pt; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">${crossBorderSettlement}</td>
+      <td style="width:25%; padding:8px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontSize:12pt; fontFamilyNames:Noto Sans TC">${globalBranches}</td>
+      <td style="width:25%; padding:8px; backgroundColor:#FDF8EF; color:#9E2B25; bold:true; textAlign:center; fontSize:12pt; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">${countries}</td>
+    </tr>
+    <tr>
+      <td style="padding:3px; textAlign:center; color:#9E2B25; bold:true; fontSize:8pt; fontFamilyNames:Noto Sans TC">'總資產'</td>
+      <td style="padding:3px; textAlign:center; color:#9E2B25; bold:true; fontSize:8pt; fontFamilyNames:Noto Sans TC">'跨境結算額'</td>
+      <td style="padding:3px; textAlign:center; color:#9E2B25; bold:true; fontSize:8pt; fontFamilyNames:Noto Sans TC">'全球網點'</td>
+      <td style="padding:3px; textAlign:center; color:#9E2B25; bold:true; fontSize:8pt; fontFamilyNames:Noto Sans TC">'覆蓋國家與地區'</td>
+    </tr>
+    <tr>
+      <td style="padding:8px; backgroundColor:#FDF8EF; color:#9E2B25; bold:true; textAlign:center; fontSize:12pt; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">${revenue}</td>
+      <td style="padding:8px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontSize:12pt; fontFamilyNames:Noto Sans TC">${netProfit}</td>
+      <td style="padding:8px; backgroundColor:#FDF8EF; color:#9E2B25; bold:true; textAlign:center; fontSize:12pt; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">${employees}</td>
+      <td style="padding:8px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontSize:12pt; fontFamilyNames:Noto Sans TC">${customers}</td>
+    </tr>
+    <tr>
+      <td style="padding:3px; textAlign:center; color:#9E2B25; bold:true; fontSize:8pt; fontFamilyNames:Noto Sans TC">'營業收入'</td>
+      <td style="padding:3px; textAlign:center; color:#9E2B25; bold:true; fontSize:8pt; fontFamilyNames:Noto Sans TC">'淨利潤'</td>
+      <td style="padding:3px; textAlign:center; color:#9E2B25; bold:true; fontSize:8pt; fontFamilyNames:Noto Sans TC">'員工人數'</td>
+      <td style="padding:3px; textAlign:center; color:#9E2B25; bold:true; fontSize:8pt; fontFamilyNames:Noto Sans TC">'服務客戶'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:40%; padding:5px; backgroundColor:#C9A227; bold:true; fontSize:11pt; color:#9E2B25; textAlign:center; characterSpacing:4pt; fontFamilyNames:Noto Sans TC">'壹 · 經營概覽'</td>
+      <td style="padding:5px; borderBottom:1.5px solid #C9A227"></td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; color:#3B2B20; marginBottom:4px; fontFamilyNames:Noto Sans TC">'2026 年前三季度，本行堅持「本外幣、境內外、線上線下」一體化經營，跨境金融業務量再創同期新高。中國內地市場貢獻了集團營業收入的 45.2%，亞太、中東、歐洲三大區域合計貢獻 39.7%，國際化布局進入收穫期。跨境人民幣結算量同比增長 21.4%，多語言客服中心全年受理 460 萬通來電，客戶滿意度 96.3%。'</p>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:680pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a7f6a; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans TC">'圖一　2026 年前三季度全球分區域營業收入（單位：億元人民幣，資料來源：集團財務共享平台）'</p>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:40%; padding:5px; backgroundColor:#C9A227; bold:true; fontSize:11pt; color:#9E2B25; textAlign:center; characterSpacing:4pt; fontFamilyNames:Noto Sans TC">'貳 · 全球網絡布局'</td>
+      <td style="padding:5px; borderBottom:1.5px solid #C9A227"></td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; color:#3B2B20; marginBottom:4px; fontFamilyNames:Noto Sans TC">'截至 2026 年 9 月 30 日，本行在全球 68 個國家和地區設有 1,286 家分支機構和 3,470 台自助設備，六大區域樞紐以本幣、本地語言提供對公與對私全條線服務，全部國際貿易單證接受中、英、阿、俄、法、德、日七種語言提交且不額外收取翻譯費用。'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontFamilyNames:Noto Sans TC">'區域'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontFamilyNames:Noto Sans TC">'區域樞紐'</th>
+      <th style="width:28%; padding:4px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontFamilyNames:Noto Sans TC">'服務語言'</th>
+      <th style="padding:4px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontFamilyNames:Noto Sans TC">'分支機構數'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'亞太地區'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'新加坡'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'英語、中文、日語'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'中東與北非'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'杜拜'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'阿拉伯語、英語、法語'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'歐洲'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'法蘭克福'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'德語、法語、英語'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'俄語區'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'莫斯科'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'俄語、英語'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'日本'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'東京'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'日語、英語'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'美洲'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'紐約'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'英語、西班牙語'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'260'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:400pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a7f6a; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans TC">'圖二　2026 年前三季度跨境結算幣別構成（按結算金額占比，資料來源：跨境結算系統）'</p>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="width:40%; padding:5px; backgroundColor:#C9A227; bold:true; fontSize:11pt; color:#9E2B25; textAlign:center; characterSpacing:4pt; fontFamilyNames:Noto Sans TC">'參 · 分區域經營明細'</td>
+      <td style="padding:5px; borderBottom:1.5px solid #C9A227"></td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontFamilyNames:Noto Sans TC">'區域'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontFamilyNames:Noto Sans TC">'營業收入（億元）'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontFamilyNames:Noto Sans TC">'跨境結算額（億元）'</th>
+      <th style="padding:4px; backgroundColor:#9E2B25; color:#FDF8EF; bold:true; textAlign:center; fontFamilyNames:Noto Sans TC">'同比增速'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'中國內地'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'986'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'6,420'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'亞太（除中國）'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'412'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'2,760'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'歐洲'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'268'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'1,890'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'中東'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'186'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'1,240'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'日本'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'174'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'980'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'俄語區'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'154'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'690'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'+21.4%'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:680pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a7f6a; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Sans TC">'圖三　2026 年 1-10 月跨境業務量月度趨勢（單位：億元，資料來源：全球業務監控平台）'</p>
+
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#9E2B25; border:1px dashed #9E2B25; backgroundColor:#FDF8EF; fontFamilyNames:Noto Sans TC">'（銀行業務章 / 公章占位）'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#9E2B25; border:1px dashed #9E2B25; backgroundColor:#FDF8EF; fontFamilyNames:Noto Sans TC">'（騎縫章 / 二維碼占位）'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#9E2B25; border:1px dashed #9E2B25; backgroundColor:#FDF8EF; fontFamilyNames:Noto Sans TC">'（二維碼占位）'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; color:#8a7f6a; border:1px dashed #9E2B25; fontFamilyNames:Noto Sans TC">'機構名稱：'${orgName}</td>
+      <td style="padding:4px; textAlign:center; color:#8a7f6a; border:1px dashed #9E2B25; fontFamilyNames:Noto Sans TC">'騎縫章沿右邊線騎縫加蓋'</td>
+      <td style="padding:4px; textAlign:center; color:#8a7f6a; border:1px dashed #9E2B25; fontFamilyNames:Noto Sans TC">'掃碼驗真'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:4px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#9E2B25; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'編製：'${preparedBy}</td>
+      <td style="width:33%; padding:4px; color:#9E2B25; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'審核：'${reviewedBy}</td>
+      <td style="padding:4px; color:#9E2B25; borderBottom:1px solid #C9A227; fontFamilyNames:Noto Sans TC">'簽發：'${issuedBy}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:8pt; color:#8a7f6a; marginTop:8px; fontFamilyNames:Noto Sans TC">'免責聲明：本摘要僅供授權機構參考使用，全部財務資料以集團經審計的年度報告為準。'</p>
+</body>
+</pdf>

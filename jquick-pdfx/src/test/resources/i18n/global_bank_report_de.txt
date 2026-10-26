@@ -1,0 +1,211 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（Deutsch 版）
+  // 单语种独立报告：全篇仅德语，图表标题/图例亦为德语
+  // 视觉主题「钢灰严谨·德式网格式」：主色 #37474F　点缀芥末黄 #C99700　浅底 #F0F2F1　深线 #2A363C
+
+  // 抬头：左对齐 + 芥末黄下划线
+  <h1 style="fontSize:19pt; bold:true; color:#37474F; textAlignment:left; marginBottom:2px; fontFamilyNames:Noto Sans,Helvetica">'Global Union Bank · Zusammenfassung der weltweiten Geschäftstätigkeit'</h1>
+  <p style="fontSize:9.5pt; color:#6B8189; textAlignment:left; marginBottom:4px; fontFamilyNames:Noto Sans,Helvetica">'Die ersten drei Quartale 2026 · konsolidierte Gruppenbasis'</p>
+  <lineSeparator style="color:#C99700; thickness:3f; marginBottom:10px"></lineSeparator>
+
+  // 信息区：满格深线网格
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F2F1; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Berichtsnummer'</td>
+      <td style="width:34%; padding:4px; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${reportNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F2F1; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Berichtsdatum'</td>
+      <td style="padding:4px; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F2F1; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Herausgeber'</td>
+      <td style="width:34%; padding:4px; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#F0F2F1; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Datenbereich'</td>
+      <td style="padding:4px; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI 区：网格 + 左列编号，钢灰表头
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Bilanzsumme'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Grenzüberschreitende Abwicklung'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Niederlassungen weltweit'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Länder und Regionen'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${totalAssets}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${crossBorderSettlement}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${globalBranches}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${countries}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; backgroundColor:#C99700; color:#2A363C; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Betriebsertrag'</td>
+      <td style="padding:6px; backgroundColor:#C99700; color:#2A363C; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Reingewinn'</td>
+      <td style="padding:6px; backgroundColor:#C99700; color:#2A363C; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Mitarbeiter'</td>
+      <td style="padding:6px; backgroundColor:#C99700; color:#2A363C; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Kunden'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px; textAlign:center; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${revenue}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${netProfit}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${employees}</td>
+      <td style="padding:6px; textAlign:center; bold:true; color:#37474F; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">${customers}</td>
+    </tr>
+  </table>
+
+  // 一、章节标题：钢灰条 + 芥末黄左块
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#37474F; color:white; bold:true; fontSize:10pt; borderLeft:10px solid #C99700; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'1. Geschäftüberblick'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; marginBottom:4px; fontFamilyNames:Noto Sans,Helvetica">'In den ersten drei Quartalen 2026 setzte die Bank ihr integriertes Geschäftsmodell aus Inland und Ausland, Onshore und Offshore sowie Online und Offline fort und erreichte ein Rekordvolumen im grenzüberschreitenden Geschäft. Festlandchina trug 45,2 Prozent zum Betriebsertrag der Gruppe bei, während Asien-Pazifik, der Nahe Osten und Europa zusammen 39,7 Prozent beisteuerten. Das Volumen der grenzüberschreitenden Yuan-Abwicklung stieg im Jahresvergleich um 21,4 Prozent; das mehrsprachige Kundenzentrum verzeichnete 4,6 Millionen Anrufe mit einer Zufriedenheitsquote von 96,3 Prozent.'</p>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#6B8189; textAlign:left; marginTop:2px; marginBottom:8px; borderLeft:3px solid #C99700; paddingLeft:6px; fontFamilyNames:Noto Sans,Helvetica">'Abbildung 1  Betriebsertrag nach Regionen in den ersten drei Quartalen 2026 (100 Mio. Yuan, Quelle: gemeinsame Finanzplattform der Gruppe)'</p>
+
+  // 二、全球网络
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#37474F; color:white; bold:true; fontSize:10pt; borderLeft:10px solid #C99700; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'2. Globales Netzwerk'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; marginBottom:4px; fontFamilyNames:Noto Sans,Helvetica">'Zum 30. September 2026 unterhielt die Bank 1.286 Niederlassungen und 3.470 Selbstbedienungsautomaten in 68 Ländern und Regionen. Sechs regionale Drehkreuze bieten das vollständige Angebot für Firmen- und Privatkunden in lokaler Währung und Landessprache; alle internationalen Handelsdokumente werden auf Chinesisch, Englisch, Arabisch, Russisch, Französisch, Deutsch und Japanisch akzeptiert, ohne zusätzliche Übersetzungsgebühren.'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Region'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Regionales Drehkreuz'</th>
+      <th style="width:28%; padding:4px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Servicesprachen'</th>
+      <th style="padding:4px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Niederlassungen'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Asien-Pazifik'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Singapur'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'EN, ZH, JA'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Naher Osten und Nordafrika'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Dubai'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'AR, EN, FR'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Europa'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Frankfurt'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'DE, FR, EN'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Russland und GUS'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Moskau'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'RU, EN'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Japan'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Tokio'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'JA, EN'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Amerika'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'New York'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'EN, ES'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'260'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#6B8189; textAlign:left; marginTop:2px; marginBottom:8px; borderLeft:3px solid #C99700; paddingLeft:6px; fontFamilyNames:Noto Sans,Helvetica">'Abbildung 2  Währungsstruktur der grenzüberschreitenden Abwicklung in den ersten drei Quartalen 2026 (Anteil am Abwicklungsvolumen, Quelle: Abwicklungssystem)'</p>
+
+  // 三、区域明细
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#37474F; color:white; bold:true; fontSize:10pt; borderLeft:10px solid #C99700; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'3. Regionaldetail'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Region'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Ertrag (100 Mio. Yuan)'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Abwicklung (100 Mio. Yuan)'</th>
+      <th style="padding:4px; backgroundColor:#37474F; color:white; bold:true; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Wachstum zum Vorjahr'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Festlandchina'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'986'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'6.420'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; bold:true; color:#C99700; fontFamilyNames:Noto Sans,Helvetica">'+18,2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Asien-Pazifik (ohne China)'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'412'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'2.760'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; bold:true; color:#C99700; fontFamilyNames:Noto Sans,Helvetica">'+15,6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Europa'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'268'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'1.890'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; bold:true; color:#C99700; fontFamilyNames:Noto Sans,Helvetica">'+12,3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Naher Osten'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'186'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'1.240'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; bold:true; color:#C99700; fontFamilyNames:Noto Sans,Helvetica">'+18,6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Japan'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'174'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'980'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #2A363C; bold:true; color:#C99700; fontFamilyNames:Noto Sans,Helvetica">'+14,8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Russland und GUS'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'154'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'690'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#F0F2F1; border:1px solid #2A363C; bold:true; color:#C99700; fontFamilyNames:Noto Sans,Helvetica">'+21,4%'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#6B8189; textAlign:left; marginTop:2px; marginBottom:8px; borderLeft:3px solid #C99700; paddingLeft:6px; fontFamilyNames:Noto Sans,Helvetica">'Abbildung 3  Monatliches Volumen des grenzüberschreitenden Geschäfts von Januar bis Oktober 2026 (100 Mio. Yuan, Quelle: globale Geschäftsüberwachungsplattform)'</p>
+
+  // 签章区：深线网格
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#37474F; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'(Platz für Banksiegel / Amtssiegel)'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#37474F; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'(Platz für Heftsiegel / QR)'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#37474F; backgroundColor:#F0F2F1; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'(Platz für QR-Code)'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:5px; textAlign:center; color:#6B8189; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Institution: '${orgName}</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#6B8189; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Heftsiegel entlang der rechten Kante'</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#6B8189; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Verifizierung per QR-Code'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:5px; textAlign:center; color:#6B8189; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Geschäftsdatum: '${reportDate}</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#6B8189; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'QR-Code im Rahmen oben rechts gedruckt'</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#6B8189; border:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Größe 22 mm × 22 mm'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#37474F; borderTop:3px solid #C99700; borderBottom:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Erstellt von: '${preparedBy}</td>
+      <td style="width:33%; padding:4px; color:#37474F; borderTop:3px solid #C99700; borderBottom:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Geprüft von: '${reviewedBy}</td>
+      <td style="padding:4px; color:#37474F; borderTop:3px solid #C99700; borderBottom:1px solid #2A363C; fontFamilyNames:Noto Sans,Helvetica">'Unterzeichnet von: '${issuedBy}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:8pt; color:#8A969C; marginTop:8px; fontFamilyNames:Noto Sans,Helvetica">'Haftungshinweis: Diese Zusammenfassung dient ausschließlich autorisierten Institutionen zur Referenz; sämtliche Finanzdaten unterliegen dem geprüften Geschäftsbericht der Gruppe.'</p>
+</body>
+</pdf>

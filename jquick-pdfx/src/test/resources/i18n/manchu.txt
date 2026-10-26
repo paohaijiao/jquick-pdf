@@ -1,0 +1,29 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#1f4e79;fontFamilyNames:SimHei,Helvetica">'满文 PDF 渲染示例 Manchu PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'满文与汉文、英文混排 · Manchu mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'满文（Manchu）是清代官方文字，自上而下竖排书写，行序从左至右。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'Manchu is written vertically from top to bottom, columns run left to right.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#1f4e79;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'满文词汇'</th>
+      <th style="backgroundColor:#1f4e79;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'罗马转写'</th>
+      <th style="backgroundColor:#1f4e79;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Mongolian,Helvetica">'ᠮᠠᠨᠵᡠ'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'manju'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'满洲'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Mongolian,Helvetica">'ᠰᠠᡳᠨ'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'sain'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'好'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:SimHei,Helvetica">'下方为竖排书写样式：满文自上而下阅读，渲染层按 -90° 旋转布局 vertical writing below'</p>
+  <p style="fontFamilyNames:Noto Sans Mongolian,Helvetica;angleInRadians:-1.5708;fontSize:14;characterSpacing:2">'ᠮᠠᠨᠵᡠ ᡤᡳᠰᡠᠨ'</p>
+</body>
+</pdf>

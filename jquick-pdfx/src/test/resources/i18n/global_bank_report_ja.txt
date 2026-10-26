@@ -1,0 +1,200 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（日本語版）
+  // 单语种独立报告：全篇仅日语，图表标题/图例亦为日语
+  // 视觉主题「藍染朱印·和风余白式」：藍 #2B4570　朱 #C73E3A　和纸底 #F7F6F2　细线 #D9D5CC
+
+  // 抬头：左对齐余白式 + 藍/朱双线
+  <h1 style="fontSize:20pt; bold:true; color:#2B4570; textAlignment:left; characterSpacing:4pt; marginBottom:2px; fontFamilyNames:Noto Sans JP,Helvetica">'グローバルユニオン銀行 · グローバル経営年報サマリー'</h1>
+  <p style="fontSize:9.5pt; color:#8A8378; textAlignment:left; marginBottom:5px; fontFamilyNames:Noto Sans JP,Helvetica">'2026年第1～3四半期 · グループ連結ベース'</p>
+  <lineSeparator style="color:#2B4570; thickness:2f"></lineSeparator>
+  <lineSeparator style="color:#C73E3A; thickness:0.8f; marginBottom:12px"></lineSeparator>
+
+  // 信息区：细线两栏
+  <table style="width:100%; fontSize:8.5pt; marginBottom:12px">
+    <tr>
+      <td style="width:16%; padding:4px; bold:true; color:#2B4570; borderBottom:1px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'報告書番号'</td>
+      <td style="width:34%; padding:4px; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">${reportNo}</td>
+      <td style="width:16%; padding:4px; bold:true; color:#2B4570; borderBottom:1px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'報告日'</td>
+      <td style="padding:4px; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; bold:true; color:#2B4570; borderBottom:1px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'発行機関'</td>
+      <td style="width:34%; padding:4px; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">${orgName}</td>
+      <td style="width:16%; padding:4px; bold:true; color:#2B4570; borderBottom:1px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'データ範囲'</td>
+      <td style="padding:4px; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI 区：白底卡 + 藍色顶部压线（余白式，无外框）
+  <table style="width:100%; fontSize:9pt; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:6px 6px 2px; color:#2B4570; bold:true; fontSize:8pt; textAlign:center; borderTop:3px solid #2B4570; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">'総資産'</td>
+      <td style="width:25%; padding:6px 6px 2px; color:#2B4570; bold:true; fontSize:8pt; textAlign:center; borderTop:3px solid #2B4570; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">'越境決済高'</td>
+      <td style="width:25%; padding:6px 6px 2px; color:#C73E3A; bold:true; fontSize:8pt; textAlign:center; borderTop:3px solid #C73E3A; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">'世界店舗数'</td>
+      <td style="width:25%; padding:6px 6px 2px; color:#2B4570; bold:true; fontSize:8pt; textAlign:center; borderTop:3px solid #2B4570; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">'カバー国・地域'</td>
+    </tr>
+    <tr>
+      <td style="padding:2px 6px 8px; color:#2B4570; bold:true; fontSize:11pt; textAlign:center; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">${totalAssets}</td>
+      <td style="padding:2px 6px 8px; color:#2B4570; bold:true; fontSize:11pt; textAlign:center; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">${crossBorderSettlement}</td>
+      <td style="padding:2px 6px 8px; color:#2B4570; bold:true; fontSize:11pt; textAlign:center; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">${globalBranches}</td>
+      <td style="padding:2px 6px 8px; color:#2B4570; bold:true; fontSize:11pt; textAlign:center; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">${countries}</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 6px 2px; color:#C73E3A; bold:true; fontSize:8pt; textAlign:center; borderTop:3px solid #C73E3A; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">'営業収入'</td>
+      <td style="padding:6px 6px 2px; color:#2B4570; bold:true; fontSize:8pt; textAlign:center; borderTop:3px solid #2B4570; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">'純利益'</td>
+      <td style="padding:6px 6px 2px; color:#2B4570; bold:true; fontSize:8pt; textAlign:center; borderTop:3px solid #2B4570; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">'従業員数'</td>
+      <td style="padding:6px 6px 2px; color:#C73E3A; bold:true; fontSize:8pt; textAlign:center; borderTop:3px solid #C73E3A; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">'顧客数'</td>
+    </tr>
+    <tr>
+      <td style="padding:2px 6px 8px; color:#2B4570; bold:true; fontSize:11pt; textAlign:center; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">${revenue}</td>
+      <td style="padding:2px 6px 8px; color:#2B4570; bold:true; fontSize:11pt; textAlign:center; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">${netProfit}</td>
+      <td style="padding:2px 6px 8px; color:#2B4570; bold:true; fontSize:11pt; textAlign:center; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">${employees}</td>
+      <td style="padding:2px 6px 8px; color:#2B4570; bold:true; fontSize:11pt; textAlign:center; backgroundColor:#F7F6F2; fontFamilyNames:Noto Sans JP,Helvetica">${customers}</td>
+    </tr>
+  </table>
+
+  // 一、章节标题：朱印方块 + 藍字 + 藍色底边线
+  <p style="fontSize:11pt; bold:true; color:#2B4570; borderBottom:2px solid #2B4570; marginBottom:5px; fontFamilyNames:Noto Sans JP,Helvetica">'■ 第一、業務概況'</p>
+  <p style="fontSize:9.5pt; marginBottom:4px; fontFamilyNames:Noto Sans JP,Helvetica">'2026年第1～3四半期、当行は「現地通貨・複数通貨、国内・海外、オンライン・オフライン」の一体化経営を堅持し、越境金融業務量は同期として過去最高を更新しました。中国本土がグループ営業収入の45.2%を占め、アジア太平洋、中東、欧州の3地域で合わせて39.7%を占め、国際化展開は収穫期に入っています。人民元建て越境決済高は前年同期比21.4%増、多言語カスタマーセンターは年間460万件の電話に対応し、顧客満足度は96.3%となりました。'</p>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8A8378; textAlign:right; marginTop:2px; marginBottom:12px; fontFamilyNames:Noto Sans JP,Helvetica">'図 1  2026年第1～3四半期の地域別営業収入（単位：億元、出所：グループ財務共有プラットフォーム）'</p>
+
+  // 二、グローバルネットワーク
+  <p style="fontSize:11pt; bold:true; color:#2B4570; borderBottom:2px solid #2B4570; marginBottom:5px; fontFamilyNames:Noto Sans JP,Helvetica">'■ 第二、グローバルネットワーク'</p>
+  <p style="fontSize:9.5pt; marginBottom:4px; fontFamilyNames:Noto Sans JP,Helvetica">'2026年9月30日時点で、当行は世界68の国・地域に1,286の店舗と3,470台の自社ATM等を設置しています。6つの地域統括拠点が現地通貨・現地言語で法人・個人向けの全ラインサービスを提供し、国際貿易書類は中国語・英語・アラビア語・ロシア語・フランス語・ドイツ語・日本語の7言語で追加翻訳費用なしで受け付けています。'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:12px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#F7F6F2; color:#2B4570; bold:true; textAlign:center; borderBottom:2px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'地域'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#F7F6F2; color:#2B4570; bold:true; textAlign:center; borderBottom:2px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'地域統括拠点'</th>
+      <th style="width:28%; padding:4px; backgroundColor:#F7F6F2; color:#2B4570; bold:true; textAlign:center; borderBottom:2px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'サービス言語'</th>
+      <th style="padding:4px; backgroundColor:#F7F6F2; color:#2B4570; bold:true; textAlign:center; borderBottom:2px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'店舗数'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'アジア太平洋'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'シンガポール'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'英語・中国語・日本語'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'中東・北アフリカ'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'ドバイ'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'アラビア語・英語・フランス語'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'欧州'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'フランクフルト'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'ドイツ語・フランス語・英語'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'ロシア・CIS'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'モスクワ'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'ロシア語・英語'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'日本'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'東京'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'日本語・英語'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'南北アメリカ'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'ニューヨーク'</td>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'英語・スペイン語'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'260'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8A8378; textAlign:right; marginTop:2px; marginBottom:12px; fontFamilyNames:Noto Sans JP,Helvetica">'図 2  2026年第1～3四半期の越境決済通貨構成（決済額比率、出所：越境決済システム）'</p>
+
+  // 三、地域別事業詳細
+  <p style="fontSize:11pt; bold:true; color:#2B4570; borderBottom:2px solid #2B4570; marginBottom:5px; fontFamilyNames:Noto Sans JP,Helvetica">'■ 第三、地域別事業詳細'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:12px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#F7F6F2; color:#2B4570; bold:true; textAlign:center; borderBottom:2px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'地域'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#F7F6F2; color:#2B4570; bold:true; textAlign:center; borderBottom:2px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'営業収入（億元）'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#F7F6F2; color:#2B4570; bold:true; textAlign:center; borderBottom:2px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'越境決済高（億元）'</th>
+      <th style="padding:4px; backgroundColor:#F7F6F2; color:#2B4570; bold:true; textAlign:center; borderBottom:2px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'前年同期比'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'中国本土'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'986'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'6,420'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; color:#C73E3A; bold:true; fontFamilyNames:Noto Sans JP,Helvetica">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'アジア太平洋（中国除く）'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'412'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'2,760'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; color:#C73E3A; bold:true; fontFamilyNames:Noto Sans JP,Helvetica">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'欧州'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'268'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'1,890'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; color:#C73E3A; bold:true; fontFamilyNames:Noto Sans JP,Helvetica">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'中東'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'186'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'1,240'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; color:#C73E3A; bold:true; fontFamilyNames:Noto Sans JP,Helvetica">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'日本'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'174'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'980'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; color:#C73E3A; bold:true; fontFamilyNames:Noto Sans JP,Helvetica">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'ロシア・CIS'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'154'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'690'</td>
+      <td style="padding:4px; textAlign:right; borderBottom:1px solid #D9D5CC; color:#C73E3A; bold:true; fontFamilyNames:Noto Sans JP,Helvetica">'+21.4%'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8A8378; textAlign:right; marginTop:2px; marginBottom:12px; fontFamilyNames:Noto Sans JP,Helvetica">'図 3  2026年1～10月の越境業務量月次推移（単位：億元、出所：グローバル業務監視プラットフォーム）'</p>
+
+  // 签章区：和风细线框
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#2B4570; border:1px solid #D9D5CC; borderTop:3px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'（銀行印 / 公印の印影枠）'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#2B4570; border:1px solid #D9D5CC; borderTop:3px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'（契印 / QRコード枠）'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#2B4570; border:1px solid #D9D5CC; borderTop:3px solid #2B4570; fontFamilyNames:Noto Sans JP,Helvetica">'（QRコード枠）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8A8378; border:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'機関名：'${orgName}</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8A8378; border:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'契印は右端に沿って押印'</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8A8378; border:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'QRコードで真偽確認'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8A8378; border:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'業務日付：'${reportDate}</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8A8378; border:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'QRコードは右上の枠内に印刷'</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8A8378; border:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'サイズ 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#2B4570; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'作成：'${preparedBy}</td>
+      <td style="width:33%; padding:4px; color:#2B4570; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'確認：'${reviewedBy}</td>
+      <td style="padding:4px; color:#2B4570; borderBottom:1px solid #D9D5CC; fontFamilyNames:Noto Sans JP,Helvetica">'発行：'${issuedBy}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:8pt; color:#9C958A; marginTop:8px; fontFamilyNames:Noto Sans JP,Helvetica">'免責事項：本サマリーは許諾機関の参考用であり、財務データの最終値はグループ監査済み年次報告書によります。'</p>
+</body>
+</pdf>

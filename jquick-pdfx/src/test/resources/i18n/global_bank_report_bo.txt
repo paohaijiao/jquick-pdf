@@ -1,0 +1,206 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（藏文版）　视觉主题：绛红鎏金·藏式
+  // 单语种独立报告：全篇仅藏文　主色绛红 #7B2D26　鎏金 #D4A017　奶油底 #FBF3E8
+
+  <table style="width:100%; marginBottom:0px">
+    <tr>
+      <td style="padding:10px; backgroundColor:#7B2D26; textAlign:center; fontSize:18pt; bold:true; color:#FBF3E8; characterSpacing:4pt; fontFamilyNames:Noto Serif Tibetan">'གོ་ལ་ཡོངས་དངུལ་ཁང'</td>
+    </tr>
+  </table>
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="padding:6px; backgroundColor:#7B2D26; textAlign:center; fontSize:12pt; bold:true; color:#D4A017; fontFamilyNames:Noto Serif Tibetan">'2026 ལོའི་གཉེར་སྐྱོང་སྙན་ཞུ'</td>
+    </tr>
+  </table>
+  <lineSeparator style="color:#D4A017; thickness:1.5f; marginBottom:8px"></lineSeparator>
+
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; bold:true; color:#7B2D26; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'སྙན་ཞུའི་ཨང་ཀི'</td>
+      <td style="width:34%; padding:4px; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${reportNo}</td>
+      <td style="width:16%; padding:4px; bold:true; color:#7B2D26; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'སྙན་ཞུའི་ཚེས་གྲངས'</td>
+      <td style="padding:4px; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; bold:true; color:#7B2D26; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'སྒྲིག་སྒྲུབ་ལས་ཁུངས'</td>
+      <td style="padding:4px; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${orgName}</td>
+      <td style="padding:4px; bold:true; color:#7B2D26; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'གཞི་གྲངས་ཁྱབ་ཁོངས'</td>
+      <td style="padding:4px; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${dataScope}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'སྤྱིའི་རྒྱུ་ནོར'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'རྒྱལ་མཚམས་རྩིས་སྤྲོད'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'གོ་ལའི་ཡན་ལག'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'རྒྱལ་ཁབ་ཁྱབ་ཁོངས'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#7B2D26; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${totalAssets}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#7B2D26; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${crossBorderSettlement}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#7B2D26; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${globalBranches}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#7B2D26; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#FBF3E8; color:#7B2D26; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ཡོང་འབབ'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#FBF3E8; color:#7B2D26; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ཁེ་བྱང'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#FBF3E8; color:#7B2D26; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ལས་བྱེད'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#FBF3E8; color:#7B2D26; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'མགྲོན་པོ'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#7B2D26; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${revenue}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#7B2D26; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${netProfit}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#7B2D26; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${employees}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#7B2D26; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F5E6C8; color:#7B2D26; bold:true; fontSize:10pt; borderBottom:1.5px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'དང་པོ། གཉེར་སྐྱོང་གནས་ཚུལ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; color:#4A2C1E; marginBottom:4px; fontFamilyNames:Noto Serif Tibetan">'2026 ལོའི་དུས་ཚིགས་དང་པོ་གསུམ་ནང་ངེད་དངུལ་ཁང་གིས་རྒྱལ་མཚམས་ཀྱི་དངུལ་རྩའི་ལས་ཀ་རྒྱུན་མི་འཆད་པར་རྒྱ་སྐྱེད་བཏང་ཡོད། ཀྲུང་གོའི་ནང་ལོགས་ཚོང་རས་ལྷན་ཚོགས་ཡོང་འབབ་ཀྱི་ 45.2% མཁོ་འདོན་བྱས་ཡོད་ལ། ཡོ་རོབ་དང་ལྷོ་ཨེ་ཤེ་ཡ། དབུས་ཤར་བཅས་ཀྱིས་ 39.7% མཉམ་དུ་མཁོ་འདོན་བྱས། རྒྱལ་མཚམས་ཀྱི་དངུལ་སྤྲོད་བསྡོམས་འབོར་ལོ་གོང་མའི་དུས་མཚུངས་ལས 21.4% འཕེལ་བ་དང་། སྐད་ཡིག་མང་པོའི་ཞབས་ཞུའི་ལྟེ་གནས་ཀྱིས་ལོ་གཅིག་ནང་ཁ་པར་ཐེངས་ཁྲི 460 ལས་སྣེ་ལེན་བྱས།'</p>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:680pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9A8A72; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Serif Tibetan">'པར་རིས 1　ཡུལ་ཁུལ་བཞིན་གྱི་ཡོང་འབབ（སྒོར་དུང་ཕྱུར）'</p>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F5E6C8; color:#7B2D26; bold:true; fontSize:10pt; borderBottom:1.5px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'གཉིས་པ། གོ་ལའི་དྲ་རྒྱ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; color:#4A2C1E; marginBottom:4px; fontFamilyNames:Noto Serif Tibetan">'2026 ལོའི་ཟླ་བ 9 ཚེས 30 ཉིན་ངེད་དངུལ་ཁང་གིས་རྒྱལ་ཁབ་དང་ཡུལ་ཁུལ 68 ནང་ཡན་ལག 1,286 དང་རང་འགུལ་འཕྲུལ་ཆས 3,470 བཙུགས་ཡོད། རྒྱལ་སྤྱིའི་ཚོང་དོན་ཡིག་ཆ་སྐད་ཡིག 7 ཐོག་ནས་ཕུལ་ན་སྒྱུར་རིན་མི་ལེན།'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ཡུལ་ཁུལ'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ལྟེ་གནས་གྲོང་ཁྱེར'</th>
+      <th style="width:28%; padding:4px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ཞབས་ཞུའི་སྐད་ཡིག'</th>
+      <th style="padding:4px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ཡན་ལག་གྲངས'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ལྷོ་ཨེ་ཤེ་ཡ'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'སིང་ཀ་ཕོར'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'དབྱིན་ཇི། རྒྱ་ཡིག རི་པིན'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'དབུས་ཤར'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'རི་ཡ་དྷ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཨ་རབ། དབྱིན་ཇི། ཧྥ་རན་སི'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཡོ་རོབ'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཧྥ་རན་ཀྥུརཊ'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཇར་མན། ཧྥ་རན་སི། དབྱིན་ཇི'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཨུ་རུ་སུ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'མོ་སི་ཀོ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཨུ་རུ་སུ། དབྱིན་ཇི'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'རི་པིན'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཐོ་ཀྱོ'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'རི་པིན། དབྱིན་ཇི'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཨ་མེ་རི་ཀ'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ནེའུ་ཡོག'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'དབྱིན་ཇི། སི་པེན'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'260'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:400pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9A8A72; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Serif Tibetan">'པར་རིས 2　རྒྱལ་མཚམས་རྩིས་སྤྲོད་ཀྱི་དངུལ་རིགས་བསྡུར（རྩིས་སྤྲོད་བསྡོམས་འབོར་བཞིན）'</p>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#F5E6C8; color:#7B2D26; bold:true; fontSize:10pt; borderBottom:1.5px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'གསུམ་པ། ཡུལ་ཁུལ་ཞིབ་ཕྲ'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ཡུལ་ཁུལ'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ཡོང་འབབ（དུང་ཕྱུར）'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'རྒྱལ་མཚམས་རྩིས་སྤྲོད（དུང་ཕྱུར）'</th>
+      <th style="padding:4px; backgroundColor:#7B2D26; color:#FBF3E8; bold:true; textAlign:center; border:1px solid #7B2D26; fontFamilyNames:Noto Serif Tibetan">'འཕེལ་ཚད'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཀྲུང་གོའི་ནང་ལོགས'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'986'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'6,420'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ལྷོ་ཨེ་ཤེ་ཡ（ཀྲུང་གོ་མིན）'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'412'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'2,760'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཡོ་རོབ'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'268'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'1,890'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'དབུས་ཤར'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'186'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'1,240'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'རི་པིན'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'174'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'980'</td>
+      <td style="padding:4px; textAlign:right; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཨུ་རུ་སུ'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'154'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'690'</td>
+      <td style="padding:4px; textAlign:right; backgroundColor:#FBF3E8; border:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'+21.4%'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:680pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#9A8A72; textAlign:center; marginTop:2px; marginBottom:8px; fontFamilyNames:Noto Serif Tibetan">'པར་རིས 3　ཟླ་བ་བཞིན་གྱི་རྒྱལ་མཚམས་ལས་ཀའི་འཕེལ་ཕྱོགས（སྒོར་དུང་ཕྱུར）'</p>
+
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#7B2D26; border:1px dashed #7B2D26; fontFamilyNames:Noto Serif Tibetan">'（དངུལ་ཁང་ཐམ་ག་འཇོག་ས）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#7B2D26; border:1px dashed #7B2D26; fontFamilyNames:Noto Serif Tibetan">'（གྲངས་རྟགས་འཇོག་ས）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#7B2D26; border:1px dashed #7B2D26; fontFamilyNames:Noto Serif Tibetan">'（ཞིབ་དཔྱད་འཇོག་ས）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9A8A72; border:1px dashed #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ལས་ཁུངས་མིང：'${orgName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9A8A72; border:1px dashed #7B2D26; fontFamilyNames:Noto Serif Tibetan">'ཐམ་ག་གཡས་ཀྱི་ཐིག་བཞིན་འཇོག'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9A8A72; border:1px dashed #7B2D26; fontFamilyNames:Noto Serif Tibetan">'གྲངས་རྟགས་བཤེར'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#7B2D26; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'སྒྲིག་སྒྲུབ：'${preparedBy}</td>
+      <td style="width:33%; padding:4px; color:#7B2D26; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཞིབ་བཤེར：'${reviewedBy}</td>
+      <td style="padding:4px; color:#7B2D26; borderBottom:1px solid #D4A017; fontFamilyNames:Noto Serif Tibetan">'ཆོག་མཆན：'${issuedBy}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:8pt; color:#9A8A72; marginTop:8px; fontFamilyNames:Noto Serif Tibetan">'སྙན་ཞུ་འདི་དབང་ཆ་ཡོད་པའི་ལས་ཁུངས་ཁོ་ནས་སྤྱོད་ཆོག ནོར་དོན་གྲངས་ཀ་ཚང་མ་ལྷན་ཚོགས་ཀྱི་རྩིས་བཤེར་ཟིན་པའི་ལོ་འཁོར་སྙན་ཞུ་གཞིར་བཟུང'</p>
+</body>
+</pdf>

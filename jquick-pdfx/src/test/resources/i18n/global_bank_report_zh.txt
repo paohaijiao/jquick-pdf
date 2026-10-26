@@ -1,0 +1,215 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（简体中文版）　视觉主题：黛紫鎏银·圆角卡片式
+  // 单语种独立报告：全篇仅简体中文，图表标题/图例亦为中文
+  // 主色 #52307C　辅色 #8E7CC3　浅底 #F5F2FA　描边 #D5CCE8
+
+  // 抬头：居中礼仪式 + 双分隔线
+  <h1 style="fontSize:19pt; bold:true; color:#52307C; textAlignment:center; characterSpacing:8pt; marginBottom:2px; fontFamilyNames:SimHei,Helvetica">'环球汇通银行 · 全球经营年报摘要'</h1>
+  <p style="fontSize:9.5pt; color:#8E7CC3; textAlignment:center; fontFamilyNames:SimHei,Helvetica">'2026 年前三季度 · 集团合并口径'</p>
+  <lineSeparator style="color:#52307C; thickness:2f"></lineSeparator>
+  <lineSeparator style="color:#D5CCE8; thickness:0.5f; marginBottom:10px"></lineSeparator>
+
+  // 信息区：圆角信息卡
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <td style="width:16%; padding:5px; backgroundColor:#F5F2FA; bold:true; color:#52307C; border:1px solid #D5CCE8; borderRadius:6px; fontFamilyNames:SimHei,Helvetica">'报告编号'</td>
+      <td style="width:34%; padding:5px; border:1px solid #D5CCE8; borderRadius:6px; fontFamilyNames:SimHei,Helvetica">${reportNo}</td>
+      <td style="width:16%; padding:5px; backgroundColor:#F5F2FA; bold:true; color:#52307C; border:1px solid #D5CCE8; borderRadius:6px; fontFamilyNames:SimHei,Helvetica">'报告日期'</td>
+      <td style="padding:5px; border:1px solid #D5CCE8; borderRadius:6px; fontFamilyNames:SimHei,Helvetica">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:5px; backgroundColor:#F5F2FA; bold:true; color:#52307C; border:1px solid #D5CCE8; borderRadius:6px; fontFamilyNames:SimHei,Helvetica">'编制机构'</td>
+      <td style="width:34%; padding:5px; border:1px solid #D5CCE8; borderRadius:6px; fontFamilyNames:SimHei,Helvetica">${orgName}</td>
+      <td style="width:16%; padding:5px; backgroundColor:#F5F2FA; bold:true; color:#52307C; border:1px solid #D5CCE8; borderRadius:6px; fontFamilyNames:SimHei,Helvetica">'数据范围'</td>
+      <td style="padding:5px; border:1px solid #D5CCE8; borderRadius:6px; fontFamilyNames:SimHei,Helvetica">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI 区：八张圆角卡片，深紫/浅紫交替
+  <table style="width:100%; fontSize:9pt; marginBottom:10px">
+    <tr>
+      <td style="width:25%; padding:7px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'总资产'</td>
+      <td style="width:25%; padding:7px; backgroundColor:#8E7CC3; color:white; bold:true; textAlign:center; border:1px solid #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'跨境结算额'</td>
+      <td style="width:25%; padding:7px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'全球网点'</td>
+      <td style="width:25%; padding:7px; backgroundColor:#8E7CC3; color:white; bold:true; textAlign:center; border:1px solid #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'覆盖国家与地区'</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; textAlign:center; bold:true; fontSize:11pt; color:#52307C; border:1px solid #D5CCE8; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">${totalAssets}</td>
+      <td style="padding:7px; textAlign:center; bold:true; fontSize:11pt; color:#52307C; border:1px solid #D5CCE8; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">${crossBorderSettlement}</td>
+      <td style="padding:7px; textAlign:center; bold:true; fontSize:11pt; color:#52307C; border:1px solid #D5CCE8; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">${globalBranches}</td>
+      <td style="padding:7px; textAlign:center; bold:true; fontSize:11pt; color:#52307C; border:1px solid #D5CCE8; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">${countries}</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; backgroundColor:#8E7CC3; color:white; bold:true; textAlign:center; border:1px solid #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'营业收入'</td>
+      <td style="padding:7px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'净利润'</td>
+      <td style="padding:7px; backgroundColor:#8E7CC3; color:white; bold:true; textAlign:center; border:1px solid #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'员工人数'</td>
+      <td style="padding:7px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'服务客户'</td>
+    </tr>
+    <tr>
+      <td style="padding:7px; textAlign:center; bold:true; fontSize:11pt; color:#52307C; border:1px solid #D5CCE8; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">${revenue}</td>
+      <td style="padding:7px; textAlign:center; bold:true; fontSize:11pt; color:#52307C; border:1px solid #D5CCE8; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">${netProfit}</td>
+      <td style="padding:7px; textAlign:center; bold:true; fontSize:11pt; color:#52307C; border:1px solid #D5CCE8; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">${employees}</td>
+      <td style="padding:7px; textAlign:center; bold:true; fontSize:11pt; color:#52307C; border:1px solid #D5CCE8; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">${customers}</td>
+    </tr>
+  </table>
+
+  // 一、经营概览（圆角标题条）
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#52307C; color:white; bold:true; fontSize:10pt; characterSpacing:2pt; textAlign:center; border:1px solid #52307C; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'一、经营概览'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; marginBottom:4px; fontFamilyNames:SimHei,Helvetica">'2026 年前三季度，本行坚持「本外币、境内外、线上线下」一体化经营，跨境金融业务量再创同期新高。中国内地市场贡献了集团营业收入的 45.2%，亚太、中东、欧洲三大区域合计贡献 39.7%，国际化布局进入收获期。跨境人民币结算量同比增长 21.4%，多语言客服中心全年受理 460 万通来电，客户满意度 96.3%。'</p>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:SimHei,Helvetica">'图 1  2026 年前三季度全球分区域营业收入（单位：亿元人民币，数据来源：集团财务共享平台）'</p>
+
+  // 二、全球网络布局
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#8E7CC3; color:white; bold:true; fontSize:10pt; characterSpacing:2pt; textAlign:center; border:1px solid #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'二、全球网络布局'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; marginBottom:4px; fontFamilyNames:SimHei,Helvetica">'截至 2026 年 9 月 30 日，本行在全球 68 个国家和地区设有 1,286 家分支机构和 3,470 台自助设备，六大区域枢纽以本币、本地语言提供对公与对私全条线服务，全部国际贸昢单证接受中、英、阿、俄、法、德、日七种语言提交且不额外收取翻译费用。'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <th style="width:28%; padding:5px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; fontFamilyNames:SimHei,Helvetica">'区域'</th>
+      <th style="width:24%; padding:5px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; fontFamilyNames:SimHei,Helvetica">'区域枢纽'</th>
+      <th style="width:28%; padding:5px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; fontFamilyNames:SimHei,Helvetica">'服务语言'</th>
+      <th style="padding:5px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; fontFamilyNames:SimHei,Helvetica">'分支机构数'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'亚太地区'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'新加坡'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'英语、中文、日语'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'中东与北非'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'迪拜'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'阿拉伯语、英语、法语'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'欧洲'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'法兰克福'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'德语、法语、英语'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'俄语区'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'莫斯科'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'俄语、英语'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'日本'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'东京'</td>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'日语、英语'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'美洲'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'纽约'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'英语、西班牙语'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'260'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:SimHei,Helvetica">'图 2  2026 年前三季度跨境结算币种构成（按结算金额占比，数据来源：跨境结算系统）'</p>
+
+  // 三、分区域经营明细
+  <table style="width:100%; marginBottom:4px">
+    <tr>
+      <td style="padding:5px; backgroundColor:#52307C; color:white; bold:true; fontSize:10pt; characterSpacing:2pt; textAlign:center; border:1px solid #52307C; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'三、分区域经营明细'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <th style="width:28%; padding:5px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; fontFamilyNames:SimHei,Helvetica">'区域'</th>
+      <th style="width:24%; padding:5px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; fontFamilyNames:SimHei,Helvetica">'营业收入（亿元）'</th>
+      <th style="width:26%; padding:5px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; fontFamilyNames:SimHei,Helvetica">'跨境结算额（亿元）'</th>
+      <th style="padding:5px; backgroundColor:#52307C; color:white; bold:true; textAlign:center; border:1px solid #52307C; fontFamilyNames:SimHei,Helvetica">'同比增速'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'中国内地'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'986'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'6,420'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'亚太（除中国）'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'412'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'2,760'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'欧洲'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'268'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'1,890'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'中东'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'186'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'1,240'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'日本'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'174'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'980'</td>
+      <td style="padding:5px; textAlign:right; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'俄语区'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'154'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'690'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F5F2FA; border:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'+21.4%'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:SimHei,Helvetica">'图 3  2026 年 1-10 月跨境业务量月度趋势（单位：亿元，数据来源：全球业务监控平台）'</p>
+
+  // 签章区：圆角虚线卡
+  <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#52307C; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'（银行业务章 / 公章占位）'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#52307C; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'（骑缝章 / 二维码占位）'</td>
+      <td style="width:33%; padding:5px; bold:true; textAlign:center; color:#52307C; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'（二维码占位）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8a8794; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'机构名称：'${orgName}</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8a8794; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'骑缝章沿右边线骑缝加盖'</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8a8794; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'扫码验真'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8a8794; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'业务日期：'${reportDate}</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8a8794; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'二维码打印于右上角方框内'</td>
+      <td style="width:33%; padding:5px; textAlign:center; color:#8a8794; border:1px dashed #8E7CC3; borderRadius:8px; fontFamilyNames:SimHei,Helvetica">'尺寸 22mm×22mm'</td>
+    </tr>
+  </table>
+
+  // 落款：plain
+  <!-- 落款栏 -->
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#52307C; borderBottom:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'编制：'${preparedBy}</td>
+      <td style="width:33%; padding:4px; color:#52307C; borderBottom:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'审核：'${reviewedBy}</td>
+      <td style="padding:4px; color:#52307C; borderBottom:1px solid #D5CCE8; fontFamilyNames:SimHei,Helvetica">'签发：'${issuedBy}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:8pt; color:#9b98a3; italic:true; marginTop:8px; fontFamilyNames:SimHei,Helvetica">'免责声明：本摘要仅供授权机构参考使用，全部财务数据以集团经审计的年度报告为准。'</p>
+</body>
+</pdf>

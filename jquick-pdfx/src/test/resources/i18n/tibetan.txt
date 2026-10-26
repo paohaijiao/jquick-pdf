@@ -1,0 +1,30 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#b8860b;fontFamilyNames:SimHei,Helvetica">'藏文 PDF 渲染示例 Tibetan PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'藏文与汉文、英文混排 · Tibetan mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Serif Tibetan,Helvetica">'བཀྲ་ཤིས་བདེ་ལེགས'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'藏文自左向右横排书写，音节间用 ་ 分隔，有上叠与下叠字丁。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'Tibetan script flows left to right with stacked super and sub joined letters.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#b8860b;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'藏文词汇'</th>
+      <th style="backgroundColor:#b8860b;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'威利转写'</th>
+      <th style="backgroundColor:#b8860b;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Serif Tibetan,Helvetica">'བོད་ཡིག'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'bod yig'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'藏文'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Serif Tibetan,Helvetica">'ཐུགས་རྗེ་ཆེ'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'thugs rje che'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'谢谢'</td>
+    </tr>
+  </table>
+  <p style="fontSize:11;fontFamilyNames:Noto Serif Tibetan,Helvetica">'བོད་ཡིག །'</p>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:SimHei,Helvetica"><span>'结语标记 ། 为藏文句读符号，渲染时随正文字体回退链生效'</span><br><span style="fontColor:#b8860b">'Tibetan shad mark · '${reportDate}</span></p>
+</body>
+</pdf>

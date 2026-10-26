@@ -1,0 +1,29 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#2e7d32;fontFamilyNames:SimHei,Helvetica">'传统蒙古文 PDF 渲染示例 Traditional Mongolian PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'蒙古文与汉文、英文混排 · Mongolian mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'传统蒙古文使用回鹘式竖排书写，字母随词首、词中、词尾位置变形。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'Traditional Mongolian script flows vertically from top to bottom.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#2e7d32;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'蒙古文词汇'</th>
+      <th style="backgroundColor:#2e7d32;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'拉丁转写'</th>
+      <th style="backgroundColor:#2e7d32;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Mongolian,Helvetica">'ᠰᠠᠶᠢᠨ ᠪᠠᠶᠢᠨ᠎ᠠ'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'sain baina uu'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'你好'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Mongolian,Helvetica">'ᠪᠠᠶᠠᠷᠯᠠᠯᠠ'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'bayarlalaa'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'谢谢'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:SimHei,Helvetica">'下方为竖排书写样式：蒙古文自上而下阅读，渲染层按 -90° 旋转布局 vertical writing below'</p>
+  <p style="fontFamilyNames:Noto Sans Mongolian,Helvetica;angleInRadians:-1.5708;fontSize:14;characterSpacing:2">'ᠮᠣᠩᠭᠣᠯ ᠬᠡᠯᠡ'</p>
+</body>
+</pdf>

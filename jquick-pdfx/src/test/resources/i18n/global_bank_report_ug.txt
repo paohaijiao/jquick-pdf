@@ -1,0 +1,200 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（维吾尔文版）　视觉主题：翡翠铜·右起式
+  // 单语种独立报告：全篇仅维吾尔文（阿拉伯字母 RTL）　主色翡翠 #0F6B5C　铜 #C2762B　浅底 #E9F5F1
+  // 所有阿文字元素必须 baseDirection:rtl + textAlignment:right
+
+  <h1 style="fontSize:19pt; bold:true; color:#0F6B5C; textAlignment:right; baseDirection:rtl; marginBottom:2px; fontFamilyNames:Noto Sans Arabic">'يەر شارى بانكىسىنىڭ يىللىق تىجارەت دوكلاتى'</h1>
+  <p style="fontSize:9.5pt; color:#C2762B; textAlignment:right; baseDirection:rtl; marginBottom:6px; fontFamilyNames:Noto Sans Arabic">'2026-يىلنىڭ ئالدىنقى ئۈچ پەسلى · گۇرۇھ بىرلەشمە ئۆلچىمى'</p>
+  <lineSeparator style="color:#C2762B; thickness:2f"></lineSeparator>
+  <lineSeparator style="color:#0F6B5C; thickness:0.5f; marginBottom:8px"></lineSeparator>
+
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#E9F5F1; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; baseDirection:rtl; textAlign:right; fontFamilyNames:Noto Sans Arabic">'دوكلات نومۇرى'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BFDCD4; textAlign:right; fontFamilyNames:Noto Sans Arabic">${reportNo}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#E9F5F1; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; baseDirection:rtl; textAlign:right; fontFamilyNames:Noto Sans Arabic">'دوكلات چېسلاسى'</td>
+      <td style="padding:4px; border:1px solid #BFDCD4; textAlign:right; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:4px; backgroundColor:#E9F5F1; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; baseDirection:rtl; textAlign:right; fontFamilyNames:Noto Sans Arabic">'تۈزگۈچى ئورگان'</td>
+      <td style="width:34%; padding:4px; border:1px solid #BFDCD4; textAlign:right; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">${orgName}</td>
+      <td style="width:16%; padding:4px; backgroundColor:#E9F5F1; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; baseDirection:rtl; textAlign:right; fontFamilyNames:Noto Sans Arabic">'سانلىق مەلۇمات دائىرىسى'</td>
+      <td style="padding:4px; border:1px solid #BFDCD4; textAlign:right; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">${dataScope}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginBottom:8px">
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئومۇمىي مۈلۈك'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'چېگرا ھالقىغان راسچوت'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'دۇنيادىكى تارماقلار'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'قاپلىغان دۆلەتلەر'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">${totalAssets}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">${crossBorderSettlement}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">${globalBranches}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; backgroundColor:#E9F5F1; color:#0F6B5C; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'تىجارەت كىرىمى'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#E9F5F1; color:#0F6B5C; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ساپ پايدا'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#E9F5F1; color:#0F6B5C; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'خىزمەتچى سانى'</td>
+      <td style="width:25%; padding:6px; backgroundColor:#E9F5F1; color:#0F6B5C; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'خېرىدار سانى'</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">${revenue}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">${netProfit}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">${employees}</td>
+      <td style="width:25%; padding:6px; textAlign:center; bold:true; color:#0F6B5C; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; fontSize:10pt; textAlignment:right; baseDirection:rtl; borderRight:4px solid #C2762B; fontFamilyNames:Noto Sans Arabic">'بىرىنچى: تىجارەت ئەھۋالى'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; color:#27423C; marginBottom:4px; textAlignment:right; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'2026-يىلنىڭ ئالدىنقى ئۈچ پەسلىدە بانكىمىز چېگرا ھالقىغان پۇل مۇئامىلە كەسپىنى ئۈزلۈكسىز كېڭەيتتى. جۇڭگو ئىچكى قۇرۇقلۇق بازىرى گۇرۇھنىڭ تىجارەت كىرىمىنىڭ 45.2 پىرسەنتىنى تەمىنلىدى، ئاسىيا-تىنچ ئوكيان، ئوتتۇرا شەرق ۋە ياۋروپا رايونلىرى جەمئىي 39.7 پىرسەنت تۆھپە قوشتى. چېگرا ھالقىغان راسچوت ئۆتكەن يىلنىڭ ئوخشاش مەزگىلىدىكىدىن 21.4 پىرسەنت ئۆستى، كۆپ تىللىق مۇلازىمەت مەركىزى بىر يىلدا 4 مىليون 600 مىڭ تېلېفوننى قوبۇل قىلدى، خېرىدار رازى بولۇش نىسبىتى 96.3 پىرسەنتكە يەتتى.'</p>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:680pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#6E847E; textAlign:center; marginTop:2px; marginBottom:8px; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رەسىم 1　2026-يىلنىڭ ئالدىنقى ئۈچ پەسلىدىكى رايونلار بويىچە تىجارەت كىرىمى（بىرلىك: 100 مىليون يۈەن）'</p>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; fontSize:10pt; textAlignment:right; baseDirection:rtl; borderRight:4px solid #C2762B; fontFamilyNames:Noto Sans Arabic">'ئىككىنچى: دۇنيا تورى'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9.5pt; color:#27423C; marginBottom:4px; textAlignment:right; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'2026-يىلى 9-ئاينىڭ 30-كۈنىگىچە، بانكىمىز دۇنيادىكى 68 دۆلەت ۋە رايوندا 1,286 تارماق ئاپپارات ۋە 3,470 ئۆزلۈكىدىن مۇلازىمەت قىلىدىغان ئۈسكۈنە تەسىس قىلدى. بارلىق خەلقئارا سودا ھۆججەتلىرى يەتتە خىل تىلدا تاپشۇرۇلسا تەرجىمە ھەققى ئېلىنمايدۇ.'</p>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رايون'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رايون مەركىزى'</th>
+      <th style="width:28%; padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'مۇلازىمەت تىللىرى'</th>
+      <th style="padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'تارماق سانى'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئاسىيا-تىنچ ئوكيان'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'سىنگاپور'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئىنگلىزچە، خەنزۇچە، ياپونچە'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئوتتۇرا شەرق ۋە شىمالىي ئافرىقا'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'دۇبەي'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئەرەبچە، ئىنگلىزچە، فىرانسۇزچە'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ياۋروپا'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'فرانكفۇرت'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'گېرمانچە، فىرانسۇزچە، ئىنگلىزچە'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رۇس تىل رايونى'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'موسكۋا'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رۇسچە، ئىنگلىزچە'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ياپونىيە'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'توكيو'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ياپونچە، ئىنگلىزچە'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئامېرىكا قىتئەسى'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'نيۇيورك'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئىنگلىزچە، ئىسپانچە'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'260'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:400pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#6E847E; textAlign:center; marginTop:2px; marginBottom:8px; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رەسىم 2　چېگرا ھالقىغان راسچوتنىڭ پۇل تۈرى تەركىبى（راسچوت سوممىسى بويىچە نىسبەت）'</p>
+
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; fontSize:10pt; textAlignment:right; baseDirection:rtl; borderRight:4px solid #C2762B; fontFamilyNames:Noto Sans Arabic">'ئۈچۈنچى: رايونلار بويىچە تەپسىلات'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
+    <tr>
+      <th style="width:28%; padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رايون'</th>
+      <th style="width:24%; padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'تىجارەت كىرىمى（مىليون يۈەن）'</th>
+      <th style="width:26%; padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'چېگرا ھالقىغان راسچوت（مىليون يۈەن）'</th>
+      <th style="padding:4px; backgroundColor:#0F6B5C; color:white; bold:true; textAlign:center; border:1px solid #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئېشىش نىسبىتى'</th>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'جۇڭگو ئىچكى قۇرۇقلۇقى'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'986'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'6,420'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئاسىيا-تىنچ ئوكيان（جۇڭگو كىرمەيدۇ）'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'412'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'2,760'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ياۋروپا'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'268'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'1,890'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئوتتۇرا شەرق'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'186'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'1,240'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ياپونىيە'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'174'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'980'</td>
+      <td style="padding:4px; textAlign:center; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رۇس تىل رايونى'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'154'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'690'</td>
+      <td style="padding:4px; textAlign:center; backgroundColor:#E9F5F1; border:1px solid #BFDCD4; fontFamilyNames:Noto Sans Arabic">'+21.4%'</td>
+    </tr>
+  </table>
+
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:680pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#6E847E; textAlign:center; marginTop:2px; marginBottom:8px; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'رەسىم 3　2026-يىلى 1-ئايدىن 10-ئايغىچە چېگرا ھالقىغان كەسىپ ھەجمىنىڭ ئايلىق يۈزلىنىشى（بىرلىك: 100 مىليون يۈەن）'</p>
+
+  <table style="width:100%; fontSize:8pt; marginBottom:8px">
+    <tr>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#0F6B5C; border:1px dashed #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'（بانكا كەسىپ تامغىسى ئورنى）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#0F6B5C; border:1px dashed #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'（چېتىش تامغىسى ئورنى）'</td>
+      <td style="width:33%; padding:4px; bold:true; textAlign:center; color:#0F6B5C; border:1px dashed #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'（ئىككىلىك كود ئورنى）'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#6E847E; border:1px dashed #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'ئاپپارات نامى：'${orgName}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#6E847E; border:1px dashed #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'تامغا ئوڭ گىرۋەك بويىچە بېسىلىدۇ'</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#6E847E; border:1px dashed #0F6B5C; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'كود سىكانىرلاپ دەلىللەش'</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#0F6B5C; borderBottom:1px solid #BFDCD4; baseDirection:rtl; textAlign:right; fontFamilyNames:Noto Sans Arabic">'تۈزگۈچى：'${preparedBy}</td>
+      <td style="width:33%; padding:4px; color:#0F6B5C; borderBottom:1px solid #BFDCD4; baseDirection:rtl; textAlign:right; fontFamilyNames:Noto Sans Arabic">'تەكشۈرگۈچى：'${reviewedBy}</td>
+      <td style="padding:4px; color:#0F6B5C; borderBottom:1px solid #BFDCD4; baseDirection:rtl; textAlign:right; fontFamilyNames:Noto Sans Arabic">'تارقاتقۇچى：'${issuedBy}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:8pt; color:#6E847E; marginTop:8px; textAlignment:right; baseDirection:rtl; fontFamilyNames:Noto Sans Arabic">'جاۋابكارلىقتىن ساقلىنىش: بۇ دوكلات پەقەت ھوقۇق بېرىلگەن ئاپپاراتلارنىڭ پايدىلىنىشى ئۈچۈن، بارلىق مالىيە سانلىق مەلۇماتلىرى گۇرۇھنىڭ تەكشۈرۈلگەن يىللىق دوكلاتى ئۆلچەم قىلىنىدۇ.'</p>
+</body>
+</pdf>

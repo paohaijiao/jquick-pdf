@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#1a5276;fontFamilyNames:SimHei,Helvetica">'俄语 PDF 渲染示例 Russian PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:SimHei,Helvetica">'西里尔文与汉文、英文混排 · Cyrillic mixed content · '${reportDate}</p>
+  <div style="border:solid 1px #cccccc;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:13;fontFamilyNames:Noto Sans,Helvetica">'Привет, мир! Это тестовая страница на русском языке.'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'俄语使用西里尔字母，共 33 个字母，自左向右书写。'</p>
+    <p style="fontSize:12;fontFamilyNames:SimHei,Helvetica">'Russian uses the Cyrillic alphabet with 33 letters, written left to right.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#1a5276;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'俄语'</th>
+      <th style="backgroundColor:#1a5276;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'中文释义'</th>
+      <th style="backgroundColor:#1a5276;color:white;padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'English'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'Здравствуйте'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'你好（正式）'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Hello'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'Спасибо'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'谢谢'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Thanks'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,Helvetica">'До свидания'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'再见'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:SimHei,Helvetica">'Goodbye'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,Helvetica">'Ж Щ Ъ Ы Ь Э Ю Я · ж щ ъ ы ь э ю я · Cyrillic case test'</p>
+</body>
+</pdf>
