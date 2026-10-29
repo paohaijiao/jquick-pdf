@@ -1,6 +1,8 @@
 package com.github.paohaijiao.visitor.element;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.style.JQuickStyleEnum;
+import com.github.paohaijiao.style.JQuickStyleValueEnum;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
 import com.github.paohaijiao.visitor.render.PdfBoxStyleModel;
@@ -188,7 +190,7 @@ public class JQuickListElementRender implements JQuickElementRender {
         }
         PdfBoxStyleModel model = PdfBoxStyleModel.from(run.getStyle());
         model.setFontSize(resolveFontSize(run.getStyle(), itemFontSize));
-        model.setTextAlignment("left");
+        model.setTextAlignment(JQuickStyleValueEnum.left.getValue());
         PDFont font = PdfBoxRenderAdapter.resolveFont(model, baseFont, document);
         PdfBoxRenderAdapter.drawText(stream, model, font, run.getText(), x, baseline, 0f);
         return PdfBoxRenderAdapter.textWidth(font, run.getText(), model.getFontSize(),
@@ -199,11 +201,12 @@ public class JQuickListElementRender implements JQuickElementRender {
         if (style == null) {
             return;
         }
-        indent = parseFloat(first(style, "paddingLeft", "padding-left"), indent);
-        itemGap = parseFloat(first(style, "marginBottom", "margin-bottom"), itemGap);
-        String listStyleType = first(style, "listStyleType", "list-style-type");
+        indent = parseFloat(JQuickStyleEnum.paddingLeft.get(style), indent);
+        itemGap = parseFloat(JQuickStyleEnum.marginBottom.get(style), itemGap);
+        String listStyleType = JQuickStyleEnum.listStyleType.get(style);
         if (listStyleType != null) {
-            markerVisible = !listStyleType.toLowerCase(java.util.Locale.ROOT).contains("none");
+            markerVisible = !listStyleType.toLowerCase(java.util.Locale.ROOT)
+                    .contains(JQuickStyleValueEnum.none.getValue());
         }
     }
 
@@ -216,9 +219,9 @@ public class JQuickListElementRender implements JQuickElementRender {
     }
 
     private float resolveFontSize(JStyleAttributes local, float fallback) {
-        String value = first(local, "fontSize", "font-size");
+        String value = JQuickStyleEnum.fontSize.get(local);
         if (value == null) {
-            value = first(style, "fontSize", "font-size");
+            value = JQuickStyleEnum.fontSize.get(style);
         }
         return value == null ? fallback : PdfBoxUnitConverter.toPoint(value, fallback);
     }
@@ -256,16 +259,7 @@ public class JQuickListElementRender implements JQuickElementRender {
         }
     }
 
-    private String first(JStyleAttributes attributes, String preferred, String fallback) {
-        if (attributes == null) {
-            return null;
-        }
-        String value = attributes.get(preferred);
-        return value != null ? value : attributes.get(fallback);
-    }
-
-    private float parseFloat(Object value, float defaultValue) {
-        if (value == null) {
+    private float parseFloat(Object value, float defaultValue) {        if (value == null) {
             return defaultValue;
         }
         try {

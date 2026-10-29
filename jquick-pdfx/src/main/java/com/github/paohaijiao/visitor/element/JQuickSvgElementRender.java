@@ -1,6 +1,7 @@
 package com.github.paohaijiao.visitor.element;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import com.github.paohaijiao.util.JSvgUtil;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
@@ -180,7 +181,7 @@ public class JQuickSvgElementRender implements JQuickElementRender {
         if (style == null) {
             return;
         }
-        width = com.github.paohaijiao.visitor.render.PdfBoxUnitConverter.toPoint(style.get("width"), width);
-        height = com.github.paohaijiao.visitor.render.PdfBoxUnitConverter.toPoint(style.get("height"), height);
+        width = com.github.paohaijiao.visitor.render.PdfBoxUnitConverter.toPoint(JQuickStyleEnum.width.get(style), width);
+        height = com.github.paohaijiao.visitor.render.PdfBoxUnitConverter.toPoint(JQuickStyleEnum.height.get(style), height);
     }
 }

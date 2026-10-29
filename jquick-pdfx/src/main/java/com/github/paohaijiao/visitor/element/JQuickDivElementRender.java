@@ -1,6 +1,7 @@
 package com.github.paohaijiao.visitor.element;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.style.JQuickStyleValueEnum;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
 import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
@@ -205,7 +206,7 @@ public class JQuickDivElementRender implements JQuickElementRender {
     /** 依据子元素声明宽度组织 flex 行；未声明宽度的子元素独占一行。 */
     private List<List<Integer>> buildFlexRows(PdfBoxStyleModel model, float contentWidth) {
         String wrapValue = trim(model.getFlexWrap());
-        boolean wrap = "wrap".equalsIgnoreCase(wrapValue) || "wrap-reverse".equalsIgnoreCase(wrapValue);
+        boolean wrap = JQuickStyleValueEnum.wrap.match(wrapValue) || JQuickStyleValueEnum.wrapReverse.match(wrapValue);
         List<List<Integer>> rows = new ArrayList<>();
         List<Integer> current = new ArrayList<>();
         float used = 0f;
@@ -267,14 +268,14 @@ public class JQuickDivElementRender implements JQuickElementRender {
         String justify = trim(model.getJustifyContent());
         float startX = contentX;
         float gap = 0f;
-        if ("center".equalsIgnoreCase(justify)) {
+        if (JQuickStyleValueEnum.center.match(justify)) {
             startX = contentX + free / 2f;
-        } else if ("flex-end".equalsIgnoreCase(justify) || "end".equalsIgnoreCase(justify)
-                || "right".equalsIgnoreCase(justify)) {
+        } else if (JQuickStyleValueEnum.flexEnd.match(justify) || JQuickStyleValueEnum.end.match(justify)
+                || JQuickStyleValueEnum.right.match(justify)) {
             startX = contentX + free;
-        } else if ("space-between".equalsIgnoreCase(justify)) {
+        } else if (JQuickStyleValueEnum.spaceBetween.match(justify)) {
             gap = row.size() > 1 ? free / (row.size() - 1) : 0f;
-        } else if ("space-around".equalsIgnoreCase(justify)) {
+        } else if (JQuickStyleValueEnum.spaceAround.match(justify)) {
             gap = !row.isEmpty() ? free / row.size() : 0f;
             startX = contentX + gap / 2f;
         }
@@ -318,11 +319,11 @@ public class JQuickDivElementRender implements JQuickElementRender {
             return false;
         }
         String display = trim(model.getDisplay());
-        if (!"flex".equalsIgnoreCase(display) && !"inline-flex".equalsIgnoreCase(display)) {
+        if (!JQuickStyleValueEnum.flex.match(display) && !JQuickStyleValueEnum.inlineFlex.match(display)) {
             return false;
         }
         String direction = trim(model.getFlexDirection());
-        return !"column".equalsIgnoreCase(direction) && !"column-reverse".equalsIgnoreCase(direction);
+        return !JQuickStyleValueEnum.column.match(direction) && !JQuickStyleValueEnum.columnReverse.match(direction);
     }
 
     private String trim(String value) {
@@ -352,10 +353,10 @@ public class JQuickDivElementRender implements JQuickElementRender {
             return 0f;
         }
         String alignment = trim(model.getVerticalAlignment());
-        if ("bottom".equalsIgnoreCase(alignment)) {
+        if (JQuickStyleValueEnum.bottom.match(alignment)) {
             return free;
         }
-        if ("middle".equalsIgnoreCase(alignment) || "center".equalsIgnoreCase(alignment)) {
+        if (JQuickStyleValueEnum.middle.match(alignment) || JQuickStyleValueEnum.center.match(alignment)) {
             return free / 2f;
         }
         return 0f;

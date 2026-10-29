@@ -1,6 +1,7 @@
 package com.github.paohaijiao.visitor.element;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import lombok.Data;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -29,17 +30,6 @@ public class JQuickTabElementRender implements JQuickElementRender {
         if (style == null) {
             return;
         }
-        tabWidth = parseFloat(style.get("width"), tabWidth);
-    }
-
-    private float parseFloat(Object value, float defaultValue) {
-        if (value == null) {
-            return defaultValue;
-        }
-        try {
-            return Float.parseFloat(value.toString().replace("px", "").trim());
-        } catch (NumberFormatException e) {
-            return defaultValue;
-        }
+        tabWidth = JQuickStyleEnum.width.getFloat(style, tabWidth);
     }
 }

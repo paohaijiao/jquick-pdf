@@ -17,6 +17,7 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import com.github.paohaijiao.util.JStringUtils;
 import com.github.paohaijiao.visitor.element.JQuickElementRender;
 import com.github.paohaijiao.visitor.element.JQuickParagraphElementRender;
@@ -40,7 +41,7 @@ public class JPdfXParagraphVisitor extends JPdfXSpanVisitor {
     @Override
     public JQuickElementRender visitParagraph(JQuickPDFParser.ParagraphContext ctx) {
         JStyleAttributes style = ctx.styleEle() != null ? visitStyleEle(ctx.styleEle()) : new JStyleAttributes();
-        style.putIfAbsent("line-height", "20");
+        style.putIfAbsent(JQuickStyleEnum.lineHeight.getKey(), "20");
         StringBuilder text = new StringBuilder();
         List<JQuickElementRender> children = new ArrayList<>();
         boolean hasInlineElement = false;
@@ -94,7 +95,8 @@ public class JPdfXParagraphVisitor extends JPdfXSpanVisitor {
         }
         for (Map.Entry<String, String> entry : paragraphStyle.entrySet()) {
             String key = entry.getKey();
-            if (key.startsWith("margin") || "textAlignment".equals(key) || "text-align".equals(key)) {
+            if (key.startsWith("margin") || JQuickStyleEnum.textAlignment.getCode().equals(key)
+                    || JQuickStyleEnum.textAlign.getKey().equals(key)) {
                 continue;
             }
             childStyle.putIfAbsent(key, entry.getValue());

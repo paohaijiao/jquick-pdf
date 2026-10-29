@@ -1,5 +1,6 @@
 package com.github.paohaijiao.visitor.element;
 
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
 import com.github.paohaijiao.visitor.render.PdfBoxStyleModel;
 import com.github.paohaijiao.model.JStyleAttributes;
@@ -68,24 +69,14 @@ public class JQuickCheckBoxElementRender implements JQuickElementRender {
         if (style == null) {
             return;
         }
-        boxSize = parseFloat(style.get("width"), boxSize);
-        labelGap = parseFloat(style.get("marginRight"), labelGap);
-    }
-
-    private float parseFloat(Object value, float defaultValue) {
-        if (value == null) {
-            return defaultValue;
-        }
-        try {
-            return Float.parseFloat(value.toString().replace("px", "").trim());
-        } catch (NumberFormatException e) {
-            return defaultValue;
-        }
+        boxSize = JQuickStyleEnum.width.getFloat(style, boxSize);
+        labelGap = JQuickStyleEnum.marginRight.getFloat(style, labelGap);
     }
 
     private PDColor resolveBorderColor() {
-        if (style != null && style.get("borderColor") != null) {
-            return PdfBoxRenderAdapter.color(style.get("borderColor").toString());
+        String borderColor = JQuickStyleEnum.borderColor.get(style);
+        if (borderColor != null) {
+            return PdfBoxRenderAdapter.color(borderColor.toString());
         }
         return PdfBoxRenderAdapter.color("BLACK");
     }

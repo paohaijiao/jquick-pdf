@@ -17,6 +17,8 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.style.JQuickStyleEnum;
+import com.github.paohaijiao.style.JQuickStyleValueEnum;
 import com.github.paohaijiao.visitor.element.JQuickTextElementRender;
 
 import java.util.List;
@@ -71,36 +73,36 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
     }
 
     private void applyHeadingDefaults(JStyleAttributes style, int level) {
-        style.putIfAbsent("font-weight", "bold");
-        style.putIfAbsent("text-align", "left");
+        style.putIfAbsent(JQuickStyleEnum.fontWeight.getKey(), JQuickStyleValueEnum.bold.getValue());
+        style.putIfAbsent(JQuickStyleEnum.textAlign.getKey(), JQuickStyleValueEnum.left.getValue());
         switch (level) {
             case 1:
-                style.putIfAbsent("font-size", "24");
-                style.putIfAbsent("line-height", "34");
+                style.putIfAbsent(JQuickStyleEnum.fontSize.getKey(), "24");
+                style.putIfAbsent(JQuickStyleEnum.lineHeight.getKey(), "34");
                 break;
             case 2:
-                style.putIfAbsent("font-size", "20");
-                style.putIfAbsent("line-height", "30");
+                style.putIfAbsent(JQuickStyleEnum.fontSize.getKey(), "20");
+                style.putIfAbsent(JQuickStyleEnum.lineHeight.getKey(), "30");
                 break;
             case 3:
-                style.putIfAbsent("font-size", "16");
-                style.putIfAbsent("line-height", "24");
+                style.putIfAbsent(JQuickStyleEnum.fontSize.getKey(), "16");
+                style.putIfAbsent(JQuickStyleEnum.lineHeight.getKey(), "24");
                 break;
             case 4:
-                style.putIfAbsent("font-size", "14");
-                style.putIfAbsent("line-height", "22");
+                style.putIfAbsent(JQuickStyleEnum.fontSize.getKey(), "14");
+                style.putIfAbsent(JQuickStyleEnum.lineHeight.getKey(), "22");
                 break;
             case 5:
-                style.putIfAbsent("font-size", "12");
-                style.putIfAbsent("line-height", "20");
+                style.putIfAbsent(JQuickStyleEnum.fontSize.getKey(), "12");
+                style.putIfAbsent(JQuickStyleEnum.lineHeight.getKey(), "20");
                 break;
             case 6:
-                style.putIfAbsent("font-size", "10");
-                style.putIfAbsent("line-height", "18");
+                style.putIfAbsent(JQuickStyleEnum.fontSize.getKey(), "10");
+                style.putIfAbsent(JQuickStyleEnum.lineHeight.getKey(), "18");
                 break;
             default:
-                style.putIfAbsent("font-size", "14");
-                style.putIfAbsent("line-height", "22");
+                style.putIfAbsent(JQuickStyleEnum.fontSize.getKey(), "14");
+                style.putIfAbsent(JQuickStyleEnum.lineHeight.getKey(), "22");
                 break;
         }
     }

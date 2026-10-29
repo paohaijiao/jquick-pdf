@@ -1,6 +1,7 @@
 package com.github.paohaijiao.visitor.render;
 
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import lombok.Data;
 
 import java.util.Locale;
@@ -77,75 +78,75 @@ public class PdfBoxStyleModel {
         if (attributes == null) {
             return model;
         }
-        float[] margins = box(attributes.get("commonMargin"), first(attributes, "margins", "margin"));
-        model.marginTop = side(attributes, "marginTop", "margin-top", margins[0]);
-        model.marginRight = side(attributes, "marginRight", "margin-right", margins[1]);
-        model.marginBottom = side(attributes, "marginBottom", "margin-bottom", margins[2]);
-        model.marginLeft = side(attributes, "marginLeft", "margin-left", margins[3]);
+        String marginsShorthand = firstOf(attributes, JQuickStyleEnum.margins, JQuickStyleEnum.margin);
+        float[] margins = box(JQuickStyleEnum.commonMargin.getString(attributes, null), marginsShorthand);
+        model.marginTop = valueOf(attributes, JQuickStyleEnum.marginTop, margins[0]);
+        model.marginRight = valueOf(attributes, JQuickStyleEnum.marginRight, margins[1]);
+        model.marginBottom = valueOf(attributes, JQuickStyleEnum.marginBottom, margins[2]);
+        model.marginLeft = valueOf(attributes, JQuickStyleEnum.marginLeft, margins[3]);
 
-        float[] paddings = box(attributes.get("commonPadding"), first(attributes, "paddings", "padding"));
-        model.paddingTop = side(attributes, "paddingTop", "padding-top", paddings[0]);
-        model.paddingRight = side(attributes, "paddingRight", "padding-right", paddings[1]);
-        model.paddingBottom = side(attributes, "paddingBottom", "padding-bottom", paddings[2]);
-        model.paddingLeft = side(attributes, "paddingLeft", "padding-left", paddings[3]);
+        String paddingsShorthand = firstOf(attributes, JQuickStyleEnum.paddings, JQuickStyleEnum.padding);
+        float[] paddings = box(JQuickStyleEnum.commonPadding.getString(attributes, null), paddingsShorthand);
+        model.paddingTop = valueOf(attributes, JQuickStyleEnum.paddingTop, paddings[0]);
+        model.paddingRight = valueOf(attributes, JQuickStyleEnum.paddingRight, paddings[1]);
+        model.paddingBottom = valueOf(attributes, JQuickStyleEnum.paddingBottom, paddings[2]);
+        model.paddingLeft = valueOf(attributes, JQuickStyleEnum.paddingLeft, paddings[3]);
 
-        model.width = value(attributes, "width", -1f);
-        model.height = value(attributes, "height", -1f);
-        model.minWidth = value(attributes, "minWidth", -1f);
-        model.maxWidth = value(attributes, "maxWidth", -1f);
-        model.minHeight = value(attributes, "minHeight", -1f);
-        model.maxHeight = value(attributes, "maxHeight", -1f);
-        model.angleInRadians = value(attributes, "angleInRadians", 0f);
-        float[] position = PdfBoxUnitConverter.toPoints(attributes.get("relativePosition"), 4, 0f);
+        model.width = valueOf(attributes, JQuickStyleEnum.width, -1f);
+        model.height = valueOf(attributes, JQuickStyleEnum.height, -1f);
+        model.minWidth = valueOf(attributes, JQuickStyleEnum.minWidth, -1f);
+        model.maxWidth = valueOf(attributes, JQuickStyleEnum.maxWidth, -1f);
+        model.minHeight = valueOf(attributes, JQuickStyleEnum.minHeight, -1f);
+        model.maxHeight = valueOf(attributes, JQuickStyleEnum.maxHeight, -1f);
+        model.angleInRadians = valueOf(attributes, JQuickStyleEnum.angleInRadians, 0f);
+        float[] position = PdfBoxUnitConverter.toPoints(JQuickStyleEnum.relativePosition.getString(attributes, null), 4, 0f);
         model.relativeLeft = position[0];
         model.relativeTop = position[1];
         model.relativeRight = position[2];
         model.relativeBottom = position[3];
-        model.fontSize = value(attributes, "fontSize", value(attributes, "font-size", 12f));
-        model.characterSpacing = value(attributes, "characterSpacing", value(attributes, "splitCharacters", 0f));
-        model.wordSpacing = value(attributes, "wordSpacing", 0f);
-        model.strokeWidth = value(attributes, "strokeWidth", 1f);
-        model.opacity = Math.max(0f, Math.min(1f, number(attributes.get("opacity"), 1f)));
-        model.spacingRatio = number(attributes.get("spacingRatio"), 0f);
-        model.keepTogether = bool(attributes.get("keepTogether"));
-        model.keepWithNext = bool(attributes.get("keepWithNext"));
-        model.bold = bool(attributes.get("bold"));
-        model.italic = bool(attributes.get("italic"));
-        model.underline = bool(attributes.get("underline"));
-        model.lineThrough = bool(attributes.get("lineThrough"));
-        model.font = attributes.get("font");
-        model.fontFamilyNames = attributes.get("fontFamilyNames");
-        model.fontColor = first(attributes, "fontColor", "color");
-        // 注意：first() 的第二个候选参数必须是“键名”，不能嵌套传入已解析出的值，
+        model.fontSize = valueOf(attributes, JQuickStyleEnum.fontSize, 12f);
+        model.characterSpacing = valueOf(attributes, JQuickStyleEnum.characterSpacing,
+                valueOf(attributes, JQuickStyleEnum.splitCharacters, 0f));
+        model.wordSpacing = valueOf(attributes, JQuickStyleEnum.wordSpacing, 0f);
+        model.strokeWidth = valueOf(attributes, JQuickStyleEnum.strokeWidth, 1f);
+        model.opacity = Math.max(0f, Math.min(1f, number(JQuickStyleEnum.opacity.getString(attributes, null), 1f)));
+        model.spacingRatio = number(JQuickStyleEnum.spacingRatio.getString(attributes, null), 0f);
+        model.keepTogether = bool(JQuickStyleEnum.keepTogether.getString(attributes, null));
+        model.keepWithNext = bool(JQuickStyleEnum.keepWithNext.getString(attributes, null));
+        model.bold = bool(JQuickStyleEnum.bold.getString(attributes, null));
+        model.italic = bool(JQuickStyleEnum.italic.getString(attributes, null));
+        model.underline = bool(JQuickStyleEnum.underline.getString(attributes, null));
+        model.lineThrough = bool(JQuickStyleEnum.lineThrough.getString(attributes, null));
+        model.font = JQuickStyleEnum.font.getString(attributes, null);
+        model.fontFamilyNames = JQuickStyleEnum.fontFamilyNames.getString(attributes, null);
+        model.fontColor = firstOf(attributes, JQuickStyleEnum.fontColor, JQuickStyleEnum.color);
+        // 注意：简写优先级链的每一级都必须是“键名”枚举，不能把已解析出的值当作键名回退，
         // 否则会退化为 attributes.get(值) 从而丢失 background 简写。
-        model.backgroundColor = first(attributes, "backgroundColor", "background");
-        if (model.backgroundColor == null) {
-            model.backgroundColor = attributes.get("background-color");
-        }
-        model.backgroundImage = attributes.get("backgroundImage");
-        model.border = attributes.get("border");
-        model.borderTop = first(attributes, "borderTop", "border-top");
-        model.borderRight = first(attributes, "borderRight", "border-right");
-        model.borderBottom = first(attributes, "borderBottom", "border-bottom");
-        model.borderLeft = first(attributes, "borderLeft", "border-left");
-        model.borderRadius = first(attributes, "borderRadius", "border-radius");
-        model.borderTopLeftRadius = attributes.get("borderTopLeftRadius");
-        model.borderTopRightRadius = attributes.get("borderTopRightRadius");
-        model.borderBottomRightRadius = attributes.get("borderBottomRightRadius");
-        model.borderBottomLeftRadius = attributes.get("borderBottomLeftRadius");
-        model.strokeColor = attributes.get("strokeColor");
-        model.textAlignment = first(attributes, "textAlignment", "text-align");
-        model.verticalAlignment = first(attributes, "verticalAlignment", "vertical-align");
-        model.fontKerning = attributes.get("fontKerning");
-        model.fontScript = attributes.get("fontScript");
-        model.textRenderingMode = attributes.get("textRenderingMode");
-        model.baseDirection = attributes.get("baseDirection");
-        model.destination = attributes.get("destination");
-        model.display = first(attributes, "display", "display");
-        model.flexDirection = first(attributes, "flexDirection", "flex-direction");
-        model.flexWrap = first(attributes, "flexWrap", "flex-wrap");
-        model.justifyContent = first(attributes, "justifyContent", "justify-content");
-        model.alignItems = first(attributes, "alignItems", "align-items");
+        model.backgroundColor = firstOf(attributes, JQuickStyleEnum.backgroundColor, JQuickStyleEnum.background);
+        model.backgroundImage = JQuickStyleEnum.backgroundImage.getString(attributes, null);
+        model.border = JQuickStyleEnum.border.getString(attributes, null);
+        model.borderTop = JQuickStyleEnum.borderTop.getString(attributes, null);
+        model.borderRight = JQuickStyleEnum.borderRight.getString(attributes, null);
+        model.borderBottom = JQuickStyleEnum.borderBottom.getString(attributes, null);
+        model.borderLeft = JQuickStyleEnum.borderLeft.getString(attributes, null);
+        model.borderRadius = JQuickStyleEnum.borderRadius.getString(attributes, null);
+        model.borderTopLeftRadius = JQuickStyleEnum.borderTopLeftRadius.getString(attributes, null);
+        model.borderTopRightRadius = JQuickStyleEnum.borderTopRightRadius.getString(attributes, null);
+        model.borderBottomRightRadius = JQuickStyleEnum.borderBottomRightRadius.getString(attributes, null);
+        model.borderBottomLeftRadius = JQuickStyleEnum.borderBottomLeftRadius.getString(attributes, null);
+        model.strokeColor = JQuickStyleEnum.strokeColor.getString(attributes, null);
+        model.textAlignment = firstOf(attributes, JQuickStyleEnum.textAlignment, JQuickStyleEnum.textAlign);
+        model.verticalAlignment = firstOf(attributes, JQuickStyleEnum.verticalAlignment, JQuickStyleEnum.verticalAlign);
+        model.fontKerning = JQuickStyleEnum.fontKerning.getString(attributes, null);
+        model.fontScript = JQuickStyleEnum.fontScript.getString(attributes, null);
+        model.textRenderingMode = JQuickStyleEnum.textRenderingMode.getString(attributes, null);
+        model.baseDirection = JQuickStyleEnum.baseDirection.getString(attributes, null);
+        model.destination = JQuickStyleEnum.destination.getString(attributes, null);
+        model.display = JQuickStyleEnum.display.getString(attributes, null);
+        model.flexDirection = JQuickStyleEnum.flexDirection.getString(attributes, null);
+        model.flexWrap = JQuickStyleEnum.flexWrap.getString(attributes, null);
+        model.justifyContent = JQuickStyleEnum.justifyContent.getString(attributes, null);
+        model.alignItems = JQuickStyleEnum.alignItems.getString(attributes, null);
         return model;
     }
 
@@ -162,12 +163,15 @@ public class PdfBoxStyleModel {
         return new float[]{all, all, all, all};
     }
 
-    private static float value(JStyleAttributes attributes, String key, float fallback) {
-        return attributes.containsKey(key) ? PdfBoxUnitConverter.toPoint(attributes.get(key), fallback) : fallback;
+    /** 按枚举读取样式值并换算为 pt，未声明时返回默认值。 */
+    private static float valueOf(JStyleAttributes attributes, JQuickStyleEnum key, float fallback) {
+        return PdfBoxUnitConverter.toPoint(key.getString(attributes, null), fallback);
     }
 
-    private static float side(JStyleAttributes attributes, String camelKey, String kebabKey, float fallback) {
-        return value(attributes, camelKey, value(attributes, kebabKey, fallback));
+    /** 依次尝试两个枚举键，返回第一个非空值（用于简写 → 具体名的回退链）。 */
+    private static String firstOf(JStyleAttributes attributes, JQuickStyleEnum preferred, JQuickStyleEnum fallback) {
+        String value = preferred.get(attributes);
+        return value != null ? value : fallback.get(attributes);
     }
 
     private static float number(String value, float fallback) {
@@ -180,10 +184,5 @@ public class PdfBoxStyleModel {
 
     private static boolean bool(String value) {
         return "true".equalsIgnoreCase(value) || "yes".equalsIgnoreCase(value);
-    }
-
-    private static String first(JStyleAttributes attributes, String preferred, String fallback) {
-        String value = attributes.get(preferred);
-        return value == null ? attributes.get(fallback) : value;
     }
 }

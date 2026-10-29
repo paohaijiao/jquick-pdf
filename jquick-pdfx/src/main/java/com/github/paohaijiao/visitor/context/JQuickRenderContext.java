@@ -59,7 +59,6 @@ public class JQuickRenderContext {
      */
     private float lineStartX;
 
-    // 分页信息
     private int pageNumber;
 
     private boolean isNewPage;

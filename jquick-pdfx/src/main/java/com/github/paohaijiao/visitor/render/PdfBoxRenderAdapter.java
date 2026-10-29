@@ -3,6 +3,7 @@ package com.github.paohaijiao.visitor.render;
 import com.github.paohaijiao.enums.JFontEnum;
 import com.github.paohaijiao.font.JFontRegistry;
 import com.github.paohaijiao.font.JFontSpec;
+import com.github.paohaijiao.style.JQuickStyleValueEnum;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -100,9 +101,9 @@ public final class PdfBoxRenderAdapter {
             textWidth += measure(run.font, run.text, fontSize, characterSpacing, wordSpacing);
         }
         float drawX = x + style.getRelativeLeft() - style.getRelativeRight();
-        if ("center".equalsIgnoreCase(style.getTextAlignment())) {
+        if (JQuickStyleValueEnum.center.match(style.getTextAlignment())) {
             drawX += Math.max(0f, (availableWidth - textWidth) / 2f);
-        } else if ("right".equalsIgnoreCase(style.getTextAlignment())) {
+        } else if (JQuickStyleValueEnum.right.match(style.getTextAlignment())) {
             drawX += Math.max(0f, availableWidth - textWidth);
         }
         stream.saveGraphicsState();
@@ -402,7 +403,7 @@ public final class PdfBoxRenderAdapter {
         if (definition == null || definition.trim().isEmpty()) return;
         // CSS 声明顺序为 “线宽 线型 颜色”（如 1px solid #ccc），此处按语义识别各 token，
         // 不依赖固定位置，避免把线宽当成线型、把线型当成线宽。
-        String type = "solid";
+        String type = JQuickStyleValueEnum.solid.getValue();
         float width = -1f;
         String color = null;
         for (String token : definition.replace("'", "").trim().split("\\s+")) {
@@ -411,20 +412,21 @@ public final class PdfBoxRenderAdapter {
             String lower = value.toLowerCase(Locale.ROOT);
             if (isBorderWidth(lower)) {
                 width = PdfBoxUnitConverter.toPoint(value, style.getStrokeWidth());
-            } else if ("none".equals(lower) || "solid".equals(lower) || lower.contains("dashed") || lower.contains("dotted")) {
+            } else if (JQuickStyleValueEnum.none.match(lower) || JQuickStyleValueEnum.solid.match(lower)
+                    || lower.contains(JQuickStyleValueEnum.dashed.getValue()) || lower.contains(JQuickStyleValueEnum.dotted.getValue())) {
                 type = lower;
             } else {
                 color = value;
             }
         }
-        if ("none".equals(type)) return;
+        if (JQuickStyleValueEnum.none.match(type)) return;
         if (width < 0f) width = style.getStrokeWidth();
         if (color == null) color = style.getStrokeColor();
         stream.setLineWidth(width);
         stream.setStrokingColor(color(color, black()));
-        if ("dashed".equals(type) || "dasheborder".equals(type) || "fixeddashedborder".equals(type)) {
+        if (JQuickStyleValueEnum.dashed.match(type) || "dasheborder".equals(type) || "fixeddashedborder".equals(type)) {
             stream.setLineDashPattern(new float[]{width * 3f, width * 2f}, 0);
-        } else if ("dotted".equals(type) || "dottedborder".equals(type) || "rounddotsborder".equals(type)) {
+        } else if (JQuickStyleValueEnum.dotted.match(type) || "dottedborder".equals(type) || "rounddotsborder".equals(type)) {
             stream.setLineDashPattern(new float[]{width, width * 1.5f}, 0);
         }
         line(stream, x1, y1, x2, y2);

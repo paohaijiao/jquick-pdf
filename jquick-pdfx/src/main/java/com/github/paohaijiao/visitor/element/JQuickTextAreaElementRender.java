@@ -1,5 +1,6 @@
 package com.github.paohaijiao.visitor.element;
 
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
 import com.github.paohaijiao.visitor.render.PdfBoxStyleModel;
 import com.github.paohaijiao.model.JStyleAttributes;
@@ -72,25 +73,15 @@ public class JQuickTextAreaElementRender implements JQuickElementRender {
         if (style == null) {
             return;
         }
-        width = parseFloat(style.get("width"), width);
-        height = parseFloat(style.get("height"), height);
-        padding = parseFloat(style.get("padding"), padding);
-    }
-
-    private float parseFloat(Object value, float defaultValue) {
-        if (value == null) {
-            return defaultValue;
-        }
-        try {
-            return Float.parseFloat(value.toString().replace("px", "").trim());
-        } catch (NumberFormatException e) {
-            return defaultValue;
-        }
+        width = JQuickStyleEnum.width.getFloat(style, width);
+        height = JQuickStyleEnum.height.getFloat(style, height);
+        padding = JQuickStyleEnum.padding.getFloat(style, padding);
     }
 
     private PDColor resolveBorderColor() {
-        if (style != null && style.get("borderColor") != null) {
-            return PdfBoxRenderAdapter.color(style.get("borderColor").toString());
+        String borderColor = JQuickStyleEnum.borderColor.get(style);
+        if (borderColor != null) {
+            return PdfBoxRenderAdapter.color(borderColor.toString());
         }
         return PdfBoxRenderAdapter.color("BLACK");
     }

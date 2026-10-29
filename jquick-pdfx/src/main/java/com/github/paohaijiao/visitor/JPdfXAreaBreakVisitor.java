@@ -17,6 +17,7 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import com.github.paohaijiao.visitor.element.JQuickAreaBreakElementRender;
 
 /**
@@ -41,7 +42,7 @@ public class JPdfXAreaBreakVisitor extends JPdfXDivVisitor {
         if (ctx.IDENTIFIER() != null) {
             breakType = ctx.IDENTIFIER().getText();
         }
-        String pageSize = style.get("pageSize") == null ? null : String.valueOf(style.get("pageSize"));
+        String pageSize = JQuickStyleEnum.pageSize.getString(style, null);
         JQuickAreaBreakElementRender areaBreak = new JQuickAreaBreakElementRender(breakType, pageSize);
         super.buildStyle(areaBreak, style);
         return areaBreak;

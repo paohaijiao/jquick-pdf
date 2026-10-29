@@ -3,6 +3,7 @@ package com.github.paohaijiao.visitor.element;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
 import com.github.paohaijiao.visitor.render.PdfBoxRenderAdapter;
@@ -123,7 +124,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
         if (row.getStyle() == null) {
             return rowHeight;
         }
-        float declared = PdfBoxUnitConverter.toPoint(row.getStyle().get("height"), -1f);
+        float declared = PdfBoxUnitConverter.toPoint(JQuickStyleEnum.height.get(row.getStyle()), -1f);
         return declared > 0f ? declared : rowHeight;
     }
 
@@ -160,8 +161,13 @@ public class JQuickTableElementRender implements JQuickElementRender {
         float lineHeight = lineHeight(fontSize);
         float contentWidth = Math.max(0f, width - padding * 2f);
         boolean header = "th".equalsIgnoreCase(column.getType());
-        String colorValue = cellStyle == null ? null
-                : (cellStyle.get("color") != null ? cellStyle.get("color") : cellStyle.get("fontColor"));
+        String colorValue = null;
+        if (cellStyle != null) {
+            colorValue = JQuickStyleEnum.color.get(cellStyle);
+            if (colorValue == null) {
+                colorValue = JQuickStyleEnum.fontColor.get(cellStyle);
+            }
+        }
         PDColor defaultColor = header
                 ? PdfBoxRenderAdapter.color("WHITE")
                 : PdfBoxRenderAdapter.color("#333333");
@@ -195,7 +201,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
      * 避免表格超出页面被裁切。
      */
     private float resolveTableWidth(float availableWidth) {
-        float declared = style == null ? -1f : PdfBoxUnitConverter.toPoint(style.get("width"), -1f);
+        float declared = style == null ? -1f : PdfBoxUnitConverter.toPoint(JQuickStyleEnum.width.get(style), -1f);
         if (declared <= 0f) {
             return Math.max(0f, availableWidth);
         }
@@ -263,7 +269,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
             if (column.getStyle() == null) {
                 continue;
             }
-            float width = PdfBoxUnitConverter.toPoint(column.getStyle().get("width"), -1f);
+            float width = PdfBoxUnitConverter.toPoint(JQuickStyleEnum.width.get(column.getStyle()), -1f);
             if (width > 0f) {
                 return width;
             }
@@ -323,7 +329,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
         if (attributes == null) {
             return fallback;
         }
-        String value = attributes.get("fontSize") != null ? attributes.get("fontSize") : attributes.get("font-size");
+        String value = JQuickStyleEnum.fontSize.getString(attributes, null);
         if (value == null) {
             return fallback;
         }
@@ -335,12 +341,12 @@ public class JQuickTableElementRender implements JQuickElementRender {
         if (attributes == null) {
             return cellPadding;
         }
-        String value = attributes.get("padding");
+        String value = JQuickStyleEnum.padding.getString(attributes, null);
         if (value == null) {
-            value = attributes.get("paddings");
+            value = JQuickStyleEnum.paddings.getString(attributes, null);
         }
         if (value == null) {
-            value = attributes.get("commonPadding");
+            value = JQuickStyleEnum.commonPadding.getString(attributes, null);
         }
         if (value == null) {
             return cellPadding;
@@ -353,23 +359,23 @@ public class JQuickTableElementRender implements JQuickElementRender {
         if (attributes == null) {
             return null;
         }
-        String value = attributes.get("textAlign");
-        return value != null ? value : attributes.get("textAlignment");
+        String value = JQuickStyleEnum.textAlign.getString(attributes, null);
+        return value != null ? value : JQuickStyleEnum.textAlignment.getString(attributes, null);
     }
 
     private PDColor resolveBackground(JStyleAttributes attributes) {
         if (attributes == null) {
             return null;
         }
-        PDColor color = PdfBoxRenderAdapter.color(attributes.get("backgroundColor"), null);
-        return color != null ? color : PdfBoxRenderAdapter.color(attributes.get("background"), null);
+        PDColor color = PdfBoxRenderAdapter.color(JQuickStyleEnum.backgroundColor.getString(attributes, null), null);
+        return color != null ? color : PdfBoxRenderAdapter.color(JQuickStyleEnum.background.getString(attributes, null), null);
     }
 
     private PDColor resolveBorderColor(JStyleAttributes attributes) {
         if (attributes != null) {
-            String border = attributes.get("border");
+            String border = JQuickStyleEnum.border.getString(attributes, null);
             if (border == null) {
-                border = attributes.get("borderBottom");
+                border = JQuickStyleEnum.borderBottom.getString(attributes, null);
             }
             if (border != null) {
                 String[] parts = border.replace("'", "").trim().split("\\s+");
@@ -410,18 +416,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
         if (style == null) {
             return;
         }
-        cellPadding = parseFloat(style.get("padding"), cellPadding);
-        rowHeight = parseFloat(style.get("height"), rowHeight);
-    }
-
-    private float parseFloat(Object value, float defaultValue) {
-        if (value == null) {
-            return defaultValue;
-        }
-        try {
-            return Float.parseFloat(value.toString().replace("px", "").trim());
-        } catch (NumberFormatException e) {
-            return defaultValue;
-        }
+        cellPadding = JQuickStyleEnum.padding.getFloat(style, cellPadding);
+        rowHeight = JQuickStyleEnum.height.getFloat(style, rowHeight);
     }
 }

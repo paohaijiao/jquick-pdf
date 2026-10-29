@@ -3,6 +3,7 @@ package com.github.paohaijiao.visitor.element;
 import com.github.paohaijiao.factory.JImageFactory;
 import com.github.paohaijiao.image.JBaseImageProvider;
 import com.github.paohaijiao.model.JStyleAttributes;
+import com.github.paohaijiao.style.JQuickStyleEnum;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import com.github.paohaijiao.visitor.render.PdfBoxUnitConverter;
 import lombok.Data;
@@ -62,7 +63,7 @@ public class JQuickImageElementRender implements JQuickElementRender {
         if (style == null) {
             return;
         }
-        width = PdfBoxUnitConverter.toPoint(style.get("width"), width);
-        height = PdfBoxUnitConverter.toPoint(style.get("height"), height);
+        width = PdfBoxUnitConverter.toPoint(JQuickStyleEnum.width.get(style), width);
+        height = PdfBoxUnitConverter.toPoint(JQuickStyleEnum.height.get(style), height);
     }
 }

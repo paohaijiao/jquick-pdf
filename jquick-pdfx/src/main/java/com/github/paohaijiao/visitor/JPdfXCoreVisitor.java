@@ -355,12 +355,16 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         beginPageContent();
     }
 
-    // 页面大小枚举（需要根据您的实际定义调整）
     public enum PageSize {
+
         A4(595.28f, 841.89f),
+
         A3(841.89f, 1190.55f),
+
         A5(419.53f, 595.28f),
+
         LETTER(612f, 792f),
+
         LEGAL(612f, 1008f);
 
         private final float width;
