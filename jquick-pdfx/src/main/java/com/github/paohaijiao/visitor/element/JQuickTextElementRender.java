@@ -36,6 +36,11 @@ public class JQuickTextElementRender implements JQuickElementRender {
      * 绘制结束后把光标横向推进到文本末尾，而不是另起一行。
      */
     private boolean inline;
+    /**
+     * 目录层级：0 表示不登记目录；h1/h2/h3 对应 1/2/3。
+     * 绘制时若 {@code context.tocCollector} 非空，则把 (文本, 当前页码, 层级) 登记为目录条目。
+     */
+    private int tocLevel;
 
     public JQuickTextElementRender(String content) {
         this.content = content;
@@ -51,6 +56,12 @@ public class JQuickTextElementRender implements JQuickElementRender {
         if (stream == null || context == null) return;
         String text = content == null ? "" : JStringUtils.trim(content);
         if (text == null || text.isEmpty()) return;
+        // 目录登记：标题元素绘制时把 (标题, 当前正文页码, 层级) 交给采集器。
+        // 预排版（分页关闭）阶段会镜像绘制一次元素用于测量，此时不登记，避免目录条目重复。
+        if (tocLevel > 0 && context.getTocCollector() != null
+                && (context.getLayoutEngine() == null || context.getLayoutEngine().isPaginationEnabled())) {
+            context.getTocCollector().add(text, Math.max(1, context.getPageNumber()), tocLevel);
+        }
 
         PdfBoxStyleModel model = PdfBoxStyleModel.from(style);
         if (fontSize > 0f) model.setFontSize(fontSize);

@@ -3,6 +3,7 @@ package com.github.paohaijiao.visitor.context;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+import com.github.paohaijiao.toc.JTocCollector;
 import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
 import lombok.Builder;
 import lombok.Data;
@@ -67,6 +68,12 @@ public class JQuickRenderContext {
 
     /** 是否启用 flex 行布局（display:flex），由 {@code JPdfConfig.layoutConfig} 控制。 */
     private boolean flexLayout;
+
+    /**
+     * 目录条目采集器（可空）。目录功能开启时由 JPdfXCommonVisitor 注入，
+     * 标题元素（h1~h3）绘制时把 (标题, 页码, 层级) 登记进来，渲染结束后生成目录页。
+     */
+    private JTocCollector tocCollector;
 
     public enum TextAlign {
         LEFT, CENTER, RIGHT, JUSTIFY

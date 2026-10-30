@@ -55,6 +55,10 @@ public class JPdfXHeadingVisitor extends JPdfXParagraphVisitor {
         JQuickTextElementRender textElement = new JQuickTextElementRender(trim(text), style);
         // <h1>~<h6> 是块级元素：排版时应用自身的上下外边距，与相邻块保持声明好的间距。
         textElement.setBlockLevel(true);
+        // 目录登记：h1/h2/h3 绘制时进入目录采集（目录页 + 跳转链接 + 书签树）。
+        if (level >= 1 && level <= 3) {
+            textElement.setTocLevel(level);
+        }
         super.buildStyle(textElement, style);
         return textElement;
     }

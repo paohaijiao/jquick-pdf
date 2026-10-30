@@ -83,6 +83,12 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
+        <!-- 二维码渲染（JQrCode），Apache-2.0，作为 jquick-pdfx 的传递依赖引入 -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.1</version>
+        </dependency>
         <dependency>
             <groupId>io.github.paohaijiao</groupId>
             <artifactId>javelin-resource</artifactId>

@@ -15,10 +15,14 @@
  */
 package com.github.paohaijiao.visitor;
 
+import com.github.paohaijiao.config.JCatalogConfig;
 import com.github.paohaijiao.config.JPdfConfig;
+import com.github.paohaijiao.event.JPdfXWatermarkEventHandler;
 import com.github.paohaijiao.font.JFontSpec;
 import com.github.paohaijiao.param.JContext;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import com.github.paohaijiao.toc.JTocCollector;
+import com.github.paohaijiao.toc.JTocPageBuilder;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
 import com.github.paohaijiao.visitor.render.JTemplatePdfBoxRenderer;
 import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
@@ -120,6 +124,10 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                 getPdfBoxDocument().addPage(page);
             }
             JQuickRenderContext renderContext = createRenderContext(page.getMediaBox());
+            JCatalogConfig catalogConfig = config == null ? null : config.getCatalogConfig();
+            if (catalogConfig != null && catalogConfig.isEnabled()) {
+                renderContext.setTocCollector(new JTocCollector());
+            }
             PdfBoxLayoutEngine layoutEngine = new PdfBoxLayoutEngine(getPdfBoxDocument(), page.getMediaBox(),
                     renderContext, page, contentStream == null ? new PDPageContentStream(getPdfBoxDocument(), page) : contentStream);
             renderContext.setLayoutEngine(layoutEngine);
@@ -129,6 +137,14 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
                 }
             } finally {
                 layoutEngine.close();
+            }
+            if (config != null && config.getWatermarkConfig() != null) {
+                new JPdfXWatermarkEventHandler(config.getWatermarkConfig()).renderAll(getPdfBoxDocument());
+            }
+            if (catalogConfig != null && catalogConfig.isEnabled()
+                    && renderContext.getTocCollector() != null
+                    && !renderContext.getTocCollector().isEmpty()) {
+                JTocPageBuilder.build(getPdfBoxDocument(), renderContext.getTocCollector().getEntries(), catalogConfig);
             }
             getPdfBoxDocument().save(baos);
             getPdfBoxDocument().close();
