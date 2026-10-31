@@ -33,6 +33,6 @@
       <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'全球网络'</td>
     </tr>
   </table>
-  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei"><span>'נוצר באמצעות PDFBox; הגופן Noto Sans Hebrew מכסה את כל האותיות והניקוד.'</span><br><span style="fontColor:#1A7F37">'Hebrew demo · '${reportDate}</span></p>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei"><span style="fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'נוצר באמצעות PDFBox; הגופן Noto Sans Hebrew מכסה את כל האותיות והניקוד.'</span><br><span style="fontColor:#1A7F37;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'Hebrew demo · '${reportDate}</span></p>
 </body>
 </pdf>

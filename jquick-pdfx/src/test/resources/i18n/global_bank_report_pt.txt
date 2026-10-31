@@ -17,13 +17,19 @@
   <p style="fontSize:16pt; bold:true; color:#1C7ED6; characterSpacing:2.5pt; marginBottom:2px; fontFamilyNames:Noto Sans,SimHei">'RELATÓRIO GLOBAL DE OPERAÇÕES 2026'</p>
   <p style="fontSize:9pt; color:#1B2B3A; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Banco Global Huitong · Três primeiros trimestres de 2026 · Consolidado do grupo'</p>
 
-  // 信息区：单行四段，竖线分隔
+  // 信息区：四列两行（标签行 + 数值行），竖虚线分隔
   <table style="width:100%; fontSize:8.5pt; marginBottom:10px; borderTop:0.75f solid #B6D2EE; borderBottom:0.75f solid #B6D2EE">
     <tr>
-      <td style="width:25%; padding:5px 6px; borderRight:0.5f solid #B6D2EE; fontFamilyNames:Noto Sans,SimHei"><span style="fontSize:7.5pt; color:#0B4F8A">'Nº do relatório'</span><br><span style="bold:true; color:#0B4F8A">${reportNo}</span></td>
-      <td style="width:25%; padding:5px 6px; borderRight:0.5f solid #B6D2EE; fontFamilyNames:Noto Sans,SimHei"><span style="fontSize:7.5pt; color:#0B4F8A">'Data do relatório'</span><br><span style="bold:true; color:#1B2B3A">${reportDate}</span></td>
-      <td style="width:25%; padding:5px 6px; borderRight:0.5f solid #B6D2EE; fontFamilyNames:Noto Sans,SimHei"><span style="fontSize:7.5pt; color:#0B4F8A">'Entidade emissora'</span><br><span style="bold:true; color:#1B2B3A">${orgName}</span></td>
-      <td style="width:25%; padding:5px 6px; fontFamilyNames:Noto Sans,SimHei"><span style="fontSize:7.5pt; color:#0B4F8A">'Escopo dos dados'</span><br><span style="bold:true; color:#1B2B3A">${dataScope}</span></td>
+      <td style="width:25%; padding:6px 6px 1px 6px; borderRight:0.5f dashed #B6D2EE; fontSize:7.5pt; color:#0B4F8A; fontFamilyNames:Noto Sans,SimHei">'Nº do relatório'</td>
+      <td style="width:25%; padding:6px 6px 1px 6px; borderRight:0.5f dashed #B6D2EE; fontSize:7.5pt; color:#0B4F8A; fontFamilyNames:Noto Sans,SimHei">'Data do relatório'</td>
+      <td style="width:25%; padding:6px 6px 1px 6px; borderRight:0.5f dashed #B6D2EE; fontSize:7.5pt; color:#0B4F8A; fontFamilyNames:Noto Sans,SimHei">'Entidade emissora'</td>
+      <td style="width:25%; padding:6px 6px 1px 6px; fontSize:7.5pt; color:#0B4F8A; fontFamilyNames:Noto Sans,SimHei">'Escopo dos dados'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 6px 6px 6px; borderRight:0.5f dashed #B6D2EE; bold:true; color:#0B4F8A; fontFamilyNames:Noto Sans,SimHei">${reportNo}</td>
+      <td style="padding:0px 6px 6px 6px; borderRight:0.5f dashed #B6D2EE; bold:true; color:#1B2B3A; fontFamilyNames:Noto Sans,SimHei">${reportDate}</td>
+      <td style="padding:0px 6px 6px 6px; borderRight:0.5f dashed #B6D2EE; bold:true; color:#1B2B3A; fontFamilyNames:Noto Sans,SimHei">${orgName}</td>
+      <td style="padding:0px 6px 6px 6px; bold:true; color:#1B2B3A; fontFamilyNames:Noto Sans,SimHei">${dataScope}</td>
     </tr>
   </table>
 
@@ -57,7 +63,7 @@
 
   <table style="width:100%; marginTop:8px; marginBottom:5px">
     <tr>
-      <td style="width:34px; color:#B6D2EE; bold:true; fontSize:13pt; fontFamilyNames:Noto Sans,SimHei">'01'</td>
+      <td style="width:46px; color:#B6D2EE; bold:true; fontSize:12pt; fontFamilyNames:Noto Sans,SimHei">'01'</td>
       <td style="color:#0B4F8A; bold:true; fontSize:11pt; characterSpacing:1pt; borderBottom:1.5f solid #1C7ED6; paddingBottom:3px; fontFamilyNames:Noto Sans,SimHei">'Visão geral das operações'</td>
     </tr>
   </table>
@@ -69,7 +75,7 @@
 
   <table style="width:100%; marginTop:8px; marginBottom:5px">
     <tr>
-      <td style="width:34px; color:#B6D2EE; bold:true; fontSize:13pt; fontFamilyNames:Noto Sans,SimHei">'02'</td>
+      <td style="width:46px; color:#B6D2EE; bold:true; fontSize:12pt; fontFamilyNames:Noto Sans,SimHei">'02'</td>
       <td style="color:#0B4F8A; bold:true; fontSize:11pt; characterSpacing:1pt; borderBottom:1.5f solid #1C7ED6; paddingBottom:3px; fontFamilyNames:Noto Sans,SimHei">'Rede global'</td>
     </tr>
   </table>
@@ -125,7 +131,7 @@
 
   <table style="width:100%; marginTop:8px; marginBottom:5px">
     <tr>
-      <td style="width:34px; color:#B6D2EE; bold:true; fontSize:13pt; fontFamilyNames:Noto Sans,SimHei">'03'</td>
+      <td style="width:46px; color:#B6D2EE; bold:true; fontSize:12pt; fontFamilyNames:Noto Sans,SimHei">'03'</td>
       <td style="color:#0B4F8A; bold:true; fontSize:11pt; characterSpacing:1pt; borderBottom:1.5f solid #1C7ED6; paddingBottom:3px; fontFamilyNames:Noto Sans,SimHei">'Detalhamento regional'</td>
     </tr>
   </table>

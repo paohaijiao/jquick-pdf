@@ -33,6 +33,6 @@
       <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'全球网络'</td>
     </tr>
   </table>
-  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei"><span>'PDFBox দ্বারা উৎপন্ন, Noto Sans Bengali ফন্ট সব যুক্তাক্ষর সমর্থন করে।'</span><br><span style="fontColor:#B0322F">'Bengali demo · '${reportDate}</span></p>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei"><span style="fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'PDFBox দ্বারা উৎপন্ন, Noto Sans Bengali ফন্ট সব যুক্তাক্ষর সমর্থন করে।'</span><br><span style="fontColor:#B0322F;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'Bengali demo · '${reportDate}</span></p>
 </body>
 </pdf>

@@ -33,6 +33,6 @@
       <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'全球网络'</td>
     </tr>
   </table>
-  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei"><span>'PDFBox மூலம் உருவாக்கப்பட்டது; Noto Sans Tamil அனைத்து உயிர்மெய்யையும் ஆதரிக்கிறது.'</span><br><span style="fontColor:#C2185B">'Tamil demo · '${reportDate}</span></p>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei"><span style="fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'PDFBox மூலம் உருவாக்கப்பட்டது; Noto Sans Tamil அனைத்து உயிர்மெய்யையும் ஆதரிக்கிறது.'</span><br><span style="fontColor:#C2185B;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'Tamil demo · '${reportDate}</span></p>
 </body>
 </pdf>

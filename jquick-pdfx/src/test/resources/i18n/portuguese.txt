@@ -33,6 +33,6 @@
       <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'全球网络'</td>
     </tr>
   </table>
-  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span>'Gerado pelo PDFBox, com a fonte Noto Sans cobrindo todos os acentos do português.'</span><br><span style="fontColor:#1C7ED6">'Portuguese demo · '${reportDate}</span></p>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span style="fontFamilyNames:Noto Sans,SimHei">'Gerado pelo PDFBox, com a fonte Noto Sans cobrindo todos os acentos do português.'</span><br><span style="fontColor:#1C7ED6;fontFamilyNames:Noto Sans,SimHei">'Portuguese demo · '${reportDate}</span></p>
 </body>
 </pdf>

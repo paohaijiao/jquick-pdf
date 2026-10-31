@@ -33,6 +33,6 @@
       <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'全球网络'</td>
     </tr>
   </table>
-  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei"><span>'تولیدشده با PDFBox؛ قلم Noto Sans Arabic همهٔ حروف فارسی را پوشش می‌دهد.'</span><br><span style="fontColor:#5F3DC4">'Persian demo · '${reportDate}</span></p>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei"><span style="fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'تولیدشده با PDFBox؛ قلم Noto Sans Arabic همهٔ حروف فارسی را پوشش می‌دهد.'</span><br><span style="fontColor:#5F3DC4;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'Persian demo · '${reportDate}</span></p>
 </body>
 </pdf>

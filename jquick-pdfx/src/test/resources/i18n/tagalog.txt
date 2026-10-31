@@ -33,6 +33,6 @@
       <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'全球网络'</td>
     </tr>
   </table>
-  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span>'Ginawa ng PDFBox; sinusuportahan ng Noto Sans ang lahat ng marka ng Tagalog.'</span><br><span style="fontColor:#D97706">'Tagalog demo · '${reportDate}</span></p>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span style="fontFamilyNames:Noto Sans,SimHei">'Ginawa ng PDFBox; sinusuportahan ng Noto Sans ang lahat ng marka ng Tagalog.'</span><br><span style="fontColor:#D97706;fontFamilyNames:Noto Sans,SimHei">'Tagalog demo · '${reportDate}</span></p>
 </body>
 </pdf>

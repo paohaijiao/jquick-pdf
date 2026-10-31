@@ -123,7 +123,7 @@
   <div style="display:flex; justifyContent:center">
     <svg style="width:420pt">${svgDonut}</svg>
   </div>
-  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'চিত্র ২  সীমান্ত-পারাপার নিষ্পত্তির মুদ্রা 구성 (মূল্য অনুযায়ী, ২০২৬ প্রথম তিন প্রান্তিক)'</p>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'চিত্র ২  সীমান্ত-পারাপার নিষ্পত্তির মুদ্রা গঠন (মূল্য অনুযায়ী, ২০২৬ প্রথম তিন প্রান্তিক)'</p>
 
   <table style="width:100%; marginTop:10px; marginBottom:6px; borderTop:0.75f solid #EEC5BF; borderBottom:0.75f solid #B0322F">
     <tr>
