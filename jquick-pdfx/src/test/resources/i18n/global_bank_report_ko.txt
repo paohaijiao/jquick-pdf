@@ -1,0 +1,205 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（韩语）  视觉主题：丹青·韩纸
+  // 主色 #1F3B57  深色 #14283C  浅底 #F7F5F0  描边 #C9CFD6  五方色 青赤黄白黑
+
+  // 五方色装饰条（青 / 赤 / 黄 / 白 / 黑）
+  <table style="width:100%; marginBottom:10px">
+    <tr>
+      <td style="width:20%; backgroundColor:#2E7BA6; fontSize:3pt; padding:0px">' '</td>
+      <td style="width:20%; backgroundColor:#C0392B; fontSize:3pt; padding:0px">' '</td>
+      <td style="width:20%; backgroundColor:#D9A400; fontSize:3pt; padding:0px">' '</td>
+      <td style="width:20%; backgroundColor:#FFFFFF; fontSize:3pt; padding:0px; borderTop:0.4f solid #C9CFD6; borderBottom:0.4f solid #C9CFD6">' '</td>
+      <td style="width:20%; backgroundColor:#1A1A1A; fontSize:3pt; padding:0px">' '</td>
+    </tr>
+  </table>
+
+  <h1 style="fontSize:19pt; bold:true; color:#1F3B57; textAlignment:center; characterSpacing:1pt; marginBottom:2px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'2026 글로벌 경영 실적 보고서'</h1>
+  <p style="fontSize:9pt; color:#14283C; textAlignment:center; marginBottom:10px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'글로벌 유니온 은행 · 2026년 3분기 누적 · 그룹 연결 기준'</p>
+
+  // 信息区：2×2 全框线网格
+  <table style="width:92%; fontSize:8.3pt; marginBottom:12px">
+    <tr>
+      <td style="width:16%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'보고서 번호'</td>
+      <td style="width:34%; padding:5px; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${reportNo}</td>
+      <td style="width:16%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'보고 일자'</td>
+      <td style="padding:5px; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'작성 기관'</td>
+      <td style="padding:5px; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${orgName}</td>
+      <td style="padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'데이터 범위'</td>
+      <td style="padding:5px; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI 区：4×2 全框线（灰底标签 + 主色数值）
+  <table style="width:92%; fontSize:8pt; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'총자산'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'국경 간 결제'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'글로벌 지점'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'국가·지역'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 4px; textAlign:center; bold:true; fontSize:10.5pt; color:#1F3B57; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:6px 4px; textAlign:center; bold:true; fontSize:10.5pt; color:#1F3B57; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:6px 4px; textAlign:center; bold:true; fontSize:10.5pt; color:#1F3B57; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:6px 4px; textAlign:center; bold:true; fontSize:10.5pt; color:#1F3B57; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'영업수익'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'순이익'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'임직원'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F7F5F0; color:#14283C; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'고객 수'</td>
+    </tr>
+    <tr>
+      <td style="padding:6px 4px; textAlign:center; bold:true; fontSize:10.5pt; color:#1F3B57; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:6px 4px; textAlign:center; bold:true; fontSize:10.5pt; color:#1F3B57; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:6px 4px; textAlign:center; bold:true; fontSize:10.5pt; color:#1F3B57; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${employees}</td>
+      <td style="padding:6px 4px; textAlign:center; bold:true; fontSize:10.5pt; color:#1F3B57; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginTop:6px; marginBottom:4px">
+    <tr>
+      <td style="width:5%; padding:4px 0px; backgroundColor:#1F3B57; color:white; bold:true; fontSize:9.5pt; textAlign:center; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'1'</td>
+      <td style="padding:4px 8px; color:#14283C; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei; borderBottom:1.2f solid #C9CFD6">'Ⅰ. 경영 개요'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#1B2530; marginBottom:8px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'2026년 3분기까지 당행은 본·외화, 국내·해외, 온라인·오프라인을 통합한 영업 모델을 유지했습니다. 중국 본토가 그룹 영업수익의 45.2%를 차지했고, 아시아·태평양, 중동, 유럽이 합산 39.7%를 보탰습니다. 국경 간 위안화 결제액은 전년 동기 대비 21.4% 증가했습니다.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'그림 1  지역별 영업수익, 2026년 3분기 누적 (단위: 억 위안)'</p>
+
+  <table style="width:100%; marginTop:6px; marginBottom:4px">
+    <tr>
+      <td style="width:5%; padding:4px 0px; backgroundColor:#1F3B57; color:white; bold:true; fontSize:9.5pt; textAlign:center; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'2'</td>
+      <td style="padding:4px 8px; color:#14283C; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei; borderBottom:1.2f solid #C9CFD6">'Ⅱ. 글로벌 네트워크'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#1B2530; marginBottom:8px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'2026년 9월 30일 기준으로 당행은 68개 국가·지역에 1,286개 지점과 3,470대의 자동화기기를 운영하고 있습니다. 6개 지역 허브는 현지 통화와 현지 언어로 기업금융과 개인금융 전반을 제공하며, 모든 국제무역 서류는 7개 언어로 접수되고 추가 번역료가 부과되지 않습니다.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px; border:0.6f solid #C9CFD6">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F3B57; color:white; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'지역'</th>
+      <th style="padding:5px; backgroundColor:#1F3B57; color:white; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'지역 허브'</th>
+      <th style="padding:5px; backgroundColor:#1F3B57; color:white; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'서비스 언어'</th>
+      <th style="padding:5px; backgroundColor:#1F3B57; color:white; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'지점 수'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'아시아·태평양'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'싱가포르'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'영어, 중국어, 일본어'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'중동·북아프리카'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'두바이'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'아랍어, 영어, 프랑스어'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'유럽'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'프랑크푸르트'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'독일어, 프랑스어, 영어'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'러시아·CIS'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'모스크바'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'러시아어, 영어'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'일본'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'도쿄'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'일본어, 영어'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'미주'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'뉴욕'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'영어, 스페인어'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'260'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'그림 2  국경 간 결제 통화 구성 (금액 기준, 2026년 3분기 누적)'</p>
+
+  <table style="width:100%; marginTop:6px; marginBottom:4px">
+    <tr>
+      <td style="width:5%; padding:4px 0px; backgroundColor:#1F3B57; color:white; bold:true; fontSize:9.5pt; textAlign:center; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'3'</td>
+      <td style="padding:4px 8px; color:#14283C; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei; borderBottom:1.2f solid #C9CFD6">'Ⅲ. 지역별 실적'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#1B2530; marginBottom:8px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'중국 본토가 986(단위: 억 위안)으로 중심축을 유지했고, 아시아·태평양 412, 유럽 268이 뒤를 이었습니다. 여섯 개 지역 모두 전년 동기 대비 두 자릿수 성장을 기록했습니다.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px; border:0.6f solid #C9CFD6">
+    <tr>
+      <th style="padding:5px; backgroundColor:#1F3B57; color:white; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'지역'</th>
+      <th style="padding:5px; backgroundColor:#1F3B57; color:white; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'영업수익(억 위안)'</th>
+      <th style="padding:5px; backgroundColor:#1F3B57; color:white; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'결제액(억 위안)'</th>
+      <th style="padding:5px; backgroundColor:#1F3B57; color:white; bold:true; textAlign:center; border:0.5f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'성장률'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'중국 본토'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'986'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'6,420'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'아시아·태평양'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'412'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'2,760'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'유럽'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'268'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'1,890'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'중동'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'186'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'1,240'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'일본'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'174'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'980'</td>
+      <td style="padding:5px; textAlign:right; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'러시아·CIS'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'154'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'690'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#F7F5F0; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'+21.4%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'그림 3  2026년 1~10월 국경 간 업무량 월별 추이 (단위: 억 위안)'</p>
+
+  <!-- 签章占位区 -->
+  <table style="width:100%; fontSize:8pt; marginTop:6px; border:0.6f solid #C9CFD6">
+    <tr>
+      <td style="width:33%; padding:7px; textAlign:center; color:#14283C; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'(은행 업무 인장 / 기관 인장)'</td>
+      <td style="width:33%; padding:7px; textAlign:center; color:#14283C; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'(간인 / QR 코드)'</td>
+      <td style="width:33%; padding:7px; textAlign:center; color:#14283C; border:0.4f solid #C9CFD6; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'(QR 코드 검증)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#14283C; bold:true; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'작성:'${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#14283C; bold:true; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'검토:'${reviewedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#14283C; bold:true; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'발행:'${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; textAlignment:center; marginTop:8px; fontFamilyNames:Noto Sans KR,Noto Sans,SimHei">'본 보고서는 권한을 부여받은 기관의 참고용이며, 모든 재무 수치는 그룹의 감사받은 연차 보고서를 기준으로 합니다.'</p>
+</body>
+</pdf>

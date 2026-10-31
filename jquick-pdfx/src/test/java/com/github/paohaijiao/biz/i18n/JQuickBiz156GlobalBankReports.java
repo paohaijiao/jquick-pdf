@@ -52,6 +52,19 @@ import java.util.Map;
  *   <li>de —— Deutsch（Noto Sans，Umlaut/ß）</li>
  *   <li>ja —— 日本語（Noto Sans JP）</li>
  *   <li>ar —— العربية（Noto Sans Arabic，全 RTL：baseDirection:rtl + textAlignment:right）</li>
+ *   <li>vi —— Tiếng Việt（Noto Sans，越南语声调附加符号）</li>
+ *   <li>th —— ไทย（Noto Sans Thai）</li>
+ *   <li>dai —— 傣语 / 新傣仂文（Noto Sans New Tai Lue）</li>
+ *   <li>ms —— Bahasa Melayu（Noto Sans）</li>
+ *   <li>id —— Bahasa Indonesia（Noto Sans）</li>
+ *   <li>es —— Español（Noto Sans，重音与 ñ）</li>
+ *   <li>ko —— 한국어（Noto Sans KR）</li>
+ *   <li>pt —— Português（Noto Sans，波浪号/软音符）</li>
+ *   <li>bn —— বাংলা（Noto Sans Bengali，连字与元音符号）</li>
+ *   <li>tl —— Tagalog（Noto Sans，拉丁字母）</li>
+ *   <li>fa —— فارسی（Noto Sans Arabic，RTL + 波斯语增补字母与东阿拉伯数字）</li>
+ *   <li>ta —— தமிழ்（Noto Sans Tamil，辅音元音合字）</li>
+ *   <li>he —— עברית（Noto Sans Hebrew，RTL 希伯来字母）</li>
  * </ul>
  *
  * <p>版式：每种语言一份<b>独立视觉主题</b>（布局、配色、边框语言互不相同）：</p>
@@ -64,15 +77,28 @@ import java.util.Map;
  *   <li>ja —— 藍染朱印·和风余白式（藍 #2B4570 + 朱印 #C73E3A，顶部压线卡，■ 章节）</li>
  *   <li>ar —— 沙漠琥珀·RTL奢华式（深棕 #5C4326 + 琥珀金 #B9861C，RTL 右竖条）</li>
  *   <li>zhHant/manchu/mn/ug/bo —— 朱砂礼仪式 / 玄青档案框式 / 草原翠留白式 / 翡翠铜右起式 / 绛红藏式横幅</li>
+ *   <li>vi —— 青瓷·顺化式（#0B6E7F，满幅色带 + 左竖线章节 + 满格细线表）</li>
+ *   <li>th —— 金箔紫檀·泰庙式（#8A5A00 + #7A1F3D，居中金双线 + 2×2 大卡 + 仅上下金线表）</li>
+ *   <li>dai —— 贝叶竹青·孔雀式（#557C1F + #8B5A00，左对齐 + 壹贰叁色块 + 发丝线表）</li>
+ *   <li>ms —— 蜡染·热带赭（#C2410C + #1F3B2C，双框通栏 + 单行 8 格卡 + 橙色斑马纹）</li>
+ *   <li>id —— 巴迪·靛紫（#6B2F6B + #C9A227，全幅细框 + 居中底纹章节）</li>
+ *   <li>es —— 弗拉门戈·赤金（#B3123C + 墨黑，左粗竖条 + 超大标题 + 黑底 KPI）</li>
+ *   <li>ko —— 丹青·韩纸（#1F3B57 + 五方色条，全框线网格 + 数字方块章节）</li>
+ *   <li>pt —— 阿兹勒赫瓷砖·海航式（#1C7ED6 + 金橙 #C8901B，瓷砖色条 + 虚线 KPI + 编号章节 + 通栏线表）</li>
+ *   <li>bn —— 恒河朱砂·莲花式（#B0322F + 恒河绿 #0F7B5F，左竖色块 + 圆角卡片 KPI + 居中带线章节）</li>
+ *   <li>tl —— 群岛·芒果式（琥珀 #D97706 + 深海蓝 #0B6E8A，双色块抬头 + 数字徽标章节 + 下粗线 KPI）</li>
+ *   <li>fa —— 波斯细密画·绿松石（紫罗兰 #5F3DC4 + 绿松石 #0E9384，居中对称装饰 + 全篇 RTL 右对齐）</li>
+ *   <li>ta —— 庙塔·黄檀式（玫红 #C2185B + 深靛 #26456B，三层递减色条 + 交叉网格 KPI）</li>
+ *   <li>he —— 迦南·橄榄式（橄榄翠绿 #1A7F37 + 石灰 #6B7280，右粗色条 + 全篇 RTL 右对齐 + 底线章节）</li>
  * </ul>
  * <p>三张 ECharts 图表的配色（柱色 / 环形色盘 / 折线色 / 图区底色）随语言包逐一覆盖，
  * 与模板主题一一对应。</p>
  *
- * <p>模板：{@code i18n/global_bank_report_<lang>.txt}（7 份单语种模板）；
- * 输出：{@code D:/test/i18n/global_bank_report_<lang>.pdf}（7 份单语种 PDF）。</p>
+ * <p>模板：{@code i18n/global_bank_report_<lang>.txt}（25 份单语种模板）；
+ * 输出：{@code D:/test/i18n/global_bank_report_<lang>.pdf}（25 份单语种 PDF）。</p>
  *
  * @author Martin
- * @version 1.1.0
+ * @version 1.3.0
  */
 public class JQuickBiz156GlobalBankReports {
 
@@ -94,6 +120,19 @@ public class JQuickBiz156GlobalBankReports {
         generate(mnPack());
         generate(ugPack());
         generate(boPack());
+        generate(viPack());
+        generate(thPack());
+        generate(daiPack());
+        generate(msPack());
+        generate(idPack());
+        generate(esPack());
+        generate(koPack());
+        generate(ptPack());
+        generate(bnPack());
+        generate(tlPack());
+        generate(faPack());
+        generate(taPack());
+        generate(hePack());
     }
 
     // ==================================================================
@@ -103,6 +142,10 @@ public class JQuickBiz156GlobalBankReports {
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));
+        // 4.6.0 起目录（TOC）默认开启，且目录页固定使用默认 CJK 字体（SimHei）度量标题，
+        // 非中文标题（ä / ไทย / 한국어 等）会因缺字形抛 "No glyph for ..."。
+        // 本 Demo 的版式是「单页头 + 全篇表格」，没有多级标题，目录页没有意义，故关闭。
+        config.getCatalogConfig().setEnabled(false);
         config.getFontConfig().setDefaultFontName(p.defaultFont);
         // 四套字体统一注册，模板内按 fontFamilyNames 回退链显式声明
         config.getFontConfig().registerFont("SimHei", "fonts/simhei.ttf");
@@ -112,6 +155,15 @@ public class JQuickBiz156GlobalBankReports {
         config.getFontConfig().registerFont("Noto Sans TC", "fonts/NotoSansTC-Regular.ttf");
         config.getFontConfig().registerFont("Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
         config.getFontConfig().registerFont("Noto Serif Tibetan", "fonts/NotoSerifTibetan-Regular.ttf");
+        // 4.6.0 起补充的三款字体：泰文 / 新傣仂文（傣语） / 韩文
+        config.getFontConfig().registerFont("Noto Sans Thai", "fonts/NotoSansThai-Regular.ttf");
+        config.getFontConfig().registerFont("Noto Sans New Tai Lue", "fonts/NotoSansNewTaiLue-Regular.ttf");
+        config.getFontConfig().registerFont("Noto Sans KR", "fonts/NotoSansKR-Regular.ttf");
+        // 4.6.0 起继续补充的三款字体：孟加拉文 / 泰米尔文 / 希伯来文
+        // （这三款字体只含本文种字形，拉丁字母与中文由回退链后段的 Noto Sans / SimHei 逐字符兜底）
+        config.getFontConfig().registerFont("Noto Sans Bengali", "fonts/NotoSansBengali.ttf");
+        config.getFontConfig().registerFont("Noto Sans Tamil", "fonts/NotoSansTamil.ttf");
+        config.getFontConfig().registerFont("Noto Sans Hebrew", "fonts/NotoSansHebrew.ttf");
 
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("reportNo", p.reportNo);
@@ -826,6 +878,591 @@ public class JQuickBiz156GlobalBankReports {
         p.lineColors = new Color[]{new Color(123, 45, 38), new Color(212, 160, 23), new Color(168, 91, 50)};
         p.chartArea = new Color(251, 243, 232);
         p.barColor = "#7B2D26";
+        return p;
+    }
+
+    // ==================================================================
+    // 越南语 —— 视觉主题「青瓷·顺化式」（满幅色带 + 左竖线章节 + 满格细线表）
+    // ==================================================================
+    private static LanguagePack viPack() {
+        LanguagePack p = base("vi", "Noto Sans");
+        p.reportDate = "26 tháng 10 năm 2026";
+        p.orgName = "Ngân hàng Hội Thông Toàn cầu";
+        p.dataScope = "Ba quý đầu năm 2026, hợp nhất toàn tập đoàn";
+        p.totalAssets = "8,6 nghìn tỷ NDT";
+        p.crossBorderSettlement = "1,24 nghìn tỷ NDT";
+        p.globalBranches = "1.286 chi nhánh";
+        p.countries = "68 quốc gia";
+        p.revenue = "218 tỷ NDT";
+        p.netProfit = "68,6 tỷ NDT";
+        p.employees = "86.000 người";
+        p.customers = "96 triệu khách hàng";
+        p.preparedBy = "Văn phòng Tập đoàn, Tổ công tác đa ngữ";
+        p.reviewedBy = "Vương Ngạn Châu";
+        p.issuedBy = "Ngân hàng Hội Thông Toàn cầu";
+        p.barTitle = "Doanh thu theo khu vực";
+        p.barSub = "Ba quý đầu năm 2026 (đơn vị: 100 triệu NDT)";
+        p.barSeriesName = "Doanh thu";
+        p.barRegions = new String[]{"Trung Quốc", "Châu Á", "Châu Âu", "Trung Đông", "Nhật Bản", "Nga/CIS"};
+        p.donutTitle = "Cơ cấu đồng tiền thanh toán xuyên biên giới";
+        p.donutSub = "Tỷ trọng theo giá trị thanh toán, ba quý đầu năm 2026";
+        p.donutCenterTitle = "Tỷ trọng";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "Nguồn: hệ thống thanh toán xuyên biên giới";
+        p.donutNames = new String[]{"Nhân dân tệ CNY", "Đô la Mỹ USD", "Euro EUR", "Yên JPY", "Rúp RUB", "Dirham AED"};
+        p.lineTitle = "Khối lượng kinh doanh xuyên biên giới tháng 1-10/2026";
+        p.lineSub = "Thanh toán / Tài trợ thương mại / Kinh doanh ngoại hối";
+        p.lineYAxis = "Giá trị (100 triệu NDT)";
+        p.lineFooter = "Nguồn: nền tảng giám sát kinh doanh toàn cầu | Đơn vị: 100 triệu NDT";
+        p.lineMonths = new String[]{"T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10"};
+        p.lineNames = new String[]{"Thanh toán xuyên biên giới", "Tài trợ thương mại", "Kinh doanh ngoại hối"};
+        p.donutPalette = new Color[]{
+                new Color(11, 110, 127), new Color(62, 150, 163), new Color(110, 180, 190),
+                new Color(160, 205, 212), new Color(200, 228, 232), new Color(232, 244, 245)
+        };
+        p.lineColors = new Color[]{new Color(11, 110, 127), new Color(192, 57, 43), new Color(62, 150, 163)};
+        p.chartArea = new Color(234, 244, 244);
+        p.barColor = "#0B6E7F";
+        return p;
+    }
+
+    // ==================================================================
+    // 泰语 —— 视觉主题「金箔紫檀·泰庙式」（居中金双线 + 2×2 大卡 + 仅上下金线表）
+    // ==================================================================
+    private static LanguagePack thPack() {
+        LanguagePack p = base("th", "Noto Sans Thai");
+        p.reportDate = "26 ตุลาคม 2026";
+        p.orgName = "ธนาคาร สหภาพ โลก สำนักงาน กลุ่ม";
+        p.dataScope = "ไตรมาส 1-3 ปี 2026 งบรวม ของ กลุ่ม";
+        p.totalAssets = "8.6 ล้านล้าน หยวน";
+        p.crossBorderSettlement = "1.24 ล้านล้าน หยวน";
+        p.globalBranches = "1,286 แห่ง";
+        p.countries = "68 ประเทศ";
+        p.revenue = "218 พันล้าน หยวน";
+        p.netProfit = "68.6 พันล้าน หยวน";
+        p.employees = "86,000 คน";
+        p.customers = "96 ล้านราย";
+        p.preparedBy = "สำนักงาน กลุ่ม คณะ ทำงาน หลาย ภาษา";
+        p.reviewedBy = "หวัง เหยียนโจว";
+        p.issuedBy = "ธนาคาร สหภาพ โลก";
+        p.barTitle = "รายได้ ตาม ภูมิภาค";
+        p.barSub = "ไตรมาส 1-3 ปี 2026 (หน่วย: ล้านหยวน)";
+        p.barSeriesName = "รายได้";
+        p.barRegions = new String[]{"จีนแผ่นดินใหญ่", "เอเชียแปซิฟิก", "ยุโรป", "ตะวันออกกลาง", "ญี่ปุ่น", "รัสเซีย และ CIS"};
+        p.donutTitle = "สัดส่วน สกุลเงิน ใน การ ชำระ ข้ามพรมแดน";
+        p.donutSub = "ตาม มูลค่า การ ชำระ ไตรมาส 1-3 ปี 2026";
+        p.donutCenterTitle = "สัดส่วน";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "ที่มา: ระบบ ชำระ ข้ามพรมแดน";
+        p.donutNames = new String[]{"หยวน CNY", "ดอลลาร์ USD", "ยูโร EUR", "เยน JPY", "รูเบิล RUB", "ดิรฮัม AED"};
+        p.lineTitle = "ปริมาณ ธุรกิจ ข้ามพรมแดน รายเดือน มกราคม ถึง ตุลาคม 2026";
+        p.lineSub = "การ ชำระ ข้ามพรมแดน / การเงิน เพื่อ การค้า / ซื้อขาย เงินตรา ต่างประเทศ";
+        p.lineYAxis = "มูลค่า (ล้านหยวน)";
+        p.lineFooter = "ที่มา: แพลตฟอร์ม ติดตาม ธุรกิจ ทั่วโลก | หน่วย: ล้านหยวน";
+        p.lineMonths = new String[]{"ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค."};
+        p.lineNames = new String[]{"การ ชำระ ข้ามพรมแดน", "การเงิน เพื่อ การค้า", "ซื้อขาย เงินตรา ต่างประเทศ"};
+        p.donutPalette = new Color[]{
+                new Color(138, 90, 0), new Color(122, 31, 61), new Color(196, 150, 60),
+                new Color(220, 190, 130), new Color(238, 220, 180), new Color(250, 240, 220)
+        };
+        p.lineColors = new Color[]{new Color(138, 90, 0), new Color(122, 31, 61), new Color(196, 150, 60)};
+        p.chartArea = new Color(251, 245, 228);
+        p.barColor = "#8A5A00";
+        return p;
+    }
+
+    // ==================================================================
+    // 傣语（新傣仂文）—— 视觉主题「贝叶竹青·孔雀式」（左对齐 + 壹贰叁色块 + 发丝线表）
+    // ==================================================================
+    private static LanguagePack daiPack() {
+        LanguagePack p = base("dai", "Noto Sans New Tai Lue");
+        p.reportDate = "ᦞᧃ ᧒᧖ ᦵᦡᦲᧃ ᧑᧐ ᦔᦲ ᧒᧐᧒᧖";
+        p.orgName = "ᦷᦣᧂᦇᦹᧃᦷᦜᧂ ᦂᦱᧃ ᦵᦙᦲᧂ";
+        p.dataScope = "ᦵᦡᦲᧃ ᧑ ᦏᦹᧂ ᧙ ᦔᦲ ᧒᧐᧒᧖";
+        p.totalAssets = "᧘.᧖ ᦜᦱᧃ ᦍᦲᧃ";
+        p.crossBorderSettlement = "᧑.᧒᧔ ᦜᦱᧃ ᦍᦲᧃ";
+        p.globalBranches = "᧑᧒᧘᧖ ᦺᦆᧈ";
+        p.countries = "᧖᧘ ᦵᦙᦲᧂ";
+        p.revenue = "᧒᧑᧘ ᦜᦱᧃ ᦍᦲᧃ";
+        p.netProfit = "᧖᧘᧖ ᦜᦱᧃ ᦍᦲᧃ";
+        p.employees = "᧘᧖᧐᧐᧐ ᦅᦳᧃ";
+        p.customers = "᧙᧖᧐᧐ ᦜᦱᧃ ᦅᦳᧃ";
+        p.preparedBy = "ᦷᦣᧂ ᦂᦱᧃ ᦷᦜᧂ";
+        p.reviewedBy = "ᦞᦱᧂ ᦍᦲᧃ ᦈᦸᧈ";
+        p.issuedBy = "ᦷᦣᧂᦇᦹᧃᦷᦜᧂ";
+        p.barTitle = "ᦇᦹᧃ ᦃᧁᧉ ᦺᦓ ᦵᦙᦲᧂ";
+        p.barSub = "ᦔᦲ ᧒᧐᧒᧖ (ᦜᦱᧃ ᦍᦲᧃ)";
+        p.barSeriesName = "ᦇᦹᧃ ᦃᧁᧉ";
+        p.barRegions = new String[]{"ᦵᦙᦲᧂ ᦷᦜᧂ", "ᦵᦙᦲᧂ ᧑", "ᦵᦙᦲᧂ ᧒", "ᦵᦙᦲᧂ ᧓", "ᦵᦙᦲᧂ ᧔", "ᦵᦙᦲᧂ ᧕"};
+        p.donutTitle = "ᦇᦹᧃ ᦃᧁᧉ ᦀᦸᧅᧈ ᦺᦓ ᦵᦙᦲᧂ";
+        p.donutSub = "ᦵᦡᦲᧃ ᧑ ᦏᦹᧂ ᧙ ᦔᦲ ᧒᧐᧒᧖";
+        p.donutCenterTitle = "ᦂᦱᧃ";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "ᦂᦱᧃ ᦇᦹᧃ ᦵᦙᦲᧂ";
+        p.donutNames = new String[]{"ᦍᦲᧃ CNY", "ᦡᦸᧃᧈ USD", "ᦍᦴᦷᦣ EUR", "ᦍᦲᧃ JPY", "ᦣᦴᦔ RUB", "ᦡᦲᧃ AED"};
+        p.lineTitle = "ᦂᦱᧃ ᦇᦹᧃ ᦵᦡᦲᧃ ᧑ ᦏᦹᧂ ᧑᧐ ᦔᦲ ᧒᧐᧒᧖";
+        p.lineSub = "ᦂᦱᧃ ᦇᦹᧃ / ᦂᦱᧃ ᦃᦻ / ᦂᦱᧃ ᦇᦹᧃ ᦎᦱᧂᧈ";
+        p.lineYAxis = "ᦜᦱᧃ ᦍᦲᧃ";
+        p.lineFooter = "ᦂᦱᧃ ᦇᦹᧃ ᦷᦜᧂ | ᦜᦱᧃ ᦍᦲᧃ";
+        p.lineMonths = new String[]{"ᦵᦡᦲᧃ ᧑", "ᦵᦡᦲᧃ ᧒", "ᦵᦡᦲᧃ ᧓", "ᦵᦡᦲᧃ ᧔", "ᦵᦡᦲᧃ ᧕", "ᦵᦡᦲᧃ ᧖", "ᦵᦡᦲᧃ ᧗", "ᦵᦡᦲᧃ ᧘", "ᦵᦡᦲᧃ ᧙", "ᦵᦡᦲᧃ ᧑᧐"};
+        p.lineNames = new String[]{"ᦂᦱᧃ ᦇᦹᧃ", "ᦂᦱᧃ ᦃᦻ", "ᦂᦱᧃ ᦇᦹᧃ ᦎᦱᧂᧈ"};
+        p.donutPalette = new Color[]{
+                new Color(85, 124, 31), new Color(139, 90, 0), new Color(140, 170, 80),
+                new Color(180, 200, 130), new Color(210, 222, 175), new Color(238, 242, 220)
+        };
+        p.lineColors = new Color[]{new Color(85, 124, 31), new Color(139, 90, 0), new Color(140, 170, 80)};
+        p.chartArea = new Color(246, 248, 236);
+        p.barColor = "#557C1F";
+        return p;
+    }
+
+    // ==================================================================
+    // 马来语 —— 视觉主题「蜡染·热带赭」（双框通栏 + 单行 8 格紧凑卡 + 橙色斑马）
+    // ==================================================================
+    private static LanguagePack msPack() {
+        LanguagePack p = base("ms", "Noto Sans");
+        p.reportDate = "26 Oktober 2026";
+        p.orgName = "Bank Kesatuan Global, Pejabat Kumpulan";
+        p.dataScope = "Tiga suku pertama 2026, disatukan kumpulan";
+        p.totalAssets = "RMB 8.6T";
+        p.crossBorderSettlement = "RMB 1.24T";
+        p.globalBranches = "1,286";
+        p.countries = "68";
+        p.revenue = "RMB 218B";
+        p.netProfit = "RMB 68.6B";
+        p.employees = "86,000";
+        p.customers = "96 jt";
+        p.preparedBy = "Pejabat Kumpulan, Pasukan Pelbagai Bahasa";
+        p.reviewedBy = "Wang Yanzhou";
+        p.issuedBy = "Bank Kesatuan Global";
+        p.barTitle = "Hasil mengikut wilayah";
+        p.barSub = "Tiga suku pertama 2026 (unit: 100 juta yuan)";
+        p.barSeriesName = "Hasil";
+        p.barRegions = new String[]{"China", "Asia Pas.", "Eropah", "Timur Tengah", "Jepun", "Rusia/CIS"};
+        p.donutTitle = "Struktur mata wang penyelesaian rentas sempadan";
+        p.donutSub = "Mengikut nilai penyelesaian, tiga suku pertama 2026";
+        p.donutCenterTitle = "Bahagian";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "Sumber: sistem penyelesaian rentas sempadan";
+        p.donutNames = new String[]{"Yuan CNY", "Dolar USD", "Euro EUR", "Yen JPY", "Ruble RUB", "Dirham AED"};
+        p.lineTitle = "Jumlah urus niaga rentas sempadan bulanan, Januari-Oktober 2026";
+        p.lineSub = "Penyelesaian / Pembiayaan perdagangan / Pertukaran asing";
+        p.lineYAxis = "Nilai (juta yuan)";
+        p.lineFooter = "Sumber: platform pemantauan perniagaan global | Unit: juta yuan";
+        p.lineMonths = new String[]{"Jan", "Feb", "Mac", "Apr", "Mei", "Jun", "Jul", "Ogo", "Sep", "Okt"};
+        p.lineNames = new String[]{"Penyelesaian rentas sempadan", "Pembiayaan perdagangan", "Pertukaran asing"};
+        p.donutPalette = new Color[]{
+                new Color(194, 65, 12), new Color(31, 59, 44), new Color(224, 130, 70),
+                new Color(236, 170, 120), new Color(245, 205, 170), new Color(253, 241, 224)
+        };
+        p.lineColors = new Color[]{new Color(194, 65, 12), new Color(31, 59, 44), new Color(224, 130, 70)};
+        p.chartArea = new Color(253, 241, 224);
+        p.barColor = "#C2410C";
+        return p;
+    }
+
+    // ==================================================================
+    // 印尼语 —— 视觉主题「巴迪·靛紫」（全幅细框 + 居中底纹章节 + 浅紫表头）
+    // ==================================================================
+    private static LanguagePack idPack() {
+        LanguagePack p = base("id", "Noto Sans");
+        p.reportDate = "26 Oktober 2026";
+        p.orgName = "Bank Persatuan Global, Kantor Grup";
+        p.dataScope = "Tiga kuartal pertama 2026, konsolidasi grup";
+        p.totalAssets = "RMB 8,6 triliun";
+        p.crossBorderSettlement = "RMB 1,24 triliun";
+        p.globalBranches = "1.286 cabang";
+        p.countries = "68 negara";
+        p.revenue = "RMB 218 miliar";
+        p.netProfit = "RMB 68,6 miliar";
+        p.employees = "86.000 karyawan";
+        p.customers = "96 juta nasabah";
+        p.preparedBy = "Kantor Grup, Tim Multibahasa";
+        p.reviewedBy = "Wang Yanzhou";
+        p.issuedBy = "Bank Persatuan Global";
+        p.barTitle = "Pendapatan menurut wilayah";
+        p.barSub = "Tiga kuartal pertama 2026 (satuan: 100 juta yuan)";
+        p.barSeriesName = "Pendapatan";
+        p.barRegions = new String[]{"Tiongkok", "Asia Pas.", "Eropa", "Timur Tengah", "Jepang", "Rusia/CIS"};
+        p.donutTitle = "Komposisi mata uang penyelesaian lintas batas";
+        p.donutSub = "Menurut nilai penyelesaian, tiga kuartal pertama 2026";
+        p.donutCenterTitle = "Porsi";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "Sumber: sistem penyelesaian lintas batas";
+        p.donutNames = new String[]{"Yuan CNY", "Dolar USD", "Euro EUR", "Yen JPY", "Rubel RUB", "Dirham AED"};
+        p.lineTitle = "Volume bisnis lintas batas bulanan, Januari-Oktober 2026";
+        p.lineSub = "Penyelesaian / Pembiayaan perdagangan / Valuta asing";
+        p.lineYAxis = "Nilai (juta yuan)";
+        p.lineFooter = "Sumber: platform pemantauan bisnis global | Satuan: juta yuan";
+        p.lineMonths = new String[]{"Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt"};
+        p.lineNames = new String[]{"Penyelesaian lintas batas", "Pembiayaan perdagangan", "Valuta asing"};
+        p.donutPalette = new Color[]{
+                new Color(107, 47, 107), new Color(201, 162, 39), new Color(150, 110, 160),
+                new Color(190, 160, 200), new Color(215, 200, 230), new Color(240, 236, 248)
+        };
+        p.lineColors = new Color[]{new Color(107, 47, 107), new Color(201, 162, 39), new Color(150, 110, 160)};
+        p.chartArea = new Color(243, 240, 250);
+        p.barColor = "#6B2F6B";
+        return p;
+    }
+
+    // ==================================================================
+    // 西班牙语 —— 视觉主题「弗拉门戈·赤金」（左粗竖条 + 超大标题 + 黑底 KPI + 红底章节）
+    // ==================================================================
+    private static LanguagePack esPack() {
+        LanguagePack p = base("es", "Noto Sans");
+        p.reportDate = "26 de octubre de 2026";
+        p.orgName = "Banco Unión Global, Oficina del Grupo";
+        p.dataScope = "Primeros tres trimestres de 2026, consolidado";
+        p.totalAssets = "8,6 billones ¥";
+        p.crossBorderSettlement = "1,24 billones ¥";
+        p.globalBranches = "1.286";
+        p.countries = "68";
+        p.revenue = "218.000 M ¥";
+        p.netProfit = "68.600 M ¥";
+        p.employees = "86.000";
+        p.customers = "96 millones";
+        p.preparedBy = "Oficina del Grupo, Equipo Multilingüe";
+        p.reviewedBy = "Wang Yanzhou";
+        p.issuedBy = "Banco Unión Global";
+        p.barTitle = "Ingresos por región";
+        p.barSub = "Primeros tres trimestres de 2026 (millones de yuanes)";
+        p.barSeriesName = "Ingresos";
+        p.barRegions = new String[]{"China", "Asia-Pac.", "Europa", "Or. Medio", "Japón", "Rusia/CEI"};
+        p.donutTitle = "Composición por divisa de la liquidación transfronteriza";
+        p.donutSub = "Por valor liquidado, primeros tres trimestres de 2026";
+        p.donutCenterTitle = "Peso total";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "Fuente: sistema de liquidación transfronteriza";
+        p.donutNames = new String[]{"Yuan CNY", "Dólar USD", "Euro EUR", "Yen JPY", "Rublo RUB", "Dirham AED"};
+        p.lineTitle = "Volumen mensual de negocio transfronterizo, enero-octubre 2026";
+        p.lineSub = "Liquidación / Financiación comercial / Divisas";
+        p.lineYAxis = "Valor (millones de yuanes)";
+        p.lineFooter = "Fuente: plataforma de seguimiento global | Unidad: millones de yuanes";
+        p.lineMonths = new String[]{"ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sept", "oct"};
+        p.lineNames = new String[]{"Liquidación transfronteriza", "Financiación comercial", "Divisas"};
+        p.donutPalette = new Color[]{
+                new Color(179, 18, 60), new Color(26, 26, 26), new Color(210, 90, 110),
+                new Color(225, 150, 165), new Color(238, 200, 208), new Color(253, 243, 244)
+        };
+        p.lineColors = new Color[]{new Color(179, 18, 60), new Color(26, 26, 26), new Color(210, 90, 110)};
+        p.chartArea = new Color(253, 243, 244);
+        p.barColor = "#B3123C";
+        return p;
+    }
+
+    // ==================================================================
+    // 韩语 —— 视觉主题「丹青·韩纸」（五方色条 + 全框线 2×4 网格 + 数字方块章节）
+    // ==================================================================
+    private static LanguagePack koPack() {
+        LanguagePack p = base("ko", "Noto Sans KR");
+        p.reportDate = "2026년 10월 26일";
+        p.orgName = "글로벌 유니온 은행 그룹 사무국";
+        p.dataScope = "2026년 3분기 누적, 그룹 연결 기준";
+        p.totalAssets = "8.6조 위안";
+        p.crossBorderSettlement = "1.24조 위안";
+        p.globalBranches = "1,286개";
+        p.countries = "68개국";
+        p.revenue = "2,180억 위안";
+        p.netProfit = "686억 위안";
+        p.employees = "86,000명";
+        p.customers = "9,600만 명";
+        p.preparedBy = "그룹 사무국 다국어 태스크포스";
+        p.reviewedBy = "왕옌저우";
+        p.issuedBy = "글로벌 유니온 은행";
+        p.barTitle = "지역별 영업수익";
+        p.barSub = "2026년 3분기 누적 (단위: 억 위안)";
+        p.barSeriesName = "영업수익";
+        p.barRegions = new String[]{"중국 본토", "아시아·태평양", "유럽", "중동", "일본", "러시아·CIS"};
+        p.donutTitle = "국경 간 결제 통화 구성";
+        p.donutSub = "결제 금액 기준, 2026년 3분기 누적";
+        p.donutCenterTitle = "비중";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "출처: 국경 간 결제 시스템";
+        p.donutNames = new String[]{"위안 CNY", "달러 USD", "유로 EUR", "엔 JPY", "루블 RUB", "디르함 AED"};
+        p.lineTitle = "2026년 1~10월 국경 간 업무량 월별 추이";
+        p.lineSub = "국경 간 결제 / 무역금융 / 외환거래";
+        p.lineYAxis = "금액 (억 위안)";
+        p.lineFooter = "출처: 글로벌 업무 모니터링 플랫폼 | 단위: 억 위안";
+        p.lineMonths = new String[]{"1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월"};
+        p.lineNames = new String[]{"국경 간 결제", "무역금융", "외환거래"};
+        p.donutPalette = new Color[]{
+                new Color(31, 59, 87), new Color(192, 57, 43), new Color(217, 164, 0),
+                new Color(110, 140, 165), new Color(170, 185, 200), new Color(235, 238, 242)
+        };
+        p.lineColors = new Color[]{new Color(31, 59, 87), new Color(192, 57, 43), new Color(217, 164, 0)};
+        p.chartArea = new Color(247, 245, 240);
+        p.barColor = "#1F3B57";
+        return p;
+    }
+
+    // ==================================================================
+    // 17 · 葡萄牙语 pt —— 阿兹勒赫瓷砖·海航式（#1C7ED6 + 金橙 #C8901B）
+    // ==================================================================
+    private static LanguagePack ptPack() {
+        LanguagePack p = base("pt", "Noto Sans");
+        p.reportDate = "26 de outubro de 2026";
+        p.orgName = "Secretaria do Grupo Bancário Global Huitong";
+        p.dataScope = "Acumulado do 3.º trimestre de 2026, base consolidada";
+        p.totalAssets = "8,6 trilhões RMB";
+        p.crossBorderSettlement = "1,24 trilhão RMB";
+        p.globalBranches = "1.286 agências";
+        p.countries = "68 países";
+        p.revenue = "218 bi RMB";
+        p.netProfit = "68,6 bi RMB";
+        p.employees = "86.000";
+        p.customers = "96 milhões";
+        p.preparedBy = "Força-tarefa multilíngue da secretaria";
+        p.reviewedBy = "Wang Yanzhou";
+        p.issuedBy = "Banco Global Huitong";
+        p.barTitle = "Receita operacional por região";
+        p.barSub = "Acumulado até o 3.º trimestre de 2026 (100 milhões RMB)";
+        p.barSeriesName = "Receita operacional";
+        p.barRegions = new String[]{"China", "Ásia-Pac.", "Europa", "Or. Médio", "Japão", "Rússia/CEI"};
+        p.donutTitle = "Composição por moeda da liquidação transfronteiriça";
+        p.donutSub = "Por valor liquidado, acumulado até o 3.º trimestre de 2026";
+        p.donutCenterTitle = "Participação";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "Fonte: sistema de liquidação transfronteiriça";
+        p.donutNames = new String[]{"Iuane CNY", "Dólar USD", "Euro EUR", "Iene JPY", "Rublo RUB", "Dirham AED"};
+        p.lineTitle = "Evolução mensal do volume transfronteiriço, jan.–out. 2026";
+        p.lineSub = "Liquidação transfronteiriça / financiamento comercial / câmbio";
+        p.lineYAxis = "Valor (100 milhões RMB)";
+        p.lineFooter = "Fonte: plataforma global de monitoramento | unidade: 100 milhões RMB";
+        p.lineMonths = new String[]{"Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out"};
+        p.lineNames = new String[]{"Liquidação transfronteiriça", "Financiamento comercial", "Câmbio"};
+        p.donutPalette = new Color[]{
+                new Color(28, 126, 214), new Color(11, 79, 138), new Color(200, 144, 27),
+                new Color(122, 168, 220), new Color(176, 204, 236), new Color(224, 236, 248)
+        };
+        p.lineColors = new Color[]{new Color(28, 126, 214), new Color(200, 144, 27), new Color(11, 79, 138)};
+        p.chartArea = new Color(250, 247, 240);
+        p.barColor = "#1C7ED6";
+        return p;
+    }
+
+    // ==================================================================
+    // 18 · 孟加拉语 bn —— 恒河朱砂·莲花式（#B0322F + 恒河绿 #0F7B5F）
+    // ==================================================================
+    private static LanguagePack bnPack() {
+        LanguagePack p = base("bn", "Noto Sans Bengali");
+        p.reportDate = "২৬ অক্টোবর ২০২৬";
+        p.orgName = "হুইটং গ্লোবাল ব্যাংক গ্রুপ সচিবালয়";
+        p.dataScope = "২০২৬ তৃতীয় প্রান্তিকের সঞ্চিত তথ্য, সমন্বিত ভিত্তি";
+        p.totalAssets = "৮.৬ ট্রিলিয়ন রেনমিনবি";
+        p.crossBorderSettlement = "১.২৪ ট্রিলিয়ন রেনমিনবি";
+        p.globalBranches = "১,২৮৬ শাখা";
+        p.countries = "৬৮ দেশ";
+        p.revenue = "২,১৮০ কোটি রেনমিনবি";
+        p.netProfit = "৬৮৬ কোটি রেনমিনবি";
+        p.employees = "৮৬,০০০";
+        p.customers = "৯.৬ কোটি";
+        p.preparedBy = "গ্রুপ সচিবালয় বহুভাষিক টাস্কফোর্স";
+        p.reviewedBy = "ওয়াং ইয়ানচৌ";
+        p.issuedBy = "হুইটং গ্লোবাল ব্যাংক";
+        p.barTitle = "অঞ্চলভিত্তিক পরিচালন রাজস্ব";
+        p.barSub = "২০২৬ তৃতীয় প্রান্তিক সঞ্চিত (কোটি রেনমিনবি)";
+        p.barSeriesName = "পরিচালন রাজস্ব";
+        p.barRegions = new String[]{"চীন", "এশিয়া-প্যাসি.", "ইউরোপ", "মধ্যপ্রাচ্য", "জাপান", "রাশিয়া"};
+        p.donutTitle = "সীমান্ত-পারাপার নিষ্পত্তির মুদ্রা 구성";
+        p.donutSub = "নিষ্পত্তি মূল্য অনুযায়ী, ২০২৬ তৃতীয় প্রান্তিক সঞ্চিত";
+        p.donutCenterTitle = "অংশ";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "সূত্র: সীমান্ত-পারাপার নিষ্পত্তি সিস্টেম";
+        p.donutNames = new String[]{"ইউয়ান CNY", "ডলার USD", "ইউরো EUR", "ইয়েন JPY", "রুবল RUB", "দিরহাম AED"};
+        p.lineTitle = "জানুয়ারি-অক্টোবর ২০২৬ সীমান্ত-পারাপার লেনদেনের মাসিক ধারা";
+        p.lineSub = "সীমান্ত-পারাপার নিষ্পত্তি / বাণিজ্য অর্থায়ন / বৈদেশিক মুদ্রা";
+        p.lineYAxis = "পরিমাণ (কোটি রেনমিনবি)";
+        p.lineFooter = "সূত্র: বৈশ্বিক কারবার পর্যবেক্ষণ প্ল্যাটফর্ম | একক: কোটি রেনমিনবি";
+        p.lineMonths = new String[]{"জানু", "ফেব", "মার্চ", "এপ্রি", "মে", "জুন", "জুলা", "আগ", "সেপ", "অক্টো"};
+        p.lineNames = new String[]{"সীমান্ত-পারাপার নিষ্পত্তি", "বাণিজ্য অর্থায়ন", "বৈদেশিক মুদ্রা"};
+        p.donutPalette = new Color[]{
+                new Color(176, 50, 47), new Color(122, 30, 28), new Color(15, 123, 95),
+                new Color(212, 132, 128), new Color(232, 178, 172), new Color(250, 232, 228)
+        };
+        p.lineColors = new Color[]{new Color(176, 50, 47), new Color(15, 123, 95), new Color(200, 144, 27)};
+        p.chartArea = new Color(253, 246, 244);
+        p.barColor = "#B0322F";
+        return p;
+    }
+
+    // ==================================================================
+    // 19 · 他加禄语 tl —— 群岛·芒果式（琥珀 #D97706 + 深海蓝 #0B6E8A）
+    // ==================================================================
+    private static LanguagePack tlPack() {
+        LanguagePack p = base("tl", "Noto Sans");
+        p.reportDate = "Oktubre 26, 2026";
+        p.orgName = "Sekretaryat ng Huitong Global Bank Group";
+        p.dataScope = "Naipon hanggang Q3 2026, pinagsamang base";
+        p.totalAssets = "8.6 trilyong RMB";
+        p.crossBorderSettlement = "1.24 trilyong RMB";
+        p.globalBranches = "1,286 sangay";
+        p.countries = "68 bansa";
+        p.revenue = "218 bilyong RMB";
+        p.netProfit = "68.6 bilyong RMB";
+        p.employees = "86,000";
+        p.customers = "96 milyon";
+        p.preparedBy = "Multilingguwal na task force ng sekretaryat";
+        p.reviewedBy = "Wang Yanzhou";
+        p.issuedBy = "Huitong Global Bank";
+        p.barTitle = "Kita sa operasyon ayon sa rehiyon";
+        p.barSub = "Naipon hanggang Q3 2026 (100 milyong RMB)";
+        p.barSeriesName = "Kita sa operasyon";
+        p.barRegions = new String[]{"China", "Asia-Pac.", "Europa", "Mid. East", "Hapon", "Rusya/CEI"};
+        p.donutTitle = "Komposisyon ng salapi sa cross-border settlement";
+        p.donutSub = "Ayon sa halagang naisaayos, naipon hanggang Q3 2026";
+        p.donutCenterTitle = "Bahagdan";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "Pinagmulan: cross-border settlement system";
+        p.donutNames = new String[]{"Yuan CNY", "Dolyar USD", "Euro EUR", "Yen JPY", "Ruble RUB", "Dirham AED"};
+        p.lineTitle = "Buwanang takbo ng cross-border volume, Ene–Okt 2026";
+        p.lineSub = "Cross-border settlement / trade finance / foreign exchange";
+        p.lineYAxis = "Halaga (100 milyong RMB)";
+        p.lineFooter = "Pinagmulan: global operations platform | yunit: 100 milyong RMB";
+        p.lineMonths = new String[]{"Ene", "Peb", "Mar", "Abr", "May", "Hun", "Hul", "Ago", "Set", "Okt"};
+        p.lineNames = new String[]{"Cross-border settlement", "Trade finance", "Foreign exchange"};
+        p.donutPalette = new Color[]{
+                new Color(217, 119, 6), new Color(154, 77, 2), new Color(11, 110, 138),
+                new Color(238, 168, 90), new Color(245, 205, 158), new Color(254, 241, 224)
+        };
+        p.lineColors = new Color[]{new Color(217, 119, 6), new Color(11, 110, 138), new Color(154, 77, 2)};
+        p.chartArea = new Color(254, 249, 240);
+        p.barColor = "#D97706";
+        return p;
+    }
+
+    // ==================================================================
+    // 20 · 波斯语 fa —— 波斯细密画·绿松石（#5F3DC4 + #0E9384）
+    // ==================================================================
+    private static LanguagePack faPack() {
+        LanguagePack p = base("fa", "Noto Sans Arabic");
+        p.reportDate = "۴ آبان ۲۰۲۶";
+        p.orgName = "دبیرخانه گروه بانک جهانی هویتونگ";
+        p.dataScope = "تجمعی سه فصل ۲۰۲۶، مبنای تلفیقی";
+        p.totalAssets = "۸٫۶ تریلیون یوان";
+        p.crossBorderSettlement = "۱٫۲۴ تریلیون یوان";
+        p.globalBranches = "۱٬۲۸۶ شعبه";
+        p.countries = "۶۸ کشور";
+        p.revenue = "۲۱۸ میلیارد یوان";
+        p.netProfit = "۶۸٫۶ میلیارد یوان";
+        p.employees = "۸۶٬۰۰۰";
+        p.customers = "۹۶ میلیون";
+        p.preparedBy = "کارگروه چندزبانه دبیرخانه";
+        p.reviewedBy = "وانگ یانژو";
+        p.issuedBy = "بانک جهانی هویتونگ";
+        p.barTitle = "درآمد عملیاتی بر پایه منطقه";
+        p.barSub = "تجمعی سه فصل ۲۰۲۶ (صد میلیون یوان)";
+        p.barSeriesName = "درآمد عملیاتی";
+        p.barRegions = new String[]{"چین", "آسیا-پاسیفیک", "اروپا", "خاورمیانه", "ژاپن", "روسیه"};
+        p.donutTitle = "ترکیب ارزی تسویه فرامرزی";
+        p.donutSub = "بر پایه ارزش تسویه، تجمعی سه فصل ۲۰۲۶";
+        p.donutCenterTitle = "سهم";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "منبع: سامانه تسویه فرامرزی";
+        p.donutNames = new String[]{"یوان CNY", "دلار USD", "یورو EUR", "ین JPY", "روبل RUB", "درهم AED"};
+        p.lineTitle = "روند ماهانه حجم فرامرزی، ژانویه تا اکتبر ۲۰۲۶";
+        p.lineSub = "تسویه فرامرزی / تأمین مالی تجاری / ارز";
+        p.lineYAxis = "مبلغ (صد میلیون یوان)";
+        p.lineFooter = "منبع: سکوی پایش عملیات جهانی | واحد: صد میلیون یوان";
+        p.lineMonths = new String[]{"ژان", "فور", "مارس", "آور", "مه", "ژوئن", "ژوئیه", "اوت", "سپت", "اکت"};
+        p.lineNames = new String[]{"تسویه فرامرزی", "تأمین مالی تجاری", "ارز"};
+        p.donutPalette = new Color[]{
+                new Color(95, 61, 196), new Color(63, 38, 137), new Color(14, 147, 132),
+                new Color(140, 116, 215), new Color(196, 182, 235), new Color(238, 234, 250)
+        };
+        p.lineColors = new Color[]{new Color(95, 61, 196), new Color(14, 147, 132), new Color(200, 144, 27)};
+        p.chartArea = new Color(248, 246, 252);
+        p.barColor = "#5F3DC4";
+        return p;
+    }
+
+    // ==================================================================
+    // 21 · 泰米尔语 ta —— 庙塔·黄檀式（#C2185B + 深靛 #26456B）
+    // ==================================================================
+    private static LanguagePack taPack() {
+        LanguagePack p = base("ta", "Noto Sans Tamil");
+        p.reportDate = "26 அக்டோபர் 2026";
+        p.orgName = "ஹூய்த்தொங் உலக வங்கிக் குழுமச் செயலகம்";
+        p.dataScope = "2026 மூன்றாம் காலாண்டு வரை குவிந்த தரவு, ஒருங்கிணைந்த அடிப்படை";
+        p.totalAssets = "8.6 டிரில்லியன் யுவான்";
+        p.crossBorderSettlement = "1.24 டிரில்லியன் யுவான்";
+        p.globalBranches = "1,286 கிளைகள்";
+        p.countries = "68 நாடுகள்";
+        p.revenue = "218 பில்லியன் யுவான்";
+        p.netProfit = "68.6 பில்லியன் யுவான்";
+        p.employees = "86,000";
+        p.customers = "96 மில்லியன்";
+        p.preparedBy = "குழுமச் செயலக பல்மொழிப் பணிக்குழு";
+        p.reviewedBy = "வாங் யான்சௌ";
+        p.issuedBy = "ஹூய்த்தொங் உலக வங்கி";
+        p.barTitle = "பிராந்திய வாரியாக இயக்க வருவாய்";
+        p.barSub = "2026 மூன்றாம் காலாண்டு வரை குவிந்தது (கோடி யுவான்)";
+        p.barSeriesName = "இயக்க வருவாய்";
+        p.barRegions = new String[]{"சீனா", "ஆசியா", "ஐரோப்பா", "ம.கிழக்கு", "ஜப்பான்", "ரஷ்யா"};
+        p.donutTitle = "எல்லைக்கடப்பு தீர்வின் நாணய அமைப்பு";
+        p.donutSub = "தீர்வு மதிப்பு அடிப்படையில், 2026 மூன்றாம் காலாண்டு வரை";
+        p.donutCenterTitle = "பங்கு";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "மூலம்: எல்லைக்கடப்பு தீர்வு அமைப்பு";
+        p.donutNames = new String[]{"யுவான் CNY", "டாலர் USD", "யூரோ EUR", "யென் JPY", "ரூபிள் RUB", "திர்ஹாம் AED"};
+        p.lineTitle = "ஜனவரி-அக்டோபர் 2026 எல்லைக்கடப்பு அளவின் மாதப் போக்கு";
+        p.lineSub = "எல்லைக்கடப்பு தீர்வு / வணிக நிதி / அயல்நாணயம்";
+        p.lineYAxis = "மதிப்பு (கோடி யுவான்)";
+        p.lineFooter = "மூலம்: உலக செயல்பாட்டு கண்காணிப்பு தளம் | அலகு: கோடி யுவான்";
+        p.lineMonths = new String[]{"ஜன", "பிப்", "மார்", "ஏப்", "மே", "ஜூன்", "ஜூலை", "ஆக", "செப்", "அக்"};
+        p.lineNames = new String[]{"எல்லைக்கடப்பு தீர்வு", "வணிக நிதி", "அயல்நாணயம்"};
+        p.donutPalette = new Color[]{
+                new Color(194, 24, 91), new Color(138, 15, 63), new Color(38, 69, 107),
+                new Color(219, 110, 150), new Color(238, 168, 192), new Color(252, 232, 240)
+        };
+        p.lineColors = new Color[]{new Color(194, 24, 91), new Color(38, 69, 107), new Color(200, 144, 27)};
+        p.chartArea = new Color(253, 247, 250);
+        p.barColor = "#C2185B";
+        return p;
+    }
+
+    // ==================================================================
+    // 22 · 希伯来语 he —— 迦南·橄榄式（#1A7F37 + 石灰 #6B7280）
+    // ==================================================================
+    private static LanguagePack hePack() {
+        LanguagePack p = base("he", "Noto Sans Hebrew");
+        p.reportDate = "26 באוקטובר 2026";
+        p.orgName = "מזכירות קבוצת בנק הוויטונג הגלובלי";
+        p.dataScope = "מצטבר לרבעון השלישי של 2026, בסיס מאוחד";
+        p.totalAssets = "8.6 טריליון יואן";
+        p.crossBorderSettlement = "1.24 טריליון יואן";
+        p.globalBranches = "1,286 סניפים";
+        p.countries = "68 מדינות";
+        p.revenue = "218 מיליארד יואן";
+        p.netProfit = "68.6 מיליארד יואן";
+        p.employees = "86,000";
+        p.customers = "96 מיליון";
+        p.preparedBy = "צוות רב-לשוני של המזכירות";
+        p.reviewedBy = "וואנג יאן-ג'ואו";
+        p.issuedBy = "בנק הוויטונג הגלובלי";
+        p.barTitle = "הכנסות תפעוליות לפי אזור";
+        p.barSub = "מצטבר לרבעון השלישי של 2026 (מאה מיליון יואן)";
+        p.barSeriesName = "הכנסות תפעוליות";
+        p.barRegions = new String[]{"סין", "אסיה-פסיפיק", "אירופה", "מזרח תיכון", "יפן", "רוסיה"};
+        p.donutTitle = "הרכב מטבעות בסליקה חוצת גבולות";
+        p.donutSub = "לפי שווי הסליקה, מצטבר לרבעון השלישי של 2026";
+        p.donutCenterTitle = "חלק";
+        p.donutCenterUnit = "%";
+        p.donutFooter = "מקור: מערכת הסליקה חוצת הגבולות";
+        p.donutNames = new String[]{"יואן CNY", "דולר USD", "אירו EUR", "ין JPY", "רובל RUB", "דירהם AED"};
+        p.lineTitle = "מגמה חודשית של מחזור חוצה גבולות, ינואר–אוקטובר 2026";
+        p.lineSub = "סליקה חוצת גבולות / מימון סחר / מט\"ח";
+        p.lineYAxis = "שווי (מאה מיליון יואן)";
+        p.lineFooter = "מקור: פלטפורמת ניטור פעילות גלובלית | יחידה: מאה מיליון יואן";
+        p.lineMonths = new String[]{"ינו", "פבר", "מרץ", "אפר", "מאי", "יונ", "יול", "אוג", "ספט", "אוק"};
+        p.lineNames = new String[]{"סליקה חוצת גבולות", "מימון סחר", "מט\"ח"};
+        p.donutPalette = new Color[]{
+                new Color(26, 127, 55), new Color(15, 82, 35), new Color(107, 114, 128),
+                new Color(94, 163, 113), new Color(160, 200, 172), new Color(232, 244, 234)
+        };
+        p.lineColors = new Color[]{new Color(26, 127, 55), new Color(107, 114, 128), new Color(200, 144, 27)};
+        p.chartArea = new Color(246, 250, 246);
+        p.barColor = "#1A7F37";
         return p;
     }
 }

@@ -1,0 +1,199 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（孟加拉语）  视觉主题：恒河朱砂·莲花式
+  // 主色 #B0322F  深色 #7A1E1C  浅底 #FDF2F0  描边 #EEC5BF
+
+  // 抬头：左侧竖色块 + 浅底标题区
+  <table style="width:100%; marginBottom:8px; backgroundColor:#FDF2F0">
+    <tr>
+      <td style="width:10px; backgroundColor:#B0322F; fontSize:2pt">' '</td>
+      <td style="padding:10px 10px 2px 10px; color:#7A1E1C; bold:true; fontSize:15pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'বৈশ্বিক পরিচালন প্রতিবেদন ২০২৬'</td>
+    </tr>
+    <tr>
+      <td style="width:10px; backgroundColor:#B0322F; fontSize:2pt">' '</td>
+      <td style="padding:0px 10px 10px 10px; color:#0F7B5F; fontSize:8.8pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'হুইটং গ্লোবাল ব্যাংক · ২০২৬ সালের প্রথম তিন প্রান্তিক · সমন্বিত গ্রুপ প্রতিবেদন'</td>
+    </tr>
+  </table>
+
+  // 信息区：两列两行，点线下划
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <td style="width:18%; padding:5px 6px; color:#7A1E1C; bold:true; borderBottom:0.5f dotted #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'প্রতিবেদন নম্বর'</td>
+      <td style="width:32%; padding:5px 6px; borderBottom:0.5f dotted #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${reportNo}</td>
+      <td style="width:18%; padding:5px 6px; color:#7A1E1C; bold:true; borderBottom:0.5f dotted #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'প্রতিবেদনের তারিখ'</td>
+      <td style="padding:5px 6px; borderBottom:0.5f dotted #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:18%; padding:5px 6px; color:#7A1E1C; bold:true; borderBottom:0.5f dotted #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'প্রস্তুতকারী প্রতিষ্ঠান'</td>
+      <td style="width:32%; padding:5px 6px; borderBottom:0.5f dotted #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${orgName}</td>
+      <td style="width:18%; padding:5px 6px; color:#7A1E1C; bold:true; borderBottom:0.5f dotted #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'তথ্যের পরিসর'</td>
+      <td style="padding:5px 6px; borderBottom:0.5f dotted #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI：四列两行圆角卡片
+  <table style="width:100%; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:7px 5px; textAlign:center; backgroundColor:#FDF2F0; border:0.75f solid #EEC5BF; borderRadius:4px; color:#7A1E1C; fontSize:7.5pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'মোট সম্পদ'</td>
+      <td style="width:25%; padding:7px 5px; textAlign:center; backgroundColor:#FDF2F0; border:0.75f solid #EEC5BF; borderRadius:4px; color:#7A1E1C; fontSize:7.5pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'সীমান্ত-পারাপার নিষ্পত্তি'</td>
+      <td style="width:25%; padding:7px 5px; textAlign:center; backgroundColor:#FDF2F0; border:0.75f solid #EEC5BF; borderRadius:4px; color:#7A1E1C; fontSize:7.5pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'বৈশ্বিক শাখা'</td>
+      <td style="width:25%; padding:7px 5px; textAlign:center; backgroundColor:#FDF2F0; border:0.75f solid #EEC5BF; borderRadius:4px; color:#7A1E1C; fontSize:7.5pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'দেশ ও অঞ্চল'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 5px 8px 5px; textAlign:center; bold:true; fontSize:11pt; color:#B0322F; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:0px 5px 8px 5px; textAlign:center; bold:true; fontSize:11pt; color:#B0322F; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:0px 5px 8px 5px; textAlign:center; bold:true; fontSize:11pt; color:#B0322F; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:0px 5px 8px 5px; textAlign:center; bold:true; fontSize:11pt; color:#B0322F; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:7px 5px; textAlign:center; backgroundColor:#FDF2F0; border:0.75f solid #EEC5BF; borderRadius:4px; color:#7A1E1C; fontSize:7.5pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'রাজস্ব'</td>
+      <td style="width:25%; padding:7px 5px; textAlign:center; backgroundColor:#FDF2F0; border:0.75f solid #EEC5BF; borderRadius:4px; color:#7A1E1C; fontSize:7.5pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'নিট মুনাফা'</td>
+      <td style="width:25%; padding:7px 5px; textAlign:center; backgroundColor:#FDF2F0; border:0.75f solid #EEC5BF; borderRadius:4px; color:#7A1E1C; fontSize:7.5pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'কর্মী'</td>
+      <td style="width:25%; padding:7px 5px; textAlign:center; backgroundColor:#FDF2F0; border:0.75f solid #EEC5BF; borderRadius:4px; color:#7A1E1C; fontSize:7.5pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'গ্রাহক'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 5px 8px 5px; textAlign:center; bold:true; fontSize:11pt; color:#B0322F; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:0px 5px 8px 5px; textAlign:center; bold:true; fontSize:11pt; color:#B0322F; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:0px 5px 8px 5px; textAlign:center; bold:true; fontSize:11pt; color:#B0322F; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${employees}</td>
+      <td style="padding:0px 5px 8px 5px; textAlign:center; bold:true; fontSize:11pt; color:#B0322F; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginTop:10px; marginBottom:6px; borderTop:0.75f solid #EEC5BF; borderBottom:0.75f solid #B0322F">
+    <tr>
+      <td style="padding:5px 0px; textAlign:center; color:#7A1E1C; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'১  পরিচালনার সারসংক্ষেপ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#33201E; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'২০২৬ সালের প্রথম তিন প্রান্তিকে ব্যাংকটি স্থানীয় ও বৈদেশিক মুদ্রা, দেশীয় ও আন্তর্জাতিক, ডিজিটাল ও শাখা — এই সব চ্যানেলকে একীভূত ব্যবসায়িক মডেলে পরিচালনা করেছে। চীনা মূল ভূখণ্ড গ্রুপের ৪৫.২ শতাংশ রাজস্ব যোগিয়েছে; এশিয়া-প্রশান্ত মহাসাগরীয় অঞ্চল, মধ্যপ্রাচ্য ও ইউরোপ আরও ৩৯.৭ শতাংশ যোগ করেছে। রেনমিনবিতে সীমান্ত-পারাপার নিষ্পত্তির পরিমাণ বছরে ২১.৪ শতাংশ বেড়েছে।'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'চিত্র ১  অঞ্চলভিত্তিক রাজস্ব, ২০২৬ সালের প্রথম তিন প্রান্তিক (কোটি রেনমিনবি)'</p>
+
+  <table style="width:100%; marginTop:10px; marginBottom:6px; borderTop:0.75f solid #EEC5BF; borderBottom:0.75f solid #B0322F">
+    <tr>
+      <td style="padding:5px 0px; textAlign:center; color:#7A1E1C; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'২  বৈশ্বিক নেটওয়ার্ক'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#33201E; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'২০২৬ সালের ৩০ সেপ্টেম্বর পর্যন্ত ব্যাংকের ৬৮টি দেশ ও অঞ্চলে ১,২৮৬টি শাখা এবং ৩,৪৭০টি স্বয়ংক্রিয় সেবা কেন্দ্র রয়েছে। ছয়টি আঞ্চলিক কেন্দ্র স্থানীয় মুদ্রা ও ভাষায় পাইকারি ও খুচরা সেবা দেয়; সব আন্তর্জাতিক বাণিজ্য দলিল সাতটি ভাষায় গৃহীত হয়, কোনো অতিরিক্ত অনুবাদ ফি ছাড়াই।'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; backgroundColor:#B0322F; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'অঞ্চল'</th>
+      <th style="padding:5px 4px; backgroundColor:#B0322F; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'আঞ্চলিক কেন্দ্র'</th>
+      <th style="padding:5px 4px; backgroundColor:#B0322F; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'সেবার ভাষা'</th>
+      <th style="padding:5px 4px; backgroundColor:#B0322F; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'শাখা'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EEC5BF; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'এশিয়া-প্রশান্ত মহাসাগরীয়'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'সিঙ্গাপুর'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'ইংরেজি, চীনা, জাপানি'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৪৮৬'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'মধ্যপ্রাচ্য ও উত্তর আফ্রিকা'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'দুবাই'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'আরবি, ইংরেজি, ফরাসি'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'১৫২'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EEC5BF; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'ইউরোপ'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'ফ্রাঙ্কফুর্ট'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'জার্মান, ফরাসি, ইংরেজি'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'২১৮'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'রাশিয়া অঞ্চল'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'মস্কো'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'রুশ, ইংরেজি'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৯৬'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EEC5BF; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'জাপান'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'টোকিও'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'জাপানি, ইংরেজি'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৭৪'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'আমেরিকা'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'নিউ ইয়র্ক'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'ইংরেজি, স্পেনীয়, পর্তুগিজ'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'২৬০'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'চিত্র ২  সীমান্ত-পারাপার নিষ্পত্তির মুদ্রা 구성 (মূল্য অনুযায়ী, ২০২৬ প্রথম তিন প্রান্তিক)'</p>
+
+  <table style="width:100%; marginTop:10px; marginBottom:6px; borderTop:0.75f solid #EEC5BF; borderBottom:0.75f solid #B0322F">
+    <tr>
+      <td style="padding:5px 0px; textAlign:center; color:#7A1E1C; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৩  অঞ্চলভিত্তিক বিবরণ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#33201E; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'চীনা মূল ভূখণ্ড ৯৮৬ (কোটি রেনমিনবি) রাজস্ব নিয়ে প্রধান স্তম্ভ; এরপর এশিয়া-প্রশান্ত মহাসাগরীয় অঞ্চল ৪১২ এবং ইউরোপ ২৬৮। ছয়টি অঞ্চলই গত বছরের একই সময়ের তুলনায় দুই অঙ্কের প্রবৃদ্ধি করেছে।'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; backgroundColor:#B0322F; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'অঞ্চল'</th>
+      <th style="padding:5px 4px; backgroundColor:#B0322F; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'রাজস্ব (কোটি রেনমিনবি)'</th>
+      <th style="padding:5px 4px; backgroundColor:#B0322F; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'নিষ্পত্তি (কোটি রেনমিনবি)'</th>
+      <th style="padding:5px 4px; backgroundColor:#B0322F; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'প্রবৃদ্ধি'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'চীনা মূল ভূখণ্ড'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৯৮৬'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৬,৪২০'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'+১৮.২%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'এশিয়া-প্রশান্ত মহাসাগরীয়'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৪১২'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'২,৭৬০'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'+১৫.৬%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'ইউরোপ'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'২৬৮'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'১,৮৯০'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'+১২.৩%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'মধ্যপ্রাচ্য'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'১৮৬'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'১,২৪০'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'+১৮.৬%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'জাপান'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'১৭৪'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৯৮০'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'+১৪.৮%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'রাশিয়া অঞ্চল'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'১৫৪'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'৬৯০'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EEC5BF; backgroundColor:#FDF2F0; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'+২১.৪%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'চিত্র ৩  জানুয়ারি-অক্টোবর ২০২৬ সীমান্ত-পারাপার লেনদেনের মাসিক ধারা'</p>
+
+  <table style="width:100%; fontSize:8pt; marginTop:6px; marginBottom:6px">
+    <tr>
+      <td style="width:33%; padding:6px; textAlign:center; color:#7A1E1C; borderTop:0.75f dashed #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'(ব্যাংক / প্রতিষ্ঠানের সিল)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#7A1E1C; borderTop:0.75f dashed #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'(ক্রস-সিল / QR)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#7A1E1C; borderTop:0.75f dashed #EEC5BF; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'(যাচাই QR কোড)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#7A1E1C; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'প্রস্তুতকারী: '${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#7A1E1C; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'পর্যালোচক: '${reviewedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#7A1E1C; bold:true; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'প্রকাশক: '${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; marginTop:8px; fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'এই প্রতিবেদন কেবল অনুমোদিত প্রতিষ্ঠানের জন্য; সব আর্থিক তথ্য গ্রুপের নিরীক্ষিত বার্ষিক প্রতিবেদন অনুসারে।'</p>
+</body>
+</pdf>

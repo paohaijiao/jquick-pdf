@@ -1,0 +1,200 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（波斯语）  视觉主题：波斯细密画·绿松石
+  // 主色 #5F3DC4  深色 #3F2689  浅底 #F2EFFC  描边 #CFC5EF
+
+  // 顶部对称装饰（细密画边框意象）
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:34%; textAlign:right; backgroundColor:#CFC5EF; fontSize:2pt">' '</td>
+      <td style="width:14%; backgroundColor:#0E9384; fontSize:2pt">' '</td>
+      <td style="width:34%; backgroundColor:#CFC5EF; fontSize:2pt">' '</td>
+      <td style="width:18%; backgroundColor:#5F3DC4; fontSize:2pt">' '</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:17pt; bold:true; color:#5F3DC4; textAlignment:center; characterSpacing:1pt; marginTop:6px; marginBottom:2px; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'گزارش جامع عملیات جهانی ۲۰۲۶'</p>
+  <p style="fontSize:9pt; color:#3F2689; textAlignment:center; marginBottom:10px; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'بانک جهانی هویتونگ · سه فصل نخست ۲۰۲۶ · گزارش تلفیقی گروه'</p>
+
+  // 信息区：右对齐（RTL）两列两行
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <td style="width:16%; padding:5px 6px; textAlign:right; color:#3F2689; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'شماره گزارش'</td>
+      <td style="width:34%; padding:5px 6px; textAlign:right; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${reportNo}</td>
+      <td style="width:16%; padding:5px 6px; textAlign:right; color:#3F2689; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'تاریخ گزارش'</td>
+      <td style="padding:5px 6px; textAlign:right; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:5px 6px; textAlign:right; color:#3F2689; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'واحد تهیه‌کننده'</td>
+      <td style="width:34%; padding:5px 6px; textAlign:right; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${orgName}</td>
+      <td style="width:16%; padding:5px 6px; textAlign:right; color:#3F2689; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'دامنه داده‌ها'</td>
+      <td style="padding:5px 6px; textAlign:right; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI：四列两行，顶细线 + 浅底
+  <table style="width:100%; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:7px 4px 2px 4px; textAlign:center; backgroundColor:#F2EFFC; borderTop:1.2f solid #5F3DC4; color:#3F2689; fontSize:7.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'کل دارایی'</td>
+      <td style="width:25%; padding:7px 4px 2px 4px; textAlign:center; backgroundColor:#F2EFFC; borderTop:1.2f solid #5F3DC4; color:#3F2689; fontSize:7.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'تسویه فرامرزی'</td>
+      <td style="width:25%; padding:7px 4px 2px 4px; textAlign:center; backgroundColor:#F2EFFC; borderTop:1.2f solid #5F3DC4; color:#3F2689; fontSize:7.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'شعبه‌های جهانی'</td>
+      <td style="width:25%; padding:7px 4px 2px 4px; textAlign:center; backgroundColor:#F2EFFC; borderTop:1.2f solid #5F3DC4; color:#3F2689; fontSize:7.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'کشورها و مناطق'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; backgroundColor:#F2EFFC; bold:true; fontSize:11pt; color:#5F3DC4; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; backgroundColor:#F2EFFC; bold:true; fontSize:11pt; color:#5F3DC4; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; backgroundColor:#F2EFFC; bold:true; fontSize:11pt; color:#5F3DC4; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; backgroundColor:#F2EFFC; bold:true; fontSize:11pt; color:#5F3DC4; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:7px 4px 2px 4px; textAlign:center; backgroundColor:#F2EFFC; borderTop:1.2f solid #5F3DC4; color:#3F2689; fontSize:7.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'درآمد'</td>
+      <td style="width:25%; padding:7px 4px 2px 4px; textAlign:center; backgroundColor:#F2EFFC; borderTop:1.2f solid #5F3DC4; color:#3F2689; fontSize:7.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'سود خالص'</td>
+      <td style="width:25%; padding:7px 4px 2px 4px; textAlign:center; backgroundColor:#F2EFFC; borderTop:1.2f solid #5F3DC4; color:#3F2689; fontSize:7.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'کارکنان'</td>
+      <td style="width:25%; padding:7px 4px 2px 4px; textAlign:center; backgroundColor:#F2EFFC; borderTop:1.2f solid #5F3DC4; color:#3F2689; fontSize:7.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'مشتریان'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; backgroundColor:#F2EFFC; bold:true; fontSize:11pt; color:#5F3DC4; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; backgroundColor:#F2EFFC; bold:true; fontSize:11pt; color:#5F3DC4; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; backgroundColor:#F2EFFC; bold:true; fontSize:11pt; color:#5F3DC4; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${employees}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; backgroundColor:#F2EFFC; bold:true; fontSize:11pt; color:#5F3DC4; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="padding:5px 8px 5px 0px; textAlign:right; borderRight:4px solid #0E9384; color:#3F2689; bold:true; fontSize:11.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'نمای کلی عملیات'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#2A2140; textAlign:right; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'در سه فصل نخست ۲۰۲۶، بانک الگوی کسب‌وکار یکپارچه‌ای را در پول ملی و ارز خارجی، بازار داخلی و بیرونی، و کانال دیجیتال و شعبه حفظ کرد. چین سرزمین اصلی ۴۵٫۲ درصد درآمد گروه را تأمین کرد و منطقه آسیا-اقیانوسیه، خاورمیانه و اروپا ۳۹٫۷ درصد دیگر را. حجم تسویه فرامرزی به یوان ۲۱٫۴ درصد نسبت به سال گذشته رشد کرد.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'شکل ۱  درآمد بر پایه منطقه، سه فصل نخست ۲۰۲۶ (صد میلیون یوان)'</p>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="padding:5px 8px 5px 0px; textAlign:right; borderRight:4px solid #0E9384; color:#3F2689; bold:true; fontSize:11.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'شبکه جهانی'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#2A2140; textAlign:right; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'تا ۳۰ سپتامبر ۲۰۲۶، بانک ۱۲۸۶ شعبه و ۳۴۷۰ دستگاه خودپرداز در ۶۸ کشور و منطقه دارد. شش مرکز منطقه‌ای خدمات عمده‌فروشی و خرده‌فروشی را به پول و زبان محلی ارائه می‌دهند؛ همه اسناد تجارت بین‌الملل به هفت زبان پذیرفته می‌شود، بدون هزینه ترجمه اضافی.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; backgroundColor:#5F3DC4; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'منطقه'</th>
+      <th style="padding:5px 4px; backgroundColor:#5F3DC4; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'مرکز منطقه‌ای'</th>
+      <th style="padding:5px 4px; backgroundColor:#5F3DC4; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'زبان خدمات'</th>
+      <th style="padding:5px 4px; backgroundColor:#5F3DC4; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'شعبه'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'آسیا-اقیانوسیه'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'سنگاپور'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'انگلیسی، چینی، ژاپنی'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۴۸۶'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'خاورمیانه و شمال آفریقا'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'دبی'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'عربی، انگلیسی، فرانسوی'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۱۵۲'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'اروپا'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'فرانکفورت'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'آلمانی، فرانسوی، انگلیسی'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۲۱۸'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'منطقه روسیه'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'مسکو'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'روسی، انگلیسی'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۹۶'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'ژاپن'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'توکیو'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'ژاپنی، انگلیسی'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۷۴'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'قاره آمریکا'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'نیویورک'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'انگلیسی، اسپانیایی، پرتغالی'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; backgroundColor:#F2EFFC; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۲۶۰'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'شکل ۲  ترکیب ارزی تسویه فرامرزی (بر پایه ارزش، سه فصل نخست ۲۰۲۶)'</p>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="padding:5px 8px 5px 0px; textAlign:right; borderRight:4px solid #0E9384; color:#3F2689; bold:true; fontSize:11.5pt; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'جزئیات منطقه‌ای'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#2A2140; textAlign:right; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'چین سرزمین اصلی با درآمد ۹۸۶ (صد میلیون یوان) ستون اصلی است؛ پس از آن آسیا-اقیانوسیه با ۴۱۲ و اروپا با ۲۶۸ قرار دارند. هر شش منطقه رشد دورقمی نسبت به سال گذشته ثبت کردند.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; borderTop:1.6f solid #5F3DC4; borderBottom:0.75f solid #5F3DC4; color:#5F3DC4; bold:true; textAlign:center; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'منطقه'</th>
+      <th style="padding:5px 4px; borderTop:1.6f solid #5F3DC4; borderBottom:0.75f solid #5F3DC4; color:#5F3DC4; bold:true; textAlign:center; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'درآمد (صد میلیون یوان)'</th>
+      <th style="padding:5px 4px; borderTop:1.6f solid #5F3DC4; borderBottom:0.75f solid #5F3DC4; color:#5F3DC4; bold:true; textAlign:center; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'تسویه (صد میلیون یوان)'</th>
+      <th style="padding:5px 4px; borderTop:1.6f solid #5F3DC4; borderBottom:0.75f solid #5F3DC4; color:#5F3DC4; bold:true; textAlign:center; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'رشد'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'چین سرزمین اصلی'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۹۸۶'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۶٬۴۲۰'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'+۱۸٫۲٪'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'آسیا-اقیانوسیه'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۴۱۲'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۲٬۷۶۰'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'+۱۵٫۶٪'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'اروپا'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۲۶۸'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۱٬۸۹۰'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'+۱۲٫۳٪'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'خاورمیانه'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۱۸۶'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۱٬۲۴۰'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'+۱۸٫۶٪'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'ژاپن'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۱۷۴'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۹۸۰'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'+۱۴٫۸٪'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #CFC5EF; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'منطقه روسیه'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۱۵۴'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'۶۹۰'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'+۲۱٫۴٪'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'شکل ۳  روند ماهانه حجم فرامرزی، ژانویه تا اکتبر ۲۰۲۶'</p>
+
+  <table style="width:100%; fontSize:8pt; marginTop:6px; marginBottom:6px">
+    <tr>
+      <td style="width:33%; padding:6px; textAlign:right; color:#3F2689; borderTop:0.75f dashed #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'(بانک / مهر واحد)'</td>
+      <td style="width:33%; padding:6px; textAlign:right; color:#3F2689; borderTop:0.75f dashed #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'(مهر میانی / کد QR)'</td>
+      <td style="width:33%; padding:6px; textAlign:right; color:#3F2689; borderTop:0.75f dashed #CFC5EF; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'(کد QR اعتبارسنجی)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:right; color:#3F2689; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'تهیه‌کننده: '${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:right; color:#3F2689; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'بازبینی‌کننده: '${reviewedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:right; color:#3F2689; bold:true; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'منتشرکننده: '${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; marginTop:8px; textAlign:right; fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'این گزارش تنها برای مؤسسات مجاز است؛ همه ارقام مالی بر پایه گزارش سالانه حسابرسی‌شده گروه است.'</p>
+</body>
+</pdf>

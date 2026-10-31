@@ -1,0 +1,38 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#D97706;fontFamilyNames:Noto Sans,SimHei">'Halimbawa ng PDF sa Tagalog · Tagalog PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans,SimHei">'Mga hiram na salita at marka · 他加禄语外来词与重音符号渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #D97706;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans,SimHei">'Kumusta! Ito ay isang demonstrasyon ng multilingguwal na PDF ng JQuick-Pdf.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Ang Tagalog ay gumagamit ng alpabetong Latin na may mga hiram na salita mula sa Espanyol.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Tagalog uses the 28-letter Latin alphabet with Spanish-derived orthography.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#D97706;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Salita'</th>
+      <th style="backgroundColor:#D97706;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Kahulugan (中文释义)'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'bangko'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'salapi'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'cross-border settlement'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'跨境支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'dalawang-digit na paglago'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'两位数增长'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'pandaigdigang network'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'全球网络'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span>'Ginawa ng PDFBox; sinusuportahan ng Noto Sans ang lahat ng marka ng Tagalog.'</span><br><span style="fontColor:#D97706">'Tagalog demo · '${reportDate}</span></p>
+</body>
+</pdf>

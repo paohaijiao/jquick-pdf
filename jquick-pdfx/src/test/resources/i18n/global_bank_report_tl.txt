@@ -1,0 +1,203 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（他加禄语）  视觉主题：群岛·芒果式
+  // 主色 #D97706  深色 #9A4D02  浅底 #FEF6E8  描边 #F2D3A3
+
+  // 抬头：主色块 + 强调色窄块
+  <table style="width:100%; marginBottom:3px">
+    <tr>
+      <td style="padding:11px 12px; backgroundColor:#D97706; color:white; bold:true; fontSize:14pt; characterSpacing:1.5pt; fontFamilyNames:Noto Sans,SimHei">'ULAT SA PANGKALAHATANG OPERASYON 2026'</td>
+      <td style="width:56px; backgroundColor:#0B6E8A; color:white; bold:true; fontSize:11pt; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'2026'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#9A4D02; marginBottom:9px; fontFamilyNames:Noto Sans,SimHei">'Huitong Global Bank · Unang tatlong quarter ng 2026 · Pinagsamang ulat ng grupo'</p>
+
+  // 信息区：四行左标签
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <td style="width:22%; padding:4px 6px; backgroundColor:#FEF6E8; color:#9A4D02; bold:true; fontFamilyNames:Noto Sans,SimHei">'Bilang ng ulat'</td>
+      <td style="padding:4px 6px; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">${reportNo}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:4px 6px; backgroundColor:#FEF6E8; color:#9A4D02; bold:true; fontFamilyNames:Noto Sans,SimHei">'Petsa ng ulat'</td>
+      <td style="padding:4px 6px; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:4px 6px; backgroundColor:#FEF6E8; color:#9A4D02; bold:true; fontFamilyNames:Noto Sans,SimHei">'Ahensiyang naghanda'</td>
+      <td style="padding:4px 6px; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">${orgName}</td>
+    </tr>
+    <tr>
+      <td style="width:22%; padding:4px 6px; backgroundColor:#FEF6E8; color:#9A4D02; bold:true; fontFamilyNames:Noto Sans,SimHei">'Saklaw ng datos'</td>
+      <td style="padding:4px 6px; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI：四列两行，底部强调粗线
+  <table style="width:100%; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#3B2A12; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Kabuuang asset'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#3B2A12; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Cross-border settlement'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#3B2A12; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Pandaigdigang sangay'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#3B2A12; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Bansa at rehiyon'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#D97706; borderBottom:2.5f solid #0B6E8A; fontFamilyNames:Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#D97706; borderBottom:2.5f solid #0B6E8A; fontFamilyNames:Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#D97706; borderBottom:2.5f solid #0B6E8A; fontFamilyNames:Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#D97706; borderBottom:2.5f solid #0B6E8A; fontFamilyNames:Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#3B2A12; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Kita'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#3B2A12; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Netong tubo'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#3B2A12; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Empleyado'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#3B2A12; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Kliyente'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#D97706; borderBottom:2.5f solid #0B6E8A; fontFamilyNames:Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#D97706; borderBottom:2.5f solid #0B6E8A; fontFamilyNames:Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#D97706; borderBottom:2.5f solid #0B6E8A; fontFamilyNames:Noto Sans,SimHei">${employees}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#D97706; borderBottom:2.5f solid #0B6E8A; fontFamilyNames:Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginTop:9px; marginBottom:5px">
+    <tr>
+      <td style="width:26px; padding:4px 0px; backgroundColor:#0B6E8A; color:white; bold:true; fontSize:10pt; textAlign:center; borderRadius:3px; fontFamilyNames:Noto Sans,SimHei">'1'</td>
+      <td style="padding:4px 0px 4px 8px; color:#D97706; bold:true; fontSize:11pt; fontFamilyNames:Noto Sans,SimHei">'Pangkalahatang tanaw ng operasyon'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#3B2A12; fontFamilyNames:Noto Sans,SimHei">'Sa unang tatlong quarter ng 2026, pinanatili ng bangko ang isang pinagsamang modelo ng negosyo — lokal at dayuhang salapi, lokal at panlabas na merkado, digital at sangay. Ang mainland China ay nag-ambag ng 45.2% ng kita ng grupo; ang Asia-Pacific, Middle East at Europa ay nagdagdag ng 39.7%. Ang cross-border RMB settlement ay lumago ng 21.4% kumpara sa nakaraang taon.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Larawan 1  Kita ayon sa rehiyon, unang tatlong quarter ng 2026 (100 milyong RMB)'</p>
+
+  <table style="width:100%; marginTop:9px; marginBottom:5px">
+    <tr>
+      <td style="width:26px; padding:4px 0px; backgroundColor:#0B6E8A; color:white; bold:true; fontSize:10pt; textAlign:center; borderRadius:3px; fontFamilyNames:Noto Sans,SimHei">'2'</td>
+      <td style="padding:4px 0px 4px 8px; color:#D97706; bold:true; fontSize:11pt; fontFamilyNames:Noto Sans,SimHei">'Pandaigdigang network'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#3B2A12; fontFamilyNames:Noto Sans,SimHei">'Noong 30 Setyembre 2026, may 1,286 sangay at 3,470 self-service terminal ang bangko sa 68 bansa at rehiyon. Anim na rehiyonal na sentro ang naghahatid ng wholesale at retail na serbisyo sa lokal na salapi at wika; lahat ng dokumento sa kalakalang panlabas ay tinatanggap sa pitong wika nang walang dagdag na bayad sa pagsasalin.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; backgroundColor:#D97706; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Rehiyon'</th>
+      <th style="padding:5px 4px; backgroundColor:#D97706; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Sentrong rehiyonal'</th>
+      <th style="padding:5px 4px; backgroundColor:#D97706; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Wikang serbisyo'</th>
+      <th style="padding:5px 4px; backgroundColor:#D97706; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Sangay'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Asia-Pacific'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Singapore'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Ingles, Tsino, Hapones'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Middle East at Hilagang Africa'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Dubai'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Arabe, Ingles, Pranses'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Europa'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Frankfurt'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Aleman, Pranses, Ingles'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Rehiyon ng Russia'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Moscow'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Ruso, Ingles'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Hapon'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Tokyo'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Hapones, Ingles'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Americas'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'New York'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'Ingles, Espanyol, Portuges'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'260'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Larawan 2  Komposisyon ng salapi sa cross-border settlement (ayon sa halaga, 2026 Q1–Q3)'</p>
+
+  <table style="width:100%; marginTop:9px; marginBottom:5px">
+    <tr>
+      <td style="width:26px; padding:4px 0px; backgroundColor:#0B6E8A; color:white; bold:true; fontSize:10pt; textAlign:center; borderRadius:3px; fontFamilyNames:Noto Sans,SimHei">'3'</td>
+      <td style="padding:4px 0px 4px 8px; color:#D97706; bold:true; fontSize:11pt; fontFamilyNames:Noto Sans,SimHei">'Detalye ayon sa rehiyon'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#3B2A12; fontFamilyNames:Noto Sans,SimHei">'Nanatiling haligi ang mainland China na may 986 (sa 100 milyong RMB), sinundan ng Asia-Pacific na may 412 at Europa na may 268. Lahat ng anim na rehiyon ay nagtala ng dalawang-digit na paglago kumpara sa nakaraang taon.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; backgroundColor:#D97706; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Rehiyon'</th>
+      <th style="padding:5px 4px; backgroundColor:#D97706; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Kita (100 milyong RMB)'</th>
+      <th style="padding:5px 4px; backgroundColor:#D97706; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Settlement (100 milyong RMB)'</th>
+      <th style="padding:5px 4px; backgroundColor:#D97706; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Paglago'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Mainland China'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'986'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'6,420'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; bold:true; fontFamilyNames:Noto Sans,SimHei">'Asia-Pacific'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'412'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'2,760'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Europa'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'268'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'1,890'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; bold:true; fontFamilyNames:Noto Sans,SimHei">'Middle East'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'186'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'1,240'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; bold:true; fontFamilyNames:Noto Sans,SimHei">'Hapon'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'174'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'980'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; bold:true; fontFamilyNames:Noto Sans,SimHei">'Rehiyon ng Russia'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'154'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'690'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #F2D3A3; backgroundColor:#FEF6E8; fontFamilyNames:Noto Sans,SimHei">'+21.4%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Larawan 3  Buwanang takbo ng cross-border na transaksyon, Enero–Oktubre 2026'</p>
+
+  <table style="width:100%; fontSize:8pt; marginTop:6px; marginBottom:6px">
+    <tr>
+      <td style="width:33%; padding:6px; textAlign:center; color:#9A4D02; borderTop:0.75f dashed #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'(Bangko / selyo ng ahensiya)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#9A4D02; borderTop:0.75f dashed #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'(Cross-seal / QR)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#9A4D02; borderTop:0.75f dashed #F2D3A3; fontFamilyNames:Noto Sans,SimHei">'(QR code ng pagpapatunay)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9A4D02; bold:true; fontFamilyNames:Noto Sans,SimHei">'Inihanda ni: '${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9A4D02; bold:true; fontFamilyNames:Noto Sans,SimHei">'Sinuri ni: '${reviewedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#9A4D02; bold:true; fontFamilyNames:Noto Sans,SimHei">'Inilabas ni: '${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; marginTop:8px; fontFamilyNames:Noto Sans,SimHei">'Ang ulat na ito ay para lamang sa mga awtorisadong institusyon; lahat ng pigurang pinansyal ay ayon sa naudit na taunang ulat ng grupo.'</p>
+</body>
+</pdf>

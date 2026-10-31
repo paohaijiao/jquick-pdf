@@ -26,41 +26,41 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 国际化多语言渲染 —— 德语 Demo
+ * 国际化多语言渲染 · 序号 03 —— 法语 Demo
  *
- * <p>德语拉丁字体选型为 Noto Sans（覆盖变元音 Ä Ö Ü 与 ß 等
- * 德语特殊字符），模板中 fontFamilyNames 声明回退链
+ * <p>法语拉丁字体选型为 Noto Sans（覆盖全部带变音符的拉丁字母
+ * é è ê ë à â ç ù î ô û 等），模板中 fontFamilyNames 声明回退链
  * Noto Sans,Helvetica。字体文件位于 jquick-pdf-font 模块
  * resources/fonts 下，通过 classpath 注册。</p>
  *
- * <p>模板：i18n/german.txt，输出：D:\test\i18n\german.pdf</p>
+ * <p>模板：i18n/french.txt，输出：D:\test\i18n\french.pdf</p>
  *
  * @author Martin
  * @version 1.0.0
  */
-public class GermanTest {
+public class I18n03FrenchTest {
 
     public static final String path = JQuickConstant.path;
 
     @Test
-    public void german() throws IOException {
+    public void french() throws IOException {
         JPdfConfig config = new JPdfConfig();
-        // 手动注册外部字体：Noto Sans（覆盖德语变元音与 ß）
+        // 手动注册外部字体：Noto Sans（覆盖法语变音拉丁字母）
         config.getFontConfig().registerFont("Noto Sans", "fonts/NotoSans-Regular.ttf");
         // 注册内置 CJK 字体，供模板中中文混排元素的 fontFamilyNames 回退链命中
         config.getFontConfig().registerFont("SimHei", "fonts/simhei.ttf");
-        JFontSpec germanFont = new JFontSpec("Noto Sans", "fonts/NotoSans-Regular.ttf");
-        config.getFontConfig().setDefaultFont(germanFont);
+        JFontSpec frenchFont = new JFontSpec("Noto Sans", "fonts/NotoSans-Regular.ttf");
+        config.getFontConfig().setDefaultFont(frenchFont);
 
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("reportDate", "2026-10-24");
-        byte[] pdf = factory.executeResource("i18n/german.txt");
+        byte[] pdf = factory.executeResource("i18n/french.txt");
 
         File dir = new File(path + "i18n");
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream(path + "i18n/german.pdf");
+        FileOutputStream out = new FileOutputStream(path + "i18n/french.pdf");
         out.write(pdf);
         out.close();
     }

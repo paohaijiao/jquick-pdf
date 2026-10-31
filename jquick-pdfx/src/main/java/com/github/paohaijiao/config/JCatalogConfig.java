@@ -24,7 +24,7 @@ import lombok.Data;
 public class JCatalogConfig {
 
     /** 是否启用目录采集与生成。 */
-    private boolean enabled = true;
+    private boolean enabled = false;
 
     /** 保留字段：目录起始页（历史配置，向后兼容）。 */
     private Integer startPage = 1;

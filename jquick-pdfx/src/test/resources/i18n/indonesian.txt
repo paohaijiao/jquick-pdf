@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#6B2F6B;fontFamilyNames:Noto Sans,SimHei">'Contoh PDF Bahasa Indonesia · Indonesian PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans,SimHei">'Bahasa Indonesia · 印尼语渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #D5CBE8;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans,SimHei">'Selamat datang! Ini adalah demo PDF multibahasa dari JQuick-Pdf.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Bahasa Indonesia memakai aksara Latin, mirip Bahasa Melayu.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Indonesian uses the Latin alphabet, closely related to Malay.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#6B2F6B;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Kata'</th>
+      <th style="backgroundColor:#6B2F6B;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'释义 (中文)'</th>
+    </tr>
+        <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'bank'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'uang'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'钱 / 货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'pembayaran'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'kurs'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'汇率'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span>'Dirender dengan PDFBox menggunakan font Noto Sans.'</span><br><span style="fontColor:#6B2F6B">'Indonesian demo · '${reportDate}</span></p>
+</body>
+</pdf>

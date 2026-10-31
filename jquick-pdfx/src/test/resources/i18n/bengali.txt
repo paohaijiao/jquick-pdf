@@ -1,0 +1,38 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#B0322F;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'বাংলা পিডিএফ নমুনা · Bengali PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'বাংলা যুক্তাক্ষর ও মাত্রা · 孟加拉语连字与元音符号渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #B0322F;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'নমস্কার! এটি জ্যাকুইক-পিডিএফের বহুভাষিক পিডিএফ প্রদর্শনী।'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'বাংলা লিপিতে যুক্তাক্ষর (ক্ষ, জ্ঞ, ন্ত) এবং মাত্রা ব্যবহৃত হয়।'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'Bengali uses conjunct consonants and above/below vowel signs.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#B0322F;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'শব্দ'</th>
+      <th style="backgroundColor:#B0322F;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'অর্থ (中文释义)'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'ব্যাংক'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'মুদ্রা'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'সীমান্ত-পারাপার নিষ্পত্তি'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'跨境支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'দুই অঙ্কের প্রবৃদ্ধি'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'两位数增长'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'বৈশ্বিক নেটওয়ার্ক'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei">'全球网络'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Bengali,Noto Sans,SimHei"><span>'PDFBox দ্বারা উৎপন্ন, Noto Sans Bengali ফন্ট সব যুক্তাক্ষর সমর্থন করে।'</span><br><span style="fontColor:#B0322F">'Bengali demo · '${reportDate}</span></p>
+</body>
+</pdf>

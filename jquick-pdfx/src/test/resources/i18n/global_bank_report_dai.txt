@@ -1,0 +1,180 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（傣语 / 新傣仂文）  视觉主题：贝叶竹青·孔雀式
+  // 主色 #557C1F  深色 #3D5A15  浅底 #F6F8EC  描边 #CBDBA8
+
+  <h1 style="fontSize:18pt; bold:true; color:#557C1F; marginBottom:2px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦣᧂᦇᦹᧃᦷᦜᧂ · ᦂᦱᧃᦇᦹᧃ ᦔᦲ ᧒᧐᧒᧖'</h1>
+  <lineSeparator style="color:#8B5A00; thickness:2f; marginBottom:6px"></lineSeparator>
+  <p style="fontSize:9pt; color:#3D5A15; marginBottom:10px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦡᦲᧃ ᧑ ᦏᦹᧂ ᧑᧐ ᦔᦲ ᧒᧐᧒᧖ · ᦂᦱᧃ ᦷᦣᧂᦇᦹᧃ'</p>
+
+  // 信息区：单行四段 inline
+  <p style="fontSize:8.3pt; color:#2F3D14; marginBottom:10px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦟᧅ ᦢᦱᧃᧉ '${reportNo}' · ᦞᧃ'${reportDate}' · ᦷᦣᧂ'${orgName}</p>
+
+  // KPI 区：2 组浅底卡（标签行在上、数值行在下）
+  <table style="width:100%; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:6px 5px 2px 5px; backgroundColor:#F6F8EC; textAlign:center; fontSize:7.3pt; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦇᦹᧃ ᦷᦜᧂ'</td>
+      <td style="width:25%; padding:6px 5px 2px 5px; backgroundColor:#F6F8EC; textAlign:center; fontSize:7.3pt; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦇᦹᧃ ᦃᧁᧉ ᦀᦸᧅᧈ'</td>
+      <td style="width:25%; padding:6px 5px 2px 5px; backgroundColor:#F6F8EC; textAlign:center; fontSize:7.3pt; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦺᦆᧈ ᦷᦣᧂ'</td>
+      <td style="width:25%; padding:6px 5px 2px 5px; backgroundColor:#F6F8EC; textAlign:center; fontSize:7.3pt; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ'</td>
+    </tr>
+    <tr>
+      <td style="padding:2px 5px 8px 5px; backgroundColor:#F6F8EC; textAlign:center; bold:true; fontSize:11pt; color:#557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:2px 5px 8px 5px; backgroundColor:#F6F8EC; textAlign:center; bold:true; fontSize:11pt; color:#557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:2px 5px 8px 5px; backgroundColor:#F6F8EC; textAlign:center; bold:true; fontSize:11pt; color:#557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:2px 5px 8px 5px; backgroundColor:#F6F8EC; textAlign:center; bold:true; fontSize:11pt; color:#557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px 5px 2px 5px; backgroundColor:#F6F8EC; textAlign:center; fontSize:7.3pt; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦇᦹᧃ ᦃᧁᧉ'</td>
+      <td style="width:25%; padding:6px 5px 2px 5px; backgroundColor:#F6F8EC; textAlign:center; fontSize:7.3pt; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦇᦹᧃ ᦡᦲ'</td>
+      <td style="width:25%; padding:6px 5px 2px 5px; backgroundColor:#F6F8EC; textAlign:center; fontSize:7.3pt; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᦂᦱᧃ'</td>
+      <td style="width:25%; padding:6px 5px 2px 5px; backgroundColor:#F6F8EC; textAlign:center; fontSize:7.3pt; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᦺᦋᧉ'</td>
+    </tr>
+    <tr>
+      <td style="padding:2px 5px 8px 5px; backgroundColor:#F6F8EC; textAlign:center; bold:true; fontSize:11pt; color:#557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:2px 5px 8px 5px; backgroundColor:#F6F8EC; textAlign:center; bold:true; fontSize:11pt; color:#557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:2px 5px 8px 5px; backgroundColor:#F6F8EC; textAlign:center; bold:true; fontSize:11pt; color:#557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${employees}</td>
+      <td style="padding:2px 5px 8px 5px; backgroundColor:#F6F8EC; textAlign:center; bold:true; fontSize:11pt; color:#557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginTop:4px; marginBottom:4px">
+    <tr>
+      <td style="width:5%; padding:5px 0px; backgroundColor:#557C1F; color:white; bold:true; fontSize:9pt; textAlign:center; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑'</td>
+      <td style="padding:5px 8px; color:#3D5A15; bold:true; fontSize:10.5pt; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑. ᦂᦱᧃ ᦷᦜᧂ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#2F3D14; marginBottom:8px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦔᦲ ᧒᧐᧒᧖ ᦵᦡᦲᧃ ᧑ ᦏᦹᧂ ᧙ ᦷᦣᧂᦇᦹᧃ ᦷᦜᧂ ᦙᦲ ᦂᦱᧃ ᦡᦲ ᦺᦖᧈ ᦂᦱᧃ ᦷᦜᧂ ᦺᦔ ᦙᦱ ᦺᦊᧈ ᦂᦱᧃ ᦇᦹᧃ ᦃᧁᧉ ᦀᦸᧅᧈ ᦉᦳᧂ ᦺᦔ.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦣᧂ 1  ᦇᦹᧃ ᦃᧁᧉ ᦺᦓ ᦵᦙᦲᧂ ᦔᦲ ᧒᧐᧒᧖ (ᦜᦱᧃ ᦍᦲᧃ)'</p>
+
+  <table style="width:100%; marginTop:4px; marginBottom:4px">
+    <tr>
+      <td style="width:5%; padding:5px 0px; backgroundColor:#557C1F; color:white; bold:true; fontSize:9pt; textAlign:center; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧒'</td>
+      <td style="padding:5px 8px; color:#3D5A15; bold:true; fontSize:10.5pt; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧒. ᦷᦣᧂ ᦂᦱᧃ ᦷᦜᧂ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#2F3D14; marginBottom:8px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦞᧃ ᧓᧐ ᦵᦡᦲᧃ ᧙ ᦔᦲ ᧒᧐᧒᧖ ᦷᦣᧂᦇᦹᧃ ᦙᦲ ᦷᦣᧂ ᧑᧒᧘᧖ ᦉᦱᧆ ᦂᦱᧃ ᦺᦓ ᦵᦙᦲᧂ ᧖᧘ ᦔᦲ ᦺᦖᧈ ᦂᦱᧃ ᦡᦲ ᦉᦳᧂ.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px; color:#557C1F; bold:true; textAlign:center; backgroundColor:#F6F8EC; borderBottom:1.2f solid #557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ'</th>
+      <th style="padding:5px; color:#557C1F; bold:true; textAlign:center; backgroundColor:#F6F8EC; borderBottom:1.2f solid #557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦣᧂ ᦂᦱᧃ'</th>
+      <th style="padding:5px; color:#557C1F; bold:true; textAlign:center; backgroundColor:#F6F8EC; borderBottom:1.2f solid #557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᦂᦱᧃ'</th>
+      <th style="padding:5px; color:#557C1F; bold:true; textAlign:center; backgroundColor:#F6F8EC; borderBottom:1.2f solid #557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦺᦆᧈ'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧑'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦉᦲᧂᧈᦂᦸᧇᦖᦳᧃᧈ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᧔᧘᧖'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧔᧘᧖'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧒'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦎᦴᧉᦷᦄᧈ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᧑᧕᧒'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑᧕᧒'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧓'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦕᦱᧂᧈᦷᦅᧃᦝᦱᧃᧈ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᧒᧑᧘'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧒᧑᧘'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧔'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦙᦸᧅᦉᦷᦂ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᧙᧖'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧙᧖'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧕'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦎᦂᦲ᧐'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᧗᧔'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧗᧔'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧖'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦐᦲᧉᦍᦴᦂᧁᧉ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦅᦳᧃ ᧒᧖᧐'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧒᧖᧐'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦣᧂ 2  ᦇᦹᧃ ᦃᧁᧉ ᦀᦸᧅᧈ ᦺᦓ ᦵᦙᦲᧂ (ᦜᦱᧃ ᦍᦲᧃ)'</p>
+
+  <table style="width:100%; marginTop:4px; marginBottom:4px">
+    <tr>
+      <td style="width:5%; padding:5px 0px; backgroundColor:#557C1F; color:white; bold:true; fontSize:9pt; textAlign:center; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧓'</td>
+      <td style="padding:5px 8px; color:#3D5A15; bold:true; fontSize:10.5pt; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧓. ᦵᦙᦲᧂ ᦂᦱᧃ'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#2F3D14; marginBottom:8px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᦷᦜᧂ ᦙᦲ ᦇᦹᧃ ᦃᧁᧉ ᧙᧘᧖ ᦜᦱᧃ, ᦵᦙᦲᧂ ᦷᦎ ᦙᦲ ᧔᧑᧒ ᦜᦱᧃ, ᦵᦙᦲᧂ ᦓᦾᧉ ᦙᦲ ᧒᧖᧘ ᦜᦱᧃ.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px; color:#557C1F; bold:true; textAlign:center; backgroundColor:#F6F8EC; borderBottom:1.2f solid #557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ'</th>
+      <th style="padding:5px; color:#557C1F; bold:true; textAlign:center; backgroundColor:#F6F8EC; borderBottom:1.2f solid #557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦇᦹᧃ ᦃᧁᧉ (ᦜᦱᧃ)'</th>
+      <th style="padding:5px; color:#557C1F; bold:true; textAlign:center; backgroundColor:#F6F8EC; borderBottom:1.2f solid #557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦇᦹᧃ ᦀᦸᧅᧈ (ᦜᦱᧃ)'</th>
+      <th style="padding:5px; color:#557C1F; bold:true; textAlign:center; backgroundColor:#F6F8EC; borderBottom:1.2f solid #557C1F; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦂᦱᧃ ᦉᦳᧂ'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᦷᦜᧂ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧙᧘᧖'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧖᧔᧒᧐'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'+᧑᧘.᧒%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧑'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧔᧑᧒'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧒᧗᧖᧐'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'+᧑᧕.᧖%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧒'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧒᧖᧘'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑᧘᧙᧐'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'+᧑᧒.᧓%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧓'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑᧘᧖'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑᧒᧔᧐'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'+᧑᧘.᧖%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧔'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑᧗᧔'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧙᧘᧐'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'+᧑᧔.᧘%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦙᦲᧂ ᧕'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑᧕᧔'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧖᧙᧐'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'+᧒᧑.᧔%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦣᧂ 3  ᦂᦱᧃ ᦇᦹᧃ ᦵᦡᦲᧃ ᧑ ᦏᦹᧂ ᧑᧐ ᦔᦲ ᧒᧐᧒᧖ (ᦜᦱᧃ ᦍᦲᧃ)'</p>
+
+  <!-- 签章占位区 -->
+  <table style="width:100%; fontSize:8pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:6px 6px 2px 6px; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'(ᦺᦆᧈ ᦷᦣᧂ)'</td>
+      <td style="width:33%; padding:6px 6px 2px 6px; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'(ᦺᦆᧈ ᦂᦱᧃ)'</td>
+      <td style="width:33%; padding:6px 6px 2px 6px; color:#3D5A15; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'(ᦺᦆᧈ ᦡᦲ)'</td>
+    </tr>
+    <tr>
+      <td style="width:33%; padding:2px 6px 4px 6px; borderBottom:0.5f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${preparedBy}</td>
+      <td style="width:33%; padding:2px 6px 4px 6px; borderBottom:0.5f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${reviewedBy}</td>
+      <td style="width:33%; padding:2px 6px 4px 6px; borderBottom:0.5f solid #CBDBA8; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; marginTop:10px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦂᦱᧃ ᦓᦲᧉ ᦔᦲᧃ ᦂᦱᧃ ᦡᦲ ᦺᦓ ᦷᦣᧂ ᦂᦱᧃ ᦷᦜᧂ ᦔᦲ ᧒᧐᧒᧖.'</p>
+</body>
+</pdf>

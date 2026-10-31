@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#C2410C;fontFamilyNames:Noto Sans,SimHei">'Contoh PDF Bahasa Melayu · Malay PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans,SimHei">'Bahasa Melayu · 马来语渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #EFC9A8;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans,SimHei">'Selamat datang! Ini adalah demo PDF berbilang bahasa JQuick-Pdf.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Bahasa Melayu menggunakan tulisan Rumi (Latin) tanpa tanda diakritik.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Malay uses the Latin script (Rumi) with no diacritics.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#C2410C;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Perkataan'</th>
+      <th style="backgroundColor:#C2410C;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'释义 (中文)'</th>
+    </tr>
+        <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'bank'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'mata wang'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'pembayaran'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'kadar pertukaran'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'汇率'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span>'Dirender dengan PDFBox menggunakan fon Noto Sans.'</span><br><span style="fontColor:#C2410C">'Malay demo · '${reportDate}</span></p>
+</body>
+</pdf>

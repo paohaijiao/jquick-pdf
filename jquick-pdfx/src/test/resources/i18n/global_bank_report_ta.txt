@@ -1,0 +1,212 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（泰米尔语）  视觉主题：庙塔·黄檀式
+  // 主色 #C2185B  深色 #8A0F3F  浅底 #FDF0F5  描边 #EDC3D5
+
+  // 顶部三层递减色条（gopuram 层叠）
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="width:100%; backgroundColor:#C2185B; fontSize:2pt">' '</td>
+    </tr>
+    <tr>
+      <td style="width:62%; backgroundColor:#26456B; fontSize:2pt">' '</td>
+      <td style="width:38%; fontSize:2pt">' '</td>
+    </tr>
+    <tr>
+      <td style="width:30%; backgroundColor:#EDC3D5; fontSize:2pt">' '</td>
+      <td style="width:70%; fontSize:2pt">' '</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:16pt; bold:true; color:#C2185B; textAlignment:center; characterSpacing:0.5pt; marginTop:6px; marginBottom:2px; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'உலகளாவிய செயல்பாட்டு அறிக்கை 2026'</p>
+  <p style="fontSize:9pt; color:#8A0F3F; textAlignment:center; marginBottom:10px; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஹூய்த்தொங் உலக வங்கி · 2026 முதல் மூன்று காலாண்டுகள் · குழும ஒருங்கிணைந்த அறிக்கை'</p>
+
+  // 信息区：四行，左标签右值
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <td style="width:26%; padding:4px 6px; color:#8A0F3F; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'அறிக்கை எண்'</td>
+      <td style="padding:4px 6px; textAlign:right; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${reportNo}</td>
+    </tr>
+    <tr>
+      <td style="width:26%; padding:4px 6px; color:#8A0F3F; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'அறிக்கை தேதி'</td>
+      <td style="padding:4px 6px; textAlign:right; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:26%; padding:4px 6px; color:#8A0F3F; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'தயாரித்த நிறுவனம்'</td>
+      <td style="padding:4px 6px; textAlign:right; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${orgName}</td>
+    </tr>
+    <tr>
+      <td style="width:26%; padding:4px 6px; color:#8A0F3F; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'தரவு வரம்பு'</td>
+      <td style="padding:4px 6px; textAlign:right; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI：四列两行交叉网格
+  <table style="width:100%; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; color:#3A1424; fontSize:7.5pt; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'மொத்த சொத்து'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; color:#3A1424; fontSize:7.5pt; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'எல்லைக்கடப்பு தீர்வு'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; color:#3A1424; fontSize:7.5pt; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'உலக கிளைகள்'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; borderBottom:0.4f solid #EDC3D5; color:#3A1424; fontSize:7.5pt; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'நாடுகள் & பிரதேசங்கள்'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; bold:true; fontSize:11pt; color:#C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; bold:true; fontSize:11pt; color:#C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; bold:true; fontSize:11pt; color:#C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; borderBottom:0.4f solid #EDC3D5; bold:true; fontSize:11pt; color:#C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; color:#3A1424; fontSize:7.5pt; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'வருவாய்'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; color:#3A1424; fontSize:7.5pt; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'நிகர லாபம்'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; borderBottom:0.4f solid #EDC3D5; color:#3A1424; fontSize:7.5pt; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'பணியாளர்கள்'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; borderBottom:0.4f solid #EDC3D5; color:#3A1424; fontSize:7.5pt; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'வாடிக்கையாளர்கள்'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; bold:true; fontSize:11pt; color:#C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; bold:true; fontSize:11pt; color:#C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; borderRight:0.4f solid #EDC3D5; bold:true; fontSize:11pt; color:#C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${employees}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="width:24px; padding:3px 0px; backgroundColor:#C2185B; color:white; bold:true; fontSize:10pt; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'1'</td>
+      <td style="padding:3px 8px; color:#8A0F3F; bold:true; fontSize:11.5pt; borderRight:3px solid #C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'செயல்பாட்டு மேலோட்டம்'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#3A1424; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'2026 ஆம் ஆண்டின் முதல் மூன்று காலாண்டுகளில், உள்நாட்டு மற்றும் வெளிநாட்டு நாணயம், உள்நாடு மற்றும் வெளிநாட்டுச் சந்தை, எண்ணிம மற்றும் கிளை வழிகள் ஆகிய அனைத்தையும் ஒருங்கிணைந்த வணிக மாதிரியாக வங்கி பராமரித்தது. சீனப் பெருநிலம் குழுமத்தின் வருவாயில் 45.2% வழங்கியது; ஆசியா-பசிபிக், மத்திய கிழக்கு மற்றும் ஐரோப்பா மேலும் 39.7% சேர்த்தன. ரென்மின்பியில் எல்லைக்கடப்பு தீர்வின் அளவு ஆண்டுக்கு 21.4% வளர்ந்தது.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'படம் 1  பிராந்திய வாரியாக வருவாய், 2026 முதல் மூன்று காலாண்டுகள் (கோடி ரென்மின்பி)'</p>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="width:24px; padding:3px 0px; backgroundColor:#C2185B; color:white; bold:true; fontSize:10pt; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'2'</td>
+      <td style="padding:3px 8px; color:#8A0F3F; bold:true; fontSize:11.5pt; borderRight:3px solid #C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'உலக வலைப்பின்னல்'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#3A1424; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'2026 செப்டம்பர் 30 வரை, வங்கி 68 நாடுகள் மற்றும் பிரதேசங்களில் 1,286 கிளைகளையும் 3,470 தானியங்கி சேவை முனையங்களையும் கொண்டுள்ளது. ஆறு பிராந்திய மையங்கள் உள்ளூர் நாணயம் மற்றும் மொழியில் மொத்த மற்றும் சில்லறை சேவைகளை வழங்குகின்றன; அனைத்து சர்வதேச வணிக ஆவணங்களும் ஏழு மொழிகளில் ஏற்றுக்கொள்ளப்படுகின்றன, கூடுதல் மொழிபெயர்ப்புக் கட்டணம் இல்லாமல்.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; backgroundColor:#C2185B; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'பிராந்தியம்'</th>
+      <th style="padding:5px 4px; backgroundColor:#C2185B; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'பிராந்திய மையம்'</th>
+      <th style="padding:5px 4px; backgroundColor:#C2185B; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'சேவை மொழிகள்'</th>
+      <th style="padding:5px 4px; backgroundColor:#C2185B; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'கிளைகள்'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EDC3D5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஆசியா-பசிபிக்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'சிங்கப்பூர்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஆங்கிலம், சீனம், ஜப்பானியம்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'மத்திய கிழக்கு & வட ஆப்பிரிக்கா'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'துபாய்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'அரபு, ஆங்கிலம், பிரெஞ்சு'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EDC3D5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஐரோப்பா'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'பிராங்பேர்ட்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஜெர்மன், பிரெஞ்சு, ஆங்கிலம்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ரஷ்ய பிராந்தியம்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'மாஸ்கோ'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ரஷ்ய, ஆங்கிலம்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EDC3D5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஜப்பான்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'டோக்கியோ'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஜப்பானியம், ஆங்கிலம்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:left; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'அமெரிக்காக்கள்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'நியூயார்க்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஆங்கிலம், ஸ்பானிஷ், போர்த்துகீசியம்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'260'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'படம் 2  எல்லைக்கடப்பு தீர்வின் நாணய அமைப்பு (மதிப்பு அடிப்படையில், 2026 காலாண்டு 1-3)'</p>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="width:24px; padding:3px 0px; backgroundColor:#C2185B; color:white; bold:true; fontSize:10pt; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'3'</td>
+      <td style="padding:3px 8px; color:#8A0F3F; bold:true; fontSize:11.5pt; borderRight:3px solid #C2185B; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'பிராந்திய விவரங்கள்'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#3A1424; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'சீனப் பெருநிலம் 986 (கோடி ரென்மின்பி) வருவாயுடன் முதன்மைத் தூணாக உள்ளது; அடுத்து ஆசியா-பசிபிக் 412 மற்றும் ஐரோப்பா 268. ஆறு பிராந்தியங்களும் கடந்த ஆண்டை ஒப்பிடும்போது இரு இலக்க வளர்ச்சியைப் பதிவு செய்தன.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; backgroundColor:#C2185B; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'பிராந்தியம்'</th>
+      <th style="padding:5px 4px; backgroundColor:#C2185B; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'வருவாய் (கோடி ரென்மின்பி)'</th>
+      <th style="padding:5px 4px; backgroundColor:#C2185B; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'தீர்வு (கோடி ரென்மின்பி)'</th>
+      <th style="padding:5px 4px; backgroundColor:#C2185B; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'வளர்ச்சி'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'சீனப் பெருநிலம்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'986'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'6,420'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஆசியா-பசிபிக்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'412'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'2,760'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஐரோப்பா'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'268'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'1,890'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'மத்திய கிழக்கு'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'186'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'1,240'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ஜப்பான்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'174'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'980'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'ரஷ்ய பிராந்தியம்'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'154'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'690'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #EDC3D5; backgroundColor:#FDF0F5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'+21.4%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'படம் 3  ஜனவரி-அக்டோபர் 2026 எல்லைக்கடப்பு பரிவர்த்தனை அளவின் மாதாந்திர போக்கு'</p>
+
+  <table style="width:100%; fontSize:8pt; marginTop:6px; marginBottom:6px">
+    <tr>
+      <td style="width:33%; padding:6px; textAlign:center; color:#8A0F3F; borderTop:0.75f dashed #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'(வங்கி / நிறுவன முத்திரை)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#8A0F3F; borderTop:0.75f dashed #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'(இடை முத்திரை / QR)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#8A0F3F; borderTop:0.75f dashed #EDC3D5; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'(சரிபார்ப்பு QR குறியீடு)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#8A0F3F; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'தயாரித்தவர்: '${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#8A0F3F; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'சரிபார்த்தவர்: '${reviewedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#8A0F3F; bold:true; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'வெளியிட்டவர்: '${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; marginTop:8px; fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'இந்த அறிக்கை அங்கீகரிக்கப்பட்ட நிறுவனங்களுக்கு மட்டுமே; அனைத்து நிதி எண்களும் குழுமத்தின் தணிக்கை செய்யப்பட்ட ஆண்டு அறிக்கையின் அடிப்படையிலானது.'</p>
+</body>
+</pdf>

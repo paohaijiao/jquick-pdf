@@ -1,0 +1,38 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#5F3DC4;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'نمونهٔ پی‌دی‌اف فارسی · Persian PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'خط فارسی و اتصال حروف · 波斯语连写与 RTL 排版渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #5F3DC4;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'سلام! این یک نمایش پی‌دی‌اف چندزبانه از JQuick-Pdf است.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'فارسی از خط عربی با چهار حرف افزوده (پ، چ، ژ، گ) و ارقام فارسی استفاده می‌کند.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'Persian extends the Arabic script with four letters and uses Eastern digits.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#5F3DC4;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'واژه'</th>
+      <th style="backgroundColor:#5F3DC4;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'معنی (中文释义)'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'بانک'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'ارز'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'تسویه فرامرزی'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'跨境支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'رشد دورقمی'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'两位数增长'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'شبکه جهانی'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei">'全球网络'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Arabic,Noto Sans,SimHei"><span>'تولیدشده با PDFBox؛ قلم Noto Sans Arabic همهٔ حروف فارسی را پوشش می‌دهد.'</span><br><span style="fontColor:#5F3DC4">'Persian demo · '${reportDate}</span></p>
+</body>
+</pdf>

@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#B3123C;fontFamilyNames:Noto Sans,SimHei">'Ejemplo de PDF en español · Spanish PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans,SimHei">'Español con acentos y eñe · 西班牙语重音与 ñ 示例 · '${reportDate}</p>
+  <div style="border:solid 1px #EBC3CB;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans,SimHei">'¡Hola! Esta es una demostración multilingüe de JQuick-Pdf.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'El español usa acentos agudos (á é í ó ú), la eñe (ñ) y signos ¡! ¿?.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Spanish uses acute accents, the tilde-n and inverted punctuation marks.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#B3123C;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Palabra'</th>
+      <th style="backgroundColor:#B3123C;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'释义 (中文)'</th>
+    </tr>
+        <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'banco'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'dinero'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'钱'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'pago'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'tipo de cambio'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'汇率'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span>'Renderizado con PDFBox usando la fuente Noto Sans.'</span><br><span style="fontColor:#B3123C">'Spanish demo · '${reportDate}</span></p>
+</body>
+</pdf>

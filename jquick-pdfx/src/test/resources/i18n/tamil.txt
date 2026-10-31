@@ -1,0 +1,38 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#C2185B;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'தமிழ் PDF மாதிரி · Tamil PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'உயிர்மெய் எழுத்துகள் · 泰米尔语辅音元音合字渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #C2185B;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'வணக்கம்! இது JQuick-Pdf இன் பல்மொழி PDF செயல்விளக்கம்.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'தமிழில் 12 உயிர், 18 மெய் மற்றும் 216 உயிர்மெய் எழுத்துகள் உள்ளன.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'Tamil combines 12 vowels, 18 consonants and 216 composite letters.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#C2185B;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'சொல்'</th>
+      <th style="backgroundColor:#C2185B;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'பொருள் (中文释义)'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'வங்கி'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'நாணயம்'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'எல்லைக்கடப்பு தீர்வு'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'跨境支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'இரு இலக்க வளர்ச்சி'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'两位数增长'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'உலக வலைப்பின்னல்'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei">'全球网络'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Tamil,Noto Sans,SimHei"><span>'PDFBox மூலம் உருவாக்கப்பட்டது; Noto Sans Tamil அனைத்து உயிர்மெய்யையும் ஆதரிக்கிறது.'</span><br><span style="fontColor:#C2185B">'Tamil demo · '${reportDate}</span></p>
+</body>
+</pdf>

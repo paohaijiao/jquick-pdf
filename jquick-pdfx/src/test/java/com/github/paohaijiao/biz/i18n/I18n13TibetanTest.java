@@ -26,7 +26,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 国际化多语言渲染 —— 藏文 Demo
+ * 国际化多语言渲染 · 序号 13 —— 藏文 Demo
  *
  * <p>藏文使用藏文区段字符，字体选型为 Noto Serif Tibetan（notofonts 官方
  * 藏文发布包，Sans 版未单独发布，Serif 版覆盖完整藏文字形与叠字丁）。
@@ -37,7 +37,7 @@ import java.io.IOException;
  * @author Martin
  * @version 1.0.0
  */
-public class TibetanTest {
+public class I18n13TibetanTest {
 
     public static final String path = JQuickConstant.path;
 

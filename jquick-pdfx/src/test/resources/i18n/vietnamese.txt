@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#0B6E7F;fontFamilyNames:Noto Sans,SimHei">'Ví dụ PDF tiếng Việt · Vietnamese PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans,SimHei">'Tiếng Việt với dấu thanh · 声调附加符号渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #BFDDE0;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans,SimHei">'Xin chào! Đây là bản trình diễn PDF đa ngôn ngữ của JQuick-Pdf.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Tiếng Việt dùng chữ Latinh mở rộng với các dấu thanh (ế, ộ, ữ, đ).'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Vietnamese uses Latin Extended Additional with stacked tone marks.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#0B6E7F;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Từ tiếng Việt'</th>
+      <th style="backgroundColor:#0B6E7F;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Nghĩa (中文释义)'</th>
+    </tr>
+        <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'ngân hàng'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'đồng tiền'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'thanh toán xuyên biên giới'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'跨境支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'tăng trưởng hai chữ số'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'两位数增长'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span>'Kết xuất bởi PDFBox, phông chữ Noto Sans hỗ trợ đầy đủ dấu tiếng Việt.'</span><br><span style="fontColor:#0B6E7F">'Vietnamese demo · '${reportDate}</span></p>
+</body>
+</pdf>

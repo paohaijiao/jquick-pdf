@@ -1,0 +1,185 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（印尼语）  视觉主题：巴迪·靛紫
+  // 主色 #6B2F6B  深色 #4A1F4A  浅底 #F3F0FA  描边 #D5CBE8  点缀金 #C9A227
+
+  <table style="width:100%; border:1.2f solid #6B2F6B; marginBottom:8px">
+    <tr>
+      <td style="padding:10px 12px 3px 12px; fontSize:17pt; bold:true; color:#6B2F6B; textAlignment:center; characterSpacing:2pt; fontFamilyNames:Noto Sans,SimHei">'Laporan Operasional Global 2026'</td>
+    </tr>
+    <tr>
+      <td style="padding:3px 12px 10px 12px; fontSize:8.5pt; color:#C9A227; textAlignment:center; fontFamilyNames:Noto Sans,SimHei">'Bank Persatuan Global · Tiga kuartal pertama 2026 · Konsolidasi grup'</td>
+    </tr>
+  </table>
+
+  // 信息区：居中两行
+  <p style="fontSize:8.3pt; textAlignment:center; color:#33203A; marginBottom:2px; fontFamilyNames:Noto Sans,SimHei">'No. laporan '${reportNo}'  ·  Tanggal laporan'${reportDate}</p>
+  <p style="fontSize:8.3pt; textAlignment:center; color:#33203A; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Unit penyusun '${orgName}'  ·  Cakupan data'${dataScope}</p>
+
+  // KPI 区：4×2，浅紫标签底 + 深紫数值
+  <table style="width:100%; fontSize:8pt; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Total aset'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Penyelesaian lintas batas'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Cabang global'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Negara & wilayah'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; bold:true; fontSize:11pt; color:#6B2F6B; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:5px; textAlign:center; bold:true; fontSize:11pt; color:#6B2F6B; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:5px; textAlign:center; bold:true; fontSize:11pt; color:#6B2F6B; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:5px; textAlign:center; bold:true; fontSize:11pt; color:#6B2F6B; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Pendapatan'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Laba bersih'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Karyawan'</td>
+      <td style="width:25%; padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Nasabah'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; bold:true; fontSize:11pt; color:#6B2F6B; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:5px; textAlign:center; bold:true; fontSize:11pt; color:#6B2F6B; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:5px; textAlign:center; bold:true; fontSize:11pt; color:#6B2F6B; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">${employees}</td>
+      <td style="padding:5px; textAlign:center; bold:true; fontSize:11pt; color:#6B2F6B; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:84%; marginTop:6px; marginBottom:4px; borderTop:0.8f solid #6B2F6B; borderBottom:0.8f solid #6B2F6B">
+    <tr>
+      <td style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; fontSize:10.5pt; textAlign:center; characterSpacing:1pt; fontFamilyNames:Noto Sans,SimHei">'I. Ikhtisar Operasional'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#33203A; marginBottom:8px; fontFamilyNames:Noto Sans,SimHei">'Pada tiga kuartal pertama 2026, bank mempertahankan model bisnis terpadu untuk valuta lokal dan asing, di dalam dan luar negeri, daring maupun di kantor cabang. Tiongkok Daratan menyumbang 45,2% pendapatan grup, sedangkan Asia Pasifik, Timur Tengah, dan Eropa menyumbang 39,7% lainnya. Volume penyelesaian renminbi lintas batas naik 21,4% dibanding periode yang sama.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Gambar 1  Pendapatan menurut wilayah, tiga kuartal pertama 2026 (satuan: 100 juta yuan)'</p>
+
+  <table style="width:84%; marginTop:6px; marginBottom:4px; borderTop:0.8f solid #6B2F6B; borderBottom:0.8f solid #6B2F6B">
+    <tr>
+      <td style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; fontSize:10.5pt; textAlign:center; characterSpacing:1pt; fontFamilyNames:Noto Sans,SimHei">'II. Jaringan Global'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#33203A; marginBottom:8px; fontFamilyNames:Noto Sans,SimHei">'Per 30 September 2026, bank memiliki 1.286 cabang dan 3.470 mesin layanan mandiri di 68 negara dan wilayah. Enam hub regional melayani segmen korporasi dan ritel dalam mata uang serta bahasa setempat; seluruh dokumen perdagangan internasional diterima dalam tujuh bahasa tanpa biaya penerjemahan tambahan.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Wilayah'</th>
+      <th style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Hub regional'</th>
+      <th style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Bahasa layanan'</th>
+      <th style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Jumlah cabang'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Asia Pasifik'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Singapura'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Inggris, Mandarin, Jepang'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Timur Tengah & Afrika Utara'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Dubai'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Arab, Inggris, Prancis'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Eropa'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Frankfurt'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Jerman, Prancis, Inggris'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Rusia & CIS'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Moskow'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Rusia, Inggris'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Jepang'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Tokyo'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Jepang, Inggris'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Amerika'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'New York'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Inggris, Spanyol'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'260'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Gambar 2  Komposisi mata uang penyelesaian lintas batas (menurut nilai, tiga kuartal pertama 2026)'</p>
+
+  <table style="width:84%; marginTop:6px; marginBottom:4px; borderTop:0.8f solid #6B2F6B; borderBottom:0.8f solid #6B2F6B">
+    <tr>
+      <td style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; fontSize:10.5pt; textAlign:center; characterSpacing:1pt; fontFamilyNames:Noto Sans,SimHei">'III. Rincian per Wilayah'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#33203A; marginBottom:8px; fontFamilyNames:Noto Sans,SimHei">'Tiongkok Daratan tetap menjadi pilar dengan pendapatan 986 (satuan: 100 juta yuan), diikuti Asia Pasifik 412 dan Eropa 268. Seluruh enam wilayah mencatat pertumbuhan dua digit dibanding periode yang sama tahun lalu.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Wilayah'</th>
+      <th style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Pendapatan (juta yuan)'</th>
+      <th style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Penyelesaian (juta yuan)'</th>
+      <th style="padding:5px; backgroundColor:#F3F0FA; color:#4A1F4A; bold:true; textAlign:center; fontFamilyNames:Noto Sans,SimHei">'Pertumbuhan'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Tiongkok Daratan'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'986'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'6.420'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'+18,2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Asia Pasifik'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'412'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'2.760'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'+15,6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Eropa'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'268'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'1.890'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'+12,3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Timur Tengah'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'186'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'1.240'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'+18,6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Jepang'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'174'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'980'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'+14,8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'Rusia & CIS'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'154'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'690'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'+21,4%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Gambar 3  Volume bisnis lintas batas bulanan, Januari hingga Oktober 2026'</p>
+
+  <!-- 签章占位区 -->
+  <table style="width:100%; fontSize:8pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:6px; textAlign:center; color:#4A1F4A; backgroundColor:#F3F0FA; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'(Stempel bank / unit)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#4A1F4A; backgroundColor:#F3F0FA; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'(Stempel sambungan / kode QR)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#4A1F4A; backgroundColor:#F3F0FA; border:0.5f solid #D5CBE8; fontFamilyNames:Noto Sans,SimHei">'(Kode QR verifikasi)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:4px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#4A1F4A; fontFamilyNames:Noto Sans,SimHei">'Disusun:'${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#4A1F4A; fontFamilyNames:Noto Sans,SimHei">'Diperiksa:'${reviewedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#4A1F4A; fontFamilyNames:Noto Sans,SimHei">'Diterbitkan:'${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; textAlignment:center; marginTop:8px; fontFamilyNames:Noto Sans,SimHei">'Laporan ini hanya untuk rujukan lembaga yang berwenang; seluruh data keuangan mengikuti laporan tahunan grup yang telah diaudit.'</p>
+</body>
+</pdf>

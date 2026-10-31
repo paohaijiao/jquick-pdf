@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#8A5A00;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ตัวอย่าง PDF ภาษาไทย · Thai PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'อักษรไทยพร้อมวรรณยุกต์ · 泰文声调示例 · '${reportDate}</p>
+  <div style="border:solid 1px #E2CFA0;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'สวัสดี! นี่คือตัวอย่าง PDF หลายภาษาของ JQuick-Pdf'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภาษาไทยมีสระและวรรณยุกต์ซ้อนบน-ล่าง เช่น ภาษาไทย ธนาคาร'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'Thai script stacks vowels and tone marks above and below consonants.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#8A5A00;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'คำไทย'</th>
+      <th style="backgroundColor:#8A5A00;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ความหมาย (中文释义)'</th>
+    </tr>
+        <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ธนาคาร'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'เงินตรา'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'การชำระเงิน'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'อัตราแลกเปลี่ยน'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'汇率'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei"><span>'เรนเดอร์ด้วย PDFBox ฟอนต์ Noto Sans Thai รองรับสระและวรรณยุกต์ครบถ้วน'</span><br><span style="fontColor:#8A5A00">'Thai demo · '${reportDate}</span></p>
+</body>
+</pdf>

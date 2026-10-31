@@ -1,0 +1,34 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#557C1F;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦣᧂᦇᦹᧃ ᦂᦱᧃ ᦔᦲ · New Tai Lue PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'新傣仂文（傣语）渲染示例 · 声调与新傣文数字 · '${reportDate}</p>
+  <div style="border:solid 1px #CBDBA8;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦂᦱᧃ ᦵᦣᦲᧃ ᦷᦣᧂᦇᦹᧃ ᦡᦲ'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'新傣仂文（New Tai Lue, U+1980-U+19DF）用于西双版纳傣文书写。'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'New Tai Lue is the modern script of the Tai Lue language (Xishuangbanna Dai).'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#557C1F;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'新傣仂文'</th>
+      <th style="backgroundColor:#557C1F;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'释义'</th>
+    </tr>
+        <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦣᧂᦇᦹᧃ'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'银行（money house）'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦇᦹᧃ'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'钱 / 货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦵᦡᦲᧃ'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'月份'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'᧑᧒᧘᧖'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'数字 1286（新傣文数字）'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei"><span>'Rendered by PDFBox with Noto Sans New Tai Lue; digits ᧐-᧙ come from the script block.'</span><br><span style="fontColor:#557C1F">'Dai (Tai Lue) demo · '${reportDate}</span></p>
+</body>
+</pdf>

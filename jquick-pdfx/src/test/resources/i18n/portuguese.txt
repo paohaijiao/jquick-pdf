@@ -1,0 +1,38 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#1C7ED6;fontFamilyNames:Noto Sans,SimHei">'Exemplo de PDF em português · Portuguese PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans,SimHei">'Acentuação e cedilha · 重音符号与软音符渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #1C7ED6;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans,SimHei">'Olá! Esta é uma demonstração de PDF multilíngue do JQuick-Pdf.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'O português usa o alfabeto latino com acentos (ã, õ, ç, á, ê) e o trema.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans,SimHei">'Portuguese uses Latin-1 with tilde, cedilla and circumflex diacritics.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#1C7ED6;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Palavra'</th>
+      <th style="backgroundColor:#1C7ED6;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'Significado (中文释义)'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'banco'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'moeda'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'liquidação transfronteiriça'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'跨境支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'crescimento de dois dígitos'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'两位数增长'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'rede global'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans,SimHei">'全球网络'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans,SimHei"><span>'Gerado pelo PDFBox, com a fonte Noto Sans cobrindo todos os acentos do português.'</span><br><span style="fontColor:#1C7ED6">'Portuguese demo · '${reportDate}</span></p>
+</body>
+</pdf>

@@ -1,0 +1,171 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（泰语）  视觉主题：金箔紫檀·泰庙式
+  // 主色 #8A5A00  深色 #5C3B00  浅底 #FBF5E4  描边 #E2CFA0
+
+  <h1 style="fontSize:20pt; bold:true; color:#8A5A00; textAlignment:center; characterSpacing:3pt; marginBottom:2px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'รายงานผลการดำเนินงานทั่วโลก 2026'</h1>
+  <p style="fontSize:9pt; color:#7A1F3D; textAlignment:center; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ธนาคาร หุยทง ระดับโลก · ไตรมาส 1-3 ปี 2026 · งบรวมของกลุ่ม'</p>
+  <lineSeparator style="color:#8A5A00; thickness:2.2f; marginTop:4px"></lineSeparator>
+  <lineSeparator style="color:#E2CFA0; thickness:0.4f; marginBottom:10px"></lineSeparator>
+
+  // 信息区：居中单行四段
+  <p style="fontSize:8.5pt; textAlignment:center; color:#3B2A12; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'เลขที่รายงาน '${reportNo}'  |  วันที่รายงาน'${reportDate}'  |  หน่วยงานจัดทำ'${orgName}</p>
+
+  // KPI 区：2 组卡片（标签行在上、数值行在下，浅金底 + 金边框）
+  <table style="width:100%; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:7px 6px 2px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; borderTop:2px solid #8A5A00; fontSize:7.5pt; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'สินทรัพย์รวม'</td>
+      <td style="width:25%; padding:7px 6px 2px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; borderTop:2px solid #8A5A00; fontSize:7.5pt; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'การชำระ ข้ามพรมแดน'</td>
+      <td style="width:25%; padding:7px 6px 2px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; borderTop:2px solid #8A5A00; fontSize:7.5pt; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'สาขา ทั่วโลก'</td>
+      <td style="width:25%; padding:7px 6px 2px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; borderTop:2px solid #8A5A00; fontSize:7.5pt; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ประเทศ และ เขตแดน'</td>
+    </tr>
+    <tr>
+      <td style="padding:2px 6px 9px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; bold:true; fontSize:12pt; color:#8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:2px 6px 9px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; bold:true; fontSize:12pt; color:#8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:2px 6px 9px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; bold:true; fontSize:12pt; color:#8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:2px 6px 9px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; bold:true; fontSize:12pt; color:#8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:7px 6px 2px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; borderTop:2px solid #8A5A00; fontSize:7.5pt; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'รายได้'</td>
+      <td style="width:25%; padding:7px 6px 2px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; borderTop:2px solid #8A5A00; fontSize:7.5pt; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'กำไรสุทธิ'</td>
+      <td style="width:25%; padding:7px 6px 2px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; borderTop:2px solid #8A5A00; fontSize:7.5pt; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'จำนวนพนักงาน'</td>
+      <td style="width:25%; padding:7px 6px 2px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; borderTop:2px solid #8A5A00; fontSize:7.5pt; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ลูกค้า'</td>
+    </tr>
+    <tr>
+      <td style="padding:2px 6px 9px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; bold:true; fontSize:12pt; color:#8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:2px 6px 9px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; bold:true; fontSize:12pt; color:#8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:2px 6px 9px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; bold:true; fontSize:12pt; color:#8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">${employees}</td>
+      <td style="padding:2px 6px 9px 6px; textAlign:center; backgroundColor:#FBF5E4; border:0.75f solid #E2CFA0; bold:true; fontSize:12pt; color:#8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <p style="fontSize:11pt; bold:true; color:#8A5A00; textAlignment:center; characterSpacing:1pt; marginTop:6px; marginBottom:2px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'๏ ๑. ภาพรวม การดำเนินงาน ๏'</p>
+  <lineSeparator style="color:#E2CFA0; thickness:1f; marginBottom:4px"></lineSeparator>
+  <p style="fontSize:9pt; color:#3B2A12; marginBottom:8px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ใน ช่วง สามไตรมาสแรก ปี 2026 ธนาคาร รักษา รูปแบบ ธุรกิจ ที่ รวม เงินบาท กับ เงินตรา ต่างประเทศ ไว้ ด้วยกัน ตลาด จีนแผ่นดินใหญ่ สร้าง รายได้ 45.2 เปอร์เซ็นต์ ของ กลุ่ม ขณะที่ ภูมิภาค เอเชียแปซิฟิก ตะวันออกกลาง และ ยุโรป รวมกัน อีก 39.7 เปอร์เซ็นต์.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:690pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภาพ 1  รายได้ ตาม ภูมิภาค ไตรมาส 1-3 ปี 2026 (หน่วย: ล้านหยวน)'</p>
+
+  <p style="fontSize:11pt; bold:true; color:#8A5A00; textAlignment:center; characterSpacing:1pt; marginTop:6px; marginBottom:2px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'๏ ๒. เครือข่าย ทั่วโลก ๏'</p>
+  <lineSeparator style="color:#E2CFA0; thickness:1f; marginBottom:4px"></lineSeparator>
+  <p style="fontSize:9pt; color:#3B2A12; marginBottom:8px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ณ วันที่ 30 กันยายน 2026 ธนาคาร มี 1,286 สาขา และ เครื่อง ให้บริการ ตนเอง 3,470 เครื่อง ใน 68 ประเทศ และ เขตแดน ศูนย์ ภูมิภาค หก แห่ง ให้ บริการ ทั้ง ธุรกิจ และ บุคคล ด้วย เงิน ท้องถิ่น และ ภาษา ท้องถิ่น.'</p>
+  <table style="width:92%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px; color:#5C3B00; bold:true; textAlign:center; borderTop:1.6f solid #8A5A00; borderBottom:0.6f solid #E2CFA0; backgroundColor:#FBF5E4; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภูมิภาค'</th>
+      <th style="padding:5px; color:#5C3B00; bold:true; textAlign:center; borderTop:1.6f solid #8A5A00; borderBottom:0.6f solid #E2CFA0; backgroundColor:#FBF5E4; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ศูนย์ ภูมิภาค'</th>
+      <th style="padding:5px; color:#5C3B00; bold:true; textAlign:center; borderTop:1.6f solid #8A5A00; borderBottom:0.6f solid #E2CFA0; backgroundColor:#FBF5E4; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภาษา ที่ ให้ บริการ'</th>
+      <th style="padding:5px; color:#5C3B00; bold:true; textAlign:center; borderTop:1.6f solid #8A5A00; borderBottom:0.6f solid #E2CFA0; backgroundColor:#FBF5E4; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'จำนวน สาขา'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'เอเชียแปซิฟิก'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'สิงคโปร์'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'อังกฤษ จีน ญี่ปุ่น'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ตะวันออกกลาง และ แอฟริกาเหนือ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ดูไบ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'อาหรับ อังกฤษ ฝรั่งเศส'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ยุโรป'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'แฟรงก์เฟิร์ต'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'เยอรมัน ฝรั่งเศส อังกฤษ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภูมิภาค รัสเซีย'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'มอสโก'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'รัสเซีย อังกฤษ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ญี่ปุ่น'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'โตเกียว'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ญี่ปุ่น อังกฤษ'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:1.6f solid #8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'อเมริกา'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1.6f solid #8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'นิวยอร์ก'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1.6f solid #8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'อังกฤษ สเปน'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1.6f solid #8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'260'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:400pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภาพ 2  สัดส่วน สกุลเงิน ใน การ ชำระ ข้ามพรมแดน (ตาม มูลค่า ไตรมาส 1-3 ปี 2026)'</p>
+
+  <p style="fontSize:11pt; bold:true; color:#8A5A00; textAlignment:center; characterSpacing:1pt; marginTop:6px; marginBottom:2px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'๏ ๓. รายละเอียด ตามภูมิภาค ๏'</p>
+  <lineSeparator style="color:#E2CFA0; thickness:1f; marginBottom:4px"></lineSeparator>
+  <p style="fontSize:9pt; color:#3B2A12; marginBottom:8px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภูมิภาค จีนแผ่นดินใหญ่ เป็น หลัก ด้วย รายได้ 986 ล้านหยวน ตาม ด้วย เอเชียแปซิฟิก 412 ล้านหยวน และ ยุโรป 268 ล้านหยวน ทุก ภูมิภาค มี การ เติบโต สอง หลัก เมื่อ เทียบ กับ ช่วง เดียวกัน ของ ปี ก่อน.'</p>
+  <table style="width:92%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px; color:#5C3B00; bold:true; textAlign:center; borderTop:1.6f solid #8A5A00; borderBottom:0.6f solid #E2CFA0; backgroundColor:#FBF5E4; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภูมิภาค'</th>
+      <th style="padding:5px; color:#5C3B00; bold:true; textAlign:center; borderTop:1.6f solid #8A5A00; borderBottom:0.6f solid #E2CFA0; backgroundColor:#FBF5E4; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'รายได้ (ล้านหยวน)'</th>
+      <th style="padding:5px; color:#5C3B00; bold:true; textAlign:center; borderTop:1.6f solid #8A5A00; borderBottom:0.6f solid #E2CFA0; backgroundColor:#FBF5E4; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'การชำระ (ล้านหยวน)'</th>
+      <th style="padding:5px; color:#5C3B00; bold:true; textAlign:center; borderTop:1.6f solid #8A5A00; borderBottom:0.6f solid #E2CFA0; backgroundColor:#FBF5E4; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'การเติบโต'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'จีนแผ่นดินใหญ่'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'986'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'6,420'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'เอเชียแปซิฟิก'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'412'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'2,760'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ยุโรป'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'268'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'1,890'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ตะวันออกกลาง'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'186'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'1,240'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ญี่ปุ่น'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'174'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'980'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:0.4f solid #E2CFA0; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; borderBottom:1.6f solid #8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภูมิภาค รัสเซีย'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1.6f solid #8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'154'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1.6f solid #8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'690'</td>
+      <td style="padding:5px; textAlign:right; borderBottom:1.6f solid #8A5A00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'+21.4%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:690pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ภาพ 3  แนวโน้ม ปริมาณ ธุรกิจ ข้ามพรมแดน รายเดือน มกราคม ถึง ตุลาคม 2026'</p>
+
+  // 签章：居中三行无框
+  <table style="width:100%; fontSize:8.5pt; marginTop:8px; marginBottom:4px">
+    <tr>
+      <td style="width:33%; padding:8px; textAlign:center; color:#7A1F3D; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'(ตรา ธนาคาร / ตรา หน่วยงาน)'</td>
+      <td style="width:33%; padding:8px; textAlign:center; color:#7A1F3D; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'(ตรา ประทับ ขอบ / คิวอาร์)'</td>
+      <td style="width:33%; padding:8px; textAlign:center; color:#7A1F3D; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'(คิวอาร์ ยืนยัน)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:2px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:center; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'จัดทำ:'${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ตรวจสอบ:'${reviewedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:center; color:#5C3B00; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ออกโดย:'${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; textAlignment:center; marginTop:10px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'รายงาน นี้ จัดทำ เพื่อ ให้ หน่วยงาน ที่ ได้รับ อนุญาต ใช้ อ้างอิง เท่านั้น ข้อมูล การเงิน ทั้งหมด ใช้ ตาม รายงาน ประจำ ปี ที่ ตรวจสอบ แล้ว ของ กลุ่ม.'</p>
+</body>
+</pdf>

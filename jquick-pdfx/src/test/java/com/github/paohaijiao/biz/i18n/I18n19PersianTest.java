@@ -26,41 +26,40 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 国际化多语言渲染 —— 日语 Demo
+ * 国际化多语言渲染 · 序号 19 —— 波斯语 Demo
  *
- * <p>日文字体选型为 Noto Sans JP（覆盖平假名、片假名与汉字字形），
- * 模板中 fontFamilyNames 声明回退链 Noto Sans JP,Helvetica。
- * 字体文件位于 jquick-pdf-font 模块 resources/fonts 下，
- * 通过 classpath 注册。</p>
+ * <p>波斯语字体选型为 Noto Sans Arabic（覆盖 پ چ ژ گ 增补字母与 ۰-۹ 东阿拉伯数字），主题色「波斯细密画·绿松石」#5F3DC4。</p>
  *
- * <p>模板：i18n/japanese.txt，输出：D:\test\i18n\japanese.pdf</p>
+ * <p>模板：i18n/persian.txt，输出：D://test//i18n//persian.pdf</p>
  *
  * @author Martin
  * @version 1.0.0
  */
-public class JapaneseTest {
+public class I18n19PersianTest {
 
     public static final String path = JQuickConstant.path;
 
     @Test
-    public void japanese() throws IOException {
+    public void i18n19() throws IOException {
         JPdfConfig config = new JPdfConfig();
-        // 手动注册外部字体：Noto Sans JP（假名 + 汉字字形，官方静态 Regular OTF）
-        config.getFontConfig().registerFont("Noto Sans JP", "fonts/NotoSansJP-Regular.ttf");
+        // 4.6.0 起目录（TOC）默认开启且固定用 SimHei 度量标题，非 CJK 标题会缺字形，这里关闭
+        config.getCatalogConfig().setEnabled(false);
+        // 手动注册外部字体：Noto Sans Arabic（波斯语用阿拉伯字母，含 پ چ ژ گ 四个增补字母与东阿拉伯数字）
+        config.getFontConfig().registerFont("Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
         // 注册内置 CJK 字体，供模板中中文混排元素的 fontFamilyNames 回退链命中
         config.getFontConfig().registerFont("SimHei", "fonts/simhei.ttf");
-        JFontSpec japaneseFont = new JFontSpec("Noto Sans JP", "fonts/NotoSansJP-Regular.ttf");
-        config.getFontConfig().setDefaultFont(japaneseFont);
+        JFontSpec defaultFont = new JFontSpec("Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
+        config.getFontConfig().setDefaultFont(defaultFont);
 
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        factory.bind("reportDate", "2026-10-24");
-        byte[] pdf = factory.executeResource("i18n/japanese.txt");
+        factory.bind("reportDate", "2026-10-31");
+        byte[] pdf = factory.executeResource("i18n/persian.txt");
 
         File dir = new File(path + "i18n");
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream(path + "i18n/japanese.pdf");
+        FileOutputStream out = new FileOutputStream(path + "i18n/persian.pdf");
         out.write(pdf);
         out.close();
     }

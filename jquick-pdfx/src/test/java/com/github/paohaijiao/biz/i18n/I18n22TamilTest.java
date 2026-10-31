@@ -26,41 +26,40 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 国际化多语言渲染 —— 阿拉伯文 Demo
+ * 国际化多语言渲染 · 序号 22 —— 泰米尔语 Demo
  *
- * <p>阿拉伯文字体选型为 Noto Sans Arabic（官方阿拉伯文包，含词首/词中/词尾
- * 连写字形），模板中 RTL 段落声明 baseDirection:rtl 并配合
- * textAlignment:right 右对齐。字体文件位于 jquick-pdf-font 模块
- * resources/fonts 下，通过 classpath 注册。</p>
+ * <p>泰米尔文字体选型为 Noto Sans Tamil（覆盖 12 元音、18 辅音与 216 个辅元合字），主题色「庙塔·黄檀式」#C2185B。</p>
  *
- * <p>模板：i18n/arabic.txt，输出：D:\test\i18n\arabic.pdf</p>
+ * <p>模板：i18n/tamil.txt，输出：D://test//i18n//tamil.pdf</p>
  *
  * @author Martin
  * @version 1.0.0
  */
-public class ArabicTest {
+public class I18n22TamilTest {
 
     public static final String path = JQuickConstant.path;
 
     @Test
-    public void arabic() throws IOException {
+    public void i18n22() throws IOException {
         JPdfConfig config = new JPdfConfig();
-        // 手动注册外部字体：Noto Sans Arabic（阿拉伯文，RTL 连写字形）
-        config.getFontConfig().registerFont("Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
+        // 4.6.0 起目录（TOC）默认开启且固定用 SimHei 度量标题，非 CJK 标题会缺字形，这里关闭
+        config.getCatalogConfig().setEnabled(false);
+        // 手动注册外部字体：Noto Sans Tamil（泰米尔文，12 元音 + 18 辅音 + 216 合字）
+        config.getFontConfig().registerFont("Noto Sans Tamil", "fonts/NotoSansTamil.ttf");
         // 注册内置 CJK 字体，供模板中中文混排元素的 fontFamilyNames 回退链命中
         config.getFontConfig().registerFont("SimHei", "fonts/simhei.ttf");
-        JFontSpec arabicFont = new JFontSpec("Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
-        config.getFontConfig().setDefaultFont(arabicFont);
+        JFontSpec defaultFont = new JFontSpec("Noto Sans Tamil", "fonts/NotoSansTamil.ttf");
+        config.getFontConfig().setDefaultFont(defaultFont);
 
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        factory.bind("reportDate", "2026-10-24");
-        byte[] pdf = factory.executeResource("i18n/arabic.txt");
+        factory.bind("reportDate", "2026-10-31");
+        byte[] pdf = factory.executeResource("i18n/tamil.txt");
 
         File dir = new File(path + "i18n");
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream(path + "i18n/arabic.pdf");
+        FileOutputStream out = new FileOutputStream(path + "i18n/tamil.pdf");
         out.write(pdf);
         out.close();
     }

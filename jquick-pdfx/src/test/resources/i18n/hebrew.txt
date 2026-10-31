@@ -1,0 +1,38 @@
+<pdf>
+<body>
+  <h1 style="fontSize:18;textAlignment:center;fontColor:#1A7F37;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'דוגמת PDF בעברית · Hebrew PDF Demo'</h1>
+  <p style="fontSize:11;textAlignment:center;color:#666666;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'כתב עברי מימין לשמאל · 希伯来语 RTL 排版与元音符号渲染示例 · '${reportDate}</p>
+  <div style="border:solid 1px #1A7F37;borderRadius:4px;padding:10px;marginBottom:8px">
+    <p style="fontSize:14;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'שלום! זוהי הדגמה של PDF רב-לשוני מבית JQuick-Pdf.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'העברית נכתבת מימין לשמאל ומשתמשת ב-22 אותיות ובסימני ניקוד.'</p>
+    <p style="fontSize:12;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'Hebrew is written right-to-left with 22 letters and optional niqqud.'</p>
+  </div>
+  <table style="width:500px;border:solid 1px #999999;fontSize:10;marginBottom:8px">
+    <tr>
+      <th style="backgroundColor:#1A7F37;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'מילה'</th>
+      <th style="backgroundColor:#1A7F37;color:white;padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'משמעות (中文释义)'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'בנק'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'银行'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'מטבע'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'货币'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סליקה חוצת גבולות'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'跨境支付'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'צמיחה דו-ספרתית'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'两位数增长'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'רשת גלובלית'</td>
+      <td style="padding:5px;textAlignment:center;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'全球网络'</td>
+    </tr>
+  </table>
+  <p style="fontSize:10;color:#888888;fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei"><span>'נוצר באמצעות PDFBox; הגופן Noto Sans Hebrew מכסה את כל האותיות והניקוד.'</span><br><span style="fontColor:#1A7F37">'Hebrew demo · '${reportDate}</span></p>
+</body>
+</pdf>

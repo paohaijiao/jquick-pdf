@@ -1,0 +1,197 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（希伯来语）  视觉主题：迦南·橄榄式
+  // 主色 #1A7F37  深色 #0F5223  浅底 #EFF7F0  描边 #BFDCC4
+
+  // 抬头：右对齐标题 + 右侧粗色条（RTL）
+  <table style="width:100%; marginBottom:3px; borderRight:7px solid #1A7F37">
+    <tr>
+      <td style="padding:8px 10px 2px 10px; textAlign:right; color:#0F5223; bold:true; fontSize:17pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'דוח פעילות גלובלי 2026'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 10px 8px 10px; textAlign:right; color:#6B7280; fontSize:8.8pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'בנק הוויטונג הגלובלי · שלושת הרבעונים הראשונים של 2026 · דוח מאוחד של הקבוצה'</td>
+    </tr>
+  </table>
+
+  // 信息区：右对齐两列两行
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <td style="width:16%; padding:5px 6px; textAlign:right; color:#0F5223; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'מספר דוח'</td>
+      <td style="width:34%; padding:5px 6px; textAlign:right; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${reportNo}</td>
+      <td style="width:16%; padding:5px 6px; textAlign:right; color:#0F5223; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'תאריך דוח'</td>
+      <td style="padding:5px 6px; textAlign:right; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:16%; padding:5px 6px; textAlign:right; color:#0F5223; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'יחידה מפיקה'</td>
+      <td style="width:34%; padding:5px 6px; textAlign:right; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${orgName}</td>
+      <td style="width:16%; padding:5px 6px; textAlign:right; color:#0F5223; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'היקף הנתונים'</td>
+      <td style="padding:5px 6px; textAlign:right; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI：四列两行，底部细线
+  <table style="width:100%; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#1E2B22; fontSize:7.5pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סך הנכסים'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#1E2B22; fontSize:7.5pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סליקה חוצת גבולות'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#1E2B22; fontSize:7.5pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סניפים גלובליים'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#1E2B22; fontSize:7.5pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'מדינות ואזורים'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#1A7F37; borderBottom:1.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#1A7F37; borderBottom:1.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#1A7F37; borderBottom:1.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#1A7F37; borderBottom:1.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#1E2B22; fontSize:7.5pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'הכנסות'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#1E2B22; fontSize:7.5pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'רווח נקי'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#1E2B22; fontSize:7.5pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'עובדים'</td>
+      <td style="width:25%; padding:6px 4px 1px 4px; textAlign:center; color:#1E2B22; fontSize:7.5pt; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'לקוחות'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#1A7F37; borderBottom:1.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#1A7F37; borderBottom:1.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#1A7F37; borderBottom:1.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${employees}</td>
+      <td style="padding:0px 4px 8px 4px; textAlign:center; bold:true; fontSize:11pt; color:#1A7F37; borderBottom:1.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="padding:4px 0px; textAlign:right; color:#0F5223; bold:true; fontSize:11.5pt; borderBottom:1.5f solid #1A7F37; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'1. סקירה כללית של הפעילות'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#1E2B22; textAlign:right; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'בשלושת הרבעונים הראשונים של 2026 שמר הבנק על מודל עסקי מאוחד — מטבע מקומי ומטבע חוץ, שוק פנימי וחיצוני, ערוצים דיגיטליים וסניפים. סין היבשתית סיפקה 45.2% מהכנסות הקבוצה, ואזור אסיה-פסיפיק, המזרח התיכון ואירופה הוסיפו 39.7% נוספים. מחזור הסליקה חוצת הגבולות ביואן צמח ב-21.4% לעומת השנה שעברה.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'איור 1  הכנסות לפי אזור, שלושת הרבעונים הראשונים של 2026 (מאה מיליון יואן)'</p>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="padding:4px 0px; textAlign:right; color:#0F5223; bold:true; fontSize:11.5pt; borderBottom:1.5f solid #1A7F37; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'2. הרשת הגלובלית'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#1E2B22; textAlign:right; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'נכון ל-30 בספטמבר 2026 מפעיל הבנק 1,286 סניפים ו-3,470 מסופי שירות עצמי ב-68 מדינות ואזורים. שישה מרכזים אזוריים מספקים שירותי סיטונאות וקמעונאות במטבע ובשפה המקומיים; כל מסמכי הסחר הבינלאומי מתקבלים בשבע שפות, ללא עלות תרגום נוספת.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; backgroundColor:#1A7F37; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אזור'</th>
+      <th style="padding:5px 4px; backgroundColor:#1A7F37; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'מרכז אזורי'</th>
+      <th style="padding:5px 4px; backgroundColor:#1A7F37; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'שפות שירות'</th>
+      <th style="padding:5px 4px; backgroundColor:#1A7F37; color:white; bold:true; textAlign:center; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סניפים'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אסיה-פסיפיק'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סינגפור'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אנגלית, סינית, יפנית'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'המזרח התיכון וצפון אפריקה'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'דובאי'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'ערבית, אנגלית, צרפתית'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אירופה'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'פרנקפורט'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'גרמנית, צרפתית, אנגלית'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אזור רוסיה'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'מוסקבה'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'רוסית, אנגלית'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'יפן'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'טוקיו'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'יפנית, אנגלית'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:right; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אמריקה'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'ניו יורק'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אנגלית, ספרדית, פורטוגזית'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; backgroundColor:#EFF7F0; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'260'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'איור 2  הרכב מטבעות בסליקה חוצת גבולות (לפי שווי, 2026 רבעון 1-3)'</p>
+
+  <table style="width:100%; marginTop:10px; marginBottom:5px">
+    <tr>
+      <td style="padding:4px 0px; textAlign:right; color:#0F5223; bold:true; fontSize:11.5pt; borderBottom:1.5f solid #1A7F37; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'3. פירוט לפי אזור'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#1E2B22; textAlign:right; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סין היבשתית נותרת עמוד התווך עם הכנסות של 986 (במאות מיליוני יואן), אחריה אסיה-פסיפיק עם 412 ואירופה עם 268. כל ששת האזורים רשמו צמיחה דו-ספרתית לעומת השנה שעברה.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="padding:5px 4px; borderTop:1.6f solid #1A7F37; borderBottom:0.75f solid #1A7F37; color:#1A7F37; bold:true; textAlign:center; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אזור'</th>
+      <th style="padding:5px 4px; borderTop:1.6f solid #1A7F37; borderBottom:0.75f solid #1A7F37; color:#1A7F37; bold:true; textAlign:center; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'הכנסות (מאה מיליון יואן)'</th>
+      <th style="padding:5px 4px; borderTop:1.6f solid #1A7F37; borderBottom:0.75f solid #1A7F37; color:#1A7F37; bold:true; textAlign:center; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סליקה (מאה מיליון יואן)'</th>
+      <th style="padding:5px 4px; borderTop:1.6f solid #1A7F37; borderBottom:0.75f solid #1A7F37; color:#1A7F37; bold:true; textAlign:center; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'צמיחה'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'סין היבשתית'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'986'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'6,420'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'+18.2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אסיה-פסיפיק'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'412'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'2,760'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'+15.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אירופה'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'268'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'1,890'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'+12.3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'המזרח התיכון'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'186'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'1,240'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'+18.6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'יפן'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'174'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'980'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'+14.8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'אזור רוסיה'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'154'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'690'</td>
+      <td style="padding:5px 4px; textAlign:center; borderBottom:0.5f solid #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'+21.4%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'איור 3  מגמה חודשית של מחזור חוצה גבולות, ינואר עד אוקטובר 2026'</p>
+
+  <table style="width:100%; fontSize:8pt; marginTop:6px; marginBottom:6px">
+    <tr>
+      <td style="width:33%; padding:6px; textAlign:right; color:#0F5223; borderTop:0.75f dashed #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'(בנק / חותמת היחידה)'</td>
+      <td style="width:33%; padding:6px; textAlign:right; color:#0F5223; borderTop:0.75f dashed #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'(חותמת ביניים / QR)'</td>
+      <td style="width:33%; padding:6px; textAlign:right; color:#0F5223; borderTop:0.75f dashed #BFDCC4; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'(קוד QR לאימות)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; textAlign:right; color:#0F5223; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'הכין: '${preparedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:right; color:#0F5223; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'בדק: '${reviewedBy}</td>
+      <td style="width:33%; padding:4px; textAlign:right; color:#0F5223; bold:true; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'הפיק: '${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; marginTop:8px; textAlign:right; fontFamilyNames:Noto Sans Hebrew,Noto Sans,SimHei">'דוח זה מיועד למוסדות מורשים בלבד; כל הנתונים הכספיים מבוססים על הדוח השנתי המבוקר של הקבוצה.'</p>
+</body>
+</pdf>

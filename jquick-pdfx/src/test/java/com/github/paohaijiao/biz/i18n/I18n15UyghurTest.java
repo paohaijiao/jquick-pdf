@@ -26,41 +26,41 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 国际化多语言渲染 —— 传统蒙古文 Demo
+ * 国际化多语言渲染 · 序号 15 —— 维吾尔文 Demo
  *
- * <p>传统蒙古文使用蒙古文区段字符，官方竖排字体选型为 Noto Sans Mongolian
- * （notofonts 官方发布为 TTF；竖排书写由渲染层按 -90° 旋转完成，
- * 模板中对应 angleInRadians:-1.5708）。字体文件位于 jquick-pdf-font
+ * <p>维吾尔文使用扩展阿拉伯字母（ UIPA 区段 + Arabic Supplement），
+ * 字体选型为 Noto Sans Arabic，模板中 RTL 段落声明 baseDirection:rtl
+ * 并配合 textAlignment:right 右对齐。字体文件位于 jquick-pdf-font
  * 模块 resources/fonts 下，通过 classpath 注册。</p>
  *
- * <p>模板：i18n/traditional_mongolian.txt，输出：D:\test\i18n\traditional_mongolian.pdf</p>
+ * <p>模板：i18n/uyghur.txt，输出：D:/test/i18n/uyghur.pdf</p>
  *
  * @author Martin
  * @version 1.0.0
  */
-public class TraditionalMongolianTest {
+public class I18n15UyghurTest {
 
     public static final String path = JQuickConstant.path;
 
     @Test
-    public void traditionalMongolian() throws IOException {
+    public void uyghur() throws IOException {
         JPdfConfig config = new JPdfConfig();
-        // 手动注册外部字体：Noto Sans Mongolian（传统蒙古文/满文共用，竖排字形）
-        config.getFontConfig().registerFont("Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
+        // 手动注册外部字体：Noto Sans Arabic（维吾尔文共用阿拉伯字母字体，RTL 连写）
+        config.getFontConfig().registerFont("Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
         // 注册内置 CJK 字体，供模板中中文混排元素的 fontFamilyNames 回退链命中
         config.getFontConfig().registerFont("SimHei", "fonts/simhei.ttf");
-        JFontSpec mongolianFont = new JFontSpec("Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
-        config.getFontConfig().setDefaultFont(mongolianFont);
+        JFontSpec uyghurFont = new JFontSpec("Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
+        config.getFontConfig().setDefaultFont(uyghurFont);
 
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("reportDate", "2026-10-24");
-        byte[] pdf = factory.executeResource("i18n/traditional_mongolian.txt");
+        byte[] pdf = factory.executeResource("i18n/uyghur.txt");
 
         File dir = new File(path + "i18n");
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream(path + "i18n/traditional_mongolian.pdf");
+        FileOutputStream out = new FileOutputStream(path + "i18n/uyghur.pdf");
         out.write(pdf);
         out.close();
     }

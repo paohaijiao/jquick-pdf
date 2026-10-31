@@ -26,41 +26,40 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 国际化多语言渲染 —— 满文 Demo
+ * 国际化多语言渲染 · 序号 05 —— 印尼语 Demo
  *
- * <p>满文使用蒙古文区段字符，官方竖排字体选型为 Noto Sans Mongolian
- * （notofonts 官方发布为 TTF；竖排书写由渲染层按 -90° 旋转完成，
- * 模板中对应 angleInRadians:-1.5708）。字体文件位于 jquick-pdf-font
- * 模块 resources/fonts 下，通过 classpath 注册。</p>
+ * <p>印尼语使用拉丁字母，默认 Noto Sans 即可完整覆盖；主题色「巴迪·靛紫」#6B2F6B。</p>
  *
- * <p>模板：i18n/manchu.txt，输出：D:\test\i18n\manchu.pdf</p>
+ * <p>模板：i18n/indonesian.txt，输出：D://test//i18n//indonesian.pdf</p>
  *
  * @author Martin
  * @version 1.0.0
  */
-public class ManchuTest {
+public class I18n05IndonesianTest {
 
     public static final String path = JQuickConstant.path;
 
     @Test
-    public void manchu() throws IOException {
+    public void i18n05() throws IOException {
         JPdfConfig config = new JPdfConfig();
-        // 手动注册外部字体：Noto Sans Mongolian（满文/传统蒙古文共用，竖排字形）
-        config.getFontConfig().registerFont("Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
+        // 4.6.0 起目录（TOC）默认开启且固定用 SimHei 度量标题，非 CJK 标题会缺字形，这里关闭
+        config.getCatalogConfig().setEnabled(false);
+        // 手动注册外部字体：Noto Sans（印尼语）
+        config.getFontConfig().registerFont("Noto Sans", "fonts/NotoSans-Regular.ttf");
         // 注册内置 CJK 字体，供模板中中文混排元素的 fontFamilyNames 回退链命中
         config.getFontConfig().registerFont("SimHei", "fonts/simhei.ttf");
-        JFontSpec manchuFont = new JFontSpec("Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
-        config.getFontConfig().setDefaultFont(manchuFont);
+        JFontSpec defaultFont = new JFontSpec("Noto Sans", "fonts/NotoSans-Regular.ttf");
+        config.getFontConfig().setDefaultFont(defaultFont);
 
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        factory.bind("reportDate", "2026-10-24");
-        byte[] pdf = factory.executeResource("i18n/manchu.txt");
+        factory.bind("reportDate", "2026-10-31");
+        byte[] pdf = factory.executeResource("i18n/indonesian.txt");
 
         File dir = new File(path + "i18n");
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream(path + "i18n/manchu.pdf");
+        FileOutputStream out = new FileOutputStream(path + "i18n/indonesian.pdf");
         out.write(pdf);
         out.close();
     }

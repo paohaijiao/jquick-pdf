@@ -1,0 +1,196 @@
+<pdf>
+<body>
+  // 156 环球汇通银行 · 全球经营年报摘要（越南语）  视觉主题：青瓷·顺化式
+  // 主色 #0B6E7F  深色 #07454F  浅底 #EAF4F4  描边 #BFDDE0
+
+  // 抬头：满幅色带（左对齐）
+  <table style="width:100%; marginBottom:6px">
+    <tr>
+      <td style="padding:9px 10px; backgroundColor:#0B6E7F; color:white; bold:true; fontSize:16pt; characterSpacing:2pt; fontFamilyNames:Noto Sans,SimHei">'BÁO CÁO HOẠT ĐỘNG TOÀN CẦU 2026'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; color:#07454F; marginBottom:9px; fontFamilyNames:Noto Sans,SimHei">'Ngân hàng Hội Thông Toàn Cầu · Ba quý đầu năm 2026 · Hợp nhất toàn tập đoàn'</p>
+
+  // 信息区：四行两列（右对齐标签 / 左对齐值）
+  <table style="width:100%; fontSize:8.5pt; marginBottom:10px">
+    <tr>
+      <td style="width:15%; padding:4px 6px; textAlign:right; color:#07454F; bold:true; fontFamilyNames:Noto Sans,SimHei">'Số báo cáo'</td>
+      <td style="width:35%; padding:4px 6px; borderBottom:0.75f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">${reportNo}</td>
+      <td style="width:15%; padding:4px 6px; textAlign:right; color:#07454F; bold:true; fontFamilyNames:Noto Sans,SimHei">'Ngày báo cáo'</td>
+      <td style="padding:4px 6px; borderBottom:0.75f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">${reportDate}</td>
+    </tr>
+    <tr>
+      <td style="width:15%; padding:4px 6px; textAlign:right; color:#07454F; bold:true; fontFamilyNames:Noto Sans,SimHei">'Đơn vị lập'</td>
+      <td style="width:35%; padding:4px 6px; borderBottom:0.75f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">${orgName}</td>
+      <td style="width:15%; padding:4px 6px; textAlign:right; color:#07454F; bold:true; fontFamilyNames:Noto Sans,SimHei">'Phạm vi dữ liệu'</td>
+      <td style="padding:4px 6px; borderBottom:0.75f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">${dataScope}</td>
+    </tr>
+  </table>
+
+  // KPI 区：四列 × 两行，仅顶部粗线，标签小字 / 数值大字
+  <table style="width:100%; marginBottom:12px">
+    <tr>
+      <td style="width:25%; padding:6px 6px 2px 6px; textAlign:center; borderTop:2px solid #0B6E7F; color:#07454F; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Tổng tài sản'</td>
+      <td style="width:25%; padding:6px 6px 2px 6px; textAlign:center; borderTop:2px solid #0B6E7F; color:#07454F; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Thanh toán xuyên biên giới'</td>
+      <td style="width:25%; padding:6px 6px 2px 6px; textAlign:center; borderTop:2px solid #0B6E7F; color:#07454F; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Mạng lưới toàn cầu'</td>
+      <td style="width:25%; padding:6px 6px 2px 6px; textAlign:center; borderTop:2px solid #0B6E7F; color:#07454F; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Quốc gia & vùng'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 6px 8px 6px; textAlign:center; bold:true; fontSize:11.5pt; color:#0B6E7F; fontFamilyNames:Noto Sans,SimHei">${totalAssets}</td>
+      <td style="padding:0px 6px 8px 6px; textAlign:center; bold:true; fontSize:11.5pt; color:#0B6E7F; fontFamilyNames:Noto Sans,SimHei">${crossBorderSettlement}</td>
+      <td style="padding:0px 6px 8px 6px; textAlign:center; bold:true; fontSize:11.5pt; color:#0B6E7F; fontFamilyNames:Noto Sans,SimHei">${globalBranches}</td>
+      <td style="padding:0px 6px 8px 6px; textAlign:center; bold:true; fontSize:11.5pt; color:#0B6E7F; fontFamilyNames:Noto Sans,SimHei">${countries}</td>
+    </tr>
+    <tr>
+      <td style="width:25%; padding:6px 6px 2px 6px; textAlign:center; borderTop:2px solid #0B6E7F; color:#07454F; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Doanh thu'</td>
+      <td style="width:25%; padding:6px 6px 2px 6px; textAlign:center; borderTop:2px solid #0B6E7F; color:#07454F; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Lợi nhuận ròng'</td>
+      <td style="width:25%; padding:6px 6px 2px 6px; textAlign:center; borderTop:2px solid #0B6E7F; color:#07454F; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Nhân sự'</td>
+      <td style="width:25%; padding:6px 6px 2px 6px; textAlign:center; borderTop:2px solid #0B6E7F; color:#07454F; fontSize:7.5pt; fontFamilyNames:Noto Sans,SimHei">'Khách hàng'</td>
+    </tr>
+    <tr>
+      <td style="padding:0px 6px 8px 6px; textAlign:center; bold:true; fontSize:11.5pt; color:#0B6E7F; fontFamilyNames:Noto Sans,SimHei">${revenue}</td>
+      <td style="padding:0px 6px 8px 6px; textAlign:center; bold:true; fontSize:11.5pt; color:#0B6E7F; fontFamilyNames:Noto Sans,SimHei">${netProfit}</td>
+      <td style="padding:0px 6px 8px 6px; textAlign:center; bold:true; fontSize:11.5pt; color:#0B6E7F; fontFamilyNames:Noto Sans,SimHei">${employees}</td>
+      <td style="padding:0px 6px 8px 6px; textAlign:center; bold:true; fontSize:11.5pt; color:#0B6E7F; fontFamilyNames:Noto Sans,SimHei">${customers}</td>
+    </tr>
+  </table>
+
+  <table style="width:100%; marginTop:4px; marginBottom:4px">
+    <tr>
+      <td style="padding:5px 0px 5px 8px; borderLeft:4px solid #0B6E7F; color:#07454F; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans,SimHei">'I. Tổng quan hoạt động'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#12333B; fontFamilyNames:Noto Sans,SimHei">'Trong ba quý đầu năm 2026, ngân hàng duy trì mô hình kinh doanh nhất thể hoá nội tệ và ngoại tệ, trong nước và ngoài nước, trực tuyến và tại quầy. Thị trường Trung Quốc đại lục đóng góp 45,2% doanh thu của tập đoàn; ba khu vực châu Á - Thái Bình Dương, Trung Đông và châu Âu đóng góp thêm 39,7%. Doanh số thanh toán nhân dân tệ xuyên biên giới tăng 21,4% so với cùng kỳ.'</p>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgBar}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Hình 1  Doanh thu theo khu vực, ba quý đầu năm 2026 (đơn vị: 100 triệu NDT)'</p>
+
+  <table style="width:100%; marginTop:4px; marginBottom:4px">
+    <tr>
+      <td style="padding:5px 0px 5px 8px; borderLeft:4px solid #0B6E7F; color:#07454F; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans,SimHei">'II. Mạng lưới toàn cầu'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#12333B; fontFamilyNames:Noto Sans,SimHei">'Tính đến ngày 30 tháng 9 năm 2026, ngân hàng có 1.286 chi nhánh và 3.470 máy tự phục vụ tại 68 quốc gia và vùng lãnh thổ. Sáu trung tâm khu vực cung cấp dịch vụ bán buôn và bán lẻ bằng bản tệ và ngôn ngữ địa phương; toàn bộ chứng từ thương mại quốc tế được tiếp nhận bằng bảy ngôn ngữ mà không thu thêm phí dịch thuật.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="width:28%; padding:5px; backgroundColor:#0B6E7F; color:white; bold:true; textAlign:center; border:0.75f solid #0B6E7F; fontFamilyNames:Noto Sans,SimHei">'Khu vực'</th>
+      <th style="width:24%; padding:5px; backgroundColor:#0B6E7F; color:white; bold:true; textAlign:center; border:0.75f solid #0B6E7F; fontFamilyNames:Noto Sans,SimHei">'Trung tâm khu vực'</th>
+      <th style="width:24%; padding:5px; backgroundColor:#0B6E7F; color:white; bold:true; textAlign:center; border:0.75f solid #0B6E7F; fontFamilyNames:Noto Sans,SimHei">'Ngôn ngữ phục vụ'</th>
+      <th style="padding:5px; backgroundColor:#0B6E7F; color:white; bold:true; textAlign:center; border:0.75f solid #0B6E7F; fontFamilyNames:Noto Sans,SimHei">'Số chi nhánh'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Châu Á - Thái Bình Dương'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Singapore'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Anh, Trung, Nhật'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'486'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Trung Đông và Bắc Phi'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Dubai'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Ả Rập, Anh, Pháp'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'152'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Châu Âu'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Frankfurt'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Đức, Pháp, Anh'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'218'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Khu vực Nga'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Moskva'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Nga, Anh'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'96'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Nhật Bản'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Tokyo'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Nhật, Anh'</td>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'74'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Châu Mỹ'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'New York'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Anh, Tây Ban Nha'</td>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'260'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:420pt">${svgDonut}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Hình 2  Cơ cấu đồng tiền thanh toán xuyên biên giới (theo giá trị, ba quý đầu năm 2026)'</p>
+
+  <table style="width:100%; marginTop:4px; marginBottom:4px">
+    <tr>
+      <td style="padding:5px 0px 5px 8px; borderLeft:4px solid #0B6E7F; color:#07454F; bold:true; fontSize:11pt; characterSpacing:1pt; fontFamilyNames:Noto Sans,SimHei">'III. Chi tiết theo khu vực'</td>
+    </tr>
+  </table>
+  <p style="fontSize:9pt; marginBottom:8px; color:#12333B; fontFamilyNames:Noto Sans,SimHei">'Khu vực Trung Quốc đại lục giữ vai trò trụ cột với doanh thu 986 (đơn vị: 100 triệu NDT), tiếp theo là châu Á - Thái Bình Dương với 412 và châu Âu với 268. Toàn bộ sáu khu vực đều ghi nhận mức tăng trưởng hai chữ số so với cùng kỳ năm trước.'</p>
+  <table style="width:100%; fontSize:8.2pt; marginBottom:10px">
+    <tr>
+      <th style="width:28%; padding:5px; backgroundColor:#0B6E7F; color:white; bold:true; textAlign:center; border:0.75f solid #0B6E7F; fontFamilyNames:Noto Sans,SimHei">'Khu vực'</th>
+      <th style="width:24%; padding:5px; backgroundColor:#0B6E7F; color:white; bold:true; textAlign:center; border:0.75f solid #0B6E7F; fontFamilyNames:Noto Sans,SimHei">'Doanh thu (100 triệu NDT)'</th>
+      <th style="width:24%; padding:5px; backgroundColor:#0B6E7F; color:white; bold:true; textAlign:center; border:0.75f solid #0B6E7F; fontFamilyNames:Noto Sans,SimHei">'Thanh toán (100 triệu NDT)'</th>
+      <th style="padding:5px; backgroundColor:#0B6E7F; color:white; bold:true; textAlign:center; border:0.75f solid #0B6E7F; fontFamilyNames:Noto Sans,SimHei">'Tăng trưởng'</th>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Trung Quốc đại lục'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'986'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'6.420'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'+18,2%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Châu Á - Thái Bình Dương'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'412'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'2.760'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'+15,6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Châu Âu'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'268'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'1.890'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'+12,3%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Trung Đông'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'186'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'1.240'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'+18,6%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Nhật Bản'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'174'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'980'</td>
+      <td style="padding:5px; textAlign:right; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'+14,8%'</td>
+    </tr>
+    <tr>
+      <td style="padding:5px; textAlign:center; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'Khu vực Nga'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'154'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'690'</td>
+      <td style="padding:5px; textAlign:right; backgroundColor:#EAF4F4; border:0.5f solid #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'+21,4%'</td>
+    </tr>
+  </table>
+  <div style="display:flex; justifyContent:center">
+    <svg style="width:700pt">${svgLine}</svg>
+  </div>
+  <p style="fontSize:8pt; color:#8a8794; italic:true; textAlign:center; marginTop:2px; marginBottom:10px; fontFamilyNames:Noto Sans,SimHei">'Hình 3  Xu hướng khối lượng kinh doanh xuyên biên giới theo tháng, tháng 1-10 năm 2026'</p>
+
+  <!-- 签章占位区 -->
+  <table style="width:100%; fontSize:8pt; marginTop:4px; marginBottom:6px">
+    <tr>
+      <td style="width:33%; padding:6px; textAlign:center; color:#0B6E7F; borderTop:0.75f dashed #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'(Ngân hàng / con dấu đơn vị)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#0B6E7F; borderTop:0.75f dashed #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'(Dấu giáp lai / mã QR)'</td>
+      <td style="width:33%; padding:6px; textAlign:center; color:#0B6E7F; borderTop:0.75f dashed #BFDDE0; fontFamilyNames:Noto Sans,SimHei">'(Mã QR xác thực)'</td>
+    </tr>
+  </table>
+  <table style="width:100%; fontSize:9pt; marginTop:6px">
+    <tr>
+      <td style="width:33%; padding:4px; color:#07454F; bold:true; fontFamilyNames:Noto Sans,SimHei">'Lập:'${preparedBy}</td>
+      <td style="width:33%; padding:4px; color:#07454F; bold:true; fontFamilyNames:Noto Sans,SimHei">'Kiểm tra:'${reviewedBy}</td>
+      <td style="width:33%; padding:4px; color:#07454F; bold:true; fontFamilyNames:Noto Sans,SimHei">'Phát hành:'${issuedBy}</td>
+    </tr>
+  </table>
+  <p style="fontSize:7.5pt; color:#8a8794; italic:true; marginTop:8px; fontFamilyNames:Noto Sans,SimHei">'Báo cáo này chỉ dành cho các tổ chức được uỷ quyền tham khảo; toàn bộ số liệu tài chính lấy theo báo cáo thường niên đã kiểm toán của tập đoàn.'</p>
+</body>
+</pdf>

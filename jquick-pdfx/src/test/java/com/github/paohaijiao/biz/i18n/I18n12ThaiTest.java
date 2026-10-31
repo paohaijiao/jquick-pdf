@@ -26,41 +26,40 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 /**
- * 国际化多语言渲染 —— 俄语（西里尔文）Demo
+ * 国际化多语言渲染 · 序号 12 —— 泰语 Demo
  *
- * <p>俄语西里尔字体选型为 Noto Sans（notofonts 官方 Latin/Greek/Cyrillic
- * 包，覆盖完整西里尔字母表），模板中 fontFamilyNames 声明回退链
- * Noto Sans,Helvetica。字体文件位于 jquick-pdf-font 模块
- * resources/fonts 下，通过 classpath 注册。</p>
+ * <p>泰文字体选型为 Noto Sans Thai（含上/下叠加元音与四个声调符号），主题色「金箔紫檀」#8A5A00。</p>
  *
- * <p>模板：i18n/russian.txt，输出：D:\test\i18n\russian.pdf</p>
+ * <p>模板：i18n/thai.txt，输出：D://test//i18n//thai.pdf</p>
  *
  * @author Martin
  * @version 1.0.0
  */
-public class RussianTest {
+public class I18n12ThaiTest {
 
     public static final String path = JQuickConstant.path;
 
     @Test
-    public void russian() throws IOException {
+    public void i18n12() throws IOException {
         JPdfConfig config = new JPdfConfig();
-        // 手动注册外部字体：Noto Sans（覆盖西里尔字母 Cyrillic + 拉丁）
-        config.getFontConfig().registerFont("Noto Sans", "fonts/NotoSans-Regular.ttf");
+        // 4.6.0 起目录（TOC）默认开启且固定用 SimHei 度量标题，非 CJK 标题会缺字形，这里关闭
+        config.getCatalogConfig().setEnabled(false);
+        // 手动注册外部字体：NotoSansThai-Regular.ttf（泰语）
+        config.getFontConfig().registerFont("Noto Sans Thai", "fonts/NotoSansThai-Regular.ttf");
         // 注册内置 CJK 字体，供模板中中文混排元素的 fontFamilyNames 回退链命中
         config.getFontConfig().registerFont("SimHei", "fonts/simhei.ttf");
-        JFontSpec russianFont = new JFontSpec("Noto Sans", "fonts/NotoSans-Regular.ttf");
-        config.getFontConfig().setDefaultFont(russianFont);
+        JFontSpec defaultFont = new JFontSpec("Noto Sans Thai", "fonts/NotoSansThai-Regular.ttf");
+        config.getFontConfig().setDefaultFont(defaultFont);
 
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        factory.bind("reportDate", "2026-10-24");
-        byte[] pdf = factory.executeResource("i18n/russian.txt");
+        factory.bind("reportDate", "2026-10-31");
+        byte[] pdf = factory.executeResource("i18n/thai.txt");
 
         File dir = new File(path + "i18n");
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        FileOutputStream out = new FileOutputStream(path + "i18n/russian.pdf");
+        FileOutputStream out = new FileOutputStream(path + "i18n/thai.pdf");
         out.write(pdf);
         out.close();
     }
