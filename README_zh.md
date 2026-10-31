@@ -26,10 +26,15 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Java-8%2B-orange.svg" alt="Java 8+" />
   <img src="https://img.shields.io/badge/PDFBox-3.0.x-brightgreen.svg" alt="Apache PDFBox 3" />
-  <img src="https://img.shields.io/badge/ANTLR-4.x-blue.svg" alt="ANTLR 4" />
+  <img src="https://img.shields.io/badge/parser-self--developed-blue.svg" alt="Self-developed parser" />
 </p>
 
 ⭐ 本项目已被 [Awesome Java](https://github.com/akullpp/awesome-java) 列表收录。
+
+<p align="center">
+  <b>25 种语言</b> · <b>30+ 种图表</b> · <b>209 个可运行 Demo</b><br>
+  <a href="https://www.jquick.org/jquick-pdf/">在线画廊 →</a>
+</p>
 
 ---
 
@@ -37,6 +42,10 @@
 
 - [项目简介](#项目简介)
 - [核心特性](#核心特性)
+- [多语言支持](#多语言支持)
+  - [支持的语言](#支持的语言)
+  - [语言包实际处理了什么](#语言包实际处理了什么)
+  - [渲染一份多语言报告](#渲染一份多语言报告)
 - [快速开始](#快速开始)
   - [环境要求](#环境要求)
   - [模块说明](#模块说明)
@@ -44,6 +53,7 @@
   - [Maven 依赖 —— 4.0.0 以下（AGPL-3.0，iText 7）](#maven-依赖--400-及以下agpl-30itext-7)
   - [Hello world](#hello-world)
 - [Demo Gallery（演示画廊）](#demo-gallery演示画廊)
+  - [Demo 分组总览](#demo-分组总览)
   - [图片索引：图片 → 测试类 → 方法](#图片索引图片--测试类--方法)
     - [1. 条形图](#1-条形图--imagesbarchartsvg)
     - [2. 折线图](#2-折线图--imagesline_chartsvg)
@@ -95,7 +105,7 @@
 
 **jquick-pdf** 是 JQuick 生态下的 PDF 工具库，面向 Java 场景提供 PDF 的**生成、渲染与导出**能力：你只需编写一份形似 HTML、内联 CSS 的模板，绑定数据，即可得到 `byte[]`、流或落盘的 PDF 文件。
 
-模板由 ANTLR4 语法解析，再由 [Apache PDFBox](https://pdfbox.apache.org/) 直接绘制到页面上——整条链路里**没有浏览器、没有 headless Chrome、没有本地动态库**，因此非常适合嵌入服务端、定时任务或桌面应用。
+模板由自研的模板解析器解析，再由 [Apache PDFBox](https://pdfbox.apache.org/) 直接绘制到页面上——整条链路里**没有浏览器、没有 headless Chrome、没有本地动态库**，因此非常适合嵌入服务端、定时任务或桌面应用。
 
 工具库分为两层：
 
@@ -114,8 +124,86 @@
 - **30+ 种图表** —— 完整图表画廊、预览图与生成每张图的测试类见 [Demo Gallery](#demo-gallery演示画廊)。
 - **丰富的文档能力** —— 自动分页、目录、页眉页脚、页码、水印、PDF 加密。
 - **中文开箱可用** —— 内置中文字体（`jquick-pdf-font`），CJK 文本无需额外配置即可渲染。
+- **25 种语言开箱即用** —— 25 份独立设计的报告模板，各有专属版式与配色：阿拉伯、希伯来、波斯、维吾尔为 RTL；孟加拉、泰米尔、泰、藏、傣为复杂字形组合；满文与蒙古文竖排；四种中日韩字形；带完整附加符号的拉丁文字。13 款字体全部内置，详见 [多语言支持](#多语言支持)。
 - **模块化、体积小** —— 只依赖解析/渲染核心，图表、CSS、字体按需追加。
 - **兼容 Java 8** —— 发布的构件均为 Java 8 字节码。
+
+## 多语言支持
+
+jquick-pdf 开箱即支持 **25 种语言**，而且每种语言都是**独立设计的一份报告**——专属版式、专属配色、专属图表色板，不是同一份模板换个文案的翻译件。25 份全部是 `com.github.paohaijiao.biz.i18n` 下可运行的测试类，本文所见即库实际画在纸上的效果。
+
+所需字体全部内置在 `jquick-pdf-font`（13 个文件，约 30 MB），任何语种都不需要另外下载字体。
+
+### 支持的语言
+
+| 序号 | 语言 | 代码 | 内置字体 | 视觉主题 | 测试类 |
+|---|---|---|---|---|---|
+| 185 | 阿拉伯语 · العربية | `ar` | Noto Sans Arabic | 沙漠琥珀 · RTL 奢华式 | `I18n185ArabicTest` |
+| 186 | 孟加拉语 · বাংলা | `bn` | Noto Sans Bengali | 恒河朱砂 · 莲花式 | `I18n186BengaliTest` |
+| 187 | 简体中文 | `zh` | SimHei | 黛紫鎏银 · 圆角卡片式 | `I18n187ChineseTest` |
+| 188 | 繁体中文 | `zhHant` | Noto Sans TC | 朱砂礼仪式 | `I18n188ChineseTraditionalTest` |
+| 189 | 傣语 · ᦺᦑ（新傣仂文） | `dai` | Noto Sans New Tai Lue | 贝叶竹青 · 孔雀式 | `I18n189DaiTest` |
+| 190 | 英语 · English | `en` | Noto Sans | 石墨极简 · Swiss 式 | `I18n190EnglishTest` |
+| 191 | 法语 · Français | `fr` | Noto Sans | 雾蓝优雅 · 细线式 | `I18n191FrenchTest` |
+| 192 | 德语 · Deutsch | `de` | Noto Sans | 钢灰严谨 · 网格式 | `I18n192GermanTest` |
+| 193 | 希伯来语 · עברית | `he` | Noto Sans Hebrew | 迦南 · 橄榄式（RTL） | `I18n193HebrewTest` |
+| 194 | 印尼语 · Bahasa Indonesia | `id` | Noto Sans | 巴迪 · 靛紫 | `I18n194IndonesianTest` |
+| 195 | 日语 · 日本語 | `ja` | Noto Sans JP | 藍染朱印 · 和风余白式 | `I18n195JapaneseTest` |
+| 196 | 韩语 · 한국어 | `ko` | Noto Sans KR | 丹青 · 韩纸 | `I18n196KoreanTest` |
+| 197 | 马来语 · Bahasa Melayu | `ms` | Noto Sans | 蜡染 · 热带赭 | `I18n197MalayTest` |
+| 198 | 满语 · ᠮᠠᠨᠵᡠ（满文） | `manchu` | Noto Sans Mongolian | 玄青档案框式 | `I18n198ManchuTest` |
+| 199 | 传统蒙古语 · ᠮᠣᠩᠭᠣᠯ（蒙古文） | `mn` | Noto Sans Mongolian | 草原翠留白式 | `I18n199MongolianTest` |
+| 200 | 波斯语 · فارسی | `fa` | Noto Sans Arabic | 波斯细密画 · 绿松石（RTL） | `I18n200PersianTest` |
+| 201 | 葡萄牙语 · Português | `pt` | Noto Sans | 阿兹勒赫瓷砖 · 海航式 | `I18n201PortugueseTest` |
+| 202 | 俄语 · Русский | `ru` | Noto Sans | 玫红庄重 · 对称横幅式 | `I18n202RussianTest` |
+| 203 | 西班牙语 · Español | `es` | Noto Sans | 弗拉门戈 · 赤金 | `I18n203SpanishTest` |
+| 204 | 他加禄语 · Tagalog | `tl` | Noto Sans | 群岛 · 芒果式 | `I18n204TagalogTest` |
+| 205 | 泰米尔语 · தமிழ் | `ta` | Noto Sans Tamil | 庙塔 · 黄檀式 | `I18n205TamilTest` |
+| 206 | 泰语 · ไทย | `th` | Noto Sans Thai | 金箔紫檀 · 泰庙式 | `I18n206ThaiTest` |
+| 207 | 藏语 · བོད་སྐད | `bo` | Noto Serif Tibetan | 绛红藏式横幅 | `I18n207TibetanTest` |
+| 208 | 维吾尔语 · ئۇيغۇرچە | `ug` | Noto Sans Arabic | 翡翠铜右起式（RTL） | `I18n208UyghurTest` |
+| 209 | 越南语 · Tiếng Việt | `vi` | Noto Sans | 青瓷 · 顺化式 | `I18n209VietnameseTest` |
+
+### 语言包实际处理了什么
+
+- **从右往左的书写系统** —— 阿拉伯语（185）、希伯来语（193）、波斯语（200）、维吾尔语（208）整篇 RTL：列序镜像、右对齐、右侧色条。
+- **复杂字形组合** —— 孟加拉文连字与元音符号（186）、泰米尔文辅元合字（205）、泰文上下元音不与声调符号重叠（206）、藏文叠字与下加字（207）、新傣仂文音节簇（189）。
+- **竖排文字** —— 满文（198）、传统蒙古文（199）按竖列绘制。
+- **中日韩字形差异** —— 简体（187）、繁体（188）、日语（195）、韩语（196）各用各的字体与断行规则。
+- **带附加符号的拉丁文字** —— 法、德、葡、西、越、他加禄、印尼、马来语覆盖 `ã õ ç ä ß ồ ệ ụ ñ ¿ ¡` 等重音与特殊符号。
+- **逐字符字体回退** —— 同一个段落可以混排多种文字，每个字符沿字体链逐字寻字，用第一个真正含该字形的字体绘制，因此阿拉伯文、孟加拉文段落里的拉丁数字与标点照常显示。
+
+### 渲染一份多语言报告
+
+```java
+JPdfConfig config = new JPdfConfig();
+
+// 4.6.0 起目录（TOC）默认开启，且目录页固定用默认中文字体度量标题，
+// 非中日韩标题（ä / ไทย / 한국어）会抛 "No glyph for ..." 异常，非中文报告需关闭目录。
+config.getCatalogConfig().setEnabled(false);
+
+config.getFontConfig().registerFont("Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
+config.getFontConfig().registerFont("Noto Sans KR", "fonts/NotoSansKR-Regular.ttf");
+config.getFontConfig().setDefaultFont(new JFontSpec("Noto Sans KR", "fonts/NotoSansKR-Regular.ttf"));
+
+// 同一段落可以混排多种文字：每个字符沿字体链逐字寻字，
+// 用第一个真正含该字形的字体绘制。
+String tpl = "<pdf><body>"
+        + "<h1 style=\"fontFamilyNames:'Noto Sans KR'\">'다국어 보고서'</h1>"
+        + "<p style=\"fontFamilyNames:'Noto Sans Arabic'\">'تقرير مالي عالمي'</p>"
+        + "<p style=\"fontFamilyNames:'Noto Sans KR, Noto Sans Arabic'\">'매출 1,280억 원 · الإيرادات'</p>"
+        + "</body></pdf>";
+
+byte[] pdf = new JQuickPdfFactory(config).executeContent(tpl);
+```
+
+上表中 25 份完整报告的源码在 `jquick-pdfx/src/test/java/com/github/paohaijiao/biz/i18n/` 下——每个 Demo 类绑定自己的语言包（18 个模板字段 + 三张 ECharts 图表）并落盘 PDF。单独运行某一个语种：
+
+```bash
+mvn test -pl jquick-pdfx -Dtest=I18n196KoreanTest -Dsurefire.failIfNoSpecifiedTests=false
+```
+
+> 多语言渲染需要 **jquick-pdf 4.4.0 及以上版本**——低版本缺少字体回退链与 RTL 排版能力。包含全部语种整页长截图的完整画廊见 [www.jquick.org/jquick-pdf](https://www.jquick.org/jquick-pdf/#demo-i18n185)。
 
 ## 快速开始
 
@@ -125,7 +213,7 @@
 |---|---|
 | JDK | 8 或更高 |
 | Maven | 3.6 或更高（仅从源码构建时需要） |
-| 运行时依赖 | Apache PDFBox 3.0.x、ANTLR4 runtime、SLF4J API（由 Maven 传递引入） |
+| 运行时依赖 | Apache PDFBox 3.0.x、SLF4J API（由 Maven 传递引入）；模板解析器已内置在 `jquick-pdfx` 中 |
 
 ### 模块说明
 
@@ -211,6 +299,25 @@ public class HelloDemo {
 ## Demo Gallery（演示画廊）
 
 `images/` 下的每一张图片都由本仓库中**真实的测试类**产出。下面每一条都**先展示预览图，再给出生成它的关键代码**；代码里的输出路径就是测试字面写入的路径（默认 `D:\test\`，见 `com.github.paohaijiao.demo.constant.JQuickConstant`）。较长的数据列表用 `// ...` 省略。
+
+### Demo 分组总览
+
+**10 个分组、209 个 Demo**，全部由示例代码真实运行生成，没有一张是手绘或伪造的：
+
+| 分组 | 数量 | 内容 |
+|---|---|---|
+| `biz` | 53 | 真实业务场景报表与单据（政务、金融、企业运营、运维监控），覆盖折线、柱状、饼图、雷达、漏斗、甘特、热力、树图、地图等图表，以及纯版式模板 |
+| `scenario` | 31 | 通用商务与政务单据：简历、证书、报价单、对账单、合同、律师函、回执 |
+| `finance` | 25 | 财税票据票样：增值税专票 / 普票 / 数电票、海关缴款书、财政票据 |
+| `customs` | 15 | 外贸与海关单证：报关单、装箱单、提单、原产地证、信用证 |
+| `bank` | 15 | 银行业务单据：转账回单、对账单、支票、承兑汇票、保函、征信报告 |
+| `gov` | 15 | 政务办公文书：受理回执、审批决定、年审申报、立项批复 |
+| `medical` | 10 | 医疗单据：病历首页、收费票据、费用清单、医保结算、出院小结 |
+| `supply` | 5 | 供应链单据：采购订单、销售出库、来料质检、供应商准入 |
+| `creditreport` | 15 | 同一套信用报告版式，切换 15 种图表类型与配色方案 |
+| `i18n` | 25 | 同一份全球银行报告的 25 种语言版本（185-209），每种语言专属版式与配色，详见 [多语言支持](#多语言支持) |
+
+行业单据与多语言两个分组的整页长截图索引在线上画廊：**[www.jquick.org/jquick-pdf](https://www.jquick.org/jquick-pdf/)**。本 README 索引的是仓库内自带的图表与 SVG 预览图。
 
 ### 图片索引：图片 → 测试类 → 方法
 

@@ -26,10 +26,15 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Java-8%2B-orange.svg" alt="Java 8+" />
   <img src="https://img.shields.io/badge/PDFBox-3.0.x-brightgreen.svg" alt="Apache PDFBox 3" />
-  <img src="https://img.shields.io/badge/ANTLR-4.x-blue.svg" alt="ANTLR 4" />
+  <img src="https://img.shields.io/badge/parser-self--developed-blue.svg" alt="Self-developed parser" />
 </p>
 
 ⭐ This project is included in the [Awesome Java](https://github.com/akullpp/awesome-java) list.
+
+<p align="center">
+  <b>25 languages</b> · <b>30+ chart types</b> · <b>209 runnable demos</b><br>
+  <a href="https://www.jquick.org/jquick-pdf/">Browse the online gallery →</a>
+</p>
 
 ---
 
@@ -37,6 +42,10 @@
 
 - [Introduction](#introduction)
 - [Features](#features)
+- [Multilingual Support](#multilingual-support)
+  - [Supported languages](#supported-languages)
+  - [What the language packs actually handle](#what-the-language-packs-actually-handle)
+  - [Rendering a multilingual report](#rendering-a-multilingual-report)
 - [Quick Start](#quick-start)
   - [Requirements](#requirements)
   - [Modules](#modules)
@@ -44,6 +53,7 @@
   - [Maven dependency — 4.0.0  below (AGPL-3.0, iText 7)](#maven-dependency--400-and-below-agpl-30-itext-7)
   - [Hello world](#hello-world)
 - [Demo Gallery](#demo-gallery)
+  - [Demo groups at a glance](#demo-groups-at-a-glance)
   - [Image index: image → test class → method](#image-index-image--test-class--method)
     - [1. Bar chart](#1-bar-chart--imagesbarchartsvg)
     - [2. Line chart](#2-line-chart--imagesline_chartsvg)
@@ -95,7 +105,7 @@
 
 **jquick-pdf** is the PDF toolkit of the JQuick ecosystem. It targets **generating, rendering and exporting** PDF documents from Java: write a template that looks like HTML with inline CSS, bind your data, and get a PDF back as a `byte[]`, a stream, or a file.
 
-Templates are parsed by an ANTLR4 grammar and drawn directly onto the page with [Apache PDFBox](https://pdfbox.apache.org/) — there is **no browser, no headless Chrome and no native library** in the pipeline, which makes the library easy to embed in a server, a scheduled job or a desktop application.
+Templates are parsed by a self-developed template parser and drawn directly onto the page with [Apache PDFBox](https://pdfbox.apache.org/) — there is **no browser, no headless Chrome and no native library** in the pipeline, which makes the library easy to embed in a server, a scheduled job or a desktop application.
 
 The toolkit covers two layers:
 
@@ -114,8 +124,87 @@ The toolkit covers two layers:
 - **30+ chart types** — the full chart gallery with preview images and the test class that generates each one is in the [Demo Gallery](#demo-gallery).
 - **Rich document capabilities** — automatic pagination, table of contents, header/footer, page counters, watermarks, PDF encryption.
 - **CJK ready** — a Chinese font is bundled (`jquick-pdf-font`), so CJK text renders without extra configuration.
+- **25 languages out of the box** — 25 hand-built report templates, each with its own layout and palette: Arabic, Hebrew, Persian and Uyghur in RTL; Bengali, Tamil, Thai, Tibetan and Dai with complex shaping; Manchu and Mongolian vertical; four CJK variants; Latin with full diacritics. All 13 fonts are bundled — see [Multilingual Support](#multilingual-support).
 - **Small, modular artifacts** — depend on the parser/renderer only, then add charts, CSS or fonts as needed.
 - **Java 8 compatible** — released artifacts target Java 8 bytecode.
+
+## Multilingual Support
+
+jquick-pdf renders **25 languages** out of the box, and every one of them is a **hand-built report of its own** — a dedicated template with a distinct layout, colour scheme and chart palette, not a translated copy of a single reference document. All 25 are runnable test classes under `com.github.paohaijiao.biz.i18n`, so every preview shown here is what the library actually draws on the page.
+
+Required fonts ship inside `jquick-pdf-font` (13 files, ~30 MB), so no language needs a manual font download.
+
+### Supported languages
+
+| No. | Language | Code | Bundled font | Visual theme | Test class |
+|---|---|---|---|---|---|
+| 185 | Arabic · العربية | `ar` | Noto Sans Arabic | Desert amber · RTL luxury | `I18n185ArabicTest` |
+| 186 | Bengali · বাংলা | `bn` | Noto Sans Bengali | Ganges cinnabar · lotus | `I18n186BengaliTest` |
+| 187 | Simplified Chinese · 简体中文 | `zh` | SimHei | Violet · rounded cards | `I18n187ChineseTest` |
+| 188 | Traditional Chinese · 繁體中文 | `zhHant` | Noto Sans TC | Vermilion ceremonial rules | `I18n188ChineseTraditionalTest` |
+| 189 | Dai · ᦺᦑ (New Tai Lue) | `dai` | Noto Sans New Tai Lue | Palm-leaf green · peacock | `I18n189DaiTest` |
+| 190 | English | `en` | Noto Sans | Graphite Swiss minimal | `I18n190EnglishTest` |
+| 191 | French · Français | `fr` | Noto Sans | Mist blue hairlines | `I18n191FrenchTest` |
+| 192 | German · Deutsch | `de` | Noto Sans | Steel grey grid | `I18n192GermanTest` |
+| 193 | Hebrew · עברית | `he` | Noto Sans Hebrew | Canaan olive · RTL | `I18n193HebrewTest` |
+| 194 | Indonesian · Bahasa Indonesia | `id` | Noto Sans | Batik indigo | `I18n194IndonesianTest` |
+| 195 | Japanese · 日本語 | `ja` | Noto Sans JP | Indigo & vermilion whitespace | `I18n195JapaneseTest` |
+| 196 | Korean · 한국어 | `ko` | Noto Sans KR | Dancheong on hanji | `I18n196KoreanTest` |
+| 197 | Malay · Bahasa Melayu | `ms` | Noto Sans | Batik tropical ochre | `I18n197MalayTest` |
+| 198 | Manchu · ᠮᠠᠨᠵᡠ | `manchu` | Noto Sans Mongolian | Ink-blue archive frame | `I18n198ManchuTest` |
+| 199 | Traditional Mongolian · ᠮᠣᠩᠭᠣᠯ | `mn` | Noto Sans Mongolian | Steppe green with whitespace | `I18n199MongolianTest` |
+| 200 | Persian · فارسی | `fa` | Noto Sans Arabic | Persian miniature turquoise · RTL | `I18n200PersianTest` |
+| 201 | Portuguese · Português | `pt` | Noto Sans | Azulejo maritime | `I18n201PortugueseTest` |
+| 202 | Russian · Русский | `ru` | Noto Sans | Crimson symmetrical banner | `I18n202RussianTest` |
+| 203 | Spanish · Español | `es` | Noto Sans | Flamenco crimson & gold | `I18n203SpanishTest` |
+| 204 | Tagalog | `tl` | Noto Sans | Archipelago mango | `I18n204TagalogTest` |
+| 205 | Tamil · தமிழ் | `ta` | Noto Sans Tamil | Gopuram rosewood | `I18n205TamilTest` |
+| 206 | Thai · ไทย | `th` | Noto Sans Thai | Gold leaf on rosewood | `I18n206ThaiTest` |
+| 207 | Tibetan · བོད་སྐད | `bo` | Noto Serif Tibetan | Crimson Tibetan banner | `I18n207TibetanTest` |
+| 208 | Uyghur · ئۇيغۇرچە | `ug` | Noto Sans Arabic | Emerald & copper · RTL | `I18n208UyghurTest` |
+| 209 | Vietnamese · Tiếng Việt | `vi` | Noto Sans | Celadon Hue | `I18n209VietnameseTest` |
+
+### What the language packs actually handle
+
+- **Right-to-left scripts** — Arabic (185), Hebrew (193), Persian (200) and Uyghur (208) are laid out right-to-left end to end: mirrored column order, right-aligned runs, right-hand accent rules.
+- **Complex shaping** — Bengali conjuncts and vowel signs (186), Tamil vowel–consonant ligatures (205), Thai upper/lower vowels that must not collide with tone marks (206), Tibetan stacked and subjoined letters (207), and New Tai Lue syllable clusters (189).
+- **Vertical scripts** — Manchu (198) and traditional Mongolian (199) are drawn in vertical columns.
+- **CJK variants** — Simplified Chinese (187), Traditional Chinese (188), Japanese (195) and Korean (196) each use their own font and line-breaking rules.
+- **Latin with diacritics** — French, German, Portuguese, Spanish, Vietnamese, Tagalog, Indonesian and Malay cover `ã õ ç ä ß ồ ệ ụ ñ ß ¿ ¡` and friends.
+- **Per-character font fallback** — a span may mix scripts; every character is measured against the font chain and drawn with the first font that actually has the glyph, so Latin digits and punctuation keep working inside an Arabic or Bengali run.
+
+### Rendering a multilingual report
+
+```java
+JPdfConfig config = new JPdfConfig();
+
+// 4.6.0 and above: the table of contents is on by default and measures
+// headings with the default CJK font, so a non-CJK heading (ä / ไทย / 한국어)
+// fails with "No glyph for ...". Turn it off when the report is not Chinese.
+config.getCatalogConfig().setEnabled(false);
+
+config.getFontConfig().registerFont("Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
+config.getFontConfig().registerFont("Noto Sans KR", "fonts/NotoSansKR-Regular.ttf");
+config.getFontConfig().setDefaultFont(new JFontSpec("Noto Sans KR", "fonts/NotoSansKR-Regular.ttf"));
+
+// One paragraph may mix scripts: every character walks the font chain and is
+// drawn with the first font that actually has the glyph.
+String tpl = "<pdf><body>"
+        + "<h1 style=\"fontFamilyNames:'Noto Sans KR'\">'다국어 보고서'</h1>"
+        + "<p style=\"fontFamilyNames:'Noto Sans Arabic'\">'تقرير مالي عالمي'</p>"
+        + "<p style=\"fontFamilyNames:'Noto Sans KR, Noto Sans Arabic'\">'매출 1,280억 원 · الإيرادات'</p>"
+        + "</body></pdf>";
+
+byte[] pdf = new JQuickPdfFactory(config).executeContent(tpl);
+```
+
+The 25 full reports behind the table above live in `jquick-pdfx/src/test/java/com/github/paohaijiao/biz/i18n/` — each demo class binds its language pack (18 template fields plus three ECharts charts) and writes the PDF to disk. Run any single language with:
+
+```bash
+mvn test -pl jquick-pdfx -Dtest=I18n196KoreanTest -Dsurefire.failIfNoSpecifiedTests=false
+```
+
+> Multilingual rendering requires **jquick-pdf 4.4.0 or later** — earlier versions lack the font fallback chain and RTL layout support. The full gallery, with full-page screenshots for every language, is published at [www.jquick.org/jquick-pdf](https://www.jquick.org/jquick-pdf/#demo-i18n185).
 
 ## Quick Start
 
@@ -125,7 +214,7 @@ The toolkit covers two layers:
 |---|---|
 | JDK | 8 or higher |
 | Maven | 3.6 or higher (only needed to build from source) |
-| Runtime dependencies | Apache PDFBox 3.0.x, ANTLR4 runtime, SLF4J API (resolved transitively) |
+| Runtime dependencies | Apache PDFBox 3.0.x, SLF4J API (resolved transitively); the template parser ships inside `jquick-pdfx` |
 
 ### Modules
 
@@ -211,6 +300,25 @@ Text nodes are always single-quoted (`'Hello jquick-pdf'`); `<pdf>` and `<html>`
 ## Demo Gallery
 
 Every image under `images/` is produced by a **real test class** in this repository. Each entry below shows the preview first and the key code that produces it second; the file path inside the code is the literal path the test writes (`D:\test\` by default, see `com.github.paohaijiao.demo.constant.JQuickConstant`). Long data lists are elided with `// ...`.
+
+### Demo groups at a glance
+
+**209 demos** in 10 groups, all generated by running the sample code — nothing is hand-drawn or mocked:
+
+| Group | Demos | What it contains |
+|---|---|---|
+| `biz` | 53 | Real business reports and documents from government, finance, corporate operations and ops monitoring — line, bar, pie, radar, funnel, gantt, heatmap, treemap and geo charts plus pure-layout templates |
+| `scenario` | 31 | Generic business and government documents: résumé, certificate, quotation, statement of account, contract, demand letter, receipt |
+| `finance` | 25 | Tax and finance paper: special / general / fully digital VAT invoices, customs payment slips, fiscal receipts |
+| `customs` | 15 | Foreign-trade and customs documents: declaration, packing list, bill of lading, certificate of origin, letter of credit |
+| `bank` | 15 | Bank documents: transfer receipt, statement, cheque, acceptance bill, guarantee, credit report |
+| `gov` | 15 | Government paperwork: acceptance receipt, approval decision, annual review, project approval |
+| `medical` | 10 | Medical documents: record front page, fee receipt, itemised bill, insurance settlement, discharge summary |
+| `supply` | 5 | Supply-chain documents: purchase order, sales outbound, incoming inspection, supplier onboarding |
+| `creditreport` | 15 | One credit-report layout rendered in 15 chart-type / colour combinations |
+| `i18n` | 25 | The same global banking report in 25 languages (185-209), each with its own layout and palette — see [Multilingual Support](#multilingual-support) |
+
+The industry-document and multilingual groups are indexed with full-page screenshots in the published gallery: **[www.jquick.org/jquick-pdf](https://www.jquick.org/jquick-pdf/)**. This README indexes the chart and SVG previews that live in the repository itself.
 
 ### Image index: image → test class → method
 
@@ -1692,7 +1800,7 @@ String svg = JChartRendererFactory.renderChart(JChartType.DoubleRadar, option);
 
 ### Element and style reference
 
-**Elements** (`jquick-pdfx`, grammar-verified):
+**Elements** (`jquick-pdfx`):
 
 | Element | Description |
 |---|---|
