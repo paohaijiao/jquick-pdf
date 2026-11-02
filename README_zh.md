@@ -17,16 +17,17 @@
   📦 <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx">Maven Central</a>
 </p>
 <p align="center">
-  <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx"><img src="https://img.shields.io/maven-central/v/io.github.paohaijiao/jquick-pdfx.svg?style=for-the-badge&label=Maven%20Central" alt="Maven Central" /></a>
-  <a href="#版本对照表"><img src="https://img.shields.io/badge/license-Apache--2.0%20(%E2%89%A5%204.0.0)%20%7C%20AGPL--3.0%20(%E2%89%A4%204.0.0)-blue.svg?style=for-the-badge" alt="License" /></a>
+  <a href="https://central.sonatype.com/artifact/io.github.paohaijiao/jquick-pdfx"><img src="https://img.shields.io/maven-central/v/io.github.paohaijiao/jquick-pdfx.svg?style=for-the-badge&logo=apachemaven&logoColor=white&label=Maven%20Central" alt="Maven Central 版本" /></a>
+  <a href="#版本对照表"><img src="https://img.shields.io/badge/License-Apache--2.0%20(%E2%89%A5%204.0.0)%20%7C%20AGPL--3.0%20(%E2%89%A4%204.0.0)-blue.svg?style=for-the-badge" alt="许可证：4.0.0 起为 Apache-2.0，之前为 AGPL-3.0" /></a>
+  <a href="#环境要求"><img src="https://img.shields.io/badge/JDK-8%2B-orange.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="JDK 8+" /></a>
   <a href="https://github.com/paohaijiao/jquick-pdf"><img src="https://img.shields.io/github/stars/paohaijiao/jquick-pdf.svg?style=for-the-badge&logo=github&label=Stars" alt="GitHub stars" /></a>
   <a href="https://github.com/paohaijiao/jquick-pdf/issues"><img src="https://img.shields.io/github/issues/paohaijiao/jquick-pdf.svg?style=for-the-badge&label=Issues" alt="GitHub issues" /></a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Java-8%2B-orange.svg" alt="Java 8+" />
-  <img src="https://img.shields.io/badge/PDFBox-3.0.x-brightgreen.svg" alt="Apache PDFBox 3" />
-  <img src="https://img.shields.io/badge/parser-self--developed-blue.svg" alt="Self-developed parser" />
+  <img src="https://img.shields.io/badge/PDFBox-3.0.x-brightgreen.svg?style=flat-square" alt="Apache PDFBox 3.0.x" />
+  <img src="https://img.shields.io/badge/renderer-no%20browser%20%C2%B7%20no%20native%20deps-success.svg?style=flat-square" alt="无需浏览器，无本地动态库" />
+  <img src="https://img.shields.io/badge/parser-self--developed-blue.svg?style=flat-square" alt="自研解析器" />
 </p>
 
 ⭐ 本项目已被 [Awesome Java](https://github.com/akullpp/awesome-java) 列表收录。
@@ -214,6 +215,8 @@ mvn test -pl jquick-pdfx -Dtest=I18n196KoreanTest -Dsurefire.failIfNoSpecifiedTe
 | JDK | 8 或更高 |
 | Maven | 3.6 或更高（仅从源码构建时需要） |
 | 运行时依赖 | Apache PDFBox 3.0.x、SLF4J API（由 Maven 传递引入）；模板解析器已内置在 `jquick-pdfx` 中 |
+
+> 发布的构件均为 **Java 8 字节码**（`maven.compiler.source/target = 8`），同一个 jar 可直接运行在 **JDK 8、11、17、21** 上——无需额外 JVM 参数、无需本地动态库、无需 `--add-opens`。
 
 ### 模块说明
 
