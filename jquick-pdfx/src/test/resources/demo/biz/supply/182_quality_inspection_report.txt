@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 182 来料质检单 / 成品质量检验报告单（supply 领域第 3 项）　视觉主题：金橙·疏朗·公文
-  // 版式组合：抬头=doc 信息区=strip 明细表=airy 段落=bar 签章=split 落款=plain
-  // 主色 #C4A718　辅色 #276A91　浅底 #F8F6EF
-  // 来料质检单与成品质量检验报告单：检验项目、标准要求、实测结果与判定。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#C4A718; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'来料质检单 / 成品质量检验报告单'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'检验单号 '${inspectNo}'　　检验日期 '${inspectDate}'　　检验部门 '${deptName}</p>
   <lineSeparator style="color:#C4A718; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F8F6EF; bold:true; border:1px solid #DAD5BB">'检验单号 / NO.'</td>
@@ -125,7 +121,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#276A91">' '</td>
@@ -148,7 +144,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -165,7 +161,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -2,7 +2,6 @@
 <body>
   // 156 环球汇通银行 · 全球经营年报摘要（العربية 版）
   // 单语种独立报告：全篇仅阿拉伯语，所有阿语元素均声明 baseDirection:rtl + textAlignment:right
-  // 视觉主题「沙漠琥珀·RTL奢华式」：深棕 #5C4326　琥珀金 #B9861C　沙色底 #FBF5E9　沙线 #E3D3AE
 
   // 抬头：深棕横幅 + 琥珀金字
   <table style="width:100%; marginBottom:6px">

@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 195 —— 日语版全球经营年报摘要
  *
- * <p>语种 ja：日语。字体 Noto Sans JP，视觉主题「藍染朱印·和风余白式（藍 #2B4570 + 朱印 #C73E3A，顶部压线卡）」。</p>
- *
  * <p>模板：i18n/global_bank_report_ja.txt
  * 输出：D://test//i18n//global_bank_report_ja.pdf</p>
  *
@@ -71,7 +69,6 @@ public class I18n195JapaneseTest {
         p.lineFooter = "出所：グローバル業務監視プラットフォーム | 単位：億元";
         p.lineMonths = new String[]{"1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月"};
         p.lineNames = new String[]{"越境決済量", "貿易金融", "外国為替"};
-        // 视觉主题「藍染朱印·和风余白式」
         p.donutPalette = new Color[]{
                 new Color(43, 69, 112), new Color(199, 62, 58), new Color(122, 147, 184),
                 new Color(217, 138, 128), new Color(185, 198, 220), new Color(230, 225, 214)

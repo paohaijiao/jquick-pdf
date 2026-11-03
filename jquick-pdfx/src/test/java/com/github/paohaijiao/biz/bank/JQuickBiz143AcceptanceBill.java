@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/143_acceptance_bill.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·密排·竖栏」：主色 #3B53A0、辅色 #914627、浅底 #F1F2F6；
- * 版式为 side 抬头 + kv 信息区 + compact 明细表 + right 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>银行承兑汇票 / 商业承兑汇票：汇票号码与类型、出票与到期日期、</p>
  * <p>出票人收款人账户、大小写金额、背书转让连续记录与承兑行签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz143AcceptanceBill {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "出票", "××国际贸易有限公司 签发并交付", "2026-10-19", "已签章", "有效"},
                 {"2", "承兑", "中国工商银行××支行 到期无条件付款", "2026-10-19", "已承兑", "有效"},
@@ -105,7 +100,6 @@ public class JQuickBiz143AcceptanceBill {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

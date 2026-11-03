@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 110 海关关税缴款书（finance 领域第 11 项）　视觉主题：金橙·斑马·公文
-  // 版式组合：抬头=doc 信息区=strip 明细表=striped 段落=bar 签章=card 落款=plain
-  // 主色 #76662C　辅色 #277091　浅底 #F6F5F1
-  // 海关关税缴款书：含最惠国税率、反倾销税、出口关税与滞纳金。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#76662C; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'海关关税缴款书'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'缴款书号码 '${paymentNo}'　　填发日期 '${issueDate}'　　征收机关 '${officeName}</p>
   <lineSeparator style="color:#76662C; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F6F5F1; bold:true; textAlign:center; border:1px solid #D4D0C2">'缴款书号码'</td>
@@ -95,7 +91,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#277091">' '</td>
@@ -111,7 +107,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -128,7 +124,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

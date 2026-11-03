@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（泰语）  视觉主题：金箔紫檀·泰庙式
-  // 主色 #8A5A00  深色 #5C3B00  浅底 #FBF5E4  描边 #E2CFA0
 
   <h1 style="fontSize:20pt; bold:true; color:#8A5A00; textAlignment:center; characterSpacing:3pt; marginBottom:2px; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'รายงานผลการดำเนินงานทั่วโลก 2026'</h1>
   <p style="fontSize:9pt; color:#7A1F3D; textAlignment:center; fontFamilyNames:Noto Sans Thai,Noto Sans,SimHei">'ธนาคาร หุยทง ระดับโลก · ไตรมาส 1-3 ปี 2026 · งบรวมของกลุ่ม'</p>

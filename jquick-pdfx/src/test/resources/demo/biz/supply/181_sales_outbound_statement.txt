@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 181 销售出库单 / 往来对账单 / 结算单（supply 领域第 2 项）　视觉主题：朱砂·素雅·下线
-  // 版式组合：抬头=underline 信息区=chip 明细表=light 段落=box 签章=card 落款=right
-  // 主色 #906B2C　辅色 #277F91　浅底 #F6F4F1
-  // 销售出库单、往来对账单与结算单三合一：出库数量、含税金额、对账与补收。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#6F4E14; characterSpacing:3pt">'销售出库单 / 往来对账单 / 结算单'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#906B2C; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F6F4F1; bold:true; textAlign:center; border:1px solid #D5CEC0">'出库单号 / NO.'</td>
@@ -148,7 +144,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F6F4F1; bold:true; fontSize:9.5pt; color:#6F4E14; border:1px solid #D5CEC0">'结算金额合计'</td>
@@ -168,7 +164,7 @@
     </tr>
   </table>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -185,7 +181,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

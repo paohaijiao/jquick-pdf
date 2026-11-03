@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 134 保税货物备案单 / 跨境电商清单（customs 领域第 10 项）　视觉主题：群青·厚框·公文
-  // 版式组合：抬头=doc 信息区=strip 明细表=solid 段落=bar 签章=right 落款=right
-  // 主色 #27338E　辅色 #915327　浅底 #F1F1F6
-  // 保税货物备案单与跨境电商清单：账册编号、监管方式与跨境电商三单信息。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#27338E; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'保税货物备案单 / 跨境电商清单'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'备案编号 '${recordNo}'　　备案日期 '${recordDate}'　　监管区域 '${zoneName}</p>
   <lineSeparator style="color:#27338E; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #BFC2D6">'备案编号 / RECORD NO.'</td>
@@ -120,7 +116,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#915327">' '</td>
@@ -136,7 +132,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -153,7 +149,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

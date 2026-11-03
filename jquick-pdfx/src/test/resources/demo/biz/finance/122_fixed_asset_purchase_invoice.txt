@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 122 固定资产购置发票（finance 领域第 23 项）　视觉主题：橄榄·疏朗·公文
-  // 版式组合：抬头=doc 信息区=strip 明细表=airy 段落=bar 签章=right 落款=table
-  // 主色 #48B61F　辅色 #432791　浅底 #F2F7F0
-  // 固定资产购置发票：资产名称、规格型号、数量单价与可抵扣进项税额，含折旧年限信息。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#48B61F; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'固定资产购置发票'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'发票代码 '${invoiceCode}'　　发票号码 '${invoiceNo}'　　开票日期 '${issueDate}</p>
   <lineSeparator style="color:#48B61F; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F2F7F0; bold:true; textAlign:center; border:1px solid #C4D9BD">'发票代码'</td>
@@ -117,7 +113,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#432791">' '</td>
@@ -140,7 +136,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -157,7 +153,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

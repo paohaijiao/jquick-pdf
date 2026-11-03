@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/160_project_approval_opinion.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·斑马·典式」：主色 #1469A1、辅色 #91272E、浅底 #EFF4F8；
- * 版式为 classic 抬头 + grid2 信息区 + striped 明细表 + card 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>项目立项批复 / 可研评审意见书：项目代码与建设地点、总投资与建设期，</p>
  * <p>投资构成逐项评审意见、批复意见与有效期、批复机关签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz160ProjectApprovalOpinion {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "建筑工程费", "4200.00", "22.58%", "建设规模合理，标准适度", "通过"},
                 {"2", "设备购置及安装费", "9600.00", "51.61%", "设备选型先进，符合产业政策", "通过"},
@@ -111,7 +106,6 @@ public class JQuickBiz160ProjectApprovalOpinion {
 
         data.put("totalLine", "项目总投资合计（大写）" + toChineseAmount(itemTotal.multiply(new BigDecimal("10000"))) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + " 万元");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

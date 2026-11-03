@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 196 —— 韩语版全球经营年报摘要
  *
- * <p>语种 ko：韩语。字体 Noto Sans KR，视觉主题「丹青·韩纸（#1F3B57 + 五方色条，全框线网格 + 数字方块章节）」。</p>
- *
  * <p>模板：i18n/global_bank_report_ko.txt
  * 输出：D://test//i18n//global_bank_report_ko.pdf</p>
  *

@@ -56,11 +56,9 @@ public class JQuickBiz73Acceptance {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 图片：甲乙双方签名 ----------
         generateSignature(IMG_DIR + "73_sign_a.png", "李明");
         generateSignature(IMG_DIR + "73_sign_b.png", "张国强");
 
-        // ---------- 2. 数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("projectName", "××市智慧交通数据中台建设项目");
         data.put("contractNo", "HT-2026-0219");
@@ -105,7 +103,6 @@ public class JQuickBiz73Acceptance {
         data.put("conclusion4", "综上，验收组一致认为本项目已达到合同约定的建设目标与质量标准，同意通过验收，自本单签署之日起进入质保期，"
                 + "质保期为 12 个月。");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(50, 50, 55, 50));

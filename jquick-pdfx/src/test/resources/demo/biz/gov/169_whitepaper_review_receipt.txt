@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 169 商业白皮书申报 / 专家评审回执（gov 领域第 15 项）　视觉主题：绛紫·厚框·下线
-  // 版式组合：抬头=underline 信息区=chip 明细表=solid 段落=box 签章=split 落款=table
-  // 主色 #8E24B8　辅色 #769127　浅底 #F5F0F7
-  // 商业白皮书申报材料与专家评审回执：评审指标、分值得分与专家意见。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#6F0D96; characterSpacing:3pt">'商业白皮书申报 / 专家评审回执'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#8E24B8; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F5F0F7; bold:true; textAlign:center; border:1px solid #D1BDD8">'申报编号 / NO.'</td>
@@ -122,7 +118,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F5F0F7; bold:true; fontSize:9.5pt; color:#6F0D96; border:1px solid #D1BDD8">'评审得分合计'</td>
@@ -142,7 +138,7 @@
     </tr>
   </table>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -159,7 +155,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

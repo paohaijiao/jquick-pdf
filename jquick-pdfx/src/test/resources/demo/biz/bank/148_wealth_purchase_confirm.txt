@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 148 理财产品购买确认单 / 赎回回执（bank 领域第 9 项）　视觉主题：群青·密排·典式
-  // 版式组合：抬头=classic 信息区=grid2 明细表=compact 段落=box 签章=card 落款=plain
-  // 主色 #3732A3　辅色 #916427　浅底 #F1F1F6
-  // 理财购买确认单与赎回回执：产品代码、风险等级、业绩基准、份额与净值。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#1D1885; textAlignment:center; characterSpacing:6pt">'理财产品购买确认单 / 赎回回执'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'确认单号 '${confirmNo}'　　确认日期 '${confirmDate}'　　销售机构 '${bankName}</p>
   <lineSeparator style="color:#3732A3; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F1F1F6; bold:true; border:1px solid #C1C0D5">'确认单号 / NO.'</td>
@@ -126,7 +122,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F1F1F6; bold:true; fontSize:9.5pt; color:#1D1885; border:1px solid #C1C0D5">'申购金额合计'</td>
@@ -140,7 +136,7 @@
     </tr>
   </table>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -157,7 +153,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

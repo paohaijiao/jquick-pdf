@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/179_prescription_charge_check.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·厚框·竖栏」：主色 #1351BC、辅色 #913827、浅底 #EFF2F8；
- * 版式为 side 抬头 + kv 信息区 + solid 明细表 + three 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>药品处方单 / 处方收费核对单：处方编号与类型、临床诊断、医师与药师，</p>
  * <p>逐项处方药品（规格、数量、用法用量、金额）与四查十对核对结果、三方签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz179PrescriptionChargeCheck {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "艾司奥美拉唑镁肠溶片", "20mg × 7 片", "4 盒", "每日一次，早餐前 20mg", "268.80", "乙类"},
                 {"2", "阿莫西林胶囊", "0.5g × 24 粒", "2 盒", "每日两次，每次 1.0g", "86.40", "甲类"},
@@ -113,7 +108,6 @@ public class JQuickBiz179PrescriptionChargeCheck {
 
         data.put("checkLine", "四查十对核对结果：处方合法性与用药适宜性均通过；其中医保统筹支付 ￥" + itemTotal.multiply(new BigDecimal("0.70")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "，个人自付 ￥" + itemTotal.multiply(new BigDecimal("0.30")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

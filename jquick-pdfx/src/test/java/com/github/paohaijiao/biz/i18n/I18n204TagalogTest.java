@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 204 —— 他加禄语版全球经营年报摘要
  *
- * <p>语种 tl：他加禄语。字体 Noto Sans，视觉主题「群岛·芒果式（琥珀 #D97706 + 深海蓝 #0B6E8A，双色块抬头 + 数字徽标章节）」。</p>
- *
  * <p>模板：i18n/global_bank_report_tl.txt
  * 输出：D://test//i18n//global_bank_report_tl.pdf</p>
  *

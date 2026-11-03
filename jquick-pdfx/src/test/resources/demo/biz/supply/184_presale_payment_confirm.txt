@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 184 预售房款收款单 / 尾款结算确认单（supply 领域第 5 项）　视觉主题：橄榄·厚框·典式
-  // 版式组合：抬头=classic 信息区=grid2 明细表=solid 段落=box 签章=right 落款=plain
-  // 主色 #549632　辅色 #3C2791　浅底 #F3F6F1
-  // 预售房款收款单与尾款结算确认单：定金首付按揭尾款、监管账户与结清确认。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#387719; textAlignment:center; characterSpacing:6pt">'预售房款收款单 / 尾款结算确认单'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'收款单号 '${receiptNo}'　　收款日期 '${receiveDate}'　　开发企业 '${devName}</p>
   <lineSeparator style="color:#549632; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F3F6F1; bold:true; border:1px solid #C7D5C1">'收款单号 / NO.'</td>
@@ -132,7 +128,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F3F6F1; bold:true; fontSize:9.5pt; color:#387719; border:1px solid #C7D5C1">'房款应收合计'</td>
@@ -152,7 +148,7 @@
     </tr>
   </table>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -169,7 +165,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

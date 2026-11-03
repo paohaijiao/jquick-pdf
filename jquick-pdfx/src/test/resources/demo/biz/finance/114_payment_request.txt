@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 114 付款申请单（finance 领域第 15 项）　视觉主题：琥珀·厚框·票式
-  // 版式组合：抬头=ticket 信息区=strip 明细表=solid 段落=plain 签章=card 落款=plain
-  // 主色 #AAAD21　辅色 #275691　浅底 #F7F7F0
-  // 付款申请单：合同 / 订单号、对应发票号、已付与本次申请金额，多级审批签字栏。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#AAAD21; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'付款申请单'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'申请单号 '${applyNo}'　　申请日期 '${applyDate}'　　申请部门 '${deptName}</p>
   <lineSeparator style="color:#AAAD21; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#AAAD21; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F7F7F0; bold:true; textAlign:center; border:1px solid #D8D8BD">'申请单号'</td>
@@ -99,13 +95,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#888A0C; marginBottom:3px">'付款合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#888A0C; marginBottom:3px">'付款事由'</p>
   <p style="fontSize:9pt; marginBottom:6px">${reason}</p>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -122,7 +118,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

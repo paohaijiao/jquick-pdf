@@ -1,17 +1,12 @@
 <pdf>
 <body>
-  // 100 增值税专用发票（finance 领域第 1 项）　视觉主题：绯红·斑马·典式
-  // 版式组合：抬头=classic 信息区=grid2 明细表=striped 段落=box 签章=three 落款=right
-  // 主色 #962119　辅色 #279166　浅底 #F7F0F0
-  // 增值税专用发票：票头 + 购销双方四项信息 + 货物明细 + 价税合计 + 备注 +
-  // 发票专用章 / 骑缝章 / 二维码占位 + 收款人、复核、开票人栏。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#6F0E08; textAlignment:center; characterSpacing:6pt">'增值税专用发票'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'机器编号 '${machineNo}'　　发票代码 '${invoiceCode}'　　发票号码 '${invoiceNo}'　　开票日期 '${issueDate}</p>
   <lineSeparator style="color:#962119; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F7F0F0; bold:true; border:1px solid #D9BEBD">'发票代码'</td>
@@ -135,7 +130,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F7F0F0; bold:true; fontSize:9.5pt; color:#6F0E08; border:1px solid #D9BEBD">'价税合计'</td>
@@ -149,7 +144,7 @@
     </tr>
   </table>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -169,7 +164,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

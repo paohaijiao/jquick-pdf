@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 153 保险保单 / 缴费回执 / 理赔单据（bank 领域第 14 项）　视觉主题：绛紫·密排·通栏
-  // 版式组合：抬头=banner 信息区=chip 明细表=compact 段落=plain 签章=split 落款=table
-  // 主色 #8329A6　辅色 #769127　浅底 #F5F0F7
-  // 保费保单、缴费回执与理赔单据：承保标的、保险金额、保费与赔付金额。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#8329A6; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'保险保单 / 缴费回执 / 理赔单据'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F5F0F7; bold:true; textAlign:center; border:1px solid #D0BFD7">'保单号码 / POLICY NO.'</td>
@@ -129,13 +125,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#641285; marginBottom:3px">'赔付金额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#641285; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -152,7 +148,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

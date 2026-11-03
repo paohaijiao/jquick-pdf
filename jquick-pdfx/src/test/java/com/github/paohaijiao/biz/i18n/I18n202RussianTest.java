@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 202 —— 俄语版全球经营年报摘要
  *
- * <p>语种 ru：俄语。字体 Noto Sans，视觉主题「玫红庄重·对称横幅式（玫红 #A61E4D 满幅横幅，居中对称，双粗线夹标题）」。</p>
- *
  * <p>模板：i18n/global_bank_report_ru.txt
  * 输出：D://test//i18n//global_bank_report_ru.pdf</p>
  *
@@ -71,7 +69,6 @@ public class I18n202RussianTest {
         p.lineFooter = "Источник: платформа мониторинга глобального бизнеса | Ед.: млн юаней";
         p.lineMonths = new String[]{"янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт"};
         p.lineNames = new String[]{"Расчёты", "Торговое финансирование", "Валютные операции"};
-        // 视觉主题「玫红庄重·对称横幅式」
         p.donutPalette = new Color[]{
                 new Color(166, 30, 77), new Color(74, 111, 165), new Color(217, 139, 165),
                 new Color(123, 153, 196), new Color(231, 195, 209), new Color(242, 224, 231)

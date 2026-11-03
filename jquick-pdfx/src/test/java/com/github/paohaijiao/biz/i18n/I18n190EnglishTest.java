@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 190 —— English版全球经营年报摘要
  *
- * <p>语种 en：English。字体 Noto Sans，视觉主题「Graphite Swiss 石墨极简式（#232323 + 信号橙 #E8590C，左对齐无框细线表）」。</p>
- *
  * <p>模板：i18n/global_bank_report_en.txt
  * 输出：D://test//i18n//global_bank_report_en.pdf</p>
  *

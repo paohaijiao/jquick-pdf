@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/158_business_license_change_receipt.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·密排·公文」：主色 #2098A8、辅色 #91274C、浅底 #F0F6F7；
- * 版式为 doc 抬头 + strip 信息区 + compact 明细表 + two 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>营业执照变更 / 备案回执：企业名称与统一社会信用代码、变更备案类型，</p>
  * <p>逐项变更项目（变更前 / 变更后）、办理结果与登记机关签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz158BusinessLicenseChangeReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "企业名称", "××智能装备有限公司", "××智能装备制造有限公司", "2026-10-21"},
                 {"2", "住所", "××市××区智造大道 88 号", "××市××区智造大道 168 号 A 座", "2026-10-21"},
@@ -100,7 +95,6 @@ public class JQuickBiz158BusinessLicenseChangeReceipt {
             data.put("itemAmount" + n, items[i][4]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

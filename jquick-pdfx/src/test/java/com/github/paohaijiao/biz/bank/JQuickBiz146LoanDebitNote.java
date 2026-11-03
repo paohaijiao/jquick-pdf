@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/146_loan_debit_note.txt} 中。</p>
  *
- * <p>视觉主题「群青·素雅·公文」：主色 #0D1988、辅色 #915527、浅底 #EFF0F8；
- * 版式为 doc 抬头 + strip 信息区 + light 明细表 + three 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>贷款借据 / 借款合同回执：借款合同编号、贷款种类与金额、期限与执行利率、</p>
  * <p>担保方式、分期还款计划（本金利息剩余本金）与银企签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz146LoanDebitNote {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "2026-11-21", "0.00", "9625.00", "3000000.00", "待还款", "付息"},
                 {"2", "2026-12-21", "0.00", "9625.00", "3000000.00", "待还款", "付息"},
@@ -118,7 +113,6 @@ public class JQuickBiz146LoanDebitNote {
 
         data.put("totalLine", "利息合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

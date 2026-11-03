@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 149 保函开立凭证 / 履约保函回执（bank 领域第 10 项）　视觉主题：紫棠·厚框·竖栏
-  // 版式组合：抬头=side 信息区=chip 明细表=solid 段落=bar 签章=two 落款=table
-  // 主色 #3F1190　辅色 #918627　浅底 #F2EFF8
-  // 保函开立凭证与履约保函回执：担保范围、金额、有效期、减额与索赔条款。
 
-  // 抬头：side
+  // 抬头
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:5px; padding:0px; backgroundColor:#3F1190">' '</td>
@@ -15,7 +11,7 @@
   </table>
   <lineSeparator style="color:#E1DFE5; thickness:1f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F2EFF8; bold:true; textAlign:center; border:1px solid #C6BBDA">'保函编号 / NO.'</td>
@@ -108,7 +104,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#918627">' '</td>
@@ -124,7 +120,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -141,7 +137,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

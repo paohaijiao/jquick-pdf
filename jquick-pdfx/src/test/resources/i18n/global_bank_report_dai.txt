@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（傣语 / 新傣仂文）  视觉主题：贝叶竹青·孔雀式
-  // 主色 #557C1F  深色 #3D5A15  浅底 #F6F8EC  描边 #CBDBA8
 
   <h1 style="fontSize:18pt; bold:true; color:#557C1F; marginBottom:2px; fontFamilyNames:Noto Sans New Tai Lue,Noto Sans,SimHei">'ᦷᦣᧂᦇᦹᧃᦷᦜᧂ · ᦂᦱᧃᦇᦹᧃ ᦔᦲ ᧒᧐᧒᧖'</h1>
   <lineSeparator style="color:#8B5A00; thickness:2f; marginBottom:6px"></lineSeparator>

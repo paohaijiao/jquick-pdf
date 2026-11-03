@@ -2,7 +2,6 @@
 <body>
   // 156 环球汇通银行 · 全球经营年报摘要（日本語版）
   // 单语种独立报告：全篇仅日语，图表标题/图例亦为日语
-  // 视觉主题「藍染朱印·和风余白式」：藍 #2B4570　朱 #C73E3A　和纸底 #F7F6F2　细线 #D9D5CC
 
   // 抬头：左对齐余白式 + 藍/朱双线
   <h1 style="fontSize:20pt; bold:true; color:#2B4570; textAlignment:left; characterSpacing:4pt; marginBottom:2px; fontFamilyNames:Noto Sans JP,Helvetica">'グローバルユニオン銀行 · グローバル経営年報サマリー'</h1>

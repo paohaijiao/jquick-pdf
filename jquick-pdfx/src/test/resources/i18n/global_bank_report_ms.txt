@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（马来语）  视觉主题：蜡染·热带赭
-  // 主色 #C2410C  深色 #8A2D08  浅底 #FDF1E0  描边 #EFC9A8  点缀 #1F3B2C
 
   // 抬头：主色粗框通栏（标题行 + 副标题行，td 直接放文本）
   <table style="width:100%; marginBottom:8px; border:2px solid #C2410C">

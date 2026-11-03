@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 106 出租汽车专用发票 / 网约车行程单（finance 领域第 7 项）　视觉主题：朱砂·素雅·典式
-  // 版式组合：抬头=classic 信息区=strip 明细表=light 段落=box 签章=card 落款=table
-  // 主色 #A46524　辅色 #278D91　浅底 #F7F4F0
-  // 出租车小票与网约车行程单：含上下车时间地点、车牌号、里程计价与平台服务费。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#82490E; textAlignment:center; characterSpacing:6pt">'出租汽车专用发票 / 网约车行程单'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'发票代码 '${invoiceCode}'　　发票号码 '${invoiceNo}'　　行程日期 '${rideDate}</p>
   <lineSeparator style="color:#A46524; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F7F4F0; bold:true; border:1px solid #D7CBBE">'发票代码'</td>
@@ -101,7 +97,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F7F4F0; bold:true; fontSize:9.5pt; color:#82490E; border:1px solid #D7CBBE">'金额合计'</td>
@@ -115,7 +111,7 @@
     </tr>
   </table>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -132,7 +128,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

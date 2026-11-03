@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 170 门诊病历 / 住院病案首页（medical 领域第 1 项）　视觉主题：青瓷·斑马·公文
-  // 版式组合：抬头=doc 信息区=strip 明细表=striped 段落=bar 签章=two 落款=right
-  // 主色 #278159　辅色 #912788　浅底 #F1F6F4
-  // 门诊病历与住院病案首页：患者信息、入出院诊断、诊疗经过与医嘱处置。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#278159; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'门诊病历 / 住院病案首页'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'病案号 '${recordNo}'　　就诊日期 '${visitDate}'　　医疗机构 '${hospitalName}</p>
   <lineSeparator style="color:#278159; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F1F6F4; bold:true; border:1px solid #C0D5CC">'病案号 / MEDICAL RECORD NO.'</td>
@@ -107,7 +103,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#912788">' '</td>
@@ -123,7 +119,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -140,7 +136,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

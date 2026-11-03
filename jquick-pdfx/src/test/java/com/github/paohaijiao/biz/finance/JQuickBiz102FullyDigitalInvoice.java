@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/102_fully_digital_invoice.txt} 中。</p>
  *
- * <p>视觉主题「绯红·疏朗·票式」：主色 #8E260E、辅色 #279173、浅底 #F8F1EF；
- * 版式为 ticket 抬头 + strip 信息区 + airy 明细表 + card 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标全面数字化电子发票票样：发票号码、开票日期、发票类型、购销双方统一社会信用代码、</p>
  * <p>项目明细与税率征收率、价税合计、电子签章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz102FullyDigitalInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"精密齿轮箱", "GB-120", "台", "8", "3650.00", "—", "13%", "—"},
                 {"伺服电机", "SM-500W", "台", "8", "1620.00", "—", "13%", "—"},
@@ -121,7 +116,6 @@ public class JQuickBiz102FullyDigitalInvoice {
 
         data.put("totalLine", "价税合计（大写）" + toChineseAmount(withTax) + "　　（小写）￥" + withTax.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 164 行政处罚告知书 / 罚款缴款回执（gov 领域第 10 项）　视觉主题：群青·厚框·公文
-  // 版式组合：抬头=doc 信息区=grid2 明细表=solid 段落=bar 签章=card 落款=plain
-  // 主色 #1E1C73　辅色 #916127　浅底 #F1F0F7
-  // 行政处罚告知书与缴款回执：违法事实、证据材料、裁量情节与救济途径。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#1E1C73; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'行政处罚告知书 / 罚款缴款回执'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'告知书文号 '${noticeNo}'　　告知日期 '${noticeDate}'　　执法机关 '${orgName}</p>
   <lineSeparator style="color:#1E1C73; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F1F0F7; bold:true; border:1px solid #BFBFD7">'告知书文号 / NO.'</td>
@@ -118,7 +114,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#916127">' '</td>
@@ -141,7 +137,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -158,7 +154,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -50,7 +50,6 @@ public class JQuickBiz72Statement {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（普通 Map，无实体类）----------
         String[][] raw = {
                 {"2026-09-01", "8 月平台服务费", "12800.00"},
                 {"2026-09-03", "接口调用超量计费（8 月）", "3260.00"},
@@ -95,7 +94,6 @@ public class JQuickBiz72Statement {
         data.put("totalDecrease", decrease.setScale(2, RoundingMode.HALF_UP).toPlainString());
         data.put("closingBalance", closing.setScale(2, RoundingMode.HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(45, 45, 55, 45));

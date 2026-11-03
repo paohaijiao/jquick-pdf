@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 117 发票销货清单 / 开票明细清单（finance 领域第 18 项）　视觉主题：橄榄·疏朗·通栏
-  // 版式组合：抬头=banner 信息区=chip 明细表=airy 段落=plain 签章=three 落款=table
-  // 主色 #6DB427　辅色 #2B2791　浅底 #F3F7F0
-  // 发票销货清单 / 开票明细清单：发票票面无法全部列示货物品名时随票出具的明细附件。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#6DB427; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'发票销货清单 / 开票明细清单'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：chip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:4px; border:1px solid #CBD7BE">'清单编号：'${listNo}</td>
@@ -128,7 +124,7 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#519310; marginBottom:3px">'销货金额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#519310; marginBottom:3px">'其中税额'</p>
@@ -136,7 +132,7 @@
   <p style="fontSize:10.5pt; bold:true; color:#519310; marginBottom:3px">'备注'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -156,7 +152,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

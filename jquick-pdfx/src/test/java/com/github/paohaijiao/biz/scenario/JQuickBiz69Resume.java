@@ -59,10 +59,8 @@ public class JQuickBiz69Resume {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 图片：头像占位图 ----------
         generateAvatar(IMG_DIR + "69_avatar.png");
 
-        // ---------- 2. 数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("name", "陈嘉禾");
         data.put("jobTitle", "高级数据分析师");
@@ -117,7 +115,6 @@ public class JQuickBiz69Resume {
         data.put("eduTitle1", "××大学");
         data.put("eduSubtitle1", "统计学　本科 / 学士");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         // 经历条目的「时间 + 内容」时间轴用 display:flex 实现，必须开启 flex 行布局
         config.getLayoutConfig().setFlexLayout(true);

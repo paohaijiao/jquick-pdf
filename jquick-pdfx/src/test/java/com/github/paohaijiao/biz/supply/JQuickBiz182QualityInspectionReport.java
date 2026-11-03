@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/supply/182_quality_inspection_report.txt} 中。</p>
  *
- * <p>视觉主题「金橙·疏朗·公文」：主色 #C4A718、辅色 #276A91、浅底 #F8F6EF；
- * 版式为 doc 抬头 + strip 信息区 + airy 明细表 + split 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>来料质检单 / 成品质量检验报告单：检验类型与抽检方案、检验依据与测量设备，</p>
  * <p>逐项检验项目（标准要求、实测结果、判定）与检验结论、处置意见与三方签字栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz182QualityInspectionReport {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "外观与标识检查", "无明显磕碰划伤，铭牌清晰", "5 台均无缺陷，标识完整", "合格", "—"},
                 {"2", "外形尺寸检测", "安装孔距 120±0.10mm", "119.96 ~ 120.05 mm", "合格", "—"},
@@ -105,7 +100,6 @@ public class JQuickBiz182QualityInspectionReport {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

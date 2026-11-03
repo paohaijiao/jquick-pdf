@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/147_credit_release_voucher.txt} 中。</p>
  *
- * <p>视觉主题「群青·疏朗·通栏」：主色 #2A1D98、辅色 #916A27、浅底 #F1F0F7；
- * 版式为 banner 抬头 + kv 信息区 + airy 明细表 + right 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>信贷放款凭证 / 还款结清回执：授信合同与业务类型、放款与逐期还款明细、</p>
  * <p>累计归还本金与利息、结清说明与银企签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz147CreditReleaseVoucher {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "贷款放款", "2026-10-22", "3000000.00", "0.00", "3000000.00"},
                 {"2", "按期付息", "2026-11-21", "0.00", "9625.00", "3000000.00"},
@@ -113,7 +108,6 @@ public class JQuickBiz147CreditReleaseVoucher {
 
         data.put("totalLine", "累计归还本金合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

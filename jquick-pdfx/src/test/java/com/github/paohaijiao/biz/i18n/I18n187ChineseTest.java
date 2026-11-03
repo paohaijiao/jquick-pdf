@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 187 —— 简体中文版全球经营年报摘要
  *
- * <p>语种 zh：简体中文。字体 SimHei，视觉主题「黛紫鎏银·圆角卡片式（主色 #52307C，borderRadius 圆角卡片，居中）」。</p>
- *
  * <p>模板：i18n/global_bank_report_zh.txt
  * 输出：D://test//i18n//global_bank_report_zh.pdf</p>
  *
@@ -69,7 +67,6 @@ public class I18n187ChineseTest {
         p.lineFooter = "数据来源：全球业务监控平台 | 单位：亿元";
         p.lineMonths = new String[]{"1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月"};
         p.lineNames = new String[]{"跨境结算量", "贸易融资投放", "外汇交易量"};
-        // 视觉主题「黛紫鎏银·圆角卡片式」
         p.donutPalette = new Color[]{
                 new Color(82, 48, 124), new Color(142, 124, 195), new Color(106, 90, 160),
                 new Color(169, 155, 214), new Color(201, 192, 230), new Color(228, 223, 242)

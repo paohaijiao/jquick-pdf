@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 179 药品处方单 / 处方收费核对单（medical 领域第 10 项）　视觉主题：宝蓝·厚框·竖栏
-  // 版式组合：抬头=side 信息区=kv 明细表=solid 段落=bar 签章=three 落款=right
-  // 主色 #1351BC　辅色 #913827　浅底 #EFF2F8
-  // 药品处方单与处方收费核对单：药品名称规格、用法用量、金额与四查十对结果。
 
-  // 抬头：side
+  // 抬头
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:5px; padding:0px; backgroundColor:#1351BC">' '</td>
@@ -15,7 +11,7 @@
   </table>
   <lineSeparator style="color:#DFE1E5; thickness:1f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#EFF2F8; bold:true; border:1px solid #BAC6DB">'处方编号 / NO.'</td>
@@ -135,7 +131,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#913827">' '</td>
@@ -158,7 +154,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -178,7 +174,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

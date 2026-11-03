@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/131_terminal_receipt.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·素雅·竖栏」：主色 #215E87、辅色 #91272E、浅底 #F0F4F7；
- * 版式为 side 抬头 + kv 信息区 + light 明细表 + card 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>场站收据：场站名称与集装箱号、装箱方式、逐项收货明细（重量体积外包装状况），</p>
  * <p>场站经办人与承运人代理、托运人三方签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz131TerminalReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "伺服电机 SM-500W", "8 CTNS", "368.00", "0.86", "完好"},
                 {"2", "精密齿轮箱 GB-120", "8 CTNS", "1960.00", "2.44", "完好"},
@@ -110,7 +105,6 @@ public class JQuickBiz131TerminalReceipt {
 
         data.put("measure", new BigDecimal("15.62").setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

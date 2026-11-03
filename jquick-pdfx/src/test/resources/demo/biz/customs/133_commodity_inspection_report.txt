@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 133 进出口商品检验 / 检疫检验报告（customs 领域第 9 项）　视觉主题：宝蓝·密排·下线
-  // 版式组合：抬头=underline 信息区=chip 明细表=compact 段落=box 签章=two 落款=table
-  // 主色 #153580　辅色 #913F27　浅底 #F0F2F7
-  // 进出口商检单与检疫检验报告：检验项目、标准要求、检验结果与判定。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#061E57; characterSpacing:3pt">'进出口商品检验 / 检疫检验报告'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#153580; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F0F2F7; bold:true; textAlign:center; border:1px solid #BDC5D9">'报告编号 / REPORT NO.'</td>
@@ -110,7 +106,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F0F2F7; bold:true; fontSize:9.5pt; color:#061E57; border:1px solid #BDC5D9">'检验结论 / CONCLUSION'</td>
@@ -124,7 +120,7 @@
     </tr>
   </table>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -141,7 +137,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

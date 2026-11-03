@@ -50,10 +50,8 @@ public class JQuickBiz75ResignationCert {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成公章图片（模板按字面量路径引用）----------
         generateSeal(IMG_DIR + "75_seal.png", "××数字科技有限公司");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         String employeeName = "周子墨";
         String idCard = "3101**********5621";
         String entryDate = "2022年03月01日";
@@ -78,7 +76,6 @@ public class JQuickBiz75ResignationCert {
         data.put("line4", "经双方协商一致，自 " + leaveDate
                 + " 起解除劳动合同，我司已依法为其办理社会保险及住房公积金停缴手续，");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(60, 72, 60, 72));

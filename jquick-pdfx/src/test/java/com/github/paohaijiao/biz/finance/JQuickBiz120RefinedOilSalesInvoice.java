@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/120_refined_oil_sales_invoice.txt} 中。</p>
  *
- * <p>视觉主题「橄榄·斑马·票式」：主色 #42781E、辅色 #342791、浅底 #F3F7F0；
- * 版式为 ticket 抬头 + grid2 信息区 + striped 明细表 + two 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>成品油销售发票：油品名称与牌号、单位数量单价、金额与税率税额，</p>
  * <p>价税合计大小写与成品油经销企业发票专用章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz120RefinedOilSalesInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"车用柴油", "0# 国Ⅵ", "升", "1200", "7.28", "—", "13%", "—"},
                 {"车用汽油", "92# 国Ⅵ", "升", "860", "7.65", "—", "13%", "—"},
@@ -122,7 +117,6 @@ public class JQuickBiz120RefinedOilSalesInvoice {
 
         data.put("totalLine", "价税合计（大写）" + toChineseAmount(withTax) + "　　（小写）￥" + withTax.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

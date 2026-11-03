@@ -50,7 +50,6 @@ public class JQuickBiz76ApprovalArchive {
     public static void main(String[] args) throws Exception {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 组织数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("approvalNo", "OA-2026-09-0247");
         data.put("applicant", "刘洋（数据平台部）");
@@ -95,7 +94,6 @@ public class JQuickBiz76ApprovalArchive {
             data.put("att" + (i + 1), attachments.get(i));
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         // 顶部留出 34pt 给页眉

@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 209 —— 越南语版全球经营年报摘要
  *
- * <p>语种 vi：越南语。字体 Noto Sans，视觉主题「青瓷·顺化式（#0B6E7F，满幅色带 + 左竖线章节 + 满格细线表）」。</p>
- *
  * <p>模板：i18n/global_bank_report_vi.txt
  * 输出：D://test//i18n//global_bank_report_vi.pdf</p>
  *

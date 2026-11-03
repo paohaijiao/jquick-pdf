@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（葡萄牙语）  视觉主题：阿兹勒赫瓷砖·海航式
-  // 主色 #1C7ED6  深色 #0B4F8A  浅底 #EAF2FB  描边 #B6D2EE
 
   // 顶部瓷砖色条（阿兹勒赫风格）
   <table style="width:100%; marginBottom:8px">

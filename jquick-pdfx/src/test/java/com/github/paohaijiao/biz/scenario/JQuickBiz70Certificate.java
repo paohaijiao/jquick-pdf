@@ -55,11 +55,9 @@ public class JQuickBiz70Certificate {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 图片：logo + 公章 ----------
         generateLogo(IMG_DIR + "70_logo.png");
         generateSeal(IMG_DIR + "70_seal.png", "培训中心");
 
-        // ---------- 2. 数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("studentName", "林书言");
         data.put("idCard", "3101**********1234");
@@ -69,7 +67,6 @@ public class JQuickBiz70Certificate {
         data.put("issuer", "××职业培训中心");
         data.put("certNo", "PX-2026-1018-0086");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 186 —— 孟加拉语版全球经营年报摘要
  *
- * <p>语种 bn：孟加拉语。字体 Noto Sans Bengali，视觉主题「恒河朱砂·莲花式（#B0322F + 恒河绿 #0F7B5F，左竖色块 + 圆角卡片 KPI）」。</p>
- *
  * <p>模板：i18n/global_bank_report_bn.txt
  * 输出：D://test//i18n//global_bank_report_bn.pdf</p>
  *

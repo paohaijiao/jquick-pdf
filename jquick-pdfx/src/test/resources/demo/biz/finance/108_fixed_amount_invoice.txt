@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 108 定额发票 / 通用机打发票（finance 领域第 9 项）　视觉主题：朱砂·密排·票式
-  // 版式组合：抬头=ticket 信息区=grid2 明细表=compact 段落=plain 签章=two 落款=table
-  // 主色 #9E5A17　辅色 #278E91　浅底 #F7F3F0
-  // 定额发票与通用机打发票：按面值、份数、起止号码登记领用与核销。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#9E5A17; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'定额发票 / 通用机打发票'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'发票代码 '${invoiceCode}'　　发票号码段 '${invoiceNo}'　　开票日期 '${issueDate}</p>
   <lineSeparator style="color:#9E5A17; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#9E5A17; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F7F3F0; bold:true; border:1px solid #DACBBC">'发票代码'</td>
@@ -92,13 +88,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#773E06; marginBottom:3px">'金额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#773E06; marginBottom:3px">'备注'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -115,7 +111,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

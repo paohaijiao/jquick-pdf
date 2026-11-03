@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/166_credit_repair_receipt.txt} 中。</p>
  *
- * <p>视觉主题「紫棠·素雅·典式」：主色 #5B1EB1、辅色 #918C27、浅底 #F3F0F7；
- * 版式为 classic 抬头 + strip 信息区 + light 明细表 + two 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>联合奖惩清单 / 失信修复受理单：失信行为类别与认定文号、履行情况，</p>
  * <p>逐项联合奖惩措施与执行状态、受理结论与办理时限、受理机关签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz166CreditRepairReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "限制参与政府采购活动", "××市财政局", "惩戒", "已解除", "修复后解除"},
                 {"2", "限制取得政府供应土地", "××市自然资源和规划局", "惩戒", "已解除", "修复后解除"},
@@ -105,7 +100,6 @@ public class JQuickBiz166CreditRepairReceipt {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

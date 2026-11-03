@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/148_wealth_purchase_confirm.txt} 中。</p>
  *
- * <p>视觉主题「群青·密排·典式」：主色 #3732A3、辅色 #916427、浅底 #F1F1F6；
- * 版式为 classic 抬头 + grid2 信息区 + compact 明细表 + card 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>理财购买确认单 / 赎回回执：产品名称与风险等级、业绩比较基准、</p>
  * <p>申购赎回交易明细（金额、份额、单位净值）与风险提示、销售机构签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz148WealthPurchaseConfirm {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "申购", "2026-10-24", "2000000.00", "1982354.66", "1.0089", "已确认"},
                 {"2", "追加申购", "2026-11-05", "500000.00", "494121.00", "1.0119", "已确认"},
@@ -116,7 +111,6 @@ public class JQuickBiz148WealthPurchaseConfirm {
 
         data.put("totalLine", "申购金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

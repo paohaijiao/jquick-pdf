@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 118 红字增值税发票信息表（finance 领域第 19 项）　视觉主题：秋香·密排·典式
-  // 版式组合：抬头=classic 信息区=strip 明细表=compact 段落=box 签章=right 落款=right
-  // 主色 #5F7E2A　辅色 #273091　浅底 #F4F6F1
-  // 红字增值税发票信息表：蓝字发票信息、红冲原因与逐项负数金额税额。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#415D13; textAlignment:center; characterSpacing:6pt">'红字增值税发票信息表'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'信息表编号 '${infoNo}'　　填开日期 '${issueDate}'　　蓝字发票号码 '${blueInvoiceNo}</p>
   <lineSeparator style="color:#5F7E2A; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F4F6F1; bold:true; border:1px solid #CDD5C1">'信息表编号'</td>
@@ -111,7 +107,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F4F6F1; bold:true; fontSize:9.5pt; color:#415D13; border:1px solid #CDD5C1">'红冲金额合计'</td>
@@ -125,7 +121,7 @@
     </tr>
   </table>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -142,7 +138,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

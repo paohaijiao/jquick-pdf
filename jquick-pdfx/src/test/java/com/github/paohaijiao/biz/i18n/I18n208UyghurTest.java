@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 208 —— 维吾尔语版全球经营年报摘要
  *
- * <p>语种 ug：维吾尔语。字体 Noto Sans Arabic，视觉主题「翡翠铜右起式（#0F6B5C，RTL 右起表格 + 铜色描边）」。</p>
- *
  * <p>模板：i18n/global_bank_report_ug.txt
  * 输出：D://test//i18n//global_bank_report_ug.pdf</p>
  *

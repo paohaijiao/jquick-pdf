@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 130 海运提单 / 空运运单 / 铁路运单（customs 领域第 6 项）　视觉主题：宝蓝·斑马·典式
-  // 版式组合：抬头=classic 信息区=strip 明细表=striped 段落=box 签章=right 落款=plain
-  // 主色 #1C73C0　辅色 #912727　浅底 #F0F4F7
-  // 海运提单、空运运单、铁路运单三合一：唛头件数、货描毛重尺码与运费条款。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#08579C; textAlignment:center; characterSpacing:6pt">'海运提单 / 空运运单 / 铁路运单'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'提（运）单号 '${blNo}'　　签发日期 '${issueDate}'　　签发地 '${issuePlace}</p>
   <lineSeparator style="color:#1C73C0; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F0F4F7; bold:true; border:1px solid #BCCCDA">'提（运）单号 / B/L NO.'</td>
@@ -122,7 +118,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F0F4F7; bold:true; fontSize:9.5pt; color:#08579C; border:1px solid #BCCCDA">'运费与提单份数'</td>
@@ -136,7 +132,7 @@
     </tr>
   </table>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -153,7 +149,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

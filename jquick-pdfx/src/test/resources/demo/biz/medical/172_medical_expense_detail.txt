@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 172 医疗费用明细清单 / 药品耗材清单（medical 领域第 3 项）　视觉主题：天青·疏朗·典式
-  // 版式组合：抬头=classic 信息区=grid2 明细表=airy 段落=box 签章=right 落款=right
-  // 主色 #1B7A6E　辅色 #912766　浅底 #F0F7F6
-  // 费用明细清单与药品耗材清单：药品名称规格、数量单价、金额与医保类别。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#09544A; textAlignment:center; characterSpacing:6pt">'医疗费用明细清单 / 药品耗材清单'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'清单编号 '${listNo}'　　结算期间 '${period}'　　患者 '${patientName}</p>
   <lineSeparator style="color:#1B7A6E; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F0F7F6; bold:true; border:1px solid #BED7D4">'清单编号 / LIST NO.'</td>
@@ -143,7 +139,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F0F7F6; bold:true; fontSize:9.5pt; color:#09544A; border:1px solid #BED7D4">'药品耗材金额合计'</td>
@@ -157,7 +153,7 @@
     </tr>
   </table>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -174,7 +170,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

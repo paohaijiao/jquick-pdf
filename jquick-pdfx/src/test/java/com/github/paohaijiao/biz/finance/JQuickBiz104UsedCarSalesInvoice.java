@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/104_used_car_sales_invoice.txt} 中。</p>
  *
- * <p>视觉主题「赭红·厚框·公文」：主色 #A86833、辅色 #279190、浅底 #F6F3F1；
- * 版式为 doc 抬头 + grid2 信息区 + solid 明细表 + three 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标二手车销售统一发票票样：买卖双方身份信息、车辆识别代号、牌照号码、</p>
  * <p>车价款与代办费用明细、合计金额大小写与市场公章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz104UsedCarSalesInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"二手车车价款", "小型轿车", "××牌 SVW71810", "2021-05-18", "4.60", "86800.00"},
                 {"过户手续费", "—", "—", "—", "—", "420.00"},
@@ -107,7 +102,6 @@ public class JQuickBiz104UsedCarSalesInvoice {
 
         data.put("totalLine", "合计金额（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

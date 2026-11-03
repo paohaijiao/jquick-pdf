@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/150_credit_report.txt} 中。</p>
  *
- * <p>视觉主题「紫棠·斑马·票式」：主色 #52239F、辅色 #918727、浅底 #F3F0F7；
- * 版式为 ticket 抬头 + strip 信息区 + striped 明细表 + three 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>企业征信查询报告 / 信用报告：被查询主体与查询原因、信用等级，</p>
  * <p>逐笔信贷记录（授信金额、余额、还款状态、逾期次数）与公共记录、征信中心签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz150CreditReport {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "中国建设银行××支行", "流动资金贷款", "3000000.00", "1300000.00", "正常", "0 次"},
                 {"2", "中国银行××分行", "银行承兑汇票", "5000000.00", "1186000.00", "正常", "0 次"},
@@ -132,7 +127,6 @@ public class JQuickBiz150CreditReport {
             data.put("subDate" + n, items2[i][2]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

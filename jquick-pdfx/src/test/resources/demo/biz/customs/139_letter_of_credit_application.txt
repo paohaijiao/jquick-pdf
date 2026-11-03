@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 139 信用证 / 开证申请书 / 报关代理委托书（customs 领域第 15 项）　视觉主题：群青·厚框·下线
-  // 版式组合：抬头=underline 信息区=kv 明细表=solid 段落=box 签章=card 落款=plain
-  // 主色 #2B1F8F　辅色 #916A27　浅底 #F1F0F7
-  // 国际结算信用证、开证申请书与报关代理委托书：条款、单据要求与特别条款。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#150C6B; characterSpacing:3pt">'信用证 / 开证申请书 / 报关代理委托书'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#2B1F8F; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F1F0F7; bold:true; border:1px solid #C1BED7">'信用证号 / L/C NO.'</td>
@@ -118,7 +114,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F1F0F7; bold:true; fontSize:9.5pt; color:#150C6B; border:1px solid #C1BED7">'特别条款 / SPECIAL CLAUSES'</td>
@@ -132,7 +128,7 @@
     </tr>
   </table>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -149,7 +145,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

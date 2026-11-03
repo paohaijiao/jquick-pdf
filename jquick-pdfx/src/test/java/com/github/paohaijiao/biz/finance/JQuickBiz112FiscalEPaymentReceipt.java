@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/112_fiscal_e_payment_receipt.txt} 中。</p>
  *
- * <p>视觉主题「金橙·疏朗·典式」：主色 #70681F、辅色 #276391、浅底 #F6F6F1；
- * 版式为 classic 抬头 + grid2 信息区 + airy 明细表 + two 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标财政电子缴款回执票样：回执编号、交易流水号、缴款人与执收单位、</p>
  * <p>各项目到账状态与缴款合计大小写。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz112FiscalEPaymentReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"103-0455", "排污权有偿使用费", "2160.00", "已到账", "2026-10-12 10:22"},
                 {"103-0461", "污水处理费", "3360.00", "已到账", "2026-10-12 10:22"},
@@ -105,7 +100,6 @@ public class JQuickBiz112FiscalEPaymentReceipt {
 
         data.put("totalLine", "缴款合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

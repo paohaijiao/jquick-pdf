@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/135_export_tax_refund.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·斑马·通栏」：主色 #133FC2、辅色 #914527、浅底 #EFF1F8；
- * 版式为 banner 抬头 + kv 信息区 + striped 明细表 + card 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>出口退税申报单：退税所属期与报关单号、逐项出口销售额与折人民币金额、</p>
  * <p>征退税率与应退税额合计、退税机关受理栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz135ExportTaxRefund {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "伺服电机 SM-500W", "1796.80", "12793.22", "13%", "13%", "1663.12"},
                 {"2", "精密齿轮箱 GB-120", "4055.20", "28872.90", "13%", "13%", "3753.48"},
@@ -116,7 +111,6 @@ public class JQuickBiz135ExportTaxRefund {
 
         data.put("refundLine", "应退税额合计（大写）" + toChineseAmount(new BigDecimal("37838.70")) + "　　（小写）￥37838.70");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

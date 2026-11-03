@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/128_commercial_proforma_invoice.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·密排·公文」：主色 #1C5680、辅色 #91272C、浅底 #F0F4F7；
- * 版式为 doc 抬头 + grid2 信息区 + compact 明细表 + split 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>外贸商业发票 / 形式发票：发票号码与合同号、买卖双方、贸易术语与付款方式、</p>
  * <p>中英对照货物明细与总金额、卖方签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz128CommercialProformaInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "伺服电机 / SERVO MOTOR", "SM-500W", "8 PCS", "224.60", "1796.80"},
                 {"2", "精密齿轮箱 / GEAR BOX", "GB-120", "8 PCS", "506.90", "4055.20"},
@@ -107,7 +102,6 @@ public class JQuickBiz128CommercialProformaInvoice {
 
         data.put("totalLine", "TOTAL AMOUNT（大写）" + toChineseAmount(itemTotal) + " 美元　　（小写）USD " + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

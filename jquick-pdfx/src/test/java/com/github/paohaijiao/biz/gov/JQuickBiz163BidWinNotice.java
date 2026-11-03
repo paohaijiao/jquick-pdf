@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/163_bid_win_notice.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·密排·下线」：主色 #183DA9、辅色 #914527、浅底 #F0F2F7；
- * 版式为 underline 抬头 + kv 信息区 + compact 明细表 + three 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>中标通知书 / 投标报名回执：招标项目与编号、招标方式与中标人、</p>
  * <p>各投标人报价与评审得分排名、中标结果与签约提示、三方签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz163BidWinNotice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "××建设工程有限公司", "1860.00", "420", "93.86", "第 1 名 / 中标"},
                 {"2", "××建工集团有限公司", "1912.00", "430", "90.12", "第 2 名"},
@@ -105,7 +100,6 @@ public class JQuickBiz163BidWinNotice {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

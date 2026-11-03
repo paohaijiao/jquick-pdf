@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/161_subsidy_application_receipt.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·素雅·竖栏」：主色 #266FAF、辅色 #912727、浅底 #F0F4F7；
- * 版式为 side 抬头 + chip 信息区 + light 明细表 + split 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>财政补贴申领单 / 补贴拨付回执：补贴政策与文号、申领单位与拨付账户，</p>
  * <p>逐项补贴项目（投资额、比例、核定补贴额）与合计、三方签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz161SubsidyApplicationReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "数控加工中心购置", "572000.00", "10%", "57200.00", "通过"},
                 {"2", "精密磨床购置", "168000.00", "10%", "16800.00", "通过"},
@@ -113,7 +108,6 @@ public class JQuickBiz161SubsidyApplicationReceipt {
 
         data.put("totalLine", "核定补贴金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

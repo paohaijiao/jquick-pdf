@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 141 单位银行账户对账单 / 流水明细单（bank 领域第 2 项）　视觉主题：宝蓝·素雅·通栏
-  // 版式组合：抬头=banner 信息区=chip 明细表=light 段落=plain 签章=two 落款=plain
-  // 主色 #144088　辅色 #913627　浅底 #F0F3F7
-  // 对公账户对账单与流水明细单：期初期末余额、逐笔收入支出与余额。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#144088; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'单位银行账户对账单 / 流水明细单'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F0F3F7; bold:true; textAlign:center; border:1px solid #BCC7DA">'账户名称 / ACCOUNT NAME'</td>
@@ -137,7 +133,7 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#05275F; marginBottom:3px">'本月收入合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#05275F; marginBottom:3px">'支出与余额'</p>
@@ -145,7 +141,7 @@
   <p style="fontSize:10.5pt; bold:true; color:#05275F; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -162,7 +158,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

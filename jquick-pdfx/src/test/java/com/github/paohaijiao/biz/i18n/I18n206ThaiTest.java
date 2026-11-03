@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 206 —— 泰语版全球经营年报摘要
  *
- * <p>语种 th：泰语。字体 Noto Sans Thai，视觉主题「金箔紫檀·泰庙式（#8A5A00 + #7A1F3D，居中金双线 + 2×2 大卡 + 仅上下金线表）」。</p>
- *
  * <p>模板：i18n/global_bank_report_th.txt
  * 输出：D://test//i18n//global_bank_report_th.pdf</p>
  *

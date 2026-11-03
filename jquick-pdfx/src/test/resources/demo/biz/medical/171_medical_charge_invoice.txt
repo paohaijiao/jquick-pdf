@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 171 医疗门诊收费票据 / 住院收费发票（medical 领域第 2 项）　视觉主题：青瓷·素雅·通栏
-  // 版式组合：抬头=banner 信息区=kv 明细表=light 段落=plain 签章=three 落款=table
-  // 主色 #16B36B　辅色 #912789　浅底 #EFF8F4
-  // 门诊收费票据与住院医疗收费发票：收费项目、医保类别、总费用与统筹支付。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#16B36B; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'医疗门诊收费票据 / 住院收费发票'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#EFF8F4; bold:true; border:1px solid #BBDACC">'票据代码 / CODE'</td>
@@ -155,7 +151,7 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#048C4E; marginBottom:3px">'医疗总费用'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#048C4E; marginBottom:3px">'医保结算'</p>
@@ -163,7 +159,7 @@
   <p style="fontSize:10.5pt; bold:true; color:#048C4E; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -183,7 +179,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

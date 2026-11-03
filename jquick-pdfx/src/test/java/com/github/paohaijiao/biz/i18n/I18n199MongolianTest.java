@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 199 —— 传统蒙古语（蒙古文）版全球经营年报摘要
  *
- * <p>语种 mn：传统蒙古语（蒙古文）。字体 Noto Sans Mongolian，视觉主题「草原翠留白式（#2F6B3C + #C8A24B，留白章节 + 草原纹样条）」。</p>
- *
  * <p>模板：i18n/global_bank_report_mn.txt
  * 输出：D://test//i18n//global_bank_report_mn.pdf</p>
  *

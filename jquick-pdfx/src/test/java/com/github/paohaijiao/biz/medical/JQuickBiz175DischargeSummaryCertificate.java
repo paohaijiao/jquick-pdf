@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/175_discharge_summary_certificate.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·斑马·下线」：主色 #207182、辅色 #912746、浅底 #F0F6F7；
- * 版式为 underline 抬头 + kv 信息区 + striped 明细表 + three 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>出院小结 / 疾病诊断证明书：入出院日期与诊断、手术操作名称、出院时情况，</p>
  * <p>住院期间主要诊疗与用药明细、出院医嘱与主治医师 / 科主任签字栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz175DischargeSummaryCertificate {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "冠状动脉造影术", "2026-10-23", "经桡动脉穿刺", "前降支狭窄 85%", "明确病变"},
                 {"2", "支架植入术", "2026-10-23", "2.75 × 18mm 药物洗脱支架", "狭窄解除，血流恢复", "成功"},
@@ -105,7 +100,6 @@ public class JQuickBiz175DischargeSummaryCertificate {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

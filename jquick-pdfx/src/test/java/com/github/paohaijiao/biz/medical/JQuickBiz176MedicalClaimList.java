@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/176_medical_claim_list.txt} 中。</p>
  *
- * <p>视觉主题「天青·素雅·公文」：主色 #348C8D、辅色 #912756、浅底 #F1F6F6；
- * 版式为 doc 抬头 + grid2 信息区 + light 明细表 + right 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>医疗费用报销申请单 / 理赔核算清单：保单与险种、被保险人信息、出险诊断，</p>
  * <p>逐类费用核算（申请额、医保已付、免赔额、核定额）与核算结论、核赔签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz176MedicalClaimList {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "床位与护理费", "774.00", "774.00", "0.00", "0.00", "医保已付"},
                 {"2", "手术与治疗费", "4286.00", "3086.00", "10000.00", "0.00", "未达免赔额"},
@@ -117,7 +112,6 @@ public class JQuickBiz176MedicalClaimList {
 
         data.put("totalLine", "本次核定赔付金额合计 ￥0.00（未达年度免赔额 10000.00 元，已计入金额 6872.90 元可累计至本年度后续理赔）");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

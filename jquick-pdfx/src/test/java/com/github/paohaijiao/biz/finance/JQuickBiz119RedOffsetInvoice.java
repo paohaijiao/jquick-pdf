@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/119_red_offset_invoice.txt} 中。</p>
  *
- * <p>视觉主题「橄榄·厚框·竖栏」：主色 #51AF19、辅色 #382791、浅底 #F3F7F0；
- * 版式为 side 抬头 + kv 信息区 + solid 明细表 + split 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>红字冲销发票：对应信息表编号与蓝字发票号码、逐行负数数量金额税额、</p>
  * <p>红冲价税合计大小写与发票专用章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz119RedOffsetInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"工业级伺服电机", "SVM-750W", "台", "-2", "1860.00", "-3720.00", "13%", "-483.60"},
                 {"精密减速机", "RV-40E", "台", "-1", "1240.00", "-1240.00", "13%", "-161.20"},
@@ -115,7 +110,6 @@ public class JQuickBiz119RedOffsetInvoice {
 
         data.put("totalTax", new BigDecimal("-950.30").setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

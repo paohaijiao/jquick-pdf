@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/127_declaration_receipt_inspection.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·疏朗·下线」：主色 #169DB8、辅色 #912747、浅底 #EFF6F8；
- * 版式为 underline 抬头 + kv 信息区 + airy 明细表 + card 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>报关小票 / 现场查验回执：查验现场与方式、逐项查验内容与结果，</p>
  * <p>查验结论与查验关员、收发货人签收栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz127DeclarationReceiptInspection {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"品名规格核对", "伺服电机 / 精密齿轮箱等 6 项", "相符", "无", "通过"},
                 {"数量重量核对", "申报 46 件 / 12140 kg", "相符", "无", "通过"},
@@ -98,7 +93,6 @@ public class JQuickBiz127DeclarationReceiptInspection {
             data.put("itemAmount" + n, items[i][4]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

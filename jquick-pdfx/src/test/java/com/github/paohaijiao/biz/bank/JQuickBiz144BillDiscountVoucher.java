@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/144_bill_discount_voucher.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·厚框·票式」：主色 #183590、辅色 #914527、浅底 #F0F2F7；
- * 版式为 ticket 抬头 + grid2 信息区 + solid 明细表 + split 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>汇票贴现凭证 / 托收凭证：贴现银行与申请人、贴现利率、</p>
  * <p>逐笔票面金额与贴现利息实付金额、合计与银行签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz144BillDiscountVoucher {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "10400052 20261019 00382116", "500000.00", "2027-04-19", "182", "9125.00", "490875.00"},
                 {"2", "10400052 20260912 00112774", "300000.00", "2027-03-12", "144", "4320.00", "295680.00"},
@@ -116,7 +111,6 @@ public class JQuickBiz144BillDiscountVoucher {
 
         data.put("totalLine", "实付金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

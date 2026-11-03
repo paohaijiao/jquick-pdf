@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/174_lab_test_report.txt} 中。</p>
  *
- * <p>视觉主题「天青·厚框·票式」：主色 #1BBAB7、辅色 #91275B、浅底 #F0F7F7；
- * 版式为 ticket 抬头 + strip 信息区 + solid 明细表 + two 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>检查检验报告单 / 化验回执单：报告编号与标本信息、检验项目组，</p>
  * <p>逐项检验结果（结果、单位、参考范围、提示、方法）与检验提示、检验 / 审核签字栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz174LabTestReport {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "肌钙蛋白 I（cTnI）", "0.02", "ng/mL", "< 0.04", "正常", "化学发光法"},
                 {"2", "肌酸激酶同工酶（CK-MB）", "18.60", "U/L", "0 — 25", "正常", "速率法"},
@@ -108,7 +103,6 @@ public class JQuickBiz174LabTestReport {
             data.put("itemTax" + n, items[i][6]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

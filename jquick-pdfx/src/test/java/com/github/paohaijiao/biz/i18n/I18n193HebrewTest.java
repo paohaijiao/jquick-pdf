@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 193 —— 希伯来语版全球经营年报摘要
  *
- * <p>语种 he：希伯来语。字体 Noto Sans Hebrew，视觉主题「迦南·橄榄式（#1A7F37 + 石灰 #6B7280，右粗色条 + 全篇 RTL 右对齐）」。</p>
- *
  * <p>模板：i18n/global_bank_report_he.txt
  * 输出：D://test//i18n//global_bank_report_he.pdf</p>
  *

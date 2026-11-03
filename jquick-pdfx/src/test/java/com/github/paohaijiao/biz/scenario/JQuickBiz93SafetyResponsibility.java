@@ -56,7 +56,6 @@ public class JQuickBiz93SafetyResponsibility {
     public static void main(String[] args) throws IOException {
         mkdirs();
 
-        // ---------- 1. 生成图片（印章 / 签名 / 骑缝章条），输出到 D:/test/image/ ----------
         // 模板中 image src 按字面量引用这些固定路径（当前引擎 image src 不解析 ${var}）
         String seal = IMG_DIR + "93_seal.png";
         String sign = IMG_DIR + "93_sign.png";
@@ -64,7 +63,6 @@ public class JQuickBiz93SafetyResponsibility {
         generateSignature(sign, "郑守义");
         splitSealForRidge(seal, 4, IMG_DIR + "93_ridge_");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("docNo", "AQ-2026-0138");
         data.put("unit", "××建工集团有限公司 第三工程分公司");
@@ -83,7 +81,6 @@ public class JQuickBiz93SafetyResponsibility {
             data.put("clauseText" + (i + 1), clauseArr[i * 2 + 1]);
         }
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         // 右边距留 74pt 给骑缝章条

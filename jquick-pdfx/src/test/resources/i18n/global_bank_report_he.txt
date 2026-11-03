@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（希伯来语）  视觉主题：迦南·橄榄式
-  // 主色 #1A7F37  深色 #0F5223  浅底 #EFF7F0  描边 #BFDCC4
 
   // 抬头：右对齐标题 + 右侧粗色条（RTL）
   <table style="width:100%; marginBottom:3px; borderRight:7px solid #1A7F37">

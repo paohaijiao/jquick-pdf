@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 159 不动产登记受理单 / 不动产权证回执（gov 领域第 5 项）　视觉主题：天青·厚框·通栏
-  // 版式组合：抬头=banner 信息区=kv 明细表=solid 段落=plain 签章=right 落款=plain
-  // 主色 #237172　辅色 #912756　浅底 #F1F6F6
-  // 不动产登记受理单与不动产权回执：不动产单元号、坐落面积、材料清单与领证方式。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#237172; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'不动产登记受理单 / 不动产权证回执'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F1F6F6; bold:true; border:1px solid #C0D5D5">'受理编号 / NO.'</td>
@@ -125,13 +121,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#0E4E4F; marginBottom:3px">'登记结果'</p>
   <p style="fontSize:9pt; marginBottom:6px">${result}</p>
   <p style="fontSize:10.5pt; bold:true; color:#0E4E4F; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -148,7 +144,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/130_bill_of_lading_waybill.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·斑马·典式」：主色 #1C73C0、辅色 #912727、浅底 #F0F4F7；
- * 版式为 classic 抬头 + strip 信息区 + striped 明细表 + right 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>海运提单 / 空运运单 / 铁路运单：提（运）单号、托运人与收货人（指示抬头）、</p>
  * <p>船名航次与装卸港、货物与运费明细、承运人签发栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz130BillOfLadingWaybill {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"CTN-01 ~ 08", "8 CTNS", "伺服电机 SM-500W", "368.00", "0.86 CBM", "USD 186.00"},
                 {"CTN-09 ~ 16", "8 CTNS", "精密齿轮箱 GB-120", "1960.00", "2.44 CBM", "USD 428.00"},
@@ -112,7 +107,6 @@ public class JQuickBiz130BillOfLadingWaybill {
 
         data.put("freightLine", "运费合计：USD 2400.00　　签发正本 3 份，凭其中一份提货，其余失效");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

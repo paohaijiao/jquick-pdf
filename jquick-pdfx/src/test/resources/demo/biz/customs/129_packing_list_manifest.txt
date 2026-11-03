@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 129 装箱单 / 舱单（PACKING LIST & MANIFEST）（customs 领域第 5 项）　视觉主题：靛蓝·厚框·通栏
-  // 版式组合：抬头=banner 信息区=chip 明细表=solid 段落=plain 签章=three 落款=right
-  // 主色 #2F728C　辅色 #91273A　浅底 #F1F5F6
-  // 装箱单与舱单：箱号、品名型号、数量、净重毛重与尺码，含总件数与总毛重。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#2F728C; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'装箱单 / 舱单（PACKING LIST & MANIFEST）'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：chip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:4px; border:1px solid #C1CFD5">'装箱单号 / PACKING NO.：'${packingNo}</td>
@@ -105,11 +101,11 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#17546D; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -129,7 +125,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

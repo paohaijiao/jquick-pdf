@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（孟加拉语）  视觉主题：恒河朱砂·莲花式
-  // 主色 #B0322F  深色 #7A1E1C  浅底 #FDF2F0  描边 #EEC5BF
 
   // 抬头：左侧竖色块 + 浅底标题区
   <table style="width:100%; marginBottom:8px; backgroundColor:#FDF2F0">

@@ -51,10 +51,8 @@ public class JQuickBiz82CreditCertificate {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成业务专用章图片（模板按字面量路径引用）----------
         generateSeal(IMG_DIR + "82_seal.png");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("certNo", "资信证明〔2026〕第 20261019-086 号");
         data.put("customerName", "××数字科技有限公司");
@@ -67,7 +65,6 @@ public class JQuickBiz82CreditCertificate {
         data.put("bankName", "××银行××支行");
         data.put("issueDate", "2026年10月19日");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(58, 66, 58, 66));

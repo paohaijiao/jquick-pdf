@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（繁體中文版）　视觉主题：朱砂鎏金·礼仪式
-  // 单语种独立报告：全篇仅繁體中文　主色朱砂 #9E2B25　鎏金 #C9A227　宣纸底 #FDF8EF
 
   <h1 style="fontSize:20pt; bold:true; color:#9E2B25; textAlignment:center; characterSpacing:10pt; marginTop:6px; marginBottom:2px; fontFamilyNames:Noto Sans TC">'環球匯通銀行'</h1>
   <p style="fontSize:12pt; bold:true; color:#C9A227; textAlignment:center; characterSpacing:6pt; marginBottom:2px; fontFamilyNames:Noto Sans TC">'全球經營年報摘要'</p>

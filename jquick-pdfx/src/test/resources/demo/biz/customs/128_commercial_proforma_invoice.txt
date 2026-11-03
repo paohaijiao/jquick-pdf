@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 128 商业发票 / 形式发票（COMMERCIAL INVOICE）（customs 领域第 4 项）　视觉主题：靛蓝·密排·公文
-  // 版式组合：抬头=doc 信息区=grid2 明细表=compact 段落=bar 签章=split 落款=plain
-  // 主色 #1C5680　辅色 #91272C　浅底 #F0F4F7
-  // 外贸商业发票（形式发票）：中英对照，含 INCOTERMS、装运港目的港与付款方式。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#1C5680; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'商业发票 / 形式发票（COMMERCIAL INVOICE）'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'INVOICE NO. '${invoiceNo}'　　DATE '${invoiceDate}'　　TERMS '${tradeTerm}</p>
   <lineSeparator style="color:#1C5680; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F0F4F7; bold:true; border:1px solid #BECDD7">'发票号码 / INVOICE NO.'</td>
@@ -106,7 +102,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#91272C">' '</td>
@@ -122,7 +118,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -139,7 +135,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

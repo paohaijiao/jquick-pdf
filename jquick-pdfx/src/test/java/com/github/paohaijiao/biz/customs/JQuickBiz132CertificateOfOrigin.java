@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/132_certificate_of_origin.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·疏朗·票式」：主色 #365292、辅色 #913F27、浅底 #F1F3F6；
- * 版式为 ticket 抬头 + grid2 信息区 + airy 明细表 + split 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>原产地证书 / 普惠制原产地证：证书编号与类型、出口商与进口商、原产国与目的国，</p>
  * <p>逐项 HS 编码与原产地标准、官方声明与签证机构签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz132CertificateOfOrigin {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "CTN-01 ~ 08", "伺服电机 SM-500W", "8501.5100", "8 PCS", " wholly obtained"},
                 {"2", "CTN-09 ~ 16", "精密齿轮箱 GB-120", "8483.4090", "8 PCS", " wholly obtained"},
@@ -103,7 +98,6 @@ public class JQuickBiz132CertificateOfOrigin {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

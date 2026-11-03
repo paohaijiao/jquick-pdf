@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 189 —— 傣语（新傣仂文）版全球经营年报摘要
  *
- * <p>语种 dai：傣语（新傣仂文）。字体 Noto Sans New Tai Lue，视觉主题「贝叶竹青·孔雀式（#557C1F + #8B5A00，左对齐 + ᧑᧒᧓ 色块 + 发丝线表）」。</p>
- *
  * <p>模板：i18n/global_bank_report_dai.txt
  * 输出：D://test//i18n//global_bank_report_dai.pdf</p>
  *

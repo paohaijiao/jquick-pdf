@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/153_insurance_policy_claim.txt} 中。</p>
  *
- * <p>视觉主题「绛紫·密排·通栏」：主色 #8329A6、辅色 #769127、浅底 #F5F0F7；
- * 版式为 banner 抬头 + chip 信息区 + compact 明细表 + split 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>保险保单 / 缴费回执 / 理赔单据：保单号与险种、投保人与被保险人、</p>
  * <p>逐项承保标的（保额、保费、损失、赔付）与理赔结论、承保公司签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz153InsurancePolicyClaim {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "厂房建筑物（3 号车间）", "8600000.00", "15600.00", "0.00", "0.00", "正常承保"},
                 {"2", "机器设备（数控加工中心等）", "12800000.00", "23200.00", "186000.00", "168000.00", "已赔付"},
@@ -116,7 +111,6 @@ public class JQuickBiz153InsurancePolicyClaim {
 
         data.put("totalLine", "赔付金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

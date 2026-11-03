@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/105_toll_e_invoice.txt} 中。</p>
  *
- * <p>视觉主题「赭红·斑马·通栏」：主色 #963812、辅色 #27917E、浅底 #F8F2EF；
- * 版式为 banner 抬头 + chip 信息区 + striped 明细表 + right 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标通行费电子发票票样：通行日期、出入口收费站、车型、里程、通行费金额，</p>
  * <p>以及按 3% 征收率计算的可抵扣进项税额与发票专用章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz105TollEInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"2026-09-03", "××北收费站", "××西收费站", "货三", "126.40", "218.00"},
                 {"2026-09-09", "××西收费站", "××南收费站", "货三", "98.70", "176.50"},
@@ -109,7 +104,6 @@ public class JQuickBiz105TollEInvoice {
 
         data.put("taxLine", "可抵扣进项税额：￥" + itemTotal.divide(new BigDecimal("1.03"), 2, BigDecimal.ROUND_HALF_UP).multiply(new BigDecimal("0.03")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "　　征收率 3%");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

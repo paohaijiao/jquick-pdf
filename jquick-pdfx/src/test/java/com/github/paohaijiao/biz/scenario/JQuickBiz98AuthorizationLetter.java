@@ -53,14 +53,12 @@ public class JQuickBiz98AuthorizationLetter {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成图片（合同章 + 双签名 + 骑缝章条），模板按字面量路径引用 ----------
         String seal = IMG_DIR + "98_seal.png";
         generateSeal(seal, "××智能装备制造有限公司");
         generateSignature(IMG_DIR + "98_legal_sign.png", "邵怀信");
         generateSignature(IMG_DIR + "98_agent_sign.png", "崔行知");
         splitSealForRidge(seal, 4, IMG_DIR + "98_ridge_");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         String[] matters = {
                 "代为签署、递交、领取与「××产业园智能仓储系统集成项目」投标相关的全部文件，包括投标报名表、资格预审材料、投标文件、澄清说明及中标通知书。",
                 "代为参加上述项目的开标、评标答疑、竞争性谈判及合同磋商会议，并代表委托人发表意见。",
@@ -101,7 +99,6 @@ public class JQuickBiz98AuthorizationLetter {
             data.put("articleText" + (i + 1), articleTexts[i]);
         }
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         // 文末两栏签字区依赖 flex
         config.getLayoutConfig().setFlexLayout(true);

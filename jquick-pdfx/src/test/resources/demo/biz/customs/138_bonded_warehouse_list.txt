@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 138 保税仓出入库清单 / 中转货物清单（customs 领域第 14 项）　视觉主题：紫棠·密排·票式
-  // 版式组合：抬头=ticket 信息区=strip 明细表=compact 段落=plain 签章=three 落款=right
-  // 主色 #2D0F7F　辅色 #917C27　浅底 #F2EFF8
-  // 保税仓出入库清单与中转货物清单：库位、作业类型、在库状态与金额。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#2D0F7F; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'保税仓出入库清单 / 中转货物清单'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'清单编号 '${listNo}'　　作业日期 '${operateDate}'　　仓库 '${warehouseName}</p>
   <lineSeparator style="color:#2D0F7F; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#2D0F7F; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F2EFF8; bold:true; border:1px solid #C3BBDA">'清单编号 / LIST NO.'</td>
@@ -121,13 +117,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#180254; marginBottom:3px">'库存金额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#180254; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -147,7 +143,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

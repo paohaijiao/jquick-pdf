@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 205 —— 泰米尔语版全球经营年报摘要
  *
- * <p>语种 ta：泰米尔语。字体 Noto Sans Tamil，视觉主题「庙塔·黄檀式（玫红 #C2185B + 深靛 #26456B，三层递减色条 + 交叉网格 KPI）」。</p>
- *
  * <p>模板：i18n/global_bank_report_ta.txt
  * 输出：D://test//i18n//global_bank_report_ta.pdf</p>
  *

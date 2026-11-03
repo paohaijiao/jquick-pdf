@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/supply/181_sales_outbound_statement.txt} 中。</p>
  *
- * <p>视觉主题「朱砂·素雅·下线」：主色 #906B2C、辅色 #277F91、浅底 #F6F4F1；
- * 版式为 underline 抬头 + chip 信息区 + light 明细表 + card 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>销售出库单 / 往来对账单 / 结算单：对账期间与双方信息、结算方式与账期，</p>
  * <p>逐笔出库明细与结算金额合计、往来结算与双方法务 / 财务签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz181SalesOutboundStatement {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "工业级伺服电机 SVM-750W", "SO-260903-11", "6", "2101.80", "12610.80", "已核对"},
                 {"2", "精密减速机 RV-40E", "SO-260906-18", "12", "1401.20", "16814.40", "已核对"},
@@ -116,7 +111,6 @@ public class JQuickBiz181SalesOutboundStatement {
 
         data.put("settleLine", "本期应收 ￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "　　已收预收款 ￥12000.00　　本期应补收（大写）" + toChineseAmount(itemTotal.subtract(new BigDecimal("12000.00"))) + "　　（小写）￥" + itemTotal.subtract(new BigDecimal("12000.00")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

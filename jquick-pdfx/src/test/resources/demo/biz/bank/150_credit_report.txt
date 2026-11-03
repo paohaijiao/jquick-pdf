@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 150 企业征信查询报告 / 信用报告（bank 领域第 11 项）　视觉主题：紫棠·斑马·票式
-  // 版式组合：抬头=ticket 信息区=strip 明细表=striped 段落=plain 签章=three 落款=plain
-  // 主色 #52239F　辅色 #918727　浅底 #F3F0F7
-  // 征信查询报告与企业信用报告：授信余额、还款状态、逾期次数与公共记录。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#52239F; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'企业征信查询报告 / 信用报告'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'报告编号 '${reportNo}'　　报告日期 '${reportDate}'　　查询机构 '${orgName}</p>
   <lineSeparator style="color:#52239F; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#52239F; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BED7">'报告编号 / REPORT NO.'</td>
@@ -158,13 +154,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#370E7C; marginBottom:3px">'授信余额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#370E7C; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -184,7 +180,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/106_taxi_ride_receipt.txt} 中。</p>
  *
- * <p>视觉主题「朱砂·素雅·典式」：主色 #A46524、辅色 #278D91、浅底 #F7F4F0；
- * 版式为 classic 抬头 + strip 信息区 + light 明细表 + card 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标出租汽车专用发票与网约车行程单票样：上下车地点与时间、车牌号码、</p>
  * <p>起步价、里程费、等候费与平台服务费明细。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz106TaxiRideReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"起步价（含 3 公里）", "里程计价", "1", "11.00", "11.00"},
                 {"里程费", "12.60 公里 × 2.50 元", "12.60", "2.50", "31.50"},
@@ -106,7 +101,6 @@ public class JQuickBiz106TaxiRideReceipt {
 
         data.put("totalLine", "合计金额（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

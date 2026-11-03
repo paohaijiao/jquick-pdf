@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 185 —— 阿拉伯语版全球经营年报摘要
  *
- * <p>语种 ar：阿拉伯语。字体 Noto Sans Arabic，视觉主题「沙漠琥珀·RTL 奢华式（深棕 #5C4326 + 琥珀金 #B9861C，RTL 右竖条）」。</p>
- *
  * <p>模板：i18n/global_bank_report_ar.txt
  * 输出：D://test//i18n//global_bank_report_ar.pdf</p>
  *
@@ -71,7 +69,6 @@ public class I18n185ArabicTest {
         p.lineFooter = "المصدر: منصة مراقبة الأعمال العالمية | الوحدة: مئة مليون يوان";
         p.lineMonths = new String[]{"يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر"};
         p.lineNames = new String[]{"التسوية", "تمويل التجارة", "الصرف الأجنبي"};
-        // 视觉主题「沙漠琥珀·RTL奢华式」
         p.donutPalette = new Color[]{
                 new Color(92, 67, 38), new Color(201, 154, 61), new Color(143, 110, 63),
                 new Color(217, 185, 120), new Color(232, 213, 174), new Color(244, 234, 213)

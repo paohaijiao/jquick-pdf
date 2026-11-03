@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/111_fiscal_non_tax_bill.txt} 中。</p>
  *
- * <p>视觉主题「琥珀·素雅·通栏」：主色 #A1A61C、辅色 #275591、浅底 #F7F7F0；
- * 版式为 banner 抬头 + kv 信息区 + light 明细表 + split 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标财政非税收入票据票样：票据代码号码、执收单位编码、缴款人信息、</p>
  * <p>非税收入项目明细与金额合计大小写、财政票据监制章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz111FiscalNonTaxBill {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"103-0455", "排污权有偿使用费", "吨", "120", "18.00", "2160.00"},
                 {"103-0461", "污水处理费", "立方米", "2400", "1.40", "3360.00"},
@@ -107,7 +102,6 @@ public class JQuickBiz111FiscalNonTaxBill {
 
         data.put("totalLine", "金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

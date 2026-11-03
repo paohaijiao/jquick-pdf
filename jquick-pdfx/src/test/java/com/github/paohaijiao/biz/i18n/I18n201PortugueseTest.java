@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 201 —— 葡萄牙语版全球经营年报摘要
  *
- * <p>语种 pt：葡萄牙语。字体 Noto Sans，视觉主题「阿兹勒赫瓷砖·海航式（#1C7ED6 + 金橙 #C8901B，瓷砖色条 + 虚线 KPI + 编号章节）」。</p>
- *
  * <p>模板：i18n/global_bank_report_pt.txt
  * 输出：D://test//i18n//global_bank_report_pt.pdf</p>
  *

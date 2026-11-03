@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/113_internal_receipt.txt} 中。</p>
  *
- * <p>视觉主题「琥珀·密排·竖栏」：主色 #939F10、辅色 #274F91、浅底 #F7F8EF；
- * 版式为 side 抬头 + chip 信息区 + compact 明细表 + three 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>内部收款收据：交款人 / 收款部门、款项性质与单据张数、金额合计大小写，</p>
  * <p>以及财务专用章与交款人签收栏占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz113InternalReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"归还备用金", "2026 年 8 月差旅借款尾款", "2", "1260.00", "银行到账"},
                 {"归还备用金", "2026 年 9 月差旅借款尾款", "1", "840.00", "现金收讫"},
@@ -103,7 +98,6 @@ public class JQuickBiz113InternalReceipt {
 
         data.put("totalLine", "金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

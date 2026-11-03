@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 103 机动车销售统一发票（finance 领域第 4 项）　视觉主题：绯红·密排·下线
-  // 版式组合：抬头=underline 信息区=kv 明细表=compact 段落=box 签章=split 落款=plain
-  // 主色 #9D321E　辅色 #279170　浅底 #F7F1F0
-  // 机动车销售统一发票：票面含车辆类型、厂牌型号、产地、合格证号、车架号码 VIN，一车一票。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#791C0B; characterSpacing:3pt">'机动车销售统一发票'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#9D321E; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F7F1F0; bold:true; border:1px solid #D8C1BD">'发票代码'</td>
@@ -110,7 +106,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F7F1F0; bold:true; fontSize:9.5pt; color:#791C0B; border:1px solid #D8C1BD">'金额合计'</td>
@@ -130,7 +126,7 @@
     </tr>
   </table>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -147,7 +143,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

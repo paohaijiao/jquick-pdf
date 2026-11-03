@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 183 供应商准入资料 / 履约考核清单（supply 领域第 4 项）　视觉主题：秋香·密排·通栏
-  // 版式组合：抬头=banner 信息区=kv 明细表=compact 段落=plain 签章=two 落款=right
-  // 主色 #5F8A1E　辅色 #272E91　浅底 #F4F7F0
-  // 供应商准入资料与履约考核清单：质量、交付、成本、服务、技术、合规六维评分。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#5F8A1E; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'供应商准入资料 / 履约考核清单'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F4F7F0; bold:true; border:1px solid #CDD7BE">'准入编号 / NO.'</td>
@@ -137,7 +133,7 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#41650B; marginBottom:3px">'考核得分合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#41650B; marginBottom:3px">'考核结论'</p>
@@ -145,7 +141,7 @@
   <p style="fontSize:10.5pt; bold:true; color:#41650B; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -162,7 +158,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 194 —— 印尼语版全球经营年报摘要
  *
- * <p>语种 id：印尼语。字体 Noto Sans，视觉主题「巴迪·靛紫（#6B2F6B + #C9A227，全幅细框 + 居中底纹章节）」。</p>
- *
  * <p>模板：i18n/global_bank_report_id.txt
  * 输出：D://test//i18n//global_bank_report_id.pdf</p>
  *

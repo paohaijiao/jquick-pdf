@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/117_invoice_sales_list.txt} 中。</p>
  *
- * <p>视觉主题「橄榄·疏朗·通栏」：主色 #6DB427、辅色 #2B2791、浅底 #F3F7F0；
- * 版式为 banner 抬头 + chip 信息区 + airy 明细表 + three 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>发票销货清单：对应发票代码号码、购销双方信息、逐行货物明细与金额合计，</p>
  * <p>含其中税额拆分与销货单位签章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz117InvoiceSalesList {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "工业级伺服电机", "SVM-750W", "台", "6", "1860.00", "11160.00"},
                 {"2", "工业级伺服电机", "SVM-1500W", "台", "6", "2480.00", "14880.00"},
@@ -114,7 +109,6 @@ public class JQuickBiz117InvoiceSalesList {
 
         data.put("taxLine", "其中税额（13%）：￥" + itemTotal.multiply(new BigDecimal("0.13")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

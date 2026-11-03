@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/156_admin_approval_decision.txt} 中。</p>
  *
- * <p>视觉主题「青瓷·素雅·票式」：主色 #2FAC76、辅色 #912786、浅底 #F1F6F4；
- * 版式为 ticket 抬头 + grid2 信息区 + light 明细表 + card 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>行政审批申请表 / 准予行政许可决定书：决定书文号与许可机关、申请事项与审查结论，</p>
  * <p>逐项许可事项与有效期、决定内容与救济途径、许可机关签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz156AdminApprovalDecision {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "预包装食品销售（含冷藏冷冻食品）", "食品销售", "××区中山路 168 号 1 层", "2031-10-18", "—"},
                 {"2", "散装食品销售", "食品销售", "××区中山路 168 号 1 层", "2031-10-18", "—"},
@@ -105,7 +100,6 @@ public class JQuickBiz156AdminApprovalDecision {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

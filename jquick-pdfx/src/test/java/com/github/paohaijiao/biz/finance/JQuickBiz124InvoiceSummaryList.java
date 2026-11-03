@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/124_invoice_summary_list.txt} 中。</p>
  *
- * <p>视觉主题「松绿·厚框·典式」：主色 #11B024、辅色 #6C2791、浅底 #EFF8F0；
- * 版式为 classic 抬头 + grid2 信息区 + solid 明细表 + two 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>开票汇总清单：汇总期间与开票单位、按票种分组的开票份数与金额税额、</p>
  * <p>本期不含税金额合计大小写与填报 / 复核 / 负责人签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz124InvoiceSummaryList {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"增值税专用发票", "18", "1268600.00", "164918.00", "1433518.00"},
                 {"增值税普通发票", "16", "386420.00", "50234.60", "436654.60"},
@@ -108,7 +103,6 @@ public class JQuickBiz124InvoiceSummaryList {
 
         data.put("totalWithTax", itemTotal.add(new BigDecimal("261381.30")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

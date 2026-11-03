@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/164_penalty_notice_receipt.txt} 中。</p>
  *
- * <p>视觉主题「群青·厚框·公文」：主色 #1E1C73、辅色 #916127、浅底 #F1F0F7；
- * 版式为 doc 抬头 + grid2 信息区 + solid 明细表 + card 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>行政处罚告知书 / 罚款缴款回执：当事人与违法行为、违反条款与处罚依据，</p>
  * <p>逐项违法事实与裁量情节、拟处罚内容与救济途径、执法人员与当事人签收栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz164PenaltyNoticeReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "自动监测设备未安装", "现场检查（勘验）笔录、调查询问笔录", "首次违法", "2 万 — 20 万", "罚款 6 万"},
                 {"2", "监测数据未联网上传", "在线监控平台数据截图", "逾期未改正", "2 万 — 20 万", "罚款 6 万"},
@@ -105,7 +100,6 @@ public class JQuickBiz164PenaltyNoticeReceipt {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

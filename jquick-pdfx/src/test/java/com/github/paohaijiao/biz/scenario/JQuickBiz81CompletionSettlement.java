@@ -53,14 +53,12 @@ public class JQuickBiz81CompletionSettlement {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成图片（双方公章 + 骑缝章条），模板按字面量路径引用 ----------
         String sealOwner = IMG_DIR + "81_seal_owner.png";
         String sealBuilder = IMG_DIR + "81_seal_builder.png";
         generateSeal(sealOwner, "建设单位", "公章");
         generateSeal(sealBuilder, "施工单位", "公章");
         splitSealForRidge(sealBuilder, 4, IMG_DIR + "81_ridge_");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         // 明细行：名称 / 单位 / 工程量 / 综合单价（合价由程序计算）
         String[][] subs = {
                 {"土方开挖及回填", "m³", "12860", "38.50"},
@@ -124,7 +122,6 @@ public class JQuickBiz81CompletionSettlement {
         data.put("reviewer", "李慧");
         data.put("approver", "王建平");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         // 右侧留 26pt 供骑缝章细条使用

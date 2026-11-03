@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/109_customs_import_vat_payment.txt} 中。</p>
  *
- * <p>视觉主题「金橙·厚框·下线」：主色 #AB912A、辅色 #276E91、浅底 #F7F5F0；
- * 版式为 underline 抬头 + chip 信息区 + solid 明细表 + right 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标海关进口增值税专用缴款书票样：缴款书号码、征收机关、缴款单位、</p>
  * <p>完税价格与各项税额明细、税款合计大小写与海关印章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz109CustomsImportVatPayment {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"进口增值税", "486200.00", "13%", "63206.00", "0.00", "63206.00"},
                 {"进口关税", "486200.00", "5%", "24310.00", "0.00", "24310.00"},
@@ -107,7 +102,6 @@ public class JQuickBiz109CustomsImportVatPayment {
 
         data.put("totalLine", "税款合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

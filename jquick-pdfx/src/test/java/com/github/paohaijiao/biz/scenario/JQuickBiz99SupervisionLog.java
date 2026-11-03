@@ -70,11 +70,9 @@ public class JQuickBiz99SupervisionLog {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成图片（监理单位章 + 总监签字），模板按字面量路径引用 ----------
         generateSeal(IMG_DIR + "99_seal.png", SUPERVISION_UNIT);
         generateSignature(IMG_DIR + "99_sign.png", CHIEF);
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("projectName", PROJECT_NAME);
         data.put("supervisionUnit", SUPERVISION_UNIT);
@@ -216,7 +214,6 @@ public class JQuickBiz99SupervisionLog {
         data.put("supervisor", SUPERVISOR);
         data.put("chief", CHIEF);
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         // 日期标题与签字栏依赖 flex 排版
         config.getLayoutConfig().setFlexLayout(true);

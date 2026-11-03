@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/178_triage_bed_reservation.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·密排·典式」：主色 #266689、辅色 #912732、浅底 #F1F4F6；
- * 版式为 classic 抬头 + strip 信息区 + compact 明细表 + split 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>门诊分诊单 / 住院床位预约回执：主诉症状与生命体征、分诊科室与分级，</p>
  * <p>分诊与候诊候床逐项明细、分诊结论与护士 / 医师 / 患者签收栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz178TriageBedReservation {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "体温与生命体征测量", "T 36.7℃，血压正常高值", "5 分钟", "已完成", "监测血压"},
                 {"2", "症状问诊与分级评估", "上腹痛伴反酸，分级为三级（普通）", "8 分钟", "已完成", "内科接诊"},
@@ -105,7 +100,6 @@ public class JQuickBiz178TriageBedReservation {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

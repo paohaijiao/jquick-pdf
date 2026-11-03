@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/167_document_flow_receipt.txt} 中。</p>
  *
- * <p>视觉主题「紫棠·疏朗·竖栏」：主色 #4E227A、辅色 #8D9127、浅底 #F4F1F6；
- * 版式为 side 抬头 + kv 信息区 + airy 明细表 + three 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>公文流转签收单 / 办件办结回执：公文编号标题与种类、承办处室，</p>
  * <p>逐环节流转签收记录（签收人、时间、办理意见）、办结结论与归档信息。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz167DocumentFlowReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "拟稿与核稿", "市政府办公室综合一处 / 崔行知", "2026-10-18 09:12", "同意，报领导审签", "已完成"},
                 {"2", "领导审签", "市政府办公室 / 闻仲平", "2026-10-19 15:30", "同意印发", "已完成"},
@@ -104,7 +99,6 @@ public class JQuickBiz167DocumentFlowReceipt {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

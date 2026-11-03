@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/152_aml_screening_list.txt} 中。</p>
  *
- * <p>视觉主题「紫棠·疏朗·公文」：主色 #511699、辅色 #919027、浅底 #F3F0F7；
- * 版式为 doc 抬头 + grid2 信息区 + airy 明细表 + card 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>反洗钱交易筛查清单 / 可疑交易报告单：筛查批次与规则集、筛查范围，</p>
  * <p>逐笔可疑交易（行为特征、金额、命中规则、处置）、合计与合规负责人签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz152AmlScreeningList {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "××贸易有限公司", "短期内资金分散转入集中转出", "4860000.00", "规则 R-0302", "已上报"},
                 {"2", "××网络科技有限公司", "与高风险地区频繁小额往来", "1286000.00", "规则 R-0511", "已上报"},
@@ -110,7 +105,6 @@ public class JQuickBiz152AmlScreeningList {
 
         data.put("totalLine", "命中交易金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

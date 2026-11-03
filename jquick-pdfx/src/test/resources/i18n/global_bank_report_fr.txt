@@ -2,7 +2,6 @@
 <body>
   // 156 环球汇通银行 · 全球经营年报摘要（Français 版）
   // 单语种独立报告：全篇仅法语（规避撇号 U+0027），图表标题/图例亦为法语
-  // 视觉主题「雾蓝优雅·细线式」：主色 #34597E　辅色 #7FA8C9　浅底 #EDF3F9　细线 #C5D4E2
 
   // 抬头：优雅居中 + 双细线
   <h1 style="fontSize:18pt; bold:true; color:#34597E; textAlignment:center; characterSpacing:5pt; marginBottom:2px; fontFamilyNames:Noto Sans,Helvetica">'Banque Union Mondiale · Synthèse des activités mondiales'</h1>

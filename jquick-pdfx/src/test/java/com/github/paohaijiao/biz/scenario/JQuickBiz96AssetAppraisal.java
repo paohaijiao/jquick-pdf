@@ -52,12 +52,10 @@ public class JQuickBiz96AssetAppraisal {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成图片（机构章 + 双评估师签名），模板按字面量路径引用 ----------
         generateSeal(IMG_DIR + "96_seal.png", "中和正信资产评估有限公司");
         generateSignature(IMG_DIR + "96_sign_a.png", "顾言之");
         generateSignature(IMG_DIR + "96_sign_b.png", "柳明");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         // 资产分类汇总：类别 / 评估方法 / 账面价值 / 评估价值（增值额与增值率程序计算）
         String[][] assets = {
                 {"流动资产（货币资金、应收款项、存货）", "资产基础法", "86420000.00", "87150000.00"},
@@ -128,7 +126,6 @@ public class JQuickBiz96AssetAppraisal {
             data.put("note" + (i + 1), specialNotes[i]);
         }
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(60, 64, 58, 64));

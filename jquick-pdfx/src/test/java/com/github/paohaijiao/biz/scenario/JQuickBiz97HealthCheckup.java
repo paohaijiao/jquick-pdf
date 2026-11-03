@@ -55,11 +55,9 @@ public class JQuickBiz97HealthCheckup {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成图片（体检专用章 + 总检医师签名），模板按字面量路径引用 ----------
         generateSeal(IMG_DIR + "97_seal.png", "安康体检中心");
         generateSignature(IMG_DIR + "97_sign.png", "叶知秋");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         // 检查明细：科室 / 项目 / 结果 / 参考范围 / 单位 / 提示
         String[][] items = {
                 {"一般", "身高", "172.0", "—", "cm", "正常"},
@@ -161,7 +159,6 @@ public class JQuickBiz97HealthCheckup {
         data.put("doctor", "叶知秋");
         data.put("centerAddress", "××市××区康宁路 66 号 健康大厦 3 层　预约电话 400-820-1234");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(54, 58, 52, 58));

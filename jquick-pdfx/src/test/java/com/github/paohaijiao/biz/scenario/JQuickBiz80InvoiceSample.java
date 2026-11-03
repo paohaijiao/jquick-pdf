@@ -60,11 +60,9 @@ public class JQuickBiz80InvoiceSample {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成 logo 与发票专用章（模板 image src 按字面量引用固定路径） ----------
         generateLogo(IMG_DIR + "80_logo.png");
         generateInvoiceSeal(IMG_DIR + "80_seal.png");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("invoiceNo", "00000000");
         data.put("invoiceDate", "2026年10月19日");
@@ -105,7 +103,6 @@ public class JQuickBiz80InvoiceSample {
         data.put("totalInWords", amountInWords(total));
         data.put("remark", "合同编号 HT-2026-0918，票样仅供样式验证");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(46, 46, 50, 46));

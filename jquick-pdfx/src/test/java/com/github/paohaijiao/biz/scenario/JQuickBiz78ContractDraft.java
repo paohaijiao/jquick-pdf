@@ -56,13 +56,11 @@ public class JQuickBiz78ContractDraft {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成双方印章图片（模板 image src 按字面量引用固定路径） ----------
         String sealA = IMG_DIR + "78_seal_a.png";
         String sealB = IMG_DIR + "78_seal_b.png";
         generateSeal(sealA, "甲方单位", "合同专用章");
         generateSeal(sealB, "乙方单位", "合同专用章");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("contractNo", "HT-2026-0918");
         data.put("title", "P D F 报 表 引 擎 采 购 合 同");
@@ -115,7 +113,6 @@ public class JQuickBiz78ContractDraft {
         data.put("totalAmountLine", "人民币 ￥210000.00 元（含税）");
         data.put("validPeriod", "2026年09月18日 至 2029年09月17日（三年）");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(58, 62, 55, 62));

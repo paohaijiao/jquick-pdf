@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/121_refined_oil_outbound.txt} 中。</p>
  *
- * <p>视觉主题「松绿·素雅·下线」：主色 #3A8431、辅色 #542791、浅底 #F2F6F1；
- * 版式为 underline 抬头 + chip 信息区 + light 明细表 + three 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>成品油出库单：油库与罐号、提货单位与运输车辆、油品出库数量与密度折算重量，</p>
  * <p>油库保管 / 提货人 / 承运人三方签字确认栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz121RefinedOilOutbound {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"车用柴油", "0# 国Ⅵ", "T-03", "1200", "0.835", "1.002"},
                 {"车用汽油", "92# 国Ⅵ", "T-07", "860", "0.725", "0.624"},
@@ -108,7 +103,6 @@ public class JQuickBiz121RefinedOilOutbound {
 
         data.put("totalWeight", new BigDecimal("2.057").setScale(3, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

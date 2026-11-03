@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/139_letter_of_credit_application.txt} 中。</p>
  *
- * <p>视觉主题「群青·厚框·下线」：主色 #2B1F8F、辅色 #916A27、浅底 #F1F0F7；
- * 版式为 underline 抬头 + kv 信息区 + solid 明细表 + card 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>信用证开证申请书：信用证号与类型、开证申请人与受益人、金额与有效期，</p>
  * <p>单据要求清单一览、特别条款与开证行签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz139LetterOfCreditApplication {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "商业发票 / COMMERCIAL INVOICE", "注明信用证号与合同号", "3", "提单日后 15 天", "待提交"},
                 {"2", "提单 / BILL OF LADING", "全套清洁已装船提单，TO ORDER", "3/3", "提单日后 21 天", "待提交"},
@@ -103,7 +98,6 @@ public class JQuickBiz139LetterOfCreditApplication {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

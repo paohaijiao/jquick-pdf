@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/108_fixed_amount_invoice.txt} 中。</p>
  *
- * <p>视觉主题「朱砂·密排·票式」：主色 #9E5A17、辅色 #278E91、浅底 #F7F3F0；
- * 版式为 ticket 抬头 + grid2 信息区 + compact 明细表 + two 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标定额发票票样：面值、领用份数、起止号码、金额小计，以及通用机打发票的税控信息。</p>
  *
  * <p>运行后输出：{@code D:/test/pdf/108_fixed_amount_invoice.pdf}。</p>
@@ -56,7 +52,6 @@ public class JQuickBiz108FixedAmountInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1.00", "200", "06612001", "06612200", "200.00"},
                 {"5.00", "200", "06612201", "06612400", "1000.00"},
@@ -104,7 +99,6 @@ public class JQuickBiz108FixedAmountInvoice {
 
         data.put("totalLine", "领用金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

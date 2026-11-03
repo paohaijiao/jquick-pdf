@@ -56,11 +56,9 @@ public class JQuickBiz71Quotation {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 图片：logo + 椭圆合同专用章 ----------
         generateLogo(IMG_DIR + "71_logo.png");
         generateSeal(IMG_DIR + "71_seal.png", "××数字科技有限公司");
 
-        // ---------- 2. 数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("quoteNo", "BJ-2026-1019-0032");
         data.put("customer", "××城市商业银行股份有限公司");
@@ -95,7 +93,6 @@ public class JQuickBiz71Quotation {
         data.put("remark", "1. 以上报价含 13% 增值税专用发票；2. 报价含一年远程技术支持，现场服务另计差旅；"
                 + "3. 付款方式：合同签订后 30%，上线验收后 60%，质保期满后 10%。");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(45, 45, 55, 45));

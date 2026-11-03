@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/142_bank_check.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·疏朗·典式」：主色 #256496、辅色 #912729、浅底 #F0F4F7；
- * 版式为 classic 抬头 + strip 信息区 + airy 明细表 + three 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>现金支票 / 转账支票：支票号码与类型、付款银行与出票人账号、</p>
  * <p>收款人与大小写金额、用途与背书记录、出票人预留印鉴栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz142BankCheck {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "出票日期", "2026年10月19日（大写：贰零贰陆年壹拾月壹拾玖日）", "必填", "通过", "—"},
                 {"2", "收款人名称", "××精密机械制造有限公司", "必填", "通过", "不得涂改"},
@@ -103,7 +98,6 @@ public class JQuickBiz142BankCheck {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

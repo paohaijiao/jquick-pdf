@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 161 财政补贴申领单 / 补贴拨付回执（gov 领域第 7 项）　视觉主题：宝蓝·素雅·竖栏
-  // 版式组合：抬头=side 信息区=chip 明细表=light 段落=bar 签章=split 落款=right
-  // 主色 #266FAF　辅色 #912727　浅底 #F0F4F7
-  // 财政补贴申领单与拨付回执：政策文号、补贴比例、核定补贴额与公示要求。
 
-  // 抬头：side
+  // 抬头
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:5px; padding:0px; backgroundColor:#266FAF">' '</td>
@@ -15,7 +11,7 @@
   </table>
   <lineSeparator style="color:#DFE2E5; thickness:1f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F0F4F7; bold:true; textAlign:center; border:1px solid #BECCD7">'申领编号 / NO.'</td>
@@ -125,7 +121,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#912727">' '</td>
@@ -141,7 +137,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -158,7 +154,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

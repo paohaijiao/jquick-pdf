@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 188 —— 繁体中文版全球经营年报摘要
  *
- * <p>语种 zhHant：繁体中文。字体 Noto Sans TC，视觉主题「朱砂礼仪式（#9E2B25 + #C9A227，双线礼框 + 居中抬头）」。</p>
- *
  * <p>模板：i18n/global_bank_report_zhHant.txt
  * 输出：D://test//i18n//global_bank_report_zhHant.pdf</p>
  *

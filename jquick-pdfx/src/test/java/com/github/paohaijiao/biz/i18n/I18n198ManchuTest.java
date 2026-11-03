@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 198 —— 满语（满文）版全球经营年报摘要
  *
- * <p>语种 manchu：满语（满文）。字体 Noto Sans Mongolian，视觉主题「玄青档案框式（#1B2A4A + #B08D57，档案封套式外框 + 竖排字符区）」。</p>
- *
  * <p>模板：i18n/global_bank_report_manchu.txt
  * 输出：D://test//i18n//global_bank_report_manchu.pdf</p>
  *

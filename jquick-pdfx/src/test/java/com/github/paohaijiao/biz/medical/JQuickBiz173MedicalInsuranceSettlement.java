@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/173_medical_insurance_settlement.txt} 中。</p>
  *
- * <p>视觉主题「天青·密排·竖栏」：主色 #2E876F、辅色 #912775、浅底 #F1F6F5；
- * 版式为 side 抬头 + chip 信息区 + compact 明细表 + card 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>医疗保险结算单 / 异地就医结算回执：参保地与就医地、就医类型与备案信息，</p>
  * <p>逐类费用（发生额、统筹支付、账户支付、自付）与结算结果、医保经办与参保人签收栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz173MedicalInsuranceSettlement {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "床位费", "540.00", "540.00", "0.00", "0.00", "全额统筹"},
                 {"2", "护理与诊查费", "774.00", "774.00", "0.00", "0.00", "全额统筹"},
@@ -118,7 +113,6 @@ public class JQuickBiz173MedicalInsuranceSettlement {
 
         data.put("totalLine", "医疗费用总额 ￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "　　统筹支付 ￥12269.60　　个人自付 ￥6872.90　　（其中个人账户支付 ￥0.00）");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

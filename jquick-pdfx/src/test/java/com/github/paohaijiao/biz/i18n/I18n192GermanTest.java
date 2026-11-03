@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 192 —— 德语版全球经营年报摘要
  *
- * <p>语种 de：德语。字体 Noto Sans，视觉主题「钢灰严谨·德式网格式（#37474F + 芥末黄 #C99700，满格深线网格）」。</p>
- *
  * <p>模板：i18n/global_bank_report_de.txt
  * 输出：D://test//i18n//global_bank_report_de.pdf</p>
  *
@@ -71,7 +69,6 @@ public class I18n192GermanTest {
         p.lineFooter = "Quelle: globale Geschäftsüberwachungsplattform | Einheit: 100 Mio. Yuan";
         p.lineMonths = new String[]{"Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt"};
         p.lineNames = new String[]{"Abwicklung", "Handelsfinanzierung", "Devisenhandel"};
-        // 视觉主题「钢灰严谨·德式网格式」
         p.donutPalette = new Color[]{
                 new Color(55, 71, 79), new Color(201, 151, 0), new Color(107, 129, 137),
                 new Color(163, 178, 182), new Color(211, 198, 154), new Color(232, 232, 228)

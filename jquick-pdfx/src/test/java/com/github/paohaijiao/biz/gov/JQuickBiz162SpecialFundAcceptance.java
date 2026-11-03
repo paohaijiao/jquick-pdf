@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/162_special_fund_acceptance.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·疏朗·票式」：主色 #293979、辅色 #914A27、浅底 #F1F2F6；
- * 版式为 ticket 抬头 + strip 信息区 + airy 明细表 + two 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>专项资金验收单 / 绩效评价回执：专项资金与项目信息、验收方式与绩效等级，</p>
  * <p>逐项绩效指标（目标值、完成值、得分、等次）与验收结论、组织单位签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz162SpecialFundAcceptance {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "技术指标完成情况", "定位精度 ±0.005mm", "定位精度 ±0.0038mm", "20 / 19", "优"},
                 {"2", "知识产权产出", "申请专利 6 件", "申请专利 9 件（授权 4 件）", "15 / 15", "优"},
@@ -104,7 +99,6 @@ public class JQuickBiz162SpecialFundAcceptance {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

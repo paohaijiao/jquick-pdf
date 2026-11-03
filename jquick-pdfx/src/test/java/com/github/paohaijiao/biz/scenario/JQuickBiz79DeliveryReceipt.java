@@ -53,10 +53,8 @@ public class JQuickBiz79DeliveryReceipt {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 生成签名图片（模板 image src 按字面量引用固定路径） ----------
         generateSignature(IMG_DIR + "79_sign.png", "赵一鸣");
 
-        // ---------- 2. 组织数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("receiptNo", "HZ-2026-1019-0043");
         data.put("receiverUnit", "××城市商业银行 信息科技部");
@@ -79,7 +77,6 @@ public class JQuickBiz79DeliveryReceipt {
             }
         }
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 55, 48));

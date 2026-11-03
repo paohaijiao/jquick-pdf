@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 111 财政非税收入票据（finance 领域第 12 项）　视觉主题：琥珀·素雅·通栏
-  // 版式组合：抬头=banner 信息区=kv 明细表=light 段落=plain 签章=split 落款=right
-  // 主色 #A1A61C　辅色 #275591　浅底 #F7F7F0
-  // 财政非税收入票据：项目编码、计量单位、收费标准与金额合计，执收单位为行政机关。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#A1A61C; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'财政非税收入票据'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F7F7F0; bold:true; border:1px solid #D8D9BD">'票据代码'</td>
@@ -113,13 +109,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#7D8109; marginBottom:3px">'金额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#7D8109; marginBottom:3px">'备注'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -136,7 +132,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

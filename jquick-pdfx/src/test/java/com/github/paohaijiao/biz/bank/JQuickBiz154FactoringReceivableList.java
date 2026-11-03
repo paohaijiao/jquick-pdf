@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/154_factoring_receivable_list.txt} 中。</p>
  *
- * <p>视觉主题「绛紫·厚框·典式」：主色 #5C2A72、辅色 #789127、浅底 #F4F1F6；
- * 版式为 classic 抬头 + strip 信息区 + solid 明细表 + three 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>保理业务应收账款清单 / 债权转让凭证：保理类型与基础合同、</p>
  * <p>逐笔应收账款（发票号、债务人、金额、到期日、融资金额）、融资款计算与三方签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz154FactoringReceivableList {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "08876325", "××智能装备制造有限公司", "1433518.00", "2027-01-31", "1146814.40", "已转让"},
                 {"2", "08877012", "××智能装备制造有限公司", "1080000.00", "2027-02-28", "864000.00", "已转让"},
@@ -120,7 +115,6 @@ public class JQuickBiz154FactoringReceivableList {
 
         data.put("financeLine", "按 80% 融资比例，本次发放保理融资款（大写）" + toChineseAmount(itemTotal.multiply(new BigDecimal("0.80"))) + "　　（小写）￥" + itemTotal.multiply(new BigDecimal("0.80")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（越南语）  视觉主题：青瓷·顺化式
-  // 主色 #0B6E7F  深色 #07454F  浅底 #EAF4F4  描边 #BFDDE0
 
   // 抬头：满幅色带（左对齐）
   <table style="width:100%; marginBottom:6px">

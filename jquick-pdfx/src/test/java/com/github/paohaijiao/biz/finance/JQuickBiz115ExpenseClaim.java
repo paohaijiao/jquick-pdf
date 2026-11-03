@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/115_expense_claim.txt} 中。</p>
  *
- * <p>视觉主题「秋香·斑马·下线」：主色 #5D7724、辅色 #273691、浅底 #F5F6F1；
- * 版式为 underline 抬头 + kv 信息区 + striped 明细表 + split 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>费用报销单：报销部门与报销人、费用归属期、逐笔费用明细（含核定金额）、</p>
  * <p>报销合计大小写与审批签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz115ExpenseClaim {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"交通费", "2026-09-06", "××出差往返高铁", "2", "1106.00", "1106.00"},
                 {"住宿费", "2026-09-06", "××酒店 3 晚", "3", "1440.00", "1440.00"},
@@ -109,7 +104,6 @@ public class JQuickBiz115ExpenseClaim {
 
         data.put("totalApproved", new BigDecimal("6258.50").setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

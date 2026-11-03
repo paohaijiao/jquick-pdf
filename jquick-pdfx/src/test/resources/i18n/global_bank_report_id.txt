@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（印尼语）  视觉主题：巴迪·靛紫
-  // 主色 #6B2F6B  深色 #4A1F4A  浅底 #F3F0FA  描边 #D5CBE8  点缀金 #C9A227
 
   <table style="width:100%; border:1.2f solid #6B2F6B; marginBottom:8px">
     <tr>

@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/168_environment_assessment_receipt.txt} 中。</p>
  *
- * <p>视觉主题「绛紫·密排·票式」：主色 #8711AB、辅色 #719127、浅底 #F6EFF8；
- * 版式为 ticket 抬头 + grid2 信息区 + compact 明细表 + right 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>环评备案回执 / 安评验收单据：项目名称与建设地点、环评与安评文件类型，</p>
  * <p>逐项评价验收项目（标准要求、建设情况、结论）与备案结论、备案机关签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz168EnvironmentAssessmentReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "废气治理设施", "非甲烷总烃排放浓度 ≤ 60mg/m³", "活性炭吸附 + 催化燃烧，达标排放", "通过", "—"},
                 {"2", "废水治理设施", "pH 6-9，COD ≤ 500mg/L", "隔油 + 气浮 + 生化处理，达标", "通过", "—"},
@@ -105,7 +100,6 @@ public class JQuickBiz168EnvironmentAssessmentReceipt {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

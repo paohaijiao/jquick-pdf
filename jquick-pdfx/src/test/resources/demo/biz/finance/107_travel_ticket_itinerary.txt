@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 107 铁路车票 / 客运票 / 航空运输电子客票行程单（finance 领域第 8 项）　视觉主题：朱砂·疏朗·竖栏
-  // 版式组合：抬头=side 信息区=kv 明细表=airy 段落=bar 签章=split 落款=right
-  // 主色 #705826　辅色 #277B91　浅底 #F6F4F1
-  // 火车票 / 汽车客运票 / 机票行程单三合一：含行程日期、出发到达地、舱位票价与基金附加。
 
-  // 抬头：side
+  // 抬头
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:5px; padding:0px; backgroundColor:#705826">' '</td>
@@ -15,7 +11,7 @@
   </table>
   <lineSeparator style="color:#E5E3DF; thickness:1f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F6F4F1; bold:true; border:1px solid #D5CEC1">'票号 / 行程单号'</td>
@@ -116,7 +112,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#277B91">' '</td>
@@ -132,7 +128,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -149,7 +145,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

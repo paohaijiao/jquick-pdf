@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/101_vat_normal_invoice.txt} 中。</p>
  *
- * <p>视觉主题「绯红·素雅·竖栏」：主色 #A22D34、辅色 #279158、浅底 #F6F1F1；
- * 版式为 side 抬头 + chip 信息区 + light 明细表 + right 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>票面要素：发票代码 / 号码、开票日期、校验码、购销双方名称与纳税人识别号、</p>
  * <p>货物或应税劳务明细（规格、单位、数量、单价、金额、税率、税额）、合计与价税合计。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz101VatNormalInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"办公一体机", "MFP-3300", "台", "4", "4280.00", "—", "13%", "—"},
                 {"笔记本电脑", "TP-X390", "台", "2", "6980.00", "—", "13%", "—"},
@@ -121,7 +116,6 @@ public class JQuickBiz101VatNormalInvoice {
 
         data.put("totalLine", "价税合计（大写）" + toChineseAmount(withTax) + "　　（小写）￥" + withTax.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

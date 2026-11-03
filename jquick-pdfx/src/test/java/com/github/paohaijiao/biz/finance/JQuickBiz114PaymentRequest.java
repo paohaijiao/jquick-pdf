@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/114_payment_request.txt} 中。</p>
  *
- * <p>视觉主题「琥珀·厚框·票式」：主色 #AAAD21、辅色 #275691、浅底 #F7F7F0；
- * 版式为 ticket 抬头 + strip 信息区 + solid 明细表 + card 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>付款申请单：申请部门与申请人、收款单位银行账户、付款明细（含已付金额与本次申请额）、</p>
  * <p>付款事由与审批链（申请人 / 部门负责人 / 财务复核 / 总经理批准）。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz114PaymentRequest {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"设备采购款", "PO-2026-0812", "08876325", "0.00", "43000.00", "预付 60%"},
                 {"模具开发费", "PO-2026-0903", "08877012", "12000.00", "18000.00", "进度款"},
@@ -108,7 +103,6 @@ public class JQuickBiz114PaymentRequest {
 
         data.put("totalPaid", new BigDecimal("12000.00").setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

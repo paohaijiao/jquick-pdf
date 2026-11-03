@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 105 通行费电子发票（finance 领域第 6 项）　视觉主题：赭红·斑马·通栏
-  // 版式组合：抬头=banner 信息区=chip 明细表=striped 段落=plain 签章=right 落款=plain
-  // 主色 #963812　辅色 #27917E　浅底 #F8F2EF
-  // 通行费电子发票：按通行月份汇总，含入口 / 出口站、车型、里程与可抵扣进项税额。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#963812; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'通行费电子发票'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：chip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:4px; border:1px solid #DAC4BB">'发票代码：'${invoiceCode}</td>
@@ -93,7 +89,7 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#6D2203; marginBottom:3px">'金额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#6D2203; marginBottom:3px">'进项税额'</p>
@@ -101,7 +97,7 @@
   <p style="fontSize:10.5pt; bold:true; color:#6D2203; marginBottom:3px">'备注'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -118,7 +114,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

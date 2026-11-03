@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/125_customs_declaration.txt} 中。</p>
  *
- * <p>视觉主题「天青·斑马·竖栏」：主色 #17786C、辅色 #912765、浅底 #F0F7F6；
- * 版式为 side 抬头 + chip 信息区 + striped 明细表 + three 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标海关进出口货物报关单票样：海关编号、境内收货人 / 境外发货人、</p>
  * <p>运输方式与贸易方式、商品 HS 编码与成交总价、申报单位签章与海关验讫栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz125CustomsDeclaration {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "8501.5100", "伺服电机 SM-500W", "8 台", "新加坡", "224.60", "1796.80"},
                 {"2", "8483.4090", "精密齿轮箱 GB-120", "8 台", "新加坡", "506.90", "4055.20"},
@@ -111,7 +106,6 @@ public class JQuickBiz125CustomsDeclaration {
 
         data.put("totalLine", "成交总价（大写）" + toChineseAmount(itemTotal) + " 美元　　（小写）USD " + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

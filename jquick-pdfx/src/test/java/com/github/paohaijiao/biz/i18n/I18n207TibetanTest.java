@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 207 —— 藏语版全球经营年报摘要
  *
- * <p>语种 bo：藏语。字体 Noto Serif Tibetan，视觉主题「绛红藏式横幅（#7B2D26 + #D4A017，绛红横幡 + 金色经文带）」。</p>
- *
  * <p>模板：i18n/global_bank_report_bo.txt
  * 输出：D://test//i18n//global_bank_report_bo.pdf</p>
  *

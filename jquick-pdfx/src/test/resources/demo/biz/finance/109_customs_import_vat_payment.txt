@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 109 海关进口增值税专用缴款书（finance 领域第 10 项）　视觉主题：金橙·厚框·下线
-  // 版式组合：抬头=underline 信息区=chip 明细表=solid 段落=box 签章=right 落款=right
-  // 主色 #AB912A　辅色 #276E91　浅底 #F7F5F0
-  // 海关进口增值税专用缴款书：含完税价格、税率、增值税 / 关税 / 消费税额与缴款期限。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#8A7213; characterSpacing:3pt">'海关进口增值税专用缴款书'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#AB912A; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：chip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:4px; border:1px solid #D7D2BF">'缴款书号码：'${paymentNo}</td>
@@ -90,7 +86,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F7F5F0; bold:true; fontSize:9.5pt; color:#8A7213; border:1px solid #D7D2BF">'税款合计'</td>
@@ -104,7 +100,7 @@
     </tr>
   </table>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -121,7 +117,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

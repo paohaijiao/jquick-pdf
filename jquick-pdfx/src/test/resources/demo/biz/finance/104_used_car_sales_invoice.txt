@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 104 二手车销售统一发票（finance 领域第 5 项）　视觉主题：赭红·厚框·公文
-  // 版式组合：抬头=doc 信息区=grid2 明细表=solid 段落=bar 签章=three 落款=table
-  // 主色 #A86833　辅色 #279190　浅底 #F6F3F1
-  // 二手车销售统一发票：含车辆识别代号、牌照号、初次登记日期与里程，按差额征税。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#A86833; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'二手车销售统一发票'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'发票代码 '${invoiceCode}'　　发票号码 '${invoiceNo}'　　开票日期 '${issueDate}</p>
   <lineSeparator style="color:#A86833; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F6F3F1; bold:true; border:1px solid #D5CAC0">'发票代码'</td>
@@ -98,7 +94,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#279190">' '</td>
@@ -114,7 +110,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -134,7 +130,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

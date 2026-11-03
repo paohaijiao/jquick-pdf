@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/137_goods_inspection_notice.txt} 中。</p>
  *
- * <p>视觉主题「群青·疏朗·竖栏」：主色 #2D3194、辅色 #915C27、浅底 #F1F1F6；
- * 版式为 side 抬头 + chip 信息区 + airy 明细表 + two 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>货物查验通知单 / 查验结果单：通知单号与查验地点、查验类型与到场要求，</p>
  * <p>逐项查验项目与判定处置、查验结论与双方签收栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz137GoodsInspectionNotice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "品名规格查验", "核对申报品名与实物一致性", "一致", "正常", "放行"},
                 {"2", "数量重量查验", "过磅 / 开箱清点", "46 件 / 12140 kg", "正常", "放行"},
@@ -103,7 +98,6 @@ public class JQuickBiz137GoodsInspectionNotice {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

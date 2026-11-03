@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/170_medical_record_home.txt} 中。</p>
  *
- * <p>视觉主题「青瓷·斑马·公文」：主色 #278159、辅色 #912788、浅底 #F1F6F4；
- * 版式为 doc 抬头 + strip 信息区 + striped 明细表 + two 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>门诊病历 / 住院病案首页：病案号与医疗机构、患者与医保信息、入出院诊断，</p>
  * <p>逐日诊疗经过记录与医嘱处置、病案质控与科主任签字栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz170MedicalRecordHome {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"2026-10-18", "入院记录", "反复胸痛 3 天，活动后加重，伴胸闷", "完善心电图、心肌酶谱、冠脉 CTA", "闻仲平"},
                 {"2026-10-19", "病程记录", "心肌酶谱正常，心电图示 ST-T 改变", "给予抗血小板、扩冠、降压治疗", "闻仲平"},
@@ -103,7 +98,6 @@ public class JQuickBiz170MedicalRecordHome {
             data.put("itemAmount" + n, items[i][4]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

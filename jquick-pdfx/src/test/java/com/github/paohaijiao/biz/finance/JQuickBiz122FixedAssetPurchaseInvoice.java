@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/122_fixed_asset_purchase_invoice.txt} 中。</p>
  *
- * <p>视觉主题「橄榄·疏朗·公文」：主色 #48B61F、辅色 #432791、浅底 #F2F7F0；
- * 版式为 doc 抬头 + strip 信息区 + airy 明细表 + right 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>固定资产购置发票：资产类别与名称、规格型号、数量单价、金额与税率税额、</p>
  * <p>可抵扣进项税额与折旧年限说明、发票专用章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz122FixedAssetPurchaseInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"数控加工中心", "VMC-850", "台", "2", "286000.00", "—", "13%", "—"},
                 {"精密磨床", "MG-1432", "台", "1", "168000.00", "—", "13%", "—"},
@@ -124,7 +119,6 @@ public class JQuickBiz122FixedAssetPurchaseInvoice {
 
         data.put("depLine", "其中可抵扣进项税额：￥" + taxTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "　　预计折旧年限 10 年，残值率 5%");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/172_medical_expense_detail.txt} 中。</p>
  *
- * <p>视觉主题「天青·疏朗·典式」：主色 #1B7A6E、辅色 #912766、浅底 #F0F7F6；
- * 版式为 classic 抬头 + grid2 信息区 + airy 明细表 + right 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>医疗费用明细清单 / 药品耗材清单：结算期间与患者病案号、费用总额与统筹支付，</p>
  * <p>逐项药品耗材（规格、数量、单价、金额、医保类别）与合计、药剂科与医保办核对栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz172MedicalExpenseDetail {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "阿司匹林肠溶片", "100mg × 30 片", "2 盒", "18.60", "37.20", "甲类"},
                 {"2", "硫酸氢氯吡格雷片", "75mg × 7 片", "4 盒", "86.50", "346.00", "乙类"},
@@ -114,7 +109,6 @@ public class JQuickBiz172MedicalExpenseDetail {
 
         data.put("totalLine", "药品耗材金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/107_travel_ticket_itinerary.txt} 中。</p>
  *
- * <p>视觉主题「朱砂·疏朗·竖栏」：主色 #705826、辅色 #277B91、浅底 #F6F4F1；
- * 版式为 side 抬头 + kv 信息区 + airy 明细表 + split 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标航空运输电子客票行程单与铁路车票票样：旅客身份信息、行程、航班车次、</p>
  * <p>票价与民航发展基金、燃油附加费明细。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz107TravelTicketItinerary {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"2026-09-30 07:55", "××虹桥", "××天府", "经济舱 Y", "1180.00", "50.00"},
                 {"2026-10-05 19:20", "××天府", "××虹桥", "经济舱 B", "980.00", "50.00"},
@@ -109,7 +104,6 @@ public class JQuickBiz107TravelTicketItinerary {
 
         data.put("taxLine", "民航发展基金 / 燃油附加合计：￥" + itemTotal.multiply(new BigDecimal("0")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "（另计）");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

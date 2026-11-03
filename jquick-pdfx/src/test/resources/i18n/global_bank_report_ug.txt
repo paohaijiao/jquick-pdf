@@ -1,8 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（维吾尔文版）　视觉主题：翡翠铜·右起式
-  // 单语种独立报告：全篇仅维吾尔文（阿拉伯字母 RTL）　主色翡翠 #0F6B5C　铜 #C2762B　浅底 #E9F5F1
-  // 所有阿文字元素必须 baseDirection:rtl + textAlignment:right
 
   <h1 style="fontSize:19pt; bold:true; color:#0F6B5C; textAlignment:right; baseDirection:rtl; marginBottom:2px; fontFamilyNames:Noto Sans Arabic">'يەر شارى بانكىسىنىڭ يىللىق تىجارەت دوكلاتى'</h1>
   <p style="fontSize:9.5pt; color:#C2762B; textAlignment:right; baseDirection:rtl; marginBottom:6px; fontFamilyNames:Noto Sans Arabic">'2026-يىلنىڭ ئالدىنقى ئۈچ پەسلى · گۇرۇھ بىرلەشمە ئۆلچىمى'</p>

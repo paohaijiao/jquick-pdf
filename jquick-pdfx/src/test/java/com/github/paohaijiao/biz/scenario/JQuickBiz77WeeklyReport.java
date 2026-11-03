@@ -55,7 +55,6 @@ public class JQuickBiz77WeeklyReport {
     public static void main(String[] args) throws Exception {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 组织数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("reportNo", "ZB-2026-W42-007");
         data.put("projectName", "PDF 报表引擎 4.2 迭代");
@@ -88,7 +87,6 @@ public class JQuickBiz77WeeklyReport {
 
         data.put("remark", "本周整体完成率 96%，与计划偏差 4%，主要原因为压测环境延迟。下阶段重点工作为字体缓存改造与国产化适配。");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(50, 50, 55, 50));

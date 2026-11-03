@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 140 银行转账回单 / 现金缴款单（bank 领域第 1 项）　视觉主题：靛蓝·斑马·公文
-  // 版式组合：抬头=doc 信息区=grid2 明细表=striped 段落=bar 签章=split 落款=table
-  // 主色 #346E9A　辅色 #91272A　浅底 #F1F4F6
-  // 银行转账回单与现金缴款单：交易流水、用途摘要、金额手续费与交易状态。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#346E9A; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'银行转账回单 / 现金缴款单'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'交易流水号 '${serialNo}'　　交易日期 '${tradeDate}'　　币种 '${currency}</p>
   <lineSeparator style="color:#346E9A; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F1F4F6; bold:true; border:1px solid #C1CCD5">'交易流水号 / REF NO.'</td>
@@ -124,7 +120,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#91272A">' '</td>
@@ -140,7 +136,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -157,7 +153,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/103_motor_vehicle_sales_invoice.txt} 中。</p>
  *
- * <p>视觉主题「绯红·密排·下线」：主色 #9D321E、辅色 #279170、浅底 #F7F1F0；
- * 版式为 underline 抬头 + kv 信息区 + compact 明细表 + split 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标机动车销售统一发票票样：车辆识别代号、合格证号、购车人身份信息，以及</p>
  * <p>不含税价、增值税税额、价税合计与发票专用章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz103MotorVehicleSalesInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"轻型厢式货车", "××牌 NJ5045XXY", "中国", "WAD2309188", "LSVAA1234N2088765", "128318.58"},
                 {"车辆装饰", "整车贴膜 + 脚垫", "中国", "—", "—", "2654.87"},
@@ -109,7 +104,6 @@ public class JQuickBiz103MotorVehicleSalesInvoice {
 
         data.put("taxLine", "增值税税额：￥" + itemTotal.multiply(new BigDecimal("0.13")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "　　征收率 13%");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

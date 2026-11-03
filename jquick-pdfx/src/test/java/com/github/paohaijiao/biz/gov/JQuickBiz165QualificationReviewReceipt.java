@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/165_qualification_review_receipt.txt} 中。</p>
  *
- * <p>视觉主题「群青·斑马·通栏」：主色 #322F80、辅色 #916327、浅底 #F1F1F6；
- * 版式为 banner 抬头 + chip 信息区 + striped 明细表 + split 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>企业资质申报 / 审核回执：资质类别与等级、现有与申报等级，</p>
  * <p>逐项考核指标（标准要求与实际情况）、审核结论与审核机关签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz165QualificationReviewReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "净资产", "4000 万元以上", "5860.42 万元（审计报告）", "符合", "—"},
                 {"2", "注册建造师数量", "建筑工程专业不少于 12 人", "12 人（一级 5 人、二级 7 人）", "符合", "—"},
@@ -104,7 +99,6 @@ public class JQuickBiz165QualificationReviewReceipt {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 173 医疗保险结算单 / 异地就医结算回执（medical 领域第 4 项）　视觉主题：天青·密排·竖栏
-  // 版式组合：抬头=side 信息区=chip 明细表=compact 段落=bar 签章=card 落款=plain
-  // 主色 #2E876F　辅色 #912775　浅底 #F1F6F5
-  // 医保结算单与异地就医结算回执：统筹支付、个人账户与自付金额，备案编号。
 
-  // 抬头：side
+  // 抬头
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:5px; padding:0px; backgroundColor:#2E876F">' '</td>
@@ -15,7 +11,7 @@
   </table>
   <lineSeparator style="color:#DFE5E3; thickness:1f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F1F6F5; bold:true; textAlign:center; border:1px solid #C1D5CF">'结算单号 / NO.'</td>
@@ -129,7 +125,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#912775">' '</td>
@@ -145,7 +141,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -162,7 +158,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

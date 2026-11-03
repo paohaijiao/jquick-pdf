@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/159_real_estate_registration_receipt.txt} 中。</p>
  *
- * <p>视觉主题「天青·厚框·通栏」：主色 #237172、辅色 #912756、浅底 #F1F6F6；
- * 版式为 banner 抬头 + kv 信息区 + solid 明细表 + right 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>不动产登记受理单 / 不动产权证回执：登记类型与不动产单元号、坐落与面积用途，</p>
  * <p>申请材料清单与核验结果、登记结果与登记机构签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz159RealEstateRegistrationReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "不动产登记申请表", "原件", "1", "齐全", "—"},
                 {"2", "申请人身份证明 / 营业执照", "复印件盖章", "1", "齐全", "—"},
@@ -105,7 +100,6 @@ public class JQuickBiz159RealEstateRegistrationReceipt {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

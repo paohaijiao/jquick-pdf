@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 168 环境影响评价备案回执 / 安全评价验收单据（gov 领域第 14 项）　视觉主题：绛紫·密排·票式
-  // 版式组合：抬头=ticket 信息区=grid2 明细表=compact 段落=plain 签章=right 落款=plain
-  // 主色 #8711AB　辅色 #719127　浅底 #F6EFF8
-  // 项目环评备案回执与安评验收单据：废气废水噪声固废与安全设施验收结论。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#8711AB; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'环境影响评价备案回执 / 安全评价验收单据'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'备案编号 '${recordNo}'　　备案日期 '${recordDate}'　　备案机关 '${orgName}</p>
   <lineSeparator style="color:#8711AB; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#8711AB; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F6EFF8; bold:true; border:1px solid #D3BADB">'备案编号 / NO.'</td>
@@ -111,13 +107,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#630381; marginBottom:3px">'备案结论'</p>
   <p style="fontSize:9pt; marginBottom:6px">${recordConclusion}</p>
   <p style="fontSize:10.5pt; bold:true; color:#630381; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -134,7 +130,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

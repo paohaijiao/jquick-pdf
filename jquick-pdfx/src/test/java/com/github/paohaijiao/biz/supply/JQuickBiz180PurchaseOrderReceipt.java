@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/supply/180_purchase_order_receipt.txt} 中。</p>
  *
- * <p>视觉主题「绯红·斑马·票式」：主色 #822C19、辅色 #279173、浅底 #F7F1F0；
- * 版式为 ticket 抬头 + grid2 信息区 + striped 明细表 + right 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>采购订单 / 送货单 / 入库验收单：订单号与供应商、送货与收货仓库信息，</p>
  * <p>逐项物料（编码、订单数、实收数、单价）与金额合计、数量差异核对与三方签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz180PurchaseOrderReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "伺服电机 SVM-750W", "MAT-001188", "12", "12", "1860.00", "合格"},
                 {"2", "精密减速机 RV-40E", "MAT-001192", "12", "12", "1240.00", "合格"},
@@ -119,7 +114,6 @@ public class JQuickBiz180PurchaseOrderReceipt {
 
         data.put("qtyLine", "订单数量合计 81 件，实收数量合计 81 件，数量差异 0 件，验收合格率 100%");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

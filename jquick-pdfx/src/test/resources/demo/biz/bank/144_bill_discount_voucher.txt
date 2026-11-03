@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 144 汇票贴现凭证 / 托收凭证（bank 领域第 5 项）　视觉主题：宝蓝·厚框·票式
-  // 版式组合：抬头=ticket 信息区=grid2 明细表=solid 段落=plain 签章=split 落款=table
-  // 主色 #183590　辅色 #914527　浅底 #F0F2F7
-  // 汇票贴现凭证与托收凭证：票面金额、到期日、贴现天数、贴现利息与实付金额。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#183590; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'汇票贴现凭证 / 托收凭证'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'凭证编号 '${voucherNo}'　　办理日期 '${handleDate}'　　贴现银行 '${bankName}</p>
   <lineSeparator style="color:#183590; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#183590; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F0F2F7; bold:true; border:1px solid #BDC3D9">'凭证编号 / VOUCHER NO.'</td>
@@ -121,13 +117,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#071F69; marginBottom:3px">'实付金额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#071F69; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -144,7 +140,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

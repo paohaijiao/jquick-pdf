@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 142 现金支票 / 转账支票（bank 领域第 3 项）　视觉主题：靛蓝·疏朗·典式
-  // 版式组合：抬头=classic 信息区=strip 明细表=airy 段落=box 签章=three 落款=table
-  // 主色 #256496　辅色 #912729　浅底 #F0F4F7
-  // 现金支票与转账支票：出票日期、收款人、大小写金额、用途与背书栏。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#0F4774; textAlignment:center; characterSpacing:6pt">'现金支票 / 转账支票'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'支票号码 '${checkNo}'　　出票日期 '${issueDate}'　　付款行 '${payerBank}</p>
   <lineSeparator style="color:#256496; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F0F4F7; bold:true; border:1px solid #BFCCD7">'支票号码 / CHECK NO.'</td>
@@ -109,7 +105,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F0F4F7; bold:true; fontSize:9.5pt; color:#0F4774; border:1px solid #BFCCD7">'提示付款期限'</td>
@@ -123,7 +119,7 @@
     </tr>
   </table>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -143,7 +139,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

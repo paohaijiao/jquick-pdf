@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/149_guarantee_letter.txt} 中。</p>
  *
- * <p>视觉主题「紫棠·厚框·竖栏」：主色 #3F1190、辅色 #918627、浅底 #F2EFF8；
- * 版式为 side 抬头 + chip 信息区 + solid 明细表 + two 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>保函开立凭证 / 履约保函回执：保函种类、申请人与受益人、基础合同、</p>
  * <p>担保金额与有效期、索赔与减额条款、开立行签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz149GuaranteeLetter {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "担保范围", "承包人履行合同义务的履约担保", "合同价 10%", "有效"},
                 {"2", "担保金额", "最高不超过人民币壹佰捌拾陆万元整", "1860000.00", "有效"},
@@ -103,7 +98,6 @@ public class JQuickBiz149GuaranteeLetter {
             data.put("itemAmount" + n, items[i][4]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

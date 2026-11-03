@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/116_travel_expense_list.txt} 中。</p>
  *
- * <p>视觉主题「秋香·素雅·公文」：主色 #78A714、辅色 #273691、浅底 #F5F8EF；
- * 版式为 doc 抬头 + grid2 信息区 + light 明细表 + two 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>差旅报销清单：出差期间、出差人与随行人员、出差事由、逐日逐项费用明细，</p>
  * <p>差旅费用合计大小写与审批签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz116TravelExpenseList {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"09-05", "××市", "交通费", "高铁二等座 ××→××", "1", "553.00"},
                 {"09-05", "××市", "住宿费", "××酒店 标准间", "1", "480.00"},
@@ -110,7 +105,6 @@ public class JQuickBiz116TravelExpenseList {
 
         data.put("totalLine", "差旅费用合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

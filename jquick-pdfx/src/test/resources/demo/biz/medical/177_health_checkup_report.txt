@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 177 健康体检筛查报告单 / 体检项目清单（medical 领域第 8 项）　视觉主题：靛蓝·疏朗·通栏
-  // 版式组合：抬头=banner 信息区=chip 明细表=airy 段落=plain 签章=card 落款=plain
-  // 主色 #15577A　辅色 #912734　浅底 #F0F5F7
-  // 体检健康筛查报告单与体检项目清单：体检项目、结果、参考范围与健康指导。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#15577A; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'健康体检筛查报告单 / 体检项目清单'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F0F5F7; bold:true; textAlign:center; border:1px solid #BDCFD9">'体检编号 / NO.'</td>
@@ -157,13 +153,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#063751; marginBottom:3px">'健康指导建议'</p>
   <p style="fontSize:9pt; marginBottom:6px">${advice}</p>
   <p style="fontSize:10.5pt; bold:true; color:#063751; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -180,7 +176,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

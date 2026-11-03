@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 102 全面数字化电子发票（finance 领域第 3 项）　视觉主题：绯红·疏朗·票式
-  // 版式组合：抬头=ticket 信息区=strip 明细表=airy 段落=plain 签章=card 落款=right
-  // 主色 #8E260E　辅色 #279173　浅底 #F8F1EF
-  // 全电发票：20 位发票号码、不含发票代码与机器编号，票面标注「电子发票（专用发票）」。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#8E260E; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'全面数字化电子发票'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'发票号码 '${invoiceNo}'　　开票日期 '${issueDate}'　　发票类型 '${invoiceType}</p>
   <lineSeparator style="color:#8E260E; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#8E260E; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F8F1EF; bold:true; textAlign:center; border:1px solid #DBC0BA">'发票号码'</td>
@@ -118,13 +114,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#611402; marginBottom:3px">'价税合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#611402; marginBottom:3px">'备注'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -141,7 +137,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

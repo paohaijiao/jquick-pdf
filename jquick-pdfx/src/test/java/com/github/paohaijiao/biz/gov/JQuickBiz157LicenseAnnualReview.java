@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/157_license_annual_review.txt} 中。</p>
  *
- * <p>视觉主题「天青·疏朗·下线」：主色 #0F9987、辅色 #912766、浅底 #EFF8F7；
- * 版式为 underline 抬头 + chip 信息区 + airy 明细表 + split 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>许可证年度审查申报表 / 年审回执：许可证编号与持证单位、年审年度，</p>
  * <p>逐项审验项目（上年度 / 本年度情况与结论）、年审结论与双方签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz157LicenseAnnualReview {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "经营资质符合性", "经营范围与许可一致", "经营范围与许可一致", "合格", "—"},
                 {"2", "车辆技术状况", "营运车辆 46 辆，年检合格", "营运车辆 52 辆，年检合格", "合格", "—"},
@@ -103,7 +98,6 @@ public class JQuickBiz157LicenseAnnualReview {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

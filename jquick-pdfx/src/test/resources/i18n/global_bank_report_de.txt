@@ -2,7 +2,6 @@
 <body>
   // 156 环球汇通银行 · 全球经营年报摘要（Deutsch 版）
   // 单语种独立报告：全篇仅德语，图表标题/图例亦为德语
-  // 视觉主题「钢灰严谨·德式网格式」：主色 #37474F　点缀芥末黄 #C99700　浅底 #F0F2F1　深线 #2A363C
 
   // 抬头：左对齐 + 芥末黄下划线
   <h1 style="fontSize:19pt; bold:true; color:#37474F; textAlignment:left; marginBottom:2px; fontFamilyNames:Noto Sans,Helvetica">'Global Union Bank · Zusammenfassung der weltweiten Geschäftstätigkeit'</h1>

@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/155_gov_acceptance_receipt.txt} 中。</p>
  *
- * <p>视觉主题「青瓷·斑马·竖栏」：主色 #1BA072、辅色 #91277E、浅底 #F0F7F5；
- * 版式为 side 抬头 + kv 信息区 + striped 明细表 + right 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>政务服务事项受理回执单：受理编号与事项编码、申请人信息、办理类型与承诺时限，</p>
  * <p>申请材料清单与核验结果、办件进度提示与受理人 / 申请人签收栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz155GovAcceptanceReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "政务服务事项申请表", "原件", "1", "窗口提交", "齐全"},
                 {"2", "营业执照副本复印件", "复印件盖章", "1", "窗口提交", "齐全"},
@@ -105,7 +100,6 @@ public class JQuickBiz155GovAcceptanceReceipt {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

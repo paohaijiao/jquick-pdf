@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/supply/184_presale_payment_confirm.txt} 中。</p>
  *
- * <p>视觉主题「橄榄·厚框·典式」：主色 #549632、辅色 #3C2791、浅底 #F3F6F1；
- * 版式为 classic 抬头 + grid2 信息区 + solid 明细表 + right 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>预售房款收款单 / 尾款结算确认单：预售许可证与项目房号、房屋总价与面积，</p>
  * <p>逐笔款项（应收、实收、日期、方式）与结算合计、资金监管账户与三方签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz184PresalePaymentConfirm {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "定金", "100000.00", "100000.00", "2026-08-12", "银行转账", "已收"},
                 {"2", "首付款（一期）", "460000.00", "460000.00", "2026-08-26", "银行转账", "已收"},
@@ -120,7 +115,6 @@ public class JQuickBiz184PresalePaymentConfirm {
 
         data.put("settleLine", "已收房款合计 ￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "　　欠款 ￥0.00　　房款已全额结清");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

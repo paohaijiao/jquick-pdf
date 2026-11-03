@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/126_entry_exit_record_list.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·素雅·票式」：主色 #297586、辅色 #912745、浅底 #F1F5F6；
- * 版式为 ticket 抬头 + strip 信息区 + light 明细表 + right 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>对标海关进出境货物备案清单票样：备案清单编号、经营单位、备案性质、</p>
  * <p>货物 HS 编码与备案总价、录入单位与海关签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz126EntryExitRecordList {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "8542.3100", "集成电路 IC-8800", "12000 个", "中国台湾", "1.86", "22320.00"},
                 {"2", "8534.0000", "印刷电路板 PCB-6L", "3600 片", "中国台湾", "4.20", "15120.00"},
@@ -111,7 +106,6 @@ public class JQuickBiz126EntryExitRecordList {
 
         data.put("totalLine", "备案总价（大写）" + toChineseAmount(itemTotal) + " 美元　　（小写）USD " + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

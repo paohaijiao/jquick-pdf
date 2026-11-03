@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 200 —— 波斯语版全球经营年报摘要
  *
- * <p>语种 fa：波斯语。字体 Noto Sans Arabic，视觉主题「波斯细密画·绿松石（紫罗兰 #5F3DC4 + 绿松石 #0E9384，居中对称装饰 + 全篇 RTL）」。</p>
- *
  * <p>模板：i18n/global_bank_report_fa.txt
  * 输出：D://test//i18n//global_bank_report_fa.pdf</p>
  *

@@ -55,10 +55,8 @@ public class JQuickBiz74OnboardNotice {
         new File(PDF_DIR).mkdirs();
         new File(IMG_DIR).mkdirs();
 
-        // ---------- 1. 图片：红头 logo ----------
         generateLogo(IMG_DIR + "74_logo.png");
 
-        // ---------- 2. 数据（普通 Map，无实体类）----------
         Map<String, Object> data = new LinkedHashMap<String, Object>();
         data.put("companyName", "××数字科技有限公司");
         data.put("noticeNo", "人事〔2026〕入职第 086 号");
@@ -84,7 +82,6 @@ public class JQuickBiz74OnboardNotice {
 
         data.put("issueDate", "2026年10月19日");
 
-        // ---------- 3. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         // 公文版心：上 60、下 55，左右 70（约 2.5cm 标准公文页边距）

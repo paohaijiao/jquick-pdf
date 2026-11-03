@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（泰米尔语）  视觉主题：庙塔·黄檀式
-  // 主色 #C2185B  深色 #8A0F3F  浅底 #FDF0F5  描边 #EDC3D5
 
   // 顶部三层递减色条（gopuram 层叠）
   <table style="width:100%; marginBottom:6px">

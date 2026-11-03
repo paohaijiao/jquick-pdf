@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/118_red_invoice_info_table.txt} 中。</p>
  *
- * <p>视觉主题「秋香·密排·典式」：主色 #5F7E2A、辅色 #273091、浅底 #F4F6F1；
- * 版式为 classic 抬头 + strip 信息区 + compact 明细表 + right 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>红字发票信息表：蓝字发票代码号码与开票日期、申请方与申请原因、</p>
  * <p>逐行红冲数量与负数金额税额、红冲合计与税务机关受理栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz118RedInvoiceInfoTable {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"工业级伺服电机", "SVM-750W", "台", "12", "-2", "-3720.00", "-483.60"},
                 {"精密减速机", "RV-40E", "台", "12", "-1", "-1240.00", "-161.20"},
@@ -113,7 +108,6 @@ public class JQuickBiz118RedInvoiceInfoTable {
 
         data.put("totalTax", new BigDecimal("-950.30").setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

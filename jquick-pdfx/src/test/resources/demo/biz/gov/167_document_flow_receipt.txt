@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 167 公文流转签收单 / 办件办结回执（gov 领域第 13 项）　视觉主题：紫棠·疏朗·竖栏
-  // 版式组合：抬头=side 信息区=kv 明细表=airy 段落=bar 签章=three 落款=table
-  // 主色 #4E227A　辅色 #8D9127　浅底 #F4F1F6
-  // 公文流转签收单与办件办结回执：流转环节、签收人、时间与办理意见。
 
-  // 抬头：side
+  // 抬头
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:5px; padding:0px; backgroundColor:#4E227A">' '</td>
@@ -15,7 +11,7 @@
   </table>
   <lineSeparator style="color:#E2DFE5; thickness:1f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CBBFD6">'公文编号 / DOC NO.'</td>
@@ -132,7 +128,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#8D9127">' '</td>
@@ -148,7 +144,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -168,7 +164,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

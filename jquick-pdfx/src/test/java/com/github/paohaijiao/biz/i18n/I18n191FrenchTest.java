@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 191 —— 法语版全球经营年报摘要
  *
- * <p>语种 fr：法语。字体 Noto Sans，视觉主题「雾蓝优雅·细线式（#34597E，斜体章节标题 + 仅横向细线表格）」。</p>
- *
  * <p>模板：i18n/global_bank_report_fr.txt
  * 输出：D://test//i18n//global_bank_report_fr.pdf</p>
  *
@@ -71,7 +69,6 @@ public class I18n191FrenchTest {
         p.lineFooter = "Source : plateforme de suivi mondial | Unité : cent millions de yuans";
         p.lineMonths = new String[]{"janv.", "févr.", "mars", "avr.", "mai", "juin", "juil.", "août", "sept.", "oct."};
         p.lineNames = new String[]{"Règlements", "Financement du commerce", "Change"};
-        // 视觉主题「雾蓝优雅·细线式」
         p.donutPalette = new Color[]{
                 new Color(52, 89, 126), new Color(127, 168, 201), new Color(91, 127, 163),
                 new Color(169, 196, 220), new Color(201, 220, 235), new Color(228, 238, 245)

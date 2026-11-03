@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 197 —— 马来语版全球经营年报摘要
  *
- * <p>语种 ms：马来语。字体 Noto Sans，视觉主题「蜡染·热带赭（#C2410C + #1F3B2C，双框通栏 + 单行 8 格卡 + 橙色斑马纹）」。</p>
- *
  * <p>模板：i18n/global_bank_report_ms.txt
  * 输出：D://test//i18n//global_bank_report_ms.pdf</p>
  *

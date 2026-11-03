@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 137 货物查验通知单 / 查验结果单（customs 领域第 13 项）　视觉主题：群青·疏朗·竖栏
-  // 版式组合：抬头=side 信息区=chip 明细表=airy 段落=bar 签章=two 落款=plain
-  // 主色 #2D3194　辅色 #915C27　浅底 #F1F1F6
-  // 货物查验通知单与查验结果单：查验项目、要求、结果与处置意见。
 
-  // 抬头：side
+  // 抬头
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:5px; padding:0px; backgroundColor:#2D3194">' '</td>
@@ -15,7 +11,7 @@
   </table>
   <lineSeparator style="color:#DFDFE5; thickness:1f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C0C1D5">'通知单号 / NO.'</td>
@@ -120,7 +116,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#915C27">' '</td>
@@ -136,7 +132,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -153,7 +149,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 175 出院小结 / 疾病诊断证明书（medical 领域第 6 项）　视觉主题：靛蓝·斑马·下线
-  // 版式组合：抬头=underline 信息区=kv 明细表=striped 段落=box 签章=three 落款=plain
-  // 主色 #207182　辅色 #912746　浅底 #F0F6F7
-  // 出院小结与疾病诊断证明书：入出院诊断、手术操作、住院诊疗用药与出院医嘱。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#0C4F5D; characterSpacing:3pt">'出院小结 / 疾病诊断证明书'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#207182; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BFD3D7">'证明书编号 / NO.'</td>
@@ -130,7 +126,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F0F6F7; bold:true; fontSize:9.5pt; color:#0C4F5D; border:1px solid #BFD3D7">'出院医嘱'</td>
@@ -144,7 +140,7 @@
     </tr>
   </table>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -164,7 +160,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

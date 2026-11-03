@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/133_commodity_inspection_report.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·密排·下线」：主色 #153580、辅色 #913F27、浅底 #F0F2F7；
- * 版式为 underline 抬头 + chip 信息区 + compact 明细表 + two 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>进出口商检 / 检疫检验报告：报检单位与货物信息、检验依据、</p>
  * <p>逐项检验项目与判定结果、检验结论与检验机构签章栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz133CommodityInspectionReport {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "外观与包装检验", "包装完好、标识清晰", "包装完好，唛头清晰", "合格", "—"},
                 {"2", "数量重量检验", "与装箱单一致", "46 件 / 12140 kg", "合格", "—"},
@@ -102,7 +97,6 @@ public class JQuickBiz133CommodityInspectionReport {
             data.put("itemAmount" + n, items[i][5]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

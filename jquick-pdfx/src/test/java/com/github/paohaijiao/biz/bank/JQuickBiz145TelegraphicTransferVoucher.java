@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/145_telegraphic_transfer_voucher.txt} 中。</p>
  *
- * <p>视觉主题「群青·斑马·下线」：主色 #2E2B9D、辅色 #916227、浅底 #F1F1F6；
- * 版式为 underline 抬头 + chip 信息区 + striped 明细表 + two 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>电汇 / 信汇凭证、付款委托书：汇出行与汇入行、汇款人与收款人账号，</p>
  * <p>币种金额与汇率、逐项费用明细与承担方、汇款人预留印鉴栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz145TelegraphicTransferVoucher {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "电汇手续费", "汇款金额 0.1%，最低 50 元", "0.10%", "291.78", "汇款人", "291.78"},
                 {"2", "电报费", "每笔固定", "固定", "150.00", "汇款人", "150.00"},
@@ -114,7 +109,6 @@ public class JQuickBiz145TelegraphicTransferVoucher {
 
         data.put("totalLine", "费用合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

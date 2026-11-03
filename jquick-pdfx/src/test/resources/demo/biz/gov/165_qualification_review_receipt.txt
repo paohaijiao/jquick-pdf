@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 165 企业资质申报 / 资质审核回执（gov 领域第 11 项）　视觉主题：群青·斑马·通栏
-  // 版式组合：抬头=banner 信息区=chip 明细表=striped 段落=plain 签章=split 落款=right
-  // 主色 #322F80　辅色 #916327　浅底 #F1F1F6
-  // 企业资质申报材料与资质审核回执：逐项考核指标的标准要求与实际情况对比。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#322F80; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'企业资质申报 / 资质审核回执'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#F1F1F6; bold:true; textAlign:center; border:1px solid #C2C2D4">'申报编号 / NO.'</td>
@@ -117,13 +113,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#191760; marginBottom:3px">'审核结论'</p>
   <p style="fontSize:9pt; marginBottom:6px">${reviewResult}</p>
   <p style="fontSize:10.5pt; bold:true; color:#191760; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -140,7 +136,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -1,8 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（简体中文版）　视觉主题：黛紫鎏银·圆角卡片式
-  // 单语种独立报告：全篇仅简体中文，图表标题/图例亦为中文
-  // 主色 #52307C　辅色 #8E7CC3　浅底 #F5F2FA　描边 #D5CCE8
 
   // 抬头：居中礼仪式 + 双分隔线
   <h1 style="fontSize:19pt; bold:true; color:#52307C; textAlignment:center; characterSpacing:8pt; marginBottom:2px; fontFamilyNames:SimHei,Helvetica">'环球汇通银行 · 全球经营年报摘要'</h1>
@@ -200,7 +197,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

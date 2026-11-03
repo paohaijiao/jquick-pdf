@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 112 财政电子缴款回执单（finance 领域第 13 项）　视觉主题：金橙·疏朗·典式
-  // 版式组合：抬头=classic 信息区=grid2 明细表=airy 段落=box 签章=two 落款=plain
-  // 主色 #70681F　辅色 #276391　浅底 #F6F6F1
-  // 财政电子缴款回执单：含交易流水号、缴款渠道与逐项到账状态。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#4B450C; textAlignment:center; characterSpacing:6pt">'财政电子缴款回执单'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'回执编号 '${receiptNo}'　　缴款日期 '${payDate}'　　交易流水号 '${serialNo}</p>
   <lineSeparator style="color:#70681F; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F6F6F1; bold:true; border:1px solid #D6D4BF">'回执编号'</td>
@@ -96,7 +92,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F6F6F1; bold:true; fontSize:9.5pt; color:#4B450C; border:1px solid #D6D4BF">'缴款合计'</td>
@@ -110,7 +106,7 @@
     </tr>
   </table>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -127,7 +123,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

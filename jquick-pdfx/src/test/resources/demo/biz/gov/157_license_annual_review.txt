@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 157 许可证年度审查申报表 / 年审回执（gov 领域第 3 项）　视觉主题：天青·疏朗·下线
-  // 版式组合：抬头=underline 信息区=chip 明细表=airy 段落=box 签章=split 落款=plain
-  // 主色 #0F9987　辅色 #912766　浅底 #EFF8F7
-  // 许可证年审申报表与年审回执：逐项审验项目的上年 / 本年度对比与结论。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#026E60; characterSpacing:3pt">'许可证年度审查申报表 / 年审回执'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#0F9987; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：strip
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:25%; padding:3px; backgroundColor:#EFF8F7; bold:true; textAlign:center; border:1px solid #BADBD7">'申报编号 / NO.'</td>
@@ -115,7 +111,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#EFF8F7; bold:true; fontSize:9.5pt; color:#026E60; border:1px solid #BADBD7">'年审结论'</td>
@@ -129,7 +125,7 @@
     </tr>
   </table>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -146,7 +142,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 143 银行承兑汇票 / 商业承兑汇票（bank 领域第 4 项）　视觉主题：宝蓝·密排·竖栏
-  // 版式组合：抬头=side 信息区=kv 明细表=compact 段落=bar 签章=right 落款=right
-  // 主色 #3B53A0　辅色 #914627　浅底 #F1F2F6
-  // 银行承兑汇票与商业承兑汇票：出票人收款人、到期日、金额与连续背书记录。
 
-  // 抬头：side
+  // 抬头
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:5px; padding:0px; backgroundColor:#3B53A0">' '</td>
@@ -15,7 +11,7 @@
   </table>
   <lineSeparator style="color:#DFE0E5; thickness:1f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C2C6D4">'汇票号码 / BILL NO.'</td>
@@ -127,7 +123,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#914627">' '</td>
@@ -143,7 +139,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -160,7 +156,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

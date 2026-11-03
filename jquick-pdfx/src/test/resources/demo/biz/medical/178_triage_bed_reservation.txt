@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 178 门诊分诊单 / 住院床位预约回执（medical 领域第 9 项）　视觉主题：靛蓝·密排·典式
-  // 版式组合：抬头=classic 信息区=strip 明细表=compact 段落=box 签章=split 落款=table
-  // 主色 #266689　辅色 #912732　浅底 #F1F4F6
-  // 门诊分诊单与住院床位预约回执：分诊分级、候诊候床状态与处置意见。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#104866; textAlignment:center; characterSpacing:6pt">'门诊分诊单 / 住院床位预约回执'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'分诊编号 '${triageNo}'　　登记日期 '${registerDate}'　　医疗机构 '${hospitalName}</p>
   <lineSeparator style="color:#266689; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F1F4F6; bold:true; border:1px solid #BFCED6">'分诊编号 / NO.'</td>
@@ -110,7 +106,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F1F4F6; bold:true; fontSize:9.5pt; color:#104866; border:1px solid #BFCED6">'分诊结论'</td>
@@ -124,7 +120,7 @@
     </tr>
   </table>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -141,7 +137,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

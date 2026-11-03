@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/123_asset_warehouse_receipt.txt} 中。</p>
  *
- * <p>视觉主题「松绿·密排·通栏」：主色 #287F23、辅色 #5A2791、浅底 #F1F6F1；
- * 版式为 banner 抬头 + kv 信息区 + compact 明细表 + card 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>资产入库单：入库部门与资产类别、供应商与关联采购订单、</p>
  * <p>逐条资产编号与存放位置、入库金额合计与三方签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz123AssetWarehouseReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"ZC-2026-0188", "数控加工中心", "VMC-850", "2", "286000.00", "572000.00", "1 号车间 A 区"},
                 {"ZC-2026-0189", "精密磨床", "MG-1432", "1", "168000.00", "168000.00", "1 号车间 B 区"},
@@ -108,7 +103,6 @@ public class JQuickBiz123AssetWarehouseReceipt {
 
         data.put("totalLine", "入库金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

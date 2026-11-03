@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 154 保理业务应收账款清单 / 债权转让凭证（bank 领域第 15 项）　视觉主题：绛紫·厚框·典式
-  // 版式组合：抬头=classic 信息区=strip 明细表=solid 段落=box 签章=three 落款=right
-  // 主色 #5C2A72　辅色 #789127　浅底 #F4F1F6
-  // 保理业务应收账款清单与债权转让凭证：发票号、债务人、到期日与融资比例。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#3E1351; textAlignment:center; characterSpacing:6pt">'保理业务应收账款清单 / 债权转让凭证'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'保理编号 '${factoringNo}'　　转让日期 '${transferDate}'　　保理商 '${factorName}</p>
   <lineSeparator style="color:#5C2A72; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CEC2D4">'保理编号 / NO.'</td>
@@ -132,7 +128,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F4F1F6; bold:true; fontSize:9.5pt; color:#3E1351; border:1px solid #CEC2D4">'应收账款转让合计'</td>
@@ -152,7 +148,7 @@
     </tr>
   </table>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -172,7 +168,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

@@ -32,10 +32,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/177_health_checkup_report.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·疏朗·通栏」：主色 #15577A、辅色 #912734、浅底 #F0F5F7；
- * 版式为 banner 抬头 + chip 信息区 + airy 明细表 + card 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>健康体检筛查报告单 / 体检项目清单：体检编号与机构、体检人信息，</p>
  * <p>逐项体检结果（结果、单位、参考范围、提示、科室）与健康指导建议、主检医师签字栏。</p>
  *
@@ -56,7 +52,6 @@ public class JQuickBiz177HealthCheckupReport {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "身高 / 体重", "172 / 82", "cm / kg", "BMI 18.5 — 23.9", "超重", "一般检查"},
                 {"2", "体质指数（BMI）", "27.7", "kg/m²", "18.5 — 23.9", "偏高", "一般检查"},
@@ -108,7 +103,6 @@ public class JQuickBiz177HealthCheckupReport {
             data.put("itemTax" + n, items[i][6]);
         }
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

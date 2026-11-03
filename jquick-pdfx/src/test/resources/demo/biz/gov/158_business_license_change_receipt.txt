@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 158 营业执照变更 / 备案回执（gov 领域第 4 项）　视觉主题：靛蓝·密排·公文
-  // 版式组合：抬头=doc 信息区=strip 明细表=compact 段落=bar 签章=two 落款=table
-  // 主色 #2098A8　辅色 #91274C　浅底 #F0F6F7
-  // 营业执照变更回执与备案回执：变更项目的前后对比与核准日期。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#2098A8; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'营业执照变更 / 备案回执'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'回执编号 '${receiptNo}'　　核准日期 '${approveDate}'　　登记机关 '${orgName}</p>
   <lineSeparator style="color:#2098A8; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F0F6F7; bold:true; border:1px solid #BDD5D8">'回执编号 / NO.'</td>
@@ -97,7 +93,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#91274C">' '</td>
@@ -113,7 +109,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -130,7 +126,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

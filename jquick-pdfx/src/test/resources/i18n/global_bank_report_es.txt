@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（西班牙语）  视觉主题：弗拉门戈·赤金
-  // 主色 #B3123C  深色 #7A0C29  浅底 #FDF3F4  描边 #EBC3CB  点缀墨黑 #1A1A1A
 
   // 抬头：左侧粗红竖条 + 超大标题
   <table style="width:100%; marginBottom:6px">

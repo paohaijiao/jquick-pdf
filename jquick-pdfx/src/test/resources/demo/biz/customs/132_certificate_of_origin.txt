@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 132 原产地证书 / 普惠制原产地证（C/O & FORM A）（customs 领域第 8 项）　视觉主题：宝蓝·疏朗·票式
-  // 版式组合：抬头=ticket 信息区=grid2 明细表=airy 段落=plain 签章=split 落款=plain
-  // 主色 #365292　辅色 #913F27　浅底 #F1F3F6
-  // 原产地证书与普惠制原产地证 FORM A：原产地标准、HS 编码与签证机构声明。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#365292; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'原产地证书 / 普惠制原产地证（C/O & FORM A）'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'证书号 '${certNo}'　　签发日期 '${issueDate}'　　签发机构 '${issueOrg}</p>
   <lineSeparator style="color:#365292; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#365292; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F1F3F6; bold:true; border:1px solid #C2C7D4">'证书编号 / CERT NO.'</td>
@@ -110,13 +106,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#1B3675; marginBottom:3px">'声明 / DECLARATION'</p>
   <p style="fontSize:9pt; marginBottom:6px">${declaration}</p>
   <p style="fontSize:10.5pt; bold:true; color:#1B3675; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：split
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -133,7 +129,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

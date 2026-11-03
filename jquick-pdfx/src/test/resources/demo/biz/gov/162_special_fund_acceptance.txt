@@ -1,17 +1,13 @@
 <pdf>
 <body>
-  // 162 专项资金验收单 / 绩效评价回执（gov 领域第 8 项）　视觉主题：宝蓝·疏朗·票式
-  // 版式组合：抬头=ticket 信息区=strip 明细表=airy 段落=plain 签章=two 落款=table
-  // 主色 #293979　辅色 #914A27　浅底 #F1F2F6
-  // 专项资金验收单与绩效评价回执：指标目标值与实际完成值、分值得分与等次。
 
-  // 抬头：ticket
+  // 抬头
   <h1 style="fontSize:19pt; bold:true; color:#293979; textAlignment:center; characterSpacing:10pt; marginBottom:2px">'专项资金验收单 / 绩效评价回执'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center">'验收编号 '${acceptNo}'　　验收日期 '${acceptDate}'　　组织单位 '${orgName}</p>
   <lineSeparator style="color:#293979; thickness:2f"></lineSeparator>
   <lineSeparator style="color:#293979; thickness:0.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F1F2F6; bold:true; border:1px solid #C1C5D5">'验收编号 / NO.'</td>
@@ -116,7 +112,7 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#122058; marginBottom:3px">'验收结论'</p>
   <p style="fontSize:9pt; marginBottom:6px">${conclusion}</p>
   <p style="fontSize:10.5pt; bold:true; color:#122058; marginBottom:3px">'绩效评价结论'</p>
@@ -124,7 +120,7 @@
   <p style="fontSize:10.5pt; bold:true; color:#122058; marginBottom:3px">'备注 / REMARKS'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -141,7 +137,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

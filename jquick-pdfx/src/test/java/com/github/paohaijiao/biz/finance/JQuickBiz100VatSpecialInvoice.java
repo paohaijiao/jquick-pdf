@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/finance/100_vat_special_invoice.txt} 中。</p>
  *
- * <p>视觉主题「绯红·斑马·典式」：主色 #962119、辅色 #279166、浅底 #F7F0F0；
- * 版式为 classic 抬头 + grid2 信息区 + striped 明细表 + three 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>增值税专用发票：机器编号 / 发票代码 / 号码 / 开票日期 / 校验码、</p>
  * <p>购买方与销售方四项信息、货物或应税劳务明细（规格、单位、数量、单价、金额、税率、税额）、</p>
  * <p>合计与价税合计（大小写）、备注、发票专用章与骑缝章二维码占位，</p>
@@ -59,7 +55,6 @@ public class JQuickBiz100VatSpecialInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"工业级伺服电机", "SVM-750W", "台", "12", "1860.00", "—", "13%", "—"},
                 {"精密减速机", "RV-40E", "台", "12", "1240.00", "—", "13%", "—"},
@@ -129,7 +124,6 @@ public class JQuickBiz100VatSpecialInvoice {
 
         data.put("totalLine", "价税合计（大写）" + toChineseAmount(withTax) + "　　（小写）￥" + withTax.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

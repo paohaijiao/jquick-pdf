@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/138_bonded_warehouse_list.txt} 中。</p>
  *
- * <p>视觉主题「紫棠·密排·票式」：主色 #2D0F7F、辅色 #917C27、浅底 #F2EFF8；
- * 版式为 ticket 抬头 + strip 信息区 + compact 明细表 + three 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>保税仓出入库清单 / 中转货物清单：E 账册编号与库位区间、作业类型，</p>
  * <p>逐项商品数量金额与在库状态、库存金额合计与三方签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz138BondedWarehouseList {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "进口婴幼儿配方奶粉 800g", "入库", "1200 罐", "A-01 ~ A-06", "321600.00", "在库"},
                 {"2", "进口保健食品 60 粒装", "入库", "860 瓶", "A-07 ~ A-12", "159960.00", "在库"},
@@ -111,7 +106,6 @@ public class JQuickBiz138BondedWarehouseList {
 
         data.put("totalLine", "库存金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

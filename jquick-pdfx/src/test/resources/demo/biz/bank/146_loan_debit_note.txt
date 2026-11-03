@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 146 贷款借据 / 借款合同回执（bank 领域第 7 项）　视觉主题：群青·素雅·公文
-  // 版式组合：抬头=doc 信息区=strip 明细表=light 段落=bar 签章=three 落款=plain
-  // 主色 #0D1988　辅色 #915527　浅底 #EFF0F8
-  // 贷款借据与借款合同回执：贷款种类、金额、期限、利率、担保方式与还款计划。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#0D1988; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'贷款借据 / 借款合同回执'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'借据编号 '${debitNo}'　　放款日期 '${loanDate}'　　贷款行 '${bankName}</p>
   <lineSeparator style="color:#0D1988; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#EFF0F8; bold:true; border:1px solid #BABEDB">'借据编号 / DEBIT NO.'</td>
@@ -136,7 +132,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#915527">' '</td>
@@ -152,7 +148,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：three
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -172,7 +168,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

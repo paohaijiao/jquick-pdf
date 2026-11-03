@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 166 联合奖惩清单 / 失信修复受理单（gov 领域第 12 项）　视觉主题：紫棠·素雅·典式
-  // 版式组合：抬头=classic 信息区=strip 明细表=light 段落=box 签章=two 落款=plain
-  // 主色 #5B1EB1　辅色 #918C27　浅底 #F3F0F7
-  // 联合奖惩清单与失信修复受理单：奖惩措施、实施部门、执行状态与修复时限。
 
-  // 抬头：classic
+  // 抬头
   <h1 style="fontSize:18pt; bold:true; color:#400A8D; textAlignment:center; characterSpacing:6pt">'联合奖惩清单 / 失信修复受理单'</h1>
   <p style="fontSize:7.5pt; color:#78838C; textAlignment:center; marginBottom:3px">'受理编号 '${acceptNo}'　　受理日期 '${acceptDate}'　　受理机关 '${orgName}</p>
   <lineSeparator style="color:#5B1EB1; thickness:1.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F3F0F7; bold:true; border:1px solid #C8BDD9">'受理编号 / NO.'</td>
@@ -114,7 +110,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F3F0F7; bold:true; fontSize:9.5pt; color:#400A8D; border:1px solid #C8BDD9">'受理结论'</td>
@@ -134,7 +130,7 @@
     </tr>
   </table>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -151,7 +147,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

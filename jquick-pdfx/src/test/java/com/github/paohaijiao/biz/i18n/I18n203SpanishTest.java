@@ -23,8 +23,6 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 203 —— 西班牙语版全球经营年报摘要
  *
- * <p>语种 es：西班牙语。字体 Noto Sans，视觉主题「弗拉门戈·赤金（#B3123C + 墨黑，左粗竖条 + 超大标题 + 黑底 KPI）」。</p>
- *
  * <p>模板：i18n/global_bank_report_es.txt
  * 输出：D://test//i18n//global_bank_report_es.pdf</p>
  *

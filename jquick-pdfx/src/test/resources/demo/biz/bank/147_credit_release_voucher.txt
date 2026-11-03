@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 147 信贷放款凭证 / 还款结清回执（bank 领域第 8 项）　视觉主题：群青·疏朗·通栏
-  // 版式组合：抬头=banner 信息区=kv 明细表=airy 段落=plain 签章=right 落款=right
-  // 主色 #2A1D98　辅色 #916A27　浅底 #F1F0F7
-  // 信贷放款凭证与还款结清回执：放款、付息、还本、结清全链路与余额变化。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#2A1D98; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'信贷放款凭证 / 还款结清回执'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F1F0F7; bold:true; border:1px solid #C0BDD8">'凭证编号 / NO.'</td>
@@ -134,13 +130,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#150A73; marginBottom:3px">'累计归还本金合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#150A73; marginBottom:3px">'结清说明'</p>
   <p style="fontSize:9pt; marginBottom:6px">${settleNote}</p>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -157,7 +153,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

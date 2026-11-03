@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 151 金融审计工作底稿 / 函证回执单（bank 领域第 12 项）　视觉主题：绛紫·素雅·下线
-  // 版式组合：抬头=underline 信息区=kv 明细表=light 段落=box 签章=right 落款=table
-  // 主色 #4D246B　辅色 #869127　浅底 #F4F1F6
-  // 金融审计工作底稿与函证回执单：账面金额、回函金额、差异与审计结论。
 
-  // 抬头：underline
+  // 抬头
   <table style="width:100%; marginBottom:1px">
     <tr>
       <td style="width:62%; padding:2px; bold:true; fontSize:15pt; color:#300F48; characterSpacing:3pt">'金融审计工作底稿 / 函证回执单'</td>
@@ -14,7 +10,7 @@
   </table>
   <lineSeparator style="color:#4D246B; thickness:2.5f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F4F1F6; bold:true; border:1px solid #CCC1D5">'底稿索引 / INDEX'</td>
@@ -138,7 +134,7 @@
     </tr>
   </table>
 
-  // 段落：box
+  // 段落
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:150px; padding:5px; backgroundColor:#F4F1F6; bold:true; fontSize:9.5pt; color:#300F48; border:1px solid #CCC1D5">'账面金额合计'</td>
@@ -152,7 +148,7 @@
     </tr>
   </table>
 
-  // 签章区：right
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -169,7 +165,7 @@
     </tr>
   </table>
 
-  // 落款：table
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:8.5pt">
     <tr>

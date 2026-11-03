@@ -1,16 +1,12 @@
 <pdf>
 <body>
-  // 116 差旅报销清单 / 费用明细清单（finance 领域第 17 项）　视觉主题：秋香·素雅·公文
-  // 版式组合：抬头=doc 信息区=grid2 明细表=light 段落=bar 签章=two 落款=right
-  // 主色 #78A714　辅色 #273691　浅底 #F5F8EF
-  // 差旅报销清单 / 费用明细清单：按日期城市逐笔列示交通、住宿、市内交通、补助与其他费用。
 
-  // 抬头：doc
+  // 抬头
   <p style="fontSize:20pt; bold:true; color:#78A714; textAlignment:center; characterSpacing:9pt; marginBottom:2px">'差旅报销清单 / 费用明细清单'</p>
   <p style="fontSize:8pt; color:#78838C; textAlignment:center; marginBottom:4px">'清单编号 '${listNo}'　　出差期间 '${period}'　　出差人 '${traveler}</p>
   <lineSeparator style="color:#78A714; thickness:2f; marginBottom:8px"></lineSeparator>
 
-  // 信息区：grid2
+  // 信息区
   <table style="width:100%; fontSize:8.5pt; marginBottom:8px">
     <tr>
       <td style="width:16%; padding:4px; backgroundColor:#F5F8EF; bold:true; border:1px solid #D0DABB">'清单编号'</td>
@@ -132,7 +128,7 @@
     </tr>
   </table>
 
-  // 段落：bar
+  // 段落
   <table style="width:100%; marginBottom:2px">
     <tr>
       <td style="width:4px; padding:0px; backgroundColor:#273691">' '</td>
@@ -148,7 +144,7 @@
   </table>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：two
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -165,7 +161,7 @@
     </tr>
   </table>
 
-  // 落款：right
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

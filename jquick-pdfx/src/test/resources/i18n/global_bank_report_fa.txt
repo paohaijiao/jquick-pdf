@@ -1,7 +1,5 @@
 <pdf>
 <body>
-  // 156 环球汇通银行 · 全球经营年报摘要（波斯语）  视觉主题：波斯细密画·绿松石
-  // 主色 #5F3DC4  深色 #3F2689  浅底 #F2EFFC  描边 #CFC5EF
 
   // 顶部对称装饰（细密画边框意象）
   <table style="width:100%; marginBottom:6px">

@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/134_bonded_goods_record.txt} 中。</p>
  *
- * <p>视觉主题「群青·厚框·公文」：主色 #27338E、辅色 #915327、浅底 #F1F1F6；
- * 版式为 doc 抬头 + strip 信息区 + solid 明细表 + right 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>保税货物备案单 / 跨境电商清单：监管区域与 E 账册编号、备案类型、</p>
  * <p>逐项商品 HS 编码与备案金额、申报与海关签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz134BondedGoodsRecord {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "进口婴幼儿配方奶粉 800g", "1901.1010", "1200 罐", "268.00", "321600.00", "保税备货"},
                 {"2", "进口保健食品 60 粒装", "2106.9090", "860 瓶", "186.00", "159960.00", "保税备货"},
@@ -112,7 +107,6 @@ public class JQuickBiz134BondedGoodsRecord {
 
         data.put("totalLine", "备案金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(44, 44, 44, 44));

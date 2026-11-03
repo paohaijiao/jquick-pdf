@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/141_bank_statement.txt} 中。</p>
  *
- * <p>视觉主题「宝蓝·素雅·通栏」：主色 #144088、辅色 #913627、浅底 #F0F3F7；
- * 版式为 banner 抬头 + chip 信息区 + light 明细表 + two 签章区 + plain 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>单位银行账户对账单：账户信息与对账期间、期初 / 期末余额、</p>
  * <p>逐笔流水（凭证号、摘要、收入支出、余额）与本月合计、银企双签栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz141BankStatement {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"2026-09-02", "转 8812", "货款回收（××智能装备）", "286400.00", "0.00", "1572740.55"},
                 {"2026-09-06", "转 8831", "支付设备采购款", "0.00", "43000.00", "1529740.55"},
@@ -117,7 +112,6 @@ public class JQuickBiz141BankStatement {
 
         data.put("balanceLine", "本月支出合计 ￥303000.00　　期末余额 ￥1652918.30　　借贷双方核对一致");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

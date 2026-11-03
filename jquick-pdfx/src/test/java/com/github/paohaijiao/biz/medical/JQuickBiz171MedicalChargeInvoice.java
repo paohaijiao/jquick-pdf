@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/medical/171_medical_charge_invoice.txt} 中。</p>
  *
- * <p>视觉主题「青瓷·素雅·通栏」：主色 #16B36B、辅色 #912789、浅底 #EFF8F4；
- * 版式为 banner 抬头 + kv 信息区 + light 明细表 + three 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>医疗门诊 / 住院收费票据：票据代码号码与医疗机构、患者与医保信息，</p>
  * <p>逐项收费明细（规格、数量、单价、金额、医保类别）、总费用与医保结算、签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz171MedicalChargeInvoice {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "床位费（三人间）", "日", "9", "60.00", "540.00", "甲类"},
                 {"2", "护理费（二级护理）", "日", "9", "32.00", "288.00", "甲类"},
@@ -116,7 +111,6 @@ public class JQuickBiz171MedicalChargeInvoice {
 
         data.put("settleLine", "医保统筹支付 ￥" + itemTotal.multiply(new BigDecimal("0.72")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString() + "　　个人自付 ￥" + itemTotal.multiply(new BigDecimal("0.28")).setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

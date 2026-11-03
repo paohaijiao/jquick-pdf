@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/supply/183_supplier_admission_assessment.txt} 中。</p>
  *
- * <p>视觉主题「秋香·密排·通栏」：主色 #5F8A1E、辅色 #272E91、浅底 #F4F7F0；
- * 版式为 banner 抬头 + kv 信息区 + compact 明细表 + two 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>供应商准入资料 / 履约考核清单：准入类别与供应品类、考核方式与期间，</p>
  * <p>六维考核指标（目标值、实际值、得分、等级）与合计得分、考核结论与三方签字栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz183SupplierAdmissionAssessment {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "质量表现", "来料检验批次合格率", "≥ 98%", "99.10%", "23.0", "A"},
                 {"2", "交付表现", "准时交货率", "≥ 95%", "96.80%", "22.5", "A"},
@@ -114,7 +109,6 @@ public class JQuickBiz183SupplierAdmissionAssessment {
 
         data.put("totalLine", "供应商履约考核合计得分：" + itemTotal.setScale(1, BigDecimal.ROUND_HALF_UP).toPlainString() + " 分（满分 100 分），综合评定等级：A 级（优秀）");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(48, 48, 48, 48));

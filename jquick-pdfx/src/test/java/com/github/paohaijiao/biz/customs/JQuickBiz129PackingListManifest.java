@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/customs/129_packing_list_manifest.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·厚框·通栏」：主色 #2F728C、辅色 #91273A、浅底 #F1F5F6；
- * 版式为 banner 抬头 + chip 信息区 + solid 明细表 + three 签章区 + right 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>装箱单 / 舱单：船名航次与提单号、发货人与收货人、逐箱明细（净重 / 毛重 / 尺码），</p>
  * <p>合计件数与体积、发货人签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz129PackingListManifest {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"CTN-01 ~ 08", "伺服电机 / SERVO MOTOR", "SM-500W", "8 PCS", "320.00", "368.00", "0.86 CBM"},
                 {"CTN-09 ~ 16", "精密齿轮箱 / GEAR BOX", "GB-120", "8 PCS", "1840.00", "1960.00", "2.44 CBM"},
@@ -113,7 +108,6 @@ public class JQuickBiz129PackingListManifest {
 
         data.put("measure", new BigDecimal("15.62").setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));

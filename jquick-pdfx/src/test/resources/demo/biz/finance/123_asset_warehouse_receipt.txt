@@ -1,11 +1,7 @@
 <pdf>
 <body>
-  // 123 资产入库单（finance 领域第 24 项）　视觉主题：松绿·密排·通栏
-  // 版式组合：抬头=banner 信息区=kv 明细表=compact 段落=plain 签章=card 落款=plain
-  // 主色 #287F23　辅色 #5A2791　浅底 #F1F6F1
-  // 资产入库单：资产编号、名称规格、存放位置与入库金额，三方验收签字。
 
-  // 抬头：banner
+  // 抬头
   <table style="width:100%; marginBottom:6px">
     <tr>
       <td style="width:58%; padding:8px; backgroundColor:#287F23; color:white; bold:true; fontSize:15pt; characterSpacing:4pt">'资产入库单'</td>
@@ -13,7 +9,7 @@
     </tr>
   </table>
 
-  // 信息区：kv
+  // 信息区
   <table style="width:100%; fontSize:9pt; marginBottom:8px">
     <tr>
       <td style="width:22%; padding:5px; backgroundColor:#F1F6F1; bold:true; border:1px solid #C1D6BF">'入库单号'</td>
@@ -116,13 +112,13 @@
     </tr>
   </table>
 
-  // 段落：plain
+  // 段落
   <p style="fontSize:10.5pt; bold:true; color:#125B0E; marginBottom:3px">'入库金额合计'</p>
   <p style="fontSize:9pt; marginBottom:6px">${totalLine}</p>
   <p style="fontSize:10.5pt; bold:true; color:#125B0E; marginBottom:3px">'备注'</p>
   <p style="fontSize:9pt; marginBottom:6px">${remark}</p>
 
-  // 签章区：card
+  // 签章区
   <!-- 签章占位区：后续加盖电子公章 / 骑缝章 / 打印二维码 -->
   <table style="width:100%; fontSize:8pt; marginBottom:8px">
     <tr>
@@ -139,7 +135,7 @@
     </tr>
   </table>
 
-  // 落款：plain
+  // 落款
   <!-- 落款栏 -->
   <table style="width:100%; fontSize:9pt; marginTop:6px">
     <tr>

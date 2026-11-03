@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/bank/140_bank_transfer_receipt.txt} 中。</p>
  *
- * <p>视觉主题「靛蓝·斑马·公文」：主色 #346E9A、辅色 #91272A、浅底 #F1F4F6；
- * 版式为 doc 抬头 + grid2 信息区 + striped 明细表 + split 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>银行转账回单 / 现金缴款单：付款人与收款人账户信息、交易渠道、</p>
  * <p>逐笔交易明细（金额、手续费、时间、状态）与交易金额合计、银行业务章占位。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz140BankTransferReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "跨行转账", "设备采购款 PO-2026-0812", "43000.00", "12.00", "09:42:18", "成功"},
                 {"2", "跨行转账", "模具开发进度款", "18000.00", "8.00", "09:44:05", "成功"},
@@ -114,7 +109,6 @@ public class JQuickBiz140BankTransferReceipt {
 
         data.put("totalLine", "交易金额合计（大写）" + toChineseAmount(itemTotal) + "　　（小写）￥" + itemTotal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString());
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(36, 36, 36, 36));

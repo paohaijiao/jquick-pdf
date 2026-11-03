@@ -33,10 +33,6 @@ import java.util.Map;
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
  * 版式全部落在模板文件 {@code demo/biz/gov/169_whitepaper_review_receipt.txt} 中。</p>
  *
- * <p>视觉主题「绛紫·厚框·下线」：主色 #8E24B8、辅色 #769127、浅底 #F5F0F7；
- * 版式为 underline 抬头 + chip 信息区 + solid 明细表 + split 签章区 + table 落款，
- * 与同领域其它单据互不重样。</p>
- *
  * <p>商业白皮书申报 / 专家评审回执：白皮书名称与申报类别、评审方式与专家组，</p>
  * <p>逐项评审指标（要点、分值、得分、意见）与评审结论、组织单位签章栏。</p>
  *
@@ -57,7 +53,6 @@ public class JQuickBiz169WhitepaperReviewReceipt {
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();
 
-        // ---------- 1. 数据（无实体类，直接 bind）----------
         String[][] items = {
                 {"1", "选题价值与意义", "是否紧扣产业发展痛点与决策需求", "15", "13.5", "选题价值突出"},
                 {"2", "数据支撑与权威性", "数据来源可靠、样本充分、口径清晰", "20", "17.0", "建议补充微观数据"},
@@ -113,7 +108,6 @@ public class JQuickBiz169WhitepaperReviewReceipt {
 
         data.put("totalLine", "评审得分合计：" + itemTotal.setScale(1, BigDecimal.ROUND_HALF_UP).toPlainString() + " 分（满分 100 分），评价等次：良好");
 
-        // ---------- 2. 渲染 ----------
         JPdfConfig config = new JPdfConfig();
         config.getLayoutConfig().setFlexLayout(true);
         config.getDoc().setMargins(Arrays.asList(40, 40, 40, 40));
