@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="300" viewBox="0 0 520 300">
+    <defs>
+        <linearGradient id="barGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#4a90d9"/>
+            <stop offset="100%" stop-color="#1b4f8a"/>
+        </linearGradient>
+    </defs>
+    <rect x="0" y="0" width="520" height="300" fill="#ffffff"/>
+    <text x="260" y="30" font-family="Microsoft YaHei, sans-serif" font-size="18" text-anchor="middle"
+          fill="#222222">季度营收（万元）
+    </text>
+    <line x1="60" y1="250" x2="490" y2="250" stroke="#999999" stroke-width="1"/>
+    <line x1="60" y1="60" x2="60" y2="250" stroke="#999999" stroke-width="1"/>
+    <rect x="90" y="180" width="60" height="70" fill="url(#barGradient)"/>
+    <rect x="180" y="140" width="60" height="110" fill="url(#barGradient)"/>
+    <rect x="270" y="95" width="60" height="155" fill="url(#barGradient)"/>
+    <rect x="360" y="60" width="60" height="190" fill="url(#barGradient)"/>
+    <path d="M120 175 L210 135 L300 90 L390 55" fill="none" stroke="#e07b39" stroke-width="2"/>
+    <circle cx="120" cy="175" r="4" fill="#e07b39"/>
+    <circle cx="210" cy="135" r="4" fill="#e07b39"/>
+    <circle cx="300" cy="90" r="4" fill="#e07b39"/>
+    <circle cx="390" cy="55" r="4" fill="#e07b39"/>
+    <text x="120" y="270" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666666">Q1</text>
+    <text x="210" y="270" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666666">Q2</text>
+    <text x="300" y="270" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666666">Q3</text>
+    <text x="390" y="270" font-family="sans-serif" font-size="12" text-anchor="middle" fill="#666666">Q4</text>
+</svg>

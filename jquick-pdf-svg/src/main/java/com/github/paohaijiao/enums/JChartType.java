@@ -92,6 +92,14 @@ public enum JChartType {
      */
     Waterfall("waterfall", "瀑布图"),
 
+    /**
+     * Extension sample: horizontal progress bar.
+     * <p>
+     * Registered by {@code JProgressBarChartRenderer} through {@code @JQuickSpi},
+     * the factory routes to it without any change.
+     */
+    Progress("progress", "进度条"),
+
     ;
     private String code;
 
