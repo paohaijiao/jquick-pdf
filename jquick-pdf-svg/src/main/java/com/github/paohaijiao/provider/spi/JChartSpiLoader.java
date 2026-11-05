@@ -31,8 +31,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Enumeration;
 import java.util.EnumMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.jar.JarEntry;
@@ -115,18 +117,95 @@ public final class JChartSpiLoader {
     }
 
     /**
-     * Builds the JChartType to renderer type mapping.
-     * If several renderers bind the same type, the one with the smallest order wins.
+     * Builds the string key to renderer type mapping.
+     * <p>
+     * Every renderer is registered under its {@link JQuickSpi#name()} and
+     * {@link JQuickSpi#type()}, plus the code and constant name of its {@link JChartType}
+     * when the enum is bound. The string key is what a third-party plugin uses, so no enum
+     * constant has to be added to the jar.
+     * If several renderers share a key, the one with the smallest order wins.
+     *
+     * @return immutable mapping, never null
+     */
+    public static Map<String, Class<? extends JAbstractChartRenderer>> loadRendererMapping() {
+        Map<String, Class<? extends JAbstractChartRenderer>> mapping = new LinkedHashMap<>();
+        for (Class<? extends JAbstractChartRenderer> renderer : scanRenderers()) {
+            JQuickSpi spi = renderer.getAnnotation(JQuickSpi.class);
+            if (spi == null) {
+                continue;
+            }
+            for (String key : keysOf(spi)) {
+                register(mapping, key, renderer);
+            }
+        }
+        return Collections.unmodifiableMap(mapping);
+    }
+
+    /**
+     * Resolves a renderer class by type key, for example bar, BAR, candlestick or sankey.
+     * The lookup falls back to the lower-case form of the key.
+     *
+     * @param type type key
+     * @return renderer type, or null when nothing is registered
+     */
+    public static Class<? extends JAbstractChartRenderer> resolveRendererType(String type) {
+        if (type == null) {
+            return null;
+        }
+        Map<String, Class<? extends JAbstractChartRenderer>> mapping = loadRendererMapping();
+        Class<? extends JAbstractChartRenderer> renderer = mapping.get(type);
+        if (renderer != null) {
+            return renderer;
+        }
+        String key = type.trim();
+        renderer = mapping.get(key);
+        if (renderer != null) {
+            return renderer;
+        }
+        return mapping.get(key.toLowerCase(Locale.ROOT));
+    }
+
+    private static List<String> keysOf(JQuickSpi spi) {
+        Set<String> keys = new LinkedHashSet<>();
+        addKey(keys, spi.name());
+        addKey(keys, spi.type());
+        JChartType chartType = spi.chartType();
+        if (chartType != null && chartType != JChartType.NONE) {
+            addKey(keys, chartType.getCode());
+            addKey(keys, chartType.name());
+        }
+        return new ArrayList<>(keys);
+    }
+
+    private static void addKey(Set<String> keys, String key) {
+        if (key != null && !key.trim().isEmpty()) {
+            keys.add(key.trim());
+        }
+    }
+
+    private static void register(Map<String, Class<? extends JAbstractChartRenderer>> mapping,
+                                 String key,
+                                 Class<? extends JAbstractChartRenderer> renderer) {
+        Class<? extends JAbstractChartRenderer> registered = mapping.get(key);
+        if (registered == null || orderOf(renderer) < orderOf(registered)) {
+            mapping.put(key, renderer);
+        }
+    }
+
+    /**
+     * Builds the JChartType to renderer type mapping, kept for callers of the enum API.
+     * A type whose renderer is missing from the string mapping is simply absent.
      *
      * @return immutable mapping, never null
      */
     public static Map<JChartType, Class<? extends JAbstractChartRenderer>> loadTypeMapping() {
         Map<JChartType, Class<? extends JAbstractChartRenderer>> mapping = new EnumMap<>(JChartType.class);
-        for (Class<? extends JAbstractChartRenderer> renderer : scanRenderers()) {
-            JQuickSpi spi = renderer.getAnnotation(JQuickSpi.class);
-            JChartType chartType = spi.chartType();
-            Class<? extends JAbstractChartRenderer> registered = mapping.get(chartType);
-            if (registered == null || orderOf(renderer) < orderOf(registered)) {
+        for (JChartType chartType : JChartType.values()) {
+            if (chartType == JChartType.NONE) {
+                continue;
+            }
+            Class<? extends JAbstractChartRenderer> renderer = resolveRendererType(chartType.getCode());
+            if (renderer != null) {
                 mapping.put(chartType, renderer);
             }
         }
@@ -135,7 +214,7 @@ public final class JChartSpiLoader {
 
     /**
      * Resolves a chart type by renderer alias, that is {@link JQuickSpi#name()}.
-     * Falls back to the JChartType code when no alias matches.
+     * Returns null for plugin renderers that only declare a string type.
      *
      * @param name alias or code
      * @return matching chart type, or null
@@ -146,7 +225,7 @@ public final class JChartSpiLoader {
         }
         for (Class<? extends JAbstractChartRenderer> renderer : scanRenderers()) {
             JQuickSpi spi = renderer.getAnnotation(JQuickSpi.class);
-            if (name.equals(spi.name())) {
+            if (spi != null && name.equals(spi.name()) && spi.chartType() != JChartType.NONE) {
                 return spi.chartType();
             }
         }

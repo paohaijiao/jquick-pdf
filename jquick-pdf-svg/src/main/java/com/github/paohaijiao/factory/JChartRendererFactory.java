@@ -34,14 +34,26 @@ import java.util.Map;
  * <p>
  * The class no longer holds a switch over chart types. On the first call {@link JChartSpiLoader}
  * scans the {@link com.github.paohaijiao.provider.spi.JQuickSpi} annotations and builds the
- * JChartType to renderer mapping. Later calls read the map and create a new instance each time.
+ * type to renderer mapping. Later calls read the map and create a new instance each time.
  * <p>
  * The public static methods keep their original signatures, so existing callers need no change.
+ * The String overloads serve third-party plugins: a renderer that is not declared in
+ * {@link JChartType} is reached by its {@code name} or {@code type} key, without touching this jar.
+ * When a bare {@code null} literal is passed, cast it to {@link JChartType} to pick the enum overload.
  */
 public class JChartRendererFactory {
 
     public static JAbstractChartRenderer createRenderer(JChartType type, JOption option) {
-        Class<? extends JAbstractChartRenderer> rendererType = type == null ? null : RendererRegistry.RENDERERS.get(type);
+        Class<? extends JAbstractChartRenderer> rendererType =
+                type == null || type == JChartType.NONE ? null : RendererRegistry.RENDERERS.get(type.getCode());
+        if (rendererType == null) {
+            throw new IllegalArgumentException("Unsupported chart type: " + type);
+        }
+        return newInstance(rendererType);
+    }
+
+    public static JAbstractChartRenderer createRenderer(String type, JOption option) {
+        Class<? extends JAbstractChartRenderer> rendererType = JChartSpiLoader.resolveRendererType(type);
         if (rendererType == null) {
             throw new IllegalArgumentException("Unsupported chart type: " + type);
         }
@@ -68,6 +80,26 @@ public class JChartRendererFactory {
         }
     }
 
+    public static String renderChart(String type, JOption option) {
+        JAbstractChartRenderer renderer = createRenderer(type, option);
+        try {
+            String content = renderer.renderToString(option);
+            return content;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void renderChart(String type, JOption option, String filePath) {
+        JAbstractChartRenderer renderer = createRenderer(type, option);
+        try {
+            renderer.render(option, filePath);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     private static JAbstractChartRenderer newInstance(Class<? extends JAbstractChartRenderer> rendererType) {
         try {
             Constructor<? extends JAbstractChartRenderer> constructor = rendererType.getDeclaredConstructor();
@@ -86,6 +118,7 @@ public class JChartRendererFactory {
      */
     private static final class RendererRegistry {
 
-        private static final Map<JChartType, Class<? extends JAbstractChartRenderer>> RENDERERS = JChartSpiLoader.loadTypeMapping();
+        private static final Map<String, Class<? extends JAbstractChartRenderer>> RENDERERS =
+                JChartSpiLoader.loadRendererMapping();
     }
 }

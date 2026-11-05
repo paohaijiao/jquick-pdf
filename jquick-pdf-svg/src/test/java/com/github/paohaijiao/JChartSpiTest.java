@@ -43,6 +43,9 @@ public class JChartSpiTest {
     @Test
     public void testAllChartTypesResolvedBySpi() {
         for (JChartType type : JChartType.values()) {
+            if (type == JChartType.NONE) {
+                continue;
+            }
             JAbstractChartRenderer renderer = JChartRendererFactory.createRenderer(type, new JOption());
             Assert.assertNotNull("chart type not resolved: " + type, renderer);
         }
@@ -78,7 +81,7 @@ public class JChartSpiTest {
     @Test
     public void testUnsupportedChartType() {
         try {
-            JChartRendererFactory.createRenderer(null, new JOption());
+            JChartRendererFactory.createRenderer((JChartType) null, new JOption());
             Assert.fail("expected IllegalArgumentException");
         } catch (IllegalArgumentException e) {
             Assert.assertEquals("Unsupported chart type: null", e.getMessage());

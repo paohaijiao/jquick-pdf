@@ -100,6 +100,14 @@ public enum JChartType {
      */
     Progress("progress", "进度条"),
 
+    /**
+     * Sentinel used as the default value of {@code JQuickSpi#chartType()}.
+     * <p>
+     * A third-party renderer that only registers itself by name keeps this value,
+     * the factory resolves it by name instead of by enum. It is never drawn.
+     */
+    NONE("none", "未绑定"),
+
     ;
     private String code;
 

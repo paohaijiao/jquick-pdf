@@ -43,6 +43,15 @@ import java.lang.annotation.Target;
  *     // drawing code stays unchanged
  * }
  * </pre>
+ * <p>
+ * A renderer shipped by a third party does not have to touch the enum, it declares the
+ * string type instead and is resolved by {@code JChartRendererFactory.renderChart(String, JOption)}:
+ * <pre>
+ * &#64;JQuickSpi(name = "sankey", type = "sankey", order = 100)
+ * public class JSankeyRenderer extends JAbstractChartRenderer {
+ *     // drawing code stays unchanged
+ * }
+ * </pre>
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
@@ -69,10 +78,24 @@ public @interface JQuickSpi {
 
     /**
      * Chart type handled by this renderer. The factory routes by this value.
+     * <p>
+     * Third-party renderers that cannot add an enum constant leave it untouched, so it keeps
+     * {@link JChartType#NONE} and the renderer is registered by {@link #name()} and {@link #type()}.
      *
      * @return chart type
      */
-    JChartType chartType();
+    JChartType chartType() default JChartType.NONE;
+
+    /**
+     * String type key, used when no enum constant exists for the chart.
+     * <p>
+     * It takes precedence over {@link #chartType()} and is the key passed to
+     * {@code JChartRendererFactory.renderChart(String, JOption)}. Leave it empty for
+     * built-in renderers that are bound through the enum.
+     *
+     * @return string type key
+     */
+    String type() default "";
 
     /**
      * Free-form description, used for diagnostics and documentation only.
