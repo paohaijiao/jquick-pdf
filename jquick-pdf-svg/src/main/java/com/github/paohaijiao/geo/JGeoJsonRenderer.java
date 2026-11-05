@@ -18,9 +18,11 @@ package com.github.paohaijiao.geo;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.geo.model.Bounds;
 import com.github.paohaijiao.geo.model.GeometryData;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -32,6 +34,7 @@ import java.util.List;
 /**
  * GeoJSON 渲染器（基于 JAbstractChartRenderer 设计模式）
  */
+@JQuickSpi(name = "geo", order = 20, chartType = JChartType.Geo)
 public class JGeoJsonRenderer extends JAbstractChartRenderer {
 
     private final ObjectMapper objectMapper = new ObjectMapper();

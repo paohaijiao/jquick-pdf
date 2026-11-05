@@ -16,7 +16,9 @@
 package com.github.paohaijiao.combol;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -24,6 +26,7 @@ import java.awt.geom.Ellipse2D;
 import java.util.List;
 
 
+@JQuickSpi(name = "line-radar", order = 28, chartType = JChartType.LineRadar)
 public class JLineScatterChartRenderer extends JAbstractChartRenderer {
 
 

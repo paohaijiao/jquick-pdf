@@ -4,7 +4,9 @@ package com.github.paohaijiao.combol;
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.combol.area.JAreaChartData;
 import com.github.paohaijiao.combol.area.JSeriesData;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -14,6 +16,7 @@ import java.util.List;
 /**
  * 面积图渲染器
  */
+@JQuickSpi(name = "area", order = 24, chartType = JChartType.AREA)
 public class JAreaChartRenderer extends JAbstractChartRenderer {
 
 

@@ -84,6 +84,14 @@ public enum JChartType {
 
     Tree("Tree", "树"),
 
+    /**
+     * Extension sample: waterfall chart.
+     * <p>
+     * Only the type is declared here. The renderer is supplied by the application through
+     * {@code @JQuickSpi}, without touching the factory.
+     */
+    Waterfall("waterfall", "瀑布图"),
+
     ;
     private String code;
 

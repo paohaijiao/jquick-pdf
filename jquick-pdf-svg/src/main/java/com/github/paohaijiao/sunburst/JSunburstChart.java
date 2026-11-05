@@ -33,7 +33,9 @@ package com.github.paohaijiao.sunburst;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.data.JSunburstData;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -45,6 +47,7 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+@JQuickSpi(name = "sunburst", order = 10, chartType = JChartType.SUNBURST)
 public class JSunburstChart extends JAbstractChartRenderer {
 
     private static final int SVG_WIDTH = 800;

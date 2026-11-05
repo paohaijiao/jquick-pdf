@@ -17,13 +17,16 @@ package com.github.paohaijiao.funnel;
 
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
 import java.awt.geom.GeneralPath;
 import java.util.List;
 
+@JQuickSpi(name = "funnel", order = 16, chartType = JChartType.Funnel)
 public class JFunnelChartRenderer extends JAbstractChartRenderer {
 
     private static final Color[] DEFAULT_COLORS = {

@@ -17,8 +17,10 @@ package com.github.paohaijiao.combol;
 
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import lombok.Data;
 import org.apache.batik.svggen.SVGGraphics2D;
 
@@ -28,6 +30,7 @@ import java.util.List;
 
 
 @Data
+@JQuickSpi(name = "multiple-bar", order = 23, chartType = JChartType.MultipleBar)
 public class JMultiBarChartRenderer extends JAbstractChartRenderer {
 
     /**

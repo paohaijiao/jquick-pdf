@@ -16,7 +16,9 @@
 package com.github.paohaijiao.guage;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -31,6 +33,7 @@ import java.awt.geom.RoundRectangle2D;
  * 现代卡片式风格：浅色画布 + 白色圆角卡片 + 渐变数值弧 + 圆角指针 + 状态徽章。
  * 只负责美化绘制，不修改任何数据模型（GuageConfig / JGuageOption）。
  */
+@JQuickSpi(name = "gauge", order = 19, chartType = JChartType.Guage)
 public class JGuageRenderer extends JAbstractChartRenderer {
 
     private static final int DEFAULT_WIDTH = 872;

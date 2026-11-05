@@ -16,8 +16,10 @@ package com.github.paohaijiao.combol;
  */
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import lombok.Data;
 import org.apache.batik.svggen.SVGGraphics2D;
 
@@ -39,6 +41,7 @@ import static com.github.paohaijiao.combol.JTimeLineData.*;
  *       ●  →  →  →  → ●  →  →  →  → ●  →  →  →  → ●  →  →  →  → ●
  */
 @Data
+@JQuickSpi(name = "time-line", order = 31, chartType = JChartType.TimeLine)
 public class JTimeLineRenderer extends JAbstractChartRenderer {
 
     // 页面布局常量

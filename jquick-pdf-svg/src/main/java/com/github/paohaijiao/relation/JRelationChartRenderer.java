@@ -16,8 +16,10 @@
 package com.github.paohaijiao.relation;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.json.JGsonOption;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import com.github.paohaijiao.series.JGraph;
 import com.github.paohaijiao.series.JSeries;
 import com.github.paohaijiao.series.force.JCategory;
@@ -41,6 +43,7 @@ import java.util.Random;
  * @date 2025/6/13
  * @description
  */
+@JQuickSpi(name = "relation", order = 8, chartType = JChartType.RELATION)
 public class JRelationChartRenderer extends JAbstractChartRenderer {
     private static final Font LABEL_FONT = new Font("Microsoft YaHei", Font.PLAIN, 12);
     private static final BasicStroke LINK_STROKE = new BasicStroke(1.5f);

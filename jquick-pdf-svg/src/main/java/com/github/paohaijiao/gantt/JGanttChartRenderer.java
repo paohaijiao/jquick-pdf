@@ -16,8 +16,10 @@
 package com.github.paohaijiao.gantt;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.gant.JGanttOption;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -25,6 +27,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.List;
 
 
+@JQuickSpi(name = "gantt", order = 18, chartType = JChartType.Gantt)
 public class JGanttChartRenderer extends JAbstractChartRenderer {
 
     private static final Color DEFAULT_BACKGROUND = new Color(255, 255, 255);

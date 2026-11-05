@@ -17,13 +17,16 @@ package com.github.paohaijiao.k;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import com.github.paohaijiao.series.JCandlestick;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
 import java.util.List;
 
+@JQuickSpi(name = "candlestick", order = 4, chartType = JChartType.K)
 public class JKChartsRenderer extends JAbstractChartRenderer {
 
     private static final Color RISING_COLOR = Color.RED;

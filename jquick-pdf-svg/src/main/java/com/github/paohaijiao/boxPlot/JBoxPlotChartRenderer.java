@@ -16,7 +16,9 @@
 package com.github.paohaijiao.boxPlot;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import com.github.paohaijiao.series.JBoxplot;
 import org.apache.batik.svggen.SVGGraphics2D;
 
@@ -33,6 +35,7 @@ import java.util.List;
  * @date 2025/6/13
  * @description
  */
+@JQuickSpi(name = "boxplot", order = 2, chartType = JChartType.BOXPLOT)
 public class JBoxPlotChartRenderer extends JAbstractChartRenderer {
 
     private static final Color BOX_FILL_COLOR = new Color(100, 149, 237);

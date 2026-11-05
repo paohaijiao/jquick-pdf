@@ -16,7 +16,9 @@
 package com.github.paohaijiao.heatMap;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import com.github.paohaijiao.series.JHeatmap;
 import org.apache.batik.svggen.SVGGraphics2D;
 
@@ -33,6 +35,7 @@ import java.util.List;
  * @date 2025/6/13
  * @description
  */
+@JQuickSpi(name = "heatmap", order = 3, chartType = JChartType.HEATMAP)
 public class JHeatMapChartRenderer extends JAbstractChartRenderer {
     private static final Color CELL_BORDER_COLOR = Color.LIGHT_GRAY;
     private static final Font VALUE_FONT = new Font("Arial", Font.PLAIN, 10);

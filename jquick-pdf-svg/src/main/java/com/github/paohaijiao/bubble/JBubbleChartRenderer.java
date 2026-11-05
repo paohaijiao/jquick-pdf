@@ -17,7 +17,9 @@ package com.github.paohaijiao.bubble;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JAxis;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import com.github.paohaijiao.series.JSeries;
 import org.apache.batik.svggen.SVGGraphics2D;
 
@@ -32,6 +34,7 @@ import java.util.Map;
 /**
  * AQI气泡图渲染器 - 完全基于JOption配置
  */
+@JQuickSpi(name = "bubble", order = 13, chartType = JChartType.Bubble)
 public class JBubbleChartRenderer extends JAbstractChartRenderer {
 
 

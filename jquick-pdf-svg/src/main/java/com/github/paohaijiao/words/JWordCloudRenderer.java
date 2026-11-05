@@ -17,7 +17,9 @@ package com.github.paohaijiao.words;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.data.JData;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -31,6 +33,7 @@ import java.util.Random;
  * @version 1.0.0
  * @since 2025/8/7
  */
+@JQuickSpi(name = "word-cloud", order = 11, chartType = JChartType.WORDCLOUD)
 public class JWordCloudRenderer extends JAbstractChartRenderer {
     private static final Color[] WORD_COLORS = {
             new Color(65, 105, 225),

@@ -15,8 +15,10 @@ package com.github.paohaijiao.combol;/*
  */
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import lombok.Data;
 import org.apache.batik.svggen.SVGGraphics2D;
 
@@ -31,6 +33,7 @@ import java.util.List;
  * 完全自适应布局，根据数据量自动调整所有元素位置和大小
  */
 @Data
+@JQuickSpi(name = "line-bar", order = 21, chartType = JChartType.LineBar)
 public class JComboLineBarChartRenderer extends JAbstractChartRenderer {
 
 

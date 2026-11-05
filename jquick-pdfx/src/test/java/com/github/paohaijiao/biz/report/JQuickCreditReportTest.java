@@ -8,8 +8,10 @@ import com.github.paohaijiao.resouce.JReader;
 import com.github.paohaijiao.resouce.impl.JReSourceFileReader;
 import org.junit.Test;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class JQuickCreditReportTest {
     public static final String  path=JQuickConstant.path;
@@ -43,7 +45,7 @@ public class JQuickCreditReportTest {
         fileOutputStream.write(bytes);
     }
     @Test
-    public void reportByFile() throws IOException {
+    public void reportByFile() throws IOException, URISyntaxException {
         FileOutputStream fileOutputStream = new FileOutputStream(path+"test.pdf");
         JPdfConfig config = new JPdfConfig();
         // 开启 flex 行布局：雷达图与其右侧的指标说明面板在宽度允许时并排，而不是换行堆叠。
@@ -52,7 +54,8 @@ public class JQuickCreditReportTest {
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory=new JQuickPdfFactory(config);
         factory.bind("svg",svgAdaptor.getRuleContent());
-        byte[] bytes=factory.executeFile("D:\\my\\jquick-pdf\\jquick-pdfx\\src\\test\\resources\\report.txt");
+        String reportPath = new File(JQuickCreditReportTest.class.getClassLoader().getResource("report.txt").toURI()).getAbsolutePath();
+        byte[] bytes=factory.executeFile(reportPath);
         fileOutputStream.write(bytes);
     }
 }

@@ -16,29 +16,12 @@
 package com.github.paohaijiao.factory;
 
 import com.github.paohaijiao.JOption;
-import com.github.paohaijiao.bar.JBarChartsRenderer;
-import com.github.paohaijiao.boxPlot.JBoxPlotChartRenderer;
-import com.github.paohaijiao.bubble.JBubbleChartRenderer;
-import com.github.paohaijiao.calendar.JCalendarChartRenderer;
-import com.github.paohaijiao.combol.*;
 import com.github.paohaijiao.enums.JChartType;
-import com.github.paohaijiao.funnel.JFunnelChartRenderer;
-import com.github.paohaijiao.gantt.JGanttChartRenderer;
-import com.github.paohaijiao.geo.JGeoJsonRenderer;
-import com.github.paohaijiao.guage.JGuageRenderer;
-import com.github.paohaijiao.heatMap.JHeatMapChartRenderer;
-import com.github.paohaijiao.k.JKChartsRenderer;
-import com.github.paohaijiao.line.JLineChartsRenderer;
-import com.github.paohaijiao.lunar.JLunarCalendarRenderer;
-import com.github.paohaijiao.matrix.JCorrelationMatrixRenderer;
-import com.github.paohaijiao.pie.JPieChartsRenderer;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
-import com.github.paohaijiao.radar.JRadarChartsRenderer;
-import com.github.paohaijiao.relation.JRelationChartRenderer;
-import com.github.paohaijiao.scatter.JScatterChartsRenderer;
-import com.github.paohaijiao.sunburst.JSunburstChart;
-import com.github.paohaijiao.treemap.JTreeMapRenderer;
-import com.github.paohaijiao.words.JWordCloudRenderer;
+import com.github.paohaijiao.provider.spi.JChartSpiLoader;
+
+import java.lang.reflect.Constructor;
+import java.util.Map;
 
 /**
  * packageName com.github.paohaijiao.factory
@@ -47,80 +30,22 @@ import com.github.paohaijiao.words.JWordCloudRenderer;
  * @version 1.0.0
  * @className JChartRendererFactory
  * @date 2025/6/27
- * @description
+ * @description Factory for chart renderers.
+ * <p>
+ * The class no longer holds a switch over chart types. On the first call {@link JChartSpiLoader}
+ * scans the {@link com.github.paohaijiao.provider.spi.JQuickSpi} annotations and builds the
+ * JChartType to renderer mapping. Later calls read the map and create a new instance each time.
+ * <p>
+ * The public static methods keep their original signatures, so existing callers need no change.
  */
 public class JChartRendererFactory {
 
     public static JAbstractChartRenderer createRenderer(JChartType type, JOption option) {
-        switch (type) {
-            case BAR:
-                return new JBarChartsRenderer();
-            case BOXPLOT:
-                return new JBoxPlotChartRenderer();
-            case HEATMAP:
-                return new JHeatMapChartRenderer();
-            case K:
-                return new JKChartsRenderer();
-            case LINE:
-                return new JLineChartsRenderer();
-            case PIE:
-                return new JPieChartsRenderer();
-            case RADAR:
-                return new JRadarChartsRenderer();
-            case RELATION:
-                return new JRelationChartRenderer();
-            case SCATTER:
-                return new JScatterChartsRenderer();
-            case SUNBURST:
-                return new JSunburstChart();
-            case WORDCLOUD:
-                return new JWordCloudRenderer();
-            case TREEMAP:
-                return new JTreeMapRenderer();
-            case Bubble:
-                return new JBubbleChartRenderer();
-            case Calendar:
-                return new JCalendarChartRenderer();
-            case Lunar:
-                return new JLunarCalendarRenderer();
-            case Funnel:
-                return new JFunnelChartRenderer();
-            case CorrectionMatrix:
-                return new JCorrelationMatrixRenderer();
-            case Gantt:
-                return new JGanttChartRenderer();
-            case Guage:
-                return new JGuageRenderer();
-            case Geo:
-                return new JGeoJsonRenderer();
-            case LineBar:
-                return new JComboLineBarChartRenderer();
-            case MultipleLine:
-                return new JMultiLineChartRenderer();
-            case MultipleBar:
-                return new JMultiBarChartRenderer();
-            case AREA:
-                return new JAreaChartRenderer();
-            case HorizontalBar:
-                return new JHorizontalBarChartRenderer();
-            case MutipleHorizontalBar:
-                return new JHorizontalMultiBarChartRenderer();
-            case DoubleRadar:
-                return new JDoubleRadarChartRenderer();
-            case LineRadar:
-                return new JLineScatterChartRenderer();
-            case Circle:
-                return new JCircleChartRenderer();
-            case AdvancedTopology:
-                return new JAdvancedTopologyRenderer();
-            case TimeLine:
-                return new JTimeLineRenderer();
-            case Tree:
-                return new JTreeChartRenderer();
-
-            default:
-                throw new IllegalArgumentException("Unsupported chart type: " + type);
+        Class<? extends JAbstractChartRenderer> rendererType = type == null ? null : RendererRegistry.RENDERERS.get(type);
+        if (rendererType == null) {
+            throw new IllegalArgumentException("Unsupported chart type: " + type);
         }
+        return newInstance(rendererType);
     }
 
     public static String renderChart(JChartType type, JOption option) {
@@ -141,5 +66,26 @@ public class JChartRendererFactory {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static JAbstractChartRenderer newInstance(Class<? extends JAbstractChartRenderer> rendererType) {
+        try {
+            Constructor<? extends JAbstractChartRenderer> constructor = rendererType.getDeclaredConstructor();
+            if (!constructor.isAccessible()) {
+                constructor.setAccessible(true);
+            }
+            return constructor.newInstance();
+        } catch (Exception e) {
+            throw new IllegalStateException("Failed to create chart renderer: " + rendererType.getName(), e);
+        }
+    }
+
+    /**
+     * Holds the SPI mapping. Initialization is deferred until the factory is first used,
+     * so class loading stays cheap.
+     */
+    private static final class RendererRegistry {
+
+        private static final Map<JChartType, Class<? extends JAbstractChartRenderer>> RENDERERS = JChartSpiLoader.loadTypeMapping();
     }
 }

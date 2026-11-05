@@ -15,7 +15,9 @@ package com.github.paohaijiao.lunar;/*
  */
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -25,6 +27,7 @@ import java.util.List;
 /**
  * 农历日历渲染器
  */
+@JQuickSpi(name = "lunar", order = 15, chartType = JChartType.Lunar)
 public class JLunarCalendarRenderer extends JAbstractChartRenderer {
 
     @Override

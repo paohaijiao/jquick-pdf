@@ -17,13 +17,16 @@ package com.github.paohaijiao.scatter;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.data.JData;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import com.github.paohaijiao.series.JScatter;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
 import java.util.List;
 
+@JQuickSpi(name = "scatter", order = 9, chartType = JChartType.SCATTER)
 public class JScatterChartsRenderer extends JAbstractChartRenderer {
 
     private static final Color SCATTER_COLOR = new Color(65, 105, 225); // 钢蓝色

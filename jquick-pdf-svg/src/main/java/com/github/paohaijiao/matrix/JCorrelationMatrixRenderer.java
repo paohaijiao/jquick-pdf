@@ -16,7 +16,9 @@
 package com.github.paohaijiao.matrix;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -28,6 +30,7 @@ import java.awt.geom.RoundRectangle2D;
  * 现代仪表盘风格：浅色画布 + 居中热力图 + 列头渐变条 + 右上图例卡片。
  * 只负责美化绘制，不修改任何数据模型（JCorrelationMatrixOption）。
  */
+@JQuickSpi(name = "correction-matrix", order = 17, chartType = JChartType.CorrectionMatrix)
 public class JCorrelationMatrixRenderer extends JAbstractChartRenderer {
 
     private static final int DEFAULT_WIDTH = 872;

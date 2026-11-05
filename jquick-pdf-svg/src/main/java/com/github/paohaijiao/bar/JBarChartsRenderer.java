@@ -17,7 +17,9 @@ package com.github.paohaijiao.bar;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import com.github.paohaijiao.series.JBar;
 import org.apache.batik.svggen.SVGGraphics2D;
 
@@ -34,6 +36,7 @@ import java.util.List;
  * @UpdateRemark:
  * @Version: 1.0
  */
+@JQuickSpi(name = "bar", order = 1, chartType = JChartType.BAR)
 public class JBarChartsRenderer extends JAbstractChartRenderer {
 
     @Override

@@ -16,7 +16,9 @@
 package com.github.paohaijiao.treemap;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -27,6 +29,7 @@ import java.util.Map;
 /**
  * 树形图渲染器，所有配置通过JOption传入
  */
+@JQuickSpi(name = "tree-map", order = 12, chartType = JChartType.TREEMAP)
 public class JTreeMapRenderer extends JAbstractChartRenderer {
 
     @Override

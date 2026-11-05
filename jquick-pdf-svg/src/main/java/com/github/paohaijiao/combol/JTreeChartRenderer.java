@@ -16,8 +16,10 @@
 package com.github.paohaijiao.combol;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import lombok.Data;
 import org.apache.batik.svggen.SVGGraphics2D;
 
@@ -30,6 +32,7 @@ import java.util.List;
  * 使用层级水平布局，避免节点重叠
  */
 @Data
+@JQuickSpi(name = "tree", order = 32, chartType = JChartType.Tree)
 public class JTreeChartRenderer extends JAbstractChartRenderer {
 
     private LayoutParams layoutParams;

@@ -16,7 +16,9 @@
 package com.github.paohaijiao.calendar;
 
 import com.github.paohaijiao.JOption;
+import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
+import com.github.paohaijiao.provider.spi.JQuickSpi;
 import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
@@ -29,6 +31,7 @@ import java.util.Map;
 /**
  * 日历图表渲染器（类似GitHub贡献图）
  */
+@JQuickSpi(name = "calendar", order = 14, chartType = JChartType.Calendar)
 public class JCalendarChartRenderer extends JAbstractChartRenderer {
 
     private static final Color DEFAULT_GRID_COLOR = new Color(232, 235, 240);
