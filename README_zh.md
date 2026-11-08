@@ -1407,17 +1407,32 @@ fileOutputStream.write(bytes);
 
 **Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testPolar()`
 
-**5.2.0 版本新增** —— 注册为 `JChartType.Polar`，同时支持字符串键 `polar`。渲染器绘制极坐标坐标系（r = 50/100/150/200 的同心圆、每 30° 一条放射线、角度与半径标注），并叠加一条示例玫瑰线 `r = a·sin(4θ)`、45°–135° 的扇形高亮与数据点。
+**5.2.0 版本新增** —— 注册为 `JChartType.Polar`，同时支持字符串键 `polar`。渲染器绘制极坐标网格（同心圆环、放射线、角度与半径标注）、可选的高亮扇形，以及每个系列一条闭合或开放的曲线；所有内容都通过 `JPolarChartData` 配置，经 `JOption.setData(...)` 传入：
 
 ```java
-JOption option = new JOption();
-JChartRendererFactory.renderChart(JChartType.Polar, option, "d://test/gallery520/polar.svg");
+JPolarChartData data = new JPolarChartData();
+data.setTitleText("季度指标");
+data.setValueUnit("%");
+data.setAngleLabels(Arrays.asList("Q1", "Q2", "Q3", "Q4"));
 
-// 同一个渲染器也可以用字符串键调用，无需枚举
-JChartRendererFactory.renderChart("polar", option, "d://test/gallery520/polar.svg");
+JPolarChartData.PolarSeries revenue = new JPolarChartData.PolarSeries("营收", 40d, 62d, 87d, 55d);
+revenue.setFilled(true);          // 曲线与圆心之间填充
+revenue.setShowPoints(true);
+
+JPolarChartData.PolarSeries cost = new JPolarChartData.PolarSeries("成本", 30d, 35d, 41d, 38d);
+cost.setColor(new Color(0x3E8E7E));
+cost.setDash(new float[]{4f, 3f});
+
+data.setSeries(Arrays.asList(revenue, cost));
+data.setSectors(Collections.singletonList(
+        new JPolarChartData.PolarSector(0d, 90d, new Color(0xFF6B6B), 0.12f)));
+
+JOption option = new JOption();
+option.setData(data);
+JChartRendererFactory.renderChart(JChartType.Polar, option, "d://test/polar/polar_custom.svg");
 ```
 
-该渲染器是固定的坐标系示例：网格与曲线均为常量，暂不消费 `option` 数据。它通过 `@JQuickSpi(name = "polar", order = 36, chartType = JChartType.Polar)` 注册，整个新增过程未改动 `JChartRendererFactory`。
+模型承载画布尺寸、起始角与扫描角、半径上下限与环数、网格/标注/图例的颜色与字体。`validateAndCalculate()` 会推导角度刻度数、把半径上限向上取整到可读值，并生成底部说明。角度采用屏幕角：0° 指向三点钟方向、顺时针递增，且每个系列必须给出与角度刻度数一致的取值。不传数据时渲染器回退到 `JPolarChartData.sample()`，即上方预览中的两条玫瑰线。
 
 #### 38. 主题河流图 — `images/theme_river.svg`
 

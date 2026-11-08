@@ -1412,17 +1412,32 @@ fileOutputStream.write(bytes);
 
 **Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testPolar()`
 
-**New in 5.2.0** — registered as `JChartType.Polar` and the string key `polar`. The renderer draws a polar coordinate frame (concentric circles at r = 50/100/150/200, spokes every 30°, angle and radius labels) plus a sample rose curve `r = a·sin(4θ)`, a 45°–135° sector highlight and data markers.
+**New in 5.2.0** — registered as `JChartType.Polar` and the string key `polar`. The renderer draws a polar grid (concentric rings, radial spokes, angle and radius labels), optional highlight sectors and one closed or open curve per series. Everything is configured through `JPolarChartData`, passed with `JOption.setData(...)`:
 
 ```java
-JOption option = new JOption();
-JChartRendererFactory.renderChart(JChartType.Polar, option, "d://test/gallery520/polar.svg");
+JPolarChartData data = new JPolarChartData();
+data.setTitleText("季度指标");
+data.setValueUnit("%");
+data.setAngleLabels(Arrays.asList("Q1", "Q2", "Q3", "Q4"));
 
-// same result through the string key, no enum needed
-JChartRendererFactory.renderChart("polar", option, "d://test/gallery520/polar.svg");
+JPolarChartData.PolarSeries revenue = new JPolarChartData.PolarSeries("营收", 40d, 62d, 87d, 55d);
+revenue.setFilled(true);          // fill the area between the curve and the centre
+revenue.setShowPoints(true);
+
+JPolarChartData.PolarSeries cost = new JPolarChartData.PolarSeries("成本", 30d, 35d, 41d, 38d);
+cost.setColor(new Color(0x3E8E7E));
+cost.setDash(new float[]{4f, 3f});
+
+data.setSeries(Arrays.asList(revenue, cost));
+data.setSectors(Collections.singletonList(
+        new JPolarChartData.PolarSector(0d, 90d, new Color(0xFF6B6B), 0.12f)));
+
+JOption option = new JOption();
+option.setData(data);
+JChartRendererFactory.renderChart(JChartType.Polar, option, "d://test/polar/polar_custom.svg");
 ```
 
-This renderer is a fixed coordinate-frame demo: the grid and the curve are constant, so `option` is not consumed yet. It is registered through `@JQuickSpi(name = "polar", order = 36, chartType = JChartType.Polar)` — adding it required no change to `JChartRendererFactory`.
+The model carries the canvas size, start angle and sweep, radius bounds and ring count, grid/label/legend colours and fonts. `validateAndCalculate()` derives the slot count, rounds the radius bound up to a readable value and builds the footer text. Angles are screen angles: 0° points at three o'clock and grows clockwise, and every series must expose exactly one value per angle slot. Calling the renderer with an empty option falls back to `JPolarChartData.sample()` — the two rose curves of the preview above.
 
 #### 38. Theme river — `images/theme_river.svg`
 

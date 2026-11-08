@@ -17,6 +17,7 @@ package com.github.paohaijiao.demo;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.axis.JCategoryAxis;
+import com.github.paohaijiao.combol.JPolarChartData;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.factory.JChartRendererFactory;
 import com.github.paohaijiao.plugin.radialTree.JRadialTreeChartData;
@@ -44,7 +45,9 @@ public class JGallery520ImagesTest {
 
     @Test
     public void testPolar() throws IOException {
+        JPolarChartData data = JPolarChartData.sample();
         JOption option = new JOption();
+        option.setData(data);
         JChartRendererFactory.renderChart(JChartType.Polar, option, OUTPUT_DIR + "polar.svg");
     }
 
