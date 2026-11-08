@@ -92,6 +92,11 @@
     - [34. 企业网络拓扑](#34-企业网络拓扑--imagestoplogyenterprise_networksvg)
     - [35. 自定义布局拓扑](#35-自定义布局拓扑--imagestoplogymanual_layout_topologysvg)
     - [36. 信用报告页面](#36-信用报告页面--imagescredit_reportpng)
+    - [37. 极坐标图](#37-极坐标图--imagespolarsvg)
+    - [38. 主题河流图](#38-主题河流图--imagestheme_riversvg)
+    - [39. 进度条](#39-进度条--imagesprogresssvg)
+    - [40. 桑基图](#40-桑基图--imagessankeysvg)
+    - [41. 径向树图](#41-径向树图--imagesradial_treesvg)
   - [Demo 1 —— 企业信用评级报告（综合示例）](#demo-1--企业信用评级报告综合示例)
   - [Demo 2 —— 柱状图（图表模块）](#demo-2--柱状图图表模块)
   - [Demo 3 —— SVG 图表嵌入 PDF 页面](#demo-3--svg-图表嵌入-pdf-页面)
@@ -111,7 +116,7 @@
 工具库分为两层：
 
 - **文档层**（`jquick-pdfx`）：类 HTML/CSS 的模板语言（标题、段落、块、列表、表格、表单、图片、SVG），支持数据绑定、分页控制、目录、水印与加密。
-- **图表层**（`jquick-pdf-svg`）：30+ 种图表类型（柱状图、折线图、饼图、雷达图、散点图、箱线图、热力图、K 线、漏斗图、仪表盘、甘特图、词云、地图、旭日图、矩形树图、气泡图、日历图、时间轴、拓扑图等），以矢量图形渲染——在文档中用一个占位符即可绑定。
+- **图表层**（`jquick-pdf-svg`）：30+ 种图表类型（柱状图、折线图、饼图、雷达图、散点图、箱线图、热力图、K 线、漏斗图、仪表盘、甘特图、词云、地图、旭日图、矩形树图、气泡图、日历图、时间轴、拓扑图、主题河流图、径向树图等），以矢量图形渲染——在文档中用一个占位符即可绑定。
 
 > **协议边界 —— 上线前请先阅读 [版本对照表](#版本对照表)。**
 > **低于4.0.0** 版本为 **AGPL-3.0**（基于 iText 7）。**4.0.0 及以上**版本为 **Apache-2.0**（已迁移至 Apache PDFBox，移除 AGPL 依赖）。
@@ -123,6 +128,7 @@
 - **两种命名风格都接受** —— 驼峰（`minHeight`）与标准 CSS 连字符（`min-height`）互为别名，可在同一声明中混用。
 - **数据绑定** —— `${variable}` 绑定变量，`&{resource}` 引用已注册资源（图表、模板、树）。
 - **30+ 种图表** —— 完整图表画廊、预览图与生成每张图的测试类见 [Demo Gallery](#demo-gallery演示画廊)。
+- **图表渲染器可插拔** —— 每个渲染器通过 `@JQuickSpi` 自行注册，由 `JChartRendererFactory` 懒加载解析；新增图形可以放在自己的 jar 里，绑定枚举常量或用纯字符串键，都不需要改工厂。**5.2.0 版本**的极坐标图、主题河流图、进度条、桑基图、径向树图均按此方式落地。
 - **丰富的文档能力** —— 自动分页、目录、页眉页脚、页码、水印、PDF 加密。
 - **中文开箱可用** —— 内置中文字体（`jquick-pdf-font`），CJK 文本无需额外配置即可渲染。
 - **25 种语言开箱即用** —— 25 份独立设计的报告模板，各有专属版式与配色：阿拉伯、希伯来、波斯、维吾尔为 RTL；孟加拉、泰米尔、泰、藏、傣为复杂字形组合；满文与蒙古文竖排；四种中日韩字形；带完整附加符号的拉丁文字。13 款字体全部内置，详见 [多语言支持](#多语言支持)。
@@ -321,6 +327,8 @@ public class HelloDemo {
 | `i18n` | 25 | 同一份全球银行报告的 25 种语言版本（185-209），每种语言专属版式与配色，详见 [多语言支持](#多语言支持) |
 
 行业单据与多语言两个分组的整页长截图索引在线上画廊：**[www.jquick.org/jquick-pdf](https://www.jquick.org/jquick-pdf/)**。本 README 索引的是仓库内自带的图表与 SVG 预览图。
+
+**5.2.0 版本**在这份索引中新增了 5 个图形预览：极坐标图（#37）、主题河流图（#38）、进度条（#39）、桑基图（#40）、径向树图（#41），全部经同一个 `JChartRendererFactory` 调用，无需改动工厂源码。
 
 ### 图片索引：图片 → 测试类 → 方法
 
@@ -1393,6 +1401,125 @@ fileOutputStream.write(bytes);
 </dependency>
 ```
 
+#### 37. 极坐标图 — `images/polar.svg`
+
+![polar](images/polar.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testPolar()`
+
+**5.2.0 版本新增** —— 注册为 `JChartType.Polar`，同时支持字符串键 `polar`。渲染器绘制极坐标坐标系（r = 50/100/150/200 的同心圆、每 30° 一条放射线、角度与半径标注），并叠加一条示例玫瑰线 `r = a·sin(4θ)`、45°–135° 的扇形高亮与数据点。
+
+```java
+JOption option = new JOption();
+JChartRendererFactory.renderChart(JChartType.Polar, option, "d://test/gallery520/polar.svg");
+
+// 同一个渲染器也可以用字符串键调用，无需枚举
+JChartRendererFactory.renderChart("polar", option, "d://test/gallery520/polar.svg");
+```
+
+该渲染器是固定的坐标系示例：网格与曲线均为常量，暂不消费 `option` 数据。它通过 `@JQuickSpi(name = "polar", order = 36, chartType = JChartType.Polar)` 注册，整个新增过程未改动 `JChartRendererFactory`。
+
+#### 38. 主题河流图 — `images/theme_river.svg`
+
+![theme_river](images/theme_river.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testThemeRiver()`
+
+**5.2.0 版本新增** —— `JChartType.ThemeRiver` / `"theme-river"`。数据由专用模型 `JThemeRiverChartData` 承载，每个系列按时间点逐个给出取值：
+
+```java
+JThemeRiverChartData data = new JThemeRiverChartData();
+data.setTitleText("流量来源主题河流图");
+data.setSubtitleText("数据由 JThemeRiverChartData 传入 · 每个时间点按总量居中堆叠");
+data.setValueUnit("次");
+data.timeLabels("07-08", "07-09", "07-10", "07-11", "07-12", "07-13", "07-14");
+data.addSeries("自然搜索", 420d, 510d, 470d, 530d, 590d, 620d, 660d);
+data.addSeries("付费推广", 260d, 300d, 280d, 310d, 340d, 330d, 360d);
+data.addSeries("社交媒体", new Color(0x3E8E7E), 180d, 220d, 260d, 300d, 320d, 360d, 400d);
+data.addSeries("邮件营销", 90d, 110d, 120d, 140d, 150d, 160d, 170d);
+data.addSeries("直接访问", 300d, 320d, 340d, 330d, 360d, 380d, 410d);
+
+JOption option = new JOption();
+option.setData(data);
+JChartRendererFactory.renderChart(JChartType.ThemeRiver, option, "d://test/gallery520/theme_river.svg");
+```
+
+每个时间片围绕零基线对称堆叠，河流整体关于中轴镜像；系列按总量降序后交替插入栈的两端，最宽的流贴近中部；上下边缘均为 Catmull-Rom 样条转三次贝塞尔。系列名绘制在带内部最宽的切片上（首尾时间点紧贴裁切边缘，自动跳过），带厚不足 16 px 的流只在图例中体现。
+
+#### 39. 进度条 — `images/progress.svg`
+
+![progress](images/progress.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testProgress()`
+
+**5.2.0 版本新增** —— `JChartType.Progress` / `"progress"`。取值为百分比（0–100），行标签来自类目轴的 `data(...)`（单系列）或各系列的 `name`：
+
+```java
+JOption option = new JOption();
+option.title().text("关键指标完成度");
+JCategoryAxis xAxis = new JCategoryAxis();
+xAxis.data("研发效能", "交付准时率", "客户满意度", "风险整改率");
+option.xAxis(xAxis);
+JBar bar = new JBar();
+bar.name("完成度").data(96, 88, 72, 61);
+option.series(bar);
+
+JChartRendererFactory.renderChart(JChartType.Progress, option, "d://test/gallery520/progress.svg");
+```
+
+填充色按分值分级：≥ 90 绿、≥ 80 蓝、≥ 70 橙、其余红。业务侧完整示例见 `jquick-pdfx` 的 `JQuickCreditReport210BarTest`。
+
+#### 40. 桑基图 — `images/sankey.svg`
+
+![sankey](images/sankey.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testSankey()`
+
+**5.2.0 版本新增** —— 以 `@JQuickSpi(name = "sankey", type = "sankey", order = 200)` 注册，**故意不绑定** `JChartType` 枚举常量：只用字符串键即可调用，这正是第三方在不改动 jar 内枚举时走的扩展路径。
+
+```java
+JOption option = new JOption();
+option.title().text("资金流向桑基图");
+JChartRendererFactory.renderChart("sankey", option, "d://test/gallery520/sankey.svg");
+```
+
+渲染器本身是自包含的插件示例：三个来源节点（研发投入 / 市场推广 / 运营成本）流向三个目标节点（营收增长 / 成本优化 / 风险准备），流量为固定示例权重，采用三次贝塞尔带状连接、两列均带标签，标题取自 `option.title()`。
+
+#### 41. 径向树图 — `images/radial_tree.svg`
+
+![radial_tree](images/radial_tree.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testRadialTree()`
+
+**5.2.0 版本新增** —— `JChartType.RadialTree` / `"radial-tree"`。整棵树通过节点模型链式构建，半径编码层级、角度跨度按叶子数量分配：
+
+```java
+JRadialTreeChartData.RadialNode root = new JRadialTreeChartData.RadialNode("集团总部")
+        .addChild(new JRadialTreeChartData.RadialNode("产品中心", 40)
+                .addChild(new JRadialTreeChartData.RadialNode("研发一部", 18))
+                .addChild(new JRadialTreeChartData.RadialNode("研发二部", 12))
+                .addChild(new JRadialTreeChartData.RadialNode("产品设计部", 10)))
+        .addChild(new JRadialTreeChartData.RadialNode("市场中心", 30)
+                .addChild(new JRadialTreeChartData.RadialNode("华东大区", 12))
+                .addChild(new JRadialTreeChartData.RadialNode("华南大区", 10))
+                .addChild(new JRadialTreeChartData.RadialNode("华北大区", 8)))
+        .addChild(new JRadialTreeChartData.RadialNode("交付中心", 30)
+                .addChild(new JRadialTreeChartData.RadialNode("实施一部", 14))
+                .addChild(new JRadialTreeChartData.RadialNode("运维服务部", 10))
+                .addChild(new JRadialTreeChartData.RadialNode("客户成功部", 6)));
+
+JRadialTreeChartData data = new JRadialTreeChartData();
+data.setRoot(root);
+data.setTitleText("组织架构径向树");
+data.setSubtitleText("数据由 JRadialTreeChartData 传入 · 角度按叶子数量分配");
+
+JOption option = new JOption();
+option.setData(data);
+JChartRendererFactory.renderChart(JChartType.RadialTree, option, "d://test/gallery520/radial_tree.svg");
+```
+
+`validateAndCalculate()` 会根据树结构回填 `nodeCount`、`leafCount` 与 `depth`，无需手工统计。节点数超过 120 时自动切换到 960×800 画布，可能重叠的标签改为省略而不是叠画。
+
 ### Demo 1 —— 企业信用评级报告（综合示例）
 
 ![demo](images/jquick-logo.svg)
@@ -1771,6 +1898,12 @@ public class JQuickTwoRadarTest {
 | 高级拓扑图 | `AdvancedTopology` | `JAdvancedTopologyRenderer` |
 | 时间线 | `TimeLine` | `JTimeLineRenderer` |
 | 树 | `Tree` | `JTreeChartRenderer` |
+| 极坐标图（5.2.0） | `Polar` | `JPolarGridRenderer` |
+| 主题河流图（5.2.0） | `ThemeRiver` | `JThemeRiverChartsRenderer` |
+| 进度条（5.2.0） | `Progress` | `JProgressBarChartRenderer` |
+| 径向树图（5.2.0） | `RadialTree` | `JRadialTreeChartsRenderer` |
+
+桑基图特意不设枚举常量：它只注册字符串键 `sankey`（与 SPI 的 `type` 同名），调用方式为 `renderChart("sankey", option)`。
 
 任意类型也可以不经过文档，直接渲染成 SVG 文件或字符串：
 

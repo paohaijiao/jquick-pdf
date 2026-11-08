@@ -116,6 +116,13 @@ public enum JChartType {
     ThemeRiver("theme-river", "主题河流图"),
 
     /**
+     * Polar coordinate plot.
+     * <p>
+     * Registered by {@code JPolarGridRenderer} through {@code @JQuickSpi}.
+     */
+    Polar("polar", "极坐标图"),
+
+    /**
      * Sentinel used as the default value of {@code JQuickSpi#chartType()}.
      * <p>
      * A third-party renderer that only registers itself by name keeps this value,

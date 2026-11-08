@@ -92,6 +92,11 @@
     - [34. Enterprise network topology](#34-enterprise-network-topology--imagestoplogyenterprise_networksvg)
     - [35. Manual-layout topology](#35-manual-layout-topology--imagestoplogymanual_layout_topologysvg)
     - [36. Credit report page](#36-credit-report-page--imagescredit_reportpng)
+    - [37. Polar chart](#37-polar-chart--imagespolarsvg)
+    - [38. Theme river](#38-theme-river--imagestheme_riversvg)
+    - [39. Progress bar](#39-progress-bar--imagesprogresssvg)
+    - [40. Sankey diagram](#40-sankey-diagram--imagessankeysvg)
+    - [41. Radial tree](#41-radial-tree--imagesradial_treesvg)
   - [Demo 1 — Enterprise credit rating report (composite)](#demo-1--enterprise-credit-rating-report-composite)
   - [Demo 2 — Bar chart (chart module)](#demo-2--bar-chart-chart-module)
   - [Demo 3 — SVG chart embedded into a PDF page](#demo-3--svg-chart-embedded-into-a-pdf-page)
@@ -111,7 +116,7 @@ Templates are parsed by a self-developed template parser and drawn directly onto
 The toolkit covers two layers:
 
 - **Document layer** (`jquick-pdfx`): an HTML/CSS-like template language (headings, paragraphs, blocks, lists, tables, forms, images, SVG) with data binding, pagination control, tables of contents, watermarks and encryption.
-- **Chart layer** (`jquick-pdf-svg`): 30+ chart types (bar, line, pie, radar, scatter, boxplot, heatmap, K-line, funnel, gauge, gantt, word cloud, geo map, sunburst, treemap, bubble, calendar, timeline, topology and more) rendered as vector graphics — bound into a document with a single placeholder.
+- **Chart layer** (`jquick-pdf-svg`): 30+ chart types (bar, line, pie, radar, scatter, boxplot, heatmap, K-line, funnel, gauge, gantt, word cloud, geo map, sunburst, treemap, bubble, calendar, timeline, topology, theme river, radial tree and more) rendered as vector graphics — bound into a document with a single placeholder.
 
 > **License boundary — read [Version Matrix](#version-matrix) before shipping.**
 > below **4.0.0** is **AGPL-3.0** (iText 7 based). Version **4.0.0 and above** is **Apache-2.0** (migrated to Apache PDFBox, AGPL dependency removed).
@@ -123,6 +128,7 @@ The toolkit covers two layers:
 - **Both naming conventions accepted** — camelCase (`minHeight`) and standard CSS kebab-case (`min-height`) are interchangeable, and may be mixed in one declaration.
 - **Data binding** — `${variable}` for bound values, `&{resource}` for registered resources (charts, templates, trees).
 - **30+ chart types** — the full chart gallery with preview images and the test class that generates each one is in the [Demo Gallery](#demo-gallery).
+- **Pluggable chart renderers** — each renderer registers itself with `@JQuickSpi` and is resolved lazily by `JChartRendererFactory`, so a new chart can ship in your own jar — bound to an enum constant or to a plain string key — without patching the factory. Version **5.2.0** adds polar, theme river, progress bar, Sankey and radial tree exactly this way.
 - **Rich document capabilities** — automatic pagination, table of contents, header/footer, page counters, watermarks, PDF encryption.
 - **CJK ready** — a Chinese font is bundled (`jquick-pdf-font`), so CJK text renders without extra configuration.
 - **25 languages out of the box** — 25 hand-built report templates, each with its own layout and palette: Arabic, Hebrew, Persian and Uyghur in RTL; Bengali, Tamil, Thai, Tibetan and Dai with complex shaping; Manchu and Mongolian vertical; four CJK variants; Latin with full diacritics. All 13 fonts are bundled — see [Multilingual Support](#multilingual-support).
@@ -322,6 +328,8 @@ Every image under `images/` is produced by a **real test class** in this reposit
 | `i18n` | 25 | The same global banking report in 25 languages (185-209), each with its own layout and palette — see [Multilingual Support](#multilingual-support) |
 
 The industry-document and multilingual groups are indexed with full-page screenshots in the published gallery: **[www.jquick.org/jquick-pdf](https://www.jquick.org/jquick-pdf/)**. This README indexes the chart and SVG previews that live in the repository itself.
+
+Version **5.2.0** adds five chart previews to that index — polar (#37), theme river (#38), progress bar (#39), Sankey diagram (#40) and radial tree (#41) — all reachable through the same `JChartRendererFactory` without touching the factory source.
 
 ### Image index: image → test class → method
 
@@ -1398,7 +1406,124 @@ fileOutputStream.write(bytes);
 </dependency>
 ```
 
+#### 37. Polar chart — `images/polar.svg`
 
+![polar](images/polar.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testPolar()`
+
+**New in 5.2.0** — registered as `JChartType.Polar` and the string key `polar`. The renderer draws a polar coordinate frame (concentric circles at r = 50/100/150/200, spokes every 30°, angle and radius labels) plus a sample rose curve `r = a·sin(4θ)`, a 45°–135° sector highlight and data markers.
+
+```java
+JOption option = new JOption();
+JChartRendererFactory.renderChart(JChartType.Polar, option, "d://test/gallery520/polar.svg");
+
+// same result through the string key, no enum needed
+JChartRendererFactory.renderChart("polar", option, "d://test/gallery520/polar.svg");
+```
+
+This renderer is a fixed coordinate-frame demo: the grid and the curve are constant, so `option` is not consumed yet. It is registered through `@JQuickSpi(name = "polar", order = 36, chartType = JChartType.Polar)` — adding it required no change to `JChartRendererFactory`.
+
+#### 38. Theme river — `images/theme_river.svg`
+
+![theme_river](images/theme_river.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testThemeRiver()`
+
+**New in 5.2.0** — `JChartType.ThemeRiver` / `"theme-river"`. Data comes from its own model (`JThemeRiverChartData`), one value per time label per series:
+
+```java
+JThemeRiverChartData data = new JThemeRiverChartData();
+data.setTitleText("流量来源主题河流图");
+data.setSubtitleText("数据由 JThemeRiverChartData 传入 · 每个时间点按总量居中堆叠");
+data.setValueUnit("次");
+data.timeLabels("07-08", "07-09", "07-10", "07-11", "07-12", "07-13", "07-14");
+data.addSeries("自然搜索", 420d, 510d, 470d, 530d, 590d, 620d, 660d);
+data.addSeries("付费推广", 260d, 300d, 280d, 310d, 340d, 330d, 360d);
+data.addSeries("社交媒体", new Color(0x3E8E7E), 180d, 220d, 260d, 300d, 320d, 360d, 400d);
+data.addSeries("邮件营销", 90d, 110d, 120d, 140d, 150d, 160d, 170d);
+data.addSeries("直接访问", 300d, 320d, 340d, 330d, 360d, 380d, 410d);
+
+JOption option = new JOption();
+option.setData(data);
+JChartRendererFactory.renderChart(JChartType.ThemeRiver, option, "d://test/gallery520/theme_river.svg");
+```
+
+Each time slice is stacked symmetrically about the zero baseline, so the river mirrors around the centre line. Series are sorted by total and inserted alternately at both ends of the stack, which keeps the widest band near the middle; both edges are Catmull-Rom splines converted to cubic Béziers. Series names are drawn inside the band at its widest inner slice (the first and last slices are skipped because they sit on the clipping edge); bands thinner than 16 px keep only a legend entry.
+
+#### 39. Progress bar — `images/progress.svg`
+
+![progress](images/progress.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testProgress()`
+
+**New in 5.2.0** — `JChartType.Progress` / `"progress"`. Values are percentages (0–100); row labels come from the category axis (single series) or from the series names:
+
+```java
+JOption option = new JOption();
+option.title().text("关键指标完成度");
+JCategoryAxis xAxis = new JCategoryAxis();
+xAxis.data("研发效能", "交付准时率", "客户满意度", "风险整改率");
+option.xAxis(xAxis);
+JBar bar = new JBar();
+bar.name("完成度").data(96, 88, 72, 61);
+option.series(bar);
+
+JChartRendererFactory.renderChart(JChartType.Progress, option, "d://test/gallery520/progress.svg");
+```
+
+Colour follows the score: ≥ 90 green, ≥ 80 blue, ≥ 70 orange, anything lower red. A business-side example is `JQuickCreditReport210BarTest` in `jquick-pdfx`.
+
+#### 40. Sankey diagram — `images/sankey.svg`
+
+![sankey](images/sankey.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testSankey()`
+
+**New in 5.2.0** — registered with `@JQuickSpi(name = "sankey", type = "sankey", order = 200)`. It is deliberately **not** bound to a `JChartType` constant: the string key alone is enough, which is exactly the path a third-party plugin takes when it cannot modify the enum inside the jar.
+
+```java
+JOption option = new JOption();
+option.title().text("资金流向桑基图");
+JChartRendererFactory.renderChart("sankey", option, "d://test/gallery520/sankey.svg");
+```
+
+The renderer is a self-contained plugin example: three source nodes (研发投入 / 市场推广 / 运营成本) flow into three target nodes (营收增长 / 成本优化 / 风险准备) with fixed sample weights, cubic-Bézier bands and labels on both columns; the title is taken from `option.title()`.
+
+#### 41. Radial tree — `images/radial_tree.svg`
+
+![radial_tree](images/radial_tree.svg)
+
+**Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testRadialTree()`
+
+**New in 5.2.0** — `JChartType.RadialTree` / `"radial-tree"`. The whole tree is built through the node model, radius encodes the depth and the angle span is allocated by leaf count:
+
+```java
+JRadialTreeChartData.RadialNode root = new JRadialTreeChartData.RadialNode("集团总部")
+        .addChild(new JRadialTreeChartData.RadialNode("产品中心", 40)
+                .addChild(new JRadialTreeChartData.RadialNode("研发一部", 18))
+                .addChild(new JRadialTreeChartData.RadialNode("研发二部", 12))
+                .addChild(new JRadialTreeChartData.RadialNode("产品设计部", 10)))
+        .addChild(new JRadialTreeChartData.RadialNode("市场中心", 30)
+                .addChild(new JRadialTreeChartData.RadialNode("华东大区", 12))
+                .addChild(new JRadialTreeChartData.RadialNode("华南大区", 10))
+                .addChild(new JRadialTreeChartData.RadialNode("华北大区", 8)))
+        .addChild(new JRadialTreeChartData.RadialNode("交付中心", 30)
+                .addChild(new JRadialTreeChartData.RadialNode("实施一部", 14))
+                .addChild(new JRadialTreeChartData.RadialNode("运维服务部", 10))
+                .addChild(new JRadialTreeChartData.RadialNode("客户成功部", 6)));
+
+JRadialTreeChartData data = new JRadialTreeChartData();
+data.setRoot(root);
+data.setTitleText("组织架构径向树");
+data.setSubtitleText("数据由 JRadialTreeChartData 传入 · 角度按叶子数量分配");
+
+JOption option = new JOption();
+option.setData(data);
+JChartRendererFactory.renderChart(JChartType.RadialTree, option, "d://test/gallery520/radial_tree.svg");
+```
+
+`validateAndCalculate()` back-fills `nodeCount`, `leafCount` and `depth` from the tree, so no manual counting is needed. Trees with more than 120 nodes switch to a 960×800 canvas automatically, and labels that would collide are elided instead of overlapping.
 
 ### Demo 1 — Enterprise credit rating report (composite)
 
@@ -1775,6 +1900,12 @@ The template it renders is three lines long — the placeholder name `svg` match
 | Advanced topology | `AdvancedTopology` | `JAdvancedTopologyRenderer` |
 | Timeline | `TimeLine` | `JTimeLineRenderer` |
 | Tree | `Tree` | `JTreeChartRenderer` |
+| Polar (5.2.0) | `Polar` | `JPolarGridRenderer` |
+| Theme river (5.2.0) | `ThemeRiver` | `JThemeRiverChartsRenderer` |
+| Progress bar (5.2.0) | `Progress` | `JProgressBarChartRenderer` |
+| Radial tree (5.2.0) | `RadialTree` | `JRadialTreeChartsRenderer` |
+
+Sankey has no enum constant on purpose: it is registered with the string keys `sankey` (and the SPI `type` of the same name), so it is called as `renderChart("sankey", option)`.
 
 Any type can also be rendered to an SVG file or string directly, without a document:
 
