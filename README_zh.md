@@ -2,6 +2,8 @@
   <img src="./images/jquick-logo.svg" width="680" alt="jquick-pdf logo" />
 </p>
 
+![jquick-pdf 演示](demo/jquick-pdf-demo.gif)
+
 <h1 align="center">jquick-pdf</h1>
 
 <p align="center">
