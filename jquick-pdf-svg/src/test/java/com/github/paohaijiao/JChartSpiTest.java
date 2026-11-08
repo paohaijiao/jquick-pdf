@@ -18,7 +18,7 @@ package com.github.paohaijiao;
 import com.github.paohaijiao.axis.JCategoryAxis;
 import com.github.paohaijiao.axis.JValueAxis;
 import com.github.paohaijiao.code.JTrigger;
-import com.github.paohaijiao.demo.JWaterfallRenderer;
+import com.github.paohaijiao.plugin.waterfall.JWaterfallRenderer;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.factory.JChartRendererFactory;
 import com.github.paohaijiao.k.JKChartsRenderer;

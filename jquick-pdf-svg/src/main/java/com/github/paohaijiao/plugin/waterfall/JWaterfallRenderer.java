@@ -13,7 +13,7 @@
  *
  * Copyright (c) [2025-2099] Martin (goudingcheng@gmail.com)
  */
-package com.github.paohaijiao.demo;
+package com.github.paohaijiao.plugin.waterfall;
 
 import com.github.paohaijiao.JOption;
 import com.github.paohaijiao.enums.JChartType;

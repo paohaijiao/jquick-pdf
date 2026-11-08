@@ -101,6 +101,13 @@ public enum JChartType {
     Progress("progress", "进度条"),
 
     /**
+     * Extension sample: radial tree.
+     * <p>
+     * Registered by {@code JRadialTreeChartsRenderer} through {@code @JQuickSpi}.
+     */
+    RadialTree("radial-tree", "径向树图"),
+
+    /**
      * Sentinel used as the default value of {@code JQuickSpi#chartType()}.
      * <p>
      * A third-party renderer that only registers itself by name keeps this value,
