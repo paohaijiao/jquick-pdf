@@ -109,7 +109,7 @@ public class JSunburstChart extends JAbstractChartRenderer {
         drawChart(svgGenerator, option, SVG_WIDTH, SVG_HEIGHT);
         StringWriter writer = new StringWriter();
         svgGenerator.stream(writer, true);
-        return writer.toString();
+        return withUtf8Declaration(writer.toString());
     }
 
     @Override

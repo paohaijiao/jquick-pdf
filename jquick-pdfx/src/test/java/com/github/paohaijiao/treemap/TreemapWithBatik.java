@@ -7,8 +7,10 @@ import org.w3c.dom.Document;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
-import java.io.FileWriter;
-import java.io.Writer;
+import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -261,10 +263,12 @@ public class TreemapWithBatik {
         // 添加图例
         addLegend(svgGenerator);
 
-        // 输出SVG文件
-        try (Writer out = new FileWriter(filename)) {
-            svgGenerator.stream(out, true);
-        }
+        // 输出SVG文件，声明与字节统一为UTF-8，避免浏览器按平台编码解析时报Encoding error
+        StringWriter writer = new StringWriter();
+        svgGenerator.stream(writer, true);
+        String svg = writer.toString().replaceFirst("<\\?xml version=\"1\\.0\"\\?>",
+                "<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
+        Files.write(Paths.get(filename), svg.getBytes(StandardCharsets.UTF_8));
     }
 
     // 递归绘制矩形

@@ -108,6 +108,14 @@ public enum JChartType {
     RadialTree("radial-tree", "径向树图"),
 
     /**
+     * Extension sample: theme river.
+     * <p>
+     * Registered by {@code JThemeRiverChartsRenderer} through {@code @JQuickSpi},
+     * the factory routes to it without any change.
+     */
+    ThemeRiver("theme-river", "主题河流图"),
+
+    /**
      * Sentinel used as the default value of {@code JQuickSpi#chartType()}.
      * <p>
      * A third-party renderer that only registers itself by name keeps this value,
