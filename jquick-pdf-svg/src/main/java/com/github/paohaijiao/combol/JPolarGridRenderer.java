@@ -155,8 +155,8 @@ public class JPolarGridRenderer extends JAbstractChartRenderer {
         for (JPolarChartData.PolarSector sector : sectors) {
             double r = radius * clamp(sector.getRadiusRatio(), 0d, 1d);
             Path2D path = new Path2D.Double();
-            path.moveTo(cx, cy);
-            appendArc(path, cx, cy, r, sector.getStartAngle(), sector.getEndAngle() - sector.getStartAngle(), false);
+            appendArc(path, cx, cy, r, sector.getStartAngle(), sector.getEndAngle() - sector.getStartAngle());
+            path.lineTo(cx, cy);
             path.closePath();
             svg.setPaint(withAlpha(sector.getColor(), sector.getAlpha()));
             svg.fill(path);
@@ -173,7 +173,7 @@ public class JPolarGridRenderer extends JAbstractChartRenderer {
         for (int i = 1; i <= ticks; i++) {
             double r = radius * (double) i / ticks;
             Path2D ring = new Path2D.Double();
-            appendArc(ring, cx, cy, r, data.getStartAngle(), data.getAngleSpan(), false);
+            appendArc(ring, cx, cy, r, data.getStartAngle(), data.getAngleSpan());
             if (data.getAngleSpan() >= 360f) {
                 ring.closePath();
             }
@@ -223,14 +223,21 @@ public class JPolarGridRenderer extends JAbstractChartRenderer {
         svg.setFont(data.getLabelFont());
         svg.setPaint(data.getLabelColor());
         String unit = data.getValueUnit() == null ? "" : data.getValueUnit();
-        double axis = Math.toRadians(data.getStartAngle());
+        // Half a slot away from the first spoke, so the labels never sit on an angle label.
+        double axis = Math.toRadians(data.getStartAngle() + data.slotAngle() / 2d);
         double cos = Math.cos(axis);
         double sin = Math.sin(axis);
+        FontMetrics metrics = svg.getFontMetrics();
         for (int i = 1; i <= data.getRadiusTickCount(); i++) {
             double r = radius * (double) i / data.getRadiusTickCount();
-            int x = cx + (int) Math.round(r * cos) + 4;
-            int y = cy + (int) Math.round(r * sin) + 4;
-            svg.drawString(formatValue(data.tickValue(i)) + unit, x, y);
+            String text = formatValue(data.tickValue(i)) + unit;
+            int x = cx + (int) Math.round(r * cos);
+            int y = cy + (int) Math.round(r * sin);
+            int w = metrics.stringWidth(text);
+            svg.setPaint(data.getBackgroundColor());
+            svg.fillRect(x - w / 2 - 2, y - metrics.getAscent(), w + 4, metrics.getHeight());
+            svg.setPaint(data.getLabelColor());
+            drawCenteredText(svg, text, x, y);
         }
     }
 
@@ -272,10 +279,12 @@ public class JPolarGridRenderer extends JAbstractChartRenderer {
             }
         }
 
-        svg.setPaint(new Color(0xFF6B6B));
-        svg.fillOval(cx - 4, cy - 4, 8, 8);
-        svg.setPaint(Color.WHITE);
-        svg.fillOval(cx - 2, cy - 2, 4, 4);
+        if (data.isShowCenterPoint()) {
+            svg.setPaint(data.getAxisColor());
+            svg.fillOval(cx - 4, cy - 4, 8, 8);
+            svg.setPaint(Color.WHITE);
+            svg.fillOval(cx - 2, cy - 2, 4, 4);
+        }
     }
 
     private void drawLegend(SVGGraphics2D svg, JPolarChartData data, int width) {
@@ -319,16 +328,17 @@ public class JPolarGridRenderer extends JAbstractChartRenderer {
 
     /**
      * Appends an arc to the path, sampling it in screen coordinates: angle 0 points at three
-     * o'clock and grows clockwise, matching {@link JPolarChartData#angleOf(int)}.
+     * o'clock and grows clockwise, matching {@link JPolarChartData#angleOf(int)}. The first
+     * sampled point is always a {@code moveTo}, so the path is valid on its own.
      */
     private static void appendArc(Path2D path, int cx, int cy, double radius,
-                                  double startAngle, double sweep, boolean moveToStart) {
+                                  double startAngle, double sweep) {
         double step = sweep / ARC_STEPS;
         for (int i = 0; i <= ARC_STEPS; i++) {
             double angle = Math.toRadians(startAngle + step * i);
             double x = cx + radius * Math.cos(angle);
             double y = cy + radius * Math.sin(angle);
-            if (i == 0 && moveToStart) {
+            if (i == 0) {
                 path.moveTo(x, y);
             } else {
                 path.lineTo(x, y);
