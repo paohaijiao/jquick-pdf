@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>jquick-pdf · 从代码到 PDF</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --panel: #fafbfc;
+    --panel-2: #f6f8fa;
+    --border: #e6e9ee;
+    --border-2: #d8dee4;
+    --text: #1f2328;
+    --text-strong: #0d1117;
+    --muted: #6b7280;
+    --dim: #b9c0ca;
+    --accent: #2563eb;
+    --accent-soft: rgba(37, 99, 235, .08);
+    --kw: #cf222e;
+    --str: #0a3069;
+    --type: #0550ae;
+    --fn: #8250df;
+    --cmt: #6e7781;
+    --tag: #116329;
+    --mono: 'JetBrains Mono', 'SFMono-Regular', 'Cascadia Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+    --sans: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+
+  .app {
+    position: relative;
+    width: 1128px;
+    height: 616px;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 18px 48px rgba(15, 23, 42, .08);
+  }
+
+  /* ---------- title bar ---------- */
+
+  .titlebar {
+    height: 40px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 14px;
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dots { display: flex; gap: 6px; }
+
+  .dots i {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+    opacity: .85;
+  }
+
+  .dots i:nth-child(1) { background: #e05252; }
+  .dots i:nth-child(2) { background: #d9a14a; }
+  .dots i:nth-child(3) { background: #5fa85f; }
+
+  .tabs { display: flex; align-self: stretch; gap: 2px; }
+
+  .tab {
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    transition: color .3s ease, border-color .3s ease, background .3s ease;
+  }
+
+  .tab.active {
+    color: var(--text-strong);
+    border-bottom-color: var(--accent);
+    background: var(--bg);
+  }
+
+  .tb-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .tb-right .ver {
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: var(--accent-soft);
+    color: #1d4ed8;
+    font-size: 10.5px;
+  }
+
+  /* ---------- workspace ---------- */
+
+  .workspace { flex: 1; display: flex; min-height: 0; }
+
+  /* ---------- editor ---------- */
+
+  .editor {
+    position: relative;
+    width: 46%;
+    flex: none;
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .pane {
+    position: absolute;
+    inset: 0;
+    padding: 12px 0;
+    counter-reset: line;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .3s ease, visibility .3s;
+  }
+
+  .pane.active { opacity: 1; visibility: visible; }
+
+  .ln {
+    display: flex;
+    height: 20px;
+    line-height: 20px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    white-space: pre;
+    padding-right: 14px;
+    opacity: 0;
+    transform: translateY(3px);
+    transition: opacity .42s ease, transform .42s ease, background .42s ease, box-shadow .42s ease;
+  }
+
+  .ln::before {
+    counter-increment: line;
+    content: counter(line, decimal-leading-zero);
+    width: 38px;
+    flex: none;
+    padding-right: 12px;
+    text-align: right;
+    font-size: 10.5px;
+    color: var(--dim);
+    transition: color .42s ease;
+  }
+
+  .ln .code { color: var(--text); }
+
+  .ln.on { opacity: 1; transform: none; }
+
+  .ln.current {
+    background: var(--accent-soft);
+    box-shadow: inset 2px 0 0 var(--accent);
+  }
+
+  .ln.current::before { color: #2563eb; }
+
+  .ln.dim { opacity: .26; }
+
+  .k { color: var(--kw); }
+  .t { color: var(--type); }
+  .s { color: var(--str); }
+  .f { color: var(--fn); }
+  .c { color: var(--cmt); font-style: italic; }
+  .tg { color: var(--tag); }
+  .at { color: var(--type); }
+
+  .caret {
+    display: inline-block;
+    width: 6px;
+    height: 13px;
+    margin-left: 1px;
+    vertical-align: -2px;
+    background: var(--accent);
+    animation: blink 1.05s step-end infinite;
+  }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  /* ---------- preview ---------- */
+
+  .preview {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background: var(--panel-2);
+  }
+
+  .pv-toolbar {
+    height: 34px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 14px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .pv-toolbar .file { color: var(--text); }
+
+  .pv-toolbar .sep { color: var(--dim); }
+
+  .pv-toolbar .right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+  .pv-stage {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    display: grid;
+    place-items: center;
+    padding: 16px;
+  }
+
+  /* ---------- terminal (step 1) ---------- */
+
+  .terminal {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .4s ease, visibility .4s;
+  }
+
+  .term-card {
+    width: 100%;
+    max-width: 470px;
+    padding: 14px 16px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 21px;
+    color: var(--text);
+  }
+
+  .term-line {
+    opacity: 0;
+    transform: translateY(3px);
+    white-space: pre;
+  }
+
+  .term-on .terminal { opacity: 1; visibility: visible; }
+
+  .term-on .term-line { animation: lineIn .45s ease forwards; }
+
+  .term-on .term-line:nth-child(1) { animation-delay: .20s; }
+  .term-on .term-line:nth-child(2) { animation-delay: .40s; }
+  .term-on .term-line:nth-child(3) { animation-delay: .58s; }
+  .term-on .term-line:nth-child(4) { animation-delay: .74s; }
+  .term-on .term-line:nth-child(5) { animation-delay: .90s; }
+  .term-on .term-line:nth-child(6) { animation-delay: 1.06s; }
+  .term-on .term-line:nth-child(7) { animation-delay: 1.26s; }
+
+  @keyframes lineIn {
+    to { opacity: 1; transform: none; }
+  }
+
+  .term-line .cmd { color: var(--text-strong); }
+  .term-line .pr { color: var(--accent); }
+  .term-line .ok { color: #1a7f37; }
+  .term-line .dim2 { color: var(--muted); }
+
+  /* ---------- paper ---------- */
+
+  .paper-wrap {
+    position: relative;
+    opacity: 0;
+    transform: translateY(10px) scale(.988);
+    transition: opacity .5s cubic-bezier(.22, .61, .36, 1), transform .5s cubic-bezier(.22, .61, .36, 1);
+  }
+
+  .paper-on .paper-wrap { opacity: 1; transform: none; }
+
+  .paper {
+    position: relative;
+    width: 332px;
+    height: 470px;
+    background: #fff;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, .10), 0 0 0 1px #e3e8ef;
+    color: #1f2328;
+    transition: box-shadow .6s ease;
+  }
+
+  .paper.done {
+    box-shadow: 0 12px 34px rgba(15, 23, 42, .14), 0 0 0 1px rgba(37, 99, 235, .45);
+  }
+
+  /* watermark */
+
+  .wm {
+    position: absolute;
+    inset: -30%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    gap: 54px 8px;
+    transform: rotate(-30deg);
+    opacity: 0;
+    transition: opacity .85s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .wm span {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1.2px;
+    text-align: center;
+    color: #2563eb;
+    white-space: nowrap;
+  }
+
+  .paper.watermarked .wm { opacity: .14; }
+
+  /* sheets */
+
+  .sheet {
+    position: absolute;
+    inset: 0;
+    padding: 20px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    transition: opacity .42s ease;
+    z-index: 1;
+    background: #fff;
+  }
+
+  .sheet.toc { opacity: 0; }
+
+  .paper.toc .sheet.main { opacity: 0; }
+  .paper.toc .sheet.toc { opacity: 1; }
+
+  .p-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .p-head .brand {
+    font-family: var(--mono);
+    font-size: 8px;
+    letter-spacing: 1.6px;
+    color: #2563eb;
+    font-weight: 600;
+  }
+
+  .p-head .p-date { font-size: 7.5px; color: #9ca3af; letter-spacing: .4px; }
+
+  h1 {
+    margin: 14px 0 4px;
+    font-size: 15px;
+    line-height: 1.3;
+    letter-spacing: .2px;
+    color: #111827;
+  }
+
+  .p-sub { margin: 0; font-size: 7.5px; color: #9ca3af; letter-spacing: .2px; }
+
+  .p-stats {
+    display: flex;
+    gap: 8px;
+    margin: 14px 0 12px;
+  }
+
+  .p-stats > div {
+    flex: 1;
+    padding: 7px 8px;
+    border-radius: 3px;
+    background: #f6f8fb;
+    border: 1px solid #e8edf3;
+  }
+
+  .p-stats b {
+    display: block;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: #111827;
+    letter-spacing: -.3px;
+  }
+
+  .p-stats span {
+    display: block;
+    margin-top: 2px;
+    font-size: 7px;
+    color: #8b95a1;
+  }
+
+  /* chart */
+
+  .p-chart { margin-top: 2px; }
+
+  .chart-title {
+    font-size: 7.5px;
+    color: #6b7280;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .chart-title .unit { color: #b0b7c0; }
+
+  .bars {
+    position: relative;
+    height: 86px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    padding: 0 4px 0 2px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .bars::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 1px;
+    background: repeating-linear-gradient(to top, #eef1f5 0 1px, transparent 1px 21px);
+    opacity: .9;
+  }
+
+  .bars i {
+    position: relative;
+    flex: 1;
+    height: var(--h);
+    border-radius: 2px 2px 0 0;
+    background: linear-gradient(180deg, #3b82f6, #2563eb);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform .7s cubic-bezier(.22, .61, .36, 1);
+  }
+
+  .bars i:nth-child(1) { transition-delay: .10s; }
+  .bars i:nth-child(2) { transition-delay: .20s; }
+  .bars i:nth-child(3) { transition-delay: .30s; }
+  .bars i:nth-child(4) { transition-delay: .40s; }
+  .bars i:nth-child(5) { transition-delay: .50s; }
+
+  .bars i.last { background: linear-gradient(180deg, #60a5fa, #3b82f6); }
+
+  .paper.chart .bars i { transform: scaleY(1); }
+
+  .x-axis {
+    display: flex;
+    gap: 10px;
+    padding: 5px 4px 0 2px;
+    font-family: var(--mono);
+    font-size: 7px;
+    color: #9ca3af;
+  }
+
+  .x-axis span { flex: 1; text-align: center; }
+
+  .p-lines { margin-top: 14px; display: flex; flex-direction: column; gap: 7px; }
+
+  .p-lines i {
+    display: block;
+    height: 4px;
+    border-radius: 2px;
+    background: #eef1f5;
+  }
+
+  .p-lines i:nth-child(1) { width: 100%; }
+  .p-lines i:nth-child(2) { width: 92%; }
+  .p-lines i:nth-child(3) { width: 64%; }
+
+  .p-foot {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid #eef1f5;
+    font-size: 7px;
+    color: #a8b0ba;
+    letter-spacing: .3px;
+  }
+
+  /* table of contents */
+
+  h2 {
+    margin: 14px 0 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #111827;
+  }
+
+  .toc-rule {
+    width: 32px;
+    height: 2px;
+    margin: 8px 0 16px;
+    background: #2563eb;
+    border-radius: 1px;
+  }
+
+  .toc-list { list-style: none; margin: 0; padding: 0; }
+
+  .toc-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 9px 0;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity .45s ease, transform .45s ease;
+  }
+
+  .paper.toc .toc-list li { opacity: 1; transform: none; }
+  .paper.toc .toc-list li:nth-child(1) { transition-delay: .15s; }
+  .paper.toc .toc-list li:nth-child(2) { transition-delay: .27s; }
+  .paper.toc .toc-list li:nth-child(3) { transition-delay: .39s; }
+  .paper.toc .toc-list li:nth-child(4) { transition-delay: .51s; }
+
+  .toc-list .n {
+    font-family: var(--mono);
+    font-size: 8px;
+    color: #2563eb;
+  }
+
+  .toc-list .t2 { font-size: 9.5px; color: #1f2328; }
+
+  .toc-list .dot {
+    flex: 1;
+    border-bottom: 1px dotted #d5dbe3;
+    transform: translateY(-2px);
+  }
+
+  .toc-list .p {
+    font-family: var(--mono);
+    font-size: 8px;
+    color: #9ca3af;
+  }
+
+  /* seal */
+
+  .seal {
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+    width: 88px;
+    height: 88px;
+    opacity: 0;
+    transform: scale(1.5) rotate(-16deg);
+    transition: opacity .45s ease, transform .55s cubic-bezier(.22, .61, .36, 1);
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .paper.sealed .seal {
+    opacity: .82;
+    transform: scale(1) rotate(-9deg);
+  }
+
+  /* bookmarks */
+
+  .bookmarks {
+    position: absolute;
+    left: 100%;
+    top: 96px;
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .bookmarks b {
+    display: block;
+    padding: 4px 8px;
+    font-family: var(--mono);
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: .6px;
+    color: #1d4ed8;
+    background: rgba(37, 99, 235, .07);
+    border: 1px solid rgba(37, 99, 235, .25);
+    border-left: 2px solid var(--accent);
+    border-radius: 0 3px 3px 0;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity .45s ease, transform .45s ease;
+    white-space: nowrap;
+  }
+
+  .paper-on .paper.toc ~ .bookmarks b { opacity: 1; transform: none; }
+
+  .bookmarks b:nth-child(1) { transition-delay: .18s; }
+  .bookmarks b:nth-child(2) { transition-delay: .28s; }
+  .bookmarks b:nth-child(3) { transition-delay: .38s; }
+
+  /* done badge */
+
+  .badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border-radius: 4px;
+    background: #ecfdf3;
+    border: 1px solid #a6f4c5;
+    font-family: var(--mono);
+    font-size: 9.5px;
+    color: #067647;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity .45s ease, transform .45s ease;
+    z-index: 4;
+  }
+
+  .badge::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #3fb950;
+  }
+
+  .paper.done .badge { opacity: 1; transform: none; }
+
+  /* ---------- status bar ---------- */
+
+  .statusbar {
+    height: 26px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 14px;
+    background: var(--panel);
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+
+  .sb-left { display: flex; align-items: center; gap: 8px; }
+
+  .sb-left .pip {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .16);
+  }
+
+  .sb-right { display: flex; gap: 14px; color: #9aa2ae; }
+
+  .progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background: rgba(37, 99, 235, .12);
+  }
+
+  .progress i {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    animation: run var(--total, 20s) linear infinite;
+  }
+
+  @keyframes run { to { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="app" id="app">
+
+  <div class="titlebar">
+    <div class="dots"><i></i><i></i><i></i></div>
+    <div class="tabs">
+      <div class="tab" id="tab-pom">pom.xml</div>
+      <div class="tab active" id="tab-java">Demo.java</div>
+    </div>
+    <div class="tb-right">jquick-pdf <span class="ver">5.2.0</span></div>
+  </div>
+
+  <div class="workspace">
+
+    <section class="editor">
+      <div class="pane" id="pane-pom">
+        <div class="ln"><span class="code"><span class="tg">&lt;dependency&gt;</span></span></div>
+        <div class="ln"><span class="code">  <span class="tg">&lt;groupId&gt;</span>io.github.paohaijiao<span class="tg">&lt;/groupId&gt;</span></span></div>
+        <div class="ln"><span class="code">  <span class="tg">&lt;artifactId&gt;</span>jquick-pdf-svg<span class="tg">&lt;/artifactId&gt;</span></span></div>
+        <div class="ln"><span class="code">  <span class="tg">&lt;version&gt;</span>5.2.0<span class="tg">&lt;/version&gt;</span></span></div>
+        <div class="ln"><span class="code"><span class="tg">&lt;/dependency&gt;</span></span></div>
+        <div class="ln"><span class="code"></span></div>
+        <div class="ln"><span class="code"><span class="c">&lt;!-- 引擎：PDFBox 3.x · 绘图：Batik 1.19 --&gt;</span></span></div>
+        <div class="ln"><span class="code"><span class="c">&lt;!-- 许可：Apache-2.0 --&gt;</span></span></div>
+      </div>
+
+      <div class="pane active" id="pane-java">
+        <div class="ln"><span class="code"><span class="t">JPdfConfig</span> config = <span class="k">new</span> <span class="t">JPdfConfig</span>();</span></div>
+        <div class="ln"><span class="code">config.<span class="f">getLayoutConfig</span>().<span class="f">setFlexLayout</span>(<span class="k">true</span>);</span></div>
+        <div class="ln"><span class="code"></span></div>
+        <div class="ln"><span class="code"><span class="t">JQuickPdfFactory</span> factory = <span class="k">new</span> <span class="t">JQuickPdfFactory</span>(config);</span></div>
+        <div class="ln"><span class="code"><span class="t">JReader</span> tpl = <span class="k">new</span> <span class="t">JReSourceFileReader</span>(<span class="s">"report.txt"</span>);</span></div>
+        <div class="ln"><span class="code"></span></div>
+        <div class="ln"><span class="code"><span class="c">// ② Batik 渲染的 SVG 图表绑定到页面</span></span></div>
+        <div class="ln"><span class="code"><span class="t">JGraphContainer</span> chart = <span class="k">new</span> <span class="t">JGraphContainer</span>();</span></div>
+        <div class="ln"><span class="code">chart.<span class="f">setType</span>(<span class="t">JChartType</span>.BAR);</span></div>
+        <div class="ln"><span class="code">factory.<span class="f">bind</span>(<span class="s">"chart"</span>, <span class="t">JChartRendererFactory</span></span></div>
+        <div class="ln"><span class="code">        .<span class="f">renderChart</span>(<span class="t">JChartType</span>.BAR, option));</span></div>
+        <div class="ln"><span class="code"></span></div>
+        <div class="ln"><span class="code"><span class="c">// ③ 半透明文字水印</span></span></div>
+        <div class="ln"><span class="code">config.<span class="f">setWatermark</span>(<span class="t">JWatermark</span>.<span class="f">of</span>(<span class="s">"CONFIDENTIAL"</span>)</span></div>
+        <div class="ln"><span class="code">        .<span class="f">opacity</span>(<span class="s">0.12f</span>).<span class="f">angle</span>(-<span class="s">30f</span>));</span></div>
+        <div class="ln"><span class="code"></span></div>
+        <div class="ln"><span class="code"><span class="c">// ④ 目录与书签</span></span></div>
+        <div class="ln"><span class="code">config.<span class="f">getTocConfig</span>().<span class="f">setEnabled</span>(<span class="k">true</span>);</span></div>
+        <div class="ln"><span class="code">config.<span class="f">setBookmarks</span>(<span class="k">true</span>);</span></div>
+        <div class="ln"><span class="code"></span></div>
+        <div class="ln"><span class="code"><span class="c">// ⑤ 自定义电子签章</span></span></div>
+        <div class="ln"><span class="code">factory.<span class="f">bind</span>(<span class="s">"seal"</span>, sealImage);</span></div>
+        <div class="ln"><span class="code"></span></div>
+        <div class="ln"><span class="code"><span class="k">byte</span>[] pdf = factory.<span class="f">executeContent</span>(tpl.<span class="f">getRuleContent</span>());</span></div>
+      </div>
+    </section>
+
+    <section class="preview">
+      <div class="pv-toolbar">
+        <span class="file" id="pvFile">dependency:tree</span>
+        <span class="sep">·</span>
+        <span id="pvMeta">jquick-pdf-svg</span>
+        <span class="right"><span id="pvPage">—</span></span>
+      </div>
+
+      <div class="pv-stage">
+
+        <div class="terminal">
+          <div class="term-card">
+            <div class="term-line"><span class="pr">$</span> <span class="cmd">mvn -q dependency:tree</span></div>
+            <div class="term-line"><span class="dim2">[INFO]</span> io.github.paohaijiao:jquick-pdf-svg:5.2.0</div>
+            <div class="term-line"><span class="dim2">[INFO]</span> +- org.apache.pdfbox:pdfbox:3.0.3</div>
+            <div class="term-line"><span class="dim2">[INFO]</span> +- org.apache.batik:batik-svggen:1.19</div>
+            <div class="term-line"><span class="dim2">[INFO]</span> +- io.github.paohaijiao:jquick-pdf-font:5.2.0</div>
+            <div class="term-line"><span class="ok">[INFO] BUILD SUCCESS</span> <span class="dim2">· 3 个依赖 · 0 冲突</span></div>
+            <div class="term-line"><span class="dim2">[INFO]</span> Apache-2.0 · Java 8+ · 纯 JVM，无外部引擎</div>
+          </div>
+        </div>
+
+        <div class="paper-wrap">
+          <div class="paper" id="paper">
+
+            <div class="wm" id="wm"></div>
+
+            <div class="sheet main">
+              <div class="p-head">
+                <span class="brand">JQUICK</span>
+                <span class="p-date">2026 / Q4</span>
+              </div>
+              <h1>年度经营分析报告</h1>
+              <p class="p-sub">数据截至 2026-11-30 · 单位：亿元</p>
+
+              <div class="p-stats">
+                <div><b>48.2</b><span>营业收入</span></div>
+                <div><b>+18.4%</b><span>同比增长</span></div>
+                <div><b>1,286</b><span>活跃客户</span></div>
+              </div>
+
+              <div class="p-chart">
+                <div class="chart-title"><span>季度营收</span><span class="unit">亿元</span></div>
+                <div class="bars">
+                  <i style="--h:52%"></i>
+                  <i style="--h:68%"></i>
+                  <i style="--h:61%"></i>
+                  <i style="--h:84%"></i>
+                  <i class="last" style="--h:96%"></i>
+                </div>
+                <div class="x-axis"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>预测</span></div>
+              </div>
+
+              <div class="p-lines"><i></i><i></i><i></i></div>
+
+              <div class="p-foot">
+                <span>jquick.org · 自动生成</span>
+                <span>1 / 3</span>
+              </div>
+            </div>
+
+            <div class="sheet toc">
+              <div class="p-head">
+                <span class="brand">CONTENTS</span>
+                <span class="p-date">2026 / Q4</span>
+              </div>
+              <h2>目录</h2>
+              <div class="toc-rule"></div>
+              <ul class="toc-list">
+                <li><span class="n">01</span><span class="t2">经营概览</span><span class="dot"></span><span class="p">1</span></li>
+                <li><span class="n">02</span><span class="t2">收入结构分析</span><span class="dot"></span><span class="p">3</span></li>
+                <li><span class="n">03</span><span class="t2">区域表现</span><span class="dot"></span><span class="p">6</span></li>
+                <li><span class="n">04</span><span class="t2">风险提示与建议</span><span class="dot"></span><span class="p">9</span></li>
+              </ul>
+              <div class="p-foot">
+                <span>jquick.org · 自动生成</span>
+                <span>2 / 3</span>
+              </div>
+            </div>
+
+            <svg class="seal" viewBox="0 0 100 100" aria-label="电子签章">
+              <defs>
+                <path id="arc" d="M 50,50 m -33,0 a 33,33 0 1,1 66,0" fill="none"></path>
+              </defs>
+              <circle cx="50" cy="50" r="45" fill="none" stroke="#d32f2f" stroke-width="2.6"></circle>
+              <circle cx="50" cy="50" r="38" fill="none" stroke="#d32f2f" stroke-width="0.9"></circle>
+              <text x="50" y="50" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="600" font-size="11" fill="#d32f2f" letter-spacing="2">
+                <textPath href="#arc" startOffset="50%">JQUICK</textPath>
+              </text>
+              <path d="M50 33 L54.6 46.4 L68.7 46.6 L57.4 55 L61.6 68.6 L50 60.4 L38.4 68.6 L42.6 55 L31.3 46.6 L45.4 46.4 Z"
+                    fill="#d32f2f"></path>
+              <text x="50" y="78" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="8" fill="#d32f2f" letter-spacing="1.4">电子签章</text>
+              <text x="50" y="88" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="5.4" fill="#d32f2f" letter-spacing=".6">2026-11-08</text>
+            </svg>
+
+            <div class="badge">PDF 已生成 · 3 页 · 218 KB</div>
+          </div>
+
+          <div class="bookmarks">
+            <b>概览</b>
+            <b>收入结构</b>
+            <b>风险</b>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <div class="statusbar">
+    <div class="sb-left"><span class="pip"></span><span id="sbStep">步骤 1 / 6 · 引入 Maven 依赖</span></div>
+    <div class="sb-right">
+      <span>UTF-8</span><span>LF</span><span>Java 8</span><span id="sbLine">Ln 1, Col 1</span>
+    </div>
+  </div>
+
+  <div class="progress"><i id="progressBar"></i></div>
+</div>
+
+<script>
+(function () {
+  var app = document.getElementById('app');
+  var paper = document.getElementById('paper');
+  var tabPom = document.getElementById('tab-pom');
+  var tabJava = document.getElementById('tab-java');
+  var panePom = document.getElementById('pane-pom');
+  var paneJava = document.getElementById('pane-java');
+  var sbStep = document.getElementById('sbStep');
+  var sbLine = document.getElementById('sbLine');
+  var pvFile = document.getElementById('pvFile');
+  var pvMeta = document.getElementById('pvMeta');
+  var pvPage = document.getElementById('pvPage');
+  var progressBar = document.getElementById('progressBar');
+  var wm = document.getElementById('wm');
+
+  for (var i = 0; i < 27; i++) {
+    var span = document.createElement('span');
+    span.textContent = 'CONFIDENTIAL';
+    wm.appendChild(span);
+  }
+
+  var POM_LINES = 8;
+  var JAVA_LINES = 24;
+
+  var STEPS = [
+    { label: '步骤 1 / 6 · 引入 Maven 依赖', tab: 'pom', lines: POM_LINES, dur: 3000,
+      file: 'dependency:tree', meta: 'jquick-pdf-svg', page: '—', line: 'Ln 12, Col 1' },
+    { label: '步骤 2 / 6 · Batik 将 SVG 渲染进 PDF', tab: 'java', lines: 11, dur: 3600,
+      file: 'report.pdf', meta: 'A4 · 3 页', page: '1 / 3', line: 'Ln 11, Col 46', chart: true },
+    { label: '步骤 3 / 6 · 添加半透明文字水印', tab: 'java', lines: 15, dur: 3000,
+      file: 'report.pdf', meta: 'A4 · 3 页', page: '1 / 3', line: 'Ln 15, Col 38', chart: true, wm: true },
+    { label: '步骤 4 / 6 · 自动生成目录与书签', tab: 'java', lines: 19, dur: 3400,
+      file: 'report.pdf', meta: 'A4 · 3 页', page: '2 / 3', line: 'Ln 19, Col 33', chart: true, wm: true, toc: true },
+    { label: '步骤 5 / 6 · 添加自定义电子签章', tab: 'java', lines: 22, dur: 3000,
+      file: 'report.pdf', meta: 'A4 · 3 页', page: '1 / 3', line: 'Ln 22, Col 36', chart: true, wm: true, seal: true },
+    { label: '步骤 6 / 6 · 输出成品 PDF', tab: 'java', lines: 24, dur: 3600,
+      file: 'report.pdf', meta: 'A4 · 3 页 · 218 KB', page: '1 / 3', line: 'Ln 24, Col 62', chart: true, wm: true, seal: true, done: true }
+  ];
+
+  var GAP = 900;
+  var total = STEPS.reduce(function (sum, s) { return sum + s.dur; }, 0) + GAP;
+  document.documentElement.style.setProperty('--total', total + 'ms');
+
+  function setTab(name) {
+    var isPom = name === 'pom';
+    tabPom.classList.toggle('active', isPom);
+    tabJava.classList.toggle('active', !isPom);
+    panePom.classList.toggle('active', isPom);
+    paneJava.classList.toggle('active', !isPom);
+  }
+
+  function revealLines(pane, count) {
+    var lines = pane.children;
+    var caret = pane.querySelector('.caret');
+    if (caret) { caret.parentNode.removeChild(caret); }
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i];
+      line.classList.remove('on', 'current', 'dim');
+      if (i < count) {
+        line.classList.add('on');
+        if (i === count - 1 && count > 0) {
+          line.classList.add('current');
+          var codeEl = line.querySelector('.code') || line;
+          var cursor = document.createElement('i');
+          cursor.className = 'caret';
+          codeEl.appendChild(cursor);
+        }
+      } else {
+        line.classList.add('dim');
+      }
+    }
+  }
+
+  function reset() {
+    app.classList.remove('term-on', 'paper-on');
+    paper.classList.remove('chart', 'watermarked', 'toc', 'sealed', 'done');
+    setTab('pom');
+    revealLines(panePom, 0);
+    revealLines(paneJava, 0);
+  }
+
+  function apply(index) {
+    var step = STEPS[index];
+
+    setTab(step.tab);
+    revealLines(step.tab === 'pom' ? panePom : paneJava, step.lines);
+
+    sbStep.textContent = step.label;
+    sbLine.textContent = step.line;
+    pvFile.textContent = step.file;
+    pvMeta.textContent = step.meta;
+    pvPage.textContent = step.page;
+
+    if (step.tab === 'pom') {
+      app.classList.add('term-on');
+      app.classList.remove('paper-on');
+    } else {
+      app.classList.remove('term-on');
+      app.classList.add('paper-on');
+    }
+
+    if (step.chart) { paper.classList.add('chart'); }
+    if (step.wm) { paper.classList.add('watermarked'); }
+    if (step.toc) { paper.classList.add('toc'); }
+    if (step.seal) {
+      paper.classList.remove('toc');
+      paper.classList.add('sealed');
+    }
+    if (step.done) { paper.classList.add('done'); }
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var freeze = params.get('step');
+  var SCALE = Math.max(1, parseFloat(params.get('scale')) || 1);
+  STEPS.forEach(function (s) { s.dur = Math.round(s.dur * SCALE); });
+  GAP = Math.round(GAP * SCALE);
+  document.documentElement.style.setProperty('--total', total + 'ms');
+
+  if (freeze !== null) {
+    var index = Math.max(0, Math.min(STEPS.length - 1, parseInt(freeze, 10) || 0));
+    progressBar.style.animation = 'none';
+    progressBar.style.width = ((index + 1) / STEPS.length * 100) + '%';
+    apply(index);
+    return;
+  }
+
+  var current = 0;
+  var timer = null;
+
+  function loop() {
+    reset();
+    current = 0;
+    tick();
+  }
+
+  function tick() {
+    if (current >= STEPS.length) {
+      timer = setTimeout(loop, GAP);
+      return;
+    }
+    apply(current);
+    timer = setTimeout(function () {
+      current += 1;
+      tick();
+    }, STEPS[current].dur);
+  }
+
+  loop();
+})();
+</script>
+</body>
+</html>

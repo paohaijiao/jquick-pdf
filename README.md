@@ -45,64 +45,20 @@
 
 - [Introduction](#introduction)
 - [Features](#features)
-- [Multilingual Support](#multilingual-support)
-  - [Supported languages](#supported-languages)
-  - [What the language packs actually handle](#what-the-language-packs-actually-handle)
-  - [Rendering a multilingual report](#rendering-a-multilingual-report)
 - [Quick Start](#quick-start)
   - [Requirements](#requirements)
   - [Modules](#modules)
-  - [Maven dependency — 4.0.0 and above (Apache-2.0)](#maven-dependency--401-and-above-apache-20)
-  - [Maven dependency — 4.0.0  below (AGPL-3.0, iText 7)](#maven-dependency--400-and-below-agpl-30-itext-7)
+  - [Maven dependency — 4.0.0 and above (Apache-2.0)](#maven-dependency--4000-and-above-apache-20)
+  - [Maven dependency — 4.0.0 and below (AGPL-3.0, iText 7)](#maven-dependency--4000-and-below-agpl-30-itext-7)
   - [Hello world](#hello-world)
+- [Multilingual Support](#multilingual-support)
 - [Demo Gallery](#demo-gallery)
   - [Demo groups at a glance](#demo-groups-at-a-glance)
-  - [Image index: image → test class → method](#image-index-image--test-class--method)
-    - [1. Bar chart](#1-bar-chart--imagesbarchartsvg)
-    - [2. Line chart](#2-line-chart--imagesline_chartsvg)
-    - [3. Pie chart](#3-pie-chart--imagespie-chartsvg)
-    - [4. Radar chart](#4-radar-chart--imagesradar_chartsvg)
-    - [5. Box plot](#5-box-plot--imagesboxchartsvg)
-    - [6. Heat map](#6-heat-map--imagesheatmapsvg)
-    - [7. K-line (candlestick)](#7-k-line-candlestick--imagesk_chartsvg)
-    - [8. Scatter](#8-scatter--imagesscattersvg)
-    - [9. Bubble](#9-bubble--imagesbubblesvg)
-    - [10. Funnel](#10-funnel--imagesfunnelsvg)
-    - [11. Gauge](#11-gauge--imagesgaugesvg)
-    - [12. Gantt](#12-gantt--imagesganttsvg)
-    - [13. Calendar](#13-calendar--imagescalendarsvg)
-    - [14. Lunar calendar](#14-lunar-calendar--imageslunarsvg)
-    - [15. Word cloud](#15-word-cloud--imageswordcloudsvg)
-    - [16. Geo map](#16-geo-map--imagesgeosvg)
-    - [17. Relation graph](#17-relation-graph--imagesrelation_chartsvg)
-    - [18. Sunburst](#18-sunburst--imagessunburstsvg)
-    - [19. Treemap](#19-treemap--imagestreemapsvg)
-    - [20. Correlation matrix](#20-correlation-matrix--imagesmatrixsvg)
-    - [21. Stacked area](#21-stacked-area--imagesareasvg)
-    - [22. Line + bar combo](#22-line--bar-combo--imageslinebarsvg)
-    - [23. Multi line](#23-multi-line--imagesmultiplelinesvg)
-    - [24. Multi bar](#24-multi-bar--imagesfourbarsvg)
-    - [25. Horizontal bar](#25-horizontal-bar--imageshorizontalbarsvg)
-    - [26. Multi horizontal bar](#26-multi-horizontal-bar--imagesmhbarchartsvg)
-    - [27. Double radar](#27-double-radar--imagestworadarsvg)
-    - [28. Line + scatter](#28-line--scatter--imageslineradarsvg)
-    - [29. Circle / ring](#29-circle--ring--imagescircle-chartsvg)
-    - [30. Timeline](#30-timeline--imagestimelinesvg)
-    - [31. Advanced topology (microservice)](#31-advanced-topology-microservice--imagesadvance_topologysvg)
-    - [32. Cloud architecture topology](#32-cloud-architecture-topology--imagestoplogycloud_architecturesvg)
-    - [33. Data center topology](#33-data-center-topology--imagestoplogydatacenter_topologysvg)
-    - [34. Enterprise network topology](#34-enterprise-network-topology--imagestoplogyenterprise_networksvg)
-    - [35. Manual-layout topology](#35-manual-layout-topology--imagestoplogymanual_layout_topologysvg)
-    - [36. Credit report page](#36-credit-report-page--imagescredit_reportpng)
-    - [37. Polar chart](#37-polar-chart--imagespolarsvg)
-    - [38. Theme river](#38-theme-river--imagestheme_riversvg)
-    - [39. Progress bar](#39-progress-bar--imagesprogresssvg)
-    - [40. Sankey diagram](#40-sankey-diagram--imagessankeysvg)
-    - [41. Radial tree](#41-radial-tree--imagesradial_treesvg)
+  - [Chart gallery: image → test class → code](#chart-gallery-image--test-class--code)
   - [Demo 1 — Enterprise credit rating report (composite)](#demo-1--enterprise-credit-rating-report-composite)
   - [Demo 2 — Bar chart (chart module)](#demo-2--bar-chart-chart-module)
   - [Demo 3 — SVG chart embedded into a PDF page](#demo-3--svg-chart-embedded-into-a-pdf-page)
-  - [Element and style reference](#element-and-style-reference)
+- [Element and Style Reference](#element-and-style-reference)
 - [Version Matrix](#version-matrix)
 - [License](#license)
 - [Contribution Guide](#contribution-guide)
@@ -121,7 +77,7 @@ The toolkit covers two layers:
 - **Chart layer** (`jquick-pdf-svg`): 30+ chart types (bar, line, pie, radar, scatter, boxplot, heatmap, K-line, funnel, gauge, gantt, word cloud, geo map, sunburst, treemap, bubble, calendar, timeline, topology, theme river, radial tree and more) rendered as vector graphics — bound into a document with a single placeholder.
 
 > **License boundary — read [Version Matrix](#version-matrix) before shipping.**
-> below **4.0.0** is **AGPL-3.0** (iText 7 based). Version **4.0.0 and above** is **Apache-2.0** (migrated to Apache PDFBox, AGPL dependency removed).
+> Versions **below 4.0.0** are **AGPL-3.0** (iText 7 based); version **4.0.0 and above** is **Apache-2.0** (migrated to Apache PDFBox, AGPL dependency removed).
 
 ## Features
 
@@ -136,6 +92,100 @@ The toolkit covers two layers:
 - **25 languages out of the box** — 25 hand-built report templates, each with its own layout and palette: Arabic, Hebrew, Persian and Uyghur in RTL; Bengali, Tamil, Thai, Tibetan and Dai with complex shaping; Manchu and Mongolian vertical; four CJK variants; Latin with full diacritics. All 13 fonts are bundled — see [Multilingual Support](#multilingual-support).
 - **Small, modular artifacts** — depend on the parser/renderer only, then add charts, CSS or fonts as needed.
 - **Java 8 compatible** — released artifacts target Java 8 bytecode.
+
+## Quick Start
+
+### Requirements
+
+| Item | Version |
+|---|---|
+| JDK | 8 or higher |
+| Maven | 3.6 or higher (only needed to build from source) |
+| Runtime dependencies | Apache PDFBox 3.0.x, SLF4J API (resolved transitively); the template parser ships inside `jquick-pdfx` |
+
+> Releases are compiled to **Java 8 bytecode** (`maven.compiler.source/target = 8`), so the same jar runs unchanged on **JDK 8, 11, 17 and 21** — no extra JVM flags, no native library, no `--add-opens`.
+
+### Modules
+
+| Module (directory) | Artifact | Description |
+|---|---|---|
+| `jquick-pdfx` | `io.github.paohaijiao:jquick-pdfx` | Parser, renderers, layout engine and the entry point `JQuickPdfFactory`. Most users only need this artifact. |
+| `jquick-pdf-css` | `io.github.paohaijiao:jquick-pdf-css` | CSS model: style attributes, units and colors. |
+| `jquick-pdf-svg` | `io.github.paohaijiao:jquick-pdf-svg` | SVG / ECharts-style chart generation (30+ chart types). |
+| `jquick-pdf-data` | `io.github.paohaijiao:jquick-pdf-data` | Chart option model (`JOption`, `JChart`, `JTitle`, `JLegend`, ...). |
+| `jquick-pdf-font` | `io.github.paohaijiao:jquick-pdf-font` | Bundled CJK font resources. |
+
+### Maven dependency — 4.0.0 and above (Apache-2.0)
+
+```xml
+<dependency>
+    <groupId>io.github.paohaijiao</groupId>
+    <artifactId>jquick-pdfx</artifactId>
+    <version>4.0.0</version>
+</dependency>
+```
+
+Chart support (optional):
+
+```xml
+<dependency>
+    <groupId>io.github.paohaijiao</groupId>
+    <artifactId>jquick-pdf-svg</artifactId>
+    <version>4.0.0</version>
+</dependency>
+```
+
+### Maven dependency — 4.0.0 and below (AGPL-3.0, iText 7)
+
+```xml
+<dependency>
+    <groupId>io.github.paohaijiao</groupId>
+    <artifactId>jquick-pdfx</artifactId>
+    <version>3.1.0</version>
+</dependency>
+```
+
+> **License risk:** 4.0.0 and below are licensed under **AGPL-3.0** because they depend on **iText 7 Core**. Using them in a closed-source product requires full AGPL compliance or a commercial license from iText Group NV. PDFs produced by these versions carry the `Powered by iText` notice.
+> Migrate to **4.0.0 or later** to get **Apache-2.0** and drop the obligation — see [License](#license).
+
+### Hello world
+
+```java
+import com.github.paohaijiao.executor.JQuickPdfFactory;
+
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class HelloDemo {
+
+    public static void main(String[] args) throws Exception {
+        String template = ""
+                + "<pdf>"
+                + "  <body>"
+                + "    <h1 style=\"fontSize:24;fontColor:blue\">'Hello jquick-pdf'</h1>"
+                + "    <p>'Customer: '${customer}</p>"
+                + "  </body>"
+                + "</pdf>";
+
+        byte[] pdf = JQuickPdfFactory.create()
+                .bind("customer", "Martin")
+                .executeContent(template);
+
+        Files.write(Paths.get("hello.pdf"), pdf);
+    }
+}
+```
+
+Three ways to feed a template, all returning `byte[]`:
+
+| Method | Source |
+|---|---|
+| `executeContent(String)` | template text in memory |
+| `executeResource(String)` | classpath resource, e.g. `"report.txt"` |
+| `executeFile(String)` | file on disk, e.g. `"D:/templates/report.txt"` |
+
+Text nodes are always single-quoted (`'Hello jquick-pdf'`); `<pdf>` and `<html>` are both accepted as the document root.
+
 
 ## Multilingual Support
 
@@ -215,98 +265,6 @@ mvn test -pl jquick-pdfx -Dtest=I18n196KoreanTest -Dsurefire.failIfNoSpecifiedTe
 
 > Multilingual rendering requires **jquick-pdf 4.4.0 or later** — earlier versions lack the font fallback chain and RTL layout support. The full gallery, with full-page screenshots for every language, is published at [www.jquick.org/jquick-pdf](https://www.jquick.org/jquick-pdf/#demo-i18n185).
 
-## Quick Start
-
-### Requirements
-
-| Item | Version |
-|---|---|
-| JDK | 8 or higher |
-| Maven | 3.6 or higher (only needed to build from source) |
-| Runtime dependencies | Apache PDFBox 3.0.x, SLF4J API (resolved transitively); the template parser ships inside `jquick-pdfx` |
-
-> Releases are compiled to **Java 8 bytecode** (`maven.compiler.source/target = 8`), so the same jar runs unchanged on **JDK 8, 11, 17 and 21** — no extra JVM flags, no native library, no `--add-opens`.
-
-### Modules
-
-| Module (directory) | Artifact | Description |
-|---|---|---|
-| `jquick-pdfx` | `io.github.paohaijiao:jquick-pdfx` | Parser, renderers, layout engine and the entry point `JQuickPdfFactory`. Most users only need this artifact. |
-| `jquick-pdf-css` | `io.github.paohaijiao:jquick-pdf-css` | CSS model: style attributes, units and colors. |
-| `jquick-pdf-svg` | `io.github.paohaijiao:jquick-pdf-svg` | SVG / ECharts-style chart generation (30+ chart types). |
-| `jquick-pdf-data` | `io.github.paohaijiao:jquick-pdf-data` | Chart option model (`JOption`, `JChart`, `JTitle`, `JLegend`, ...). |
-| `jquick-pdf-font` | `io.github.paohaijiao:jquick-pdf-font` | Bundled CJK font resources. |
-
-### Maven dependency — 4.0.0 and above (Apache-2.0)
-
-```xml
-<dependency>
-    <groupId>io.github.paohaijiao</groupId>
-    <artifactId>jquick-pdfx</artifactId>
-    <version>4.0.0</version>
-</dependency>
-```
-
-Chart support (optional):
-
-```xml
-<dependency>
-    <groupId>io.github.paohaijiao</groupId>
-    <artifactId>jquick-pdf-svg</artifactId>
-    <version>4.0.0</version>
-</dependency>
-```
-
-### Maven dependency — 4.0.0  below (AGPL-3.0, iText 7)
-
-```xml
-<dependency>
-    <groupId>io.github.paohaijiao</groupId>
-    <artifactId>jquick-pdfx</artifactId>
-    <version>4.0.0</version>
-</dependency>
-```
-
-> **License risk:** 4.0.0 and below are licensed under **AGPL-3.0** because they depend on **iText 7 Core**. Using them in a closed-source product requires full AGPL compliance or a commercial license from iText Group NV. PDFs produced by these versions carry the `Powered by iText` notice.
-> Migrate to **4.0.0 or later** to get **Apache-2.0** and drop the obligation — see [License](#license).
-
-### Hello world
-
-```java
-import com.github.paohaijiao.executor.JQuickPdfFactory;
-
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-public class HelloDemo {
-
-    public static void main(String[] args) throws Exception {
-        String template = ""
-                + "<pdf>"
-                + "  <body>"
-                + "    <h1 style=\"fontSize:24;fontColor:blue\">'Hello jquick-pdf'</h1>"
-                + "    <p>'Customer: '${customer}</p>"
-                + "  </body>"
-                + "</pdf>";
-
-        byte[] pdf = JQuickPdfFactory.create()
-                .bind("customer", "Martin")
-                .executeContent(template);
-
-        Files.write(Paths.get("hello.pdf"), pdf);
-    }
-}
-```
-
-Three ways to feed a template, all returning `byte[]`:
-
-| Method | Source |
-|---|---|
-| `executeContent(String)` | template text in memory |
-| `executeResource(String)` | classpath resource, e.g. `"report.txt"` |
-| `executeFile(String)` | file on disk, e.g. `"D:/templates/report.txt"` |
-
-Text nodes are always single-quoted (`'Hello jquick-pdf'`); `<pdf>` and `<html>` are both accepted as the document root.
 
 ## Demo Gallery
 
@@ -333,7 +291,7 @@ The industry-document and multilingual groups are indexed with full-page screens
 
 Version **5.2.0** adds five chart previews to that index — polar (#37), theme river (#38), progress bar (#39), Sankey diagram (#40) and radial tree (#41) — all reachable through the same `JChartRendererFactory` without touching the factory source.
 
-### Image index: image → test class → method
+### Chart gallery: image → test class → code
 
 Two notes before the list:
 
@@ -345,6 +303,9 @@ Two notes before the list:
 ![barchart](images/barchart.svg)
 
 **Test Class:** `com.github.paohaijiao.BarCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · BarCharTest#testBarChar1</summary>
 
 ```java
 JOption option = new JOption();
@@ -360,11 +321,16 @@ option.series(bar);
 
 ```
 
+</details>
+
 #### 2. Line chart — `images/line_chart.svg`
 
 ![line_chart](images/line_chart.svg)
 
 **Test Class:** `com.github.paohaijiao.LineCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · LineCharTest#testBarChar1</summary>
 
 ```java
 JOption option = new JOption();
@@ -380,11 +346,16 @@ option.series(line);
 
 ```
 
+</details>
+
 #### 3. Pie chart — `images/pie-chart.svg`
 
 ![pie-chart](images/pie-chart.svg)
 
 **Test Class:** `com.github.paohaijiao.PieCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · PieCharTest#testBarChar1</summary>
 
 ```java
 JOption option = new JOption();
@@ -403,11 +374,16 @@ option.series(pie);
 
 ```
 
+</details>
+
 #### 4. Radar chart — `images/radar_chart.svg`
 
 ![radar_chart](images/radar_chart.svg)
 
 **Test Class:** `com.github.paohaijiao.RadarCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · RadarCharTest#testBarChar1</summary>
 
 ```java
 // 创建图表选项
@@ -442,11 +418,16 @@ option.series(budgetSeries, actualSeries);
 
 ```
 
+</details>
+
 #### 5. Box plot — `images/boxchart.svg`
 
 ![boxchart](images/boxchart.svg)
 
 **Test Class:** `com.github.paohaijiao.BoxPlotTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · BoxPlotTest#testBarChar1</summary>
 
 ```java
 JOption option = new JOption();
@@ -461,11 +442,16 @@ option.series(new JBoxplot().data(
 
 ```
 
+</details>
+
 #### 6. Heat map — `images/heatmap.svg`
 
 ![heatmap](images/heatmap.svg)
 
 **Test Class:** `com.github.paohaijiao.HeatMapCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · HeatMapCharTest#testBarChar1</summary>
 
 ```java
 JOption option = new JOption();
@@ -488,11 +474,16 @@ option.series(heatmap);
 
 ```
 
+</details>
+
 #### 7. K-line (candlestick) — `images/k_chart.svg`
 
 ![k_chart](images/k_chart.svg)
 
 **Test Class:** `com.github.paohaijiao.KCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · KCharTest#testBarChar1</summary>
 
 ```java
 JOption option = new JOption();
@@ -518,11 +509,16 @@ option.series(candlestick);
 
 ```
 
+</details>
+
 #### 8. Scatter — `images/scatter.svg`
 
 ![scatter](images/scatter.svg)
 
 **Test Class:** `com.github.paohaijiao.ScatterCharTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · ScatterCharTest#testBarChar1</summary>
 
 ```java
 JData[] data = new JData[]{
@@ -546,11 +542,16 @@ option.series(scatter);
 
 ```
 
+</details>
+
 #### 9. Bubble — `images/bubble.svg`
 
 ![bubble](images/bubble.svg)
 
 **Test Class:** `com.github.paohaijiao.BubbleTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · BubbleTest#testBarChar1</summary>
 
 ```java
 JTitle title = new JTitle();
@@ -589,11 +590,16 @@ option.series(series);
 
 ```
 
+</details>
+
 #### 10. Funnel — `images/funnel.svg`
 
 ![funnel](images/funnel.svg)
 
 **Test Class:** `com.github.paohaijiao.FunelTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · FunelTest#testBarChar1</summary>
 
 ```java
 JFunnelOption option = JFunnelOption.createDefaultFunnel();
@@ -628,11 +634,16 @@ jOption.setFunnelOption(customOption);
 
 ```
 
+</details>
+
 #### 11. Gauge — `images/gauge.svg`
 
 ![gauge](images/gauge.svg)
 
 **Test Class:** `com.github.paohaijiao.JGaugeTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · JGaugeTest#testBarChar1</summary>
 
 ```java
 // 创建配置
@@ -647,11 +658,16 @@ JOption option1 = new JOption();
 option1.setGuageOption(option);
 ```
 
+</details>
+
 #### 12. Gantt — `images/gantt.svg`
 
 ![gantt](images/gantt.svg)
 
 **Test Class:** `com.github.paohaijiao.JGanttTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · JGanttTest#testBarChar1</summary>
 
 ```java
 JGanttOption option = new JGanttOption();
@@ -682,11 +698,16 @@ JOption jOption = new JOption();
 jOption.setGanttOption(option);
 ```
 
+</details>
+
 #### 13. Calendar — `images/calendar.svg`
 
 ![calendar](images/calendar.svg)
 
 **Test Class:** `com.github.paohaijiao.CalendarTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · CalendarTest#testBarChar1</summary>
 
 ```java
 Map<LocalDate, Integer> data = new HashMap<>();
@@ -709,11 +730,16 @@ option.setJCalendarOption(calendarOption);
 
 ```
 
+</details>
+
 #### 14. Lunar calendar — `images/lunar.svg`
 
 ![lunar](images/lunar.svg)
 
 **Test Class:** `com.github.paohaijiao.LunarTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · LunarTest#testBarChar1</summary>
 
 ```java
 private static java.util.List<LunarCalendarOption.DayData> createDefaultDayData() {
@@ -749,11 +775,16 @@ LunarCalendarOption option = LunarCalendarOption.of("2024", "三月", colorConfi
 
 ```
 
+</details>
+
 #### 15. Word cloud — `images/wordcloud.svg`
 
 ![wordcloud](images/wordcloud.svg)
 
 **Test Class:** `com.github.paohaijiao.WordsCloudTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · WordsCloudTest#testBarChar1</summary>
 
 ```java
 JOption option = new JOption()
@@ -782,11 +813,16 @@ JOption option = new JOption()
 
 ```
 
+</details>
+
 #### 16. Geo map — `images/geo.svg`
 
 ![geo](images/geo.svg)
 
 **Test Class:** `com.github.paohaijiao.GeoTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · GeoTest#testBarChar1</summary>
 
 ```java
 private static String readFile(String filePath) throws IOException {
@@ -808,11 +844,16 @@ JOption jOption = new JOption();
 jOption.setGeoOption(option);
 ```
 
+</details>
+
 #### 17. Relation graph — `images/relation_chart.svg`
 
 ![relation_chart](images/relation_chart.svg)
 
 **Test Class:** `com.github.paohaijiao.RelationTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · RelationTest#testBarChar1</summary>
 
 ```java
 JGsonOption option = new JGsonOption();
@@ -841,11 +882,16 @@ option.series(graph);
 option.legend().data("Category 1", "Category 2", "Category 3", "Category 4", "Category 5");
 ```
 
+</details>
+
 #### 18. Sunburst — `images/sunburst.svg`
 
 ![sunburst](images/sunburst.svg)
 
 **Test Class:** `com.github.paohaijiao.SunBirdTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · SunBirdTest#testBarChar1</summary>
 
 ```java
 JOption option = new JOption();
@@ -875,11 +921,16 @@ option.setSunburstData(root);
 
 ```
 
+</details>
+
 #### 19. Treemap — `images/treemap.svg`
 
 ![treemap](images/treemap.svg)
 
 **Test Class:** `com.github.paohaijiao.JTreemapRendererExample` (module `jquick-pdf-svg`) | **Method:** `main(String[])` — no `@Test`, `TreemapTest` is fully commented out
+
+<details>
+<summary>▸ View the generating code · SunBirdTest#testBarChar1</summary>
 
 ```java
 JTreeMapNode root = createTestData();
@@ -895,12 +946,17 @@ option.title("公司业务分布矩形树图（JTreemapRenderer）");
 
 ```
 
+</details>
+
 
 #### 20. Correlation matrix — `images/Matrix.svg`
 
 ![Matrix](images/Matrix.svg)
 
 **Test Class:** `com.github.paohaijiao.JCollectionMatrixTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
+
+<details>
+<summary>▸ View the generating code · JCollectionMatrixTest#testBarChar1</summary>
 
 ```java
 double[][] correlationData = {
@@ -924,11 +980,16 @@ jOption.setCorrelationMatrixOption(option);
 
 ```
 
+</details>
+
 #### 21. Stacked area — `images/area.svg`
 
 ![area](images/area.svg)
 
 **Test Class:** `com.github.paohaijiao.JAreaChartTest` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+<details>
+<summary>▸ View the generating code · JAreaChartTest#testMutipleChar1</summary>
 
 ```java
 List<Double> values = Arrays.asList(85.0, 120.0, 150.0, 210.0, 280.0, 350.0, 420.0, 400.0, 380.0, 450.0, 480.0, 520.0);
@@ -950,6 +1011,8 @@ option.setData(config);
 
 ```
 
+</details>
+
 #### 22. Line + bar combo — `images/linebar.svg`
 
 ![linebar](images/linebar.svg)
@@ -957,6 +1020,9 @@ option.setData(config);
 **Test Class:** `com.github.paohaijiao.CombolTest` (module `jquick-pdf-svg`) | **Method:** `testBarChar1()`
 
 Note the file was renamed on import: the test writes `d://test/custom_chart.svg`, the preview is stored as `images/linebar.svg`.
+
+<details>
+<summary>▸ View the generating code · CombolTest#testBarChar1</summary>
 
 ```java
 JOption jOption = new JOption();
@@ -982,11 +1048,16 @@ jOption.setData(config);
 
 ```
 
+</details>
+
 #### 23. Multi line — `images/multipleLine.svg`
 
 ![multipleLine](images/multipleLine.svg)
 
 **Test Class:** `com.github.paohaijiao.MutipleLineChartTest` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+<details>
+<summary>▸ View the generating code · MutipleLineChartTest#testMutipleChar1</summary>
 
 ```java
 List<String> months = Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
@@ -1033,11 +1104,16 @@ option.setData(chartData);
 
 ```
 
+</details>
+
 #### 24. Multi bar — `images/fourBar.svg`
 
 ![fourBar](images/fourBar.svg)
 
 **Test Class:** `com.github.paohaijiao.MutipleBarChartTest` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar5()`
+
+<details>
+<summary>▸ View the generating code · MutipleBarChartTest#testMutipleChar5</summary>
 
 ```java
 JMultiBarChartData regionalData = new JMultiBarChartData();
@@ -1058,11 +1134,16 @@ option.setData(regionalData);
 
 ```
 
+</details>
+
 #### 25. Horizontal bar — `images/horizontalBar.svg`
 
 ![horizontalBar](images/horizontalBar.svg)
 
 **Test Class:** `com.github.paohaijiao.JHorizontalBarChart` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+<details>
+<summary>▸ View the generating code · JHorizontalBarChart#testMutipleChar1</summary>
 
 ```java
 JHorizontalBarChartData chartData = new JHorizontalBarChartData();
@@ -1086,11 +1167,16 @@ option.setData(chartData);
 
 ```
 
+</details>
+
 #### 26. Multi horizontal bar — `images/mhBarChart.svg`
 
 ![mhBarChart](images/mhBarChart.svg)
 
 **Test Class:** `com.github.paohaijiao.JMutipleHorizontalBarChart` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+<details>
+<summary>▸ View the generating code · JMutipleHorizontalBarChart#testMutipleChar1</summary>
 
 ```java
 JHorizontalMultiBarChartData chartData = new JHorizontalMultiBarChartData();
@@ -1118,6 +1204,8 @@ option.setData(chartData);
 
 ```
 
+</details>
+
 #### 27. Double radar — `images/twoRadar.svg`
 
 ![twoRadar](images/twoRadar.svg)
@@ -1125,6 +1213,9 @@ option.setData(chartData);
 **Test Class:** `com.github.paohaijiao.JTwoRadarChart` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
 
 The full, unabridged source is in [Demo 3](#demo-3--svg-chart-embedded-into-a-pdf-page).
+
+<details>
+<summary>▸ View the generating code · JTwoRadarChart#testMutipleChar1</summary>
 
 ```java
 JDoubleRadarChartData chartData = new JDoubleRadarChartData();
@@ -1160,11 +1251,16 @@ option.setData(chartData);
 
 ```
 
+</details>
+
 #### 28. Line + scatter — `images/lineRadar.svg`
 
 ![lineRadar](images/lineRadar.svg)
 
 **Test Class:** `com.github.paohaijiao.JLineScatterrChartTest` (module `jquick-pdf-svg`) | **Method:** `testMutipleChar1()`
+
+<details>
+<summary>▸ View the generating code · JLineScatterrChartTest#testMutipleChar1</summary>
 
 ```java
 List<String> categories = Arrays.asList("1月", "2月", "3月", "4月", "5月", "6月",
@@ -1190,11 +1286,16 @@ option.setData(data);
 
 ```
 
+</details>
+
 #### 29. Circle / ring — `images/circle-chart.svg`
 
 ![circle-chart](images/circle-chart.svg)
 
 **Test Class:** `com.github.paohaijiao.JCircleChartTest` (module `jquick-pdf-svg`) | **Method:** `testCircleChar1()`
+
+<details>
+<summary>▸ View the generating code · JCircleChartTest#testCircleChar1</summary>
 
 ```java
 JCircleChartData chartData = new JCircleChartData();
@@ -1216,11 +1317,16 @@ option.setData(chartData);
 
 ```
 
+</details>
+
 #### 30. Timeline — `images/timeline.svg`
 
 ![timeline](images/timeline.svg)
 
 **Test Class:** `com.github.paohaijiao.JMilestoneGraphTest` (module `jquick-pdf-svg`) | **Method:** `testStandardFlow()`
+
+<details>
+<summary>▸ View the generating code · JMilestoneGraphTest#testStandardFlow</summary>
 
 ```java
 JTimeLineData data = new JTimeLineData();
@@ -1244,11 +1350,16 @@ option.setData(data);
 
 ```
 
+</details>
+
 #### 31. Advanced topology (microservice) — `images/advance_topology.svg`
 
 ![advance_topology](images/advance_topology.svg)
 
 **Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateMicroserviceTopology()`
+
+<details>
+<summary>▸ View the generating code · JNetworkTopologyGraphTest#generateMicroserviceTopology</summary>
 
 ```java
 JAdvancedTopologyData data = new JAdvancedTopologyData();
@@ -1272,11 +1383,16 @@ option.setData(data);
 
 ```
 
+</details>
+
 #### 32. Cloud architecture topology — `images/toplogy/cloud_architecture.svg`
 
 ![cloud_architecture](images/toplogy/cloud_architecture.svg)
 
 **Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateCloudArchitectureTopology()`
+
+<details>
+<summary>▸ View the generating code · JNetworkTopologyGraphTest#generateCloudArchitectureTopology</summary>
 
 ```java
 JAdvancedTopologyData data = new JAdvancedTopologyData();
@@ -1298,11 +1414,16 @@ option.setData(data);
 
 ```
 
+</details>
+
 #### 33. Data center topology — `images/toplogy/datacenter_topology.svg`
 
 ![datacenter_topology](images/toplogy/datacenter_topology.svg)
 
 **Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateDataCenterTopology()`
+
+<details>
+<summary>▸ View the generating code · JNetworkTopologyGraphTest#generateDataCenterTopology</summary>
 
 ```java
 JAdvancedTopologyData data = new JAdvancedTopologyData();
@@ -1323,11 +1444,16 @@ option.setData(data);
 
 ```
 
+</details>
+
 #### 34. Enterprise network topology — `images/toplogy/enterprise_network.svg`
 
 ![enterprise_network](images/toplogy/enterprise_network.svg)
 
 **Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateEnterpriseNetworkTopology()`
+
+<details>
+<summary>▸ View the generating code · JNetworkTopologyGraphTest#generateEnterpriseNetworkTopology</summary>
 
 ```java
 JAdvancedTopologyData data = new JAdvancedTopologyData();
@@ -1348,11 +1474,16 @@ option.setData(data);
 
 ```
 
+</details>
+
 #### 35. Manual-layout topology — `images/toplogy/manual_layout_topology.svg`
 
 ![manual_layout_topology](images/toplogy/manual_layout_topology.svg)
 
 **Test Class:** `com.github.paohaijiao.JNetworkTopologyGraphTest` (module `jquick-pdf-svg`) | **Method:** `generateManualLayoutTopology()`
+
+<details>
+<summary>▸ View the generating code · JNetworkTopologyGraphTest#generateManualLayoutTopology</summary>
 
 ```java
 JAdvancedTopologyData data = new JAdvancedTopologyData();
@@ -1376,6 +1507,8 @@ option.setData(data);
 
 ```
 
+</details>
+
 #### 36. Credit report page — `images/credit_report.png`
 
 ![credit_report](images/credit_report.png)
@@ -1383,6 +1516,9 @@ option.setData(data);
 **Test Class:** `com.github.paohaijiao.biz.report.JQuickCreditReportTest` (module `jquick-pdfx`) | **Method:** `reportByContent()`
 
 The full template and element list are in [Demo 1](#demo-1--enterprise-credit-rating-report-composite).
+
+<details>
+<summary>▸ View the generating code · JQuickCreditReportTest#reportByContent</summary>
 
 ```java
 FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
@@ -1400,6 +1536,8 @@ byte[] bytes = factory.executeContent(adaptor.getRuleContent());
 fileOutputStream.write(bytes);
 ```
 
+</details>
+
 ```xml
 <dependency>
     <groupId>io.github.paohaijiao</groupId>
@@ -1415,6 +1553,9 @@ fileOutputStream.write(bytes);
 **Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testPolar()`
 
 **New in 5.2.0** — registered as `JChartType.Polar` and the string key `polar`. The renderer draws a polar grid (concentric rings, radial spokes, angle and radius labels), optional highlight sectors and one closed or open curve per series. Everything is configured through `JPolarChartData`, passed with `JOption.setData(...)`:
+
+<details>
+<summary>▸ View the generating code · JGallery520ImagesTest#testPolar</summary>
 
 ```java
 JPolarChartData data = new JPolarChartData();
@@ -1439,6 +1580,8 @@ option.setData(data);
 JChartRendererFactory.renderChart(JChartType.Polar, option, "d://test/polar/polar_custom.svg");
 ```
 
+</details>
+
 The model carries the canvas size, start angle and sweep, radius bounds and ring count, grid/label/legend colours and fonts. `validateAndCalculate()` derives the slot count, rounds the radius bound up to a readable value and builds the footer text. Angles are screen angles: 0° points at three o'clock and grows clockwise, and every series must expose exactly one value per angle slot. Calling the renderer with an empty option falls back to `JPolarChartData.sample()` — the two rose curves of the preview above.
 
 #### 38. Theme river — `images/theme_river.svg`
@@ -1448,6 +1591,9 @@ The model carries the canvas size, start angle and sweep, radius bounds and ring
 **Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testThemeRiver()`
 
 **New in 5.2.0** — `JChartType.ThemeRiver` / `"theme-river"`. Data comes from its own model (`JThemeRiverChartData`), one value per time label per series:
+
+<details>
+<summary>▸ View the generating code · JGallery520ImagesTest#testThemeRiver</summary>
 
 ```java
 JThemeRiverChartData data = new JThemeRiverChartData();
@@ -1466,6 +1612,8 @@ option.setData(data);
 JChartRendererFactory.renderChart(JChartType.ThemeRiver, option, "d://test/gallery520/theme_river.svg");
 ```
 
+</details>
+
 Each time slice is stacked symmetrically about the zero baseline, so the river mirrors around the centre line. Series are sorted by total and inserted alternately at both ends of the stack, which keeps the widest band near the middle; both edges are Catmull-Rom splines converted to cubic Béziers. Series names are drawn inside the band at its widest inner slice (the first and last slices are skipped because they sit on the clipping edge); bands thinner than 16 px keep only a legend entry.
 
 #### 39. Progress bar — `images/progress.svg`
@@ -1475,6 +1623,9 @@ Each time slice is stacked symmetrically about the zero baseline, so the river m
 **Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testProgress()`
 
 **New in 5.2.0** — `JChartType.Progress` / `"progress"`. Values are percentages (0–100); row labels come from the category axis (single series) or from the series names:
+
+<details>
+<summary>▸ View the generating code · JGallery520ImagesTest#testProgress</summary>
 
 ```java
 JOption option = new JOption();
@@ -1489,6 +1640,8 @@ option.series(bar);
 JChartRendererFactory.renderChart(JChartType.Progress, option, "d://test/gallery520/progress.svg");
 ```
 
+</details>
+
 Colour follows the score: ≥ 90 green, ≥ 80 blue, ≥ 70 orange, anything lower red. A business-side example is `JQuickCreditReport210BarTest` in `jquick-pdfx`.
 
 #### 40. Sankey diagram — `images/sankey.svg`
@@ -1499,11 +1652,16 @@ Colour follows the score: ≥ 90 green, ≥ 80 blue, ≥ 70 orange, anything low
 
 **New in 5.2.0** — registered with `@JQuickSpi(name = "sankey", type = "sankey", order = 200)`. It is deliberately **not** bound to a `JChartType` constant: the string key alone is enough, which is exactly the path a third-party plugin takes when it cannot modify the enum inside the jar.
 
+<details>
+<summary>▸ View the generating code · JGallery520ImagesTest#testSankey</summary>
+
 ```java
 JOption option = new JOption();
 option.title().text("资金流向桑基图");
 JChartRendererFactory.renderChart("sankey", option, "d://test/gallery520/sankey.svg");
 ```
+
+</details>
 
 The renderer is a self-contained plugin example: three source nodes (研发投入 / 市场推广 / 运营成本) flow into three target nodes (营收增长 / 成本优化 / 风险准备) with fixed sample weights, cubic-Bézier bands and labels on both columns; the title is taken from `option.title()`.
 
@@ -1514,6 +1672,9 @@ The renderer is a self-contained plugin example: three source nodes (研发投�
 **Test Class:** `com.github.paohaijiao.demo.JGallery520ImagesTest` (module `jquick-pdf-svg`) | **Method:** `testRadialTree()`
 
 **New in 5.2.0** — `JChartType.RadialTree` / `"radial-tree"`. The whole tree is built through the node model, radius encodes the depth and the angle span is allocated by leaf count:
+
+<details>
+<summary>▸ View the generating code · JGallery520ImagesTest#testRadialTree</summary>
 
 ```java
 JRadialTreeChartData.RadialNode root = new JRadialTreeChartData.RadialNode("集团总部")
@@ -1540,6 +1701,8 @@ option.setData(data);
 JChartRendererFactory.renderChart(JChartType.RadialTree, option, "d://test/gallery520/radial_tree.svg");
 ```
 
+</details>
+
 `validateAndCalculate()` back-fills `nodeCount`, `leafCount` and `depth` from the tree, so no manual counting is needed. Trees with more than 120 nodes switch to a 960×800 canvas automatically, and labels that would collide are elided instead of overlapping.
 
 ### Demo 1 — Enterprise credit rating report (composite)
@@ -1549,6 +1712,9 @@ JChartRendererFactory.renderChart(JChartType.RadialTree, option, "d://test/galle
 **Test Class:** `com.github.paohaijiao.biz.report.JQuickCreditReportTest` | **Method:** `reportByContent()`
 
 A full business document: banner block, key-value table, financial table, bulleted indicator list, an embedded SVG radar chart, flex two-column layout, and a footer — all from one template.
+
+<details>
+<summary>▸ View the generating code · JQuickCreditReportTest#reportByContent</summary>
 
 ```java
 package com.github.paohaijiao.demo.creditreport;
@@ -1586,6 +1752,8 @@ public class JQuickCreditReportTest {
     }
 }
 ```
+
+</details>
 
 The two templates are shipped with the test sources:
 
@@ -1646,6 +1814,9 @@ The two templates are shipped with the test sources:
 
 The same chart API used by the document demos, rendered standalone to an SVG file by the `jquick-pdf-svg` module.
 
+<details>
+<summary>▸ View the generating code · BarCharTest#testBarChar1</summary>
+
 ```java
 package com.github.paohaijiao;
 
@@ -1680,6 +1851,8 @@ public class BarCharTest {
 }
 ```
 
+</details>
+
 **Elements used and their supported properties**
 
 | Element | Purpose in this demo | Supported properties |
@@ -1700,6 +1873,9 @@ public class BarCharTest {
 The `<svg>` element paints a chart generated by `jquick-pdf-svg` as vector graphics inside the document — one chart, one placeholder, no image file round-trip. It takes two steps: build the chart, then register it and reference it from the template.
 
 **Step 1 — build the chart and render it to an SVG file:**
+
+<details>
+<summary>▸ View the generating code · JTwoRadarChart#testMutipleChar1</summary>
 
 ```java
 package com.github.paohaijiao;
@@ -1773,9 +1949,14 @@ public class JTwoRadarChart {
 }
 ```
 
+</details>
+
 **Step 2 — put the same chart on a PDF page:**
 
 **Test Class:** `com.github.paohaijiao.demo.radar.JQuickTwoRadarTest` (module `jquick-pdfx`) | **Method:** `radar()`
+
+<details>
+<summary>▸ View the generating code · JQuickTwoRadarTest#radar</summary>
 
 ```java
 package com.github.paohaijiao.demo.radar;
@@ -1869,6 +2050,8 @@ public class JQuickTwoRadarTest {
 }
 ```
 
+</details>
+
 The template it renders is three lines long — the placeholder name `svg` matches the name registered in `JGraphConfig`:
 
 ```html
@@ -1949,7 +2132,7 @@ String svg = JChartRendererFactory.renderChart(JChartType.DoubleRadar, option);
 | `JChartRendererFactory` | renders any type without a document | `renderChart(JChartType, JOption)` → SVG string, `renderChart(JChartType, JOption, String path)` |
 | `JDoubleRadarChartData` | data model of this chart | `setWidth`, `setHeight`, `setTitleText`, `setSubtitleText`, `setLeftTitle`, `setRightTitle`, `setDimensions`, `setLeftRadar`, `setRightRadar`, `setGridLevels`, `setFillAlpha`, `setLineWidth`, `setShowDataPoints`, `setLegendAtTop`, `setShowLegendSide`, `setFooterText` |
 
-### Element and style reference
+## Element and Style Reference
 
 **Elements** (`jquick-pdfx`):
 
@@ -2014,6 +2197,7 @@ String svg = JChartRendererFactory.renderChart(JChartType.DoubleRadar, option);
 | `destination` | `"hello"` | Named anchor that internal links jump to. `<div style="destination:hello">content</div>` |
 
 Units: `px` (96 DPI, `1px = 0.75pt`), `pt`, `mm`, `cm`, `in`. Colors: names (`red`, `blue`, `lightgray`, ...), `#RRGGBB`, `rgb()` / `rgba()`, `background:linear-gradient(...)`.
+
 
 ## Version Matrix
 
