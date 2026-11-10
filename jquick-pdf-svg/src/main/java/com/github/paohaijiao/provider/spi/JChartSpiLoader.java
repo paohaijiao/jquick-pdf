@@ -15,6 +15,7 @@
  */
 package com.github.paohaijiao.provider.spi;
 
+import com.github.paohaijiao.conf.JQuickSvgConfiguration;
 import com.github.paohaijiao.enums.JChartType;
 import com.github.paohaijiao.provider.JAbstractChartRenderer;
 import com.github.paohaijiao.spi.JQuickServiceLoader;
@@ -73,31 +74,50 @@ public final class JChartSpiLoader {
 
     private static volatile List<Class<? extends JAbstractChartRenderer>> rendererCache;
 
+    /**
+     * 缓存建立时使用的扫描包列表，用于检测 {@link JQuickSvgConfiguration} 的运行时变更。
+     */
+    private static volatile List<String> cachedScanPackages;
+
     private JChartSpiLoader() {
     }
 
     /**
-     * Returns every {@link JQuickSpi} annotated renderer type, sorted by order.
-     * The scan result is cached after the first call.
+     * 返回所有 {@link JQuickSpi} 标注的渲染器类型，按 order 升序排序。
+     * <p>
+     * 扫描包由三部分合并而成：内置的 {@link #SCAN_PACKAGE}、{@link JQuickSvgConfiguration}
+     * 中配置的包路径，以及系统属性 {@code jchart.spi.packages}。
+     * 若配置的包列表发生变化（例如运行期调用 {@code addScanPath}），缓存会自动失效并重新扫描。
      *
-     * @return renderer types, never null
+     * @return 渲染器类型列表，不会返回 null
      */
     public static List<Class<? extends JAbstractChartRenderer>> scanRenderers() {
+        List<String> packages = scanPackages();
         List<Class<? extends JAbstractChartRenderer>> cached = rendererCache;
-        if (cached != null) {
+        if (cached != null && packages.equals(cachedScanPackages)) {
             return cached;
         }
         synchronized (JChartSpiLoader.class) {
-            if (rendererCache == null) {
+            if (rendererCache == null || !scanPackages().equals(cachedScanPackages)) {
                 rendererCache = doScanRenderers();
             }
             return rendererCache;
         }
     }
 
+    /**
+     * 主动清空扫描缓存，使下次 {@link #scanRenderers()} 重新扫描。
+     * 当扫描包在运行期发生变化（如新增 SPI 插件的 jar）时可手动调用。
+     */
+    public static synchronized void refresh() {
+        rendererCache = null;
+        cachedScanPackages = null;
+    }
+
     private static List<Class<? extends JAbstractChartRenderer>> doScanRenderers() {
         List<Class<? extends JAbstractChartRenderer>> renderers = new ArrayList<>();
-        for (String className : scanClassNames()) {
+        List<String> packages = scanPackages();
+        for (String className : scanClassNames(packages)) {
             Class<? extends JAbstractChartRenderer> renderer = resolveRenderer(className);
             if (renderer != null) {
                 renderers.add(renderer);
@@ -113,6 +133,7 @@ public final class JChartSpiLoader {
                 return result != 0 ? result : left.getName().compareTo(right.getName());
             }
         });
+        cachedScanPackages = packages;
         return Collections.unmodifiableList(renderers);
     }
 
@@ -282,9 +303,9 @@ public final class JChartSpiLoader {
         return classLoader != null ? classLoader : JChartSpiLoader.class.getClassLoader();
     }
 
-    private static Set<String> scanClassNames() {
+    private static Set<String> scanClassNames(List<String> scanPackages) {
         Set<String> classNames = new LinkedHashSet<>();
-        for (String packageName : scanPackages()) {
+        for (String packageName : scanPackages) {
             String packagePath = packageName.replace('.', '/');
             Enumeration<URL> resources;
             try {
@@ -309,19 +330,47 @@ public final class JChartSpiLoader {
         return classNames;
     }
 
+    /**
+     * 汇总所有需要扫描的包，优先级无关，重复项自动去重。
+     * <p>
+     * 来源：
+     * <ol>
+     *   <li>内置包 {@link #SCAN_PACKAGE}</li>
+     *   <li>{@link JQuickSvgConfiguration#getScanPath()} 中配置的包路径</li>
+     *   <li>系统属性 {@value #SCAN_PACKAGES_PROPERTY}（逗号分隔）</li>
+     * </ol>
+     *
+     * @return 包名列表，不会返回 null
+     */
     private static List<String> scanPackages() {
         Set<String> packages = new LinkedHashSet<>();
         packages.add(SCAN_PACKAGE);
+        for (String path : JQuickSvgConfiguration.getInstance().getScanPath()) {
+            addPackage(packages, path);
+        }
         String configured = System.getProperty(SCAN_PACKAGES_PROPERTY);
         if (configured != null) {
             for (String item : configured.split(",")) {
-                String packageName = item.trim();
-                if (!packageName.isEmpty()) {
-                    packages.add(packageName);
-                }
+                addPackage(packages, item);
             }
         }
         return new ArrayList<>(packages);
+    }
+
+    /**
+     * 规范化并收集包名：兼容 {@code com.example.chart} 与 {@code com/example/chart} 两种写法。
+     */
+    private static void addPackage(Set<String> packages, String packageName) {
+        if (packageName == null) {
+            return;
+        }
+        String name = packageName.trim().replace('/', '.');
+        while (name.endsWith(".")) {
+            name = name.substring(0, name.length() - 1);
+        }
+        if (!name.isEmpty()) {
+            packages.add(name);
+        }
     }
 
     /**
