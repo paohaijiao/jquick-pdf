@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/bank/147_credit_release_voucher.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/bank/147_credit_release_voucher.xml} 中。</p>
  *
  * <p>信贷放款凭证 / 还款结清回执：授信合同与业务类型、放款与逐期还款明细、</p>
  * <p>累计归还本金与利息、结清说明与银企签章栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz147CreditReleaseVoucher {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "147_credit_release_voucher.pdf";
-    private static final String TEMPLATE = "demo/biz/bank/147_credit_release_voucher.txt";
+    private static final String TEMPLATE = "demo/biz/bank/147_credit_release_voucher.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

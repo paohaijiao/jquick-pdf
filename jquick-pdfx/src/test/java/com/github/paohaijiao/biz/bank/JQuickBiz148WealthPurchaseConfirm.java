@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/bank/148_wealth_purchase_confirm.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/bank/148_wealth_purchase_confirm.xml} 中。</p>
  *
  * <p>理财购买确认单 / 赎回回执：产品名称与风险等级、业绩比较基准、</p>
  * <p>申购赎回交易明细（金额、份额、单位净值）与风险提示、销售机构签章栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz148WealthPurchaseConfirm {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "148_wealth_purchase_confirm.pdf";
-    private static final String TEMPLATE = "demo/biz/bank/148_wealth_purchase_confirm.txt";
+    private static final String TEMPLATE = "demo/biz/bank/148_wealth_purchase_confirm.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

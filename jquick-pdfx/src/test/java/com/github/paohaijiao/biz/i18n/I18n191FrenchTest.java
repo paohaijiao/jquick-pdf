@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 191 —— 法语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_fr.txt
+ * <p>模板：i18n/global_bank_report_fr.xml
  * 输出：D://test//i18n//global_bank_report_fr.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/french.txt} → {@code D://test//i18n//french.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/french.xml} → {@code D://test//i18n//french.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n191FrenchTest {
      */
     @Test
     public void simple191() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/french.txt", "Noto Sans", "fonts/NotoSans-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/french.xml", "Noto Sans", "fonts/NotoSans-Regular.ttf");
     }
 }

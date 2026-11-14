@@ -39,7 +39,7 @@ import java.util.List;
  * 上四分位数（Q3）、最大值以及离群值，用于评估过程稳定性。</p>
  * <p>实际图表类型：{@link JChartType#BOXPLOT} 盒须图。</p>
  *
- * <p>模板：{@code report/biz/56_boxchart.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/56_boxchart.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\56_boxchart.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt 的横版比例设计；模板中 {@code <svg>}
@@ -84,7 +84,7 @@ public class JQuickBiz56BoxChartTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/56_boxchart.txt");
+        byte[] bytes = factory.executeResource("report/biz/56_boxchart.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

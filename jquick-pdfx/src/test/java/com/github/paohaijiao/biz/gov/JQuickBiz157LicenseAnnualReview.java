@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/gov/157_license_annual_review.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/gov/157_license_annual_review.xml} 中。</p>
  *
  * <p>许可证年度审查申报表 / 年审回执：许可证编号与持证单位、年审年度，</p>
  * <p>逐项审验项目（上年度 / 本年度情况与结论）、年审结论与双方签章栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz157LicenseAnnualReview {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "157_license_annual_review.pdf";
-    private static final String TEMPLATE = "demo/biz/gov/157_license_annual_review.txt";
+    private static final String TEMPLATE = "demo/biz/gov/157_license_annual_review.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

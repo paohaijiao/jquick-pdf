@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 200 —— 波斯语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_fa.txt
+ * <p>模板：i18n/global_bank_report_fa.xml
  * 输出：D://test//i18n//global_bank_report_fa.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/persian.txt} → {@code D://test//i18n//persian.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/persian.xml} → {@code D://test//i18n//persian.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n200PersianTest {
      */
     @Test
     public void simple200() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/persian.txt", "Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/persian.xml", "Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
     }
 }

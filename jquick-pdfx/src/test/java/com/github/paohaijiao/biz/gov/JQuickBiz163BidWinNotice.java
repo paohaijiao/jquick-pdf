@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/gov/163_bid_win_notice.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/gov/163_bid_win_notice.xml} 中。</p>
  *
  * <p>中标通知书 / 投标报名回执：招标项目与编号、招标方式与中标人、</p>
  * <p>各投标人报价与评审得分排名、中标结果与签约提示、三方签章栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz163BidWinNotice {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "163_bid_win_notice.pdf";
-    private static final String TEMPLATE = "demo/biz/gov/163_bid_win_notice.txt";
+    private static final String TEMPLATE = "demo/biz/gov/163_bid_win_notice.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

@@ -37,7 +37,7 @@ import java.io.IOException;
  *
  * <p>进度条由 {@code @JQuickSpi} 注册的 {@code JProgressBarChartRenderer} 渲染，
  * 通过 {@link JChartRendererFactory#renderChart(JChartType, JOption)} 取 SVG，
- * 与条形图一起绑定到 {@code report/credit_report_210_progress_bar.txt} 的
+ * 与条形图一起绑定到 {@code report/credit_report_210_progress_bar.xml} 的
  * {@code ${progress}}、{@code ${svg}} 占位符，输出到
  * {@code D:\test\creditreport\210_credit_report_progress.pdf}。</p>
  *
@@ -66,7 +66,7 @@ public class JQuickCreditReport210BarTest {
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", barSvg);
         factory.bind("progress", progressSvg);
-        byte[] bytes = factory.executeResource("report/credit_report_210_progress_bar.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_210_progress_bar.xml");
         try (FileOutputStream fileOutputStream = new FileOutputStream(output)) {
             fileOutputStream.write(bytes);
         }

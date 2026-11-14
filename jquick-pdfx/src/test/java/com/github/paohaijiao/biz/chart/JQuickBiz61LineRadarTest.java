@@ -37,7 +37,7 @@ import java.util.List;
  * 绿色、开放、共享五维发展指数得分，综合评估城市发展质量。</p>
  * <p>实际图表类型：{@link JChartType#LineRadar} 折线雷达混合图。</p>
  *
- * <p>模板：{@code report/biz/61_lineRadar.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/61_lineRadar.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\61_lineRadar.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>}
@@ -85,7 +85,7 @@ public class JQuickBiz61LineRadarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/61_lineRadar.txt");
+        byte[] bytes = factory.executeResource("report/biz/61_lineRadar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -31,7 +31,7 @@ import java.io.IOException;
 /**
  * 统一信用报告 —— 风格 12：旭日图（琥珀）
  *
- * <p>以 {@code report/credit_report_12_sunburst.txt} 为模板，把旭日图渲染成 SVG 后
+ * <p>以 {@code report/credit_report_12_sunburst.xml} 为模板，把旭日图渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\12_sunburst.pdf}。</p>
  *
  * @author Martin
@@ -76,7 +76,7 @@ public class JQuickCreditReport12SunburstTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_12_sunburst.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_12_sunburst.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

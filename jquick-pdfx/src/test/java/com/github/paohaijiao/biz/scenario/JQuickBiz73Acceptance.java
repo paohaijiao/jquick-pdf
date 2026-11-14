@@ -32,7 +32,7 @@ import java.util.Map;
  * 场景 73：项目验收单 PDF（多页、大段描述、甲乙双方签名，模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
- * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/73_acceptance.txt} 中。
+ * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/73_acceptance.xml} 中。
  * 验收项逐条 bind 为 chkNameN / chkStdN / chkResultN / chkRemarkN；
  * 验收结论按段 bind 为 conclusion1~4。</p>
  *
@@ -50,7 +50,7 @@ public class JQuickBiz73Acceptance {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "73_acceptance.pdf";
-    private static final String TEMPLATE = "report/biz/73_acceptance.txt";
+    private static final String TEMPLATE = "report/biz/73_acceptance.xml";
 
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();

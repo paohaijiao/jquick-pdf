@@ -33,7 +33,7 @@ import java.nio.charset.StandardCharsets;
  * <p>业务场景：省公共信用信息平台按行政区划汇总业务受理量，用于省社会信用体系建设联席会议的区域均衡分析。</p>
  * <p>实际图表类型：{@link JChartType#Geo} 地图（GeoJSON 行政区划图，底图区域为四川省 21 个市/州）。</p>
  *
- * <p>模板：{@code report/biz/18_region_geo.txt}；地图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
+ * <p>模板：{@code report/biz/18_region_geo.xml}；地图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
  * 输出到 {@code D:\test\biz\18_region_geo.pdf}。</p>
  *
  * <p>图表尺寸说明：地图按渲染器默认画布 800pt × 600pt（宽 × 高）绘制；模板中 {@code <svg>} 只声明宽度、
@@ -86,7 +86,7 @@ public class JQuickBiz18RegionGeoTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/18_region_geo.txt");
+        byte[] bytes = factory.executeResource("report/biz/18_region_geo.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

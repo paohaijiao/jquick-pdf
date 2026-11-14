@@ -42,7 +42,7 @@ public class JFormElementTest {
     /** 按钮：绘制按钮外框，文本居中落在框内，fontColor 作为文字填充色生效。 */
     @Test
     public void button() throws IOException {
-        Rendered rendered = render("sample/form/button.txt");
+        Rendered rendered = render("sample/form/button.xml");
         assertEquals(1, rendered.pages);
         Glyph label = rendered.glyph("提交");
         float[] box = rendered.rect(0);
@@ -56,7 +56,7 @@ public class JFormElementTest {
     /** 复选框：绘制方形选框，checked 时额外绘制勾选符号，标签排在选框右侧。 */
     @Test
     public void checkbox() throws IOException {
-        Rendered rendered = render("sample/form/checkbox.txt");
+        Rendered rendered = render("sample/form/checkbox.xml");
         assertEquals(1, rendered.pages);
         Glyph label = rendered.glyph("提交");
         float[] box = rendered.rect(0);
@@ -70,7 +70,7 @@ public class JFormElementTest {
     /** 下拉选择框：绘制矩形外框与下拉箭头，当前值绘制在框内左侧。 */
     @Test
     public void comboBoxField() throws IOException {
-        Rendered rendered = render("sample/form/comboBoxField.txt");
+        Rendered rendered = render("sample/form/comboBoxField.xml");
         assertEquals(1, rendered.pages);
         Glyph value = rendered.glyph("提交");
         float[] box = rendered.rect(0);
@@ -85,7 +85,7 @@ public class JFormElementTest {
     /** 多行文本输入框：绘制文本区域外框，内容绘制在框内左上角。 */
     @Test
     public void textArea() throws IOException {
-        Rendered rendered = render("sample/form/textArea.txt");
+        Rendered rendered = render("sample/form/textArea.xml");
         assertEquals(1, rendered.pages);
         Glyph content = rendered.glyph("你好中国");
         float[] box = rendered.rect(0);

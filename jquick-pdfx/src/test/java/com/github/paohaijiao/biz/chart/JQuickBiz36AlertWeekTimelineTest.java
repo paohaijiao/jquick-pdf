@@ -38,7 +38,7 @@ import java.util.List;
  * <p>实际图表类型：{@link JChartType#TimeLine} 时间线，每个节点标注当周告警数量与环比变化，
  * 节点颜色按主色由深到浅依次过渡。</p>
  *
- * <p>模板：{@code report/biz/36_alert_week_timeline.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/36_alert_week_timeline.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\36_alert_week_timeline.pdf}。</p>
  *
  * <p>图表尺寸说明：时间线渲染器画布为横向宽图（1300×500 比例）；模板中 {@code <svg>} 只声明宽度、
@@ -88,7 +88,7 @@ public class JQuickBiz36AlertWeekTimelineTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/36_alert_week_timeline.txt");
+        byte[] bytes = factory.executeResource("report/biz/36_alert_week_timeline.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -36,7 +36,7 @@ import java.util.Arrays;
  * <p>业务场景：某执法系统各下属单位上报当日应到人数与实到人数，人事部门据此统计在岗率，用于日常勤务调度与值守保障。</p>
  * <p>实际图表类型：{@link JChartType#MutipleHorizontalBar} 多重横向条形图，每个单位并列「应到人数 / 实到人数」两个系列。</p>
  *
- * <p>模板：{@code report/biz/35_staff_attendance.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/35_staff_attendance.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\35_staff_attendance.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>} 只声明宽度、不声明高度，
@@ -83,7 +83,7 @@ public class JQuickBiz35StaffAttendanceTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/35_staff_attendance.txt");
+        byte[] bytes = factory.executeResource("report/biz/35_staff_attendance.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

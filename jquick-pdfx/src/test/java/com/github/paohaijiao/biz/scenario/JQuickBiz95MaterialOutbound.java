@@ -33,7 +33,7 @@ import java.util.Map;
  * 场景 95：物资出库单（模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)} 注入；
- * 版式全部落在模板文件 {@code report/biz/95_material_outbound.txt} 中。</p>
+ * 版式全部落在模板文件 {@code report/biz/95_material_outbound.xml} 中。</p>
  *
  * <p>明细 30 行按每页 16 行切块（模板两个表格块 + {@code <areaBreak/>} 分页），
  * 每块末尾「本页小计」行；行数据 bind 为 item{row}_1 ~ item{row}_9。</p>
@@ -49,7 +49,7 @@ public class JQuickBiz95MaterialOutbound {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "95_material_outbound.pdf";
-    private static final String TEMPLATE = "report/biz/95_material_outbound.txt";
+    private static final String TEMPLATE = "report/biz/95_material_outbound.xml";
     private static final String SEAL = IMG_DIR + "95_seal.png";
 
     /** 明细数据：编码 / 名称 / 规格 / 单位 / 申请量 / 实发量 / 单价。 */

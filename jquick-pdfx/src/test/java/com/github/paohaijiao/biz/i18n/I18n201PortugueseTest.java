@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 201 —— 葡萄牙语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_pt.txt
+ * <p>模板：i18n/global_bank_report_pt.xml
  * 输出：D://test//i18n//global_bank_report_pt.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/portuguese.txt} → {@code D://test//i18n//portuguese.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/portuguese.xml} → {@code D://test//i18n//portuguese.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n201PortugueseTest {
      */
     @Test
     public void simple201() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/portuguese.txt", "Noto Sans", "fonts/NotoSans-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/portuguese.xml", "Noto Sans", "fonts/NotoSans-Regular.ttf");
     }
 }

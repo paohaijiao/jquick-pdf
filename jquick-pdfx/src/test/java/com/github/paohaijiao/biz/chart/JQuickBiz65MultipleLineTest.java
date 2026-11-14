@@ -38,7 +38,7 @@ import java.util.List;
  * 2024 年逐月营收变化趋势。</p>
  * <p>实际图表类型：{@link JChartType#MultipleLine} 多重折线图。</p>
  *
- * <p>模板：{@code report/biz/65_multipleLine.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/65_multipleLine.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\65_multipleLine.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>}
@@ -103,7 +103,7 @@ public class JQuickBiz65MultipleLineTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/65_multipleLine.txt");
+        byte[] bytes = factory.executeResource("report/biz/65_multipleLine.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/supply/183_supplier_admission_assessment.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/supply/183_supplier_admission_assessment.xml} 中。</p>
  *
  * <p>供应商准入资料 / 履约考核清单：准入类别与供应品类、考核方式与期间，</p>
  * <p>六维考核指标（目标值、实际值、得分、等级）与合计得分、考核结论与三方签字栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz183SupplierAdmissionAssessment {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "183_supplier_admission_assessment.pdf";
-    private static final String TEMPLATE = "demo/biz/supply/183_supplier_admission_assessment.txt";
+    private static final String TEMPLATE = "demo/biz/supply/183_supplier_admission_assessment.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

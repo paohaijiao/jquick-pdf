@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 205 —— 泰米尔语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_ta.txt
+ * <p>模板：i18n/global_bank_report_ta.xml
  * 输出：D://test//i18n//global_bank_report_ta.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/tamil.txt} → {@code D://test//i18n//tamil.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/tamil.xml} → {@code D://test//i18n//tamil.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n205TamilTest {
      */
     @Test
     public void simple205() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/tamil.txt", "Noto Sans Tamil", "fonts/NotoSansTamil.ttf");
+        I18nDemoSupport.simpleDemo("i18n/tamil.xml", "Noto Sans Tamil", "fonts/NotoSansTamil.ttf");
     }
 }

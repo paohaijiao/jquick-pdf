@@ -37,7 +37,7 @@ import java.io.IOException;
  * 一般客户、潜在客户五层，用于客户经营策略与资源投放决策，主色采用商务稳健蓝 #0D47A1。</p>
  * <p>实际图表类型：{@link JChartType#PIE} 饼图（展示各客户层级的数量占比）。</p>
  *
- * <p>模板：{@code report/biz/39_customer_segment_pie.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/39_customer_segment_pie.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\39_customer_segment_pie.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 400pt（宽 × 高）的方形比例设计；模板中 {@code <svg>}
@@ -78,7 +78,7 @@ public class JQuickBiz39CustomerSegmentPieTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/39_customer_segment_pie.txt");
+        byte[] bytes = factory.executeResource("report/biz/39_customer_segment_pie.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

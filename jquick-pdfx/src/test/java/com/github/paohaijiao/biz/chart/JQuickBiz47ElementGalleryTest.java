@@ -57,7 +57,7 @@ import java.io.IOException;
  * <p>{@code template} 元素（{@code <template>&name</template>}）当前实现会直接抛出
  * “not support http template render”，因此本示例只做说明、不做演示。</p>
  *
- * <p>模板：{@code report/biz/47_element_attribute_gallery.txt}；图表以 SVG 文本绑定到
+ * <p>模板：{@code report/biz/47_element_attribute_gallery.xml}；图表以 SVG 文本绑定到
  * {@code ${svg}}，树形数据绑定到 {@code ${treeRoot}}，输出到
  * {@code D:\test\biz\47_element_attribute_gallery.pdf}。</p>
  *
@@ -114,7 +114,7 @@ public class JQuickBiz47ElementGalleryTest {
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
         factory.bind("treeRoot", root);
-        byte[] bytes = factory.executeResource("report/biz/47_element_attribute_gallery.txt");
+        byte[] bytes = factory.executeResource("report/biz/47_element_attribute_gallery.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

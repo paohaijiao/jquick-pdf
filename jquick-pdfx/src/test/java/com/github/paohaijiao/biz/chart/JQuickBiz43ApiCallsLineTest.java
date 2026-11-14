@@ -39,7 +39,7 @@ import java.util.List;
  * 成功调用量，用于平台容量规划与限流策略制定，主色采用深蓝 #0D47A1。</p>
  * <p>实际图表类型：{@link JChartType#MultipleLine} 多重折线图（四条接口调用量共用「万次」量纲，观察月度增长与峰值）。</p>
  *
- * <p>模板：{@code report/biz/43_api_calls_line.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/43_api_calls_line.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\43_api_calls_line.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt（宽 × 高）的横版比例设计；模板中 {@code <svg>}
@@ -124,7 +124,7 @@ public class JQuickBiz43ApiCallsLineTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/43_api_calls_line.txt");
+        byte[] bytes = factory.executeResource("report/biz/43_api_calls_line.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -34,7 +34,7 @@ import java.util.Map;
  * 场景 88：学生成绩单（模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)} 注入；
- * 版式全部落在模板文件 {@code report/biz/88_transcript.txt} 中。</p>
+ * 版式全部落在模板文件 {@code report/biz/88_transcript.xml} 中。</p>
  *
  * <p>绩点换算：成绩 ≥90 为 4.0，85-89 为 3.7，82-84 为 3.3，78-81 为 3.0，75-77 为 2.7，
  * 72-74 为 2.3，68-71 为 2.0，64-67 为 1.5，60-63 为 1.0，60 以下为 0。
@@ -51,7 +51,7 @@ public class JQuickBiz88Transcript {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "88_transcript.pdf";
-    private static final String TEMPLATE = "report/biz/88_transcript.txt";
+    private static final String TEMPLATE = "report/biz/88_transcript.xml";
 
     /** 课程原始数据：名称 / 学分 / 成绩。 */
     private static final String[][] COURSES = {

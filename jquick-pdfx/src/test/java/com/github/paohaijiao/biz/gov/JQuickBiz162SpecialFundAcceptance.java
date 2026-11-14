@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/gov/162_special_fund_acceptance.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/gov/162_special_fund_acceptance.xml} 中。</p>
  *
  * <p>专项资金验收单 / 绩效评价回执：专项资金与项目信息、验收方式与绩效等级，</p>
  * <p>逐项绩效指标（目标值、完成值、得分、等次）与验收结论、组织单位签章栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz162SpecialFundAcceptance {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "162_special_fund_acceptance.pdf";
-    private static final String TEMPLATE = "demo/biz/gov/162_special_fund_acceptance.txt";
+    private static final String TEMPLATE = "demo/biz/gov/162_special_fund_acceptance.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

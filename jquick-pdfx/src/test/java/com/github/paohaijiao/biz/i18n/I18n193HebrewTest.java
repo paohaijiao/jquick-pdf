@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 193 —— 希伯来语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_he.txt
+ * <p>模板：i18n/global_bank_report_he.xml
  * 输出：D://test//i18n//global_bank_report_he.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/hebrew.txt} → {@code D://test//i18n//hebrew.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/hebrew.xml} → {@code D://test//i18n//hebrew.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n193HebrewTest {
      */
     @Test
     public void simple193() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/hebrew.txt", "Noto Sans Hebrew", "fonts/NotoSansHebrew.ttf");
+        I18nDemoSupport.simpleDemo("i18n/hebrew.xml", "Noto Sans Hebrew", "fonts/NotoSansHebrew.ttf");
     }
 }

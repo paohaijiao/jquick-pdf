@@ -34,7 +34,7 @@ import java.util.Collections;
 /**
  * 统一信用报告 —— 风格 08：漏斗图（深橙）
  *
- * <p>以 {@code report/credit_report_08_funnel.txt} 为模板，把漏斗图渲染成 SVG 后
+ * <p>以 {@code report/credit_report_08_funnel.xml} 为模板，把漏斗图渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\08_funnel.pdf}。</p>
  *
  * @author Martin
@@ -86,7 +86,7 @@ public class JQuickCreditReport08FunnelTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_08_funnel.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_08_funnel.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

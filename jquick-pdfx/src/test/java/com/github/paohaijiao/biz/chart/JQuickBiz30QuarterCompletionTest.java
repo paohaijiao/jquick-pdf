@@ -38,7 +38,7 @@ import java.util.Arrays;
  * 用于观察季度指标完成度与经营节奏。</p>
  * <p>实际图表类型：{@link JChartType#AREA} 区域图（计划值与实际完成值的区域对比）。</p>
  *
- * <p>模板：{@code report/biz/30_quarter_completion.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/30_quarter_completion.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\30_quarter_completion.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt（宽 × 高）的横版比例设计；模板中 {@code <svg>}
@@ -82,7 +82,7 @@ public class JQuickBiz30QuarterCompletionTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/30_quarter_completion.txt");
+        byte[] bytes = factory.executeResource("report/biz/30_quarter_completion.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

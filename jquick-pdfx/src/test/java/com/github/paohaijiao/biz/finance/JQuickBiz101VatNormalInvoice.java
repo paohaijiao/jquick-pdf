@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/finance/101_vat_normal_invoice.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/finance/101_vat_normal_invoice.xml} 中。</p>
  *
  * <p>票面要素：发票代码 / 号码、开票日期、校验码、购销双方名称与纳税人识别号、</p>
  * <p>货物或应税劳务明细（规格、单位、数量、单价、金额、税率、税额）、合计与价税合计。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz101VatNormalInvoice {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "101_vat_normal_invoice.pdf";
-    private static final String TEMPLATE = "demo/biz/finance/101_vat_normal_invoice.txt";
+    private static final String TEMPLATE = "demo/biz/finance/101_vat_normal_invoice.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 5;

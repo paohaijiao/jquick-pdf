@@ -32,7 +32,7 @@ import java.util.Map;
  * 场景 87：中标通知书（模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)} 注入；
- * 版式全部落在模板文件 {@code report/biz/87_award_notice.txt} 中。</p>
+ * 版式全部落在模板文件 {@code report/biz/87_award_notice.xml} 中。</p>
  *
  * <p>产物：PDF {@code D:/test/pdf/87_award_notice.pdf}；
  * 招标单位公章 {@code D:/test/image/87_seal.png}。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz87AwardNotice {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "87_award_notice.pdf";
-    private static final String TEMPLATE = "report/biz/87_award_notice.txt";
+    private static final String TEMPLATE = "report/biz/87_award_notice.xml";
 
     public static void main(String[] args) throws IOException {
         mkdirs();

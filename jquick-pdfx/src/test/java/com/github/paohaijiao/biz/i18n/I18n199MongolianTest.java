@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 199 —— 传统蒙古语（蒙古文）版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_mn.txt
+ * <p>模板：i18n/global_bank_report_mn.xml
  * 输出：D://test//i18n//global_bank_report_mn.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/traditional_mongolian.txt} → {@code D://test//i18n//traditional_mongolian.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/traditional_mongolian.xml} → {@code D://test//i18n//traditional_mongolian.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n199MongolianTest {
      */
     @Test
     public void simple199() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/traditional_mongolian.txt", "Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/traditional_mongolian.xml", "Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
     }
 }

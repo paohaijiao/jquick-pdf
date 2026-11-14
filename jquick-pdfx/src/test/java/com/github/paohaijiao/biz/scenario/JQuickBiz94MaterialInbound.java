@@ -34,7 +34,7 @@ import java.util.Map;
  * 场景 94：物资入库单（模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)} 注入；
- * 版式全部落在模板文件 {@code report/biz/94_material_inbound.txt} 中。</p>
+ * 版式全部落在模板文件 {@code report/biz/94_material_inbound.xml} 中。</p>
  *
  * <p>明细行逐行 bind 为 iCode1~20 / iName1~20 / iSpec1~20 / iUnit1~20 / iQty1~20 /
  * iPrice1~20 / iAmount1~20；合计行逐列占位（引擎不支持 colspan）。</p>
@@ -50,7 +50,7 @@ public class JQuickBiz94MaterialInbound {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "94_material_inbound.pdf";
-    private static final String TEMPLATE = "report/biz/94_material_inbound.txt";
+    private static final String TEMPLATE = "report/biz/94_material_inbound.xml";
 
     /** 明细行原始数据：编码 / 名称 / 规格 / 单位 / 数量 / 单价。 */
     private static final String[][] ITEMS = {

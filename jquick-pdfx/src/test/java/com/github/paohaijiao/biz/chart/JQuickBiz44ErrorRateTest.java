@@ -37,7 +37,7 @@ import java.io.IOException;
  * 评分（0~100，由可用率与错误率综合折算），用于服务等级考核与故障复盘，主色采用深紫 #4A148C。</p>
  * <p>实际图表类型：{@link JChartType#Guage} 仪表盘（用于展示 SLA 健康度评分）。</p>
  *
- * <p>模板：{@code report/biz/44_error_rate.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/44_error_rate.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\44_error_rate.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 400pt（宽 × 高）的方形比例设计；模板中 {@code <svg>}
@@ -75,7 +75,7 @@ public class JQuickBiz44ErrorRateTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/44_error_rate.txt");
+        byte[] bytes = factory.executeResource("report/biz/44_error_rate.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

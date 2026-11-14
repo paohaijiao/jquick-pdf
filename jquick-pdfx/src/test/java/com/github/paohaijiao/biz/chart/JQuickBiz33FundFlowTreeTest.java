@@ -38,7 +38,7 @@ import java.util.List;
  * 用于投融资决策委员会分析资金沉淀与周转效率。</p>
  * <p>实际图表类型：{@link JChartType#Tree} 树图（层级水平布局，展示资金归集与下拨的父子层级）。</p>
  *
- * <p>模板：{@code report/biz/33_fund_flow_tree.txt}；树图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
+ * <p>模板：{@code report/biz/33_fund_flow_tree.xml}；树图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
  * 输出到 {@code D:\test\biz\33_fund_flow_tree.pdf}。</p>
  *
  * <p>图表尺寸说明：树图渲染器画布固定 1000pt × 800pt（宽 × 高），节点总数控制在 12 个（1 个一级 + 3 个二级 + 8 个三级）
@@ -108,7 +108,7 @@ public class JQuickBiz33FundFlowTreeTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/33_fund_flow_tree.txt");
+        byte[] bytes = factory.executeResource("report/biz/33_fund_flow_tree.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

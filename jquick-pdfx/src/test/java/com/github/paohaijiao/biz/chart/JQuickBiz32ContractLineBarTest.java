@@ -38,7 +38,7 @@ import java.util.List;
  * 线表示履约质量，用于法务风险管控与经营例会汇报，主色采用墨绿 #1B5E20。</p>
  * <p>实际图表类型：{@link JChartType#LineBar} 折线柱状混合图（双 Y 轴：左轴合同份数、右轴履约率百分比）。</p>
  *
- * <p>模板：{@code report/biz/32_contract_linebar.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/32_contract_linebar.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\32_contract_linebar.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt（宽 × 高）的横版比例设计；模板中 {@code <svg>}
@@ -86,7 +86,7 @@ public class JQuickBiz32ContractLineBarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/32_contract_linebar.txt");
+        byte[] bytes = factory.executeResource("report/biz/32_contract_linebar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

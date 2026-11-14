@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/finance/102_fully_digital_invoice.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/finance/102_fully_digital_invoice.xml} 中。</p>
  *
  * <p>对标全面数字化电子发票票样：发票号码、开票日期、发票类型、购销双方统一社会信用代码、</p>
  * <p>项目明细与税率征收率、价税合计、电子签章占位。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz102FullyDigitalInvoice {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "102_fully_digital_invoice.pdf";
-    private static final String TEMPLATE = "demo/biz/finance/102_fully_digital_invoice.txt";
+    private static final String TEMPLATE = "demo/biz/finance/102_fully_digital_invoice.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 5;

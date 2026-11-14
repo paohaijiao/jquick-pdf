@@ -34,7 +34,7 @@ import java.util.List;
 /**
  * 统一信用报告 —— 风格 07：环形图（深绿）
  *
- * <p>以 {@code report/credit_report_07_circle.txt} 为模板，把环形图渲染成 SVG 后
+ * <p>以 {@code report/credit_report_07_circle.xml} 为模板，把环形图渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\07_circle.pdf}。</p>
  *
  * @author Martin
@@ -75,7 +75,7 @@ public class JQuickCreditReport07CircleTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_07_circle.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_07_circle.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

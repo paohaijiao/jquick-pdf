@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 198 —— 满语（满文）版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_manchu.txt
+ * <p>模板：i18n/global_bank_report_manchu.xml
  * 输出：D://test//i18n//global_bank_report_manchu.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/manchu.txt} → {@code D://test//i18n//manchu.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/manchu.xml} → {@code D://test//i18n//manchu.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n198ManchuTest {
      */
     @Test
     public void simple198() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/manchu.txt", "Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/manchu.xml", "Noto Sans Mongolian", "fonts/NotoSansMongolian-Regular.ttf");
     }
 }

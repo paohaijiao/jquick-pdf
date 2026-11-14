@@ -61,7 +61,7 @@ public class JStyleElementTest {
     /** 渲染层用例使用的文本，用引号包裹以走字符串取值分支。 */
     private static final String TEXT = "内容";
 
-    /** {@code sample/style/style2.txt}（驼峰）与 {@code style3.txt}（标准写法）必须覆盖的全部属性。 */
+    /** {@code sample/style/style2.xml}（驼峰）与 {@code style3.xml}（标准写法）必须覆盖的全部属性。 */
     private static final String[] STYLE_PROPERTIES = {
             "width", "height", "maxHeight", "minHeight", "minWidth", "maxWidth",
             "relativePosition",
@@ -314,7 +314,7 @@ public class JStyleElementTest {
 
 
     /**
-     * 样例：渲染 {@code src/test/resources/sample/style/style.txt}（覆盖清单中的全部样式属性），
+     * 样例：渲染 {@code src/test/resources/sample/style/style.xml}（覆盖清单中的全部样式属性），
      * 并用 {@link FileOutputStream} 输出到本地 {@code D:\test\style.pdf}（目录取自 {@code JQuickConstant.path}），
      * 可直接打开 PDF 肉眼核对效果。
      * <p>
@@ -325,25 +325,25 @@ public class JStyleElementTest {
      */
     @Test
     public void styleSample() throws IOException {
-        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style.txt");
+        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style.xml");
         FileOutputStream fileOutputStream = new FileOutputStream(path + "style.pdf");
         fileOutputStream.write(pdf);
     }
     @Test
     public void styleSample1() throws IOException {
-        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style1.txt");
+        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style1.xml");
         FileOutputStream fileOutputStream = new FileOutputStream(path + "style1.pdf");
         fileOutputStream.write(pdf);
     }
 
     /**
-     * 样例：渲染 {@code src/test/resources/sample/style/style2.txt}，覆盖尺寸、位置与布局、字体、
+     * 样例：渲染 {@code src/test/resources/sample/style/style2.xml}，覆盖尺寸、位置与布局、字体、
      * 文本样式、文本装饰、背景与边框、圆角、效果与描边、锚点目标共九组属性，输出到本地
      * {@code D:\test\style2.pdf}。
      */
     @Test
     public void styleSample2() throws IOException {
-        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style2.txt");
+        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style2.xml");
         FileOutputStream fileOutputStream = new FileOutputStream(path + "style2.pdf");
         fileOutputStream.write(pdf);
     }
@@ -351,24 +351,24 @@ public class JStyleElementTest {
     /** 与 {@link #styleSample2()} 同内容，但全部改用标准 CSS 写法（如 {@code min-height}、{@code border-radius}）。 */
     @Test
     public void styleSample3() throws IOException {
-        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style3.txt");
+        byte[] pdf = new JQuickPdfFactory().executeResource("sample/style/style3.xml");
         FileOutputStream fileOutputStream = new FileOutputStream(path + "style3.pdf");
         fileOutputStream.write(pdf);
     }
 
     /**
-     * 清单中的属性一个都不能少：逐个断言其标签确实出现在 {@code style2.txt}（驼峰写法）与
-     * {@code style3.txt}（标准写法）渲染出的 PDF 中。
+     * 清单中的属性一个都不能少：逐个断言其标签确实出现在 {@code style2.xml}（驼峰写法）与
+     * {@code style3.xml}（标准写法）渲染出的 PDF 中。
      * <p>
      * 提取文本时去掉全部空白，避免字符间距（{@code characterSpacing}）或自动换行把属性名拆开。
      */
     @Test
     public void styleSampleCoversEveryProperty() throws IOException {
-        String[] resources = {"sample/style/style2.txt", "sample/style/style3.txt"};
+        String[] resources = {"sample/style/style2.xml", "sample/style/style3.xml"};
         for (String resource : resources) {
             String text = extractText(new JQuickPdfFactory().executeResource(resource)).replaceAll("\\s+", "");
             for (String property : STYLE_PROPERTIES) {
-                String expected = resource.endsWith("style2.txt") ? property : toKebab(property);
+                String expected = resource.endsWith("style2.xml") ? property : toKebab(property);
                 assertTrue(resource + " 中缺少属性：" + property, text.contains(expected + ":"));
             }
         }

@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/medical/177_health_checkup_report.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/medical/177_health_checkup_report.xml} 中。</p>
  *
  * <p>健康体检筛查报告单 / 体检项目清单：体检编号与机构、体检人信息，</p>
  * <p>逐项体检结果（结果、单位、参考范围、提示、科室）与健康指导建议、主检医师签字栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz177HealthCheckupReport {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "177_health_checkup_report.pdf";
-    private static final String TEMPLATE = "demo/biz/medical/177_health_checkup_report.txt";
+    private static final String TEMPLATE = "demo/biz/medical/177_health_checkup_report.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 10;

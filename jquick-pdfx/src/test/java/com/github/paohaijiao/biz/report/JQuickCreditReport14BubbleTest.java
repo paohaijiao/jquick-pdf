@@ -38,7 +38,7 @@ import java.util.Map;
 /**
  * 统一信用报告 —— 风格 14：气泡图（浅蓝）
  *
- * <p>以 {@code report/credit_report_14_bubble.txt} 为模板，把气泡图渲染成 SVG 后
+ * <p>以 {@code report/credit_report_14_bubble.xml} 为模板，把气泡图渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\14_bubble.pdf}。</p>
  *
  * @author Martin
@@ -78,7 +78,7 @@ public class JQuickCreditReport14BubbleTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_14_bubble.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_14_bubble.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

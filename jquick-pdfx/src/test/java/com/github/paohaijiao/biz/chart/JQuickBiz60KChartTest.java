@@ -36,7 +36,7 @@ import java.io.IOException;
  * 实体为开收盘价区间，上下影线为最高与最低价，用于技术分析。</p>
  * <p>实际图表类型：{@link JChartType#K} K 线图。</p>
  *
- * <p>模板：{@code report/biz/60_k_chart.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/60_k_chart.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\60_k_chart.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt 的横版比例设计；模板中 {@code <svg>}
@@ -97,7 +97,7 @@ public class JQuickBiz60KChartTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/60_k_chart.txt");
+        byte[] bytes = factory.executeResource("report/biz/60_k_chart.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

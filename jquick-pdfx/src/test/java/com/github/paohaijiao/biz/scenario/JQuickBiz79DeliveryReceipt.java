@@ -35,7 +35,7 @@ import java.util.Map;
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
  * 以 key-value 形式注入；版式全部落在模板文件
- * {@code report/biz/79_delivery_receipt.txt} 中。</p>
+ * {@code report/biz/79_delivery_receipt.xml} 中。</p>
  *
  * <p>运行后输出：{@code D:/test/pdf/79_delivery_receipt.pdf}。</p>
  *
@@ -47,7 +47,7 @@ public class JQuickBiz79DeliveryReceipt {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "79_delivery_receipt.pdf";
-    private static final String TEMPLATE = "report/biz/79_delivery_receipt.txt";
+    private static final String TEMPLATE = "report/biz/79_delivery_receipt.xml";
 
     public static void main(String[] args) throws Exception {
         new File(PDF_DIR).mkdirs();

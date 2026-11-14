@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 206 —— 泰语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_th.txt
+ * <p>模板：i18n/global_bank_report_th.xml
  * 输出：D://test//i18n//global_bank_report_th.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/thai.txt} → {@code D://test//i18n//thai.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/thai.xml} → {@code D://test//i18n//thai.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n206ThaiTest {
      */
     @Test
     public void simple206() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/thai.txt", "Noto Sans Thai", "fonts/NotoSansThai-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/thai.xml", "Noto Sans Thai", "fonts/NotoSansThai-Regular.ttf");
     }
 }

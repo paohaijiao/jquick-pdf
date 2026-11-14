@@ -38,7 +38,7 @@ import java.io.IOException;
  * <p>实际图表类型：{@link JChartType#BAR} 柱状图。<b>jquick-pdf 无直方图（Histogram）渲染器，
  * 实际使用柱状图 BAR 替代直方图</b>：预先将时长分箱，以「时长区间」为类目、「办件量」为柱高呈现分布形态。</p>
  *
- * <p>模板：{@code report/biz/34_handle_duration.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/34_handle_duration.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\34_handle_duration.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt（宽 × 高）的横版比例设计；模板中 {@code <svg>}
@@ -77,7 +77,7 @@ public class JQuickBiz34HandleDurationTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/34_handle_duration.txt");
+        byte[] bytes = factory.executeResource("report/biz/34_handle_duration.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -38,7 +38,7 @@ import java.util.List;
  * 用于区域信用状况概览与授信政策制定。</p>
  * <p>实际图表类型：{@link JChartType#Circle} 环形图（中心显示企业总数，外环按等级占比展开）。</p>
  *
- * <p>模板：{@code report/biz/20_credit_grade_circle.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/20_credit_grade_circle.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\20_credit_grade_circle.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 500pt × 400pt（宽 × 高）的方形比例设计；模板中 {@code <svg>}
@@ -82,7 +82,7 @@ public class JQuickBiz20CreditGradeCircleTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/20_credit_grade_circle.txt");
+        byte[] bytes = factory.executeResource("report/biz/20_credit_grade_circle.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

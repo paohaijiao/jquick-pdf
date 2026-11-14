@@ -32,7 +32,7 @@ import java.util.Map;
  * 场景 91：不动产登记信息查询结果告知单（模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)} 注入；
- * 版式全部落在模板文件 {@code report/biz/91_real_estate_query.txt} 中。</p>
+ * 版式全部落在模板文件 {@code report/biz/91_real_estate_query.xml} 中。</p>
  *
  * <p>产物：PDF {@code D:/test/pdf/91_real_estate_query.pdf}；
  * 查询专用章 {@code D:/test/image/91_seal.png}。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz91RealEstateQuery {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "91_real_estate_query.pdf";
-    private static final String TEMPLATE = "report/biz/91_real_estate_query.txt";
+    private static final String TEMPLATE = "report/biz/91_real_estate_query.xml";
     private static final String SEAL = IMG_DIR + "91_seal.png";
 
     public static void main(String[] args) throws IOException {

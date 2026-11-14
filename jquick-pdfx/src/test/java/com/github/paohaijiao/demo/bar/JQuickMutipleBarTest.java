@@ -87,7 +87,7 @@ public class JQuickMutipleBarTest {
 
         FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        byte[] bytes = factory.executeResource("sample/svg2.xml");
         fileOutputStream.write(bytes);
 
     }

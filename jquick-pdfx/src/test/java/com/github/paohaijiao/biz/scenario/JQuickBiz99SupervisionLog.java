@@ -37,7 +37,7 @@ import java.util.Map;
  *
  * <p>本类不定义任何实体类，全部业务数据通过 {@link JQuickPdfFactory#bindAll(Map)}
  * 以 key-value 形式注入；版式全部落在模板文件
- * {@code report/biz/99_supervision_log.txt} 中。</p>
+ * {@code report/biz/99_supervision_log.xml} 中。</p>
  *
  * <p>版式说明：封面为工程信息表 + 说明 + 监理单位章 / 总监签字；
  * 每个记录日一块，包含天气表、施工明细表（6 行 × 6 列，逐格占位）、材料进场、
@@ -55,7 +55,7 @@ public class JQuickBiz99SupervisionLog {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "99_supervision_log.pdf";
-    private static final String TEMPLATE = "report/biz/99_supervision_log.txt";
+    private static final String TEMPLATE = "report/biz/99_supervision_log.xml";
 
     /** 每个记录日的施工记录条数（与模板中逐格占位数量一致）。 */
     private static final int ROWS_PER_DAY = 6;

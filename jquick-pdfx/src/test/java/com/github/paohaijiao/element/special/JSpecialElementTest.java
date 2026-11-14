@@ -201,7 +201,7 @@ public class JSpecialElementTest {
     /** 嵌入图片：本地图片按声明宽高绘制，{@code px} 需按 CSS 96dpi 换算为 pt（200px=150pt、150px=112.5pt）。 */
     @Test
     public void image() throws IOException {
-        Rendered rendered = render(new JQuickPdfFactory(), "sample/special/image.txt");
+        Rendered rendered = render(new JQuickPdfFactory(), "sample/special/image.xml");
         assertEquals(1, rendered.pages);
         assertEquals("应嵌入 1 张图片", 1, rendered.images.size());
         assertEquals("图片应被绘制一次", 1, rendered.operatorCount("Do"));
@@ -215,7 +215,7 @@ public class JSpecialElementTest {
     /** 矢量图形：{@code ${svg}} 绑定 SVG 字符串，按 SVG 自身宽高（120×60）栅格化后作为图片嵌入。 */
     @Test
     public void svg() throws IOException {
-        Rendered rendered = render(new JQuickPdfFactory().bind("svg", SVG), "sample/special/svg.txt");
+        Rendered rendered = render(new JQuickPdfFactory().bind("svg", SVG), "sample/special/svg.xml");
         assertEquals(1, rendered.pages);
         assertEquals("SVG 应作为 1 张图片嵌入", 1, rendered.images.size());
         assertEquals("SVG 应被绘制一次", 1, rendered.operatorCount("Do"));
@@ -229,7 +229,7 @@ public class JSpecialElementTest {
     /** 矢量图形：{@code &{svg}} 走图表配置，图表渲染出的 SVG 同样被栅格化嵌入且不超出页面宽度。 */
     @Test
     public void svgByAddress() throws IOException {
-        Rendered rendered = render(graphFactory(), "sample/special/svgAddress.txt");
+        Rendered rendered = render(graphFactory(), "sample/special/svgAddress.xml");
         assertEquals(1, rendered.pages);
         assertEquals("图表 SVG 应作为 1 张图片嵌入", 1, rendered.images.size());
         assertEquals("图表 SVG 应被绘制一次", 1, rendered.operatorCount("Do"));
@@ -244,21 +244,21 @@ public class JSpecialElementTest {
     /** 树形结构：{@code ${tree}} 绑定 TreeNode，子节点缩进绘制在父节点右下方，并绘制节点背景与层级连接线。 */
     @Test
     public void tree() throws IOException {
-        Rendered rendered = render(new JQuickPdfFactory().bind("tree", treeData()), "sample/special/tree.txt");
+        Rendered rendered = render(new JQuickPdfFactory().bind("tree", treeData()), "sample/special/tree.xml");
         assertTreeLayout(rendered);
     }
 
     /** 树形结构：{@code &{tree}} 走树配置解析，渲染结果与 {@code ${tree}} 变量绑定一致。 */
     @Test
     public void treeByAddress() throws IOException {
-        Rendered rendered = render(treeFactory(), "sample/special/treeAddress.txt");
+        Rendered rendered = render(treeFactory(), "sample/special/treeAddress.xml");
         assertTreeLayout(rendered);
     }
 
     /** 数据绑定占位符：{@code ${name}} 被绑定值替换，且不会把占位符原样输出。 */
     @Test
     public void variable() throws IOException {
-        Rendered rendered = render(new JQuickPdfFactory().bind("name", "张三"), "sample/special/variable.txt");
+        Rendered rendered = render(new JQuickPdfFactory().bind("name", "张三"), "sample/special/variable.xml");
         assertEquals(1, rendered.pages);
         assertEquals("占位符应被绑定值替换", "姓名: 张三", rendered.text());
         assertFalse("占位符不应被原样输出", rendered.text().contains("${"));

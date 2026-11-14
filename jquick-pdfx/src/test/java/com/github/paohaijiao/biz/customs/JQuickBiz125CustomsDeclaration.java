@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/customs/125_customs_declaration.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/customs/125_customs_declaration.xml} 中。</p>
  *
  * <p>对标海关进出口货物报关单票样：海关编号、境内收货人 / 境外发货人、</p>
  * <p>运输方式与贸易方式、商品 HS 编码与成交总价、申报单位签章与海关验讫栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz125CustomsDeclaration {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "125_customs_declaration.pdf";
-    private static final String TEMPLATE = "demo/biz/customs/125_customs_declaration.txt";
+    private static final String TEMPLATE = "demo/biz/customs/125_customs_declaration.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

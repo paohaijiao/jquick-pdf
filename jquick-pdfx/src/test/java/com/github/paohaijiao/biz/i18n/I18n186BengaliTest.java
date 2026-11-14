@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 186 —— 孟加拉语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_bn.txt
+ * <p>模板：i18n/global_bank_report_bn.xml
  * 输出：D://test//i18n//global_bank_report_bn.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/bengali.txt} → {@code D://test//i18n//bengali.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/bengali.xml} → {@code D://test//i18n//bengali.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n186BengaliTest {
      */
     @Test
     public void simple186() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/bengali.txt", "Noto Sans Bengali", "fonts/NotoSansBengali.ttf");
+        I18nDemoSupport.simpleDemo("i18n/bengali.xml", "Noto Sans Bengali", "fonts/NotoSansBengali.ttf");
     }
 }

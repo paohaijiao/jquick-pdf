@@ -32,7 +32,7 @@ import java.io.IOException;
 /**
  * 统一信用报告 —— 风格 10：热力图（深紫）
  *
- * <p>以 {@code report/credit_report_10_heatmap.txt} 为模板，把热力图渲染成 SVG 后
+ * <p>以 {@code report/credit_report_10_heatmap.xml} 为模板，把热力图渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\10_heatmap.pdf}。</p>
  *
  * @author Martin
@@ -73,7 +73,7 @@ public class JQuickCreditReport10HeatmapTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_10_heatmap.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_10_heatmap.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

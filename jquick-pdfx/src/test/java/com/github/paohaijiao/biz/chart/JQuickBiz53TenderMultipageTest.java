@@ -44,7 +44,7 @@ import java.io.IOException;
  * <p>图表说明：使用 {@link JChartType#LINE} 折线图展示近三年同类项目合同额与验收合格率，
  * 作为「类似项目业绩」章节的数据支撑。</p>
  *
- * <p>模板：{@code report/biz/53_tender_multipage.txt}，输出：{@code D:\test\biz\53_tender_multipage.pdf}。</p>
+ * <p>模板：{@code report/biz/53_tender_multipage.xml}，输出：{@code D:\test\biz\53_tender_multipage.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -80,7 +80,7 @@ public class JQuickBiz53TenderMultipageTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/53_tender_multipage.txt");
+        byte[] bytes = factory.executeResource("report/biz/53_tender_multipage.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

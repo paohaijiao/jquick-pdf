@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/finance/116_travel_expense_list.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/finance/116_travel_expense_list.xml} 中。</p>
  *
  * <p>差旅报销清单：出差期间、出差人与随行人员、出差事由、逐日逐项费用明细，</p>
  * <p>差旅费用合计大小写与审批签字栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz116TravelExpenseList {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "116_travel_expense_list.pdf";
-    private static final String TEMPLATE = "demo/biz/finance/116_travel_expense_list.txt";
+    private static final String TEMPLATE = "demo/biz/finance/116_travel_expense_list.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 8;

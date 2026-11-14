@@ -32,7 +32,7 @@ import java.util.Map;
  * 场景 74：人事-入职通知 PDF（红头文件样式，单页，模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
- * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/74_onboard_notice.txt} 中。
+ * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/74_onboard_notice.xml} 中。
  * 报到材料逐条 bind 为 material1~6。</p>
  *
  * <p>产物目录约定：</p>
@@ -49,7 +49,7 @@ public class JQuickBiz74OnboardNotice {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "74_onboard_notice.pdf";
-    private static final String TEMPLATE = "report/biz/74_onboard_notice.txt";
+    private static final String TEMPLATE = "report/biz/74_onboard_notice.xml";
 
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();

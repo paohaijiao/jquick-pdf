@@ -35,7 +35,7 @@ import java.util.Map;
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
  * 以 key-value 形式注入；版式全部落在模板文件
- * {@code report/biz/78_contract_draft.txt} 中。</p>
+ * {@code report/biz/78_contract_draft.xml} 中。</p>
  *
  * <p>条款正文按 \n 分段，逐段 bind 为 clauseN_p1~p3（模板为每条预留 3 个段落占位符，
  * 不足的段落绑空串）。</p>
@@ -50,7 +50,7 @@ public class JQuickBiz78ContractDraft {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "78_contract_draft.pdf";
-    private static final String TEMPLATE = "report/biz/78_contract_draft.txt";
+    private static final String TEMPLATE = "report/biz/78_contract_draft.xml";
 
     public static void main(String[] args) throws Exception {
         new File(PDF_DIR).mkdirs();

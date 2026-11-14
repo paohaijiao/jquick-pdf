@@ -32,7 +32,7 @@ import java.util.Map;
  * 场景 90：车辆检测报告（模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)} 注入；
- * 版式全部落在模板文件 {@code report/biz/90_vehicle_inspection.txt} 中。</p>
+ * 版式全部落在模板文件 {@code report/biz/90_vehicle_inspection.xml} 中。</p>
  *
  * <p>产物：PDF {@code D:/test/pdf/90_vehicle_inspection.pdf}；
  * 检测专用章 {@code D:/test/image/90_seal.png}。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz90VehicleInspection {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "90_vehicle_inspection.pdf";
-    private static final String TEMPLATE = "report/biz/90_vehicle_inspection.txt";
+    private static final String TEMPLATE = "report/biz/90_vehicle_inspection.xml";
     private static final String SEAL = IMG_DIR + "90_seal.png";
 
     /** 检测项目：名称、标准要求、实测值、判定。 */

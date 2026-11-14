@@ -34,7 +34,7 @@ import java.io.IOException;
  * 四列表单式信息栏 + 八列入库明细表 + 大字金额合计条 + 左色条验收结论 + 四栏签字区。</p>
  *
  * <p>本模板为纯版式 Demo，不含图表，因此不需要绑定 {@code svg} 变量；
- * 模板：{@code report/biz/48_warehouse_receipt.txt}，输出：{@code D:\test\biz\48_warehouse_receipt.pdf}。</p>
+ * 模板：{@code report/biz/48_warehouse_receipt.xml}，输出：{@code D:\test\biz\48_warehouse_receipt.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -54,7 +54,7 @@ public class JQuickBiz48WarehouseReceiptTest {
         // 开启 flex 行布局，使模板中的 display:flex 生效（页头双栏、金额条两端对齐、四栏签字区）
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("report/biz/48_warehouse_receipt.txt");
+        byte[] bytes = factory.executeResource("report/biz/48_warehouse_receipt.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

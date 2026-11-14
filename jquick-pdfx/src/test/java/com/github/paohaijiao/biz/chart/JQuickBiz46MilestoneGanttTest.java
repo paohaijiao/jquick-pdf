@@ -37,7 +37,7 @@ import java.util.Arrays;
  * <p>业务场景：市重点项目建设监管平台展示城东新区综合交通枢纽项目从可研批复到竣工验收的里程碑排期与进度偏差。</p>
  * <p>实际图表类型：{@link JChartType#Gantt} 甘特图（横向宽图，横轴按周，纵轴为里程碑行）。</p>
  *
- * <p>模板：{@code report/biz/46_milestone_gantt.txt}；甘特图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
+ * <p>模板：{@code report/biz/46_milestone_gantt.xml}；甘特图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
  * 输出到 {@code D:\test\biz\46_milestone_gantt.pdf}。</p>
  *
  * <p>图表尺寸说明：甘特图渲染器画布固定 872pt × 282pt（横向宽图）；横轴时间刻度共 7 个（第1周—第7周），
@@ -95,7 +95,7 @@ public class JQuickBiz46MilestoneGanttTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/46_milestone_gantt.txt");
+        byte[] bytes = factory.executeResource("report/biz/46_milestone_gantt.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -34,7 +34,7 @@ import java.io.IOException;
  * 三列会议议程表 + 三栏参会信息盒 + 右对齐落款 + 页脚联络方式。</p>
  *
  * <p>本模板为纯版式 Demo，不含图表，因此不需要绑定 {@code svg} 变量；
- * 模板：{@code report/biz/52_invitation_letter.txt}，输出：{@code D:\test\biz\52_invitation_letter.pdf}。</p>
+ * 模板：{@code report/biz/52_invitation_letter.xml}，输出：{@code D:\test\biz\52_invitation_letter.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -54,7 +54,7 @@ public class JQuickBiz52InvitationLetterTest {
         // 开启 flex 行布局，使模板中的 display:flex 生效（参会信息三栏、页脚联络方式两端对齐）
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("report/biz/52_invitation_letter.txt");
+        byte[] bytes = factory.executeResource("report/biz/52_invitation_letter.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

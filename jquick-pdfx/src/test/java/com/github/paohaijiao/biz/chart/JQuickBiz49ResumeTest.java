@@ -34,7 +34,7 @@ import java.io.IOException;
  * 工作与项目经历采用「时间 + 左色条」的时间轴结构。</p>
  *
  * <p>本模板为纯版式 Demo，不含图表，因此不需要绑定 {@code svg} 变量；
- * 模板：{@code report/biz/49_resume.txt}，输出：{@code D:\test\biz\49_resume.pdf}。</p>
+ * 模板：{@code report/biz/49_resume.xml}，输出：{@code D:\test\biz\49_resume.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -54,7 +54,7 @@ public class JQuickBiz49ResumeTest {
         // 开启 flex 行布局，使模板中的 display:flex 生效（左右双栏 + 经历时间轴）
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("report/biz/49_resume.txt");
+        byte[] bytes = factory.executeResource("report/biz/49_resume.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

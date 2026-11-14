@@ -181,8 +181,8 @@ public class HelloDemo {
 | 方法 | 来源 |
 |---|---|
 | `executeContent(String)` | 内存中的模板文本 |
-| `executeResource(String)` | classpath 资源，例如 `"report.txt"` |
-| `executeFile(String)` | 磁盘文件，例如 `"D:/templates/report.txt"` |
+| `executeResource(String)` | classpath 资源，例如 `"report.xml"` |
+| `executeFile(String)` | 磁盘文件，例如 `"D:/templates/report.xml"` |
 
 文本节点始终使用单引号包裹（`'Hello jquick-pdf'`）；`<pdf>` 与 `<html>` 均可作为文档根元素。
 
@@ -1521,9 +1521,9 @@ JPdfConfig config = new JPdfConfig();
 // 开启 flex 行布局：宽度足够时，雷达图与其右侧的指标面板并排显示，
 // 而不是上下堆叠。
 config.getLayoutConfig().setFlexLayout(true);
-JReader fileReader = new JReSourceFileReader("report.txt");   // 文档模板
+JReader fileReader = new JReSourceFileReader("report.xml");   // 文档模板
 JAdaptor adaptor = new JAdaptor(fileReader);
-JReader svgReader = new JReSourceFileReader("radar.txt");     // 图表的内联 SVG
+JReader svgReader = new JReSourceFileReader("radar.xml");     // 图表的内联 SVG
 JAdaptor svgAdaptor = new JAdaptor(svgReader);
 JQuickPdfFactory factory = new JQuickPdfFactory(config);
 factory.bind("svg", svgAdaptor.getRuleContent());             // ${svg} 占位符
@@ -1736,9 +1736,9 @@ public class JQuickCreditReportTest {
         // 开启 flex 行布局：宽度足够时，雷达图与其右侧的指标面板并排显示，
         // 而不是上下堆叠。
         config.getLayoutConfig().setFlexLayout(true);
-        JReader fileReader = new JReSourceFileReader("report.txt");   // 文档模板
+        JReader fileReader = new JReSourceFileReader("report.xml");   // 文档模板
         JAdaptor adaptor = new JAdaptor(fileReader);
-        JReader svgReader = new JReSourceFileReader("radar.txt");     // 图表的内联 SVG
+        JReader svgReader = new JReSourceFileReader("radar.xml");     // 图表的内联 SVG
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svgAdaptor.getRuleContent());             // ${svg} 占位符
@@ -1752,8 +1752,8 @@ public class JQuickCreditReportTest {
 
 两份模板随测试源码一同发布：
 
-- `jquick-pdfx/src/test/resources/report.txt` —— 文档模板（下方为节选）
-- `jquick-pdfx/src/test/resources/radar.txt` —— 绑定到 `${svg}` 的内联 SVG
+- `jquick-pdfx/src/test/resources/report.xml` —— 文档模板（下方为节选）
+- `jquick-pdfx/src/test/resources/radar.xml` —— 绑定到 `${svg}` 的内联 SVG
 
 ```html
 <pdf>
@@ -2042,7 +2042,7 @@ public class JQuickTwoRadarTest {
 
         FileOutputStream fileOutputStream = new FileOutputStream("D:/test/two-radar.pdf");
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        byte[] bytes = factory.executeResource("sample/svg2.xml");
         fileOutputStream.write(bytes);
     }
 }

@@ -37,7 +37,7 @@ import java.util.Map;
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
  * 以 key-value 形式注入；版式全部落在模板文件
- * {@code report/biz/80_invoice_sample.txt} 中。</p>
+ * {@code report/biz/80_invoice_sample.xml} 中。</p>
  *
  * <p>明细行逐条 bind 为 dN_xxx；金额（不含税 / 税额 / 价税合计 / 大写）由 Java 侧用
  * BigDecimal 计算后 bind。模板不支持 colspan，合计行空位逐列 '—' 占位。</p>
@@ -54,7 +54,7 @@ public class JQuickBiz80InvoiceSample {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "80_invoice_sample.pdf";
-    private static final String TEMPLATE = "report/biz/80_invoice_sample.txt";
+    private static final String TEMPLATE = "report/biz/80_invoice_sample.xml";
 
     public static void main(String[] args) throws Exception {
         new File(PDF_DIR).mkdirs();

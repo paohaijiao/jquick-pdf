@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/customs/138_bonded_warehouse_list.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/customs/138_bonded_warehouse_list.xml} 中。</p>
  *
  * <p>保税仓出入库清单 / 中转货物清单：E 账册编号与库位区间、作业类型，</p>
  * <p>逐项商品数量金额与在库状态、库存金额合计与三方签字栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz138BondedWarehouseList {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "138_bonded_warehouse_list.pdf";
-    private static final String TEMPLATE = "demo/biz/customs/138_bonded_warehouse_list.txt";
+    private static final String TEMPLATE = "demo/biz/customs/138_bonded_warehouse_list.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

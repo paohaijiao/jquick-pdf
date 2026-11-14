@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 209 —— 越南语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_vi.txt
+ * <p>模板：i18n/global_bank_report_vi.xml
  * 输出：D://test//i18n//global_bank_report_vi.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/vietnamese.txt} → {@code D://test//i18n//vietnamese.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/vietnamese.xml} → {@code D://test//i18n//vietnamese.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n209VietnameseTest {
      */
     @Test
     public void simple209() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/vietnamese.txt", "Noto Sans", "fonts/NotoSans-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/vietnamese.xml", "Noto Sans", "fonts/NotoSans-Regular.ttf");
     }
 }

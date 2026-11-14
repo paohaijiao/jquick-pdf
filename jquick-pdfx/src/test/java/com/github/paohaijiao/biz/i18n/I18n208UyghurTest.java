@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 208 —— 维吾尔语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_ug.txt
+ * <p>模板：i18n/global_bank_report_ug.xml
  * 输出：D://test//i18n//global_bank_report_ug.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/uyghur.txt} → {@code D://test//i18n//uyghur.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/uyghur.xml} → {@code D://test//i18n//uyghur.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n208UyghurTest {
      */
     @Test
     public void simple208() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/uyghur.txt", "Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/uyghur.xml", "Noto Sans Arabic", "fonts/NotoSansArabic-Regular.ttf");
     }
 }

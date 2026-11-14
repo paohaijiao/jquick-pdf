@@ -35,7 +35,7 @@ import java.io.IOException;
  * 底部「左侧备注 + 右侧盖章框（内容垂直居中）」。</p>
  *
  * <p>本模板为纯版式 Demo，不含图表，因此不需要绑定 {@code svg} 变量；
- * 模板：{@code report/biz/51_settlement_statement.txt}，输出：{@code D:\test\biz\51_settlement_statement.pdf}。</p>
+ * 模板：{@code report/biz/51_settlement_statement.xml}，输出：{@code D:\test\biz\51_settlement_statement.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -55,7 +55,7 @@ public class JQuickBiz51SettlementStatementTest {
         // 开启 flex 行布局，使模板中的 display:flex 生效（双方双盒并排、金额条两端对齐、盖章区）
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("report/biz/51_settlement_statement.txt");
+        byte[] bytes = factory.executeResource("report/biz/51_settlement_statement.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

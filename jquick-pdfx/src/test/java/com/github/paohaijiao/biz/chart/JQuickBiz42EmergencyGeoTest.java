@@ -33,7 +33,7 @@ import java.nio.charset.StandardCharsets;
  * <p>业务场景：省应急指挥平台按行政区划统计突发事件起数与响应时效，用于汛期风险研判与救援力量前置部署。</p>
  * <p>实际图表类型：{@link JChartType#Geo} 地图（GeoJSON 行政区划图，底图区域为四川省 21 个市/州）。</p>
  *
- * <p>模板：{@code report/biz/42_emergency_geo.txt}；地图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
+ * <p>模板：{@code report/biz/42_emergency_geo.xml}；地图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
  * 输出到 {@code D:\test\biz\42_emergency_geo.pdf}。</p>
  *
  * <p>图表尺寸说明：地图按渲染器默认画布 800pt × 600pt（宽 × 高）绘制；模板中 {@code <svg>} 只声明宽度、
@@ -86,7 +86,7 @@ public class JQuickBiz42EmergencyGeoTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/42_emergency_geo.txt");
+        byte[] bytes = factory.executeResource("report/biz/42_emergency_geo.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

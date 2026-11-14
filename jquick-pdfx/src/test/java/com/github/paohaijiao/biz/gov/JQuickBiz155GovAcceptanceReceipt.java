@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/gov/155_gov_acceptance_receipt.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/gov/155_gov_acceptance_receipt.xml} 中。</p>
  *
  * <p>政务服务事项受理回执单：受理编号与事项编码、申请人信息、办理类型与承诺时限，</p>
  * <p>申请材料清单与核验结果、办件进度提示与受理人 / 申请人签收栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz155GovAcceptanceReceipt {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "155_gov_acceptance_receipt.pdf";
-    private static final String TEMPLATE = "demo/biz/gov/155_gov_acceptance_receipt.txt";
+    private static final String TEMPLATE = "demo/biz/gov/155_gov_acceptance_receipt.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

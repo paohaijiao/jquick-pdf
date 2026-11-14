@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/medical/175_discharge_summary_certificate.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/medical/175_discharge_summary_certificate.xml} 中。</p>
  *
  * <p>出院小结 / 疾病诊断证明书：入出院日期与诊断、手术操作名称、出院时情况，</p>
  * <p>住院期间主要诊疗与用药明细、出院医嘱与主治医师 / 科主任签字栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz175DischargeSummaryCertificate {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "175_discharge_summary_certificate.pdf";
-    private static final String TEMPLATE = "demo/biz/medical/175_discharge_summary_certificate.txt";
+    private static final String TEMPLATE = "demo/biz/medical/175_discharge_summary_certificate.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

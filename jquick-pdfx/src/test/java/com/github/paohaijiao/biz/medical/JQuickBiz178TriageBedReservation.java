@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/medical/178_triage_bed_reservation.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/medical/178_triage_bed_reservation.xml} 中。</p>
  *
  * <p>门诊分诊单 / 住院床位预约回执：主诉症状与生命体征、分诊科室与分级，</p>
  * <p>分诊与候诊候床逐项明细、分诊结论与护士 / 医师 / 患者签收栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz178TriageBedReservation {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "178_triage_bed_reservation.pdf";
-    private static final String TEMPLATE = "demo/biz/medical/178_triage_bed_reservation.txt";
+    private static final String TEMPLATE = "demo/biz/medical/178_triage_bed_reservation.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

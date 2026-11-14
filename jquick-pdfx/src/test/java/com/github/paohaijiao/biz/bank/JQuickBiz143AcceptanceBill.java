@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/bank/143_acceptance_bill.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/bank/143_acceptance_bill.xml} 中。</p>
  *
  * <p>银行承兑汇票 / 商业承兑汇票：汇票号码与类型、出票与到期日期、</p>
  * <p>出票人收款人账户、大小写金额、背书转让连续记录与承兑行签章栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz143AcceptanceBill {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "143_acceptance_bill.pdf";
-    private static final String TEMPLATE = "demo/biz/bank/143_acceptance_bill.txt";
+    private static final String TEMPLATE = "demo/biz/bank/143_acceptance_bill.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

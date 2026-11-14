@@ -40,7 +40,7 @@ import java.util.Random;
  * 当日订单金额越高，便于识别销售高峰与低谷。</p>
  * <p>实际图表类型：{@link JChartType#Calendar} 日历热力图。</p>
  *
- * <p>模板：{@code report/biz/58_calendar.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/58_calendar.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\58_calendar.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>}
@@ -102,7 +102,7 @@ public class JQuickBiz58CalendarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/58_calendar.txt");
+        byte[] bytes = factory.executeResource("report/biz/58_calendar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

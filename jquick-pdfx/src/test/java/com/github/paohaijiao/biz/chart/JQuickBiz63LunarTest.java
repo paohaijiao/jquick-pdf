@@ -38,7 +38,7 @@ import java.util.List;
  * 便于员工安排工作与假期。</p>
  * <p>实际图表类型：{@link JChartType#Lunar} 农历日历图。</p>
  *
- * <p>模板：{@code report/biz/63_lunar.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/63_lunar.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\63_lunar.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>}
@@ -108,7 +108,7 @@ public class JQuickBiz63LunarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/63_lunar.txt");
+        byte[] bytes = factory.executeResource("report/biz/63_lunar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -37,7 +37,7 @@ import java.io.IOException;
  * 用于资产质量月度例会与风险预警，主色采用风险主题的低饱和深红 #B71C1C。</p>
  * <p>实际图表类型：{@link JChartType#PIE} 饼图（展示各风险档位的资产占比）。</p>
  *
- * <p>模板：{@code report/biz/19_overdue_loan_pie.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/19_overdue_loan_pie.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\19_overdue_loan_pie.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 400pt（宽 × 高）的方形比例设计；模板中 {@code <svg>}
@@ -78,7 +78,7 @@ public class JQuickBiz19OverdueLoanPieTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/19_overdue_loan_pie.txt");
+        byte[] bytes = factory.executeResource("report/biz/19_overdue_loan_pie.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

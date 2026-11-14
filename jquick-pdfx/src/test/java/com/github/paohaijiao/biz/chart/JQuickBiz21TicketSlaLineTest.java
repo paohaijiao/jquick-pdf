@@ -39,7 +39,7 @@ import java.util.List;
  * 用于服务质量考核与流程优化，主色采用政务蓝 #2F5597。</p>
  * <p>实际图表类型：{@link JChartType#MultipleLine} 多重折线图（四条时长指标共用「小时」量纲，观察月度收敛趋势）。</p>
  *
- * <p>模板：{@code report/biz/21_ticket_sla_line.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/21_ticket_sla_line.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\21_ticket_sla_line.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt（宽 × 高）的横版比例设计；模板中 {@code <svg>}
@@ -124,7 +124,7 @@ public class JQuickBiz21TicketSlaLineTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/21_ticket_sla_line.txt");
+        byte[] bytes = factory.executeResource("report/biz/21_ticket_sla_line.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

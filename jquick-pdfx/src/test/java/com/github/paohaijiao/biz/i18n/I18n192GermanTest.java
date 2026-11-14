@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 192 —— 德语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_de.txt
+ * <p>模板：i18n/global_bank_report_de.xml
  * 输出：D://test//i18n//global_bank_report_de.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/german.txt} → {@code D://test//i18n//german.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/german.xml} → {@code D://test//i18n//german.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n192GermanTest {
      */
     @Test
     public void simple192() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/german.txt", "Noto Sans", "fonts/NotoSans-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/german.xml", "Noto Sans", "fonts/NotoSans-Regular.ttf");
     }
 }

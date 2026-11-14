@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/bank/145_telegraphic_transfer_voucher.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/bank/145_telegraphic_transfer_voucher.xml} 中。</p>
  *
  * <p>电汇 / 信汇凭证、付款委托书：汇出行与汇入行、汇款人与收款人账号，</p>
  * <p>币种金额与汇率、逐项费用明细与承担方、汇款人预留印鉴栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz145TelegraphicTransferVoucher {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "145_telegraphic_transfer_voucher.pdf";
-    private static final String TEMPLATE = "demo/biz/bank/145_telegraphic_transfer_voucher.txt";
+    private static final String TEMPLATE = "demo/biz/bank/145_telegraphic_transfer_voucher.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

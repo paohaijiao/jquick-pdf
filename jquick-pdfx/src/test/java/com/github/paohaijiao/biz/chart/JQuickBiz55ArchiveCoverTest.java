@@ -35,7 +35,7 @@ import java.io.IOException;
  * 案卷信息表 + 底部立卷人与检查人双栏 + 居中单位与年月。</p>
  *
  * <p>本模板为纯版式 Demo，不含图表，因此不需要绑定 {@code svg} 变量；
- * 模板：{@code report/biz/55_archive_cover.txt}，输出：{@code D:\test\biz\55_archive_cover.pdf}。</p>
+ * 模板：{@code report/biz/55_archive_cover.xml}，输出：{@code D:\test\biz\55_archive_cover.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -55,7 +55,7 @@ public class JQuickBiz55ArchiveCoverTest {
         // 开启 flex 行布局，使模板中的 display:flex 生效（全宗号与密级两端对齐、立卷/检查双栏）
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("report/biz/55_archive_cover.txt");
+        byte[] bytes = factory.executeResource("report/biz/55_archive_cover.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

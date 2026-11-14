@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/supply/184_presale_payment_confirm.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/supply/184_presale_payment_confirm.xml} 中。</p>
  *
  * <p>预售房款收款单 / 尾款结算确认单：预售许可证与项目房号、房屋总价与面积，</p>
  * <p>逐笔款项（应收、实收、日期、方式）与结算合计、资金监管账户与三方签字栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz184PresalePaymentConfirm {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "184_presale_payment_confirm.pdf";
-    private static final String TEMPLATE = "demo/biz/supply/184_presale_payment_confirm.txt";
+    private static final String TEMPLATE = "demo/biz/supply/184_presale_payment_confirm.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

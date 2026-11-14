@@ -37,7 +37,7 @@ import java.util.Arrays;
  * <p>业务场景：企业运营部对比华东、华南、华北、西部四个区域 1-6 月的业绩完成情况，用于半年度经营分析会。</p>
  * <p>实际图表类型：{@link JChartType#MultipleBar} 分组柱状图，横轴为月份、每个月份并列四根区域柱。</p>
  *
- * <p>模板：{@code report/biz/26_multi_metric_bar.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/26_multi_metric_bar.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\26_multi_metric_bar.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>} 只声明宽度、不声明高度，
@@ -94,7 +94,7 @@ public class JQuickBiz26MultiMetricBarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/26_multi_metric_bar.txt");
+        byte[] bytes = factory.executeResource("report/biz/26_multi_metric_bar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -33,7 +33,7 @@ import java.io.IOException;
 /**
  * 统一信用报告 —— 风格 04：饼图（橙色）
  *
- * <p>以 {@code report/credit_report_04_pie.txt} 为模板，把饼图渲染成 SVG 后
+ * <p>以 {@code report/credit_report_04_pie.xml} 为模板，把饼图渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\04_pie.pdf}。</p>
  *
  * @author Martin
@@ -69,7 +69,7 @@ public class JQuickCreditReport04PieTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_04_pie.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_04_pie.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

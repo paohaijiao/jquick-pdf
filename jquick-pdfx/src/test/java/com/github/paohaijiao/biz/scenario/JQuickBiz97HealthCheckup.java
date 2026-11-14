@@ -37,7 +37,7 @@ import java.util.Map;
  *
  * <p>本类不定义任何业务实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
  * 以 key-value 形式注入；版式全部落在模板文件
- * {@code report/biz/97_health_checkup.txt} 中（检查明细 41 行逐格占位）。</p>
+ * {@code report/biz/97_health_checkup.xml} 中（检查明细 41 行逐格占位）。</p>
  *
  * <p>产物目录约定：PDF 输出 {@code D:/test/pdf/}，印章 / 签名图片输出 {@code D:/test/image/}。</p>
  *
@@ -49,7 +49,7 @@ public class JQuickBiz97HealthCheckup {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "97_health_checkup.pdf";
-    private static final String TEMPLATE = "report/biz/97_health_checkup.txt";
+    private static final String TEMPLATE = "report/biz/97_health_checkup.xml";
 
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();

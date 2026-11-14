@@ -33,7 +33,7 @@ import java.util.Map;
  * 场景 70：培训结业证书 PDF（单页、居中大标题、预留盖章位，模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
- * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/70_certificate.txt} 中。</p>
+ * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/70_certificate.xml} 中。</p>
  *
  * <p>产物目录约定：</p>
  * <ul>
@@ -49,7 +49,7 @@ public class JQuickBiz70Certificate {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "70_certificate.pdf";
-    private static final String TEMPLATE = "report/biz/70_certificate.txt";
+    private static final String TEMPLATE = "report/biz/70_certificate.xml";
 
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();

@@ -39,7 +39,7 @@ public class JTableElementTest {
     /** 列表：列表项自上而下排列，每项左侧带有项目符号，文本相对页面左边界缩进。 */
     @Test
     public void list() throws IOException {
-        Rendered rendered = render("sample/table/list.txt");
+        Rendered rendered = render("sample/table/list.xml");
         assertEquals(1, rendered.pages);
         Glyph first = rendered.glyph("选项1");
         Glyph second = rendered.glyph("选项2");
@@ -56,7 +56,7 @@ public class JTableElementTest {
     /** 列表项：{@code <li>} 自身的样式（此处为 fontColor:red）生效，且不污染其它列表项。 */
     @Test
     public void li() throws IOException {
-        Rendered rendered = render("sample/table/li.txt");
+        Rendered rendered = render("sample/table/li.xml");
         Glyph styled = rendered.glyph("红色选项");
         Glyph plain = rendered.glyph("普通选项");
         assertTrue("列表项应按声明顺序自上而下排列", styled.y < plain.y);
@@ -66,7 +66,7 @@ public class JTableElementTest {
     /** 表格：表格渲染出行，且后续内容顺流排在表格下方而不重叠。 */
     @Test
     public void table() throws IOException {
-        Rendered rendered = render("sample/table/table.txt");
+        Rendered rendered = render("sample/table/table.xml");
         assertEquals(1, rendered.pages);
         Glyph data = rendered.glyph("数据");
         Glyph after = rendered.glyph("表格之后的内容");
@@ -92,7 +92,7 @@ public class JTableElementTest {
     /** 表格行：{@code <tr>} 声明的 height 决定该行行高，进而影响与下一行的间距。 */
     @Test
     public void tr() throws IOException {
-        Rendered rendered = render("sample/table/tr.txt");
+        Rendered rendered = render("sample/table/tr.xml");
         Glyph first = rendered.glyph("第一行");
         Glyph second = rendered.glyph("第二行");
         assertTrue("表格行应按声明顺序自上而下排列", first.y < second.y);
@@ -103,7 +103,7 @@ public class JTableElementTest {
     /** 数据单元格：同行的多个 {@code <td>} 处于同一基线，并按列等宽横向排开。 */
     @Test
     public void td() throws IOException {
-        Rendered rendered = render("sample/table/td.txt");
+        Rendered rendered = render("sample/table/td.xml");
         Glyph a = rendered.glyph("甲");
         Glyph b = rendered.glyph("乙");
         Glyph c = rendered.glyph("丙");
@@ -116,7 +116,7 @@ public class JTableElementTest {
     /** 表头单元格：{@code <th>} 所在行位于数据行之上，列与数据行对齐，并使用约定的表头配色。 */
     @Test
     public void th() throws IOException {
-        Rendered rendered = render("sample/table/th.txt");
+        Rendered rendered = render("sample/table/th.xml");
         Glyph firstHeader = rendered.glyph("标题一");
         Glyph secondHeader = rendered.glyph("标题二");
         Glyph firstData = rendered.glyph("数据一");

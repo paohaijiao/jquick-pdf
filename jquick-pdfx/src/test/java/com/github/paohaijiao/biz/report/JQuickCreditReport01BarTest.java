@@ -34,7 +34,7 @@ import java.io.IOException;
 /**
  * 统一信用报告 —— 风格 01：条形图（经典蓝）
  *
- * <p>以 {@code report/credit_report_01_bar.txt} 为模板，把条形图渲染成 SVG 后
+ * <p>以 {@code report/credit_report_01_bar.xml} 为模板，把条形图渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\01_bar.pdf}。</p>
  *
  * @author Martin
@@ -71,7 +71,7 @@ public class JQuickCreditReport01BarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_01_bar.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_01_bar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

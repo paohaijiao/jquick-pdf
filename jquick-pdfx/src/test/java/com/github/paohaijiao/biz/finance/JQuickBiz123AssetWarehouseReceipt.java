@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/finance/123_asset_warehouse_receipt.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/finance/123_asset_warehouse_receipt.xml} 中。</p>
  *
  * <p>资产入库单：入库部门与资产类别、供应商与关联采购订单、</p>
  * <p>逐条资产编号与存放位置、入库金额合计与三方签字栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz123AssetWarehouseReceipt {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "123_asset_warehouse_receipt.pdf";
-    private static final String TEMPLATE = "demo/biz/finance/123_asset_warehouse_receipt.txt";
+    private static final String TEMPLATE = "demo/biz/finance/123_asset_warehouse_receipt.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 5;

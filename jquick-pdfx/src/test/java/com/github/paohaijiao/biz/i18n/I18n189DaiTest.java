@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 189 —— 傣语（新傣仂文）版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_dai.txt
+ * <p>模板：i18n/global_bank_report_dai.xml
  * 输出：D://test//i18n//global_bank_report_dai.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/dai.txt} → {@code D://test//i18n//dai.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/dai.xml} → {@code D://test//i18n//dai.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n189DaiTest {
      */
     @Test
     public void simple189() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/dai.txt", "Noto Sans New Tai Lue", "fonts/NotoSansNewTaiLue-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/dai.xml", "Noto Sans New Tai Lue", "fonts/NotoSansNewTaiLue-Regular.ttf");
     }
 }

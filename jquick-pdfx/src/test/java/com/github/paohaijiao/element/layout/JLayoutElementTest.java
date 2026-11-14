@@ -37,7 +37,7 @@ public class JLayoutElementTest {
     /** 块容器：内容按流式顺序堆叠，并占用声明的宽度与高度。 */
     @Test
     public void div() throws IOException {
-        Rendered rendered = render("sample/layout/div.txt");
+        Rendered rendered = render("sample/layout/div.xml");
         assertEquals(1, rendered.pages);
         Glyph plain = rendered.glyph("块容器内容");
         Glyph sized = rendered.glyph("固定高度的块容器");
@@ -51,7 +51,7 @@ public class JLayoutElementTest {
     /** 分节符：areaBreak 结束当前区域，后续内容另起一页。 */
     @Test
     public void areaBreak() throws IOException {
-        Rendered rendered = render("sample/layout/areaBreak.txt");
+        Rendered rendered = render("sample/layout/areaBreak.xml");
         assertEquals("areaBreak 应产生新的一页", 2, rendered.pages);
         assertEquals("分节符之前的内容留在第一页", 1, rendered.glyph("分页前的内容").page);
         assertEquals("分节符之后的内容换到第二页", 2, rendered.glyph("分页后的内容").page);
@@ -60,7 +60,7 @@ public class JLayoutElementTest {
     /** 显式分页符：htmlPageBreak 同样使后续内容换页，且自身不渲染文本。 */
     @Test
     public void htmlPageBreak() throws IOException {
-        Rendered rendered = render("sample/layout/htmlPageBreak.txt");
+        Rendered rendered = render("sample/layout/htmlPageBreak.xml");
         assertEquals("htmlPageBreak 应产生新的一页", 2, rendered.pages);
         assertEquals("分页符之前的内容留在第一页", 1, rendered.glyph("分页前的内容").page);
         assertEquals("分页符之后的内容换到第二页", 2, rendered.glyph("分页后的内容").page);
@@ -70,8 +70,8 @@ public class JLayoutElementTest {
     /** 分隔线：lineSeparator 在流中绘制一条横线，并按 marginTop + marginBottom 占位。 */
     @Test
     public void lineSeparator() throws IOException {
-        Rendered withLine = render("sample/layout/lineSeparator.txt");
-       // Rendered withoutLine = render("sample/layout/noLineSeparator.txt");
+        Rendered withLine = render("sample/layout/lineSeparator.xml");
+       // Rendered withoutLine = render("sample/layout/noLineSeparator.xml");
         assertEquals(1, withLine.pages);
         Glyph above = withLine.glyph("分隔线上方");
         Glyph below = withLine.glyph("分隔线下方");

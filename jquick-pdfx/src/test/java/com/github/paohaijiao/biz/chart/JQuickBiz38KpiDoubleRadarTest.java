@@ -37,7 +37,7 @@ import java.util.Arrays;
  * 对比本期（2024年）与去年同期（2023年）的 KPI 得分，用于年度绩效复盘。</p>
  * <p>实际图表类型：{@link JChartType#DoubleRadar} 双雷达图，左侧为本期、右侧为去年同期，两个雷达并列展示。</p>
  *
- * <p>模板：{@code report/biz/38_kpi_double_radar.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/38_kpi_double_radar.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\38_kpi_double_radar.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>} 只声明宽度、不声明高度，
@@ -96,7 +96,7 @@ public class JQuickBiz38KpiDoubleRadarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/38_kpi_double_radar.txt");
+        byte[] bytes = factory.executeResource("report/biz/38_kpi_double_radar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

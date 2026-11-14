@@ -37,7 +37,7 @@ import java.io.IOException;
  * {@link JChartType#Circle} 环形图，为避免图表类型重复，本 Demo 改用旭日图——旭日图本质上是
  * 分层展开的同心环，既能呈现一级行业的占比，又能通过第二层环直观展示子行业构成。</p>
  *
- * <p>模板：{@code report/biz/31_merchant_industry_sunburst.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/31_merchant_industry_sunburst.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\31_merchant_industry_sunburst.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 640pt × 460pt（宽 × 高）的方形比例设计；模板中 {@code <svg>}
@@ -95,7 +95,7 @@ public class JQuickBiz31MerchantIndustrySunburstTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/31_merchant_industry_sunburst.txt");
+        byte[] bytes = factory.executeResource("report/biz/31_merchant_industry_sunburst.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

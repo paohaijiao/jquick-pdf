@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/customs/137_goods_inspection_notice.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/customs/137_goods_inspection_notice.xml} 中。</p>
  *
  * <p>货物查验通知单 / 查验结果单：通知单号与查验地点、查验类型与到场要求，</p>
  * <p>逐项查验项目与判定处置、查验结论与双方签收栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz137GoodsInspectionNotice {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "137_goods_inspection_notice.pdf";
-    private static final String TEMPLATE = "demo/biz/customs/137_goods_inspection_notice.txt";
+    private static final String TEMPLATE = "demo/biz/customs/137_goods_inspection_notice.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

@@ -36,7 +36,7 @@ import java.util.Map;
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
  * 以 key-value 形式注入；版式全部落在模板文件
- * {@code report/biz/77_weekly_report.txt} 中。</p>
+ * {@code report/biz/77_weekly_report.xml} 中。</p>
  *
  * <p>SVG 图表：用 {@link JChartRendererFactory} 把「计划完成率柱状 + 实际完成率折线」渲染成
  * SVG 字符串，bind 为 {@code progressSvg} 变量，模板中 {@code <svg style="width:470pt">${progressSvg}</svg>}。</p>
@@ -50,7 +50,7 @@ public class JQuickBiz77WeeklyReport {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "77_weekly_report.pdf";
-    private static final String TEMPLATE = "report/biz/77_weekly_report.txt";
+    private static final String TEMPLATE = "report/biz/77_weekly_report.xml";
 
     public static void main(String[] args) throws Exception {
         new File(PDF_DIR).mkdirs();

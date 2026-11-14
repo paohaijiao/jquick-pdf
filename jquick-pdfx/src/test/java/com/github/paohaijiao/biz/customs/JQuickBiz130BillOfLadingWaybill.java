@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/customs/130_bill_of_lading_waybill.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/customs/130_bill_of_lading_waybill.xml} 中。</p>
  *
  * <p>海运提单 / 空运运单 / 铁路运单：提（运）单号、托运人与收货人（指示抬头）、</p>
  * <p>船名航次与装卸港、货物与运费明细、承运人签发栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz130BillOfLadingWaybill {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "130_bill_of_lading_waybill.pdf";
-    private static final String TEMPLATE = "demo/biz/customs/130_bill_of_lading_waybill.txt";
+    private static final String TEMPLATE = "demo/biz/customs/130_bill_of_lading_waybill.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

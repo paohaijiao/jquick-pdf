@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/bank/154_factoring_receivable_list.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/bank/154_factoring_receivable_list.xml} 中。</p>
  *
  * <p>保理业务应收账款清单 / 债权转让凭证：保理类型与基础合同、</p>
  * <p>逐笔应收账款（发票号、债务人、金额、到期日、融资金额）、融资款计算与三方签章栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz154FactoringReceivableList {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "154_factoring_receivable_list.pdf";
-    private static final String TEMPLATE = "demo/biz/bank/154_factoring_receivable_list.txt";
+    private static final String TEMPLATE = "demo/biz/bank/154_factoring_receivable_list.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

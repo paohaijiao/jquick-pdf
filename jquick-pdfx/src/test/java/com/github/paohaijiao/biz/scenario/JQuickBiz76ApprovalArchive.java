@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
  * 以 key-value 形式注入；版式全部落在模板文件
- * {@code report/biz/76_approval_archive.txt} 中。</p>
+ * {@code report/biz/76_approval_archive.xml} 中。</p>
  *
  * <p>业务字段：审批单号、申请人、申请时间、审批流程记录（审批人 / 审批节点 / 审批结果 / 审批意见）、
  * 申请内容、附件说明。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz76ApprovalArchive {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "76_approval_archive.pdf";
-    private static final String TEMPLATE = "report/biz/76_approval_archive.txt";
+    private static final String TEMPLATE = "report/biz/76_approval_archive.xml";
 
     public static void main(String[] args) throws Exception {
         new File(PDF_DIR).mkdirs();

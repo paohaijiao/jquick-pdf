@@ -98,7 +98,7 @@ final class I18nDemoSupport {
     }
 
     // ==================================================================
-    // 主产物：全球经营年报摘要（模板 global_bank_report_<lang>.txt）
+    // 主产物：全球经营年报摘要（模板 global_bank_report_<lang>.xml）
     // ==================================================================
     static byte[] bankReport(I18nLanguagePack p) throws IOException {
         JPdfConfig config = new JPdfConfig();
@@ -133,13 +133,13 @@ final class I18nDemoSupport {
         factory.bind("svgBar", renderBar(p));
         factory.bind("svgDonut", renderDonut(p));
         factory.bind("svgLine", renderLine(p));
-        byte[] pdf = factory.executeResource(TEMPLATE_PREFIX + p.lang + ".txt");
+        byte[] pdf = factory.executeResource(TEMPLATE_PREFIX + p.lang + ".xml");
         write("global_bank_report_" + p.lang, pdf);
         return pdf;
     }
 
     // ==================================================================
-    // 副产物：脚本渲染示例（模板 i18n/<name>.txt，用于验证单语种字形）
+    // 副产物：脚本渲染示例（模板 i18n/<name>.xml，用于验证单语种字形）
     // ==================================================================
     static byte[] simpleDemo(String template, String family, String file) throws IOException {
         JPdfConfig config = new JPdfConfig();
@@ -153,7 +153,7 @@ final class I18nDemoSupport {
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("reportDate", "2026-10-31");
         byte[] pdf = factory.executeResource(template);
-        String name = template.substring(template.lastIndexOf('/') + 1).replace(".txt", "");
+        String name = template.substring(template.lastIndexOf('/') + 1).replace(".xml", "");
         write(name, pdf);
         return pdf;
     }

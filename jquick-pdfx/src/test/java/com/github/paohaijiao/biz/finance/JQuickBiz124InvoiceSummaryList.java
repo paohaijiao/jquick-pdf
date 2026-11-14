@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/finance/124_invoice_summary_list.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/finance/124_invoice_summary_list.xml} 中。</p>
  *
  * <p>开票汇总清单：汇总期间与开票单位、按票种分组的开票份数与金额税额、</p>
  * <p>本期不含税金额合计大小写与填报 / 复核 / 负责人签字栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz124InvoiceSummaryList {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "124_invoice_summary_list.pdf";
-    private static final String TEMPLATE = "demo/biz/finance/124_invoice_summary_list.txt";
+    private static final String TEMPLATE = "demo/biz/finance/124_invoice_summary_list.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 5;

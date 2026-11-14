@@ -33,7 +33,7 @@ import java.io.IOException;
 /**
  * 统一信用报告 —— 风格 09：仪表盘（石墨灰）
  *
- * <p>以 {@code report/credit_report_09_guage.txt} 为模板，把仪表盘渲染成 SVG 后
+ * <p>以 {@code report/credit_report_09_guage.xml} 为模板，把仪表盘渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\09_guage.pdf}。</p>
  *
  * @author Martin
@@ -68,7 +68,7 @@ public class JQuickCreditReport09GuageTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_09_guage.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_09_guage.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

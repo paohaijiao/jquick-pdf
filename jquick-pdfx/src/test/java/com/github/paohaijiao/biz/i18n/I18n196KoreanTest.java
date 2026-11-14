@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 196 —— 韩语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_ko.txt
+ * <p>模板：i18n/global_bank_report_ko.xml
  * 输出：D://test//i18n//global_bank_report_ko.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/korean.txt} → {@code D://test//i18n//korean.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/korean.xml} → {@code D://test//i18n//korean.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n196KoreanTest {
      */
     @Test
     public void simple196() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/korean.txt", "Noto Sans KR", "fonts/NotoSansKR-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/korean.xml", "Noto Sans KR", "fonts/NotoSansKR-Regular.ttf");
     }
 }

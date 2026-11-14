@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/bank/150_credit_report.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/bank/150_credit_report.xml} 中。</p>
  *
  * <p>企业征信查询报告 / 信用报告：被查询主体与查询原因、信用等级，</p>
  * <p>逐笔信贷记录（授信金额、余额、还款状态、逾期次数）与公共记录、征信中心签章栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz150CreditReport {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "150_credit_report.pdf";
-    private static final String TEMPLATE = "demo/biz/bank/150_credit_report.txt";
+    private static final String TEMPLATE = "demo/biz/bank/150_credit_report.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

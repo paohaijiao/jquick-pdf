@@ -42,7 +42,7 @@ import java.util.List;
  * <p>实际图表类型：{@link JChartType#RELATION} 关系图。<b>说明：jquick-pdf 暂无桑基图渲染器，
  * 本 Demo 以关系图（节点 + 有向连线）替代桑基图表达成本流向，故模板图注中标注为「桑基图替代视图」。</b></p>
  *
- * <p>模板：{@code report/biz/28_cost_relation.txt}；关系图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
+ * <p>模板：{@code report/biz/28_cost_relation.xml}；关系图以 SVG 文本形式绑定到模板的 {@code ${svg}} 占位符，
  * 输出到 {@code D:\test\biz\28_cost_relation.pdf}。</p>
  *
  * <p>图表尺寸说明：关系图按渲染器默认画布 800pt × 600pt（宽 × 高）绘制，共 11 个节点（三列：成本中心 / 责任部门 /
@@ -121,7 +121,7 @@ public class JQuickBiz28CostRelationTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/28_cost_relation.txt");
+        byte[] bytes = factory.executeResource("report/biz/28_cost_relation.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

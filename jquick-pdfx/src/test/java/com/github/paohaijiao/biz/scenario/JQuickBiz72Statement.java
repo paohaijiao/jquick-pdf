@@ -31,7 +31,7 @@ import java.util.Map;
  * 场景 72：客户月度对账单 PDF（明细自动分页、底部汇总行、页码，模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
- * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/72_statement.txt} 中。
+ * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/72_statement.xml} 中。
  * 明细逐行 bind 为 tN / sN / aN / dN（时间 / 项目 / 金额 / 方向），模板逐行引用。</p>
  *
  * <p>数据校验：期末余额由程序按「期初 + 增加 - 减少」重算，避免人工录入不一致。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz72Statement {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "72_statement.pdf";
-    private static final String TEMPLATE = "report/biz/72_statement.txt";
+    private static final String TEMPLATE = "report/biz/72_statement.xml";
 
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();

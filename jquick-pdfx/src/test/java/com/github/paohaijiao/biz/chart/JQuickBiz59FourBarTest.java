@@ -37,7 +37,7 @@ import java.util.Arrays;
  * 各月的销售额，采用四系列分组柱状图并列展示。</p>
  * <p>实际图表类型：{@link JChartType#MultipleBar} 多系列分组柱状图。</p>
  *
- * <p>模板：{@code report/biz/59_fourBar.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/59_fourBar.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\59_fourBar.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>}
@@ -96,7 +96,7 @@ public class JQuickBiz59FourBarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/59_fourBar.txt");
+        byte[] bytes = factory.executeResource("report/biz/59_fourBar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

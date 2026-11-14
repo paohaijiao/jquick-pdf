@@ -38,7 +38,7 @@ import java.util.List;
  * 线表示能耗强度，用于研判「增产」与「降耗」是否脱钩，主色采用深紫 #6A1B9A。</p>
  * <p>实际图表类型：{@link JChartType#LineBar} 折线柱状混合图（双 Y 轴：左轴产值亿元、右轴能耗强度）。</p>
  *
- * <p>模板：{@code report/biz/41_composite_linebar.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/41_composite_linebar.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\41_composite_linebar.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt（宽 × 高）的横版比例设计；模板中 {@code <svg>}
@@ -86,7 +86,7 @@ public class JQuickBiz41CompositeLineBarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/41_composite_linebar.txt");
+        byte[] bytes = factory.executeResource("report/biz/41_composite_linebar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

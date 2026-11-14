@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/gov/166_credit_repair_receipt.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/gov/166_credit_repair_receipt.xml} 中。</p>
  *
  * <p>联合奖惩清单 / 失信修复受理单：失信行为类别与认定文号、履行情况，</p>
  * <p>逐项联合奖惩措施与执行状态、受理结论与办理时限、受理机关签章栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz166CreditRepairReceipt {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "166_credit_repair_receipt.pdf";
-    private static final String TEMPLATE = "demo/biz/gov/166_credit_repair_receipt.txt";
+    private static final String TEMPLATE = "demo/biz/gov/166_credit_repair_receipt.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

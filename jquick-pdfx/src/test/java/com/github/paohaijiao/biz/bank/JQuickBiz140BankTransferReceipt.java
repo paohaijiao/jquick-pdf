@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/bank/140_bank_transfer_receipt.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/bank/140_bank_transfer_receipt.xml} 中。</p>
  *
  * <p>银行转账回单 / 现金缴款单：付款人与收款人账户信息、交易渠道、</p>
  * <p>逐笔交易明细（金额、手续费、时间、状态）与交易金额合计、银行业务章占位。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz140BankTransferReceipt {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "140_bank_transfer_receipt.pdf";
-    private static final String TEMPLATE = "demo/biz/bank/140_bank_transfer_receipt.txt";
+    private static final String TEMPLATE = "demo/biz/bank/140_bank_transfer_receipt.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

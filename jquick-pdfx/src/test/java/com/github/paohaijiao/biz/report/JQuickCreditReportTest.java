@@ -22,9 +22,9 @@ public class JQuickCreditReportTest {
         JPdfConfig config = new JPdfConfig();
         // 开启 flex 行布局：雷达图与其右侧的指标说明面板在宽度允许时并排，而不是换行堆叠。
         config.getLayoutConfig().setFlexLayout(true);
-        JReader fileReader = new JReSourceFileReader("report.txt");
+        JReader fileReader = new JReSourceFileReader("report.xml");
         JAdaptor adaptor = new JAdaptor(fileReader);
-        JReader svgReader = new JReSourceFileReader("radar.txt");
+        JReader svgReader = new JReSourceFileReader("radar.xml");
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory=new JQuickPdfFactory(config);
         factory.bind("svg",svgAdaptor.getRuleContent());
@@ -37,11 +37,11 @@ public class JQuickCreditReportTest {
         JPdfConfig config = new JPdfConfig();
         // 开启 flex 行布局：雷达图与其右侧的指标说明面板在宽度允许时并排，而不是换行堆叠。
         config.getLayoutConfig().setFlexLayout(true);
-        JReader svgReader = new JReSourceFileReader("radar.txt");
+        JReader svgReader = new JReSourceFileReader("radar.xml");
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory=new JQuickPdfFactory(config);
         factory.bind("svg",svgAdaptor.getRuleContent());
-        byte[] bytes=factory.executeResource("report.txt");
+        byte[] bytes=factory.executeResource("report.xml");
         fileOutputStream.write(bytes);
     }
     @Test
@@ -50,11 +50,11 @@ public class JQuickCreditReportTest {
         JPdfConfig config = new JPdfConfig();
         // 开启 flex 行布局：雷达图与其右侧的指标说明面板在宽度允许时并排，而不是换行堆叠。
         config.getLayoutConfig().setFlexLayout(true);
-        JReader svgReader = new JReSourceFileReader("radar.txt");
+        JReader svgReader = new JReSourceFileReader("radar.xml");
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory=new JQuickPdfFactory(config);
         factory.bind("svg",svgAdaptor.getRuleContent());
-        String reportPath = new File(JQuickCreditReportTest.class.getClassLoader().getResource("report.txt").toURI()).getAbsolutePath();
+        String reportPath = new File(JQuickCreditReportTest.class.getClassLoader().getResource("report.xml").toURI()).getAbsolutePath();
         byte[] bytes=factory.executeFile(reportPath);
         fileOutputStream.write(bytes);
     }

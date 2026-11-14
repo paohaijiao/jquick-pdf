@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/finance/118_red_invoice_info_table.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/finance/118_red_invoice_info_table.xml} 中。</p>
  *
  * <p>红字发票信息表：蓝字发票代码号码与开票日期、申请方与申请原因、</p>
  * <p>逐行红冲数量与负数金额税额、红冲合计与税务机关受理栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz118RedInvoiceInfoTable {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "118_red_invoice_info_table.pdf";
-    private static final String TEMPLATE = "demo/biz/finance/118_red_invoice_info_table.txt";
+    private static final String TEMPLATE = "demo/biz/finance/118_red_invoice_info_table.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 5;

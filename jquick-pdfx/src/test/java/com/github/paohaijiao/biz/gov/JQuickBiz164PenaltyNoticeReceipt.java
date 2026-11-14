@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/gov/164_penalty_notice_receipt.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/gov/164_penalty_notice_receipt.xml} 中。</p>
  *
  * <p>行政处罚告知书 / 罚款缴款回执：当事人与违法行为、违反条款与处罚依据，</p>
  * <p>逐项违法事实与裁量情节、拟处罚内容与救济途径、执法人员与当事人签收栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz164PenaltyNoticeReceipt {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "164_penalty_notice_receipt.pdf";
-    private static final String TEMPLATE = "demo/biz/gov/164_penalty_notice_receipt.txt";
+    private static final String TEMPLATE = "demo/biz/gov/164_penalty_notice_receipt.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

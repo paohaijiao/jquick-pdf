@@ -37,7 +37,7 @@ import java.io.IOException;
  * 表示当前综合使用率（0~100），用于容量水位预警与扩容决策，主色采用运维深灰蓝 #37474F。</p>
  * <p>实际图表类型：jquick-pdf 无进度图渲染器，<b>实际使用仪表盘 {@link JChartType#Guage} 替代进度图</b>。</p>
  *
- * <p>模板：{@code report/biz/22_resource_usage.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/22_resource_usage.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\22_resource_usage.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 400pt（宽 × 高）的方形比例设计；模板中 {@code <svg>}
@@ -75,7 +75,7 @@ public class JQuickBiz22ResourceUsageTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/22_resource_usage.txt");
+        byte[] bytes = factory.executeResource("report/biz/22_resource_usage.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

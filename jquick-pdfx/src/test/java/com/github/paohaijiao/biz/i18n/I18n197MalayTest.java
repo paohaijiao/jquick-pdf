@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 197 —— 马来语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_ms.txt
+ * <p>模板：i18n/global_bank_report_ms.xml
  * 输出：D://test//i18n//global_bank_report_ms.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/malay.txt} → {@code D://test//i18n//malay.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/malay.xml} → {@code D://test//i18n//malay.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n197MalayTest {
      */
     @Test
     public void simple197() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/malay.txt", "Noto Sans", "fonts/NotoSans-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/malay.xml", "Noto Sans", "fonts/NotoSans-Regular.ttf");
     }
 }

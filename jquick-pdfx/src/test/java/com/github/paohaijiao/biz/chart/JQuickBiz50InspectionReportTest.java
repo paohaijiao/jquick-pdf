@@ -43,7 +43,7 @@ import java.io.IOException;
  * <p>图表说明：使用 {@link JChartType#BAR} 分组柱状图对比「标准限值 / 实测值」，
  * 使判定结论有可核对的数据支撑；模板中 {@code <svg>} 只声明宽度，高度按原比例自动缩放。</p>
  *
- * <p>模板：{@code report/biz/50_inspection_report.txt}，输出：{@code D:\test\biz\50_inspection_report.pdf}。</p>
+ * <p>模板：{@code report/biz/50_inspection_report.xml}，输出：{@code D:\test\biz\50_inspection_report.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -80,7 +80,7 @@ public class JQuickBiz50InspectionReportTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/50_inspection_report.txt");
+        byte[] bytes = factory.executeResource("report/biz/50_inspection_report.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

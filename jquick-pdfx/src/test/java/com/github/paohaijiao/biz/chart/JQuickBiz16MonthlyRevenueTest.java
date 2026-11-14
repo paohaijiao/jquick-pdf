@@ -37,7 +37,7 @@ import java.io.IOException;
  * <p>业务场景：企业运营管理系统按月汇总营业收入与净利润，用于管理层月度经营例会。</p>
  * <p>实际图表类型：{@link JChartType#LINE} 折线图（多重折线，用于观察两项指标的月度走势）。</p>
  *
- * <p>模板：{@code report/biz/16_monthly_revenue.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/16_monthly_revenue.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\16_monthly_revenue.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 380pt（宽 × 高）的横版比例设计；模板中 {@code <svg>}
@@ -78,7 +78,7 @@ public class JQuickBiz16MonthlyRevenueTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/16_monthly_revenue.txt");
+        byte[] bytes = factory.executeResource("report/biz/16_monthly_revenue.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

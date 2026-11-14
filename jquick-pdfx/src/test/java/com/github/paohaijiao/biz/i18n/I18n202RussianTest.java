@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 202 —— 俄语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_ru.txt
+ * <p>模板：i18n/global_bank_report_ru.xml
  * 输出：D://test//i18n//global_bank_report_ru.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/russian.txt} → {@code D://test//i18n//russian.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/russian.xml} → {@code D://test//i18n//russian.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n202RussianTest {
      */
     @Test
     public void simple202() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/russian.txt", "Noto Sans", "fonts/NotoSans-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/russian.xml", "Noto Sans", "fonts/NotoSans-Regular.ttf");
     }
 }

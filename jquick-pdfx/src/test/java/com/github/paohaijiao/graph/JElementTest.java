@@ -25,7 +25,7 @@ public class JElementTest {
 
     @Test
     public void paragraph() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/paragraph.txt");
+        JReader fileReader = new JReSourceFileReader("sample/paragraph.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -33,7 +33,7 @@ public class JElementTest {
 
     @Test
     public void heading() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/heading.txt");
+        JReader fileReader = new JReSourceFileReader("sample/heading.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -41,7 +41,7 @@ public class JElementTest {
 
     @Test
     public void list() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/list.txt");
+        JReader fileReader = new JReSourceFileReader("sample/list.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -49,7 +49,7 @@ public class JElementTest {
 
     @Test
     public void table() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/table.txt");
+        JReader fileReader = new JReSourceFileReader("sample/table.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -57,7 +57,7 @@ public class JElementTest {
 
     @Test
     public void image() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/image.txt");
+        JReader fileReader = new JReSourceFileReader("sample/image.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -136,7 +136,7 @@ public class JElementTest {
                 "  ></g\n" +
                 "></svg>";
         params.put("svg", svg);
-        JReader fileReader = new JReSourceFileReader("sample/svg1.txt");
+        JReader fileReader = new JReSourceFileReader("sample/svg1.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(params);
         executor.execute(context.getRuleContent());
@@ -174,7 +174,7 @@ public class JElementTest {
         graphConfig.put("svg", graphContainer);
         JPdfConfig config = new JPdfConfig();
         config.setGraphConfig(graphConfig);
-        JReader fileReader = new JReSourceFileReader("sample/svg2.txt");
+        JReader fileReader = new JReSourceFileReader("sample/svg2.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(context.getRuleContent());
@@ -182,7 +182,7 @@ public class JElementTest {
 
     @Test
     public void div() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/div.txt");
+        JReader fileReader = new JReSourceFileReader("sample/div.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -190,7 +190,7 @@ public class JElementTest {
 
     @Test
     public void span() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/span.txt");
+        JReader fileReader = new JReSourceFileReader("sample/span.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -198,7 +198,7 @@ public class JElementTest {
 
     @Test
     public void areaBreak() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/areaBreak.txt");
+        JReader fileReader = new JReSourceFileReader("sample/areaBreak.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -206,7 +206,7 @@ public class JElementTest {
 
     @Test
     public void button() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/button.txt");
+        JReader fileReader = new JReSourceFileReader("sample/button.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -214,7 +214,7 @@ public class JElementTest {
 
     @Test
     public void checkbox() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/checkbox.txt");
+        JReader fileReader = new JReSourceFileReader("sample/checkbox.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -222,7 +222,7 @@ public class JElementTest {
 
     @Test
     public void comboxFiled() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/comboxFiled.txt");
+        JReader fileReader = new JReSourceFileReader("sample/comboxFiled.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -230,7 +230,7 @@ public class JElementTest {
 
     @Test
     public void htmlPageBreak() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/htmlPageBreak.txt");
+        JReader fileReader = new JReSourceFileReader("sample/htmlPageBreak.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -238,7 +238,7 @@ public class JElementTest {
 
     @Test
     public void lineSeperator() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/lineSeperator.txt");
+        JReader fileReader = new JReSourceFileReader("sample/lineSeperator.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -246,7 +246,7 @@ public class JElementTest {
 
     @Test
     public void tab() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/tab.txt");
+        JReader fileReader = new JReSourceFileReader("sample/tab.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -254,7 +254,7 @@ public class JElementTest {
 
     @Test
     public void textArea() throws IOException {
-        JReader fileReader = new JReSourceFileReader("sample/textArea.txt");
+        JReader fileReader = new JReSourceFileReader("sample/textArea.xml");
         JAdaptor context = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor();
         executor.execute(context.getRuleContent());
@@ -272,7 +272,7 @@ public class JElementTest {
         root.addChild(child2);
         root.addChild(child3);
         context.put("tree", root);
-        JReader fileReader = new JReSourceFileReader("sample/tree1.txt");
+        JReader fileReader = new JReSourceFileReader("sample/tree1.xml");
         JAdaptor adaptor = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(context);
         executor.execute(adaptor.getRuleContent());
@@ -291,7 +291,7 @@ public class JElementTest {
         root.addChild(child3);
         JTreeNodeConfig treeNodeConfig = config.getTreeConfig();
         treeNodeConfig.put("tree", root);
-        JReader fileReader = new JReSourceFileReader("sample/tree2.txt");
+        JReader fileReader = new JReSourceFileReader("sample/tree2.xml");
         JAdaptor adaptor = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());
@@ -302,7 +302,7 @@ public class JElementTest {
         JPdfConfig config = new JPdfConfig();
         JTemplateConfig templateConfig = config.getTemplateConfig();
         templateConfig.put("html", "<h1>Hello World</h1><p>This is a test PDF generated from HTML</p>");
-        JReader fileReader = new JReSourceFileReader("sample/template.txt");
+        JReader fileReader = new JReSourceFileReader("sample/template.xml");
         JAdaptor adaptor = new JAdaptor(fileReader);
         JQuickPdfXExecutor executor = new JQuickPdfXExecutor(config);
         executor.execute(adaptor.getRuleContent());

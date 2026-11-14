@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/customs/135_export_tax_refund.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/customs/135_export_tax_refund.xml} 中。</p>
  *
  * <p>出口退税申报单：退税所属期与报关单号、逐项出口销售额与折人民币金额、</p>
  * <p>征退税率与应退税额合计、退税机关受理栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz135ExportTaxRefund {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "135_export_tax_refund.pdf";
-    private static final String TEMPLATE = "demo/biz/customs/135_export_tax_refund.txt";
+    private static final String TEMPLATE = "demo/biz/customs/135_export_tax_refund.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/gov/160_project_approval_opinion.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/gov/160_project_approval_opinion.xml} 中。</p>
  *
  * <p>项目立项批复 / 可研评审意见书：项目代码与建设地点、总投资与建设期，</p>
  * <p>投资构成逐项评审意见、批复意见与有效期、批复机关签章栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz160ProjectApprovalOpinion {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "160_project_approval_opinion.pdf";
-    private static final String TEMPLATE = "demo/biz/gov/160_project_approval_opinion.txt";
+    private static final String TEMPLATE = "demo/biz/gov/160_project_approval_opinion.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

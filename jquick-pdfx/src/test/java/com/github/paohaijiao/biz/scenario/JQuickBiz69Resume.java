@@ -32,7 +32,7 @@ import java.util.Map;
  * 场景 69：个人简历 PDF（A4 竖版，单栏全宽，模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)}
- * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/69_resume.txt} 中。</p>
+ * 以 key-value 形式注入；版式全部落在模板文件 {@code report/biz/69_resume.xml} 中。</p>
  *
  * <p>版式说明：顶部为深蓝个人信息横条（头像 + 姓名 + 职位 + 联系方式 + 求职意向 +
  * 专业技能），下方为自我评价、工作经历、项目经历（时间轴）与教育经历，全部铺满版心。
@@ -53,7 +53,7 @@ public class JQuickBiz69Resume {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "69_resume.pdf";
-    private static final String TEMPLATE = "report/biz/69_resume.txt";
+    private static final String TEMPLATE = "report/biz/69_resume.xml";
 
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();

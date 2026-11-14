@@ -30,7 +30,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/medical/174_lab_test_report.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/medical/174_lab_test_report.xml} 中。</p>
  *
  * <p>检查检验报告单 / 化验回执单：报告编号与标本信息、检验项目组，</p>
  * <p>逐项检验结果（结果、单位、参考范围、提示、方法）与检验提示、检验 / 审核签字栏。</p>
@@ -44,7 +44,7 @@ public class JQuickBiz174LabTestReport {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "174_lab_test_report.pdf";
-    private static final String TEMPLATE = "demo/biz/medical/174_lab_test_report.txt";
+    private static final String TEMPLATE = "demo/biz/medical/174_lab_test_report.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 8;

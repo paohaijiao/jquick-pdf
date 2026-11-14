@@ -355,7 +355,7 @@ public class JQuickPdfFactory {
      * @param resourceFile classpath resource path
      * @return execution result
      * @throws IOException if the resource is missing or rendering fails
-     * @example {@code factory.executeResource("sample/svg1.txt");}
+     * @example {@code factory.executeResource("sample/svg1.xml");}
      */
     public byte[] executeResource(String resourceFile) throws IOException {
         String templateContent = readResource(resourceFile);
@@ -369,7 +369,7 @@ public class JQuickPdfFactory {
      * @param filePath file system path
      * @return execution result
      * @throws IOException if the file is missing or rendering fails
-     * @example {@code factory.executeFile("d:/templates/rule.txt");}
+     * @example {@code factory.executeFile("d:/templates/rule.xml");}
      */
     public byte[] executeFile(String filePath) throws IOException {
         String templateContent = readFile(filePath);

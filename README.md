@@ -181,8 +181,8 @@ Three ways to feed a template, all returning `byte[]`:
 | Method | Source |
 |---|---|
 | `executeContent(String)` | template text in memory |
-| `executeResource(String)` | classpath resource, e.g. `"report.txt"` |
-| `executeFile(String)` | file on disk, e.g. `"D:/templates/report.txt"` |
+| `executeResource(String)` | classpath resource, e.g. `"report.xml"` |
+| `executeFile(String)` | file on disk, e.g. `"D:/templates/report.xml"` |
 
 Text nodes are always single-quoted (`'Hello jquick-pdf'`); `<pdf>` and `<html>` are both accepted as the document root.
 
@@ -1526,9 +1526,9 @@ JPdfConfig config = new JPdfConfig();
 // 开启 flex 行布局：宽度足够时，雷达图与其右侧的指标面板并排显示，
 // 而不是上下堆叠。
 config.getLayoutConfig().setFlexLayout(true);
-JReader fileReader = new JReSourceFileReader("report.txt");   // 文档模板
+JReader fileReader = new JReSourceFileReader("report.xml");   // 文档模板
 JAdaptor adaptor = new JAdaptor(fileReader);
-JReader svgReader = new JReSourceFileReader("radar.txt");     // 图表的内联 SVG
+JReader svgReader = new JReSourceFileReader("radar.xml");     // 图表的内联 SVG
 JAdaptor svgAdaptor = new JAdaptor(svgReader);
 JQuickPdfFactory factory = new JQuickPdfFactory(config);
 factory.bind("svg", svgAdaptor.getRuleContent());             // ${svg} 占位符
@@ -1741,9 +1741,9 @@ public class JQuickCreditReportTest {
         // Enable flex row layout: the radar chart and the metric panel beside it
         // sit side by side instead of stacking when the width allows.
         config.getLayoutConfig().setFlexLayout(true);
-        JReader fileReader = new JReSourceFileReader("report.txt");   // document template
+        JReader fileReader = new JReSourceFileReader("report.xml");   // document template
         JAdaptor adaptor = new JAdaptor(fileReader);
-        JReader svgReader = new JReSourceFileReader("radar.txt");     // inline SVG for the chart
+        JReader svgReader = new JReSourceFileReader("radar.xml");     // inline SVG for the chart
         JAdaptor svgAdaptor = new JAdaptor(svgReader);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svgAdaptor.getRuleContent());             // ${svg} placeholder
@@ -1757,8 +1757,8 @@ public class JQuickCreditReportTest {
 
 The two templates are shipped with the test sources:
 
-- `jquick-pdfx/src/test/resources/report.txt` — the document template (excerpt below)
-- `jquick-pdfx/src/test/resources/radar.txt` — the inline SVG bound to `${svg}`
+- `jquick-pdfx/src/test/resources/report.xml` — the document template (excerpt below)
+- `jquick-pdfx/src/test/resources/radar.xml` — the inline SVG bound to `${svg}`
 
 ```html
 <pdf>
@@ -2044,7 +2044,7 @@ public class JQuickTwoRadarTest {
 
         FileOutputStream fileOutputStream = new FileOutputStream("D:/test/two-radar.pdf");
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        byte[] bytes = factory.executeResource("sample/svg2.xml");
         fileOutputStream.write(bytes);
     }
 }

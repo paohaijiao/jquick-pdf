@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/medical/176_medical_claim_list.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/medical/176_medical_claim_list.xml} 中。</p>
  *
  * <p>医疗费用报销申请单 / 理赔核算清单：保单与险种、被保险人信息、出险诊断，</p>
  * <p>逐类费用核算（申请额、医保已付、免赔额、核定额）与核算结论、核赔签字栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz176MedicalClaimList {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "176_medical_claim_list.pdf";
-    private static final String TEMPLATE = "demo/biz/medical/176_medical_claim_list.txt";
+    private static final String TEMPLATE = "demo/biz/medical/176_medical_claim_list.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

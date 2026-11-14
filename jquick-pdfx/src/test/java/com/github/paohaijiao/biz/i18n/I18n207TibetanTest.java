@@ -23,10 +23,10 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 207 —— 藏语版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_bo.txt
+ * <p>模板：i18n/global_bank_report_bo.xml
  * 输出：D://test//i18n//global_bank_report_bo.pdf</p>
  *
- * <p>副产物：脚本渲染示例 {@code i18n/tibetan.txt} → {@code D://test//i18n//tibetan.pdf}。</p>
+ * <p>副产物：脚本渲染示例 {@code i18n/tibetan.xml} → {@code D://test//i18n//tibetan.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -84,6 +84,6 @@ public class I18n207TibetanTest {
      */
     @Test
     public void simple207() throws IOException {
-        I18nDemoSupport.simpleDemo("i18n/tibetan.txt", "Noto Serif Tibetan", "fonts/NotoSerifTibetan-Regular.ttf");
+        I18nDemoSupport.simpleDemo("i18n/tibetan.xml", "Noto Serif Tibetan", "fonts/NotoSerifTibetan-Regular.ttf");
     }
 }

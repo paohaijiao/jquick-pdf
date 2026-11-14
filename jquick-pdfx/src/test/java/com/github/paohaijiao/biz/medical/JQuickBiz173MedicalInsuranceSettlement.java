@@ -31,7 +31,7 @@ import java.util.Map;
  *
  * <p>本类为独立可运行 Demo：自带 {@code main} 方法、不依赖任何公共工具类或实体类，
  * 数据以 key-value 形式通过 {@link JQuickPdfFactory#bindAll(Map)} 注入，
- * 版式全部落在模板文件 {@code demo/biz/medical/173_medical_insurance_settlement.txt} 中。</p>
+ * 版式全部落在模板文件 {@code demo/biz/medical/173_medical_insurance_settlement.xml} 中。</p>
  *
  * <p>医疗保险结算单 / 异地就医结算回执：参保地与就医地、就医类型与备案信息，</p>
  * <p>逐类费用（发生额、统筹支付、账户支付、自付）与结算结果、医保经办与参保人签收栏。</p>
@@ -45,7 +45,7 @@ public class JQuickBiz173MedicalInsuranceSettlement {
 
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String OUT_FILE = PDF_DIR + "173_medical_insurance_settlement.pdf";
-    private static final String TEMPLATE = "demo/biz/medical/173_medical_insurance_settlement.txt";
+    private static final String TEMPLATE = "demo/biz/medical/173_medical_insurance_settlement.xml";
 
     /** 模板固定明细行数，不足时补空行，避免占位符原样输出。 */
     private static final int ITEM_ROWS = 6;

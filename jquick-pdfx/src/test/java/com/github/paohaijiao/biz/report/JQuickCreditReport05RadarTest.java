@@ -34,7 +34,7 @@ import java.io.IOException;
 /**
  * 统一信用报告 —— 风格 05：雷达图（紫色）
  *
- * <p>以 {@code report/credit_report_05_radar.txt} 为模板，把雷达图渲染成 SVG 后
+ * <p>以 {@code report/credit_report_05_radar.xml} 为模板，把雷达图渲染成 SVG 后
  * 绑定到模板中的 {@code ${svg}} 占位符，输出到 {@code D:\test\creditreport\05_radar.pdf}。</p>
  *
  * @author Martin
@@ -77,7 +77,7 @@ public class JQuickCreditReport05RadarTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/credit_report_05_radar.txt");
+        byte[] bytes = factory.executeResource("report/credit_report_05_radar.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

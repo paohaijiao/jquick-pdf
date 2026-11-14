@@ -38,7 +38,7 @@ import java.util.Collections;
  * 材料上传直至提交成功，用于识别流程堵点、优化办事体验，主色采用沉稳青绿 #006064。</p>
  * <p>实际图表类型：{@link JChartType#Funnel} 漏斗图（展示办件流程各环节的逐级递减）。</p>
  *
- * <p>模板：{@code report/biz/40_traffic_funnel.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/40_traffic_funnel.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\40_traffic_funnel.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt × 400pt（宽 × 高）的横版比例设计；模板中 {@code <svg>}
@@ -96,7 +96,7 @@ public class JQuickBiz40TrafficFunnelTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/40_traffic_funnel.txt");
+        byte[] bytes = factory.executeResource("report/biz/40_traffic_funnel.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

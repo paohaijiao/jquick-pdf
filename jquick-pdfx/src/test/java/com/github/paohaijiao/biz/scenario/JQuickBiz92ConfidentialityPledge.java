@@ -34,7 +34,7 @@ import java.util.Map;
  * 场景 92：保密承诺书（模板文件 + bind 数据注入版）。
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bindAll(Map)} 注入；
- * 版式全部落在模板文件 {@code report/biz/92_confidentiality_pledge.txt} 中。</p>
+ * 版式全部落在模板文件 {@code report/biz/92_confidentiality_pledge.xml} 中。</p>
  *
  * <p>产物：PDF {@code D:/test/pdf/92_confidentiality_pledge.pdf}；
  * 签名 / 公章 {@code D:/test/image/92_*.png}。</p>
@@ -47,7 +47,7 @@ public class JQuickBiz92ConfidentialityPledge {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "92_confidentiality_pledge.pdf";
-    private static final String TEMPLATE = "report/biz/92_confidentiality_pledge.txt";
+    private static final String TEMPLATE = "report/biz/92_confidentiality_pledge.xml";
 
     public static void main(String[] args) throws IOException {
         new File(PDF_DIR).mkdirs();

@@ -35,7 +35,7 @@ import java.io.IOException;
  * 双栏签字区 + 联次注记。</p>
  *
  * <p>本模板为纯版式 Demo，不含图表，因此不需要绑定 {@code svg} 变量；
- * 模板：{@code report/biz/54_acknowledgement_receipt.txt}，输出：{@code D:\test\biz\54_acknowledgement_receipt.pdf}。</p>
+ * 模板：{@code report/biz/54_acknowledgement_receipt.xml}，输出：{@code D:\test\biz\54_acknowledgement_receipt.pdf}。</p>
  *
  * @author Martin
  * @version 1.0.0
@@ -55,7 +55,7 @@ public class JQuickBiz54AcknowledgementReceiptTest {
         // 开启 flex 行布局，使模板中的 display:flex 生效（标题区两端对齐、两列确认事项、双栏签字区）
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("report/biz/54_acknowledgement_receipt.txt");
+        byte[] bytes = factory.executeResource("report/biz/54_acknowledgement_receipt.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

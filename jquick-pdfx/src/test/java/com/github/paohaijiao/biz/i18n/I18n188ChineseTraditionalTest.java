@@ -23,7 +23,7 @@ import java.io.IOException;
 /**
  * 单据 156（系列）· i18n 序号 188 —— 繁体中文版全球经营年报摘要
  *
- * <p>模板：i18n/global_bank_report_zhHant.txt
+ * <p>模板：i18n/global_bank_report_zhHant.xml
  * 输出：D://test//i18n//global_bank_report_zhHant.pdf</p>
  *
  * @author Martin

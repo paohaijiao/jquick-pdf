@@ -35,7 +35,7 @@ import java.util.Map;
  *
  * <p>本类不定义任何实体类，全部数据通过 {@link JQuickPdfFactory#bind(String, Object)}
  * 以 key-value 形式注入；版式全部落在模板文件
- * {@code report/biz/93_safety_responsibility.txt} 中。</p>
+ * {@code report/biz/93_safety_responsibility.xml} 中。</p>
  *
  * <p>产物目录约定：</p>
  * <ul>
@@ -51,7 +51,7 @@ public class JQuickBiz93SafetyResponsibility {
     private static final String PDF_DIR = "D:/test/pdf/";
     private static final String IMG_DIR = "D:/test/image/";
     private static final String OUT_FILE = PDF_DIR + "93_safety_responsibility.pdf";
-    private static final String TEMPLATE = "report/biz/93_safety_responsibility.txt";
+    private static final String TEMPLATE = "report/biz/93_safety_responsibility.xml";
 
     public static void main(String[] args) throws IOException {
         mkdirs();

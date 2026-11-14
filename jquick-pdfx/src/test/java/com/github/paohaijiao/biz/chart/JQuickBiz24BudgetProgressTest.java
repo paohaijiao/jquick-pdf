@@ -37,7 +37,7 @@ import java.util.List;
  * <p>实际图表类型：{@link JChartType#HorizontalBar} 横向条形图。jquick-pdf 暂无进度图（进度条）渲染器，
  * 因此用「预算下达 vs 已执行」两条横向条形并列的方式替代进度图，执行率由两段条形的长度对比直观呈现。</p>
  *
- * <p>模板：{@code report/biz/24_budget_progress.txt}；图表以 SVG 文本形式绑定到模板的
+ * <p>模板：{@code report/biz/24_budget_progress.xml}；图表以 SVG 文本形式绑定到模板的
  * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\24_budget_progress.pdf}。</p>
  *
  * <p>图表尺寸说明：图表按 700pt 宽的横版比例设计；模板中 {@code <svg>} 只声明宽度、不声明高度，
@@ -84,7 +84,7 @@ public class JQuickBiz24BudgetProgressTest {
         config.getLayoutConfig().setFlexLayout(true);
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
         factory.bind("svg", svg);
-        byte[] bytes = factory.executeResource("report/biz/24_budget_progress.txt");
+        byte[] bytes = factory.executeResource("report/biz/24_budget_progress.xml");
         fileOutputStream.write(bytes);
         fileOutputStream.close();
     }

@@ -91,7 +91,7 @@ public class JQuickBubbleTest {
 
         FileOutputStream fileOutputStream = new FileOutputStream(path + "test.pdf");
         JQuickPdfFactory factory = new JQuickPdfFactory(config);
-        byte[] bytes = factory.executeResource("sample/svg2.txt");
+        byte[] bytes = factory.executeResource("sample/svg2.xml");
         fileOutputStream.write(bytes);
     }
     private static  Color getBubbleColor(Object category, double yValue) {

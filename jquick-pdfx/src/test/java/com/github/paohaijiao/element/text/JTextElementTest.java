@@ -21,7 +21,7 @@ import static org.junit.Assert.fail;
  * 文本类元素的单元用例：{@code <p>} 段落、{@code <h1>}~{@code <h6>} 标题、{@code <span>} 内联文本、
  * {@code <br>} 换行、{@code <tab>} 制表符。
  * <p>
- * 每个用例渲染 {@code src/test/resources/sample/text} 下的模板（写法与 {@code sample/textArea.txt} 一致），
+ * 每个用例渲染 {@code src/test/resources/sample/text} 下的模板（写法与 {@code sample/textArea.xml} 一致），
  * 再从生成的 PDF 中提取文本及其坐标，验证元素确实被渲染、流向正确且彼此不重叠。
  * <p>
  * 说明：{@code <br type="after"></br>} 这种写法当前语法不支持（{@code <br>} 仅接受可选的 style 属性），
@@ -36,7 +36,7 @@ public class JTextElementTest {
     /** 段落：纯文本段落应用自身样式；段落内的 span/tab 与文本按行内流依次排布。 */
     @Test
     public void paragraph() throws IOException {
-        Rendered rendered = render("sample/text/paragraph.txt");
+        Rendered rendered = render("sample/text/paragraph.xml");
         assertEquals(1, rendered.pages);
         Glyph plain = rendered.glyph("段落内容");
         Glyph inline = rendered.glyph("段落内的内联文本");
@@ -50,7 +50,7 @@ public class JTextElementTest {
     /** 标题：h1~h6 依次排列，字号逐级减小（用字高间接验证）。 */
     @Test
     public void heading() throws IOException {
-        Rendered rendered = render("sample/text/heading.txt");
+        Rendered rendered = render("sample/text/heading.xml");
         assertEquals(1, rendered.pages);
         String[] titles = {"一级标题", "二级标题", "三级标题", "四级标题", "五级标题", "六级标题"};
         Glyph previous = null;
@@ -67,7 +67,7 @@ public class JTextElementTest {
     /** 内联文本：span 可独立作为块级内容渲染。 */
     @Test
     public void span() throws IOException {
-        Rendered rendered = render("sample/text/span.txt");
+        Rendered rendered = render("sample/text/span.xml");
         assertEquals(1, rendered.pages);
         rendered.glyph("内联文本");
     }
@@ -75,7 +75,7 @@ public class JTextElementTest {
     /** 换行：br 使后面的文本另起一行，并回到段落左边界。 */
     @Test
     public void br() throws IOException {
-        Rendered rendered = render("sample/text/br.txt");
+        Rendered rendered = render("sample/text/br.xml");
         assertEquals(1, rendered.pages);
         Glyph first = rendered.glyph("第一行文本");
         Glyph second = rendered.glyph("第二行文本");
@@ -87,11 +87,11 @@ public class JTextElementTest {
     /** 制表符：tab 只横向推进光标，按声明的宽度叠加。 */
     @Test
     public void tab() throws IOException {
-        Rendered rendered = render("sample/text/tab.txt");
+        Rendered rendered = render("sample/text/tab.xml");
         assertEquals(1, rendered.pages);
         Glyph text = rendered.glyph("制表符后的文本");
         // 模板为 48px 的 tab + 默认 24 的 tab，文本因此右移 72pt，且仍与段落同行。
-        Glyph plain = render("sample/text/paragraph.txt").glyph("段落内容");
+        Glyph plain = render("sample/text/paragraph.xml").glyph("段落内容");
         assertEquals("两个制表符应使文本右移 72pt", plain.x + 72f, text.x, 1f);
     }
 
