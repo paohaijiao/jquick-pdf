@@ -34,16 +34,6 @@ import java.util.List;
 /**
  * 业务场景 Demo 20：企业信用等级分布（信用平台）
  *
- * <p>业务场景：信用信息平台按季度汇总入库企业的信用等级（AAA / AA / A / BBB / BB 及以下），
- * 用于区域信用状况概览与授信政策制定。</p>
- * <p>实际图表类型：{@link JChartType#Circle} 环形图（中心显示企业总数，外环按等级占比展开）。</p>
- *
- * <p>模板：{@code report/biz/20_credit_grade_circle.xml}；图表以 SVG 文本形式绑定到模板的
- * {@code ${svg}} 占位符，输出到 {@code D:\test\biz\20_credit_grade_circle.pdf}。</p>
- *
- * <p>图表尺寸说明：图表按 500pt × 400pt（宽 × 高）的方形比例设计；模板中 {@code <svg>}
- * 只声明宽度、不声明高度，因此宽度被页面自动收窄时高度会按原比例同步缩放，不会纵向拉伸变形。</p>
- *
  * @author Martin
  * @version 1.0.0
  */
