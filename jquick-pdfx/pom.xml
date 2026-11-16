@@ -69,21 +69,9 @@
             <artifactId>batik-all</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.openhtmltopdf</groupId>
-            <artifactId>openhtmltopdf-core</artifactId>
-            <version>1.0.10</version>
-        </dependency>
-        <dependency>
-            <groupId>com.openhtmltopdf</groupId>
-            <artifactId>openhtmltopdf-pdfbox</artifactId>
-            <version>1.0.10</version>
-        </dependency>
-
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
-        <!-- 二维码渲染（JQrCode），Apache-2.0，作为 jquick-pdfx 的传递依赖引入 -->
         <dependency>
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>

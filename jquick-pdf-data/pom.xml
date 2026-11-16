@@ -26,11 +26,7 @@
             <groupId>io.github.paohaijiao</groupId>
             <artifactId>javelin-core</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>com.github.abelsu7</groupId>-->
-        <!--            <artifactId>echarts-for-java</artifactId>-->
-        <!--            <version>3.1.0</version>-->
-        <!--        </dependency>-->
+
     </dependencies>
     <description>
         jquick-pdf is a pure-Java PDF toolkit for generating, rendering and exporting PDF documents
