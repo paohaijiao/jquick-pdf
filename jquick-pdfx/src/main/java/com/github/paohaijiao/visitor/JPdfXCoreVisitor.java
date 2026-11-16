@@ -125,7 +125,6 @@ public class JPdfXCoreVisitor extends JQuickPDFBaseVisitor {
         return page;
     }
 
-
     protected PDRectangle getPageSize(PageSize size) {
         switch (size) {
             case A4:

@@ -24,18 +24,8 @@ import com.github.paohaijiao.parser.JQuickPDFParser;
 import com.github.paohaijiao.toc.JTocCollector;
 import com.github.paohaijiao.toc.JTocPageBuilder;
 import com.github.paohaijiao.visitor.context.JQuickRenderContext;
-import com.github.paohaijiao.visitor.render.JTemplatePdfBoxRenderer;
 import com.github.paohaijiao.visitor.render.PdfBoxLayoutEngine;
-import com.github.paohaijiao.visitor.element.JQuickAreaBreakElementRender;
-import com.github.paohaijiao.visitor.element.JQuickButtonElementRender;
-import com.github.paohaijiao.visitor.element.JQuickCheckBoxElementRender;
-import com.github.paohaijiao.visitor.element.JQuickComboBoxElementRender;
 import com.github.paohaijiao.visitor.element.JQuickElementRender;
-import com.github.paohaijiao.visitor.element.JQuickImageElementRender;
-import com.github.paohaijiao.visitor.element.JQuickLineSeparatorElementRender;
-import com.github.paohaijiao.visitor.element.JQuickListElementRender;
-import com.github.paohaijiao.visitor.element.JQuickTabElementRender;
-import com.github.paohaijiao.visitor.element.JQuickTextAreaElementRender;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
@@ -47,7 +37,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.*;
 
 /**
  * packageName com.paohaijiao.javelin.visitor
@@ -128,8 +117,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
             if (catalogConfig != null && catalogConfig.isEnabled()) {
                 renderContext.setTocCollector(new JTocCollector());
             }
-            PdfBoxLayoutEngine layoutEngine = new PdfBoxLayoutEngine(getPdfBoxDocument(), page.getMediaBox(),
-                    renderContext, page, contentStream == null ? new PDPageContentStream(getPdfBoxDocument(), page) : contentStream);
+            PdfBoxLayoutEngine layoutEngine = new PdfBoxLayoutEngine(getPdfBoxDocument(), page.getMediaBox(), renderContext, page, contentStream == null ? new PDPageContentStream(getPdfBoxDocument(), page) : contentStream);
             renderContext.setLayoutEngine(layoutEngine);
             try {
                 if (ctx != null && ctx.body() != null) {
@@ -141,9 +129,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
             if (config != null && config.getWatermarkConfig() != null) {
                 new JPdfXWatermarkEventHandler(config.getWatermarkConfig()).renderAll(getPdfBoxDocument());
             }
-            if (catalogConfig != null && catalogConfig.isEnabled()
-                    && renderContext.getTocCollector() != null
-                    && !renderContext.getTocCollector().isEmpty()) {
+            if (catalogConfig != null && catalogConfig.isEnabled() && renderContext.getTocCollector() != null && !renderContext.getTocCollector().isEmpty()) {
                 JTocPageBuilder.build(getPdfBoxDocument(), renderContext.getTocCollector().getEntries(), catalogConfig);
             }
             getPdfBoxDocument().save(baos);
@@ -189,8 +175,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
      */
     protected PDFont resolveDocumentFont() {
         try {
-            JFontSpec spec = config == null || config.getFontConfig() == null
-                    ? null : config.getFontConfig().getDefaultFont();
+            JFontSpec spec = config == null || config.getFontConfig() == null ? null : config.getFontConfig().getDefaultFont();
             if (spec != null) {
                 return spec.resolve(getPdfBoxDocument());
             }
@@ -207,8 +192,7 @@ public class JPdfXCommonVisitor extends JPdfXElementVisitor {
         for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
             Object object = visitElement(elementContext);
             if (object instanceof JQuickElementRender) {
-                PDPageContentStream activeStream = renderContext.getLayoutEngine() == null
-                        ? contentStream : renderContext.getLayoutEngine().getStream();
+                PDPageContentStream activeStream = renderContext.getLayoutEngine() == null ? contentStream : renderContext.getLayoutEngine().getStream();
                 ((JQuickElementRender) object).draw(activeStream, renderContext);
                 if (renderContext.isNewPage()) {
                     renderContext.setNewPage(false);

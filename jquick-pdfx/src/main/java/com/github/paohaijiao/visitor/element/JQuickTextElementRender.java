@@ -17,14 +17,23 @@ import java.io.IOException;
 public class JQuickTextElementRender implements JQuickElementRender {
 
     private String content;
+
     private JStyleAttributes style;
+
     private float x;
+
     private float y;
+
     private float fontSize;
+
     private PDFont font;
+
     private PDColor color;
+
     private float characterSpacing;
+
     private float wordSpacing;
+
     private boolean useContextPosition = true;
     /**
      * 是否为块级文本。块级文本（{@code <p>}、{@code <h1>}~{@code <h6>}）在排版时应用自身的上下外边距，
@@ -56,10 +65,7 @@ public class JQuickTextElementRender implements JQuickElementRender {
         if (stream == null || context == null) return;
         String text = content == null ? "" : JStringUtils.trim(content);
         if (text == null || text.isEmpty()) return;
-        // 目录登记：标题元素绘制时把 (标题, 当前正文页码, 层级) 交给采集器。
-        // 预排版（分页关闭）阶段会镜像绘制一次元素用于测量，此时不登记，避免目录条目重复。
-        if (tocLevel > 0 && context.getTocCollector() != null
-                && (context.getLayoutEngine() == null || context.getLayoutEngine().isPaginationEnabled())) {
+        if (tocLevel > 0 && context.getTocCollector() != null && (context.getLayoutEngine() == null || context.getLayoutEngine().isPaginationEnabled())) {
             context.getTocCollector().add(text, Math.max(1, context.getPageNumber()), tocLevel);
         }
 
@@ -68,7 +74,6 @@ public class JQuickTextElementRender implements JQuickElementRender {
         if (characterSpacing != 0f) model.setCharacterSpacing(characterSpacing);
         if (wordSpacing != 0f) model.setWordSpacing(wordSpacing);
         if (color != null) stream.setNonStrokingColor(color);
-
         float drawX = useContextPosition ? context.getCursorX() : (x > 0 ? x : context.getX());
         float marginTop = blockLevel && !inline ? model.getMarginTop() : 0f;
         float marginBottom = blockLevel && !inline ? model.getMarginBottom() : 0f;
@@ -78,8 +83,7 @@ public class JQuickTextElementRender implements JQuickElementRender {
         float availableWidth = model.getWidth() > 0 ? model.getWidth() : context.getWidth();
         // 解析 fontFamilyNames 回退链：绘制与测量均按链内逐字符命中字体执行，
         // 支持同一元素内多语言混排（如 Noto Sans Arabic 段落里的英文、中文）。
-        java.util.List<PDFont> fontChain = PdfBoxRenderAdapter.resolveFontChain(model,
-                font == null ? context.getFont() : font, context.getDocument());
+        java.util.List<PDFont> fontChain = PdfBoxRenderAdapter.resolveFontChain(model, font == null ? context.getFont() : font, context.getDocument());
         PDFont effectiveFont = fontChain.get(0);
         float ascent = PdfBoxRenderAdapter.ascent(effectiveFont, textSize);
         float nextLineX = inline && context.getLineStartX() > 0f ? context.getLineStartX() : drawX;
