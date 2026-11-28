@@ -67,4 +67,68 @@ public class PdfBoxRenderAdapterTest {
         }
         Assert.assertTrue(output.isFile() && output.length() > 0);
     }
+    @Test
+    public void shouldParseBorderShorthandsShadowAndRadiusAlias() {
+        JStyleAttributes attributes = new JStyleAttributes();
+        attributes.put("border-width", "1px 2px 3px 4px");
+        attributes.put("border-style", "solid dashed");
+        attributes.put("border-color", "red blue");
+        attributes.put("border-radius", "8px");
+        attributes.put("radius", "12px");
+        attributes.put("box-shadow", "inset 2px 3px 6px 1px rgba(0,0,0,0.35)");
+        PdfBoxStyleModel style = PdfBoxStyleModel.from(attributes);
+        Assert.assertEquals("1px 2px 3px 4px", style.getBorderWidth());
+        Assert.assertEquals("solid dashed", style.getBorderStyle());
+        Assert.assertEquals("red blue", style.getBorderColor());
+        Assert.assertEquals("8px", style.getBorderRadius());
+        Assert.assertEquals("radius 应解析为 border-radius 的短别名", "12px", style.getRadius());
+        Assert.assertEquals("inset 2px 3px 6px 1px rgba(0,0,0,0.35)", style.getBoxShadow());
+    }
+
+    @Test
+    public void shouldRenderBorderShorthandsAndShadows() throws Exception {
+        JStyleAttributes attributes = new JStyleAttributes();
+        attributes.put("width", "260px");
+        attributes.put("height", "90px");
+        attributes.put("backgroundColor", "#f5f7fa");
+        attributes.put("borderWidth", "1px 2px 3px 4px");
+        attributes.put("borderStyle", "solid dashed");
+        attributes.put("borderColor", "#e74c3c #3498db");
+        attributes.put("borderRadius", "10px");
+        attributes.put("boxShadow", "3px 4px 8px rgba(0,0,0,0.3)");
+        File output = new File("target/pdfbox-border-shadow-test.pdf");
+        output.getParentFile().mkdirs();
+        try (PDDocument document = new PDDocument()) {
+            PDPage page = new PDPage(PDRectangle.A4);
+            document.addPage(page);
+            try (PDPageContentStream stream = new PDPageContentStream(document, page)) {
+                PdfBoxStyleModel style = PdfBoxStyleModel.from(attributes);
+                PdfBoxRenderAdapter.drawBox(document, stream, style, 72, 720, 195, 67);
+            }
+            document.save(output);
+        }
+        Assert.assertTrue(output.isFile() && output.length() > 0);
+    }
+
+    @Test
+    public void shouldRenderInsetShadow() throws Exception {
+        JStyleAttributes attributes = new JStyleAttributes();
+        attributes.put("width", "220px");
+        attributes.put("height", "80px");
+        attributes.put("backgroundColor", "#ffffff");
+        attributes.put("border", "1px solid #dddddd");
+        attributes.put("box-shadow", "inset 0 4px 2px rgba(0,0,0,0.3)");
+        File output = new File("target/pdfbox-inset-shadow-test.pdf");
+        output.getParentFile().mkdirs();
+        try (PDDocument document = new PDDocument()) {
+            PDPage page = new PDPage(PDRectangle.A4);
+            document.addPage(page);
+            try (PDPageContentStream stream = new PDPageContentStream(document, page)) {
+                PdfBoxStyleModel style = PdfBoxStyleModel.from(attributes);
+                PdfBoxRenderAdapter.drawBox(document, stream, style, 72, 700, 165, 60);
+            }
+            document.save(output);
+        }
+        Assert.assertTrue(output.isFile() && output.length() > 0);
+    }
 }

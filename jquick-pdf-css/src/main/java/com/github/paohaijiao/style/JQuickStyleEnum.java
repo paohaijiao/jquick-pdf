@@ -62,6 +62,10 @@ public enum JQuickStyleEnum {
 
     borderColor("border-color", "borderColor"),
 
+    borderWidth("border-width", "borderWidth"),
+
+    borderStyle("border-style", "borderStyle"),
+
     fontSize("font-size", "fontSize"),
 
     fontWeight("font-weight", "fontWeight"),
@@ -123,6 +127,10 @@ public enum JQuickStyleEnum {
     destination("destination", "destination"),
 
     borderRadius("border-radius", "borderRadius"),
+
+    radius("radius", "radius"),
+
+    boxShadow("box-shadow", "boxShadow"),
 
     borderTopLeftRadius("border-top-left-radius", "borderTopLeftRadius"),
 

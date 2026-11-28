@@ -44,11 +44,13 @@ public final class PdfBoxRenderAdapter {
         if (style.getAngleInRadians() != 0f) {
             stream.transform(Matrix.getRotateInstance(style.getAngleInRadians(), drawX + width / 2f, drawY + height / 2f));
         }
+        drawShadow(stream, style, drawX, drawY, width, height, false);
         if (style.getBackgroundColor() != null) {
             stream.setNonStrokingColor(color(style.getBackgroundColor(), white()));
             roundRect(stream, drawX, drawY, width, height, radius(style));
             stream.fill();
         }
+        drawShadow(stream, style, drawX, drawY, width, height, true);
         drawBorder(stream, style, drawX, drawY, width, height);
         stream.restoreGraphicsState();
     }
@@ -489,47 +491,125 @@ public final class PdfBoxRenderAdapter {
         }
     }
 
-    private static void drawBorder(PDPageContentStream stream, PdfBoxStyleModel style,
-                                   float x, float y, float width, float height) throws IOException {
-        drawBorderSide(stream, first(style.getBorderTop(), style.getBorder()), x, y + height, x + width, y + height, style);
-        drawBorderSide(stream, first(style.getBorderRight(), style.getBorder()), x + width, y, x + width, y + height, style);
-        drawBorderSide(stream, first(style.getBorderBottom(), style.getBorder()), x, y, x + width, y, style);
-        drawBorderSide(stream, first(style.getBorderLeft(), style.getBorder()), x, y, x, y + height, style);
+    /** 单条边框解析后的取值：线宽（pt）、线型与颜色；defined 表示该边是否声明了任一来源。 */
+    private static final class SideBorder {
+        private float width = -1f;
+        private String type;
+        private String color;
+        private boolean defined;
     }
 
-    private static void drawBorderSide(PDPageContentStream stream, String definition, float x1, float y1,
-                                       float x2, float y2, PdfBoxStyleModel style) throws IOException {
-        if (definition == null || definition.trim().isEmpty()) return;
-        // CSS 声明顺序为 “线宽 线型 颜色”（如 1px solid #ccc），此处按语义识别各 token，
-        // 不依赖固定位置，避免把线宽当成线型、把线型当成线宽。
-        String type = JQuickStyleValueEnum.solid.getValue();
-        float width = -1f;
-        String color = null;
-        for (String token : definition.replace("'", "").trim().split("\\s+")) {
-            String value = token.trim();
-            if (value.isEmpty()) continue;
-            String lower = value.toLowerCase(Locale.ROOT);
-            if (isBorderWidth(lower)) {
-                width = PdfBoxUnitConverter.toPoint(value, style.getStrokeWidth());
-            } else if (JQuickStyleValueEnum.none.match(lower) || JQuickStyleValueEnum.solid.match(lower)
-                    || lower.contains(JQuickStyleValueEnum.dashed.getValue()) || lower.contains(JQuickStyleValueEnum.dotted.getValue())) {
-                type = lower;
-            } else {
-                color = value;
+    /**
+     * 绘制四条边框。每条边的取值来源优先级：边框简写（border / border-top 等）&gt;
+     * 分侧简写展开（border-width / border-style / border-color，按 CSS 1~4 值上右下左展开）&gt;
+     * 内置默认值。只声明 border-width 或 border-color 而未声明线型时按实线绘制，
+     * 与「配置了宽度/颜色即希望看到边框」的直觉一致；显式 none 则不画。
+     */
+    private static void drawBorder(PDPageContentStream stream, PdfBoxStyleModel style,
+                                   float x, float y, float width, float height) throws IOException {
+        String[] widths = expandCssSides(style.getBorderWidth());
+        String[] types = expandCssSides(style.getBorderStyle());
+        String[] colors = expandCssSides(style.getBorderColor());
+        drawBorderSide(stream, resolveSide(first(style.getBorderTop(), style.getBorder()),
+                        widths, types, colors, 0, style), x, y + height, x + width, y + height);
+        drawBorderSide(stream, resolveSide(first(style.getBorderRight(), style.getBorder()),
+                        widths, types, colors, 1, style), x + width, y, x + width, y + height);
+        drawBorderSide(stream, resolveSide(first(style.getBorderBottom(), style.getBorder()),
+                        widths, types, colors, 2, style), x, y, x + width, y);
+        drawBorderSide(stream, resolveSide(first(style.getBorderLeft(), style.getBorder()),
+                        widths, types, colors, 3, style), x, y, x, y + height);
+    }
+
+    /** 解析一条边的边框：简写 token 按语义识别，缺失项依次回退到分侧简写的对应值。 */
+    private static SideBorder resolveSide(String definition, String[] widths, String[] types,
+                                          String[] colors, int side, PdfBoxStyleModel style) {
+        SideBorder border = new SideBorder();
+        boolean shorthandDeclared = definition != null && !definition.trim().isEmpty();
+        if (shorthandDeclared) {
+            // CSS 声明顺序为 “线宽 线型 颜色”（如 1px solid #ccc），此处按语义识别各 token，
+            // 不依赖固定位置，避免把线宽当成线型、把线型当成线宽。
+            for (String token : definition.replace("'", "").trim().split("\\s+")) {
+                String value = token.trim();
+                if (value.isEmpty()) continue;
+                String lower = value.toLowerCase(Locale.ROOT);
+                if (isBorderWidth(lower)) {
+                    border.width = PdfBoxUnitConverter.toPoint(value, style.getStrokeWidth());
+                } else if (isBorderType(lower)) {
+                    border.type = lower;
+                } else {
+                    border.color = value;
+                }
             }
         }
-        if (JQuickStyleValueEnum.none.match(type)) return;
-        if (width < 0f) width = style.getStrokeWidth();
-        if (color == null) color = style.getStrokeColor();
-        stream.setLineWidth(width);
-        stream.setStrokingColor(color(color, black()));
-        if (JQuickStyleValueEnum.dashed.match(type) || "dasheborder".equals(type) || "fixeddashedborder".equals(type)) {
-            stream.setLineDashPattern(new float[]{width * 3f, width * 2f}, 0);
-        } else if (JQuickStyleValueEnum.dotted.match(type) || "dottedborder".equals(type) || "rounddotsborder".equals(type)) {
-            stream.setLineDashPattern(new float[]{width, width * 1.5f}, 0);
+        if (border.width < 0f && widths != null) {
+            border.width = PdfBoxUnitConverter.toPoint(widths[side], style.getStrokeWidth());
+        }
+        if (border.type == null && types != null) {
+            border.type = types[side].toLowerCase(Locale.ROOT);
+        }
+        if (border.color == null && colors != null) {
+            border.color = colors[side];
+        }
+        if (border.color == null) {
+            border.color = style.getStrokeColor();
+        }
+        border.defined = shorthandDeclared || widths != null || types != null || colors != null;
+        if (!border.defined) {
+            return null;
+        }
+        if (border.type == null) {
+            border.type = JQuickStyleValueEnum.solid.getValue();
+        }
+        if (border.width < 0f) {
+            border.width = style.getStrokeWidth();
+        }
+        return border;
+    }
+
+    private static void drawBorderSide(PDPageContentStream stream, SideBorder border,
+                                       float x1, float y1, float x2, float y2) throws IOException {
+        if (border == null) return;
+        if (JQuickStyleValueEnum.none.match(border.type) || "hidden".equals(border.type)) return;
+        if (border.width <= 0f) return;
+        stream.setLineWidth(border.width);
+        stream.setStrokingColor(color(border.color, black()));
+        if (JQuickStyleValueEnum.dashed.match(border.type) || "dasheborder".equals(border.type) || "fixeddashedborder".equals(border.type)) {
+            stream.setLineDashPattern(new float[]{border.width * 3f, border.width * 2f}, 0);
+        } else if (JQuickStyleValueEnum.dotted.match(border.type) || "dottedborder".equals(border.type) || "rounddotsborder".equals(border.type)) {
+            stream.setLineDashPattern(new float[]{border.width, border.width * 1.5f}, 0);
         }
         line(stream, x1, y1, x2, y2);
         stream.setLineDashPattern(new float[]{}, 0);
+    }
+
+    /** 线型关键字：none/hidden 以及实线、虚线、点线；double/ridge 等暂降级为实线。 */
+    private static boolean isBorderType(String token) {
+        return JQuickStyleValueEnum.none.match(token) || "hidden".equals(token)
+                || JQuickStyleValueEnum.solid.match(token)
+                || token.contains(JQuickStyleValueEnum.dashed.getValue()) || "dasheborder".equals(token) || "fixeddashedborder".equals(token)
+                || token.contains(JQuickStyleValueEnum.dotted.getValue()) || "dottedborder".equals(token) || "rounddotsborder".equals(token)
+                || "double".equals(token) || "ridge".equals(token) || "groove".equals(token)
+                || "inset".equals(token) || "outset".equals(token);
+    }
+
+    /**
+     * CSS 简写 1~4 值展开为 [top, right, bottom, left]：
+     * 1 值四边同用，2 值上下/左右，3 值上/左右/下，4 值按上右下左。
+     * rgb/rgba 内部的空格先折叠，避免颜色被空格拆散。未声明时返回 null。
+     */
+    private static String[] expandCssSides(String value) {
+        if (value == null || value.trim().isEmpty()) {
+            return null;
+        }
+        String normalized = value.replace("'", "").replace("\"", "")
+                .replaceAll(",\\s+", ",").trim();
+        String[] tokens = normalized.split("\\s+");
+        switch (tokens.length) {
+            case 1: return new String[]{tokens[0], tokens[0], tokens[0], tokens[0]};
+            case 2: return new String[]{tokens[0], tokens[1], tokens[0], tokens[1]};
+            case 3: return new String[]{tokens[0], tokens[1], tokens[2], tokens[1]};
+            default: return new String[]{tokens[0], tokens[1], tokens[2], tokens[3]};
+        }
     }
 
     /** 判断 token 是否为边框线宽（如 {@code 1px}、{@code 0.5}）。 */
@@ -736,14 +816,186 @@ public final class PdfBoxRenderAdapter {
 
     private static float radius(PdfBoxStyleModel style) {
         String value = style.getBorderRadius();
+        if (value == null) value = style.getRadius();
         if (value == null) value = first(style.getBorderTopLeftRadius(), first(style.getBorderTopRightRadius(), first(style.getBorderBottomLeftRadius(), style.getBorderBottomRightRadius())));
         return PdfBoxUnitConverter.toPoints(value, 1, 0f)[0];
     }
 
+    /** box-shadow 模糊的分层层数：每层外扩一部分 blur，透明度叠加形成柔和边缘。 */
+    private static final int SHADOW_BLUR_LAYERS = 4;
+
+    /** 解析后的单组阴影：偏移、模糊、扩散、颜色与 inset 标记。 */
+    private static final class Shadow {
+        private float offsetX;
+        private float offsetY;
+        private float blur;
+        private float spread;
+        private String color = "black";
+        private boolean inset;
+    }
+
+    /**
+     * 绘制 box-shadow，CSS 语法：{@code x偏移 y偏移 [blur] [spread] 颜色 [, 另一组]}，
+     * 支持 inset。PDF 没有模糊滤镜：外阴影用多层同心圆角矩形透明度叠加模拟 blur 的柔和边缘，
+     * inset 用 even-odd 环形裁剪（盒区域减去偏移后的扩展矩形）实现边缘暗带。
+     * 偏移方向与 CSS 一致：x 正向右、y 正向下（PDF 坐标 y 向上，绘制时取反）。
+     *
+     * @param insetOnly true 只绘制 inset 内阴影，false 只绘制外阴影
+     */
+    private static void drawShadow(PDPageContentStream stream, PdfBoxStyleModel style, float x, float y, float width, float height, boolean insetOnly) throws IOException {
+        String value = style.getBoxShadow();
+        if (value == null || value.trim().isEmpty()) {
+            return;
+        }
+        String normalized = value.replace("'", "").replace("\"", "").trim();
+        if ("none".equalsIgnoreCase(normalized)) {
+            return;
+        }
+        for (String layer : splitTopLevel(normalized, ',')) {
+            Shadow shadow = parseShadow(layer);
+            if (shadow == null || shadow.inset != insetOnly) {
+                continue;
+            }
+            if (shadow.inset) {
+                drawInsetShadow(stream, style, x, y, width, height, shadow);
+            } else {
+                drawOuterShadow(stream, style, x, y, width, height, shadow);
+            }
+        }
+    }
+
+    /**
+     * 解析单组阴影：长度 token 按 x偏移、y偏移、blur、spread 顺序取值，
+     * 其余 token（含 rgb/rgba/#/颜色名）为颜色，{@code inset} 关键字切换内阴影。
+     * x/y 偏移未齐备的声明视为无效，整组忽略。
+     */
+    private static Shadow parseShadow(String layer) {
+        if (layer == null || layer.trim().isEmpty()) {
+            return null;
+        }
+        String text = layer.replaceAll(",\\s+", ",").trim();
+        Shadow shadow = new Shadow();
+        float[] lengths = new float[4];
+        int lengthCount = 0;
+        for (String token : text.split("\\s+")) {
+            String value = token.trim();
+            if (value.isEmpty()) continue;
+            String lower = value.toLowerCase(Locale.ROOT);
+            if ("inset".equals(lower)) {
+                shadow.inset = true;
+            } else if (isBorderWidth(lower)) {
+                if (lengthCount < lengths.length) {
+                    lengths[lengthCount++] = PdfBoxUnitConverter.toPoint(value, 0f);
+                }
+            } else {
+                shadow.color = value;
+            }
+        }
+        if (lengthCount < 2) {
+            return null;
+        }
+        shadow.offsetX = lengths[0];
+        shadow.offsetY = lengths[1];
+        shadow.blur = lengthCount >= 3 ? Math.max(0f, lengths[2]) : 0f;
+        shadow.spread = lengthCount >= 4 ? lengths[3] : 0f;
+        return shadow;
+    }
+
+    /** 外阴影：从最外层到最内层逐层填充，每层 alpha = 总 alpha / 层数，重叠区自然加深。 */
+    private static void drawOuterShadow(PDPageContentStream stream, PdfBoxStyleModel style,
+                                        float x, float y, float width, float height, Shadow shadow) throws IOException {
+        float alpha = colorAlpha(shadow.color);
+        float corner = radius(style);
+        int layers = shadow.blur > 0f ? SHADOW_BLUR_LAYERS : 1;
+        stream.saveGraphicsState();
+        applyAlpha(stream, alpha / layers);
+        stream.setNonStrokingColor(color(shadow.color, black()));
+        for (int i = layers; i >= 1; i--) {
+            float expand = shadow.spread + shadow.blur * (i - 1) / layers;
+            float shadowX = x - shadow.offsetX - expand;
+            float shadowY = y - shadow.offsetY - expand;
+            float shadowWidth = width + 2f * expand;
+            float shadowHeight = height + 2f * expand;
+            roundRect(stream, shadowX, shadowY, shadowWidth, shadowHeight, corner + expand);
+            stream.fill();
+        }
+        stream.restoreGraphicsState();
+    }
+
+    /** 内阴影：even-odd 裁剪出「盒区域减去偏移扩展矩形」的环形暗带，偏移正方向对应暗带在该侧出现。 */
+    private static void drawInsetShadow(PDPageContentStream stream, PdfBoxStyleModel style, float x, float y, float width, float height, Shadow shadow) throws IOException {
+        float corner = radius(style);
+        float alpha = colorAlpha(shadow.color);
+        float expandedX = x - shadow.offsetX - shadow.spread;
+        float expandedY = y - shadow.offsetY - shadow.spread;
+        float expandedWidth = width + 2f * shadow.spread;
+        float expandedHeight = height + 2f * shadow.spread;
+        stream.saveGraphicsState();
+        roundRect(stream, x, y, width, height, corner);
+        roundRect(stream, expandedX, expandedY, expandedWidth, expandedHeight,
+                Math.max(0f, corner - shadow.spread));
+        stream.clipEvenOdd();
+        applyAlpha(stream, alpha);
+        stream.setNonStrokingColor(color(shadow.color, black()));
+        roundRect(stream, x, y, width, height, corner);
+        stream.fill();
+        stream.restoreGraphicsState();
+    }
+
+    /** 按顶层分隔符分段，括号内的分隔符不参与分段（保护 rgba(0,0,0,.5) 这类颜色）。 */
+    private static java.util.List<String> splitTopLevel(String value, char separator) {
+        java.util.List<String> parts = new java.util.ArrayList<String>();
+        StringBuilder current = new StringBuilder();
+        int depth = 0;
+        for (int i = 0; i < value.length(); i++) {
+            char c = value.charAt(i);
+            if (c == '(') depth++;
+            if (c == ')') depth = Math.max(0, depth - 1);
+            if (c == separator && depth == 0) {
+                parts.add(current.toString());
+                current.setLength(0);
+            } else {
+                current.append(c);
+            }
+        }
+        if (current.length() > 0) {
+            parts.add(current.toString());
+        }
+        return parts;
+    }
+
+    /** 从 rgba(r,g,b,a) 提取 alpha 通道；其余颜色写法返回 1。 */
+    private static float colorAlpha(String color) {
+        if (color == null) {
+            return 1f;
+        }
+        java.util.regex.Matcher matcher = java.util.regex.Pattern
+                .compile("rgba\\s*\\(\\s*[^,]+\\s*,\\s*[^,]+\\s*,\\s*[^,]+\\s*,\\s*([0-9.]+)\\s*\\)",
+                        java.util.regex.Pattern.CASE_INSENSITIVE)
+                .matcher(color.trim());
+        if (matcher.find()) {
+            try {
+                float alpha = Float.parseFloat(matcher.group(1));
+                return Math.max(0f, Math.min(1f, alpha));
+            } catch (NumberFormatException ignored) {
+                return 1f;
+            }
+        }
+        return 1f;
+    }
+
     private static void applyOpacity(PDPageContentStream stream, float opacity) throws IOException {
+        applyAlpha(stream, opacity);
+    }
+
+    /** 用扩展图形状态设置绘制透明度；完全不透明时无需额外图形状态，直接跳过。 */
+    private static void applyAlpha(PDPageContentStream stream, float alpha) throws IOException {
+        if (alpha >= 1f) {
+            return;
+        }
         PDExtendedGraphicsState state = new PDExtendedGraphicsState();
-        state.setNonStrokingAlphaConstant(opacity);
-        state.setStrokingAlphaConstant(opacity);
+        state.setNonStrokingAlphaConstant(alpha);
+        state.setStrokingAlphaConstant(alpha);
         stream.setGraphicsStateParameters(state);
     }
 

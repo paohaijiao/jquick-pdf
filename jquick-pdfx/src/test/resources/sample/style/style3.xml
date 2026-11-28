@@ -37,10 +37,15 @@
 <div style="border-bottom:'solid 32px red'">'border-bottom:solid 32px red'</div>
 
 <div style="background-color:lightgray;border-radius:'32px 24px'">'border-radius:32px 24px'</div>
+<div style="background-color:lightgray;radius:16px">'radius:16px 与 border-radius 等效的短别名'</div>
 <div style="background-color:lightgray;border-top-left-radius:'32px 24px'">'border-top-left-radius:32px 24px'</div>
 <div style="background-color:lightgray;border-top-right-radius:'32px 24px'">'border-top-right-radius:32px 24px'</div>
 <div style="background-color:lightgray;border-bottom-right-radius:'32px 24px'">'border-bottom-right-radius:32px 24px'</div>
 <div style="background-color:lightgray;border-bottom-left-radius:'32px 24px'">'border-bottom-left-radius:32px 24px'</div>
+
+<div style="background-color:white;border-width:'1px 2px 3px 4px';border-style:'solid dashed';border-color:'red blue'">'border-color:border-width:border-style: 按上右下左展开'</div>
+<div style="background-color:white;box-shadow:'2px 3px 6px rgba(0,0,0,0.35)'">'box-shadow:2px 3px 6px rgba(0,0,0,0.35) 外阴影'</div>
+<div style="background-color:white;box-shadow:'inset 0 4px 2px rgba(0,0,0,0.3)'">'box-shadow:inset 0 4px 2px rgba(0,0,0,0.3) 内阴影'</div>
 
 <div style="background-color:red;opacity:0.5">'opacity:0.5'</div>
 <div style="background-color:lightgray;stroke-color:red;stroke-width:24">'stroke-color:red;stroke-width:24'</div>

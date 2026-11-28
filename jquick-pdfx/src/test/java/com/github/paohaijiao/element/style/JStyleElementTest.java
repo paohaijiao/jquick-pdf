@@ -70,7 +70,8 @@ public class JStyleElementTest {
             "bold", "italic", "lineThrough", "underline",
             "backgroundColor", "backgroundImage",
             "border", "borderTop", "borderRight", "borderLeft", "borderBottom",
-            "borderRadius", "borderBottomLeftRadius", "borderBottomRightRadius",
+            "borderColor", "borderWidth", "borderStyle", "boxShadow",
+            "borderRadius", "radius", "borderBottomLeftRadius", "borderBottomRightRadius",
             "borderTopRightRadius", "borderTopLeftRadius",
             "opacity", "strokeColor", "strokeWidth",
             "destination"};

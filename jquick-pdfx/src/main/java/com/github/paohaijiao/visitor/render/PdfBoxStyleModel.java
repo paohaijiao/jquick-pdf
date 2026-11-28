@@ -93,7 +93,17 @@ public class PdfBoxStyleModel {
 
     private String borderLeft;
 
+    private String borderColor;
+
+    private String borderWidth;
+
+    private String borderStyle;
+
+    private String boxShadow;
+
     private String borderRadius;
+
+    private String radius;
 
     private String borderTopLeftRadius;
 
@@ -255,6 +265,11 @@ public class PdfBoxStyleModel {
         model.borderBottom = JQuickStyleEnum.borderBottom.getString(attributes, null);
         model.borderLeft = JQuickStyleEnum.borderLeft.getString(attributes, null);
         model.borderRadius = JQuickStyleEnum.borderRadius.getString(attributes, null);
+        model.radius = JQuickStyleEnum.radius.getString(attributes, null);
+        model.borderColor = JQuickStyleEnum.borderColor.getString(attributes, null);
+        model.borderWidth = JQuickStyleEnum.borderWidth.getString(attributes, null);
+        model.borderStyle = JQuickStyleEnum.borderStyle.getString(attributes, null);
+        model.boxShadow = JQuickStyleEnum.boxShadow.getString(attributes, null);
         model.borderTopLeftRadius = JQuickStyleEnum.borderTopLeftRadius.getString(attributes, null);
         model.borderTopRightRadius = JQuickStyleEnum.borderTopRightRadius.getString(attributes, null);
         model.borderBottomRightRadius = JQuickStyleEnum.borderBottomRightRadius.getString(attributes, null);
