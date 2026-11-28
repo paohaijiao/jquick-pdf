@@ -91,39 +91,64 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
 
     @Override
     public JColumnModel visitTh(JQuickPDFParser.ThContext ctx) {
-        JStyleAttributes style;
-        if (ctx.styleEle() != null) {
-            style = visitStyleEle(ctx.styleEle());
-        } else {
-            style = new JStyleAttributes();
-        }
-        List<Object> value = null;
-        if (ctx.elemValue() != null) {
-            value = visitElemValue(ctx.elemValue());
-        }
-        JColumnModel model = new JColumnModel();
-        model.setStyle(style);
-        model.setObject(value);
-        model.setType(TH);
+        JColumnModel model = buildColumn(ctx.styleEle(), ctx.elemValue(), TH);
+        applySpans(model, ctx.colSpan(), ctx.rowSpan());
         return model;
     }
 
     @Override
     public JColumnModel visitTd(JQuickPDFParser.TdContext ctx) {
+        JColumnModel model = buildColumn(ctx.styleEle(), ctx.elemValue(), TD);
+        applySpans(model, ctx.colSpan(), ctx.rowSpan());
+        return model;
+    }
+
+    private JColumnModel buildColumn(JQuickPDFParser.StyleEleContext styleCtx, JQuickPDFParser.ElemValueContext elemCtx, String type) {
         JStyleAttributes style;
-        if (ctx.styleEle() != null) {
-            style = visitStyleEle(ctx.styleEle());
+        if (styleCtx != null) {
+            style = visitStyleEle(styleCtx);
         } else {
             style = new JStyleAttributes();
         }
         List<Object> value = null;
-        if (ctx.elemValue() != null) {
-            value = visitElemValue(ctx.elemValue());
+        if (elemCtx != null) {
+            value = visitElemValue(elemCtx);
         }
         JColumnModel model = new JColumnModel();
         model.setStyle(style);
         model.setObject(value);
-        model.setType(TD);
+        model.setType(type);
         return model;
+    }
+
+    private void applySpans(JColumnModel model, JQuickPDFParser.ColSpanContext colSpanCtx, JQuickPDFParser.RowSpanContext rowSpanCtx) {
+        if (colSpanCtx != null) {
+            Integer colSpan = spanValue(colSpanCtx.value());
+            if (colSpan != null) {
+                model.setColSpan(colSpan);
+            }
+        }
+        if (rowSpanCtx != null) {
+            Integer rowSpan = spanValue(rowSpanCtx.value());
+            if (rowSpan != null) {
+                model.setRowSpan(rowSpan);
+            }
+        }
+    }
+
+    private Integer spanValue(JQuickPDFParser.ValueContext context) {
+        if (context == null) {
+            return null;
+        }
+        Object value = visitValue(context);
+        if (value == null) {
+            return null;
+        }
+        try {
+            int span = Math.round(Float.parseFloat(value.toString().trim()));
+            return span > 0 ? span : null;
+        } catch (NumberFormatException ignored) {
+            return null;
+        }
     }
 }

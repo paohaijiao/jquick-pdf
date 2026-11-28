@@ -38,4 +38,8 @@ public class JColumnModel {
 
     private List<Object> object;
 
+    private int colSpan = 1;
+
+    private int rowSpan = 1;
+
 }
