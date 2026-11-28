@@ -103,7 +103,7 @@ public class JCircleChartRenderer extends JAbstractChartRenderer {
         int ringDiameter = ringSize;
         int ringRadius = ringSize / 2;
         int holeRadius = (int) (ringRadius * 0.65);
-        int legendStartX = width - 110;// 图例起始位置
+        int legendStartX = width - 170;// 图例起始位置（留足文字+百分比宽度，防裁切）
         int legendStartY = titleHeight + 30;
         layoutParams.ringX = ringX;// 保存布局参数
         layoutParams.ringY = ringY;
@@ -206,10 +206,11 @@ public class JCircleChartRenderer extends JAbstractChartRenderer {
      */
     private void drawLegend(SVGGraphics2D svg) {
         List<JCircleChartData.SectorData> sectors = config.getSectorDataList();
-        int itemHeight = 28;
+        int itemHeight = 30;
         int rectSize = 12;
         int textOffset = 18;
         svg.setFont(config.getLegendFont());
+        FontMetrics fmLegend = svg.getFontMetrics();
         for (int i = 0; i < sectors.size(); i++) {
             JCircleChartData.SectorData sector = sectors.get(i);
             int y = layoutParams.legendStartY + i * itemHeight;
@@ -220,13 +221,13 @@ public class JCircleChartRenderer extends JAbstractChartRenderer {
             svg.setPaint(config.getTextColor());
             String legendText = sector.getLegendText() != null ? sector.getLegendText() : sector.getName();
             svg.drawString(legendText, layoutParams.legendStartX + textOffset, y + rectSize - 2);
-            // 绘制百分比
+            // 绘制百分比：跟随文字宽度定位，避免长图例压住固定列
+            String percent = String.format("%.1f%%", sector.getPercentage());
+            int percentX = layoutParams.legendStartX + textOffset + fmLegend.stringWidth(legendText) + 8;
             svg.setFont(config.getLegendPercentFont());
             svg.setPaint(config.getTextSecondaryColor());
-            String percent = String.format("%.1f%%", sector.getPercentage());
-            FontMetrics fm = svg.getFontMetrics();
-            int percentX = layoutParams.legendStartX + 80;
             svg.drawString(percent, percentX, y + rectSize - 2);
+            svg.setFont(config.getLegendFont());
         }
     }
 

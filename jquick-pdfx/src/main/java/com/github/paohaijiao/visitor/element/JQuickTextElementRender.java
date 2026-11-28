@@ -65,7 +65,7 @@ public class JQuickTextElementRender implements JQuickElementRender {
         if (stream == null || context == null) return;
         String text = content == null ? "" : JStringUtils.trim(content);
         if (text == null || text.isEmpty()) return;
-        if (tocLevel > 0 && context.getTocCollector() != null && (context.getLayoutEngine() == null || context.getLayoutEngine().isPaginationEnabled())) {
+        if (tocLevel > 0 && !context.isMeasureOnly() && context.getTocCollector() != null && (context.getLayoutEngine() == null || context.getLayoutEngine().isPaginationEnabled())) {
             context.getTocCollector().add(text, Math.max(1, context.getPageNumber()), tocLevel);
         }
 

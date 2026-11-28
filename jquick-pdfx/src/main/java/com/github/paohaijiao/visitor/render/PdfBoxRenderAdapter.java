@@ -334,7 +334,7 @@ public final class PdfBoxRenderAdapter {
     }
 
     /**
-     * 按可用宽度将文本折行（中文逐字断开，英文回退到字符边界），
+     * 按可用宽度将文本折行（英文在单词边界换行，CJK 逐字断行），
      * 避免长文本单行溢出页面。返回结果至少包含一个元素。
      */
     public static java.util.List<String> wrapText(PDFont font, String text, float fontSize, float maxWidth,
@@ -345,7 +345,13 @@ public final class PdfBoxRenderAdapter {
         return wrapText(chain, text, fontSize, maxWidth, characterSpacing, wordSpacing);
     }
 
-    /** 回退链折行：逐字符按命中字体的真实宽度测量，支持任意语言混排的换行。 */
+    /**
+     * 回退链折行：英文在单词边界换行（禁止把单词从字母中间拆开），CJK 等表意
+     * 字符仍按字符断行，单个单词超出整行宽度时才回退到字符内硬拆。
+     * <p>
+     * 断行规则与 HTML 一致：空白是天然断点；连续的英文字母/数字（含紧邻标点）
+     * 视为一个不可拆分的单词；CJK 字符逐字可断。
+     */
     public static java.util.List<String> wrapText(java.util.List<PDFont> chain, String text, float fontSize,
                                                   float maxWidth, float characterSpacing, float wordSpacing) {
         java.util.List<String> lines = new java.util.ArrayList<String>();
@@ -357,15 +363,112 @@ public final class PdfBoxRenderAdapter {
             lines.add(text);
             return lines;
         }
-        StringBuilder current = new StringBuilder();
+        java.util.List<String> tokens = tokenize(text);
+        StringBuilder line = new StringBuilder();
+        boolean pendingSpace = false;
+        for (String token : tokens) {
+            if (" ".equals(token)) {
+                if (line.length() > 0) {
+                    pendingSpace = true;
+                }
+                continue;
+            }
+            float tokenWidth = textWidth(chain, token, fontSize, characterSpacing, wordSpacing);
+            String candidate = line + (pendingSpace && line.length() > 0 ? " " : "") + token;
+            float candidateWidth = textWidth(chain, candidate, fontSize, characterSpacing, wordSpacing);
+            if (candidateWidth <= maxWidth || line.length() == 0) {
+                if (line.length() == 0 && tokenWidth > maxWidth) {
+                    // 单个单词超出整行宽度：回退到字符内硬拆，保证不溢出
+                    hardSplit(chain, token, fontSize, maxWidth, characterSpacing, wordSpacing, lines);
+                    pendingSpace = false;
+                    continue;
+                }
+                line.append(pendingSpace && line.length() > 0 ? " " : "").append(token);
+            } else {
+                lines.add(line.toString());
+                line.setLength(0);
+                if (tokenWidth > maxWidth) {
+                    hardSplit(chain, token, fontSize, maxWidth, characterSpacing, wordSpacing, lines);
+                    pendingSpace = false;
+                    continue;
+                }
+                line.append(token);
+            }
+            pendingSpace = false;
+        }
+        if (line.length() > 0) {
+            lines.add(line.toString());
+        }
+        if (lines.isEmpty()) {
+            lines.add("");
+        }
+        return lines;
+    }
+
+    /**
+     * 分词：连续的英文字母/数字（含紧邻的英文标点）为一个不可拆分 token；
+     * CJK 等表意字符逐字成 token（可断行）；空白折叠为单个空格断点。
+     */
+    private static java.util.List<String> tokenize(String text) {
+        java.util.List<String> tokens = new java.util.ArrayList<String>();
+        StringBuilder word = new StringBuilder();
         int index = 0;
         while (index < text.length()) {
             int codePoint = text.codePointAt(index);
             int charCount = Character.charCount(codePoint);
             String piece = text.substring(index, index + charCount);
+            index += charCount;
+            if (Character.isWhitespace(codePoint)) {
+                flushWord(tokens, word);
+                if (tokens.isEmpty() || !" ".equals(tokens.get(tokens.size() - 1))) {
+                    tokens.add(" ");
+                }
+                continue;
+            }
+            if (isBreakableChar(codePoint)) {
+                flushWord(tokens, word);
+                tokens.add(piece);
+                continue;
+            }
+            word.append(piece);
+        }
+        flushWord(tokens, word);
+        return tokens;
+    }
+
+    private static void flushWord(java.util.List<String> tokens, StringBuilder word) {
+        if (word.length() > 0) {
+            tokens.add(word.toString());
+            word.setLength(0);
+        }
+    }
+
+    /** CJK 及全角区段的表意字符允许逐字断行；拉丁字母、数字与 ASCII 标点归入单词。 */
+    private static boolean isBreakableChar(int codePoint) {
+        return (codePoint >= 0x1100 && codePoint <= 0x11FF)     // 谚文声母
+                || (codePoint >= 0x2E80 && codePoint <= 0x303F) // CJK 部首与标点
+                || (codePoint >= 0x3040 && codePoint <= 0x318F) // 假名与注音
+                || (codePoint >= 0x3200 && codePoint <= 0x9FFF) // CJK 表意区
+                || (codePoint >= 0xA960 && codePoint <= 0xA97F) // 谚文扩展
+                || (codePoint >= 0xAC00 && codePoint <= 0xD7FF) // 谚文音节
+                || (codePoint >= 0xF900 && codePoint <= 0xFAFF) // CJK 兼容表意
+                || (codePoint >= 0xFF01 && codePoint <= 0xFF60) // 全角标点与字符
+                || (codePoint >= 0xFFE0 && codePoint <= 0xFFE6) // 全角符号
+                || (codePoint >= 0x20000 && codePoint <= 0x2FA1F); // CJK 扩展
+    }
+
+    /** 超长单词的字符内硬拆：逐字符累计宽度，超出即断行，保证不溢出。 */
+    private static void hardSplit(java.util.List<PDFont> chain, String token, float fontSize, float maxWidth,
+                                  float characterSpacing, float wordSpacing, java.util.List<String> lines) {
+        StringBuilder current = new StringBuilder();
+        int index = 0;
+        while (index < token.length()) {
+            int codePoint = token.codePointAt(index);
+            int charCount = Character.charCount(codePoint);
+            String piece = token.substring(index, index + charCount);
             current.append(piece);
-            if (current.length() > charCount
-                    && textWidth(chain, current.toString(), fontSize, characterSpacing, wordSpacing) > maxWidth) {
+            if (textWidth(chain, current.toString(), fontSize, characterSpacing, wordSpacing) > maxWidth
+                    && current.length() > charCount) {
                 current.setLength(current.length() - charCount);
                 lines.add(current.toString());
                 current.setLength(0);
@@ -376,10 +479,6 @@ public final class PdfBoxRenderAdapter {
         if (current.length() > 0) {
             lines.add(current.toString());
         }
-        if (lines.isEmpty()) {
-            lines.add("");
-        }
-        return lines;
     }
 
     private static float width(PDFont font, String text, float fontSize, float characterSpacing, float wordSpacing) {

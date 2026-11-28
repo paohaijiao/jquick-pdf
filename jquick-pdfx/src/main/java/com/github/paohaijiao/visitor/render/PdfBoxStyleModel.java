@@ -129,7 +129,77 @@ public class PdfBoxStyleModel {
 
     private String alignItems;
 
+    /** td/th 默认内边距（pt）：对齐 HTML 单元格排版习惯，避免文本紧贴边框。 */
+    public static final float DEFAULT_CELL_PADDING_LEFT = 6f;
+
+    public static final float DEFAULT_CELL_PADDING_RIGHT = 6f;
+
+    public static final float DEFAULT_CELL_PADDING_TOP = 3f;
+
+    public static final float DEFAULT_CELL_PADDING_BOTTOM = 3f;
+
     public static PdfBoxStyleModel from(JStyleAttributes attributes) {
+        return from(attributes, null, 0f);
+    }
+
+    /**
+     * 构建单元格样式模型：td/th 缺省时补默认内边距。
+     * 内边距优先级：单元格样式（简写或分侧）&gt; 表格级 fallbackPadding &gt; 内置默认值。
+     *
+     * @param attributes      单元格自身样式
+     * @param cellType        "th" / "td"，其它值不应用单元格默认值
+     * @param fallbackPadding 表格级 padding（pt），为 0 或负数时忽略
+     */
+    public static PdfBoxStyleModel from(JStyleAttributes attributes, String cellType, float fallbackPadding) {
+        PdfBoxStyleModel model = fromOriginal(attributes);
+        applyCellPaddingDefaults(model, attributes, cellType, fallbackPadding);
+        return model;
+    }
+
+    /**
+     * 为 td/th 补齐未声明的内边距：已声明（简写或分侧）的边保持声明值，
+     * 未声明的边依次取表格级 padding、内置默认值。
+     */
+    private static void applyCellPaddingDefaults(PdfBoxStyleModel model, JStyleAttributes attributes,
+                                                 String cellType, float fallbackPadding) {
+        if (!isCell(cellType)) {
+            return;
+        }
+        boolean topDeclared = paddingDeclared(attributes, JQuickStyleEnum.paddingTop);
+        boolean rightDeclared = paddingDeclared(attributes, JQuickStyleEnum.paddingRight);
+        boolean bottomDeclared = paddingDeclared(attributes, JQuickStyleEnum.paddingBottom);
+        boolean leftDeclared = paddingDeclared(attributes, JQuickStyleEnum.paddingLeft);
+        if (!topDeclared && model.paddingTop <= 0f) {
+            model.paddingTop = firstPositive(fallbackPadding, DEFAULT_CELL_PADDING_TOP);
+        }
+        if (!rightDeclared && model.paddingRight <= 0f) {
+            model.paddingRight = firstPositive(fallbackPadding, DEFAULT_CELL_PADDING_RIGHT);
+        }
+        if (!bottomDeclared && model.paddingBottom <= 0f) {
+            model.paddingBottom = firstPositive(fallbackPadding, DEFAULT_CELL_PADDING_BOTTOM);
+        }
+        if (!leftDeclared && model.paddingLeft <= 0f) {
+            model.paddingLeft = firstPositive(fallbackPadding, DEFAULT_CELL_PADDING_LEFT);
+        }
+    }
+
+    private static boolean isCell(String cellType) {
+        return "th".equalsIgnoreCase(cellType) || "td".equalsIgnoreCase(cellType);
+    }
+
+    /** padding 分侧样式是否已声明（含简写：paddings / padding / -webkit-padding 等公共键）。 */
+    private static boolean paddingDeclared(JStyleAttributes attributes, JQuickStyleEnum side) {
+        return side.getString(attributes, null) != null
+                || JQuickStyleEnum.paddings.getString(attributes, null) != null
+                || JQuickStyleEnum.padding.getString(attributes, null) != null
+                || JQuickStyleEnum.commonPadding.getString(attributes, null) != null;
+    }
+
+    private static float firstPositive(float first, float second) {
+        return first > 0f ? first : second;
+    }
+
+    public static PdfBoxStyleModel fromOriginal(JStyleAttributes attributes) {
         PdfBoxStyleModel model = new PdfBoxStyleModel();
         if (attributes == null) {
             return model;

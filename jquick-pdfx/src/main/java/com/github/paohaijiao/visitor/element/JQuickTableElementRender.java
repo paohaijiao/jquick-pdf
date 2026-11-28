@@ -1,5 +1,6 @@
 package com.github.paohaijiao.visitor.element;
 
+import com.github.paohaijiao.config.JTableConfig;
 import com.github.paohaijiao.model.JStyleAttributes;
 import com.github.paohaijiao.model.table.JColumnModel;
 import com.github.paohaijiao.model.table.JRowModel;
@@ -15,11 +16,11 @@ import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
-import org.apache.pdfbox.util.Matrix;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Data
 public class JQuickTableElementRender implements JQuickElementRender {
@@ -30,13 +31,23 @@ public class JQuickTableElementRender implements JQuickElementRender {
 
     private static final float BORDER_WIDTH = 0.5f;
 
+    /**
+     * 数字/金额列判定：去除货币符号、千分位逗号与百分号后是纯数字即视为数值单元格，
+     * 整列（除表头）均为数值时按右对齐绘制，与 HTML 数字列排版习惯一致。
+     */
+    private static final Pattern NUMERIC_VALUE = Pattern.compile("[+-]?\\d+(\\.\\d+)?");
+
     private List<JRowModel> rows = new ArrayList<>();
 
     private JStyleAttributes style;
 
+    /** 表格级默认单元格 padding（pt），可被单元格样式覆盖；未声明时用 JTableConfig 默认值。 */
     private float cellPadding = 6f;
 
     private float rowHeight = 28f;
+
+    /** 表格配置（数字列右对齐 / 表头居中 / 默认内边距），由 Visitor 从 JPdfConfig 注入。 */
+    private JTableConfig tableConfig = new JTableConfig();
 
     public JQuickTableElementRender(List<JRowModel> rows, JStyleAttributes style) {
         if (rows != null) {
@@ -58,6 +69,7 @@ public class JQuickTableElementRender implements JQuickElementRender {
         float availableWidth = context.getWidth() > 0f ? context.getWidth() : context.getPageWidth();
         float tableWidth = resolveTableWidth(availableWidth);
         float[] columnWidths = resolveColumnWidths(columnCount, tableWidth);
+        boolean[] numericColumns = resolveNumericColumns(columnCount);
         PDFont font = resolveFont(context);
         float tableFontSize = resolveFontSize(style, context.getFontSize() > 0f ? context.getFontSize() : DEFAULT_FONT_SIZE);
         float x = context.getCursorX();
@@ -68,24 +80,38 @@ public class JQuickTableElementRender implements JQuickElementRender {
             if (columns == null || columns.isEmpty()) {
                 continue;
             }
-            List<List<String>> wrappedLines = new ArrayList<>();
+            List<List<CellFragment[]>> cellLineFragments = new ArrayList<>();
+            List<List<String>> cellLines = new ArrayList<>();
             List<List<PDFont>> cellChains = new ArrayList<>();
+            List<PdfBoxStyleModel> cellModels = new ArrayList<>();
             float rowTextHeight = 0f;
             for (int columnIndex = 0; columnIndex < columns.size(); columnIndex++) {
                 JColumnModel column = columns.get(columnIndex);
                 float columnWidth = columnWidths[Math.min(columnIndex, columnWidths.length - 1)];
-                float padding = resolvePadding(column.getStyle());
                 float cellFontSize = resolveFontSize(column.getStyle(), tableFontSize);
-                float contentWidth = Math.max(1f, columnWidth - padding * 2f);
+                // 单元格内边距：单元格样式 > 表格级 cellPadding > PdfBoxStyleModel 内置默认值
+                PdfBoxStyleModel cellModel = PdfBoxStyleModel.from(
+                        column.getStyle(), column.getType(), cellPadding);
+                cellModels.add(cellModel);
+                float contentWidth = Math.max(1f,
+                        columnWidth - cellModel.getPaddingLeft() - cellModel.getPaddingRight());
                 // 单元格按自身 fontFamilyNames 回退链解析字体：表头中文、正文阿拉伯文
                 // 各自命中正确字体，而不是统一使用表格级默认字体。
                 List<PDFont> cellChain = PdfBoxRenderAdapter.resolveFontChain(
-                        PdfBoxStyleModel.from(column.getStyle()), font, context.getDocument());
+                        PdfBoxStyleModel.fromOriginal(column.getStyle()), font, context.getDocument());
                 cellChains.add(cellChain);
-                List<String> lines = PdfBoxRenderAdapter.wrapText(cellChain, mergeText(column.getObject()),
-                        cellFontSize, contentWidth, 0f, 0f);
-                wrappedLines.add(lines);
-                rowTextHeight = Math.max(rowTextHeight, lines.size() * lineHeight(cellFontSize) + padding * 2f);
+                // 内容按行分组后逐行折行：英文按单词边界断行，CJK 逐字断行
+                List<CellFragment[]> lineFragments = fragmentsByLine(column);
+                cellLineFragments.add(lineFragments);
+                List<String> lines = new ArrayList<>();
+                for (CellFragment[] fragments : lineFragments) {
+                    lines.addAll(PdfBoxRenderAdapter.wrapText(cellChain, lineText(fragments),
+                            cellFontSize, contentWidth, 0f, 0f));
+                }
+                cellLines.add(lines);
+                float textBlockHeight = lines.size() * lineHeight(cellFontSize);
+                rowTextHeight = Math.max(rowTextHeight,
+                        textBlockHeight + cellModel.getPaddingTop() + cellModel.getPaddingBottom());
             }
             float currentRowHeight = Math.max(resolveRowHeight(row), rowTextHeight);
             PdfBoxLayoutEngine layoutEngine = context.getLayoutEngine();
@@ -106,8 +132,11 @@ public class JQuickTableElementRender implements JQuickElementRender {
                 boolean header = "th".equalsIgnoreCase(column.getType());
                 boolean striped = !header && rowIndex % 2 == 1;
                 drawCell(stream, column.getStyle(), cellX, cellY, columnWidth, currentRowHeight, header, striped);
-                drawCellText(stream, cellChains.get(columnIndex), column, cellX, cellY, columnWidth, currentRowHeight,
-                        wrappedLines.get(columnIndex), tableFontSize);
+                boolean numericColumn = columnIndex < numericColumns.length && numericColumns[columnIndex];
+                drawCellText(stream, cellChains.get(columnIndex), column, numericColumn,
+                        cellX, cellY, columnWidth, currentRowHeight,
+                        cellLineFragments.get(columnIndex), cellLines.get(columnIndex),
+                        cellModels.get(columnIndex), tableFontSize);
                 cellX += columnWidth;
             }
             y = cellY;
@@ -150,50 +179,245 @@ public class JQuickTableElementRender implements JQuickElementRender {
         }
     }
 
-    private void drawCellText(PDPageContentStream stream, List<PDFont> cellChain, JColumnModel column, float x, float y,
-                              float width, float height, List<String> lines, float tableFontSize) throws IOException {
-        if (lines == null || lines.isEmpty() || cellChain == null || cellChain.isEmpty()) {
+    /**
+     * 单元格文本绘制：
+     * 对齐优先级为 单元格声明 textAlignment &gt; 数字列右对齐（可配置关闭）&gt;
+     * 表头居中（对齐 HTML UA 样式）&gt; 左对齐；垂直方向默认居中（对齐 HTML 的
+     * vertical-align:middle），声明 verticalAlignment 时按声明。
+     * <p>
+     * 单元格内容支持行内子元素（span 等）：按声明顺序聚合为片段，每个片段恰好
+     * 绘制一次（修复 Visitor 重复遍历造成的重复渲染与内容丢失），片段保留自身
+     * 字色。单片段行参与整体折行；多片段行按声明顺序行内排布。
+     */
+    private void drawCellText(PDPageContentStream stream, List<PDFont> cellChain, JColumnModel column,
+                              boolean numericColumn, float x, float y, float width, float height,
+                              List<CellFragment[]> lineFragments, List<String> lines,
+                              PdfBoxStyleModel cellModel, float tableFontSize) throws IOException {
+        if (cellChain == null || cellChain.isEmpty() || lineFragments.isEmpty() || lines.isEmpty()) {
             return;
         }
-        JStyleAttributes cellStyle = column.getStyle();
-        float fontSize = resolveFontSize(cellStyle, tableFontSize);
-        float padding = resolvePadding(cellStyle);
-        float lineHeight = lineHeight(fontSize);
-        float contentWidth = Math.max(0f, width - padding * 2f);
         boolean header = "th".equalsIgnoreCase(column.getType());
-        String colorValue = null;
-        if (cellStyle != null) {
-            colorValue = JQuickStyleEnum.color.get(cellStyle);
-            if (colorValue == null) {
-                colorValue = JQuickStyleEnum.fontColor.get(cellStyle);
-            }
+        float fontSize = resolveFontSize(column.getStyle(), tableFontSize);
+        float lineHeight = lineHeight(fontSize);
+        float paddingLeft = cellModel.getPaddingLeft();
+        float paddingTop = cellModel.getPaddingTop();
+        float paddingBottom = cellModel.getPaddingBottom();
+        float contentWidth = Math.max(0f, width - paddingLeft - cellModel.getPaddingRight());
+        String colorValue = declaredColor(column.getStyle());
+        // 对齐链：声明 > 数字列右对齐 > 表头居中 > 左对齐
+        String alignment = resolveTextAlign(column.getStyle());
+        if (alignment == null && numericColumn && isNumericRightAlignEnabled()) {
+            alignment = "right";
         }
-        PDColor defaultColor = header
-                ? PdfBoxRenderAdapter.color("WHITE")
-                : PdfBoxRenderAdapter.color("#333333");
-        PDColor color = PdfBoxRenderAdapter.color(colorValue, defaultColor);
-        PdfBoxStyleModel cellModel = PdfBoxStyleModel.from(cellStyle);
-        cellModel.setFontSize(fontSize);
-        // 单元格未声明颜色时沿用表格默认色；drawText 按 textAlignment/baseDirection
-        // 自行完成对齐与 RTL 连写重排，并按回退链逐字符选字绘制。
-        cellModel.setFontColor(color == null ? null : toColorValue(colorValue, header));
-        float baseline = y + height - padding - fontSize;
-        for (int i = 0; i < lines.size(); i++) {
-            String line = lines.get(i);
-            if (line.isEmpty()) {
+        if (alignment == null && header && isHeaderCenterAlignEnabled()) {
+            alignment = "center";
+        }
+        // 垂直对齐：默认居中（对齐 HTML vertical-align:middle），声明 top/bottom 时按声明
+        float textBlockHeight = lines.size() * lineHeight;
+        float verticalGap = 0f;
+        String vertical = cellModel.getVerticalAlignment();
+        if (vertical == null || vertical.isEmpty() || "middle".equalsIgnoreCase(vertical)) {
+            verticalGap = Math.max(0f, (height - paddingTop - paddingBottom - textBlockHeight) / 2f);
+        } else if ("bottom".equalsIgnoreCase(vertical)) {
+            verticalGap = Math.max(0f, height - paddingTop - paddingBottom - textBlockHeight);
+        }
+        float firstLineTop = y + height - paddingTop - verticalGap;
+        int drawnLines = 0;
+        for (CellFragment[] fragments : lineFragments) {
+            String lineText = lineText(fragments);
+            if (lineText.isEmpty()) {
                 continue;
             }
-            PdfBoxRenderAdapter.drawText(stream, cellModel, cellChain, line,
-                    x + padding, baseline - i * lineHeight, contentWidth);
+            List<String> wrapped = PdfBoxRenderAdapter.wrapText(cellChain, lineText,
+                    fontSize, contentWidth, 0f, 0f);
+            for (int i = 0; i < wrapped.size(); i++) {
+                String line = wrapped.get(i);
+                if (line.isEmpty()) {
+                    continue;
+                }
+                float baseline = firstLineTop - drawnLines * lineHeight - fontSize;
+                if (fragments.length == 1) {
+                    drawFragment(stream, cellChain, cellModel, fontSize, alignment, fragments[0],
+                            colorValue, header, line, x + paddingLeft, baseline, contentWidth);
+                } else {
+                    // 多片段行：按声明顺序行内排布，每片段保留自身颜色；
+                    // 跨片段折行时整行回退为单色（首片段色），保证不重叠
+                    if (wrapped.size() == 1) {
+                        float cursor = x + paddingLeft;
+                        for (CellFragment fragment : fragments) {
+                            if (fragment.text.isEmpty()) {
+                                continue;
+                            }
+                            float fragmentWidth = PdfBoxRenderAdapter.textWidth(cellChain, fragment.text,
+                                    fontSize, 0f, 0f);
+                            drawFragment(stream, cellChain, cellModel, fontSize, null, fragment,
+                                    colorValue, header, fragment.text, cursor, baseline,
+                                    Math.max(1f, fragmentWidth));
+                            cursor += fragmentWidth;
+                        }
+                    } else {
+                        drawFragment(stream, cellChain, cellModel, fontSize, null, fragments[0],
+                                colorValue, header, line, x + paddingLeft, baseline, contentWidth);
+                    }
+                }
+                drawnLines++;
+            }
         }
     }
 
-    /** 单元格文本颜色值：优先使用声明值，缺省时表头白色、正文深灰。 */
-    private String toColorValue(String declared, boolean header) {
-        if (declared != null && !declared.trim().isEmpty()) {
-            return declared.trim();
+    private void drawFragment(PDPageContentStream stream, List<PDFont> cellChain, PdfBoxStyleModel cellModel,
+                              float fontSize, String alignment, CellFragment fragment, String cellColorValue,
+                              boolean header, String line, float drawX, float baseline,
+                              float availableWidth) throws IOException {
+        PdfBoxStyleModel lineModel = new PdfBoxStyleModel();
+        lineModel.setFontSize(fontSize);
+        lineModel.setCharacterSpacing(cellModel.getCharacterSpacing());
+        lineModel.setWordSpacing(cellModel.getWordSpacing());
+        lineModel.setFont(cellModel.getFont());
+        lineModel.setFontFamilyNames(cellModel.getFontFamilyNames());
+        lineModel.setTextAlignment(alignment);
+        lineModel.setBaseDirection(cellModel.getBaseDirection());
+        lineModel.setFontColor(fragmentColorValue(fragment, cellColorValue, header));
+        PdfBoxRenderAdapter.drawText(stream, lineModel, cellChain, line, drawX, baseline, availableWidth);
+    }
+
+    /** 片段颜色值：片段自带 fontColor 优先，其次单元格声明色，最后表头白/正文深灰。 */
+    private String fragmentColorValue(CellFragment fragment, String cellColorValue, boolean header) {
+        if (fragment.color != null && !fragment.color.trim().isEmpty()) {
+            return fragment.color.trim();
+        }
+        if (cellColorValue != null && !cellColorValue.trim().isEmpty()) {
+            return cellColorValue.trim();
         }
         return header ? "WHITE" : "#333333";
+    }
+
+    private String declaredColor(JStyleAttributes cellStyle) {
+        if (cellStyle == null) {
+            return null;
+        }
+        String color = JQuickStyleEnum.color.get(cellStyle);
+        if (color == null) {
+            color = JQuickStyleEnum.fontColor.get(cellStyle);
+        }
+        return color;
+    }
+
+    /** 一行的纯文本（多片段拼接，用于宽度测量与折行）。 */
+    private String lineText(CellFragment[] fragments) {
+        StringBuilder builder = new StringBuilder();
+        for (CellFragment fragment : fragments) {
+            builder.append(fragment.text);
+        }
+        return builder.toString();
+    }
+
+    /**
+     * 单元格内容 → 按行分组的片段数组：String 值按 \n 拆分；行内子元素
+     * （span 等）取其文本与字色成片段，换行符保持分行语义。
+     */
+    private List<CellFragment[]> fragmentsByLine(JColumnModel column) {
+        List<Object> values = column.getObject();
+        List<CellFragment[]> result = new ArrayList<>();
+        if (values == null || values.isEmpty()) {
+            return result;
+        }
+        List<CellFragment> currentLine = new ArrayList<>();
+        for (Object value : values) {
+            if (value == null) {
+                continue;
+            }
+            if (value instanceof String) {
+                appendFragments(currentLine, result, (String) value, null);
+            } else if (value instanceof JQuickTextElementRender) {
+                JQuickTextElementRender render = (JQuickTextElementRender) value;
+                appendFragments(currentLine, result,
+                        render.getContent() == null ? "" : render.getContent(),
+                        render.getStyle() == null ? null : declaredColor(render.getStyle()));
+            }
+        }
+        if (!currentLine.isEmpty()) {
+            result.add(currentLine.toArray(new CellFragment[0]));
+        }
+        return result;
+    }
+
+    private void appendFragments(List<CellFragment> currentLine, List<CellFragment[]> result,
+                                 String text, String color) {
+        String[] parts = (text == null ? "" : text).split("\\n", -1);
+        for (int i = 0; i < parts.length; i++) {
+            if (i > 0) {
+                result.add(currentLine.toArray(new CellFragment[0]));
+                currentLine.clear();
+            }
+            String part = parts[i];
+            if (!part.isEmpty()) {
+                currentLine.add(new CellFragment(part, color));
+            }
+        }
+    }
+
+    /** 行内片段：文本 + 自身颜色。 */
+    private static final class CellFragment {
+        private final String text;
+        private final String color;
+
+        private CellFragment(String text, String color) {
+            this.text = text;
+            this.color = color;
+        }
+    }
+
+    /**
+     * 数字/金额列判定：除表头外，所有非空数据单元格均为数值/金额（可含货币符号、
+     * 千分位逗号、百分号）时该列按数字列处理。
+     */
+    private boolean[] resolveNumericColumns(int columnCount) {
+        boolean[] numeric = new boolean[columnCount];
+        if (!isNumericRightAlignEnabled()) {
+            return numeric;
+        }
+        for (int columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+            boolean hasValue = false;
+            boolean allNumeric = true;
+            for (JRowModel row : rows) {
+                List<JColumnModel> columns = row.getColumnList();
+                if (columns == null || columnIndex >= columns.size()) {
+                    continue;
+                }
+                JColumnModel column = columns.get(columnIndex);
+                if ("th".equalsIgnoreCase(column.getType())) {
+                    continue;
+                }
+                String text = mergeText(column.getObject());
+                if (text.isEmpty()) {
+                    continue;
+                }
+                hasValue = true;
+                if (!isNumericValue(text)) {
+                    allNumeric = false;
+                    break;
+                }
+            }
+            numeric[columnIndex] = hasValue && allNumeric;
+        }
+        return numeric;
+    }
+
+    private boolean isNumericValue(String text) {
+        String value = text.replace("¥", "").replace("$", "").replace("€", "")
+                .replace("£", "").replace(",", "").replace("%", "").trim();
+        return NUMERIC_VALUE.matcher(value).matches();
+    }
+
+    private boolean isNumericRightAlignEnabled() {
+        return tableConfig == null || tableConfig.getNumericRightAlign() == null
+                || tableConfig.getNumericRightAlign();
+    }
+
+    private boolean isHeaderCenterAlignEnabled() {
+        return tableConfig == null || tableConfig.getHeaderCenterAlign() == null
+                || tableConfig.getHeaderCenterAlign();
     }
 
     /**
@@ -277,45 +501,6 @@ public class JQuickTableElementRender implements JQuickElementRender {
         return -1f;
     }
 
-    /**
-     * 按可用宽度对单元格文本换行：中文逐字断开，英文仍按字符边界回退，
-     * 保证长文本不会溢出单元格。
-     */
-    private List<String> wrapText(PDFont font, String text, float fontSize, float maxWidth) {
-        List<String> lines = new ArrayList<>();
-        if (text == null || text.isEmpty()) {
-            lines.add("");
-            return lines;
-        }
-        if (maxWidth <= 0f) {
-            lines.add(text);
-            return lines;
-        }
-        StringBuilder current = new StringBuilder();
-        for (int i = 0; i < text.length(); i++) {
-            char character = text.charAt(i);
-            current.append(character);
-            if (current.length() > 1 && textWidth(font, current.toString(), fontSize) > maxWidth) {
-                current.deleteCharAt(current.length() - 1);
-                lines.add(current.toString());
-                current.setLength(0);
-                current.append(character);
-            }
-        }
-        if (current.length() > 0) {
-            lines.add(current.toString());
-        }
-        return lines;
-    }
-
-    private float textWidth(PDFont font, String text, float fontSize) {
-        try {
-            return PdfBoxRenderAdapter.textWidth(font, text, fontSize, 0f, 0f);
-        } catch (Exception e) {
-            return text.length() * fontSize * 0.6f;
-        }
-    }
-
     private float lineHeight(float fontSize) {
         return fontSize * LINE_HEIGHT_RATIO;
     }
@@ -335,24 +520,6 @@ public class JQuickTableElementRender implements JQuickElementRender {
         }
         float size = PdfBoxUnitConverter.toPoint(value, fallback);
         return size > 0f ? size : fallback;
-    }
-
-    private float resolvePadding(JStyleAttributes attributes) {
-        if (attributes == null) {
-            return cellPadding;
-        }
-        String value = JQuickStyleEnum.padding.getString(attributes, null);
-        if (value == null) {
-            value = JQuickStyleEnum.paddings.getString(attributes, null);
-        }
-        if (value == null) {
-            value = JQuickStyleEnum.commonPadding.getString(attributes, null);
-        }
-        if (value == null) {
-            return cellPadding;
-        }
-        float padding = PdfBoxUnitConverter.toPoint(value, cellPadding);
-        return padding >= 0f ? padding : cellPadding;
     }
 
     private String resolveTextAlign(JStyleAttributes attributes) {
@@ -390,13 +557,15 @@ public class JQuickTableElementRender implements JQuickElementRender {
         return PdfBoxRenderAdapter.color("#DDDDDD");
     }
 
+    /** 列数取各行最大列数：模板中行与行的单元格数可能不一致。 */
     private int resolveColumnCount() {
+        int max = 0;
         for (JRowModel row : rows) {
-            if (row.getColumnList() != null && !row.getColumnList().isEmpty()) {
-                return row.getColumnList().size();
+            if (row.getColumnList() != null && row.getColumnList().size() > max) {
+                max = row.getColumnList().size();
             }
         }
-        return 0;
+        return max;
     }
 
     private String mergeText(List<Object> values) {
@@ -407,6 +576,8 @@ public class JQuickTableElementRender implements JQuickElementRender {
         for (Object value : values) {
             if (value instanceof String) {
                 builder.append(value);
+            } else if (value instanceof JQuickTextElementRender) {
+                builder.append(((JQuickTextElementRender) value).getContent());
             }
         }
         return builder.toString().trim();

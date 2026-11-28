@@ -23,6 +23,7 @@ import org.apache.batik.svggen.SVGGraphics2D;
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +32,29 @@ import java.util.Map;
  */
 @JQuickSpi(name = "tree-map", order = 12, chartType = JChartType.TREEMAP)
 public class JTreeMapRenderer extends JAbstractChartRenderer {
+
+    /**
+     * 内置调色板：未在颜色表中命中且无部门规则可推断的节点，
+     * 按名称稳定哈希取色，保证同名节点颜色一致、整体色彩丰富
+     */
+    private static final Color[] DEFAULT_PALETTE = {
+            new Color(66, 133, 244),   // blue
+            new Color(219, 68, 55),    // red
+            new Color(244, 180, 0),    // amber
+            new Color(15, 157, 88),    // green
+            new Color(123, 31, 162),   // purple
+            new Color(0, 172, 193),    // cyan
+            new Color(255, 112, 67),   // deep orange
+            new Color(57, 175, 209),   // light blue
+            new Color(103, 58, 183),   // deep purple
+            new Color(139, 195, 74),   // light green
+            new Color(255, 87, 34),    // orange red
+            new Color(0, 150, 136),    // teal
+            new Color(233, 30, 99),    // pink
+            new Color(121, 85, 72),    // brown
+            new Color(63, 81, 181),    // indigo
+            new Color(205, 220, 57)    // lime
+    };
 
     @Override
     protected void drawChart(SVGGraphics2D svgGenerator, JOption option, int width, int height) {
@@ -82,7 +106,7 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
     }
 
     /**
-     * 计算整个树的布局（新增方法）
+     * 计算整个树的布局
      */
     private void calculateTreeLayout(JTreeMapNode node, double x, double y, double width, double height) {
         if (node == null) return;
@@ -90,46 +114,155 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
             node.setRect(new Rectangle2D.Double(x, y, width, height));
         }
         if (node.hasChildren()) {
-            calculateLayoutImproved(node.getChildren(), x, y, width, height);
+            squarifyLayout(node.getChildren(), x, y, width, height);
+            for (JTreeMapNode child : node.getChildren()) {
+                layoutSubtree(child, 1);
+            }
         }
     }
 
     /**
-     * 改进的树形图布局算法（切片切丁算法）
+     * 递归布局子树：先按深度收缩间距，再对下一层执行 squarify
      */
-    private void calculateLayoutImproved(List<JTreeMapNode> nodes, double x, double y, double width, double height) {
-        if (nodes == null || nodes.isEmpty()) return;
-        double total = nodes.stream().mapToDouble(JTreeMapNode::getValue).sum();
-        if (total <= 0) return;
-        nodes.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));
-        boolean vertical = width < height;
-        double current = vertical ? y : x;
-        double remaining = vertical ? height : width;
-        for (int i = 0; i < nodes.size(); i++) {
-            JTreeMapNode node = nodes.get(i);
-            double ratio = node.getValue() / total;
-            double size = remaining * ratio;
-            Rectangle2D rect;
-            if (vertical) {
-                rect = new Rectangle2D.Double(x, current, width, size);
-            } else {
-                rect = new Rectangle2D.Double(current, y, size, height);
+    private void layoutSubtree(JTreeMapNode node, int depth) {
+        if (!node.hasChildren()) {
+            return;
+        }
+        Rectangle2D rect = node.getRect();
+        if (rect == null) {
+            return;
+        }
+        double gap = depth <= 1 ? 4.0 : 2.0;
+        double innerX = rect.getX() + gap;
+        double innerY = rect.getY() + gap;
+        double innerWidth = rect.getWidth() - 2 * gap;
+        double innerHeight = rect.getHeight() - 2 * gap;
+        if (innerWidth > 0 && innerHeight > 0) {
+            squarifyLayout(node.getChildren(), innerX, innerY, innerWidth, innerHeight);
+            for (JTreeMapNode child : node.getChildren()) {
+                layoutSubtree(child, depth + 1);
             }
-            node.setRect(rect);
+        }
+    }
 
-            if (node.hasChildren()) {
-                double childMargin = 1.0; // 1像素边距，避免重叠
-                double childX = rect.getX() + childMargin;
-                double childY = rect.getY() + childMargin;
-                double childWidth = rect.getWidth() - 2 * childMargin;
-                double childHeight = rect.getHeight() - 2 * childMargin;
-                if (childWidth > 0 && childHeight > 0) {
-                    calculateLayoutImproved(node.getChildren(), childX, childY, childWidth, childHeight);
+    /**
+     * Squarified treemap 布局（Bruls et al.）：逐行贪心放置，
+     * 行方向随剩余矩形的短边切换，使矩形长宽比尽量接近 1，形成纵横交错的排布
+     */
+    private void squarifyLayout(List<JTreeMapNode> nodes, double x, double y, double width, double height) {
+        if (nodes == null || nodes.isEmpty() || width <= 0 || height <= 0) {
+            return;
+        }
+        List<JTreeMapNode> items = new ArrayList<>();
+        double total = 0;
+        for (JTreeMapNode node : nodes) {
+            if (node.getValue() > 0) {
+                items.add(node);
+                total += node.getValue();
+            }
+        }
+        if (items.isEmpty()) {
+            return;
+        }
+        items.sort((a, b) -> Double.compare(b.getValue(), a.getValue()));
+        double scale = width * height / total;
+        double rectX = x;
+        double rectY = y;
+        double rectWidth = width;
+        double rectHeight = height;
+        List<JTreeMapNode> row = new ArrayList<>();
+        List<Double> rowAreas = new ArrayList<>();
+        double rowArea = 0;
+        int index = 0;
+        while (index < items.size()) {
+            double nextArea = items.get(index).getValue() * scale;
+            if (!row.isEmpty()) {
+                double side = Math.min(rectWidth, rectHeight);
+                if (worstAspectRatio(row, rowAreas, side)
+                        < worstAspectRatio(row, append(rowAreas, nextArea), side)) {
+                    double thickness = placeRow(row, rowAreas, rectX, rectY, rectWidth, rectHeight);
+                    if (rectWidth >= rectHeight) {
+                        rectX += thickness;
+                        rectWidth -= thickness;
+                    } else {
+                        rectY += thickness;
+                        rectHeight -= thickness;
+                    }
+                    row = new ArrayList<>();
+                    rowAreas = new ArrayList<>();
+                    rowArea = 0;
                 }
             }
-            current += size;
-            remaining -= size;
+            row.add(items.get(index));
+            rowAreas.add(nextArea);
+            rowArea += nextArea;
+            index++;
         }
+        if (!row.isEmpty()) {
+            placeRow(row, rowAreas, rectX, rectY, rectWidth, rectHeight);
+        }
+    }
+
+    /**
+     * 计算一行矩形的最大长宽比（越接近 1 越方正）
+     */
+    private double worstAspectRatio(List<JTreeMapNode> row, List<Double> areas, double side) {
+        double areaSum = 0;
+        for (double area : areas) {
+            areaSum += area;
+        }
+        double thickness = areaSum / side;
+        double worst = 0;
+        for (double area : areas) {
+            double length = thickness <= 0 ? 0 : area / thickness;
+            if (length <= 0) {
+                continue;
+            }
+            double ratio = Math.max(thickness / length, length / thickness);
+            worst = Math.max(worst, ratio);
+        }
+        return worst;
+    }
+
+    /**
+     * 沿剩余矩形短边方向放置一行，返回该行的厚度（即被占用的宽度或高度）
+     */
+    private double placeRow(List<JTreeMapNode> row, List<Double> areas,
+                            double x, double y, double width, double height) {
+        double areaSum = 0;
+        for (double area : areas) {
+            areaSum += area;
+        }
+        if (areaSum <= 0) {
+            return 0;
+        }
+        if (width >= height) {
+            double thickness = areaSum / height;
+            double offset = 0;
+            for (int i = 0; i < row.size(); i++) {
+                double length = areas.get(i) / thickness;
+                row.get(i).setRect(new Rectangle2D.Double(x, y + offset, thickness, length));
+                offset += length;
+            }
+            return thickness;
+        }
+        double thickness = areaSum / width;
+        double offset = 0;
+        for (int i = 0; i < row.size(); i++) {
+            double length = areas.get(i) / thickness;
+            row.get(i).setRect(new Rectangle2D.Double(x + offset, y, length, thickness));
+            offset += length;
+        }
+        return thickness;
+    }
+
+    /**
+     * 追加元素并返回新列表（保持原列表不变）
+     */
+    private List<Double> append(List<Double> areas, double value) {
+        List<Double> copy = new ArrayList<>(areas);
+        copy.add(value);
+        return copy;
     }
 
     /**
@@ -194,7 +327,7 @@ public class JTreeMapRenderer extends JAbstractChartRenderer {
             Color defaultBase = departmentColors.values().iterator().next();
             return adjustColorBrightness(defaultBase, node.getName().hashCode() % 30 - 15);
         }
-        return Color.LIGHT_GRAY;
+        return DEFAULT_PALETTE[Math.abs(node.getName().hashCode()) % DEFAULT_PALETTE.length];
     }
 
     /**

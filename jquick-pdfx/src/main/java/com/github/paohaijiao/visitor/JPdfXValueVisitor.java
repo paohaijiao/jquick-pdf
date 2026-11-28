@@ -17,6 +17,7 @@ package com.github.paohaijiao.visitor;
 
 import com.github.paohaijiao.exception.JAssert;
 import com.github.paohaijiao.parser.JQuickPDFParser;
+import org.antlr.v4.runtime.tree.ParseTree;
 import com.github.paohaijiao.util.JStringUtils;
 
 import java.math.BigDecimal;
@@ -97,20 +98,27 @@ public class JPdfXValueVisitor extends JPdfXCoreVisitor {
         return null;
     }
 
+    /**
+     * 行内内容按声明顺序聚合：纯值、嵌套元素与 {@code <br>} 换行符混排时，
+     * 以语法树子节点顺序遍历，保证每个节点恰好访问一次（修复重复/丢失渲染）。
+     * {@code <br>} 折算为换行符 "
+"。
+     */
     @Override
     public List<Object> visitElemValue(JQuickPDFParser.ElemValueContext ctx) {
         List<Object> elements = new ArrayList<>();
-        String  text=ctx.getText();
-        if (ctx.value() != null) {
-            Object value = visitValue(ctx.value());
-            if (value != null) {
-                elements.add(trim(String.valueOf(value)));
-            }
-        } else if (null != ctx.element() && !ctx.element().isEmpty()) {
-            String value=ctx.element().toString();
-            for (JQuickPDFParser.ElementContext elementContext : ctx.element()) {
-                Object object = visitElement(elementContext);
-                elements.add(object);
+        for (int i = 0; i < ctx.getChildCount(); i++) {
+            ParseTree child = ctx.getChild(i);
+            if (child instanceof JQuickPDFParser.ValueContext) {
+                Object value = visitValue((JQuickPDFParser.ValueContext) child);
+                if (value != null) {
+                    elements.add(trim(String.valueOf(value)));
+                }
+            } else if (child instanceof JQuickPDFParser.ElementContext) {
+                elements.add(visitElement((JQuickPDFParser.ElementContext) child));
+            } else if (child instanceof JQuickPDFParser.LbrContext
+                    || child instanceof JQuickPDFParser.RbrContext) {
+                elements.add("\n");
             }
         }
         return elements;

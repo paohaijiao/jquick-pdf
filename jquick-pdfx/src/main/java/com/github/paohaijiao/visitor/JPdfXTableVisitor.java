@@ -55,6 +55,9 @@ public class JPdfXTableVisitor extends JPdfXHeadingVisitor {
         }
         JQuickTableElementRender table = new JQuickTableElementRender(rows, style);
         super.buildStyle(table, style);
+        if (config != null && config.getTableConfig() != null) {
+            table.setTableConfig(config.getTableConfig());
+        }
         return table;
     }
 

@@ -39,15 +39,13 @@ import java.util.regex.Pattern;
  * @description
  */
 public class JPdfXStyleVisitor extends JPdfXValueVisitor {
+
+    private static final Pattern VARIABLE_PATTERN = Pattern.compile("\\$\\{([^}]+)}");
     @Override
     public JStyleAttributes visitStyleEle(JQuickPDFParser.StyleEleContext ctx) {
         if (null == ctx) {
             return new JStyleAttributes();
         }
-        // 直接按分隔符拆分原始声明串，而不是复用语法树/样式执行器。
-        // 词法未定义十六进制颜色 token，形如 #3498db 的值会被截断
-        // （如 backgroundColor:#3498db 退化为 backgroundColor=3498），
-        // 导致背景、边框、字体颜色等样式静默丢失。
         String raw = null != ctx.STRING() ? ctx.STRING().getText() : rawText(ctx.style());
         return parseDeclarations(raw);
     }
@@ -68,6 +66,8 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
 
     /**
      * 解析 CSS 声明串，形如 {@code color:#fff; padding:5px}。
+     * 声明值中的 {@code ${key}} 变量在此处统一解析（与值节点的 visitVariable
+     * 语义一致），使模板可以按主题注入颜色、尺寸等样式值。
      *
      * @param raw 原始声明串（可带引号）
      * @return 声明键值集合，无法识别的片段会被忽略
@@ -88,7 +88,7 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
                 continue;
             }
             String key = item.substring(0, separator).trim();
-            String value = stripQuotes(item.substring(separator + 1).trim());
+            String value = resolveStyleVariables(stripQuotes(item.substring(separator + 1).trim()));
             if (key.isEmpty() || value.isEmpty()) {
                 continue;
             }
@@ -107,6 +107,26 @@ public class JPdfXStyleVisitor extends JPdfXValueVisitor {
             return text.substring(1, text.length() - 1).trim();
         }
         return text;
+    }
+
+    /** 样式值变量解析：${key} → 上下文绑定值；未绑定的变量保留原样。 */
+    private String resolveStyleVariables(String value) {
+        if (null == value || !value.contains("${")) {
+            return value;
+        }
+        Matcher matcher = VARIABLE_PATTERN.matcher(value);
+        StringBuilder resolved = new StringBuilder();
+        int last = 0;
+        while (matcher.find()) {
+            Object bound = context == null ? null : context.get(matcher.group(1).trim());
+            resolved.append(value, last, matcher.start());
+            if (bound != null) {
+                resolved.append(bound);
+            }
+            last = matcher.end();
+        }
+        resolved.append(value.substring(last));
+        return resolved.toString();
     }
 
 

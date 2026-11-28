@@ -15,7 +15,7 @@
     <div style="display:flex; justifyContent:center">
       <svg style="width:700pt">${svg}</svg>
     </div>
-    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:4px">'图 1  各状态项目投资额矩形树图（矩形面积正比于投资额，同色系为一组状态）'</p>
+    <p style="fontSize:9; color:#6c757d; italic:true; marginTop:4px">'图 1  各状态项目投资额矩形树图（矩形面积正比于投资额，相近色系为一组状态）'</p>
   </div>
 
   <div style="backgroundColor:#ECEFF1; padding:6px 10px; borderRadius:3px; marginBottom:6px">
@@ -32,14 +32,26 @@
       <tr>
         <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'在建'</td>
         <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'市政工程'</td>
-        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'240'</td>
-        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'24.0%'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'170'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'17.0%'</td>
       </tr>
       <tr>
         <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'在建'</td>
         <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'交通工程'</td>
-        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'180'</td>
-        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'18.0%'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'120'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'12.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'在建'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'轨道交通'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'80'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'8.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'在建'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'水务工程'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'50'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'5.0%'</td>
       </tr>
       <tr>
         <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'在建小计'</td>
@@ -50,14 +62,26 @@
       <tr>
         <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'已完工'</td>
         <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'房建工程'</td>
-        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'190'</td>
-        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'19.0%'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'130'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'13.0%'</td>
       </tr>
       <tr>
         <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'已完工'</td>
         <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'水利工程'</td>
-        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'110'</td>
-        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'11.0%'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'80'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'8.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'已完工'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'市政配套'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'55'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'5.5%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'已完工'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'园林绿化'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'35'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'3.5%'</td>
       </tr>
       <tr>
         <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'已完工小计'</td>
@@ -68,14 +92,26 @@
       <tr>
         <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'前期'</td>
         <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'规划设计'</td>
-        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'110'</td>
-        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'11.0%'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'70'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'7.0%'</td>
       </tr>
       <tr>
         <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'前期'</td>
         <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'征地拆迁'</td>
-        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'70'</td>
-        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'7.0%'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'55'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'5.5%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'前期'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'可研审批'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'35'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'3.5%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'前期'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'环评公示'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'20'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'2.0%'</td>
       </tr>
       <tr>
         <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'前期小计'</td>
@@ -86,14 +122,26 @@
       <tr>
         <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'暂停'</td>
         <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'资金待落实'</td>
-        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'60'</td>
-        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'6.0%'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'40'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'4.0%'</td>
       </tr>
       <tr>
         <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'暂停'</td>
         <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'手续待补办'</td>
-        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'40'</td>
-        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'4.0%'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'30'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'3.0%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'暂停'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'方案调整'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'18'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'1.8%'</td>
+      </tr>
+      <tr>
+        <td style="width:110px; padding:5px; borderBottom:1px solid #E3E8EE">'暂停'</td>
+        <td style="width:170px; padding:5px; borderBottom:1px solid #E3E8EE">'征地争议'</td>
+        <td style="width:140px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'12'</td>
+        <td style="width:120px; padding:5px; textAlign:right; borderBottom:1px solid #E3E8EE">'1.2%'</td>
       </tr>
       <tr>
         <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'暂停小计'</td>
@@ -103,7 +151,7 @@
       </tr>
       <tr>
         <td style="width:110px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'合计'</td>
-        <td style="width:170px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'八大类子项合计'</td>
+        <td style="width:170px; padding:5px; bold:true; borderBottom:1px solid #E3E8EE">'十六大类子项合计'</td>
         <td style="width:140px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'1,000'</td>
         <td style="width:120px; padding:5px; bold:true; textAlign:right; borderBottom:1px solid #E3E8EE">'100.0%'</td>
       </tr>
@@ -114,10 +162,10 @@
     <h2 style="color:#37474F; fontSize:13; bold:true; marginTop:0; marginBottom:0">'三、项目监管建议'</h2>
   </div>
   <list style="list-style-type:none; padding-left:0; fontSize:10">
-    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【投资结构】在建 420 亿元占 42.0%，市政工程与交通工程分别 240 亿元、180 亿元，是形成实物工作量的主力。'</li>
-    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【竣工结转】已完工 300 亿元占 30.0%，房建工程 190 亿元为主，建议加快竣工结算与资产移交。'</li>
-    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【前期推进】前期 180 亿元占 18.0%，其中征地拆迁 70 亿元，需重点打通用地手续办理环节。'</li>
-    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【资金沉淀】暂停 100 亿元占 10.0%，资金待落实 60 亿元为主要成因，建议清单化开展资金撮合与手续补办。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【投资结构】在建 420 亿元占 42.0%，市政工程、交通工程、轨道交通分别 170 亿元、120 亿元、80 亿元，是形成实物工作量的主力。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【竣工结转】已完工 300 亿元占 30.0%，房建工程 130 亿元为主，建议加快竣工结算与资产移交。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【前期推进】前期 180 亿元占 18.0%，其中征地拆迁 55 亿元，需重点打通用地手续办理环节。'</li>
+    <li style="marginBottom:6px; padding:8px; backgroundColor:#ECEFF1; border-left:3px solid #37474F">'【资金沉淀】暂停 100 亿元占 10.0%，资金待落实 40 亿元为主要成因，建议清单化开展资金撮合与手续补办。'</li>
   </list>
 
   <lineSeparator style="strokeColor:#DCE3EC"></lineSeparator>

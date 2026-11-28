@@ -75,6 +75,34 @@ public class JQuickRenderContext {
      */
     private JTocCollector tocCollector;
 
+    /**
+     * 试排版模式：容器（div 等）为量取内容真实高度而做的预排版。该模式下子元素
+     * 输出到临时页（随试排版废弃，不进入正式 PDF），且不登记目录，避免文本
+     * 被绘制两份、目录条目重复。
+     */
+    private boolean measureOnly;
+
+    /** 复制一份上下文用于试排版：剥离分页引擎与目录采集器，标记 measureOnly。 */
+    public JQuickRenderContext copyForMeasure() {
+        JQuickRenderContext copy = JQuickRenderContext.builder()
+                .x(x).y(y).width(width).height(height)
+                .font(font).fontSize(fontSize)
+                .color(color).backgroundColor(backgroundColor)
+                .characterSpacing(characterSpacing).wordSpacing(wordSpacing)
+                .lineHeight(lineHeight)
+                .pageWidth(pageWidth).pageHeight(pageHeight)
+                .document(document).margins(margins)
+                .textAlign(textAlign).verticalAlign(verticalAlign)
+                .cursorX(cursorX).cursorY(cursorY)
+                .lineStartX(lineStartX)
+                .pageNumber(pageNumber)
+                .isNewPage(isNewPage)
+                .flexLayout(flexLayout)
+                .build();
+        copy.setMeasureOnly(true);
+        return copy;
+    }
+
     public enum TextAlign {
         LEFT, CENTER, RIGHT, JUSTIFY
     }

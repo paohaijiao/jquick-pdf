@@ -70,4 +70,6 @@ public class JPdfConfig {
 
     private JLayoutConfig layoutConfig = new JLayoutConfig();
 
+    private JTableConfig tableConfig = new JTableConfig();
+
 }

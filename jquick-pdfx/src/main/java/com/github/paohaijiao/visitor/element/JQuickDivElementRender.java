@@ -62,11 +62,25 @@ public class JQuickDivElementRender implements JQuickElementRender {
         float contentHeight = 0f;
         float boxHeight = 0f;
         if (visibleBox) {
-            // 先按 div 的内容区位置试排版一次，量出子元素真实占用的高度，
-            // 这样背景框的高度与位置就跟随子元素的实际排版结果，而不是凭空估算。
-            contentHeight = measureContent(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
+            contentHeight = measureContent(stream, context, contentX, contentTop, contentWidth, null, lineHeight);
             boxHeight = resolveBoxHeight(model, contentHeight);
-            // 背景必须在文字之下：用真实高度绘制背景覆盖试排版结果，再重绘子元素。
+            float requiredBox = boxHeight + model.getMarginTop() + model.getMarginBottom();
+            if (layoutEngine != null) {
+                int pageNumberBefore = context.getPageNumber();
+                layoutEngine.ensureSpace(requiredBox, model.isKeepTogether());
+                stream = layoutEngine.getStream();
+                if (context.getPageNumber() != pageNumberBefore) {
+                    // 整卡搬到新页：按新页光标重建盒坐标
+                    originalCursorX = context.getCursorX();
+                    originalCursorY = context.getCursorY();
+                    boxX = originalCursorX + model.getMarginLeft();
+                    boxTop = originalCursorY - model.getMarginTop();
+                    contentX = boxX + model.getPaddingLeft();
+                    contentTop = boxTop - model.getPaddingTop();
+                    contentWidth = Math.max(0f, outerWidth - model.getPaddingLeft() - model.getPaddingRight());
+                }
+            }
+            // 背景必须在文字之下：先绘制背景，再在其上正式绘制子元素。
             PdfBoxRenderAdapter.drawBox(context.getDocument(), stream, model, boxX, boxTop, outerWidth, boxHeight);
             PdfBoxRenderAdapter.drawBackgroundImage(context.getDocument(), stream, model,
                     boxX, boxTop - boxHeight, outerWidth, boxHeight);
@@ -101,20 +115,32 @@ public class JQuickDivElementRender implements JQuickElementRender {
                 || model.getBorderLeft() != null;
     }
 
-    /** 试排版：在内容区位置排出子元素以量取真实高度（关闭分页，结果随后被背景覆盖）。 */
+    /**
+     * 试排版：在内容区位置排出子元素以量取真实高度。
+     * <p>
+     * 子元素被渲染到一张临时内存页上（随试排版废弃，不进入正式 PDF），而不是先
+     * 画进正式内容流再用背景覆盖——否则正式 PDF 的内容流里每个子元素都存在两份，
+     * 文本提取/复制时出现重复内容，半透明背景下还会看到重影。
+     * 试排版上下文剥离分页引擎（不触发 ensureSpace/换页）并标记 measureOnly
+     * （不登记目录条目）。
+     */
     private float measureContent(PDPageContentStream stream, JQuickRenderContext context, float contentX,
                                  float contentTop, float contentWidth, PdfBoxLayoutEngine layoutEngine,
                                  float lineHeight) throws IOException {
-        boolean pagination = layoutEngine != null && layoutEngine.isPaginationEnabled();
-        if (layoutEngine != null) {
-            layoutEngine.setPaginationEnabled(false);
-        }
-        try {
-            return layoutContent(stream, context, contentX, contentTop, contentWidth, layoutEngine, lineHeight);
+        org.apache.pdfbox.pdmodel.common.PDRectangle pageSize =
+                new org.apache.pdfbox.pdmodel.common.PDRectangle(context.getPageWidth(), context.getPageHeight());
+        org.apache.pdfbox.pdmodel.PDPage scratchPage = new org.apache.pdfbox.pdmodel.PDPage(pageSize);
+        context.getDocument().addPage(scratchPage);
+        try (PDPageContentStream scratchStream = new PDPageContentStream(context.getDocument(), scratchPage)) {
+            JQuickRenderContext measureContext = context.copyForMeasure();
+            measureContext.setCursorX(contentX);
+            measureContext.setCursorY(contentTop);
+            measureContext.setX(contentX);
+            measureContext.setY(contentTop);
+            measureContext.setWidth(contentWidth);
+            return layoutContent(scratchStream, measureContext, contentX, contentTop, contentWidth, null, lineHeight);
         } finally {
-            if (layoutEngine != null) {
-                layoutEngine.setPaginationEnabled(pagination);
-            }
+            context.getDocument().removePage(scratchPage);
         }
     }
 

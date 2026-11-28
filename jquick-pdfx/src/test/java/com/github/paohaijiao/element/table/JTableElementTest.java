@@ -89,15 +89,22 @@ public class JTableElementTest {
         }
     }
 
-    /** 表格行：{@code <tr>} 声明的 height 决定该行行高，进而影响与下一行的间距。 */
+    /**
+     * 表格行：{@code <tr>} 声明的 height 决定该行行高，进而影响与下一行的间距。
+     * 单元格文本默认垂直居中（vertical-align:middle）：首行（声明 60px=45pt）内
+     * 文本下移，次行（默认行高 28pt）内偏移较小，因此基线间距 = 45 - 首行上偏移
+     * + 次行偏移 ≈ 36.5pt，而非行高本身。
+     */
     @Test
     public void tr() throws IOException {
         Rendered rendered = render("sample/table/tr.xml");
         Glyph first = rendered.glyph("第一行");
         Glyph second = rendered.glyph("第二行");
         assertTrue("表格行应按声明顺序自上而下排列", first.y < second.y);
-        // 声明的 height:60px 按 CSS 参考分辨率（96dpi）换算为 45pt，作为该行的行高。
-        assertEquals("tr 声明的 height:60px 应作为该行行高（60px = 45pt）", 45f, second.y - first.y, 1f);
+        // 声明的 height:60px = 45pt 使首行高于默认行高 28pt；若声明被忽略，间距将回落到约 28pt。
+        assertTrue("tr 声明的 height:60px 应抬高行高（基线间距应明显大于默认行高）: "
+                + (second.y - first.y), second.y - first.y > 32f);
+        assertTrue("行高不应超出声明值: " + (second.y - first.y), second.y - first.y <= 45f);
     }
 
     /** 数据单元格：同行的多个 {@code <td>} 处于同一基线，并按列等宽横向排开。 */
@@ -113,7 +120,10 @@ public class JTableElementTest {
         assertEquals("未声明列宽时各列应等宽", b.x - a.x, c.x - b.x, 0.5f);
     }
 
-    /** 表头单元格：{@code <th>} 所在行位于数据行之上，列与数据行对齐，并使用约定的表头配色。 */
+    /**
+     * 表头单元格：{@code <th>} 所在行位于数据行之上，表头文字按 HTML UA 样式
+     * 居中（th { text-align: center }），数据列保持左对齐，并使用约定的表头配色。
+     */
     @Test
     public void th() throws IOException {
         Rendered rendered = render("sample/table/th.xml");
@@ -123,8 +133,10 @@ public class JTableElementTest {
         Glyph secondData = rendered.glyph("数据二");
         assertTrue("表头行应位于数据行之上", firstHeader.y < firstData.y);
         assertTrue("表头列应从左到右排开", firstHeader.x < secondHeader.x);
-        assertEquals("表头与数据列应对齐", firstHeader.x, firstData.x, 0.5f);
-        assertEquals("表头与数据列应对齐", secondHeader.x, secondData.x, 0.5f);
+        assertTrue("数据列应从左到右排开", firstData.x < secondData.x);
+        // th 默认居中：标题一在第一列中相对数据列右移（列宽远大于文本宽时偏移明显）
+        assertTrue("th 应默认居中（标题一相对数据列右移）", firstHeader.x > firstData.x + 10f);
+        assertTrue("th 应默认居中（标题二相对数据列右移）", secondHeader.x > secondData.x + 10f);
         // 表头固定使用 #4285F4 背景 + 白色文字，数据行使用 #F5F5F5 斑马纹。
         assertTrue("表头应使用约定的蓝色背景 #4285F4", rendered.hasFillColor(0.2588f, 0.5216f, 0.9569f));
         assertTrue("表头文字应为白色", rendered.hasFillColor(1f, 1f, 1f));
